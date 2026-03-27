@@ -35,7 +35,7 @@ permn(c("a", "b", "c", "a"))
 }
 \seealso{
 \link[base:Special]{base::choose}, \code{\link[utils:combn]{utils::combn()}}, \code{\link[base:Special]{base::factorial()}},
-\link[aurora:combPairs]{aurora::combPairs}
+\link{combPairs}
 \cr \code{vignette("Combinatorics")}
 
 Other combinatorics: 

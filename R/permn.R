@@ -16,7 +16,7 @@
 #' @author Friederich Leisch 
 #' 
 #' @seealso [base::choose], [utils::combn()], [base::factorial()],
-#' [aurora::combPairs]
+#' [bedrock::combPairs]
 #' \cr \code{vignette("Combinatorics")} 
 #' 
 

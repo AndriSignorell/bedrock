@@ -51,7 +51,7 @@ pairApply(d.sub,
 
 }
 \seealso{
-\code{\link{outer}}, \code{\link[aurora]{combPairs}},
+\code{\link{outer}}, \code{\link{combPairs}},
 \code{\link{pairwise.table}}
 }
 \author{

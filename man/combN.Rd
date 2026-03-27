@@ -32,7 +32,7 @@ combN(n, m, repl=FALSE, ord=FALSE)
 
 }
 \seealso{
-\code{\link[aurora]{combPairs}},
+\code{\link{combPairs}},
 \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 \cr \code{vignette("Combinatorics")}
 

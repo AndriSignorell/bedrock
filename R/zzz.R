@@ -15,6 +15,7 @@
 #' @importFrom Rcpp sourceCpp
 #' 
 #' @importFrom stats complete.cases na.omit quantile uniroot runif
+#'             relevel filter is.ts
 #' 
 #' @importFrom utils combn modifyList tail browseURL find
 #'             getAnywhere head help.search str

@@ -14,7 +14,7 @@
 #' @name appendRowNames
 #' @return the object x with appended rownames
 #' 
-#' @seealso \code{\link[aurora]{appendX}}
+#' @seealso \code{\link{appendX}}
 #' @examples
 #' 
 #' (dd <- data.frame(x=1:5, y=6:10, z=LETTERS[1:5], 

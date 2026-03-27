@@ -21,7 +21,7 @@
 #' 
 #' @author Andri Signorell <andri@@signorell.net> (combSet, combN) 
 #' 
-#' @seealso \code{\link[aurora]{combPairs}}, 
+#' @seealso \code{\link{combPairs}}, 
 #' \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 #' \cr \code{vignette("Combinatorics")} 
 #' 

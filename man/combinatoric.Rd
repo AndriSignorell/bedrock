@@ -47,7 +47,7 @@ combSet(x=x, m=c(1, 3, 5), as.list=TRUE)
 
 }
 \seealso{
-\code{\link[aurora]{combPairs}},
+\code{\link{combPairs}},
 \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 \cr \code{vignette("Combinatorics")}
 

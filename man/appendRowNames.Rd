@@ -31,5 +31,5 @@ appendRowNames(dd)
 
 }
 \seealso{
-\code{\link[aurora]{appendX}}
+\code{\link{appendX}}
 }
