@@ -1,0 +1,41 @@
+
+#' Tarot cards dataset
+#'
+#' A dataset representing a standard tarot deck, including both Major and Minor
+#' Arcana cards. Each row corresponds to a single card with attributes describing
+#' its type, suit and rank.
+#'
+#' The dataset is designed for teaching, simulation and modelling purposes,
+#' illustrating how heterogeneous ordinal structures can be represented in a
+#' statistically consistent way.
+#'
+#' @format A data frame with 78 observations and 6 variables:
+#' \describe{
+#'   \item{card}{Name of the tarot card.}
+#'   \item{rank}{Raw rank of the card as character.}
+#'   \item{suit}{Suit of the card (wand, coin, cup, sword, or trump).}
+#'   \item{arcana}{Type of arcana (minor or major).}
+#'   \item{rank_minor}{Ordered factor indicating the rank within the minor arcana (NA for major arcana).}
+#'   \item{rank_major}{Integer indicating the rank within the major arcana (0–21, NA for minor arcana).}
+#' }
+#'
+#' @details
+#' The tarot deck consists of 56 Minor Arcana cards and 22 Major Arcana cards.
+#' Since both groups follow different ranking systems, two separate variables are
+#' provided: \code{rank_minor} for the ordered structure within the minor arcana
+#' and \code{rank_major} for the numeric ordering of the major arcana.
+#'
+#' This separation avoids mixing incompatible ordinal scales and makes the dataset
+#' suitable for statistical modelling and machine learning applications.
+#'
+#' @examples
+#' head(tarot)
+#' table(tarot$arcana)
+#' summary(tarot$rank_minor)
+#'
+#' @family datasets
+#' @concept simulation
+#' @concept categorical-data
+#'
+#' @source Simulated data.
+"tarot"

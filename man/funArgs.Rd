@@ -30,6 +30,7 @@ New S Language}. Wadsworth & Brooks/Cole.
 \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}}
 
 Other topic.systemTools: 
+\code{\link{buildPath}()},
 \code{\link{funCalls}()},
 \code{\link{funList}()}
 }

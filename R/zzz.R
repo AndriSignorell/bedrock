@@ -19,5 +19,8 @@
 #' 
 #' @importFrom utils combn modifyList tail browseURL find
 #'             getAnywhere head help.search str
+#'             
+#' @importFrom tools Rd_db
+#' 
 
 NULL
