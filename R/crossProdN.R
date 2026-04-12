@@ -67,7 +67,7 @@ crossProdN <- function(A) {
   }
   
   # --- 1. direction via SVD ---
-  sv <- svd(A)
+  sv <- svd(A, nu = 0, nv = m)
   v <- sv$v[, m]
   
   # --- 2. scaling  ---
