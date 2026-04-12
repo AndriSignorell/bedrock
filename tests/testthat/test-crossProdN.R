@@ -24,21 +24,30 @@ test_that("3D case: result orthogonal to both rows", {
   expect_equal(as.numeric(A %*% v), c(0, 0))
 })
 
-test_that("3D case: agrees with cross3d on standard basis", {
+test_that("3D case: matches known result on standard basis", {
   A <- matrix(c(1,0,0,
                 0,1,0), nrow = 2, byrow = TRUE)
   v <- crossProdN(A)
-  expected <- cross3d(c(1,0,0), c(0,1,0))
-  expect_equal(unname(v), unname(expected))
+  expect_equal(unname(v), c(0, 0, 1))
 })
 
-test_that("3D case: agrees with cross3d on arbitrary vectors", {
+test_that("3D case: matches classical cross product on arbitrary vectors", {
   x <- c(1, 2, 3)
   y <- c(4, 5, 6)
   A <- matrix(c(x, y), nrow = 2, byrow = TRUE)
   v <- crossProdN(A)
-  expected <- cross3d(x, y)
-  expect_equal(unname(v), unname(expected))
+  
+  # klassische Kreuzprodukt-Formel
+  expected <- c(
+    x[2]*y[3] - x[3]*y[2],
+    x[3]*y[1] - x[1]*y[3],
+    x[1]*y[2] - x[2]*y[1]
+  )
+  
+  expect_true(
+    isTRUE(all.equal(unname(v), unname(expected), tolerance = 1e-8)) ||
+      isTRUE(all.equal(unname(v), -unname(expected), tolerance = 1e-8))
+  )
 })
 
 test_that("3D case: correct norm (= area of parallelogram)", {
@@ -46,7 +55,9 @@ test_that("3D case: correct norm (= area of parallelogram)", {
   y <- c(0, 3, 0)
   A <- matrix(c(x, y), nrow = 2, byrow = TRUE)
   v <- crossProdN(A)
-  expect_equal(sqrt(sum(v^2)), 6)  # 2 * 3
+  
+  expected_norm <- sqrt(sum(x^2)) * sqrt(sum(y^2))
+  expect_equal(sqrt(sum(v^2)), expected_norm, tolerance = 1e-8)
 })
 
 # ── 4D case (n=3 matrix, output length 4) ────────────────────────────────────

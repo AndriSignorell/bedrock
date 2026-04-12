@@ -18,7 +18,7 @@ CRAN and opens the pdf manual in a browser window.
 \examples{
 
 \dontrun{
-pdfManual(DescTools)
+pdfManual(bedrock)
 }
 
 }

@@ -12,7 +12,7 @@
 #' @examples
 #' 
 #' \dontrun{
-#' pdfManual(DescTools)
+#' pdfManual(bedrock)
 #' }
 #' 
 
