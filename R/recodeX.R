@@ -28,7 +28,7 @@
 #' @return the factor having the new levels applied.\cr if \code{x} was a
 #' \code{character} vector, the result will also be \code{character}
 #' 
-#' @author Andri Signorell <andri@@signorell.net>
+
 #' @seealso \code{\link{factor}}, \code{\link{levels}}, \code{\link{relevel}},
 #' \code{\link{reorder}}\cr There's another solution for this problem in the
 #' package \bold{car}.

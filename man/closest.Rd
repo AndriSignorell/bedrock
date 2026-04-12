@@ -56,7 +56,3 @@ closest(c(2, 3, 4, 5), a=c(3.1, 3.9), which=c(FALSE, TRUE))
 \seealso{
 \code{\link{which}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
-\keyword{logic}

@@ -65,7 +65,4 @@ toWide(PlantGrowth$weight, PlantGrowth$group, by=PlantGrowth$nr)
 \seealso{
 \code{\link{reshape}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{manip}

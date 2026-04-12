@@ -37,11 +37,11 @@
 #' minimum and maximum of the range for x. \cr If rng is a matrix, x or rng
 #' will be recycled.
 #' @return A logical vector of the same length as x.
-#' @author Andri Signorell <andri@@signorell.net> based on C-code by Kevin
-#' Ushey <kevinushey@@gmail.com>
+#' @note Based on C-code by Kevin Ushey
+#' 
 #' @seealso \code{\link{if}}, \code{\link{ifelse}}, \code{\link{Comparison}},
 #' \code{\link[DescTools]{Overlap}}, \code{\link[DescTools]{Interval}}
-#' @keywords logic manip
+#' 
 #' @examples
 #' 
 #' x <- 1:9

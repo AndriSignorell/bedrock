@@ -29,7 +29,7 @@
 #' @return A vector of the same length as the original data \code{x} containing
 #' the winsorized data.
 #' 
-#' @author Andri Signorell <andri@@signorell.net>
+
 #' 
 #' @seealso \code{\link{scale}}, \code{\link[robustHD]{winsorize}} contains
 #' an option to winsorize multivariate data 

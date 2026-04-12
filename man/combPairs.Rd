@@ -41,7 +41,4 @@ combPairs(which(sapply(CO2, is.numeric)), which(sapply(CO2, is.factor)))
 Other combinatorics: 
 \code{\link{permn}()}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \concept{combinatorics}

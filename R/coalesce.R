@@ -22,7 +22,7 @@
 #' (default \code{TRUE}).
 #' @return return a single vector of the first non \code{NA} element(s) of the
 #' given data structure.
-#' @author Andri Signorell <andri@@signorell.net>
+#' 
 #' @seealso \code{\link{is.na}}, \code{\link{is.finite}}
 #' @keywords manip
 #' @examples

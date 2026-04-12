@@ -14,6 +14,9 @@ A named \code{\link{list}} of the same length as \code{n}, each
 element a 2-column matrix with column \code{"p"} the prime factors and
 column~\code{"m"} their respective exponents (or multiplities), i.e., for a
 prime number \code{n}, the resulting matrix is \code{cbind(p = n, m = 1)}.
+
+For factorization of moderately or really large numbers, see the \pkg{gmp}
+package, and its \code{\link[gmp]{factorize}()} (which is ~20x faster!).
 }
 \description{
 Compute the prime factorization(s) of integer(s) \code{n}.
@@ -30,12 +33,6 @@ Other topic.numberTheory:
 \code{\link{fibonacci}()},
 \code{\link{isPrime}()},
 \code{\link{primes}()}
-}
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-
-For factorization of moderately or really large numbers, see the \pkg{gmp}
-package, and its \code{\link[gmp]{factorize}()} (which is ~20x faster!).
 }
 \concept{number theory}
 \concept{topic.numberTheory}

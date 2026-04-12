@@ -19,8 +19,6 @@
 #' one element the result will be a list of matrices or a flat list if
 #' \code{as.list} is set to \code{TRUE}
 #' 
-#' @author Andri Signorell <andri@@signorell.net> (combSet, combN) 
-#' 
 #' @seealso \code{\link{combPairs}}, 
 #' \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 #' \cr \code{vignette("Combinatorics")} 

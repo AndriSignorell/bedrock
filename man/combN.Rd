@@ -39,8 +39,5 @@ combN(n, m, repl=FALSE, ord=FALSE)
 Other topic.combinatorics: 
 \code{\link{combSet}()}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \concept{combinatorics}
 \concept{topic.combinatorics}

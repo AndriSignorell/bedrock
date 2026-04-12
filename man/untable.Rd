@@ -94,7 +94,4 @@ untable(d.freq)
 \code{\link{expand.grid}}, \code{\link{rep}}, \code{\link{gl}},
 \code{\link{xtabs}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{manip}

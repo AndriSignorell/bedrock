@@ -14,7 +14,7 @@
 #' column~\code{"m"} their respective exponents (or multiplities), i.e., for a
 #' prime number \code{n}, the resulting matrix is \code{cbind(p = n, m = 1)}.
 #' 
-#' @author Andri Signorell <andri@signorell.net>
+
 #' 
 #' For factorization of moderately or really large numbers, see the \pkg{gmp}
 #' package, and its \code{\link[gmp]{factorize}()} (which is ~20x faster!).

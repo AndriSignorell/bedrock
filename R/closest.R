@@ -13,9 +13,9 @@
 #' @param na.rm a logical value indicating whether \code{NA} values should be
 #' stripped before the computation proceeds.
 #' @return the value or index in x which is closest to a
-#' @author Andri Signorell <andri@@signorell.net>
+#' 
 #' @seealso \code{\link{which}}
-#' @keywords logic
+#' 
 #' @examples
 #' 
 #' 

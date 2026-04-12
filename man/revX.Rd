@@ -72,7 +72,4 @@ revX(aa, margin=(1:3))
 \code{\link{rev}}, \code{\link{order}}, \code{\link{sort}},
 \code{\link{seq}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{manip}

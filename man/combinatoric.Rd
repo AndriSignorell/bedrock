@@ -54,8 +54,5 @@ combSet(x=x, m=c(1, 3, 5), as.list=TRUE)
 Other topic.combinatorics: 
 \code{\link{combN}()}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net} (combSet, combN)
-}
 \concept{combinatorics}
 \concept{topic.combinatorics}

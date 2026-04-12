@@ -2,18 +2,44 @@
 % Please edit documentation in R/naReplace.R
 \name{naReplace}
 \alias{naReplace}
-\title{Replace Missing Values}
+\alias{naReplace.default}
+\alias{naReplace.factor}
+\alias{naReplace.ordered}
+\title{Replace NA Values}
 \usage{
 naReplace(x, value)
+
+\method{naReplace}{default}(x, value)
+
+\method{naReplace}{factor}(x, value)
+
+\method{naReplace}{ordered}(x, value)
 }
 \arguments{
-\item{x}{A vector.}
+\item{x}{A vector or factor.}
 
-\item{value}{Replacement value.}
+\item{value}{The replacement value. For factors, a character string that
+will be added as a new level if not already present.}
 }
 \value{
-A vector of the same type as \code{x}.
+An object of the same class as \code{x} with \code{NA} values
+replaced by \code{value}.
 }
 \description{
-Replaces missing values (\code{NA}) in a vector with a specified value.
+Replaces \code{NA} values in a vector or factor with a specified value.
+}
+\examples{
+# default: numeric vector
+naReplace(c(1, NA, 3), 0)
+
+# character vector
+naReplace(c("a", NA, "c"), "missing")
+
+# unordered factor
+naReplace(factor(c("a", "b", NA)), "missing")
+
+# ordered factor
+naReplace(factor(c("low", "high", NA), levels = c("low", "high"),
+                 ordered = TRUE), "medium")
+
 }

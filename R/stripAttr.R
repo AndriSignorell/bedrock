@@ -14,7 +14,7 @@
 #' Leaving the default to \code{NULL} will cause all the attributes to be
 #' deleted. 
 #' @return the object \code{x} without the attributes contained in attr_names
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #' @seealso \code{\link{setNamesX}}, \code{\link{unname}}
 #' @examples
 #' 

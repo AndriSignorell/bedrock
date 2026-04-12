@@ -12,7 +12,7 @@
 #' @param replace a non-negative integer giving the number of items to choose.
 #' @param prob should sampling be with replacement? 
 #' @return sampled elements in the same structure as x 
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #' @seealso \code{\link{sample}}
 #' @keywords IO distribution
 #' @examples

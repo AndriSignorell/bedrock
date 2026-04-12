@@ -27,7 +27,7 @@
 #' 
 #' @return the rounded value 
 #' 
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #' @seealso \code{\link{round}}, \code{\link{trunc}}, \code{\link{ceiling}},
 #' \code{\link{floor}} 
 #' 

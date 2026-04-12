@@ -16,7 +16,7 @@
 #' @return A named list. Each element is an integer vector containing
 #'   the prime numbers less than or equal to the corresponding value in \code{n}.
 #'   
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #'
 #' @examples
 #' primes(10)

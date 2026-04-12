@@ -33,7 +33,7 @@
 #' getRdLabels("d.pizza", "bedrock")
 #' }
 #'
-#' @seealso \code{\link[bedrock:Label]{bedrock::Label}}
+#' @seealso \code{\link[bedrock:label]{bedrock::label}}
 #'
 
 

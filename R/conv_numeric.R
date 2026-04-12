@@ -18,7 +18,6 @@
 #' converted values. Binary, octal and decimal values are numeric, hex-values
 #' are returned as class \code{hexmode}. 
 #' 
-#' @author Andri Signorell <andri@@signorell.net> 
 #' @seealso \code{\link{strtoi}} 
 #' @keywords arith
 #' @examples

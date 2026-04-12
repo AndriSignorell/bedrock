@@ -59,7 +59,4 @@ hexToDec(c("FF", "AA", "ABC"))
 \seealso{
 \code{\link{strtoi}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{arith}

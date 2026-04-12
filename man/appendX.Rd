@@ -76,7 +76,3 @@ appendX(d.frm, z, after=2, names="ZZZ")
 \seealso{
 \code{\link{rbind}}, \code{\link{cbind}}, \code{\link{append}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
-\keyword{manip}

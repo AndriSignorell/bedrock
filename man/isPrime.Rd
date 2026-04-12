@@ -39,8 +39,5 @@ Other topic.numberTheory:
 \code{\link{fibonacci}()},
 \code{\link{primes}()}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \concept{number theory}
 \concept{topic.numberTheory}

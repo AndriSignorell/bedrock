@@ -25,6 +25,10 @@ factor_u64 <- function(x) {
     .Call(`_bedrock_factor_u64`, x)
 }
 
+pip_cpp <- function(ptx, pty, plx, ply) {
+    .Call(`_bedrock_pip_cpp`, ptx, pty, plx, ply)
+}
+
 roman2int_cpp <- function(x) {
     .Call(`_bedrock_roman2int_cpp`, x)
 }

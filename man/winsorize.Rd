@@ -72,9 +72,6 @@ an option to winsorize multivariate data
 Other topic.dataProcessing: 
 \code{\link{trim}()}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \concept{data processing}
 \concept{robust-statistics}
 \concept{topic.dataProcessing}

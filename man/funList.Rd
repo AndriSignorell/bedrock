@@ -37,9 +37,6 @@ Other topic.systemTools:
 \code{\link{funArgs}()},
 \code{\link{funCalls}()}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \concept{Infrastructure}
 \concept{Programming Utilities}
 \concept{topic.systemTools}

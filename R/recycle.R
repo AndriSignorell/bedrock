@@ -10,7 +10,7 @@
 #' @return a list of the supplied elements\cr \code{attr(,"maxdim")} contains
 #' the maximal dimension of the recyled list 
 #' 
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #' @seealso \code{\link{rep}}, \code{\link{replicate}} 
 #' 
 #' @keywords utilities

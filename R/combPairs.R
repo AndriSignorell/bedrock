@@ -17,7 +17,7 @@
 #' \code{NULL} then all combination x and y are returned. 
 #' 
 #' @return \code{combPairs} returns a data.frame with 2 columns X1 and X2.
-#' @author Andri Signorell <andri@@signorell.net> 
+#' 
 #' @seealso \code{\link{combn}}, \code{\link{expand.grid}},
 #' \code{\link{outer}}, \code{\link{lower.tri}} 
 #' 

@@ -119,7 +119,4 @@ recodeX(likert, "1"=1:6, "2"=7:8, "5"=9:10, num=TRUE)
 \code{\link{reorder}}\cr There's another solution for this problem in the
 package \bold{car}.
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{manip}

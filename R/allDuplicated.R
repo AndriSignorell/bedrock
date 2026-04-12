@@ -13,7 +13,6 @@
 #' @param x vector of any type.
 #' @return logical vector of the same dimension as x.
 #' 
-#' @author Andri Signorell <andri@@signorell.net>
 #' @seealso \code{\link{unique}} returns a unique list of all values in x\cr
 #' \code{\link{duplicated}} returns an index vector flagging all elements,
 #' which appeared more than once (leaving out the first appearance!)\cr
@@ -24,7 +23,6 @@
 #' exactly the same elements as B\cr \code{\link{split}}(A, A) returns a list
 #' with all the tied values in A (see examples)\cr
 #' 
-#' @keywords manip
 #' @examples
 #' 
 #' x <- c(1:10, 4:6)

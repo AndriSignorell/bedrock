@@ -54,7 +54,4 @@ pairApply(d.sub,
 \code{\link{outer}}, \code{\link{combPairs}},
 \code{\link{pairwise.table}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{manip}

@@ -11,7 +11,7 @@
 #' @param package the name of the package 
 #' @param exported logical (default \code{TRUE}) should only exported functions be listed?
 #' 
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #' @seealso \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}} 
 #' 
 #' @references Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The

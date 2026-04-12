@@ -82,7 +82,4 @@ cbind(x =       x,
 \code{\link{round}}, \code{\link{trunc}}, \code{\link{ceiling}},
 \code{\link{floor}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{manip}

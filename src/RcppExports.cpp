@@ -80,6 +80,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// pip_cpp
+IntegerVector pip_cpp(NumericVector ptx, NumericVector pty, NumericVector plx, NumericVector ply);
+RcppExport SEXP _bedrock_pip_cpp(SEXP ptxSEXP, SEXP ptySEXP, SEXP plxSEXP, SEXP plySEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type ptx(ptxSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type pty(ptySEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type plx(plxSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type ply(plySEXP);
+    rcpp_result_gen = Rcpp::wrap(pip_cpp(ptx, pty, plx, ply));
+    return rcpp_result_gen;
+END_RCPP
+}
 // roman2int_cpp
 IntegerVector roman2int_cpp(CharacterVector x);
 RcppExport SEXP _bedrock_roman2int_cpp(SEXP xSEXP) {
@@ -99,6 +113,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_bedrock_is_prime_u64", (DL_FUNC) &_bedrock_is_prime_u64, 1},
     {"_bedrock_primes_upto", (DL_FUNC) &_bedrock_primes_upto, 1},
     {"_bedrock_factor_u64", (DL_FUNC) &_bedrock_factor_u64, 1},
+    {"_bedrock_pip_cpp", (DL_FUNC) &_bedrock_pip_cpp, 4},
     {"_bedrock_roman2int_cpp", (DL_FUNC) &_bedrock_roman2int_cpp, 1},
     {NULL, NULL, 0}
 };

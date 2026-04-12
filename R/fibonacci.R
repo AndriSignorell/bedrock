@@ -12,7 +12,6 @@
 #' @param n nonnegative integer or vector of nonnegative integers.
 #' @return A single integer, or a vector of integers.
 #' 
-#' @author Andri Signorell <andri@@signorell.net>
 #' 
 #' @references \url{https://en.wikipedia.org/wiki/Fibonacci_number}\cr
 #' \url{https://mathworld.wolfram.com/GoldenRatio.html}

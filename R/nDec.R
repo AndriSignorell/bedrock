@@ -15,7 +15,7 @@
 #' multiplied with. The result will be returned rounded to integer. Defaults to
 #' \code{NA} and will then be ignored. 
 #' 
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #' @seealso \code{\link{format.info}}, \code{\link{as.integer}},
 #' \code{\link{trunc}}
 #' @keywords arith

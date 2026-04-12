@@ -12,10 +12,9 @@
 #' the third are identical. (If A=B and A=C then is B=C)
 #' 
 #' @param \dots any \code{R} objects
-#' @author Andri Signorell <andri@@signorell.net> 
 #' 
 #' @seealso \code{\link{identical}()} 
-#' @keywords logic programming IO iteration
+#' 
 #' @examples
 #' 
 #' A <- LETTERS[1:5]

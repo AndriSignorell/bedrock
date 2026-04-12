@@ -30,7 +30,4 @@ sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]),
 \seealso{
 \code{\link{rep}}, \code{\link{replicate}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{utilities}

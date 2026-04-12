@@ -39,10 +39,3 @@ allIdentical(A, B, C, D, E)
 \seealso{
 \code{\link{identical}()}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
-\keyword{IO}
-\keyword{iteration}
-\keyword{logic}
-\keyword{programming}

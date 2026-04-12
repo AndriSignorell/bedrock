@@ -12,8 +12,6 @@
 #' 
 #' @return an integer value
 #' 
-#' @author Andri Signorell <andri@@signorell.net>
-#' 
 #' @seealso \code{\link{combPairs}}, 
 #' \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 #' \cr \code{vignette("Combinatorics")} 

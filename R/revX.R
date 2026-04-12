@@ -14,7 +14,7 @@
 #' columns, etc.). If not defined, all dimensions will be reverted.
 #' @param \dots the dots are passed to the array interface.
 
-#' @author Andri Signorell <andri@@signorell.net>
+
 
 #' @seealso \code{\link{rev}}, \code{\link{order}}, \code{\link{sort}},
 #' \code{\link{seq}}

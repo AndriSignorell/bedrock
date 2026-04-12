@@ -6,7 +6,7 @@
 #' @param name the name of the function
 #' @param sort logical (default \code{FALSE}) should the arguments be alphabetically sorted?
 #' 
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #' @seealso \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}} 
 #' 
 #' @references Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The

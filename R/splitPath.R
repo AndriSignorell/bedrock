@@ -55,6 +55,7 @@
 splitPath <- function(path, last.is.file = NULL) {
   
   path <- normalizePath(path, mustWork = FALSE)
+  drive <- if (.Platform$OS.type == "windows") substr(path, 1, 2) else NA_character_
   
   if (is.null(last.is.file)) {
     last.is.file <- !grepl("[/\\\\]$", path)
@@ -69,11 +70,11 @@ splitPath <- function(path, last.is.file = NULL) {
   
   filename <- if (last.is.file) tools::file_path_sans_ext(fullfilename) else NA_character_
   extension <- if (last.is.file) tools::file_ext(fullfilename) else NA_character_
-  
+
   list(
     normpath = path,
-    drive = if (.Platform$OS.type == "windows") substr(path, 1, 2) else NA_character_,
-    dirname = paste0(dirname_, "/"),
+    drive = drive,
+    dirname = paste0(gsub(drive, "", dirname_), "/"),
     fullfilename = fullfilename,
     fullpath = paste0(dirname_, "/"),
     filename = filename,

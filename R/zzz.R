@@ -15,12 +15,15 @@
 #' @importFrom Rcpp sourceCpp
 #' 
 #' @importFrom stats complete.cases na.omit quantile uniroot runif
-#'             relevel filter is.ts
+#'             relevel filter is.ts na.exclude na.fail na.pass
 #' 
 #' @importFrom utils combn modifyList tail browseURL find
-#'             getAnywhere head help.search str
+#'             getAnywhere head help.search str capture.output
+#'             readRegistry
 #'             
-#' @importFrom tools Rd_db
+#' @importFrom tools Rd_db file_ext
+#' @importFrom readr read_csv read_tsv read_table
+#' @importFrom readxl read_excel
 #' 
-
 NULL
+

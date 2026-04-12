@@ -74,7 +74,4 @@ Coalesce(as.list(d.frm))
 \seealso{
 \code{\link{is.na}}, \code{\link{is.finite}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{manip}

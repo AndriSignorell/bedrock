@@ -32,7 +32,7 @@
 #' @return a data.frame with the detailed data (even if x was a 1-dimensional
 #' table)
 #' 
-#' @author Andri Signorell <andri@@signorell.net>
+
 #' @seealso \code{\link{expand.grid}}, \code{\link{rep}}, \code{\link{gl}},
 #' \code{\link{xtabs}}
 #' @keywords manip

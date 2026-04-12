@@ -46,6 +46,3 @@ stripAttr(x)
 \seealso{
 \code{\link{setNamesX}}, \code{\link{unname}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}

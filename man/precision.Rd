@@ -51,7 +51,4 @@ prec(as.numeric(x))
 \code{\link{format.info}}, \code{\link{as.integer}},
 \code{\link{trunc}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{arith}

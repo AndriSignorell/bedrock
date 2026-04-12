@@ -18,7 +18,7 @@
 #' @return A logical vector indicating whether each element of \code{n}
 #'   is a prime number.
 #'   
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #'
 #' @examples
 #' isPrime(2)

@@ -34,7 +34,3 @@ countCompCases(airquality)
 \code{\link[aurora]{plotMiss}}, \code{\link{completeColumns}},
 \code{\link{complete.cases}}, \code{\link{is.na}}, \code{\link{na.omit}}
 }
-\author{
-Andri Signorell
-\href{mailto:andri@signorell.net}{andri@signorell.net}
-}

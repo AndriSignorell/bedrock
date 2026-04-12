@@ -52,7 +52,4 @@ tab <- setNamesX(
 \seealso{
 \code{\link{setNames}}, \code{\link[DescTools]{Rename}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}\cr
-}
 \keyword{list}

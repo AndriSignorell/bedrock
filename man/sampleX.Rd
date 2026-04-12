@@ -38,8 +38,5 @@ sampleX(d.pizza, size=5)
 \seealso{
 \code{\link{sample}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \keyword{IO}
 \keyword{distribution}

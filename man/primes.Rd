@@ -35,8 +35,5 @@ Other topic.numberTheory:
 \code{\link{fibonacci}()},
 \code{\link{isPrime}()}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \concept{number theory}
 \concept{topic.numberTheory}

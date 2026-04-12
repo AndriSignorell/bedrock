@@ -1,18 +1,18 @@
 Package: bedrock
 Title: Base functions for the DescToolsX ecosystem
-Version: 0.0.0.901
+Version: 0.0.0.902
 Authors@R: 
     person("Andri", "Signorell", , "andri@signorell.net", role = c("aut", "cre"))
-Description: Provides plots and graphic routines used in DescToolsX.
+Description: Provides low level, generic utilities and basic routines used in DescToolsX.
 Depends: R (>= 4.2.0)
 License: GPL (>= 2)
 Encoding: UTF-8
 LinkingTo: Rcpp
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
-Imports: Rcpp, abind, tools
+Imports: Rcpp, abind, tools, data.table, readr, readxl
 Suggests:
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0), haven
 Config/testthat/edition: 3
 LazyData: true
 URL: https://andrisignorell.github.io/bedrock/,

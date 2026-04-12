@@ -79,7 +79,3 @@ in B \cr \code{\link{setequal}}(A, B) returns \code{TRUE} if A contains
 exactly the same elements as B\cr \code{\link{split}}(A, A) returns a list
 with all the tied values in A (see examples)\cr
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
-\keyword{manip}

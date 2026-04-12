@@ -15,8 +15,7 @@
 #' @return A list with three elements. The first gives the number of rows, the
 #' second the number of complete cases for the whole data frame. The third
 #' element \code{tab} contains the data for the single variables.
-#' @author Andri Signorell
-#' \href{mailto:andri@@signorell.net}{andri@@signorell.net}
+#' 
 #' @seealso \code{\link[aurora]{plotMiss}}, \code{\link{completeColumns}},
 #' \code{\link{complete.cases}}, \code{\link{is.na}}, \code{\link{na.omit}}
 #' 

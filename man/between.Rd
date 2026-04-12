@@ -75,6 +75,9 @@ elements will be returned in reverse order (which is the same behaviour as
 the \code{:} operator). \cr \code{\%::\%} does the same in greedy mood. It
 uses the first match for \code{from} and the last match for \code{to}. \cr
 }
+\note{
+Based on C-code by Kevin Ushey
+}
 \examples{
 
 x <- 1:9
@@ -150,9 +153,3 @@ x \%::\% c("A", "K")
 \code{\link{if}}, \code{\link{ifelse}}, \code{\link{Comparison}},
 \code{\link[DescTools]{Overlap}}, \code{\link[DescTools]{Interval}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net} based on C-code by Kevin
-Ushey \href{mailto:kevinushey@gmail.com}{kevinushey@gmail.com}
-}
-\keyword{logic}
-\keyword{manip}

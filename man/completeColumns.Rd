@@ -2,36 +2,49 @@
 % Please edit documentation in R/completeColumns.R
 \name{completeColumns}
 \alias{completeColumns}
-\title{Find Complete Columns}
+\title{Identify Columns Without Missing Values}
 \usage{
 completeColumns(x, which = TRUE)
 }
 \arguments{
-\item{x}{a data.frame containing the data}
+\item{x}{A \code{data.frame} containing the data to be checked.}
 
-\item{which}{logical, determining if the names of the variables should be
-returned or a if a logical vector indicating which columns are complete
-should be returned.}
+\item{which}{Logical. If \code{TRUE} (default), the function returns
+the names of columns without missing values. If \code{FALSE}, a
+logical vector is returned, where each element corresponds to a
+column in \code{x} and indicates whether that column is complete.}
 }
 \value{
-A logical vector specifying which columns have no missing values
-across the entire sequence.
+If \code{which = TRUE}: a character vector with the names of all
+complete columns.
+
+If \code{which = FALSE}: a logical vector of length \code{ncol(x)},
+where \code{TRUE} indicates that the corresponding column contains
+no missing values.
 }
 \description{
-Return either the columnnames or a logical vector indicating which columns
-are complete, i.e., have no missing values.
+This function checks each column of a data frame for missing values
+(\code{NA}) and identifies those columns that are completely observed,
+i.e., contain no missing entries.
+}
+\details{
+Depending on the argument \code{which}, the function either returns
+the names of such columns or a logical vector indicating completeness
+for each column.
+
+A column is considered \emph{complete} if it contains zero missing values.
+Internally, the function counts the number of \code{NA}s per column
+using \code{\link{is.na}} and selects those with a count of zero.
 }
 \examples{
-
+# Names of columns without missing values
 completeColumns(d.pizza)
-completeColumns(d.pizza, which=FALSE)
+
+# Logical vector indicating completeness
+completeColumns(d.pizza, which = FALSE)
 
 }
 \seealso{
 \code{\link{is.na}}, \code{\link{na.omit}},
 \code{\link{complete.cases}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
-\keyword{logic}

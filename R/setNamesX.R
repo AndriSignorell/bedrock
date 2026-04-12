@@ -16,7 +16,6 @@
 #' existing rownames. All kind of names can be changed at the same time.
 #' Default would be \code{names}. Abbreviations are supported. 
 #' @return An object of the same sort as object with the new names assigned. 
-#' @author Andri Signorell <andri@@signorell.net>\cr
 #' @seealso \code{\link{setNames}}, \code{\link[DescTools]{Rename}} 
 #' @keywords list
 #' @examples

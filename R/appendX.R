@@ -24,9 +24,9 @@
 #' @param \dots further arguments (not used here)
 #' @return An object containing the values in x with the elements of values
 #' appended after the specified element of x. 
-#' @author Andri Signorell <andri@@signorell.net> 
+#' 
 #' @seealso \code{\link{rbind}}, \code{\link{cbind}}, \code{\link{append}}
-#' @keywords manip
+#' 
 #' @examples
 #' 
 #' 

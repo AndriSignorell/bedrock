@@ -23,7 +23,7 @@
 #' column containing the rownames will be appended at the end of the
 #' data.frame.
 #' @return the reshaped object of \code{data.frame} class
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #' @seealso \code{\link{reshape}} 
 #' @keywords manip
 #' @examples

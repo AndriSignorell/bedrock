@@ -8,7 +8,7 @@
 #' 
 #' 
 #' @param package name of the package. 
-#' @author Andri Signorell <andri@@signorell.net> 
+ 
 #' @examples
 #' 
 #' \dontrun{

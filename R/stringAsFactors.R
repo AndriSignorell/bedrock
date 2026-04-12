@@ -11,7 +11,7 @@
 #' @param columns names or indexes of the columns to be converted;
 #'  negative values can be used to omit columns.
 #' @return the given data.frame including the converted factors
-#' @author Andri Signorell <andri@signorell.net>
+
 #' @examples
 #' # get some data
 #' d.dat <- data.frame(char_x=LETTERS[1:5],
