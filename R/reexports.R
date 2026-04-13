@@ -4,3 +4,9 @@
 #' @export
 abind::abind
 
+
+#' @importFrom expm `%^%`
+#' @export
+expm::`%^%`
+
+

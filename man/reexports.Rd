@@ -4,6 +4,7 @@
 \name{reexports}
 \alias{reexports}
 \alias{abind}
+\alias{\%^\%}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -12,5 +13,7 @@ below to see their documentation.
 
 \describe{
   \item{abind}{\code{\link[abind]{abind}}}
+
+  \item{expm}{\code{\link[expm:matpow]{\%^\%}}}
 }}
 
