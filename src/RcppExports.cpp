@@ -10,6 +10,17 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// as_CDateFmt_cpp
+std::string as_CDateFmt_cpp(std::string fmt);
+RcppExport SEXP _bedrock_as_CDateFmt_cpp(SEXP fmtSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type fmt(fmtSEXP);
+    rcpp_result_gen = Rcpp::wrap(as_CDateFmt_cpp(fmt));
+    return rcpp_result_gen;
+END_RCPP
+}
 // between_num
 LogicalVector between_num(NumericVector x, NumericVector from, NumericVector to, bool left_closed, bool right_closed);
 RcppExport SEXP _bedrock_between_num(SEXP xSEXP, SEXP fromSEXP, SEXP toSEXP, SEXP left_closedSEXP, SEXP right_closedSEXP) {
@@ -107,6 +118,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_bedrock_as_CDateFmt_cpp", (DL_FUNC) &_bedrock_as_CDateFmt_cpp, 1},
     {"_bedrock_between_num", (DL_FUNC) &_bedrock_between_num, 5},
     {"_bedrock_binaryTree_cpp", (DL_FUNC) &_bedrock_binaryTree_cpp, 1},
     {"_bedrock_conv_DecToBin", (DL_FUNC) &_bedrock_conv_DecToBin, 1},

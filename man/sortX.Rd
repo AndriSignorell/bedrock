@@ -6,89 +6,143 @@
 \alias{sortX.data.frame}
 \alias{sortX.matrix}
 \alias{sortX.table}
-\title{Sort a Vector, a Matrix, a Table or a Data.frame}
+\title{Sort Vectors, Matrices, Tables, and Data Frames}
 \usage{
 sortX(x, ...)
 
-\method{sortX}{default}(x, ...)
+\method{sortX}{default}(
+  x,
+  decreasing = FALSE,
+  na.last = NA,
+  method = c("default", "mixed"),
+  factorsAsCharacter = TRUE,
+  ...
+)
+
+\method{sortX}{table}(
+  x,
+  ord = NULL,
+  decreasing = FALSE,
+  na.last = TRUE,
+  method = c("default", "mixed"),
+  factorsAsCharacter = TRUE,
+  ...
+)
+
+\method{sortX}{matrix}(
+  x,
+  ord = NULL,
+  decreasing = FALSE,
+  na.last = TRUE,
+  method = c("default", "mixed"),
+  factorsAsCharacter = TRUE,
+  ...
+)
 
 \method{sortX}{data.frame}(
   x,
   ord = NULL,
   decreasing = FALSE,
-  factorsAsCharacter = TRUE,
   na.last = TRUE,
+  method = c("default", "mixed"),
+  factorsAsCharacter = TRUE,
   ...
 )
-
-\method{sortX}{matrix}(x, ord = NULL, decreasing = FALSE, na.last = TRUE, ...)
-
-\method{sortX}{table}(x, ord = NULL, decreasing = FALSE, na.last = TRUE, ...)
 }
 \arguments{
-\item{x}{a numeric, complex. character or logical vector, a factor, a table
-or a data.frame to be sorted.}
+\item{x}{A numeric, complex, character or logical vector, factor,
+matrix, table, or data frame to be sorted.}
 
-\item{\dots}{further arguments to be passed to or from methods.}
+\item{\dots}{Further arguments passed to \code{\link{sort}} in
+\code{sortX.default}.}
 
-\item{ord}{vector of integers or columnames. Defines the columns in a table,
-in a matrix or in a data.frame to be sorted for. \cr 0 means row.names, 1:n
-the columns and n+1 the marginal sum. See examples.}
+\item{decreasing}{Logical scalar or vector. Should the sort be in
+decreasing order? For 2-dimensional objects a vector of the same length
+as \code{ord} may be supplied to control the direction per column;
+a scalar is recycled.}
 
-\item{decreasing}{logical. Should the sort be increasing or decreasing?}
+\item{na.last}{Logical or \code{NA}. Should missing values be placed last
+(\code{TRUE}), first (\code{FALSE}), or removed (\code{NA})?
+See \code{\link{order}}.}
 
-\item{factorsAsCharacter}{logical. Should factors be sorted by the
-alphabetic order of their labels or by the order or their levels.  Default
-is \code{TRUE} (by labels).}
+\item{method}{Sorting method. Either \code{"default"} (base R behavior)
+or \code{"mixed"} for natural sorting of character data
+(e.g. \code{"A2"} < \code{"A10"}).}
 
-\item{na.last}{for controlling the treatment of \code{NAs}. If \code{TRUE},
-missing values in the data are put last; if \code{FALSE}, they are put
-first; if \code{NA}, they are removed (see \code{\link{order}}.)}
+\item{factorsAsCharacter}{Logical. If \code{TRUE} (default), factors are
+converted to character before sorting so that labels are used instead of
+level codes. Set to \code{FALSE} to sort by level order (useful for
+ordered factors).}
+
+\item{ord}{Integer or character vector specifying the columns to sort by,
+and their priority (first element = primary key). Column names and
+positive integer indices (\code{1:ncol(x)}) refer to columns.
+The special value \code{0L} (integer zero, always numeric) sorts by row
+names. For \code{table} and \code{matrix} objects, \code{ncol(x) + 1L}
+sorts by row marginal sums. This argument is not available for
+\code{sortX.default}. Default: \code{NULL} (all columns, left to right).}
 }
 \value{
-the sorted object.
+The sorted object, of the same class as \code{x}.
 }
 \description{
-Sort a vector, a matrix, a table or a data.frame. The base sort function
-does not have an interface for classes other than vectors and coerces the
-whole world to a vector. This means you get a sorted vector as result while
-passing a matrix to \code{sort}.\cr \code{sortX} wraps the base sort function
-and adds an interface for sorting the rows of the named 2-dimensional data
-structures by the order of one or more of its columns.
+\code{sortX} extends the base \code{\link{sort}} function by providing
+a consistent interface for sorting not only vectors, but also matrices,
+tables, and data frames. For 2-dimensional objects, rows are sorted based
+on one or more columns.
 }
 \details{
-The sort order for factors is the order of their levels (which is
-particularly appropriate for ordered factors), and usually confusing for
-unordered factors, whose levels may be defined in the sequence in which they
-appear in the data (which normally is unordered).
+By default, sorting follows the behavior of base R. In addition,
+\code{method = "mixed"} enables natural ("human-friendly") sorting of
+character data, e.g. \code{"A2"} < \code{"A10"}.
+
+For \code{method = "mixed"}, sorting is applied column-wise using
+\code{.orderMixed()}. Each column's tokens are ordered independently
+(numeric runs numerically, text runs lexicographically) before the
+results are combined via stable right-to-left ordering.
+
+The sort order for factors depends on \code{factorsAsCharacter}:
+if \code{TRUE} (default), factors are sorted by their labels
+(alphabetically or by natural order when \code{method = "mixed"});
+if \code{FALSE}, they are sorted by their level order, which is
+appropriate for ordered factors but may be unintuitive for unordered ones.
 }
 \examples{
 set.seed(3)
-d.frm <- iris[sample(nrow(iris), 10), 
+d.frm <- iris[sample(nrow(iris), 10),
               c("Species", "Sepal.Length", "Sepal.Width")]
 
-sortX(d.frm[,1])
-# sortX follows the levels by default
-levels(d.frm[,1])
+# Vector sorting
+sortX(d.frm[, 1])
 
-sortX(x=d.frm, ord="Species", decreasing=FALSE)
-# set factorsAsCharacter = TRUE, if alphabetical order is required
-sortX(x=d.frm, ord="Species", decreasing=FALSE, factorsAsCharacter=TRUE)
+# Data frame: sort by column name
+sortX(d.frm, ord = "Species")
+sortX(d.frm, ord = c("Species", "Sepal.Length"))
 
-sortX(x=d.frm, ord=c("Species","Sepal.Length"), factorsAsCharacter = TRUE)
-sortX(x=d.frm, ord=c("Species","Sepal.Length"), factorsAsCharacter = FALSE)
+# Data frame: sort by column index
+sortX(d.frm, ord = c(1L, 2L))
 
-sortX(x=d.frm, ord=c("Species","Sepal.Length"), decreasing=c(FALSE, TRUE),
-  factorsAsCharacter = FALSE)
+# Decreasing order (per-column control)
+sortX(d.frm, ord = c("Species", "Sepal.Length"),
+      decreasing = c(FALSE, TRUE))
 
-# Sorting tables
-tab <- HairEyeColor[,,1]
+# Natural sorting of character vectors
+x <- c("A1", "A10", "A2")
+sortX(x, method = "mixed")
 
-sortX(x=tab, ord=c(0,2), decreasing=c(TRUE, FALSE))
-sortX(x=tab, ord=2, decreasing=TRUE)
+# Factor: sort by label (default) vs. level order
+sortX(d.frm, ord = "Species")                          # by label
+sortX(d.frm, ord = "Species", factorsAsCharacter = FALSE)  # by level
 
-# partial matching ok:
-sortX(tab, o=1, d=TRUE)
+# Tables: sort by column 2 descending
+tab <- HairEyeColor[, , 1]
+sortX(tab, ord = 2L, decreasing = TRUE)
+
+# Tables: sort by marginal row sums
+sortX(tab, ord = ncol(tab) + 1L, decreasing = TRUE)
+
+# Sort by row names (always pass 0 as integer)
+sortX(tab, ord = 0L)
 
 }
 \seealso{

@@ -1,67 +1,97 @@
 
-#' Sort a Vector, a Matrix, a Table or a Data.frame 
-#' 
-#' Sort a vector, a matrix, a table or a data.frame. The base sort function
-#' does not have an interface for classes other than vectors and coerces the
-#' whole world to a vector. This means you get a sorted vector as result while
-#' passing a matrix to \code{sort}.\cr \code{sortX} wraps the base sort function
-#' and adds an interface for sorting the rows of the named 2-dimensional data
-#' structures by the order of one or more of its columns. 
-#' 
-#' The sort order for factors is the order of their levels (which is
-#' particularly appropriate for ordered factors), and usually confusing for
-#' unordered factors, whose levels may be defined in the sequence in which they
-#' appear in the data (which normally is unordered).
-#' 
+#' Sort Vectors, Matrices, Tables, and Data Frames
+#'
+#' \code{sortX} extends the base \code{\link{sort}} function by providing
+#' a consistent interface for sorting not only vectors, but also matrices,
+#' tables, and data frames. For 2-dimensional objects, rows are sorted based
+#' on one or more columns.
+#'
+#' By default, sorting follows the behavior of base R. In addition,
+#' \code{method = "mixed"} enables natural ("human-friendly") sorting of
+#' character data, e.g. \code{"A2"} < \code{"A10"}.
+#'
+#' For \code{method = "mixed"}, sorting is applied column-wise using
+#' \code{.orderMixed()}. Each column's tokens are ordered independently
+#' (numeric runs numerically, text runs lexicographically) before the
+#' results are combined via stable right-to-left ordering.
+#'
+#' The sort order for factors depends on \code{factorsAsCharacter}:
+#' if \code{TRUE} (default), factors are sorted by their labels
+#' (alphabetically or by natural order when \code{method = "mixed"});
+#' if \code{FALSE}, they are sorted by their level order, which is
+#' appropriate for ordered factors but may be unintuitive for unordered ones.
+#'
 #' @name sortX
 #' @aliases sortX sortX.default sortX.data.frame sortX.matrix sortX.table
-#' 
-#' @param x a numeric, complex. character or logical vector, a factor, a table
-#' or a data.frame to be sorted.
-#' @param decreasing logical. Should the sort be increasing or decreasing?
-#' @param factorsAsCharacter logical. Should factors be sorted by the
-#' alphabetic order of their labels or by the order or their levels.  Default
-#' is \code{TRUE} (by labels).
-#' @param ord vector of integers or columnames. Defines the columns in a table,
-#' in a matrix or in a data.frame to be sorted for. \cr 0 means row.names, 1:n
-#' the columns and n+1 the marginal sum. See examples.
-#' @param na.last for controlling the treatment of \code{NAs}. If \code{TRUE},
-#' missing values in the data are put last; if \code{FALSE}, they are put
-#' first; if \code{NA}, they are removed (see \code{\link{order}}.)
-#' @param \dots further arguments to be passed to or from methods.
-#' 
-#' @return the sorted object.
-#' 
+#'
+#' @param x A numeric, complex, character or logical vector, factor,
+#'   matrix, table, or data frame to be sorted.
+#' @param decreasing Logical scalar or vector. Should the sort be in
+#'   decreasing order? For 2-dimensional objects a vector of the same length
+#'   as \code{ord} may be supplied to control the direction per column;
+#'   a scalar is recycled.
+#' @param na.last Logical or \code{NA}. Should missing values be placed last
+#'   (\code{TRUE}), first (\code{FALSE}), or removed (\code{NA})?
+#'   See \code{\link{order}}.
+#' @param method Sorting method. Either \code{"default"} (base R behavior)
+#'   or \code{"mixed"} for natural sorting of character data
+#'   (e.g. \code{"A2"} < \code{"A10"}).
+#' @param factorsAsCharacter Logical. If \code{TRUE} (default), factors are
+#'   converted to character before sorting so that labels are used instead of
+#'   level codes. Set to \code{FALSE} to sort by level order (useful for
+#'   ordered factors).
+#' @param ord Integer or character vector specifying the columns to sort by,
+#'   and their priority (first element = primary key). Column names and
+#'   positive integer indices (\code{1:ncol(x)}) refer to columns.
+#'   The special value \code{0L} (integer zero, always numeric) sorts by row
+#'   names. For \code{table} and \code{matrix} objects, \code{ncol(x) + 1L}
+#'   sorts by row marginal sums. This argument is not available for
+#'   \code{sortX.default}. Default: \code{NULL} (all columns, left to right).
+#' @param \dots Further arguments passed to \code{\link{sort}} in
+#'   \code{sortX.default}.
+#'
+#' @return The sorted object, of the same class as \code{x}.
+#'
 #' @seealso \code{\link{sort}}, \code{\link{order}}
-#' 
+#'
 #' @examples
 #' set.seed(3)
-#' d.frm <- iris[sample(nrow(iris), 10), 
+#' d.frm <- iris[sample(nrow(iris), 10),
 #'               c("Species", "Sepal.Length", "Sepal.Width")]
-#' 
-#' sortX(d.frm[,1])
-#' # sortX follows the levels by default
-#' levels(d.frm[,1])
-#' 
-#' sortX(x=d.frm, ord="Species", decreasing=FALSE)
-#' # set factorsAsCharacter = TRUE, if alphabetical order is required
-#' sortX(x=d.frm, ord="Species", decreasing=FALSE, factorsAsCharacter=TRUE)
-#' 
-#' sortX(x=d.frm, ord=c("Species","Sepal.Length"), factorsAsCharacter = TRUE)
-#' sortX(x=d.frm, ord=c("Species","Sepal.Length"), factorsAsCharacter = FALSE)
-#' 
-#' sortX(x=d.frm, ord=c("Species","Sepal.Length"), decreasing=c(FALSE, TRUE),
-#'   factorsAsCharacter = FALSE)
-#' 
-#' # Sorting tables
-#' tab <- HairEyeColor[,,1]
-#' 
-#' sortX(x=tab, ord=c(0,2), decreasing=c(TRUE, FALSE))
-#' sortX(x=tab, ord=2, decreasing=TRUE)
-#' 
-#' # partial matching ok:
-#' sortX(tab, o=1, d=TRUE)
-#' 
+#'
+#' # Vector sorting
+#' sortX(d.frm[, 1])
+#'
+#' # Data frame: sort by column name
+#' sortX(d.frm, ord = "Species")
+#' sortX(d.frm, ord = c("Species", "Sepal.Length"))
+#'
+#' # Data frame: sort by column index
+#' sortX(d.frm, ord = c(1L, 2L))
+#'
+#' # Decreasing order (per-column control)
+#' sortX(d.frm, ord = c("Species", "Sepal.Length"),
+#'       decreasing = c(FALSE, TRUE))
+#'
+#' # Natural sorting of character vectors
+#' x <- c("A1", "A10", "A2")
+#' sortX(x, method = "mixed")
+#'
+#' # Factor: sort by label (default) vs. level order
+#' sortX(d.frm, ord = "Species")                          # by label
+#' sortX(d.frm, ord = "Species", factorsAsCharacter = FALSE)  # by level
+#'
+#' # Tables: sort by column 2 descending
+#' tab <- HairEyeColor[, , 1]
+#' sortX(tab, ord = 2L, decreasing = TRUE)
+#'
+#' # Tables: sort by marginal row sums
+#' sortX(tab, ord = ncol(tab) + 1L, decreasing = TRUE)
+#'
+#' # Sort by row names (always pass 0 as integer)
+#' sortX(tab, ord = 0L)
+#'
+
 
 #' @rdname sortX
 #' @export
@@ -70,113 +100,282 @@ sortX <- function(x, ...) {
 }
 
 
-#' @rdname sortX
-#' @export
-sortX.default <- function(x, ...) {
-  sort(x = x, ...)
-}
+# ----------------------------------------------------------------------
+#  sortX.default  --  vectors and any class without a specific method
+# ----------------------------------------------------------------------
 
 #' @rdname sortX
 #' @export
-sortX.data.frame <- function(x, ord = NULL, decreasing = FALSE, factorsAsCharacter = TRUE,
-                            na.last = TRUE, ...) {
+sortX.default <- function(x,
+                          decreasing         = FALSE,
+                          na.last            = NA,
+                          method             = c("default", "mixed"),
+                          factorsAsCharacter = TRUE,
+                          ...) {
+  method <- match.arg(method)
   
-  # why not using ord argument as in matrix and table instead of ord?
+  # Optionally convert factor to character before sorting
+  y <- if (is.factor(x) && factorsAsCharacter) as.character(x) else x
   
-  if(is.null(ord)) { ord <- 1:ncol(x) }
-  
-  if(is.character(ord)) {
-    ord <- match(ord, c("row.names", names(x)))
-  } else if(is.numeric(ord)) {
-    ord <- as.integer(ord) + 1
+  if (method == "mixed") {
+    return(x[.orderMixed(y, decreasing = decreasing, na.last = na.last)])
   }
   
-  # recycle decreasing and by
-  lgp <- list(decreasing = decreasing, ord = ord)
-  # recycle all params to maxdim = max(unlist(lapply(lgp, length)))
-  lgp <- lapply(lgp, rep, length.out = max(unlist(lapply(lgp, length))))
-  # decreasing is not recycled in order, so we use rev to change the sorting direction
-  # old: d.ord <- x[,lgp$ord, drop=FALSE]  # preserve data.frame with drop = FALSE
-  d.ord <- data.frame(rn=rownames(x),x)[, lgp$ord, drop = FALSE] # preserve data.frame with drop = FALSE
-  if(factorsAsCharacter){
-    for( xn in which(sapply(d.ord, is.factor)) ){ d.ord[,xn] <- factor(d.ord[,xn], levels=sort(levels(d.ord[,xn]))) }
-  }
-  
-  d.ord[, which(sapply(d.ord, is.character))] <- lapply(d.ord[,which(sapply(d.ord, is.character)), drop=FALSE], factor)
-  d.ord <- data.frame(lapply(d.ord, as.numeric))
-  d.ord[lgp$decreasing] <- lapply(d.ord[lgp$decreasing], "-")
-  
-  x[ do.call("order", c(as.list(d.ord), na.last=na.last)), , drop = FALSE]
+  sort(x = x, decreasing = decreasing, na.last = na.last, ...)
 }
 
 
+# ----------------------------------------------------------------------
+#  sortX.table
+# ----------------------------------------------------------------------
 
 #' @rdname sortX
 #' @export
-sortX.matrix <- function (x, ord = NULL, decreasing = FALSE, na.last = TRUE, ...) {
+sortX.table <- function(x,
+                        ord                = NULL,
+                        decreasing         = FALSE,
+                        na.last            = TRUE,
+                        method             = c("default", "mixed"),
+                        factorsAsCharacter = TRUE,
+                        ...) {
+  method    <- match.arg(method)
+  row_order <- .sortX_core(x, ord, decreasing, na.last, method,
+                           factorsAsCharacter = factorsAsCharacter,
+                           allow_marginal     = TRUE)
+  x[row_order, , drop = FALSE]
+}
+
+
+# ----------------------------------------------------------------------
+#  sortX.matrix
+# ----------------------------------------------------------------------
+
+#' @rdname sortX
+#' @export
+sortX.matrix <- function(x,
+                         ord                = NULL,
+                         decreasing         = FALSE,
+                         na.last            = TRUE,
+                         method             = c("default", "mixed"),
+                         factorsAsCharacter = TRUE,
+                         ...) {
+  method    <- match.arg(method)
+  row_order <- .sortX_core(x, ord, decreasing, na.last, method,
+                           factorsAsCharacter = factorsAsCharacter,
+                           allow_marginal     = TRUE)
+  x[row_order, , drop = FALSE]
+}
+
+
+# ----------------------------------------------------------------------
+#  sortX.data.frame
+# ----------------------------------------------------------------------
+
+#' @rdname sortX
+#' @export
+sortX.data.frame <- function(x,
+                             ord                = NULL,
+                             decreasing         = FALSE,
+                             na.last            = TRUE,
+                             method             = c("default", "mixed"),
+                             factorsAsCharacter = TRUE,
+                             ...) {
+  method    <- match.arg(method)
+  row_order <- .sortX_core(x, ord, decreasing, na.last, method,
+                           factorsAsCharacter = factorsAsCharacter,
+                           allow_marginal     = FALSE)  # row sums not supported
+  x[row_order, , drop = FALSE]
+}
+
+
+# == internal helper functions  ==============================================
+
+# ----------------------------------------------------------------------
+#  .orderMixed  --  natural / alphanumeric ordering
+#
+#  Returns an integer index vector analogous to order().
+#  Non-character input is delegated directly to order().
+#  Character strings are split into alternating numeric and text tokens;
+#  numeric runs are sorted numerically, text runs lexicographically
+#  (case-insensitive).
+# ----------------------------------------------------------------------
+.orderMixed <- function(x,
+                        decreasing = FALSE,
+                        na.last    = TRUE) {
   
-  if (length(dim(x)) == 1 ){
-    # do not specially handle 1-dimensional matrices
-    res <- sort(x=x, decreasing=decreasing)
+  n <- length(x)
+  if (n <= 1L) return(seq_len(n))
+  
+  # Non-character: delegate to base order()
+  if (!is.character(x)) {
+    return(order(x, decreasing = decreasing, na.last = na.last))
+  }
+  
+  # Split each string into alternating text/digit tokens
+  split_fun <- function(s) {
+    parts <- regmatches(s, gregexpr("[0-9]+|[^0-9]+", s))[[1]]
+    lapply(parts, function(p) {
+      if (grepl("^[0-9]+$", p)) as.numeric(p) else tolower(p)
+    })
+  }
+  
+  parsed  <- lapply(x, split_fun)
+  max_len <- max(lengths(parsed))
+  
+  # Pad all token lists to the same length (missing slots become NULL)
+  parsed <- lapply(parsed, function(p) {
+    length(p) <- max_len
+    p
+  })
+  
+  # Build one sort key per token position
+  cols <- vector("list", max_len)
+  
+  for (j in seq_len(max_len)) {
+    # lapply keeps length n; NULL marks a padded (missing) slot
+    col <- lapply(parsed, function(p) p[[j]])
     
-  } else {
-    if (is.null(ord)) {
-      # default order by sequence of columns
-      ord <- 1:ncol(x)
-    }
-    
-    # replace keyword by code
-    ord[ord=="row_names"] <- 0
-    # we have to coerce, as ord will be character if row_names is used
-    ord <- as.numeric(ord)
-    
-    lgp <- list(decreasing = decreasing, ord = ord)
-    lgp <- lapply(lgp, rep, length.out = max(unlist(lapply(lgp, length))))
-    
-    if( is.null(row.names(x))) {
-      d.x <- data.frame(cbind(rownr=1:nrow(x)), x)
+    if (all(vapply(col,
+                   function(v) is.null(v) || (length(v) == 1L && is.numeric(v)),
+                   logical(1)))) {
+      # All present values are numeric -> numeric key; NULL -> NA
+      cols[[j]] <- as.numeric(vapply(col,
+                                     function(v) if (is.null(v)) NA_real_ else v,
+                                     numeric(1)))
     } else {
-      d.x <- data.frame(cbind( rownr=as.numeric(factor(row.names(x))), x))
+      # Mixed or text column -> factor key; NULL -> NA
+      cols[[j]] <- as.factor(vapply(col,
+                                    function(v) if (is.null(v)) NA_character_
+                                    else as.character(v),
+                                    character(1)))
     }
-    d.ord <- d.x[, lgp$ord + 1, drop = FALSE]
-    d.ord[lgp$decreasing] <- lapply(d.ord[lgp$decreasing], "-")
-    
-    res <- x[do.call("order", c(as.list(d.ord), na.last=na.last)), , drop=FALSE]
-    # old version cannot be used for [n,1]-matrices, we switch to reset dim
-    # class(res) <- "matrix"
-    # 19.9.2013: dim kills rownames, so stick to drop = FALSE
-    # dim(res) <- dim(x)
   }
   
-  return(res)
-  
+  do.call(order, c(cols, list(decreasing = decreasing, na.last = na.last)))
 }
 
 
-#' @rdname sortX
-#' @export
-sortX.table <- function (x, ord = NULL, decreasing = FALSE, na.last = TRUE, ...) {
+# ----------------------------------------------------------------------
+#  .sortX_core  --  shared row-ordering logic for 2-d objects
+#
+#  Returns an integer index vector of length nrow(x).
+#
+#  Parameters
+#    x                 matrix, table, or data.frame
+#    ord               column selector (NULL, integer, or character)
+#    decreasing        logical scalar or vector (recycled to length(ord))
+#    na.last           passed to order() / .orderMixed()
+#    method            "default" or "mixed"
+#    factorsAsCharacter convert factor columns to character before sorting
+#    allow_marginal    if FALSE, ord = ncol(x)+1 raises an error
+# ----------------------------------------------------------------------
+.sortX_core <- function(x,
+                        ord,
+                        decreasing,
+                        na.last,
+                        method,
+                        factorsAsCharacter = TRUE,
+                        allow_marginal     = TRUE) {
   
-  if (length(dim(x)) == 1 ){
-    # do not specially handle 1-dimensional tables
-    res <- sort(x=x, decreasing=decreasing)
-    
-  } else {
-    if (is.null(ord)) {
-      ord <- 1:ncol(x)
-    }
-    lgp <- list(decreasing = decreasing, ord = ord)
-    lgp <- lapply(lgp, rep, length.out = max(unlist(lapply(lgp, length))))
-    
-    d.x <- data.frame(cbind( rownr=as.numeric(factor(row.names(x))), x, mar=apply(x, 1, sum)))
-    d.ord <- d.x[, lgp$ord + 1, drop = FALSE]
-    d.ord[lgp$decreasing] <- lapply(d.ord[lgp$decreasing], "-")
-    
-    res <- x[do.call("order", c(as.list(d.ord), na.last=na.last)), , drop=FALSE]
-    class(res) <- "table"
+  nc <- ncol(x)
+  nr <- nrow(x)
+  
+  # --- resolve column names to integer indices --------------------------
+  # ord = 0L (row names) must always be passed as integer and is never
+  # a column name, so name resolution only touches non-zero values.
+  if (is.character(ord)) {
+    idx <- match(ord, colnames(x))
+    unknown <- ord[is.na(idx)]
+    if (length(unknown) > 0L)
+      stop("Unknown column name(s) in 'ord': ",
+           paste(unknown, collapse = ", "))
+    ord <- idx
   }
   
-  return(res)
+  # --- default ord: all columns left to right ---------------------------
+  if (is.null(ord)) ord <- seq_len(nc)
   
+  # --- recycle decreasing -----------------------------------------------
+  if (length(decreasing) == 1L) {
+    decreasing <- rep(decreasing, length(ord))
+  }
+  if (length(decreasing) != length(ord))
+    stop("'decreasing' must have length 1 or length(ord).")
+  
+  # --- validate ord values ----------------------------------------------
+  valid <- (ord >= 0L) & (ord <= nc + 1L)
+  if (!all(valid))
+    stop(sprintf("Invalid value(s) in 'ord': %s. Allowed: 0L..%dL.",
+                 paste(ord[!valid], collapse = ", "), nc + 1L))
+  
+  # --- guard marginal sums for data.frame --------------------------------
+  if (!allow_marginal && any(ord == nc + 1L))
+    stop("ord = ncol(x)+1L (marginal row sums) is not supported for ",
+         "data.frame because not all columns need to be numeric.")
+  
+  # --- build sort keys --------------------------------------------------
+  keys <- vector("list", length(ord))
+  
+  for (i in seq_along(ord)) {
+    col_i <- ord[i]
+    dec_i <- decreasing[i]
+    
+    if (col_i == 0L) {
+      # Sort by row names
+      rn <- rownames(x)
+      if (is.null(rn)) {
+        warning("x has no rownames; ord = 0L falls back to natural row order.")
+        rn <- as.character(seq_len(nr))
+      }
+      keys[[i]] <- rn
+      
+    } else if (col_i == nc + 1L) {
+      # Sort by marginal row sums (table / matrix only)
+      keys[[i]] <- rowSums(x, na.rm = TRUE)
+      
+    } else {
+      # Regular column
+      col_val <- x[, col_i]
+      # Optionally treat factors as character
+      if (is.factor(col_val) && factorsAsCharacter)
+        col_val <- as.character(col_val)
+      keys[[i]] <- col_val
+    }
+    
+    # For "default": invert key to achieve decreasing order, because
+    # do.call(order, ...) does not support per-key decreasing.
+    # For "mixed": decreasing is passed directly to .orderMixed().
+    if (method == "default" && dec_i) {
+      if (is.numeric(keys[[i]])) {
+        keys[[i]] <- -keys[[i]]
+      } else {
+        keys[[i]] <- -xtfrm(keys[[i]])
+      }
+    }
+  }
+  
+  # --- compute row order ------------------------------------------------
+  switch(
+    method,
+    
+    "default" = {
+      do.call(order, c(keys, list(na.last = na.last)))
+    },
+    
+    "mixed" = {
+      # Stable sort: apply .orderMixed() from last key to first key.
+      # Keys have NOT been negated in this branch; decreasing is forwarded.
+      idx <- seq_len(nr)
+      for (k in rev(seq_along(keys))) {
+        idx <- idx[.orderMixed(keys[[k]][idx],
+                               decreasing = decreasing[k],
+                               na.last    = na.last)]
+      }
+      idx
+    },
+    
+    stop(sprintf("Unknown method '%s'. Use 'default' or 'mixed'.", method))
+  )
 }
+
 
