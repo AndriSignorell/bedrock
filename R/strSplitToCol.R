@@ -44,24 +44,24 @@
 #'
 #' @examples
 #' x <- c("A B C", "D E", "F")
-#' splitToCol(x)
+#' strSplitToCol(x)
 #'
 #' # Custom delimiter
 #' x <- c("A|B|C", "D|E", "F")
-#' splitToCol(x, split = "|")
+#' strSplitToCol(x, split = "|")
 #'
 #' # Multiple columns
 #' df <- data.frame(
 #'   a = c("x y", "z"),
 #'   b = c("1 2 3", "4 5")
 #' )
-#' splitToCol(df)
+#' strSplitToCol(df)
 #'
 
 
 
 #' @export
-splitToCol <- function(x, split=" ", fixed = TRUE, na.form="", colnames=NULL){
+strSplitToCol <- function(x, split=" ", fixed = TRUE, na.form="", colnames=NULL){
   
   lst <- lapply(x, function(z)
     strsplit(z, split = split, fixed = fixed))

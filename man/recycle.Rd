@@ -4,10 +4,13 @@
 \alias{recycle}
 \title{Recyle a List of Elements}
 \usage{
-recycle(..., strict = FALSE)
+recycle(..., maxdim = NULL, strict = FALSE)
 }
 \arguments{
 \item{\dots}{a number of vectors of elements.}
+
+\item{maxdim}{defines the maximal dimension, if set to \code{NULL} (default)
+the maximal dimension of the list.}
 
 \item{strict}{defines if number of arguments must be 1 or maxdim.}
 }

@@ -69,7 +69,7 @@ revX.default <- function(x, ...){
   # refuse accepting margins here
   if(length(list(...)) > 0 && length(dim(x)) == 1 && !identical(list(...), 1))
     warning("margin has been supplied and will be discarded.")
-  revX(x)
+  rev(x)
 }
 
 

@@ -1,102 +1,79 @@
 
-
-#' Winsorize (Replace Extreme Values by Less Extreme Ones)
-#' 
-#' Winsorizing a vector means that a predefined quantum of the smallest and/or
-#' the largest values are replaced by less extreme values. Thereby the
-#' substitute values are the most extreme retained values.
-#' 
-#' 
-#' The winsorized vector is obtained by
-#' 
-#' \deqn{g(x) =
-#'   \left\{\begin{array}{ll}
-#'     -c &\textup{for } x \le c\\
-#'     x  &\textup{for } |x| < c\\
-#'     c  &\textup{for } x \ge c
-#'     \end{array}\right.
-#'   }{g(x)=-c, if x\le -c,
-#'   x, |x| < c, x, if x \ge c, c }
-#' 
-#' You may also want to consider standardizing (possibly robustly) the data
-#' before you perform a winsorization.
-#' 
-#' @param x a numeric vector to be winsorized.
-#' 
-#' @param val the low border, all values being lower than this will be
-#' replaced by this value.  The default is set to the 5%-quantile of x.
-#' 
-#' @return A vector of the same length as the original data \code{x} containing
-#' the winsorized data.
-#' 
-
-#' 
-#' @seealso \code{\link{scale}}, \code{\link[robustHD]{winsorize}} contains
-#' an option to winsorize multivariate data 
-#' 
-#' 
-#' @family topic.dataProcessing
-#' @concept data processing
-#' @concept robust-statistics
-#' 
+#' Winsorize a Numeric Vector
+#'
+#' Winsorization replaces extreme values in a numeric vector by less extreme,
+#' predefined bounds. Values below a lower limit are set to that limit, and
+#' values above an upper limit are set to that upper limit.
+#'
+#' By default, the limits are defined as the 5% and 95% quantiles of the data.
+#' Missing values are ignored when computing quantiles and are preserved in
+#' the output.
+#'
+#' Formally, the winsorized vector \eqn{g(x)} is defined as:
+#' \deqn{
+#' g(x) =
+#' \left\{
+#' \begin{array}{ll}
+#' l & \text{if } x \le l \\
+#' x & \text{if } l < x < u \\
+#' u & \text{if } x \ge u
+#' \end{array}
+#' \right.
+#' }
+#' where \eqn{l} and \eqn{u} denote the lower and upper bounds.
+#'
+#' The argument \code{val} allows full control over the limits. It can be:
+#' \itemize{
+#'   \item A numeric vector of length two specifying fixed bounds
+#'   \item The result of a call to \code{\link{quantile}} (e.g. with custom \code{type})
+#' }
+#'
+#' @param x A numeric vector to be winsorized.
+#' @param val A numeric vector of length two specifying the lower and upper
+#'   winsorization limits. Defaults to the 5% and 95% quantiles of \code{x}
+#'   with \code{na.rm = TRUE}.
+#'
+#' @return A numeric vector of the same length as \code{x}, where:
+#' \itemize{
+#'   \item values below the lower limit are replaced by the lower limit
+#'   \item values above the upper limit are replaced by the upper limit
+#'   \item missing values remain unchanged
+#' }
+#'
+#' @details
+#' Winsorization is commonly used in robust statistics to reduce the influence
+#' of outliers. In some cases, it can be beneficial to standardize the data
+#' (e.g., using \code{\link{scale}}) before applying winsorization.
+#'
+#' @seealso \code{\link[DescToolsX]{scaleX}}, \code{\link[robustHD]{winsorize}}
+#'
 #' @examples
-#' # generate data
 #' set.seed(9128)
-#' x <- round(runif(100) * 100, 1)
-#' 
-#' (d.frm <- (data.frame(
-#'   x, 
-#'   default   = winsorize(x), 
-#'   quantile  = winsorize(x, quantile(x, probs=c(0.1, 0.8), na.rm = FALSE)), 
-#'   fixed_val = winsorize(x, val=c(15, 85)) ######,
-#' #########  fixed_n   = winsorize(x, val=c(Small(x, k=3)[3], Large(x, k=3)[1])),
-#' #######  closest   = winsorize(x, val=unlist(Closest(x, c(30, 70)))) 
-#' )))[c(1:10, 90:100), ]
-#' 
-#' # use Large and Small, if a fix number of values should be winsorized (here k=3)
-#' 
-#' ##### PlotLinesA(SetNames(d.frm, rownames=NULL), lwd=2, col=Pal("Tibco"), 
-#'  #####          main="Winsorized Vector")
-
-#' z <- 0:10
-#' # twosided (default):
-#' winsorize(z, val=c(2,8))
-#' 
-#' # onesided:
-#' # ... replace all values > 8 with 8
-#' winsorize(z, val=c(min(z), 8))
-#' # ... replace all values < 4 with 4
-#' winsorize(z, val=c(4, max(z)))
-#' 
+#' x <- c(rnorm(10), NA, -100, 100)
+#'
+#' # Default winsorization (5% / 95% quantiles)
+#' winsorize(x)
+#'
+#' # Winsorization using fixed bounds
+#' winsorize(x, val = c(-10, 10))
+#'
+#' # Custom quantile definition
+#' winsorize(x, val = quantile(x, c(0.1, 0.9), type = 1, na.rm = TRUE))
+#'
+#' # One-sided winsorization
+#' winsorize(x, val = c(min(x, na.rm = TRUE), 2))  # upper bound only
+#' winsorize(x, val = c(-2, max(x, na.rm = TRUE))) # lower bound only
+#'
+#' @family data_processing
+#' @concept robust_statistics
 
 
 #' @export
-winsorize <- function(x, val = quantile(x, probs=c(0.05, 0.95), 
-                                               na.rm = FALSE)) {
-  
+winsorize <- function(
+    x,
+    val = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE)
+) {
   x[x < val[1L]] <- val[1L]
   x[x > val[2L]] <- val[2L]
-  
-  return(x)
-  
+  x
 }
-
-
-
-# Old (2024-02-27):
-# Winsorize <- function(x, minval = NULL, maxval = NULL,
-#                       probs=c(0.05, 0.95), na.rm = FALSE, type=7) {
-# 
-#   if(is.null(minval) || is.null(maxval)){
-#     xq <- quantile(x=x, probs=probs, na.rm=na.rm, type=type)
-#     if(is.null(minval)) minval <- xq[1L]
-#     if(is.null(maxval)) maxval <- xq[2L]
-#   }
-#   
-#   x[x<minval] <- minval
-#   x[x>maxval] <- maxval
-#   
-#   return(x)
-# 
-# }
-

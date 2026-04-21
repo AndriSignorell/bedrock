@@ -33,30 +33,30 @@
 #'                   txt = c("A,C,D", "A", "B,C", "D", "D,E"))
 #'
 #' # default: NA passed through as zero row
-#' splitToDummy(dat$txt)
+#' strSplitToDummy(dat$txt)
 #'
 #' # with an NA in the input
 #' x_na <- c("A,B", "B,C", NA, "A")
 #'
 #' # na.pass: NA becomes an all-zero row (default)
-#' splitToDummy(x_na, na.action = na.pass)
+#' strSplitToDummy(x_na, na.action = na.pass)
 #'
 #' # na.omit: NA rows are silently dropped
-#' splitToDummy(x_na, na.action = na.omit)
+#' strSplitToDummy(x_na, na.action = na.omit)
 #'
 #' # na.exclude: like na.omit but NA indices stored in attribute
-#' res <- splitToDummy(x_na, na.action = na.exclude)
+#' res <- strSplitToDummy(x_na, na.action = na.exclude)
 #' attr(res, "na.action")
 #'
 #' # na.fail: error if any NA present
 #' tryCatch(
-#'   splitToDummy(x_na, na.action = na.fail),
+#'   strSplitToDummy(x_na, na.action = na.fail),
 #'   error = function(e) conditionMessage(e)
 #' )
 #'
 
 #' @export
-splitToDummy <- function(x, split = ",", trim = TRUE,
+strSplitToDummy <- function(x, split = ",", trim = TRUE,
                          na.action = na.pass, ...) {
   
   # --- handle NA ---

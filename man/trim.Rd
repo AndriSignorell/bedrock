@@ -55,10 +55,6 @@ s.tr <- trim(s, trim = 2)
 setequal(c(s[attr(s.tr, "trim")], s.tr), s)
 
 }
-\seealso{
-Other topic.dataProcessing: 
-\code{\link{winsorize}()}
-}
 \author{
 R-Core (function mean), Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
 }

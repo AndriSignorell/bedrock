@@ -4,6 +4,8 @@
 #' This function recycles all supplied elments to the maximal dimension. 
 #' 
 #' 
+#' @param maxdim defines the maximal dimension, if set to \code{NULL} (default)
+#' the maximal dimension of the list.
 #' @param strict defines if number of arguments must be 1 or maxdim.
 #' @param \dots a number of vectors of elements. 
 #' 
@@ -24,20 +26,32 @@
 #' 
 
 #' @export 
-recycle <- function(..., strict=FALSE){
-  lst <- list(...)
+recycle <- function(..., maxdim = NULL, strict = FALSE) {
+  
+  lst  <- list(...)
   lens <- lengths(lst)
-  # optimization suggestion by moodymudskipper 20.11.2019  
-  maxdim <- max(lens) 
-
-  if (strict && !all(lens %in% c(1, maxdim)))
-    stop("Arguments must have length 1 or common length.")
+  
+  # --- resolve maxdim --------------------------------------
+  
+  if (is.null(maxdim)) {
+    maxdim <- max(lens)
+  } else {
+    if (!is.numeric(maxdim) || length(maxdim) != 1 || maxdim <= 0)
+      stop("maxdim must be a positive scalar")
+  }
+  
+  # --- strict check ------------------------------------------
+  
+  if (strict && !all(lens %in% c(1, maxdim))) {
+    stop("Arguments must have length 1 or maxdim.")
+  }
+  
+  # --- Recycling ---------------------------------------------
   
   # rep_len would not work for Dates
-  res <- lapply(lst, rep, length.out=maxdim)
+  res <- lapply(lst, function(x) rep(x, length.out = maxdim))
   
   attr(res, "maxdim") <- maxdim
-  
   return(res)
 }
 
