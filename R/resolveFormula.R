@@ -1,0 +1,271 @@
+#' Parse and Classify a Model Formula
+#'
+#' Parses a model formula, constructs a model frame, and classifies
+#' the resulting design into one of five dependency structures.
+#' The function serves as a unified entry point for functions that accept
+#' a formula interface.
+#'
+#' @param formula a model formula. Supported forms are:
+#'   \describe{
+#'     \item{\code{y ~ 1} or \code{y}}{one-sample design}
+#'     \item{\code{Pair(x, y) ~ 1}}{two-sample dependent (paired).
+#'       \code{\link[stats]{Pair}} constructs a two-column matrix of
+#'       paired observations.}
+#'     \item{\code{y ~ g}}{two-sample or n-sample independent group
+#'       comparison}
+#'     \item{\code{y ~ trt | block}}{n-sample dependent (blocked design)}
+#'   }
+#' @param data an optional data frame containing the variables in
+#'   \code{formula}. A matrix is coerced to a data frame.
+#' @param subset an optional expression indicating which observations to
+#'   use. Must be captured via \code{substitute()} in the calling function
+#'   to avoid collision with \code{base::subset()}. See Details.
+#' @param na.action a function specifying how missing values are handled.
+#'   Defaults to \code{\link[stats]{na.pass}}.
+#' @param allowed a character vector restricting which design types are
+#'   accepted. Any combination of:
+#'   \code{"one.sample"},
+#'   \code{"two.sample.independent"},
+#'   \code{"two.sample.dependent"},
+#'   \code{"n.sample.independent"},
+#'   \code{"n.sample.dependent"}.
+#'   An error is raised if the detected type is not in \code{allowed}.
+#'   Default allows all types.
+#'
+#' @details
+#' \strong{Design types:}
+#'
+#' \tabular{lll}{
+#'   \strong{type}                  \tab \strong{Formula}        \tab \strong{Examples} \cr
+#'   \code{one.sample}              \tab \code{y ~ 1}            \tab t-test, Wilcoxon one-sample \cr
+#'   \code{two.sample.independent}  \tab \code{y ~ g} (k=2)     \tab t-test, Wilcoxon rank-sum \cr
+#'   \code{two.sample.dependent}    \tab \code{Pair(x,y) ~ 1}   \tab paired t-test, Wilcoxon signed-rank \cr
+#'   \code{n.sample.independent}    \tab \code{y ~ g} (k>2)     \tab ANOVA, Kruskal-Wallis \cr
+#'   \code{n.sample.dependent}      \tab \code{y ~ trt | block} \tab repeated measures ANOVA, Friedman \cr
+#' }
+#'
+#' \strong{subset handling:}
+#'
+#' Because \code{subset} is both an argument name and a base R function,
+#' name collisions can occur when forwarding to \code{stats::model.frame}.
+#' The calling function must capture \code{subset} as an unevaluated
+#' expression:
+#'
+#' \preformatted{
+#' myFun <- function(formula, data, subset, na.action = na.pass, ...) {
+#'   subset_expr <- if (!missing(subset)) substitute(subset) else NULL
+#'   resolveFormula(formula, data,
+#'                  subset    = subset_expr,
+#'                  na.action = na.action)
+#' }
+#' }
+#'
+#' \strong{Return value components by type:}
+#'
+#' All return values contain \code{type}, \code{mf} and \code{data.name}.
+#' Additional components depend on the design:
+#'
+#' \tabular{ll}{
+#'   \strong{type}                  \tab \strong{Additional components} \cr
+#'   \code{one.sample}              \tab \code{x} \cr
+#'   \code{two.sample.independent}  \tab \code{x}, \code{y}, \code{group} \cr
+#'   \code{two.sample.dependent}    \tab \code{x}, \code{y} \cr
+#'   \code{n.sample.independent}    \tab \code{x}, \code{group} \cr
+#'   \code{n.sample.dependent}      \tab \code{response}, \code{group}, \code{block} \cr
+#' }
+#'
+#' @return a named list with at minimum:
+#' \describe{
+#'   \item{\code{type}}{character, one of the five design types listed above}
+#'   \item{\code{mf}}{the \code{\link[stats]{model.frame}}}
+#'   \item{\code{data.name}}{the deparsed formula string}
+#' }
+#' Plus design-specific components as described in Details.
+#'
+#' @seealso
+#'   \code{\link[stats]{model.frame}},
+#'   \code{\link[stats]{Pair}},
+#'   \code{\link{desc}}
+#'
+#' @family utils
+#' @concept formula design classification model.frame independent dependent
+#'
+#' @examples
+#' set.seed(1)
+#' df <- data.frame(
+#'   y   = rnorm(30, 50, 10),
+#'   g2  = rep(c("A", "B"), 15),
+#'   g3  = rep(c("A", "B", "C"), 10),
+#'   trt = rep(c("T1", "T2", "T3"), 10),
+#'   blk = rep(1:10, 3)
+#' )
+#'
+#' # one-sample
+#' resolveFormula(y ~ 1, data = df)$type
+#' #> [1] "one.sample"
+#'
+#' # two-sample independent
+#' resolveFormula(y ~ g2, data = df,
+#'                allowed = c("two.sample.independent",
+#'                            "n.sample.independent"))$type
+#' #> [1] "two.sample.independent"
+#'
+#' # n-sample independent
+#' resolveFormula(y ~ g3, data = df,
+#'                allowed = "n.sample.independent")$type
+#' #> [1] "n.sample.independent"
+#'
+#' # two-sample dependent (paired)
+#' df2 <- data.frame(pre = rnorm(15, 50, 10), post = rnorm(15, 55, 10))
+#' resolveFormula(Pair(pre, post) ~ 1, data = df2,
+#'                allowed = c("one.sample",
+#'                            "two.sample.dependent"))$type
+#' #> [1] "two.sample.dependent"
+#'
+#' # n-sample dependent (blocked)
+#' resolveFormula(y ~ trt | blk, data = df,
+#'                allowed = "n.sample.dependent")$type
+#' #> [1] "n.sample.dependent"
+#'
+#' @export
+resolveFormula <- function(
+    formula,
+    data,
+    subset,
+    na.action = na.pass,
+    allowed   = c("one.sample",
+                  "two.sample.independent",
+                  "two.sample.dependent",
+                  "n.sample.independent",
+                  "n.sample.dependent")
+) {
+  
+  # ── Validate ──────────────────────────────────────────────────────────────
+  if (missing(formula))
+    stop("'formula' is missing")
+  if (!inherits(formula, "formula"))
+    stop("'formula' must be a formula object")
+  
+  # ── Coerce matrix data ────────────────────────────────────────────────────
+  if (!missing(data) && is.matrix(data))
+    data <- as.data.frame(data)
+  
+  # ── Capture environment and subset before any frame changes ───────────────
+  env         <- parent.frame()
+  subset_expr <- if (!missing(subset)) substitute(subset) else NULL
+  has_data    <- !missing(data)
+  dname       <- deparse1(formula)
+  
+  # ── Helper: build model.frame via bquote/eval ─────────────────────────────
+  # Using bquote + eval(envir=env) avoids match.call() manipulation and
+  # correctly resolves variables in the caller's environment.
+  .mf <- function(f) {
+    args <- list(formula   = f,
+                 na.action = na.action)
+    
+    if (has_data)
+      args$data <- data
+    
+    if (!is.null(subset_expr))
+      args$subset <- eval(subset_expr, envir = if (has_data) data else env,
+                          enclos = env)
+    
+    do.call(model.frame, args)
+  }
+  
+  # ── 1. n.sample.dependent: y ~ trt | block ───────────────────────────────
+  rhs <- formula[[3L]]
+  
+  if (is.call(rhs) && identical(rhs[[1L]], as.name("|"))) {
+    
+    if (!"n.sample.dependent" %in% allowed)
+      stop("'n.sample.dependent' design not allowed by 'allowed' argument")
+    
+    f2             <- formula
+    f2[[3L]][[1L]] <- as.name("+")
+    mf             <- .mf(f2)
+    
+    if (ncol(mf) != 3L)
+      stop("blocked formula must be of the form y ~ trt | block")
+    
+    return(list(
+      type      = "n.sample.dependent",
+      mf        = mf,
+      response  = mf[[1L]],
+      group     = mf[[2L]],
+      block     = mf[[3L]],
+      data.name = dname
+    ))
+  }
+  
+  # ── 2. All other ──────────────────────────────────────────────────────────
+  mf       <- .mf(formula)
+  if (ncol(mf) > 2L)
+    stop("'formula' should be of the form response ~ group")
+  
+  response <- mf[[1L]]
+  
+  # ── 2a. One-sample or two-sample dependent ────────────────────────────────
+  if (ncol(mf) == 1L) {
+    
+    if (!any(c("one.sample", "two.sample.dependent") %in% allowed))
+      stop("'one.sample' / 'two.sample.dependent' design not allowed by 'allowed' argument")
+    
+    if (is.matrix(response) && ncol(response) == 2L &&
+        inherits(response, "Pair")) {
+      
+      if (!"two.sample.dependent" %in% allowed)
+        stop("'two.sample.dependent' design not allowed by 'allowed' argument")
+      
+      return(list(
+        type      = "two.sample.dependent",
+        mf        = mf,
+        x         = response[, 1L],
+        y         = response[, 2L],
+        data.name = dname
+      ))
+    }
+    
+    if (!"one.sample" %in% allowed)
+      stop("'one.sample' design not allowed by 'allowed' argument")
+    
+    return(list(
+      type      = "one.sample",
+      mf        = mf,
+      x         = response,
+      data.name = dname
+    ))
+  }
+  
+  # ── 2b. Grouped: two-sample or n-sample independent ──────────────────────
+  g <- droplevels(factor(mf[[2L]], exclude = NULL))
+  k <- nlevels(g)
+  
+  if (k < 2L)
+    stop("grouping factor must have at least 2 levels")
+  
+  if (k == 2L && "two.sample.independent" %in% allowed) {
+    DATA <- split(response, g, drop = TRUE)
+    return(list(
+      type      = "two.sample.independent",
+      mf        = mf,
+      x         = DATA[[1L]],
+      y         = DATA[[2L]],
+      group     = g,
+      data.name = dname
+    ))
+  }
+  
+  if ("n.sample.independent" %in% allowed) {
+    return(list(
+      type      = "n.sample.independent",
+      mf        = mf,
+      x         = response,
+      group     = g,
+      data.name = dname
+    ))
+  }
+  
+  stop("grouped design not allowed by 'allowed' argument")
+}
+

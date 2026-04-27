@@ -23,7 +23,7 @@ A \code{data.frame} containing the imported data. If metadata is available:
 \itemize{
 \item Variables may be converted to factors (nominal/ordinal)
 \item Factor levels are labeled using provided codes
-\item Variable labels are assigned using \code{DescTools::Label()}
+\item Variable labels are assigned using \code{label()}
 }
 }
 \description{

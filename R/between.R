@@ -18,8 +18,8 @@
 #' Both arguments, \code{x} and \code{rng}, will be recycled to the highest
 #' dimension, which is either the length of the vector (\code{x}) or the number
 #' of rows of the matrix (\code{rng}).\cr See also the routines used to check,
-#' whether two ranges overlap (\code{\link[DescTools]{Overlap}}, 
-#' \code{\link[DescTools]{Interval}}).
+#' whether two ranges overlap (\code{\link{overlap}}, 
+#' \code{\link{distance}}).
 #' 
 #' \code{%:%} returns all the elements of a vector between the (first found)
 #' element \code{rng[1]} and \code{rng[2]}. If no match is found it returns
@@ -40,7 +40,7 @@
 #' @note Based on C-code by Kevin Ushey
 #' 
 #' @seealso \code{\link{if}}, \code{\link{ifelse}}, \code{\link{Comparison}},
-#' \code{\link[DescTools]{Overlap}}, \code{\link[DescTools]{Interval}}
+#' \code{\link{overlap}}, \code{\link{distance}}
 #' 
 #' @examples
 #' 

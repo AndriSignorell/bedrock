@@ -1,6 +1,6 @@
 Package: bedrock
 Title: Base functions for the DescToolsX ecosystem
-Version: 0.0.0.907
+Version: 0.0.0.908
 Authors@R: 
     person("Andri", "Signorell", , "andri@signorell.net", role = c("aut", "cre"))
 Description: Provides low level, generic utilities and basic routines used in DescToolsX.
