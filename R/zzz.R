@@ -16,7 +16,7 @@
 #' 
 #' @importFrom stats complete.cases na.omit quantile uniroot runif
 #'             relevel filter is.ts na.exclude na.fail na.pass
-#'             model.frame
+#'             model.frame plogis qlogis
 #' 
 #' @importFrom utils combn modifyList tail browseURL find
 #'             getAnywhere head help.search str capture.output

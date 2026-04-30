@@ -2,23 +2,16 @@
 % Please edit documentation in R/pdfManual.R
 \name{pdfManual}
 \alias{pdfManual}
-\title{Get PDF Manual of a Package From CRAN}
+\title{Open CRAN PDF manual of a package}
 \usage{
 pdfManual(package)
 }
 \arguments{
-\item{package}{name of the package.}
+\item{package}{Package name (symbol or character)}
 }
 \description{
 PDF versions of the manual are usually not included as vignettes in R
 packages. Still this format is convenient for reading and doing full text
 search. \cr This function creates the appropriate link to the pdf file on
 CRAN and opens the pdf manual in a browser window.
-}
-\examples{
-
-\dontrun{
-pdfManual(bedrock)
-}
-
 }

@@ -85,7 +85,7 @@
 #' @seealso
 #'   \code{\link[stats]{model.frame}},
 #'   \code{\link[stats]{Pair}},
-#'   \code{\link{desc}}
+#'   \code{\link[DescToolsX]{desc}}
 #'
 #' @family utils
 #' @concept formula design classification model.frame independent dependent

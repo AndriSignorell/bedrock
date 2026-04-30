@@ -20,13 +20,13 @@
 #' @examples
 #' # Split letters into 3 groups of sizes 4, 3, and 5
 #' set.seed(123)
-#' randomGroupSplit(LETTERS[1:12], grp_n = c(4, 3, 5))
+#' rndGroupSplit(LETTERS[1:12], grp_n = c(4, 3, 5))
 #'
 
 
 
 #' @export
-randomGroupSplit <- function(x, grp_n) {
+rndGroupSplit <- function(x, grp_n) {
   if (!is.numeric(grp_n) || any(grp_n <= 0) || any(grp_n %% 1 != 0)) {
     stop("grp_n must be a vector of positive integers")
   }

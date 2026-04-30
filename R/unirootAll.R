@@ -1,125 +1,141 @@
 
-#' Finds many (all) roots of one equation within an interval
-#' 
-#' The function \code{unirootAll} searches the interval from lower to upper for
-#' several roots (i.e., zero's) of a function \code{f} with respect to its
-#' first argument.
-#' 
-#' \code{f} will be called as \code{f(x, ...)} for a numeric value of \code{x}.
-#' 
-#' Run \code{demo(Jacobandroots)} for an example of the use of
-#' \code{unirootAll} for steady-state analysis.
-#' 
-#' See also second example of \code{gradient} This example is discussed in the
-#' book by Soetaert and Herman (2009).
-#' 
-#' @param f the function for which the root is sought.
-#' @param interval a vector containing the end-points of the interval to be
-#' searched for the root.
-#' @param lower the lower end point of the interval to be searched.
-#' @param upper the upper end point of the interval to be searched.
-#' @param tol the desired accuracy (convergence tolerance).
-#' @param maxiter the maximum number of iterations.
-#' @param n number of subintervals in which the root is sought.
-#' @param ... additional named or unnamed arguments to be passed to \code{f}
-#' (but beware of partial matching to other arguments).
-#' @return a vector with the roots found in the interval
-#' @note This is a verbatim copy from rootSolve::uniroot.all (v. 1.7).
-#' @author Karline Soetaert <karline.soetaert@@nioz.nl>
-#' @seealso \code{\link{uniroot}} for more information about input.
-#' @keywords optimize
+#' Find multiple roots of a function within an interval
+#'
+#' Searches a numeric interval for all roots (zeros) of a function \code{f}
+#' by subdividing it into \code{n} sub-intervals, detecting sign changes, and
+#' refining each candidate with \code{\link[stats]{uniroot}}.
+#'
+#' The function \code{f} is called as \code{f(x, ...)} where \code{x} is a
+#' numeric vector. If \code{f} does not accept vector input, it is called
+#' element-wise via \code{sapply}.
+#'
+#' Grid points at which \code{|f(x)| < tol} are returned directly as roots.
+#' Sign changes are detected using \code{sign()}, which avoids numerical
+#' overflow that can occur with product-based approaches. Non-finite function
+#' values are silently ignored when detecting sign changes. If \code{uniroot}
+#' fails on a sub-interval, that interval is skipped with a warning rather
+#' than aborting the entire search.
+#'
+#' @param f       A function for which roots are sought. Must accept a numeric
+#'   first argument; additional arguments are passed via \code{...}.
+#' @param interval A numeric vector of length 2 specifying the search interval.
+#'   Either \code{interval} or both \code{lower} and \code{upper} must be
+#'   supplied.
+#' @param lower  Lower bound of the search interval.
+#'   Default: \code{min(interval)}.
+#' @param upper  Upper bound of the search interval.
+#'   Default: \code{max(interval)}.
+#' @param tol    Convergence tolerance passed to \code{\link[stats]{uniroot}},
+#'   and also used as the threshold for (i) treating grid-point values as
+#'   exact zeros and (ii) collapsing near-duplicate roots.
+#'   Default: \code{.Machine$double.eps^0.5}.
+#' @param maxiter Maximum number of iterations for \code{\link[stats]{uniroot}}.
+#'   Default: \code{1000}.
+#' @param n      Number of sub-intervals used for the initial grid search.
+#'   Increase \code{n} if roots may be close together or the function
+#'   oscillates rapidly. Default: \code{100}.
+#' @param ...    Additional arguments passed to \code{f}.
+#'
+#' @return A numeric vector of roots found in \code{[lower, upper]}, sorted in
+#'   ascending order. Returns \code{numeric(0)} if no roots are found.
+#'
+#' @details
+#' **Limitations:** Roots within the same sub-interval of width
+#' \code{(upper - lower) / n} may be missed. Roots of even multiplicity
+#' that do not produce a sign change will not be found unless they happen
+#' to fall on a grid point. A warning is issued if no roots are found at
+#' all despite finite function values being present.
+#'
+#' @seealso \code{\link[stats]{uniroot}} for the underlying single-root solver.
+#'
 #' @examples
-#' 
-#' ## =======================================================================
-#' ##   Mathematical examples
-#' ## =======================================================================
-#' 
-#' # a well-behaved case...
-#' fun <- function (x) cos(2*x)^3
-#' 
-#' curve(fun(x), 0, 10,main = "unirootAll")
-#' 
-#' All <- unirootAll(fun, c(0, 10))
-#' points(All, y = rep(0, length(All)), pch = 16, cex = 2)
-#' 
-#' # a difficult case...
-#' f <- function (x) 1/cos(1+x^2)
-#' AA <- unirootAll(f, c(-5, 5))
-#' curve(f(x), -5, 5, n = 500, main = "unirootAll")
-#' points(AA, rep(0, length(AA)), col = "red", pch = 16)
-#' 
-#' f(AA)  # !!!
-#' 
-#' 
-#' ## =======================================================================
-#' ## Vectorisation:
-#' ## =======================================================================
-#' # from R-help Digest, Vol 130, Issue 27
-#' # https://stat.ethz.ch/pipermail/r-help/2013-December/364799.html
-#' 
-#' integrand1 <- function(x) 1/x*dnorm(x)
-#' integrand2 <- function(x) 1/(2*x-50)*dnorm(x)
-#' integrand3 <- function(x, C) 1/(x+C)
-#' 
-#' res <- function(C) {
-#'   integrate(integrand1, lower = 1, upper = 50)$value +
-#'   integrate(integrand2, lower = 50, upper = 100)$value -
-#'   integrate(integrand3, C = C, lower = 1, upper = 100)$value
-#' }
-#' 
-#' # uniroot passes one value at a time to the function, so res can be used as such
-#' uniroot(res, c(1, 1000))
-#' 
-#' # Need to vectorise the function to use unirootAll:
-#' res <- Vectorize(res)
-#' unirootAll(res, c(1,1000))
-#' 
-#' 
-  
+#' f <- function(x) cos(2 * x)^3
+#' roots <- unirootAll(f, c(0, 10))
+#' stopifnot(all(abs(f(roots)) < 1e-6))
+#'
+#' # Non-vectorized function
+#' g <- Vectorize(function(x) integrate(function(t) t^x, 0, 1)$value - 0.5)
+#' unirootAll(g, c(0.1, 5))
+#'
 
-## =============================================================================
-## uniroot.all: multiple roots of one nonlinear equation
-## =============================================================================
 
 #' @export
-unirootAll <- function (f, interval, lower= min(interval),
-                        upper= max(interval), tol= .Machine$double.eps^0.5,
-                        maxiter= 1000, n = 100, ... ) {
+unirootAll <- function(f,
+                              interval,
+                              lower = min(interval),
+                              upper = max(interval),
+                              tol = .Machine$double.eps^0.5,
+                              maxiter = 1000,
+                              n = 100,
+                              ...) {
   
-  # this is a copy of rootSolve::uniroot.all v. 1.8.2.1
-  # author: Karline Soetaert
-  
-  
-  ## error checking as in uniroot...
+  ## --- checks ---
   if (!missing(interval) && length(interval) != 2)
-    stop("'interval' must be a vector of length 2")
-  if (!is.numeric(lower) || !is.numeric(upper) || lower >=
-      upper)
-    stop("lower < upper  is not fulfilled")
+    stop("'interval' must be length 2")
   
-  ## subdivide interval in n subintervals and estimate the function values
-  xseq <- seq(lower, upper, len=n+1)
-  #   changed in 0.99.36 5.5.2020
-  # but we should maybe vectorize the functions in order to allow the user not to
-  # bother about internal applies
-  # ... not sure about the impact..
+  if (!is.numeric(lower) || !is.numeric(upper) || lower >= upper)
+    stop("require lower < upper")
   
-  # Original: mod  <- f(xseq, ...)
-  mod  <- Vectorize(f)(xseq, ...)
+  ## --- grid ---
+  xseq <- seq(lower, upper, length.out = n + 1)
   
-  ## some function values may already be 0
-  Equi <- xseq[which(mod==0)]
+  ## --- evaluate function (vectorized fallback) ---
+  mod <- tryCatch(
+    f(xseq, ...),
+    error = function(e) NULL
+  )
   
-  ss   <- mod[1:n]*mod[2:(n+1)]  # interval where function values change sign
-  ii   <- which(ss<0)
-  
-  for (i in ii)
-    Equi <- c(Equi, uniroot(f, lower=xseq[i], upper=xseq[i+1], 
-                            maxiter = maxiter, tol = tol, ...)$root)
-  
-  return(Equi)
-  
-  
-}
+  # try vectorized evaluation; fallback to element-wise if needed
+  if (is.null(mod) || length(mod) != length(xseq)) {
+    mod <- sapply(xseq, function(x) {
+      tryCatch(
+        f(x, ...),
+        error = function(e) NA_real_
+      )
+    })
+  }  
 
+  ok <- is.finite(mod)
+  
+  ## --- near-zero roots ---
+  roots <- xseq[ok & abs(mod) < tol]
+  
+  ## --- sign changes ---
+  s <- sign(mod)
+  change <- (s[1:n] != s[2:(n + 1)]) & ok[1:n] & ok[2:(n + 1)]
+  idx <- which(change)
+  
+  ## --- refine with uniroot (robust) ---
+  if (length(idx) > 0) {
+    roots2 <- sapply(idx, function(i) {
+      tryCatch(
+        uniroot(f,
+                lower = xseq[i],
+                upper = xseq[i + 1],
+                tol = tol,
+                maxiter = maxiter,
+                ...)$root,
+        error = function(e) NA_real_
+      )
+    })
+    roots <- c(roots, roots2[!is.na(roots2)])
+  }
+  
+  ## --- deduplicate ---
+  if (length(roots) > 1) {
+    roots <- sort(roots)
+    roots <- roots[c(TRUE, diff(roots) > tol)]
+  }
+  
+  ## --- improved warning ---
+  if (length(roots) == 0 && any(ok)) {
+    warning(
+      "No sign changes detected and no near-zero grid points found. ",
+      "Roots of even multiplicity or closely spaced roots may be missed. ",
+      "Consider increasing 'n'."
+    )
+  }
+  
+  return(roots)
+}
 

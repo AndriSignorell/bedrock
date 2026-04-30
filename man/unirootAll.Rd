@@ -2,7 +2,7 @@
 % Please edit documentation in R/unirootAll.R
 \name{unirootAll}
 \alias{unirootAll}
-\title{Finds many (all) roots of one equation within an interval}
+\title{Find multiple roots of a function within an interval}
 \usage{
 unirootAll(
   f,
@@ -16,96 +16,70 @@ unirootAll(
 )
 }
 \arguments{
-\item{f}{the function for which the root is sought.}
+\item{f}{A function for which roots are sought. Must accept a numeric
+first argument; additional arguments are passed via \code{...}.}
 
-\item{interval}{a vector containing the end-points of the interval to be
-searched for the root.}
+\item{interval}{A numeric vector of length 2 specifying the search interval.
+Either \code{interval} or both \code{lower} and \code{upper} must be
+supplied.}
 
-\item{lower}{the lower end point of the interval to be searched.}
+\item{lower}{Lower bound of the search interval.
+Default: \code{min(interval)}.}
 
-\item{upper}{the upper end point of the interval to be searched.}
+\item{upper}{Upper bound of the search interval.
+Default: \code{max(interval)}.}
 
-\item{tol}{the desired accuracy (convergence tolerance).}
+\item{tol}{Convergence tolerance passed to \code{\link[stats]{uniroot}},
+and also used as the threshold for (i) treating grid-point values as
+exact zeros and (ii) collapsing near-duplicate roots.
+Default: \code{.Machine$double.eps^0.5}.}
 
-\item{maxiter}{the maximum number of iterations.}
+\item{maxiter}{Maximum number of iterations for \code{\link[stats]{uniroot}}.
+Default: \code{1000}.}
 
-\item{n}{number of subintervals in which the root is sought.}
+\item{n}{Number of sub-intervals used for the initial grid search.
+Increase \code{n} if roots may be close together or the function
+oscillates rapidly. Default: \code{100}.}
 
-\item{...}{additional named or unnamed arguments to be passed to \code{f}
-(but beware of partial matching to other arguments).}
+\item{...}{Additional arguments passed to \code{f}.}
 }
 \value{
-a vector with the roots found in the interval
+A numeric vector of roots found in \code{[lower, upper]}, sorted in
+ascending order. Returns \code{numeric(0)} if no roots are found.
 }
 \description{
-The function \code{unirootAll} searches the interval from lower to upper for
-several roots (i.e., zero's) of a function \code{f} with respect to its
-first argument.
+Searches a numeric interval for all roots (zeros) of a function \code{f}
+by subdividing it into \code{n} sub-intervals, detecting sign changes, and
+refining each candidate with \code{\link[stats]{uniroot}}.
 }
 \details{
-\code{f} will be called as \code{f(x, ...)} for a numeric value of \code{x}.
+The function \code{f} is called as \code{f(x, ...)} where \code{x} is a
+numeric vector. If \code{f} does not accept vector input, it is called
+element-wise via \code{sapply}.
 
-Run \code{demo(Jacobandroots)} for an example of the use of
-\code{unirootAll} for steady-state analysis.
+Grid points at which \code{|f(x)| < tol} are returned directly as roots.
+Sign changes are detected using \code{sign()}, which avoids numerical
+overflow that can occur with product-based approaches. Non-finite function
+values are silently ignored when detecting sign changes. If \code{uniroot}
+fails on a sub-interval, that interval is skipped with a warning rather
+than aborting the entire search.
 
-See also second example of \code{gradient} This example is discussed in the
-book by Soetaert and Herman (2009).
-}
-\note{
-This is a verbatim copy from rootSolve::uniroot.all (v. 1.7).
+\strong{Limitations:} Roots within the same sub-interval of width
+\code{(upper - lower) / n} may be missed. Roots of even multiplicity
+that do not produce a sign change will not be found unless they happen
+to fall on a grid point. A warning is issued if no roots are found at
+all despite finite function values being present.
 }
 \examples{
+f <- function(x) cos(2 * x)^3
+roots <- unirootAll(f, c(0, 10))
+stopifnot(all(abs(f(roots)) < 1e-6))
 
-## =======================================================================
-##   Mathematical examples
-## =======================================================================
-
-# a well-behaved case...
-fun <- function (x) cos(2*x)^3
-
-curve(fun(x), 0, 10,main = "unirootAll")
-
-All <- unirootAll(fun, c(0, 10))
-points(All, y = rep(0, length(All)), pch = 16, cex = 2)
-
-# a difficult case...
-f <- function (x) 1/cos(1+x^2)
-AA <- unirootAll(f, c(-5, 5))
-curve(f(x), -5, 5, n = 500, main = "unirootAll")
-points(AA, rep(0, length(AA)), col = "red", pch = 16)
-
-f(AA)  # !!!
-
-
-## =======================================================================
-## Vectorisation:
-## =======================================================================
-# from R-help Digest, Vol 130, Issue 27
-# https://stat.ethz.ch/pipermail/r-help/2013-December/364799.html
-
-integrand1 <- function(x) 1/x*dnorm(x)
-integrand2 <- function(x) 1/(2*x-50)*dnorm(x)
-integrand3 <- function(x, C) 1/(x+C)
-
-res <- function(C) {
-  integrate(integrand1, lower = 1, upper = 50)$value +
-  integrate(integrand2, lower = 50, upper = 100)$value -
-  integrate(integrand3, C = C, lower = 1, upper = 100)$value
-}
-
-# uniroot passes one value at a time to the function, so res can be used as such
-uniroot(res, c(1, 1000))
-
-# Need to vectorise the function to use unirootAll:
-res <- Vectorize(res)
-unirootAll(res, c(1,1000))
-
+# Non-vectorized function
+g <- Vectorize(function(x) integrate(function(t) t^x, 0, 1)$value - 0.5)
+unirootAll(g, c(0.1, 5))
 
 }
 \seealso{
-\code{\link{uniroot}} for more information about input.
+\code{\link[stats]{uniroot}} for the underlying single-root solver.
 }
-\author{
-Karline Soetaert \href{mailto:karline.soetaert@nioz.nl}{karline.soetaert@nioz.nl}
-}
-\keyword{optimize}

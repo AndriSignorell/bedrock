@@ -3,52 +3,95 @@
 \name{logit}
 \alias{logit}
 \alias{logitInv}
-\title{Generalized logit and Inverse logit Function}
+\title{Logit Transformation and Its Inverse}
 \usage{
-logit(x, min = 0, max = 1)
+logit(x, min = 0, max = 1, eps = .Machine$double.eps, warn = FALSE)
 
 logitInv(x, min = 0, max = 1)
 }
 \arguments{
-\item{x}{value(s) to be transformed}
+\item{x}{Numeric vector. For \code{logit()}, values are interpreted relative
+to the interval \eqn{[min, max]}. For \code{logitInv()}, \code{x} can be any
+real number.}
 
-\item{min}{lower end of logit interval}
+\item{min}{Lower bound of the interval. Must be finite.}
 
-\item{max}{upper end of logit interval}
+\item{max}{Upper bound of the interval. Must be finite and greater than \code{min}.}
+
+\item{eps}{Small positive value used to clamp probabilities away from
+\eqn{0} and \eqn{1} for numerical stability in \code{logit()}.
+Default: \code{.Machine$double.eps}.}
+
+\item{warn}{Logical; if \code{TRUE}, a warning is issued when values are
+effectively clamped because they fall outside the open interval
+\eqn{(min, max)}. Default: \code{FALSE}.}
 }
 \value{
-Transformed value(s).
+A numeric vector of the same length as \code{x}.
 }
 \description{
-Compute generalized logit and generalized inverse logit functions.
+Computes the logit transformation and its inverse for values defined on a
+finite interval \eqn{[min, max]}.
 }
 \details{
-The generalized logit function takes values on \verb{[min, max]} and transforms
-them to span \eqn{[-\infty, \infty ]}{[-Inf, Inf]}. \cr It is defined as:
+The \code{logit()} function maps values from \eqn{[min, max]} to the real
+line \eqn{(-\infty, \infty)}. The inverse transformation \code{logitInv()}
+maps real-valued inputs back to \eqn{[min, max]}.
 
-\deqn{y = log\left (\frac{p}{1-p} \right ) \;\;\; \; \textup{where} \; \;\;
-p=\frac{x-min}{max-min}}{y = log(p/(1-p)) where p=(x-min)/(max-min)}
+The logit transformation is defined as:
 
-The generalized inverse logit function provides the inverse transformation:
+\deqn{
+\mathrm{logit}(x) = \log\left(\frac{p}{1 - p}\right)
+}
 
-\deqn{x = p' \cdot (max-min) + min \;\;\; \; \textup{where} \; \;\;
-p'=\frac{exp(y)}{1+exp(y)}}{x = p' * (max-min) + min where p' =
-exp(y)/(1+exp(y))}
+where
+
+\deqn{
+p = \frac{x - min}{max - min}.
+}
+
+For numerical stability, \eqn{p} is clamped to \eqn{[eps, 1 - eps]} before
+applying the transformation. This prevents returning \code{-Inf} or
+\code{Inf} for values exactly equal to \code{min} or \code{max}, or slightly
+outside the interval due to floating point error.
+
+If \code{warn = TRUE}, a warning is issued when such clamping occurs.
+
+The inverse transformation is given by:
+
+\deqn{
+x = min + (max - min) \cdot \frac{1}{1 + e^{-z}}
+}
+
+where \eqn{z} is the input to \code{logitInv()}.
+
+Note that \code{logitInv()} does not perform clamping. This asymmetry is
+intentional: \code{\link[stats]{plogis}} is well-defined for all real inputs,
+so no stabilization is required.
 }
 \examples{
+x <- seq(0, 1, length.out = 5)
+z <- logit(x)
+logitInv(z)
 
+# Boundary values are clamped internally:
+# 0 -> eps, 1 -> 1 - eps
+logit(c(0, 0.5, 1))
 
-x <- seq(0,10, by=0.25)
-xt <- logit(x, min=0, max=10)
-cbind(x,xt)
+# With warn = TRUE, clamping at the boundaries triggers a warning
+logit(c(0, 0.5, 1), warn = TRUE)
 
-y <- logitInv(xt, min=0, max=10)
-cbind(x, xt, y)
+# Values strictly outside the interval also trigger a warning
+logit(c(-0.1, 0.5, 1.1), warn = TRUE)
+
+# Custom interval
+x <- seq(10, 20, length.out = 5)
+z <- logit(x, min = 10, max = 20)
+logitInv(z, min = 10, max = 20)
 }
 \seealso{
-\code{\link[car]{logit}}
+\code{\link[stats]{qlogis}}, \code{\link[stats]{plogis}}
 }
-\author{
-Gregory R. Warnes \email{greg@warnes.net}
-}
-\keyword{math}
+\concept{logistic}
+\concept{transformation}
+\concept{transformations}
