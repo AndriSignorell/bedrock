@@ -7,34 +7,34 @@
 completeColumns(x, which = TRUE)
 }
 \arguments{
-\item{x}{A \code{data.frame} containing the data to be checked.}
+\item{x}{A data.frame or list-like object whose elements are checked
+for missing values.}
 
 \item{which}{Logical. If \code{TRUE} (default), the function returns
-the names of columns without missing values. If \code{FALSE}, a
-logical vector is returned, where each element corresponds to a
-column in \code{x} and indicates whether that column is complete.}
+the names of elements without missing values. If \code{FALSE}, a
+logical vector is returned, where each element corresponds to an
+element in \code{x} and indicates whether it is complete.}
 }
 \value{
-If \code{which = TRUE}: a character vector with the names of all
-complete columns.
+If \code{which = TRUE}, a character vector with the names of all
+complete elements.
 
-If \code{which = FALSE}: a logical vector of length \code{ncol(x)},
-where \code{TRUE} indicates that the corresponding column contains
+If \code{which = FALSE}, a logical vector of length \code{length(x)},
+where \code{TRUE} indicates that the corresponding element contains
 no missing values.
 }
 \description{
-This function checks each column of a data frame for missing values
-(\code{NA}) and identifies those columns that are completely observed,
-i.e., contain no missing entries.
+This function checks each element of a data frame or list-like object
+for missing values (\code{NA}) and identifies those that are completely
+observed, i.e., contain no missing entries.
 }
 \details{
 Depending on the argument \code{which}, the function either returns
-the names of such columns or a logical vector indicating completeness
-for each column.
+the names of such elements or a logical vector indicating completeness
+for each element.
 
-A column is considered \emph{complete} if it contains zero missing values.
-Internally, the function counts the number of \code{NA}s per column
-using \code{\link{is.na}} and selects those with a count of zero.
+An element is considered \emph{complete} if it contains zero missing values.
+Internally, the function uses \code{\link{anyNA}} to detect missing values.
 }
 \examples{
 # Names of columns without missing values
@@ -45,6 +45,13 @@ completeColumns(d.pizza, which = FALSE)
 
 }
 \seealso{
-\code{\link{is.na}}, \code{\link{na.omit}},
-\code{\link{complete.cases}}
+\code{\link{anyNA}}, \code{\link{is.na}},
+\code{\link{na.omit}}, \code{\link{complete.cases}}
+
+Other data.inspection: 
+\code{\link{allDuplicated}()},
+\code{\link{allIdentical}()}
 }
+\concept{data-inspection}
+\concept{data.inspection}
+\concept{missing-data}

@@ -71,4 +71,11 @@ occurrences). \cr
 \code{\link{table}} for counting frequencies. \cr
 \code{\link{union}}, \code{\link{intersect}}, \code{\link{setdiff}},
 \code{\link{setequal}} for set-based operations on vectors.
+
+Other data.inspection: 
+\code{\link{allIdentical}()},
+\code{\link{completeColumns}()}
 }
+\concept{data-inspection}
+\concept{data-manipulation}
+\concept{data.inspection}

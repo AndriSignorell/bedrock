@@ -1,47 +1,45 @@
 
-#' Append Rownames to a Data Frame
-#' 
-#' Append rownames to a data.frame as first column.
-#' 
-#' 
-#' @param x a data.frame 
-#' @param col_name the name of the new inserted column containing the rownames. 
-#' @param after a subscript, after which the values are to be appended.  If
-#' missing the rownames will be inserted as first column. 
-#' @param remove_rownames logical defining if the existing rownames should be
-#' removed.  Default is \code{TRUE}. 
-#' 
-#' @name appendRowNames
-#' @return the object x with appended rownames
-#' 
+#' Append Rownames to a Data Frame or Matrix
+#'
+#' Adds the row names of a data.frame or matrix as a column.
+#'
+#' @param x A data.frame or matrix.
+#' @param col_name Name of the new column containing the row names.
+#' @param after Position after which the column is inserted.
+#'   Default is 0 (first column).
+#' @param remove_rownames Logical; if TRUE, existing row names are removed.
+#'
+#' @return A data.frame (or matrix coerced to data.frame) with row names
+#'   added as a column.
+#'
 #' @seealso \code{\link{appendX}}
+#'
 #' @examples
-#' 
-#' (dd <- data.frame(x=1:5, y=6:10, z=LETTERS[1:5], 
-#'                   row.names = letters[1:5]))
+#' dd <- data.frame(x=1:5, y=6:10, z=LETTERS[1:5],
+#'                  row.names = letters[1:5])
 #' appendRowNames(dd)
-#' 
+#'
+#' @family data.manipulation
+#' @concept data-manipulation
+#'
+#'
 
 
-
-#' @rdname appendRowNames
 #' @export
-appendRowNames <- function(x, col_name = "rowname", 
-                           after = 0, remove_rownames = TRUE) {
+appendRowNames <- function(x, col_name = "rowname",
+                           after = 0L, remove_rownames = TRUE) {
   
-  if(!(is.data.frame(x) || is.matrix(x)))
+  if (!(is.data.frame(x) || is.matrix(x)))
     stop("'x' must be a data.frame or matrix")
   
   rn <- rownames(x)
-  if(is.null(rn))
+  if (is.null(rn))
     rn <- seq_len(nrow(x))
   
   res <- appendX(x, rn, after = after, names = col_name)
   
-  if(remove_rownames)
+  if (remove_rownames)
     rownames(res) <- NULL
   
-  return(res)
-  
+  res
 }
-

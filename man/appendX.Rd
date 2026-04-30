@@ -2,9 +2,9 @@
 % Please edit documentation in R/appendX.R
 \name{appendX}
 \alias{appendX}
+\alias{appendX.default}
 \alias{appendX.matrix}
 \alias{appendX.data.frame}
-\alias{appendX.default}
 \alias{appendX.TOne}
 \title{Append Elements to Objects}
 \usage{
@@ -12,67 +12,35 @@ appendX(x, values, after = NULL, ...)
 
 \method{appendX}{default}(x, values, after = NULL, ...)
 
-\method{appendX}{matrix}(x, values, after = NULL, rows = FALSE, names = NULL, ...)
+\method{appendX}{matrix}(x, values, after = NULL, rows = FALSE, new_names = NULL, ...)
 
-\method{appendX}{data.frame}(x, values, after = NULL, rows = FALSE, names = NULL, ...)
+\method{appendX}{data.frame}(x, values, after = NULL, rows = FALSE, new_names = NULL, ...)
 
-\method{appendX}{TOne}(x, values, after = NULL, rows = TRUE, names = NULL, ...)
+\method{appendX}{TOne}(x, values, after = NULL, rows = TRUE, new_names = NULL, ...)
 }
 \arguments{
-\item{x}{object for the elements to be inserted}
+\item{x}{Object to which values are appended.}
 
-\item{values}{the elements to be inserted}
+\item{values}{Values to insert into \code{x}.}
 
-\item{after}{a subscript, after which the values are to be appended. If it's
-missing the values will be appended after the last element (or column/row).}
+\item{after}{Position after which to insert. If \code{NULL}, values are appended
+at the end. Use \code{0} to prepend.}
 
-\item{\dots}{further arguments (not used here)}
+\item{...}{Additional arguments.}
 
-\item{rows}{logical, defining if vector should be added as row or as column.
-Default is column (\code{rows}=\code{FALSE}).}
+\item{rows}{Logical; if TRUE, insert rows instead of columns. Ignored for vectors.}
 
-\item{names}{the dimension names for the inserted elements(s)}
+\item{new_names}{Optional names for inserted elements.}
 }
 \value{
-An object containing the values in x with the elements of values
-appended after the specified element of x.
+Object of same type as \code{x}.
 }
 \description{
-Append elements to a number of various objects as vectors, matrices,
-data.frames and lists. In a matrix either rows or columns can be inserted at
-any position. In data frames any vectors can be inserted. \code{values} will
-be recycled to the necessary length.
-}
-\details{
-The vector \code{x} will be recycled to a length of the next multiple of the
-number of rows (or columns) of the matrix \code{m} and will be inserted such
-that the first inserted row (column) has the index \code{i}. If the dimnames
-are given, they will be used no matter if the matrix m has already dimnames
-defined or not.
-}
-\examples{
-
-
-appendX(1:5, 0:1, after = 3)    # the same as append
-
-# Insert columns and rows
-x <- matrix(runif(25), 5)
-
-appendX(x, values=1:10, after=2, names = c("X","Y"))
-appendX(x, values=1:10, after=2)
-
-appendX(x, values=1:10, after=2, names = c("X","Y"))
-appendX(x, values=1:10, after=2)
-
-# append to a data.frame
-d.frm <- data.frame("id"   = c(1,2,3),
-                    "code" = c("AAA", "BBB", "CCC"),
-                    "val"  = c(111, 222, 333))
-z <- c(10, 20, 30)
-
-appendX(d.frm, z, after=2, names="ZZZ")
-
+Generic function to append elements to vectors, matrices, and data frames.
 }
 \seealso{
-\code{\link{rbind}}, \code{\link{cbind}}, \code{\link{append}}
+Other data.manipulation: 
+\code{\link{appendRowNames}()}
 }
+\concept{data-manipulation}
+\concept{data.manipulation}

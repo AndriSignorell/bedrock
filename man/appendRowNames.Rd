@@ -2,34 +2,38 @@
 % Please edit documentation in R/appendRowNames.R
 \name{appendRowNames}
 \alias{appendRowNames}
-\title{Append Rownames to a Data Frame}
+\title{Append Rownames to a Data Frame or Matrix}
 \usage{
-appendRowNames(x, col_name = "rowname", after = 0, remove_rownames = TRUE)
+appendRowNames(x, col_name = "rowname", after = 0L, remove_rownames = TRUE)
 }
 \arguments{
-\item{x}{a data.frame}
+\item{x}{A data.frame or matrix.}
 
-\item{col_name}{the name of the new inserted column containing the rownames.}
+\item{col_name}{Name of the new column containing the row names.}
 
-\item{after}{a subscript, after which the values are to be appended.  If
-missing the rownames will be inserted as first column.}
+\item{after}{Position after which the column is inserted.
+Default is 0 (first column).}
 
-\item{remove_rownames}{logical defining if the existing rownames should be
-removed.  Default is \code{TRUE}.}
+\item{remove_rownames}{Logical; if TRUE, existing row names are removed.}
 }
 \value{
-the object x with appended rownames
+A data.frame (or matrix coerced to data.frame) with row names
+added as a column.
 }
 \description{
-Append rownames to a data.frame as first column.
+Adds the row names of a data.frame or matrix as a column.
 }
 \examples{
-
-(dd <- data.frame(x=1:5, y=6:10, z=LETTERS[1:5], 
-                  row.names = letters[1:5]))
+dd <- data.frame(x=1:5, y=6:10, z=LETTERS[1:5],
+                 row.names = letters[1:5])
 appendRowNames(dd)
 
 }
 \seealso{
 \code{\link{appendX}}
+
+Other data.manipulation: 
+\code{\link{appendX}()}
 }
+\concept{data-manipulation}
+\concept{data.manipulation}

@@ -13,14 +13,14 @@ combPairs(x, y = NULL)
 \code{NULL} then all combination x and y are returned.}
 }
 \value{
-\code{combPairs} returns a data.frame with 2 columns X1 and X2.
+A data.frame with two columns \code{X1} and \code{X2}
+containing the pairwise combinations.
 }
 \description{
 Returns all combinations of 2 out of the elements in x or x and y (if
 defined). Combinations of the same elements will be dropped (no replacing).
-The vector x need not contain unique values. The permutations will
-automatically be filtered for unique sets, if the same element is given
-twice or more.
+The vector \code{x} need not contain unique values. Duplicate elements
+in \code{x} will result in duplicate pairs.
 
 If y = \code{NULL} then all combination of 2 out of x are returned. \cr If y
 is defined then all combinations of x and y are calculated.
@@ -42,3 +42,5 @@ Other combinatorics:
 \code{\link{permn}()}
 }
 \concept{combinatorics}
+\concept{mathematics}
+\concept{vector-manipulation}

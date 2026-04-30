@@ -64,7 +64,11 @@
 #' tab[tab > 1]
 
 
-
+#' @family data.inspection
+#' @concept data-inspection
+#' @concept data-manipulation
+#'
+#'
 #' @export
 allDuplicated <- function(x){
   # returns an index vector of all values involved in ties

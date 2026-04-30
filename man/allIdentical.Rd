@@ -2,40 +2,37 @@
 % Please edit documentation in R/allIdentical.R
 \name{allIdentical}
 \alias{allIdentical}
-\title{Test Multiple Objects for Exact Equality}
+\title{Test Whether Multiple Objects Are Identical}
 \usage{
 allIdentical(...)
 }
 \arguments{
-\item{\dots}{any \code{R} objects}
+\item{...}{Objects to compare.}
+}
+\value{
+Logical scalar.
 }
 \description{
-The function \code{\link{identical}()} is the safe and reliable way to test
-two objects for being exactly equal. But it is restricted to the comparison
-of two objects. \code{allIdentical()} allows the input of multiple objects
-and returns \code{TRUE} in the case that all of them are exactly equal,
-\code{FALSE} in every other case.
-}
-\details{
-The function checks the first object against all others, so if the first
-object is identical to the second and to the third, then also the second and
-the third are identical. (If A=B and A=C then is B=C)
+Extends \code{\link{identical}} to more than two objects. Returns
+\code{TRUE} if all supplied objects are exactly identical, and
+\code{FALSE} otherwise.
 }
 \examples{
-
 A <- LETTERS[1:5]
 B <- LETTERS[1:5]
 C <- LETTERS[1:5]
-D <- LETTERS[1:5]
 E <- factor(LETTERS[1:5])
 
-# all ok
-allIdentical(A, B, C, D)
-
-# at least one odd man
-allIdentical(A, B, C, D, E)
+allIdentical(A, B, C)        # TRUE
+allIdentical(A, B, C, E)     # FALSE
 
 }
 \seealso{
-\code{\link{identical}()}
+\code{\link{identical}}
+
+Other data.inspection: 
+\code{\link{allDuplicated}()},
+\code{\link{completeColumns}()}
 }
+\concept{data-inspection}
+\concept{data.inspection}
