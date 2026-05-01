@@ -30,10 +30,14 @@ primes(c(5, 10))
 
 }
 \seealso{
-Other topic.numberTheory: 
+Other number.theory: 
+\code{\link{conv_numeric}},
+\code{\link{digitSum}()},
 \code{\link{factorize}()},
 \code{\link{fibonacci}()},
+\code{\link{isOdd}()},
 \code{\link{isPrime}()}
 }
-\concept{number theory}
-\concept{topic.numberTheory}
+\concept{mathematics}
+\concept{number-theory}
+\concept{number.theory}

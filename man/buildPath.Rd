@@ -32,11 +32,13 @@ buildPath("data/", "file.csv")
 
 }
 \seealso{
-Other topic.systemTools: 
-\code{\link{funArgs}()},
-\code{\link{funCalls}()},
-\code{\link{funList}()}
+Other file.utils: 
+\code{\link{fileExistURL}()},
+\code{\link{findDownload}()},
+\code{\link{pdfManual}()},
+\code{\link{readD}()},
+\code{\link{splitPath}()}
 }
-\concept{Infrastructure}
-\concept{Utilities}
-\concept{topic.systemTools}
+\concept{file-utilities}
+\concept{file.utils}
+\concept{string-manipulation}

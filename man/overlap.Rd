@@ -26,3 +26,6 @@ overlap(c(1, 5), c(3, 7))  # 2
 overlap(c(1, 3), c(3, 5))  # 0
 
 }
+\concept{interval-arithmetic}
+\concept{interval.ops}
+\concept{mathematics}

@@ -29,6 +29,11 @@
 #' 
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept data-manipulation
+#'
+#'
 #' @export
 unwhich <- function(idx, n = max(idx), useNames=TRUE){
   

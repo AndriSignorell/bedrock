@@ -43,6 +43,11 @@
 
 
 
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept factor-handling
+#'
+#'
 #' @export
 revCode <- function(x, min = NULL, max = NULL, na.rm = FALSE) {
   

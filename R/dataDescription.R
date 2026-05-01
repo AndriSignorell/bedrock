@@ -44,6 +44,12 @@
 
 
 
+#' @family label.utils
+#' @concept variable-labels
+#' @concept data-description
+#' @concept data-manipulation
+#'
+#'
 #' @export
 dataDescription <- function(fn, sheet = "Description") {
   

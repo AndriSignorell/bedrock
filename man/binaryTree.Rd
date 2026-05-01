@@ -35,3 +35,6 @@ and improvements by the package author.
 binaryTree(12)
 
 }
+\concept{data-manipulation}
+\concept{data-structures}
+\concept{data.structures}

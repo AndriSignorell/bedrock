@@ -59,5 +59,26 @@ There's a faster implementation of running mean in the package
 \pkg{caTools} \code{\link[caTools]{runmean}()} and a slower one in
 \pkg{forecast} \code{\link[forecast]{ma}()}. There's similar code in
 \code{\link[aurora]{midx}()}.
+
+Other vector.ops: 
+\code{\link{Coalesce}()},
+\code{\link{closest}()},
+\code{\link{midx}()},
+\code{\link{naIf}()},
+\code{\link{naReplace}()},
+\code{\link{nz}()},
+\code{\link{pairApply}()},
+\code{\link{quot}()},
+\code{\link{rankX}()},
+\code{\link{splitAt}()},
+\code{\link{trim}()},
+\code{\link{unwhich}()},
+\code{\link{vRot}()},
+\code{\link{vShift}()},
+\code{\link{winsorize}()}
 }
+\concept{descriptive-statistics}
+\concept{time-series}
+\concept{vector-manipulation}
+\concept{vector.ops}
 \keyword{univar}

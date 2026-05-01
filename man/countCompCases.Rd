@@ -33,4 +33,18 @@ countCompCases(airquality)
 \seealso{
 \code{\link[aurora]{plotMiss}}, \code{\link{completeColumns}},
 \code{\link{complete.cases}}, \code{\link{is.na}}, \code{\link{na.omit}}
+
+Other data.inspection: 
+\code{\link{allDuplicated}()},
+\code{\link{allIdentical}()},
+\code{\link{completeColumns}()},
+\code{\link{flags}()},
+\code{\link{isDichotomous}()},
+\code{\link{isNumeric}()},
+\code{\link{isWholeLike}()},
+\code{\link{isZero}()}
 }
+\concept{data-inspection}
+\concept{data.inspection}
+\concept{descriptive-statistics}
+\concept{missing-data}

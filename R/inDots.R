@@ -23,6 +23,11 @@
 #' f(col = "blue", col = "green")  # returns "green"
 #'
 
+#' @family pkg.introspection
+#' @concept package-utilities
+#' @concept data-manipulation
+#'
+#'
 #' @export
 inDots <- function(..., arg, default = NULL) {
   

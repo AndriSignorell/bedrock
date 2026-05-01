@@ -55,4 +55,25 @@ closest(c(2, 3, 4, 5), a=c(3.1, 3.9), which=c(FALSE, TRUE))
 }
 \seealso{
 \code{\link{which}}
+
+Other vector.ops: 
+\code{\link{Coalesce}()},
+\code{\link{midx}()},
+\code{\link{moveAvg}()},
+\code{\link{naIf}()},
+\code{\link{naReplace}()},
+\code{\link{nz}()},
+\code{\link{pairApply}()},
+\code{\link{quot}()},
+\code{\link{rankX}()},
+\code{\link{splitAt}()},
+\code{\link{trim}()},
+\code{\link{unwhich}()},
+\code{\link{vRot}()},
+\code{\link{vShift}()},
+\code{\link{winsorize}()}
 }
+\concept{data-inspection}
+\concept{mathematics}
+\concept{vector-manipulation}
+\concept{vector.ops}

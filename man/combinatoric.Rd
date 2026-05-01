@@ -51,8 +51,13 @@ combSet(x=x, m=c(1, 3, 5), as.list=TRUE)
 \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 \cr \code{vignette("Combinatorics")}
 
-Other topic.combinatorics: 
-\code{\link{combN}()}
+Other combinatorics: 
+\code{\link{combN}()},
+\code{\link{combPairs}()},
+\code{\link{permn}()},
+\code{\link{rndGroupSplit}()},
+\code{\link{sampleX}()}
 }
 \concept{combinatorics}
-\concept{topic.combinatorics}
+\concept{mathematics}
+\concept{vector-manipulation}

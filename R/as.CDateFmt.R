@@ -42,6 +42,12 @@
 #'
 
 
+#' @family date.utils
+#' @concept date-handling
+#' @concept string-manipulation
+#' @concept data-manipulation
+#'
+#'
 #' @export
 as.CDateFmt <- function(fmt) {
   as_CDateFmt_cpp(fmt)

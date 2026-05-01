@@ -58,6 +58,12 @@
 #'
 
 
+#' @family label.utils
+#' @concept variable-labels
+#' @concept data-description
+#' @concept data-manipulation
+#'
+#'
 #' @export
 label <- function(x, vars = NULL) {
   

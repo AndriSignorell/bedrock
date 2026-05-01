@@ -21,5 +21,17 @@ strX(d.pizza)
 }
 \seealso{
 \code{\link{str}}
+
+Other pkg.introspection: 
+\code{\link{funArgs}()},
+\code{\link{funCalls}()},
+\code{\link{funKeywords}()},
+\code{\link{funList}()},
+\code{\link{getRdLabels}()},
+\code{\link{inDots}()},
+\code{\link{mergeArgs}()}
 }
+\concept{data-inspection}
+\concept{package-utilities}
+\concept{pkg.introspection}
 \keyword{utilities}

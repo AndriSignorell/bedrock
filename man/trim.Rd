@@ -55,9 +55,27 @@ s.tr <- trim(s, trim = 2)
 setequal(c(s[attr(s.tr, "trim")], s.tr), s)
 
 }
+\seealso{
+Other vector.ops: 
+\code{\link{Coalesce}()},
+\code{\link{closest}()},
+\code{\link{midx}()},
+\code{\link{moveAvg}()},
+\code{\link{naIf}()},
+\code{\link{naReplace}()},
+\code{\link{nz}()},
+\code{\link{pairApply}()},
+\code{\link{quot}()},
+\code{\link{rankX}()},
+\code{\link{splitAt}()},
+\code{\link{unwhich}()},
+\code{\link{vRot}()},
+\code{\link{vShift}()},
+\code{\link{winsorize}()}
+}
 \author{
 R-Core (function mean), Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
 }
-\concept{data processing}
-\concept{robust-statistics}
-\concept{topic.dataProcessing}
+\concept{data-manipulation}
+\concept{vector-manipulation}
+\concept{vector.ops}

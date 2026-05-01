@@ -17,6 +17,12 @@
 
 
 
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept data-structures
+#' @concept table-manipulation
+#'
+#'
 #' @export
 #' @method as.array xtabs
 as.array.xtabs <- function(x, ...){

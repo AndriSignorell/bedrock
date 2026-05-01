@@ -94,6 +94,11 @@
 
 
 #' @rdname sortX
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept vector-manipulation
+#'
+#'
 #' @export
 sortX <- function(x, ...) {
   UseMethod("sortX")

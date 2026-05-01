@@ -31,3 +31,17 @@ isDichotomous(c("A", "A", "B"))
 isDichotomous(c("A", "A", "B", "C"))
 isDichotomous(factor(c("A", "A", "B", "C")))
 }
+\seealso{
+Other data.inspection: 
+\code{\link{allDuplicated}()},
+\code{\link{allIdentical}()},
+\code{\link{completeColumns}()},
+\code{\link{countCompCases}()},
+\code{\link{flags}()},
+\code{\link{isNumeric}()},
+\code{\link{isWholeLike}()},
+\code{\link{isZero}()}
+}
+\concept{data-inspection}
+\concept{data.inspection}
+\concept{factor-handling}

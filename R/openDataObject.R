@@ -51,6 +51,12 @@
 
 
 
+#' @family label.utils
+#' @concept variable-labels
+#' @concept data-manipulation
+#' @concept file-utilities
+#'
+#'
 #' @export
 openDataObject <- function(name, url = NULL, doc = NULL, ...) {
   
@@ -133,3 +139,4 @@ openDataObject <- function(name, url = NULL, doc = NULL, ...) {
   
   return(z)
 }
+

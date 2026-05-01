@@ -25,10 +25,6 @@
 #' @author R-Core (function mean), Andri Signorell <andri@@signorell.net> 
 #' 
 #' 
-#' @family topic.dataProcessing
-#' @concept data processing
-#' @concept robust-statistics
-#' 
 #' @examples
 #' 
 #' ## generate data
@@ -50,6 +46,11 @@
 #'
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept data-manipulation
+#'
+#'
 #' @export 
 trim <- function(x, trim = 0.1, na.rm = FALSE){
   

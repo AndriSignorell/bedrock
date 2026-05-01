@@ -22,11 +22,6 @@
 #' The function is fully CRAN-compliant and does not rely on internal (non-exported)
 #' functions.
 #'
-#' @family topic.dataTools
-#' @concept Metadata
-#' @concept Documentation
-#' @concept Programming Utilities 
-#' 
 #' @examples
 #' # Extract labels from a package dataset
 #' \dontrun{
@@ -37,6 +32,11 @@
 #'
 
 
+#' @family pkg.introspection
+#' @concept package-utilities
+#' @concept variable-labels
+#'
+#'
 #' @export
 getRdLabels <- function(data_name, package) {
   

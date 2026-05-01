@@ -33,11 +33,15 @@ New S Language}. Wadsworth & Brooks/Cole.
 \seealso{
 \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}}
 
-Other topic.systemTools: 
-\code{\link{buildPath}()},
+Other pkg.introspection: 
 \code{\link{funArgs}()},
-\code{\link{funList}()}
+\code{\link{funKeywords}()},
+\code{\link{funList}()},
+\code{\link{getRdLabels}()},
+\code{\link{inDots}()},
+\code{\link{mergeArgs}()},
+\code{\link{strX}()}
 }
-\concept{Infrastructure}
-\concept{Programming Utilities}
-\concept{topic.systemTools}
+\concept{data-inspection}
+\concept{package-utilities}
+\concept{pkg.introspection}

@@ -50,7 +50,13 @@ completeColumns(d.pizza, which = FALSE)
 
 Other data.inspection: 
 \code{\link{allDuplicated}()},
-\code{\link{allIdentical}()}
+\code{\link{allIdentical}()},
+\code{\link{countCompCases}()},
+\code{\link{flags}()},
+\code{\link{isDichotomous}()},
+\code{\link{isNumeric}()},
+\code{\link{isWholeLike}()},
+\code{\link{isZero}()}
 }
 \concept{data-inspection}
 \concept{data.inspection}

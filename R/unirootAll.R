@@ -59,6 +59,11 @@
 #'
 
 
+#' @family math.utils
+#' @concept mathematics
+#' @concept numerical-methods
+#'
+#'
 #' @export
 unirootAll <- function(f,
                               interval,

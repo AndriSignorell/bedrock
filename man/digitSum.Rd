@@ -25,3 +25,15 @@ digitSum(124L)
 digitSum(c(10L, 99L, -1234L))
 
 }
+\seealso{
+Other number.theory: 
+\code{\link{conv_numeric}},
+\code{\link{factorize}()},
+\code{\link{fibonacci}()},
+\code{\link{isOdd}()},
+\code{\link{isPrime}()},
+\code{\link{primes}()}
+}
+\concept{mathematics}
+\concept{number-theory}
+\concept{number.theory}

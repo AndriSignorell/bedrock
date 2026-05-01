@@ -58,5 +58,17 @@ hexToDec(c("FF", "AA", "ABC"))
 }
 \seealso{
 \code{\link{strtoi}}
+
+Other number.theory: 
+\code{\link{digitSum}()},
+\code{\link{factorize}()},
+\code{\link{fibonacci}()},
+\code{\link{isOdd}()},
+\code{\link{isPrime}()},
+\code{\link{primes}()}
 }
+\concept{data-manipulation}
+\concept{number-theory}
+\concept{number.theory}
+\concept{string-manipulation}
 \keyword{arith}

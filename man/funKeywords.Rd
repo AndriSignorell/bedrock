@@ -32,8 +32,20 @@ funKeywords("merge")
 }
 \seealso{
 \code{\link[utils]{help}}
+
+Other pkg.introspection: 
+\code{\link{funArgs}()},
+\code{\link{funCalls}()},
+\code{\link{funList}()},
+\code{\link{getRdLabels}()},
+\code{\link{inDots}()},
+\code{\link{mergeArgs}()},
+\code{\link{strX}()}
 }
 \author{
 Gregory R. Warnes \email{greg@warnes.net}
 }
+\concept{data-inspection}
+\concept{package-utilities}
+\concept{pkg.introspection}
 \keyword{documentation}

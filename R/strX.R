@@ -15,6 +15,11 @@
 #' strX(d.pizza)
 
 
+#' @family pkg.introspection
+#' @concept package-utilities
+#' @concept data-inspection
+#'
+#'
 #' @export
 strX <- function(x, ...) {
   

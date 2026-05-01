@@ -17,15 +17,16 @@
 #'
 #' The argument \code{mustWork = FALSE} allows returning paths that do not yet exist.
 #'
-#' @family topic.systemTools
-#' @concept Infrastructure
-#' @concept Utilities 
-#' 
 #' @examples
 #' buildPath("data", "file.csv")
 #' buildPath("data/", "file.csv")
 #'
 
+#' @family file.utils
+#' @concept file-utilities
+#' @concept string-manipulation
+#'
+#'
 #' @export
 buildPath <- function(dir, filename) {
   
@@ -35,3 +36,5 @@ buildPath <- function(dir, filename) {
   normalizePath(file.path(dir, filename), winslash = "/", mustWork = FALSE)
   
 }
+
+

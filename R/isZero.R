@@ -26,6 +26,11 @@
 #' 
 
 #' @rdname isZero
+#' @family data.inspection
+#' @concept data-inspection
+#' @concept vector-manipulation
+#'
+#'
 #' @export
 isZero <-function(x, tol = sqrt(.Machine$double.eps), na.rm=FALSE) {
   

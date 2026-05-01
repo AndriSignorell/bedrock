@@ -92,6 +92,7 @@ logitInv(z, min = 10, max = 20)
 \seealso{
 \code{\link[stats]{qlogis}}, \code{\link[stats]{plogis}}
 }
-\concept{logistic}
+\concept{descriptive-statistics}
+\concept{mathematics}
 \concept{transformation}
 \concept{transformations}

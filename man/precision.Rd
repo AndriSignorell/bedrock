@@ -50,5 +50,17 @@ prec(as.numeric(x))
 \seealso{
 \code{\link{format.info}}, \code{\link{as.integer}},
 \code{\link{trunc}}
+
+Other math.utils: 
+\code{\link{crossProd}()},
+\code{\link{crossProdN}()},
+\code{\link{dotProd}()},
+\code{\link{percentRank}()},
+\code{\link{ptInPoly}()},
+\code{\link{roundTo}()},
+\code{\link{unirootAll}()}
 }
+\concept{data-inspection}
+\concept{math.utils}
+\concept{mathematics}
 \keyword{arith}

@@ -45,6 +45,11 @@
 
 
 #' @rdname charToAsc
+#' @family string.utilities
+#' @concept string-manipulation
+#' @concept data-manipulation
+#'
+#'
 #' @export
 charToAsc <- function(x) {
   # Original from Henrik Bengtsson R.oo:

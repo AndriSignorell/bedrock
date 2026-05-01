@@ -45,12 +45,13 @@
 #' # treat as directory
 #' splitPath("/home/user/folder/", last.is.file = FALSE)
 #'
-#' @family file utilities
-#' @concept file paths
-#' @concept string parsing
+
+
+#' @family file.utils
+#' @concept file-utilities
+#' @concept string-manipulation
 #'
-
-
+#'
 #' @export
 splitPath <- function(path, last.is.file = NULL) {
   

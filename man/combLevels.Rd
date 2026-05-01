@@ -46,3 +46,28 @@ y <- c("B", NA)
 combLevels(x, y, na = TRUE)
 
 }
+\seealso{
+Other data.manipulation: 
+\code{\link{appendRowNames}()},
+\code{\link{appendX}()},
+\code{\link{as.array.xtabs}()},
+\code{\link{columnWrap}()},
+\code{\link{nf}()},
+\code{\link{parseSASDatalines}()},
+\code{\link{recodeX}()},
+\code{\link{recycle}()},
+\code{\link{revCode}()},
+\code{\link{revX}()},
+\code{\link{setNamesX}()},
+\code{\link{set_strip_attr}},
+\code{\link{sortX}()},
+\code{\link{splitX}()},
+\code{\link{stringsAsFactors}()},
+\code{\link{toBaseR}()},
+\code{\link{tolong_towide}},
+\code{\link{untable}()}
+}
+\concept{data-manipulation}
+\concept{data-structures}
+\concept{data.manipulation}
+\concept{factor-handling}

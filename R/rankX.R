@@ -68,6 +68,12 @@
 #'
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept descriptive-statistics
+#' @concept nonparametric
+#'
+#'
 #' @export
 rankX <- function(..., decreasing = FALSE, na.last = TRUE, 
                  ties.method = c("average", "first", "last", 

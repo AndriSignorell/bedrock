@@ -31,3 +31,27 @@ url <- "https://stats.idre.ucla.edu/wp-content/uploads/2020/10/missing.sav"
 d.miss <- toBaseR(haven::read_sav(url))
 }
 }
+\seealso{
+Other data.manipulation: 
+\code{\link{appendRowNames}()},
+\code{\link{appendX}()},
+\code{\link{as.array.xtabs}()},
+\code{\link{columnWrap}()},
+\code{\link{combLevels}()},
+\code{\link{nf}()},
+\code{\link{parseSASDatalines}()},
+\code{\link{recodeX}()},
+\code{\link{recycle}()},
+\code{\link{revCode}()},
+\code{\link{revX}()},
+\code{\link{setNamesX}()},
+\code{\link{set_strip_attr}},
+\code{\link{sortX}()},
+\code{\link{splitX}()},
+\code{\link{stringsAsFactors}()},
+\code{\link{tolong_towide}},
+\code{\link{untable}()}
+}
+\concept{data-manipulation}
+\concept{data-structures}
+\concept{data.manipulation}

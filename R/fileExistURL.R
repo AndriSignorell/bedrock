@@ -37,6 +37,11 @@
 #'
 
 
+#' @family file.utils
+#' @concept file-utilities
+#' @concept data-inspection
+#'
+#'
 #' @export
 fileExistURL <- function(url, timeout = 5) {
   HTTP_STATUS_OK <- 200

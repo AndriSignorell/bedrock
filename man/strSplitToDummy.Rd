@@ -67,4 +67,12 @@ tryCatch(
 }
 \seealso{
 \code{\link[base]{strsplit}}, \code{\link[stats]{na.omit}}
+
+Other string.utilities: 
+\code{\link{charToAsc}()},
+\code{\link{strSplitToCol}()}
 }
+\concept{data-manipulation}
+\concept{data-structures}
+\concept{string-manipulation}
+\concept{string.utilities}

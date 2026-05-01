@@ -38,12 +38,13 @@
 #' # Logical vector indicating completeness
 #' completeColumns(d.pizza, which = FALSE)
 #'
+
+
 #' @family data.inspection
 #' @concept data-inspection
 #' @concept missing-data
 #'
-
-
+#'
 #' @export
 completeColumns <- function(x, which = TRUE) {
   

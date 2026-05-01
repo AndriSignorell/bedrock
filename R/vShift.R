@@ -26,6 +26,11 @@
 #'
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept time-series
+#'
+#'
 #' @export
 vShift <- function(x, k = 1L){
   

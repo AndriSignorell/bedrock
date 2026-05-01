@@ -17,3 +17,25 @@ A vector of the same type as \code{x}.
 \description{
 Replaces specified values in a vector with \code{NA}.
 }
+\seealso{
+Other vector.ops: 
+\code{\link{Coalesce}()},
+\code{\link{closest}()},
+\code{\link{midx}()},
+\code{\link{moveAvg}()},
+\code{\link{naReplace}()},
+\code{\link{nz}()},
+\code{\link{pairApply}()},
+\code{\link{quot}()},
+\code{\link{rankX}()},
+\code{\link{splitAt}()},
+\code{\link{trim}()},
+\code{\link{unwhich}()},
+\code{\link{vRot}()},
+\code{\link{vShift}()},
+\code{\link{winsorize}()}
+}
+\concept{data-manipulation}
+\concept{missing-data}
+\concept{vector-manipulation}
+\concept{vector.ops}

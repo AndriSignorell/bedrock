@@ -25,6 +25,11 @@
 #' 
 
 
+#' @family pkg.introspection
+#' @concept package-utilities
+#' @concept data-inspection
+#'
+#'
 #' @export
 funKeywords <- function( topic ) {
   

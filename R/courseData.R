@@ -47,6 +47,11 @@
 #'
 
 
+#' @family datasets
+#' @concept datasets
+#' @concept data-manipulation
+#'
+#'
 #' @export
 courseData <- function(name,
                        url    = NULL,

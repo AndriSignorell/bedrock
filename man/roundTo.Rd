@@ -81,5 +81,17 @@ cbind(x =       x,
 \seealso{
 \code{\link{round}}, \code{\link{trunc}}, \code{\link{ceiling}},
 \code{\link{floor}}
+
+Other math.utils: 
+\code{\link{crossProd}()},
+\code{\link{crossProdN}()},
+\code{\link{dotProd}()},
+\code{\link{percentRank}()},
+\code{\link{precision}},
+\code{\link{ptInPoly}()},
+\code{\link{unirootAll}()}
 }
+\concept{data-manipulation}
+\concept{math.utils}
+\concept{mathematics}
 \keyword{manip}

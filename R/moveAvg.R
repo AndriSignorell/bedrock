@@ -45,43 +45,77 @@
  
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept descriptive-statistics
+#' @concept time-series
+#'
+#'
 #' @export
-moveAvg <- function(x, order, align = c("center","left","right"),
-                    endrule = c("NA", "keep", "constant")){
+moveAvg <- function(x, order,
+                         align = c("center","left","right"),
+                         endrule = c("NA", "keep", "constant")) {
+  
+  align   <- match.arg(align)
+  endrule <- match.arg(endrule)
   
   n <- length(x)
-  align   = match.arg(align)
   
-  switch(align,
-         "center" = {
-           idx <- c(1:(order %/% 2), (n-order %/% 2+1):n)
-           idx_const <- c(rep((order %/% 2)+1, order %/% 2),
-                          rep(n-(order %/% 2), order %/% 2))
-           
-           if(order %% 2 == 1){   # order is odd
-             z <- filter(x, rep(1/order, order), sides=2)
-           } else {           # order is even
-             z <- filter(x, c(1/(2*order), rep(1/order, order-1), 1/(2*order)), sides=2)
-           }   }
-         , "right" = {
-           idx <- 1:(order-1)
-           idx_const <- order
-           z <- filter(x, rep(1/order, order), sides=1)
-         }
-         , "left" = {
-           idx <- (n-order+2):n
-           idx_const <- n-order+1
-           z <- rev(filter(rev(x), rep(1/order, order), sides=1))
-         }
-  )
+  if (!is.numeric(order) || length(order) != 1 || order < 1 || order %% 1 != 0) {
+    stop("'order' must be a positive integer")
+  }
+  if (order > n) {
+    stop("'order' must be <= length(x)")
+  }
   
-  endrule <- match.arg(endrule)
-  switch(endrule,
-         "NA" =     {},
-         keep =     {z[idx] <- x[idx]},
-         constant = {z[idx] <- z[idx_const]})
+  # --- core: cumulative sum ---
+  cs <- c(0, cumsum(x))
   
-  if(!is.ts(x)) attr(z, "tsp") <- NULL
-  class(z) <- class(x)
+  # rolling mean (right-aligned base)
+  ma <- (cs[(order+1):(n+1)] - cs[1:(n-order+1)]) / order
+  
+  # pad with NA to full length
+  z <- rep(NA_real_, n)
+  
+  if (align == "right") {
+    
+    z[order:n] <- ma
+    idx <- seq_len(order - 1)
+    idx_const <- rep(order, length(idx))
+    
+  } else if (align == "left") {
+    
+    z[1:(n-order+1)] <- ma
+    idx <- (n-order+2):n
+    idx_const <- rep(n-order+1, length(idx))
+    
+  } else { # center
+    
+    k2 <- order %/% 2
+    
+    if (order %% 2 == 1) {
+      # odd window
+      z[(k2+1):(n-k2)] <- ma
+      idx <- c(seq_len(k2), (n-k2+1):n)
+      idx_const <- c(rep(k2+1, k2), rep(n-k2, k2))
+      
+    } else {
+      # even window: shift by half
+      z[(k2+1):(n-k2)] <- (ma[1:(length(ma)-1)] + ma[2:length(ma)]) / 2
+      idx <- c(seq_len(k2), (n-k2+1):n)
+      idx_const <- c(rep(k2+1, k2), rep(n-k2, k2))
+    }
+  }
+  
+  # --- end rules ---
+  if (endrule == "keep") {
+    z[idx] <- x[idx]
+  } else if (endrule == "constant") {
+    z[idx] <- z[idx_const]
+  }
+  
+  # --- preserve class ---
+  attributes(z) <- attributes(x)
+  
   return(z)
 }

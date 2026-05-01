@@ -30,6 +30,11 @@
 #'
 
 
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept factor-handling
+#'
+#'
 #' @export
 stringsAsFactors <- function(x, columns=NULL){
   

@@ -52,9 +52,16 @@ charToRaw("Silvia")
 }
 \seealso{
 \code{\link{charToRaw}}
+
+Other string.utilities: 
+\code{\link{strSplitToCol}()},
+\code{\link{strSplitToDummy}()}
 }
 \author{
 unknown guy out there, help text partly taken from M. Maechler's
 \pkg{sfsmisc}.
 }
+\concept{data-manipulation}
+\concept{string-manipulation}
+\concept{string.utilities}
 \keyword{manip}

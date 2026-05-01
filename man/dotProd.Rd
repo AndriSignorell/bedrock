@@ -52,4 +52,16 @@ dotProd(x, y)
 }
 \seealso{
 \code{\link[base]{crossprod}}
+
+Other math.utils: 
+\code{\link{crossProd}()},
+\code{\link{crossProdN}()},
+\code{\link{percentRank}()},
+\code{\link{precision}},
+\code{\link{ptInPoly}()},
+\code{\link{roundTo}()},
+\code{\link{unirootAll}()}
 }
+\concept{math.utils}
+\concept{mathematics}
+\concept{vector-manipulation}

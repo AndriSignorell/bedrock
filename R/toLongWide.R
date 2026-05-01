@@ -53,6 +53,11 @@
 # stack/unstack does exactly that
 
 #' @rdname tolong_towide
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept data-structures
+#'
+#'
 #' @export
 toLong <- function (x, varnames = NULL, incl.rownames=FALSE) {
   

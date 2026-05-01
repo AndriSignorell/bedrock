@@ -23,9 +23,6 @@
 #' \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 #' \cr \code{vignette("Combinatorics")} 
 #' 
-#' @family topic.combinatorics
-#' @concept combinatorics
-#'  
 #' @examples
 #' x <- letters[1:4]
 #' m <- 2
@@ -44,6 +41,12 @@
 
 
 #' @rdname combinatoric
+#' @family combinatorics
+#' @concept combinatorics
+#' @concept mathematics
+#' @concept vector-manipulation
+#'
+#'
 #' @export
 combSet <- function(x, m, repl=FALSE, ord=FALSE, as.list=FALSE) {
   

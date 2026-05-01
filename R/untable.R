@@ -76,6 +76,11 @@
 #' 
 
 #' @rdname untable
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept table-manipulation
+#'
+#'
 #' @export
 untable <- function(x, ...){
   UseMethod("untable")

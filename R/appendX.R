@@ -15,11 +15,12 @@
 #'
 #' @return Object of same type as \code{x}.
 #'
+
 #' @family data.manipulation
 #' @concept data-manipulation
+#' @concept vector-manipulation
 #'
 #'
-
 #' @export
 appendX <- function(x, values, after = NULL, ...) {
   UseMethod("appendX")

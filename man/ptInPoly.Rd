@@ -47,3 +47,16 @@ y <- c(0.5, 0.5, 0, 1)
 ptInPoly(x, y, px, py)
 
 }
+\seealso{
+Other math.utils: 
+\code{\link{crossProd}()},
+\code{\link{crossProdN}()},
+\code{\link{dotProd}()},
+\code{\link{percentRank}()},
+\code{\link{precision}},
+\code{\link{roundTo}()},
+\code{\link{unirootAll}()}
+}
+\concept{geometry}
+\concept{math.utils}
+\concept{mathematics}

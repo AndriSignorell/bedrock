@@ -34,6 +34,12 @@
 
 
 #' @rdname conv_numeric
+#' @family number.theory
+#' @concept number-theory
+#' @concept data-manipulation
+#' @concept string-manipulation
+#'
+#'
 #' @export
 hexToDec <- function(x) 
   # strip potential # from a string x

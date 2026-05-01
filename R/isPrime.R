@@ -26,9 +26,10 @@
 #' isPrime(c(17, 18, 19))
 #'
 #' 
-#' @family topic.numberTheory
-#' @concept number theory
-#' 
+#' @family number.theory
+#' @concept number-theory
+#' @concept data-inspection
+#'
 #'
 #' @export
 isPrime <- function(n) {

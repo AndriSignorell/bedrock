@@ -32,7 +32,13 @@ allIdentical(A, B, C, E)     # FALSE
 
 Other data.inspection: 
 \code{\link{allDuplicated}()},
-\code{\link{completeColumns}()}
+\code{\link{completeColumns}()},
+\code{\link{countCompCases}()},
+\code{\link{flags}()},
+\code{\link{isDichotomous}()},
+\code{\link{isNumeric}()},
+\code{\link{isWholeLike}()},
+\code{\link{isZero}()}
 }
 \concept{data-inspection}
 \concept{data.inspection}

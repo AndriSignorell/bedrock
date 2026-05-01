@@ -31,6 +31,11 @@
 
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept data-manipulation
+#'
+#'
 #' @export
 splitAt <- function(x, pos) {
   
@@ -46,3 +51,4 @@ splitAt <- function(x, pos) {
   }, head(idx, -1L), tail(idx, -1L))
   
 }
+

@@ -24,6 +24,12 @@
 #' 
 #' 
 
+#' @family data.inspection
+#' @concept data-inspection
+#' @concept missing-data
+#' @concept descriptive-statistics
+#'
+#'
 #' @export
 countCompCases <- function(x){
   

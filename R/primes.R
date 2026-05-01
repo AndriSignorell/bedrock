@@ -22,9 +22,10 @@
 #' primes(10)
 #' primes(c(5, 10))
 #' 
-#' @family topic.numberTheory
-#' @concept number theory
-#' 
+#' @family number.theory
+#' @concept number-theory
+#' @concept mathematics
+#'
 #'
 #' @export
 primes <- function (n) { 

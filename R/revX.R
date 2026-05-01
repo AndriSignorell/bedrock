@@ -55,6 +55,11 @@
 
 
 #' @rdname revX
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept vector-manipulation
+#'
+#'
 #' @export
 revX <- function(x, ...) {
   # additional interface for rev...

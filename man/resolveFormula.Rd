@@ -145,5 +145,6 @@ resolveFormula(y ~ trt | blk, data = df,
 \code{\link[stats]{Pair}},
 \code{\link[DescToolsX]{desc}}
 }
-\concept{formula design classification model.frame independent dependent}
-\concept{utils}
+\concept{data-manipulation}
+\concept{formula-handling}
+\concept{formula.utils}

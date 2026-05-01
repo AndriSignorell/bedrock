@@ -39,7 +39,11 @@ combPairs(which(sapply(CO2, is.numeric)), which(sapply(CO2, is.factor)))
 \code{\link{outer}}, \code{\link{lower.tri}}
 
 Other combinatorics: 
-\code{\link{permn}()}
+\code{\link{combN}()},
+\code{\link{combSet}()},
+\code{\link{permn}()},
+\code{\link{rndGroupSplit}()},
+\code{\link{sampleX}()}
 }
 \concept{combinatorics}
 \concept{mathematics}

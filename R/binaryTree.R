@@ -30,6 +30,11 @@
 
 
 #' @rdname binaryTree
+#' @family data.structures
+#' @concept data-structures
+#' @concept data-manipulation
+#'
+#'
 #' @export
 binaryTree <- function(n) {
   

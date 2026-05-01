@@ -19,12 +19,12 @@
 #'                  row.names = letters[1:5])
 #' appendRowNames(dd)
 #'
+
+
 #' @family data.manipulation
 #' @concept data-manipulation
 #'
 #'
-
-
 #' @export
 appendRowNames <- function(x, col_name = "rowname",
                            after = 0L, remove_rownames = TRUE) {
@@ -43,3 +43,5 @@ appendRowNames <- function(x, col_name = "rowname",
   
   res
 }
+
+

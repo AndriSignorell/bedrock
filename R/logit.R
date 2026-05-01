@@ -57,10 +57,6 @@
 
 #' @seealso \code{\link[stats]{qlogis}}, \code{\link[stats]{plogis}}
 #'
-#' @family transformations
-#' @concept transformation
-#' @concept logistic
-#' 
 #' @examples
 #' x <- seq(0, 1, length.out = 5)
 #' z <- logit(x)
@@ -84,6 +80,12 @@
 
 
 #' @rdname logit
+#' @family transformations
+#' @concept transformation
+#' @concept descriptive-statistics
+#' @concept mathematics
+#'
+#'
 #' @export
 logit <- function(x, min = 0, max = 1,
                   eps = .Machine$double.eps,

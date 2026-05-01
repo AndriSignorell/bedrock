@@ -25,6 +25,11 @@
 #'                                         collapse=z$sep[i]))
 #' 
 
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept vector-manipulation
+#'
+#'
 #' @export 
 recycle <- function(..., maxdim = NULL, strict = FALSE) {
   

@@ -43,6 +43,12 @@
 #' 
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept data-manipulation
+#' @concept combinatorics
+#'
+#'
 #' @export
 pairApply <- function(x, FUN = NULL, ..., symmetric = FALSE){
   

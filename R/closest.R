@@ -44,6 +44,12 @@
 #' closest(c(2, 3, 4, 5), a=c(3.1, 3.9), which=c(FALSE, TRUE))
 #' 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept data-inspection
+#' @concept mathematics
+#'
+#'
 #' @export
 closest <- function(x, a, which = FALSE, na.rm = FALSE){
   

@@ -87,9 +87,6 @@
 #'   \code{\link[stats]{Pair}},
 #'   \code{\link[DescToolsX]{desc}}
 #'
-#' @family utils
-#' @concept formula design classification model.frame independent dependent
-#'
 #' @examples
 #' set.seed(1)
 #' df <- data.frame(
@@ -126,6 +123,11 @@
 #' resolveFormula(y ~ trt | blk, data = df,
 #'                allowed = "n.sample.dependent")$type
 #' #> [1] "n.sample.dependent"
+#'
+#' @family formula.utils
+#' @concept formula-handling
+#' @concept data-manipulation
+#'
 #'
 #' @export
 resolveFormula <- function(

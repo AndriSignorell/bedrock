@@ -63,4 +63,18 @@ flags(dat, na.rm = TRUE)
 }
 \seealso{
 \code{\link{isDichotomous}}
+
+Other data.inspection: 
+\code{\link{allDuplicated}()},
+\code{\link{allIdentical}()},
+\code{\link{completeColumns}()},
+\code{\link{countCompCases}()},
+\code{\link{isDichotomous}()},
+\code{\link{isNumeric}()},
+\code{\link{isWholeLike}()},
+\code{\link{isZero}()}
 }
+\concept{data-inspection}
+\concept{data-manipulation}
+\concept{data.inspection}
+\concept{factor-handling}

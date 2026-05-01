@@ -1,8 +1,6 @@
 
 #' Return the First Element Not Being NA
 #' 
-#' Return the first element of a vector, not being NA.
-#' 
 #' If several vectors are supplied, the evaluation will be elementwise, resp.
 #' rowwise if x is a data.frame or a matrix. The first element of the result is
 #' the first non \code{NA} element of the first elements of all the arguments,
@@ -63,6 +61,11 @@
 
 # would not return characters correctly
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept missing-data
+#'
+#'
 #' @export
 Coalesce <- function(..., method = c("is.na", "is.null","is.finite"), flatten=TRUE) {
   # Returns the first element in x which is not NA

@@ -57,4 +57,12 @@ openDataObject("example.xlsx", doc = NA)
 }
 \seealso{
 \code{\link{dataDescription}}, \code{\link{label}}
+
+Other label.utils: 
+\code{\link{dataDescription}()},
+\code{\link{label}()}
 }
+\concept{data-manipulation}
+\concept{file-utilities}
+\concept{label.utils}
+\concept{variable-labels}

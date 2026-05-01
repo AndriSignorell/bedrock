@@ -19,9 +19,6 @@
 #' For factorization of moderately or really large numbers, see the \pkg{gmp}
 #' package, and its \code{\link[gmp]{factorize}()} (which is ~20x faster!).
 #' 
-#' @family topic.numberTheory
-#' @concept number theory
-#' 
 #' @examples
 #' 
 #' factorize(47)
@@ -29,6 +26,11 @@
 
 
 #' @rdname factorize
+#' @family number.theory
+#' @concept number-theory
+#' @concept mathematics
+#'
+#'
 #' @export
 factorize <- function (n) {
   setNamesX(lapply(n, factor_u64), n)

@@ -48,6 +48,12 @@
 #'
 
 
+#' @family data.inspection
+#' @concept data-inspection
+#' @concept data-manipulation
+#' @concept factor-handling
+#'
+#'
 #' @export
 flags <- function(x,
                   strict = FALSE,
@@ -82,3 +88,5 @@ flags <- function(x,
   
   return(out)
 }
+
+

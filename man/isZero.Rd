@@ -32,8 +32,21 @@ isZero(.1 - .3 / 3)
 }
 \seealso{
 \code{\link{is.integer}}
+
+Other data.inspection: 
+\code{\link{allDuplicated}()},
+\code{\link{allIdentical}()},
+\code{\link{completeColumns}()},
+\code{\link{countCompCases}()},
+\code{\link{flags}()},
+\code{\link{isDichotomous}()},
+\code{\link{isNumeric}()},
+\code{\link{isWholeLike}()}
 }
 \author{
 R-Core, Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}, Thomas W. Yee
 }
+\concept{data-inspection}
+\concept{data.inspection}
+\concept{vector-manipulation}
 \keyword{logic}

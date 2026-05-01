@@ -15,6 +15,11 @@
 #'
 
 
+#' @family pkg.introspection
+#' @concept package-utilities
+#' @concept data-manipulation
+#'
+#'
 #' @export
 mergeArgs <- function(defaults,
                        user,

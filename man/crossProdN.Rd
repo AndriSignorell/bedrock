@@ -42,3 +42,16 @@ A <- matrix(c(1,0,0,
 crossProdN(A)
 
 }
+\seealso{
+Other math.utils: 
+\code{\link{crossProd}()},
+\code{\link{dotProd}()},
+\code{\link{percentRank}()},
+\code{\link{precision}},
+\code{\link{ptInPoly}()},
+\code{\link{roundTo}()},
+\code{\link{unirootAll}()}
+}
+\concept{math.utils}
+\concept{mathematics}
+\concept{vector-manipulation}

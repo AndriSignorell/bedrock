@@ -23,6 +23,11 @@
 #' }
 
 
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept data-structures
+#'
+#'
 #' @export
 toBaseR <- function(x, ...){
   UseMethod("toBaseR")

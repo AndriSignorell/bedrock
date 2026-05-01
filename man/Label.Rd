@@ -69,3 +69,12 @@ label(x) <- "Simple vector"
 label(x)
 
 }
+\seealso{
+Other label.utils: 
+\code{\link{dataDescription}()},
+\code{\link{openDataObject}()}
+}
+\concept{data-description}
+\concept{data-manipulation}
+\concept{label.utils}
+\concept{variable-labels}

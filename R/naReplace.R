@@ -26,6 +26,12 @@
 #'
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept missing-data
+#' @concept data-manipulation
+#'
+#'
 #' @export
 naReplace <- function(x, value) {
   UseMethod("naReplace")

@@ -38,6 +38,12 @@
 #'
 
 
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept data-structures
+#' @concept factor-handling
+#'
+#'
 #' @export
 combLevels <- function(..., sort = FALSE, na = FALSE) {
   

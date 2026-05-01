@@ -9,6 +9,11 @@
 #' @param package Package name (symbol or character)
 
 
+#' @family file.utils
+#' @concept file-utilities
+#' @concept package-utilities
+#'
+#'
 #' @export
 pdfManual <- function(package) {
   

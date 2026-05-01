@@ -38,4 +38,24 @@ splitAt(x, c(7, 4, 4, 20))
 }
 \seealso{
 \code{\link{split}}
+
+Other vector.ops: 
+\code{\link{Coalesce}()},
+\code{\link{closest}()},
+\code{\link{midx}()},
+\code{\link{moveAvg}()},
+\code{\link{naIf}()},
+\code{\link{naReplace}()},
+\code{\link{nz}()},
+\code{\link{pairApply}()},
+\code{\link{quot}()},
+\code{\link{rankX}()},
+\code{\link{trim}()},
+\code{\link{unwhich}()},
+\code{\link{vRot}()},
+\code{\link{vShift}()},
+\code{\link{winsorize}()}
 }
+\concept{data-manipulation}
+\concept{vector-manipulation}
+\concept{vector.ops}

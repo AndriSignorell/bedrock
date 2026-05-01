@@ -98,6 +98,11 @@
 #' recodeX(likert, "1"=1:6, "2"=7:8, "5"=9:10, num=TRUE)
 #' 
 
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept factor-handling
+#'
+#'
 #' @export
 recodeX <- function(x, ..., keep=NULL, elselevel=NA, ref= NULL, 
                    use.empty=FALSE, num=FALSE){

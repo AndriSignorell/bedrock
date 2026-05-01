@@ -49,6 +49,12 @@
 #'
 
 
+#' @family math.utils
+#' @concept mathematics
+#' @concept descriptive-statistics
+#' @concept vector-manipulation
+#'
+#'
 #' @export
 percentRank <- function(x) {
   n <- sum(!is.na(x))

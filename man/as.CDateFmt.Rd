@@ -50,3 +50,7 @@ as.CDateFmt("yyyymmdd")
 as.CDateFmt("mmm d, yyyy")
 
 }
+\concept{data-manipulation}
+\concept{date-handling}
+\concept{date.utils}
+\concept{string-manipulation}

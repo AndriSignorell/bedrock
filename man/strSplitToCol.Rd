@@ -68,3 +68,12 @@ df <- data.frame(
 strSplitToCol(df)
 
 }
+\seealso{
+Other string.utilities: 
+\code{\link{charToAsc}()},
+\code{\link{strSplitToDummy}()}
+}
+\concept{data-manipulation}
+\concept{data-structures}
+\concept{string-manipulation}
+\concept{string.utilities}

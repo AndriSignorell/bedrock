@@ -54,3 +54,27 @@ x <- factor(c("low", "medium", "high"), ordered = TRUE)
 revCode(x)
 
 }
+\seealso{
+Other data.manipulation: 
+\code{\link{appendRowNames}()},
+\code{\link{appendX}()},
+\code{\link{as.array.xtabs}()},
+\code{\link{columnWrap}()},
+\code{\link{combLevels}()},
+\code{\link{nf}()},
+\code{\link{parseSASDatalines}()},
+\code{\link{recodeX}()},
+\code{\link{recycle}()},
+\code{\link{revX}()},
+\code{\link{setNamesX}()},
+\code{\link{set_strip_attr}},
+\code{\link{sortX}()},
+\code{\link{splitX}()},
+\code{\link{stringsAsFactors}()},
+\code{\link{toBaseR}()},
+\code{\link{tolong_towide}},
+\code{\link{untable}()}
+}
+\concept{data-manipulation}
+\concept{data.manipulation}
+\concept{factor-handling}

@@ -24,6 +24,11 @@
 # sample interface for data.frames
 
 #' @rdname sampleX
+#' @family combinatorics
+#' @concept combinatorics
+#' @concept vector-manipulation
+#'
+#'
 #' @export
 sampleX <-  function (x, size, replace = FALSE, prob = NULL) {
   UseMethod("sampleX")

@@ -21,6 +21,11 @@
 
 
 
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept data-structures
+#'
+#'
 #' @export 
 columnWrap <- function(x, width = NULL) {
   

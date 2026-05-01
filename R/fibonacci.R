@@ -16,10 +16,6 @@
 #' @references \url{https://en.wikipedia.org/wiki/Fibonacci_number}\cr
 #' \url{https://mathworld.wolfram.com/GoldenRatio.html}
 #' 
-#' @family topic.numberTheory
-#' @concept number theory
-#' 
-#' 
 #' @examples
 #' 
 #' fibonacci(0)                            # 1
@@ -42,6 +38,11 @@
 #' fibo(30:33)                             # 1346269 2178309 3524578 5702887
 #' 
  
+#' @family number.theory
+#' @concept number-theory
+#' @concept mathematics
+#'
+#'
 #' @export
 fibonacci <- function(n) {
   

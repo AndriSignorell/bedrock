@@ -43,6 +43,11 @@
 #'
 
 
+#' @family file.utils
+#' @concept file-utilities
+#' @concept data-manipulation
+#'
+#'
 #' @export
 readD <- function(fname, ..., base = TRUE) {
   

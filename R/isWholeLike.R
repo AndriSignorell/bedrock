@@ -34,6 +34,11 @@
 #' isWholeLike(1:5 + 0i)
 #'
 
+#' @family data.inspection
+#' @concept data-inspection
+#' @concept mathematics
+#'
+#'
 #' @export
 isWholeLike <- function(x,
                         all = TRUE,

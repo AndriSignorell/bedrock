@@ -25,7 +25,13 @@
 #'
 
 
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept factor-handling
+#'
+#'
 #' @export
 nf <- function(x, ...){
   as.numeric(factor(x, ...))
 }
+

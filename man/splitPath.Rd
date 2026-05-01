@@ -54,7 +54,14 @@ splitPath("/home/user/folder/", last.is.file = FALSE)
 \seealso{
 \code{\link{basename}}, \code{\link{dirname}},
 \code{\link[tools]{file_ext}}, \code{\link[tools]{file_path_sans_ext}}
+
+Other file.utils: 
+\code{\link{buildPath}()},
+\code{\link{fileExistURL}()},
+\code{\link{findDownload}()},
+\code{\link{pdfManual}()},
+\code{\link{readD}()}
 }
-\concept{file paths}
-\concept{file utilities}
-\concept{string parsing}
+\concept{file-utilities}
+\concept{file.utils}
+\concept{string-manipulation}

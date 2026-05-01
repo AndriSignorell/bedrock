@@ -22,6 +22,11 @@
 #' isDichotomous(factor(c("A", "A", "B", "C")))
 
 
+#' @family data.inspection
+#' @concept data-inspection
+#' @concept factor-handling
+#'
+#'
 #' @export
 isDichotomous <- function(x,
                           strict = FALSE,

@@ -29,3 +29,25 @@ vRot(1:5, -1)
 # 2 3 4 5 1
 
 }
+\seealso{
+Other vector.ops: 
+\code{\link{Coalesce}()},
+\code{\link{closest}()},
+\code{\link{midx}()},
+\code{\link{moveAvg}()},
+\code{\link{naIf}()},
+\code{\link{naReplace}()},
+\code{\link{nz}()},
+\code{\link{pairApply}()},
+\code{\link{quot}()},
+\code{\link{rankX}()},
+\code{\link{splitAt}()},
+\code{\link{trim}()},
+\code{\link{unwhich}()},
+\code{\link{vShift}()},
+\code{\link{winsorize}()}
+}
+\concept{geometry}
+\concept{mathematics}
+\concept{vector-manipulation}
+\concept{vector.ops}

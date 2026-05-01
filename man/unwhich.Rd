@@ -39,9 +39,29 @@ unwhich(i, length(ll))
 }
 \seealso{
 \code{\link{which}}
+
+Other vector.ops: 
+\code{\link{Coalesce}()},
+\code{\link{closest}()},
+\code{\link{midx}()},
+\code{\link{moveAvg}()},
+\code{\link{naIf}()},
+\code{\link{naReplace}()},
+\code{\link{nz}()},
+\code{\link{pairApply}()},
+\code{\link{quot}()},
+\code{\link{rankX}()},
+\code{\link{splitAt}()},
+\code{\link{trim}()},
+\code{\link{vRot}()},
+\code{\link{vShift}()},
+\code{\link{winsorize}()}
 }
 \author{
 Nick Sabbe
 }
+\concept{data-manipulation}
+\concept{vector-manipulation}
+\concept{vector.ops}
 \keyword{attribute}
 \keyword{logic}

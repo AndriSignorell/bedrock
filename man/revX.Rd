@@ -71,5 +71,28 @@ revX(aa, margin=(1:3))
 \seealso{
 \code{\link{rev}}, \code{\link{order}}, \code{\link{sort}},
 \code{\link{seq}}
+
+Other data.manipulation: 
+\code{\link{appendRowNames}()},
+\code{\link{appendX}()},
+\code{\link{as.array.xtabs}()},
+\code{\link{columnWrap}()},
+\code{\link{combLevels}()},
+\code{\link{nf}()},
+\code{\link{parseSASDatalines}()},
+\code{\link{recodeX}()},
+\code{\link{recycle}()},
+\code{\link{revCode}()},
+\code{\link{setNamesX}()},
+\code{\link{set_strip_attr}},
+\code{\link{sortX}()},
+\code{\link{splitX}()},
+\code{\link{stringsAsFactors}()},
+\code{\link{toBaseR}()},
+\code{\link{tolong_towide}},
+\code{\link{untable}()}
 }
+\concept{data-manipulation}
+\concept{data.manipulation}
+\concept{vector-manipulation}
 \keyword{manip}

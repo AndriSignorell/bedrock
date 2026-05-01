@@ -48,6 +48,11 @@
 #'
 
 
+#' @family math.utils
+#' @concept mathematics
+#' @concept vector-manipulation
+#'
+#'
 #' @export
 crossProd <- function(x, y, orientation = c("rows", "cols")) {
   orientation <- match.arg(orientation)

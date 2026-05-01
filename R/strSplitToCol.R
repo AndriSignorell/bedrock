@@ -60,6 +60,12 @@
 
 
 
+#' @family string.utilities
+#' @concept string-manipulation
+#' @concept data-manipulation
+#' @concept data-structures
+#'
+#'
 #' @export
 strSplitToCol <- function(x, split=" ", fixed = TRUE, na.form="", colnames=NULL){
   

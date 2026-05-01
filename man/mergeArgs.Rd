@@ -26,3 +26,16 @@ Internal helper used to:
 \item optionally warn if forbidden arguments were supplied
 }
 }
+\seealso{
+Other pkg.introspection: 
+\code{\link{funArgs}()},
+\code{\link{funCalls}()},
+\code{\link{funKeywords}()},
+\code{\link{funList}()},
+\code{\link{getRdLabels}()},
+\code{\link{inDots}()},
+\code{\link{strX}()}
+}
+\concept{data-manipulation}
+\concept{package-utilities}
+\concept{pkg.introspection}

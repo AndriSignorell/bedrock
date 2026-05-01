@@ -49,6 +49,12 @@
 #' splitX(y ~ g1, data = df)
 #' splitX(y ~ g1 + g2, data = df)
 #'
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept vector-manipulation
+#' @concept factor-handling
+#'
+#'
 #' @export
 splitX <- function(x, ...) {
   UseMethod("splitX")

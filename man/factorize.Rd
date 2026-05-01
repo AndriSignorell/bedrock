@@ -29,10 +29,14 @@ factorize(47)
 factorize(seq(101, 120, by=2))
 }
 \seealso{
-Other topic.numberTheory: 
+Other number.theory: 
+\code{\link{conv_numeric}},
+\code{\link{digitSum}()},
 \code{\link{fibonacci}()},
+\code{\link{isOdd}()},
 \code{\link{isPrime}()},
 \code{\link{primes}()}
 }
-\concept{number theory}
-\concept{topic.numberTheory}
+\concept{mathematics}
+\concept{number-theory}
+\concept{number.theory}

@@ -19,6 +19,11 @@
 #'
 
 
+#' @family number.theory
+#' @concept number-theory
+#' @concept data-inspection
+#'
+#'
 #' @export
 isOdd <- function(x) {
   # initialize result

@@ -35,6 +35,12 @@
 #' 
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept mathematics
+#' @concept time-series
+#'
+#'
 #' @export
 quot <- function (x, lag = 1L, quotients = 1L, ...) {
   

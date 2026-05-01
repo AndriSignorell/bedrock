@@ -31,4 +31,14 @@ findDownload("data.csv")
 }
 \seealso{
 \code{\link{readD}}
+
+Other file.utils: 
+\code{\link{buildPath}()},
+\code{\link{fileExistURL}()},
+\code{\link{pdfManual}()},
+\code{\link{readD}()},
+\code{\link{splitPath}()}
 }
+\concept{data-inspection}
+\concept{file-utilities}
+\concept{file.utils}

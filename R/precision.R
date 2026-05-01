@@ -37,6 +37,11 @@
 
 
 #' @rdname precision
+#' @family math.utils
+#' @concept mathematics
+#' @concept data-inspection
+#'
+#'
 #' @export
 nDec <- function(x) {
   

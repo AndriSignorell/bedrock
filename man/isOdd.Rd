@@ -26,3 +26,15 @@ isOdd(1:5)
 isOdd(c(2, 3, 4.5, NA, Inf))
 
 }
+\seealso{
+Other number.theory: 
+\code{\link{conv_numeric}},
+\code{\link{digitSum}()},
+\code{\link{factorize}()},
+\code{\link{fibonacci}()},
+\code{\link{isPrime}()},
+\code{\link{primes}()}
+}
+\concept{data-inspection}
+\concept{number-theory}
+\concept{number.theory}

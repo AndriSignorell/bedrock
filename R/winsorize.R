@@ -64,10 +64,14 @@
 #' winsorize(x, val = c(min(x, na.rm = TRUE), 2))  # upper bound only
 #' winsorize(x, val = c(-2, max(x, na.rm = TRUE))) # lower bound only
 #'
-#' @family data_processing
-#' @concept robust_statistics
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept outlier-detection
+#' @concept descriptive-statistics
+#'
+#'
 #' @export
 winsorize <- function(
     x,
@@ -77,3 +81,4 @@ winsorize <- function(
   x[x > val[2L]] <- val[2L]
   x
 }
+

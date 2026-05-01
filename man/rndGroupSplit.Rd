@@ -32,3 +32,14 @@ set.seed(123)
 rndGroupSplit(LETTERS[1:12], grp_n = c(4, 3, 5))
 
 }
+\seealso{
+Other combinatorics: 
+\code{\link{combN}()},
+\code{\link{combPairs}()},
+\code{\link{combSet}()},
+\code{\link{permn}()},
+\code{\link{sampleX}()}
+}
+\concept{combinatorics}
+\concept{data-manipulation}
+\concept{vector-manipulation}

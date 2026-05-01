@@ -46,6 +46,11 @@
 
 
 
+#' @family math.utils
+#' @concept mathematics
+#' @concept vector-manipulation
+#'
+#'
 #' @export
 dotProd <- function(x, y) {
   if (!(is.numeric(x) || is.complex(x)) ||

@@ -36,6 +36,11 @@
 
 
 
+#' @family math.utils
+#' @concept mathematics
+#' @concept vector-manipulation
+#'
+#'
 #' @export
 crossProdN <- function(A) {
   if (!(is.numeric(A) || is.complex(A))) {

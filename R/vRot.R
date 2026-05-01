@@ -19,6 +19,12 @@
 #' # 2 3 4 5 1
 #'
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept mathematics
+#' @concept geometry
+#'
+#'
 #' @export
 vRot <- function(x, k = 1L) {
   

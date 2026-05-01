@@ -61,4 +61,17 @@ isNumeric(c(1, NA), na.rm = TRUE)
 }
 \seealso{
 \code{\link{isWholeLike}}
+
+Other data.inspection: 
+\code{\link{allDuplicated}()},
+\code{\link{allIdentical}()},
+\code{\link{completeColumns}()},
+\code{\link{countCompCases}()},
+\code{\link{flags}()},
+\code{\link{isDichotomous}()},
+\code{\link{isWholeLike}()},
+\code{\link{isZero}()}
 }
+\concept{data-inspection}
+\concept{data-manipulation}
+\concept{data.inspection}

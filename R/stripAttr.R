@@ -33,6 +33,11 @@
 
 
 #' @rdname set_strip_attr
+#' @family data.manipulation
+#' @concept data-manipulation
+#' @concept data-structures
+#'
+#'
 #' @export
 setAttr <- function(x, attr, attr_val){
   for(i in seq_along(attr))

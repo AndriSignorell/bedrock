@@ -15,6 +15,11 @@
 #' overlap(c(1, 5), c(3, 7))  # 2
 #' overlap(c(1, 3), c(3, 5))  # 0
 #'
+#' @family interval.ops
+#' @concept interval-arithmetic
+#' @concept mathematics
+#'
+#'
 #' @export
 overlap <- function(x, y) {
   dat <- .interval_core(x, y)

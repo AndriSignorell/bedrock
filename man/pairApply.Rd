@@ -53,5 +53,26 @@ pairApply(d.sub,
 \seealso{
 \code{\link{outer}}, \code{\link{combPairs}},
 \code{\link{pairwise.table}}
+
+Other vector.ops: 
+\code{\link{Coalesce}()},
+\code{\link{closest}()},
+\code{\link{midx}()},
+\code{\link{moveAvg}()},
+\code{\link{naIf}()},
+\code{\link{naReplace}()},
+\code{\link{nz}()},
+\code{\link{quot}()},
+\code{\link{rankX}()},
+\code{\link{splitAt}()},
+\code{\link{trim}()},
+\code{\link{unwhich}()},
+\code{\link{vRot}()},
+\code{\link{vShift}()},
+\code{\link{winsorize}()}
 }
+\concept{combinatorics}
+\concept{data-manipulation}
+\concept{vector-manipulation}
+\concept{vector.ops}
 \keyword{manip}

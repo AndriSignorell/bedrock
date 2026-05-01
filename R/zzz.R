@@ -16,7 +16,8 @@
 #' 
 #' @importFrom stats complete.cases na.omit quantile uniroot runif
 #'             relevel filter is.ts na.exclude na.fail na.pass
-#'             model.frame plogis qlogis
+#'             model.frame plogis qlogis as.formula contr.helmert
+#'             contr.poly contr.sum contr.treatment xtabs aggregate
 #' 
 #' @importFrom utils combn modifyList tail browseURL find
 #'             getAnywhere head help.search str capture.output
@@ -25,6 +26,7 @@
 #' @importFrom tools Rd_db file_ext
 #' @importFrom readr read_csv read_tsv read_table
 #' @importFrom readxl read_excel
+#' @importFrom cli col_cyan col_blue style_bold
 #' 
 NULL
 

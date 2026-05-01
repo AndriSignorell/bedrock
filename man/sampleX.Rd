@@ -37,6 +37,15 @@ sampleX(d.pizza, size=5)
 }
 \seealso{
 \code{\link{sample}}
+
+Other combinatorics: 
+\code{\link{combN}()},
+\code{\link{combPairs}()},
+\code{\link{combSet}()},
+\code{\link{permn}()},
+\code{\link{rndGroupSplit}()}
 }
+\concept{combinatorics}
+\concept{vector-manipulation}
 \keyword{IO}
 \keyword{distribution}

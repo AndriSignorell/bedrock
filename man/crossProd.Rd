@@ -56,3 +56,16 @@ y <- matrix(9:1, nrow = 3)
 crossProd(x, y, "cols")
 
 }
+\seealso{
+Other math.utils: 
+\code{\link{crossProdN}()},
+\code{\link{dotProd}()},
+\code{\link{percentRank}()},
+\code{\link{precision}},
+\code{\link{ptInPoly}()},
+\code{\link{roundTo}()},
+\code{\link{unirootAll}()}
+}
+\concept{math.utils}
+\concept{mathematics}
+\concept{vector-manipulation}

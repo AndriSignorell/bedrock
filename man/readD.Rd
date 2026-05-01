@@ -50,4 +50,14 @@ readD("data.csv", base = FALSE)
 \code{\link{findDownload}},
 \code{\link[readxl]{read_excel}},
 \code{\link[readr]{read_csv}}
+
+Other file.utils: 
+\code{\link{buildPath}()},
+\code{\link{fileExistURL}()},
+\code{\link{findDownload}()},
+\code{\link{pdfManual}()},
+\code{\link{splitPath}()}
 }
+\concept{data-manipulation}
+\concept{file-utilities}
+\concept{file.utils}

@@ -42,3 +42,14 @@ attr(res, "error")
 }
 
 }
+\seealso{
+Other file.utils: 
+\code{\link{buildPath}()},
+\code{\link{findDownload}()},
+\code{\link{pdfManual}()},
+\code{\link{readD}()},
+\code{\link{splitPath}()}
+}
+\concept{data-inspection}
+\concept{file-utilities}
+\concept{file.utils}

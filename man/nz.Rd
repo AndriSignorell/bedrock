@@ -19,5 +19,24 @@ Returns all non-zero elements of a vector.
 This is a convenience function primarily intended for use in
 model formulas or quick vector filtering.
 }
-\concept{zero utilities}
-\concept{zero-handling}
+\seealso{
+Other vector.ops: 
+\code{\link{Coalesce}()},
+\code{\link{closest}()},
+\code{\link{midx}()},
+\code{\link{moveAvg}()},
+\code{\link{naIf}()},
+\code{\link{naReplace}()},
+\code{\link{pairApply}()},
+\code{\link{quot}()},
+\code{\link{rankX}()},
+\code{\link{splitAt}()},
+\code{\link{trim}()},
+\code{\link{unwhich}()},
+\code{\link{vRot}()},
+\code{\link{vShift}()},
+\code{\link{winsorize}()}
+}
+\concept{data-inspection}
+\concept{vector-manipulation}
+\concept{vector.ops}

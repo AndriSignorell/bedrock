@@ -72,6 +72,11 @@
 #' 
 #' 
 
+#' @family math.utils
+#' @concept mathematics
+#' @concept data-manipulation
+#'
+#'
 #' @export
 roundTo <- function(x, multiple = 1, FUN = round) {
   

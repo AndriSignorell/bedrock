@@ -25,6 +25,11 @@
 #'
 
 
+#' @family file.utils
+#' @concept file-utilities
+#' @concept data-inspection
+#'
+#'
 #' @export
 findDownload <- function(fname) {
   

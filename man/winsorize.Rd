@@ -74,6 +74,25 @@ winsorize(x, val = c(-2, max(x, na.rm = TRUE))) # lower bound only
 }
 \seealso{
 \code{\link[DescToolsX]{scaleX}}, \code{\link[robustHD]{winsorize}}
+
+Other vector.ops: 
+\code{\link{Coalesce}()},
+\code{\link{closest}()},
+\code{\link{midx}()},
+\code{\link{moveAvg}()},
+\code{\link{naIf}()},
+\code{\link{naReplace}()},
+\code{\link{nz}()},
+\code{\link{pairApply}()},
+\code{\link{quot}()},
+\code{\link{rankX}()},
+\code{\link{splitAt}()},
+\code{\link{trim}()},
+\code{\link{unwhich}()},
+\code{\link{vRot}()},
+\code{\link{vShift}()}
 }
-\concept{data_processing}
-\concept{robust_statistics}
+\concept{descriptive-statistics}
+\concept{outlier-detection}
+\concept{vector-manipulation}
+\concept{vector.ops}

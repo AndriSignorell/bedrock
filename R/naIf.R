@@ -9,6 +9,12 @@
 #' @return A vector of the same type as \code{x}.
 
 
+#' @family vector.ops
+#' @concept vector-manipulation
+#' @concept missing-data
+#' @concept data-manipulation
+#'
+#'
 #' @export
 naIf <- function(x, values) {
   replace(x, x %in% values, NA)

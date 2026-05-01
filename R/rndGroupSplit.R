@@ -25,6 +25,12 @@
 
 
 
+#' @family combinatorics
+#' @concept combinatorics
+#' @concept data-manipulation
+#' @concept vector-manipulation
+#'
+#'
 #' @export
 rndGroupSplit <- function(x, grp_n) {
   if (!is.numeric(grp_n) || any(grp_n <= 0) || any(grp_n %% 1 != 0)) {

@@ -36,6 +36,11 @@
 #' ptInPoly(x, y, px, py)
 #'
 
+#' @family math.utils
+#' @concept mathematics
+#' @concept geometry
+#'
+#'
 #' @export
 ptInPoly <- function(x, y, poly_x, poly_y) {
   

@@ -51,3 +51,17 @@ isWholeLike(c(1, -2), nonNegative = TRUE)
 isWholeLike(1:5 + 0i)
 
 }
+\seealso{
+Other data.inspection: 
+\code{\link{allDuplicated}()},
+\code{\link{allIdentical}()},
+\code{\link{completeColumns}()},
+\code{\link{countCompCases}()},
+\code{\link{flags}()},
+\code{\link{isDichotomous}()},
+\code{\link{isNumeric}()},
+\code{\link{isZero}()}
+}
+\concept{data-inspection}
+\concept{data.inspection}
+\concept{mathematics}

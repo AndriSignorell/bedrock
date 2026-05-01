@@ -39,9 +39,14 @@ permn(c("a", "b", "c", "a"))
 \cr \code{vignette("Combinatorics")}
 
 Other combinatorics: 
-\code{\link{combPairs}()}
+\code{\link{combN}()},
+\code{\link{combPairs}()},
+\code{\link{combSet}()},
+\code{\link{rndGroupSplit}()},
+\code{\link{sampleX}()}
 }
 \author{
 Friederich Leisch
 }
 \concept{combinatorics}
+\concept{mathematics}

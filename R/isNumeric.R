@@ -40,6 +40,11 @@
 #' @seealso \code{\link{isWholeLike}}
 #'
 
+#' @family data.inspection
+#' @concept data-inspection
+#' @concept data-manipulation
+#'
+#'
 #' @export
 isNumeric <- function(x,
                       length.arg = NULL,

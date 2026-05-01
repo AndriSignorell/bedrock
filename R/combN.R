@@ -16,9 +16,6 @@
 #' \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 #' \cr \code{vignette("Combinatorics")} 
 #' 
-#' @family topic.combinatorics
-#' @concept combinatorics
-#'  
 #' @examples
 #' n <- 5; m <- 2
 #' combN(n, m, repl=TRUE, ord=FALSE)
@@ -28,6 +25,11 @@
 #' 
 
 
+#' @family combinatorics
+#' @concept combinatorics
+#' @concept mathematics
+#'
+#'
 #' @export
 combN <- function(n, m, repl=FALSE, ord=FALSE){
   # return the number for the 4 combinatoric cases

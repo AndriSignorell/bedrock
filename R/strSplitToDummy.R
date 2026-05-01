@@ -55,6 +55,12 @@
 #' )
 #'
 
+#' @family string.utilities
+#' @concept string-manipulation
+#' @concept data-manipulation
+#' @concept data-structures
+#'
+#'
 #' @export
 strSplitToDummy <- function(x, split = ",", trim = TRUE,
                          na.action = na.pass, ...) {

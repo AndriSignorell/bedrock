@@ -20,9 +20,6 @@
 #' \cr \code{vignette("Combinatorics")} 
 #' 
 
-#' @family combinatorics
-#' @concept combinatorics
-#'  
 #' @examples
 #' 
 #' permn(letters[2:5])
@@ -34,6 +31,11 @@
 #' 
 
 
+#' @family combinatorics
+#' @concept combinatorics
+#' @concept mathematics
+#'
+#'
 #' @export
 permn <- function(x, sort = FALSE) {
   
