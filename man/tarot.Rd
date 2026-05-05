@@ -46,9 +46,9 @@ summary(tarot$rank_minor)
 
 }
 \seealso{
-Other datasets: 
+Other datasets:
 \code{\link{cards}},
-\code{\link{courseData}()},
+\code{\link[=courseData]{courseData()}},
 \code{\link{roulette}}
 }
 \concept{categorical-data}

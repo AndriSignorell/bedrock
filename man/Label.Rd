@@ -70,9 +70,9 @@ label(x)
 
 }
 \seealso{
-Other label.utils: 
-\code{\link{dataDescription}()},
-\code{\link{openDataObject}()}
+Other label.utils:
+\code{\link[=dataDescription]{dataDescription()}},
+\code{\link[=openDataObject]{openDataObject()}}
 }
 \concept{data-description}
 \concept{data-manipulation}

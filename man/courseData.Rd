@@ -57,7 +57,7 @@ courseData("mydata.csv", url = "http://example.com/data/")
 \seealso{
 \code{\link{fileExistURL}}
 
-Other datasets: 
+Other datasets:
 \code{\link{cards}},
 \code{\link{roulette}},
 \code{\link{tarot}}

@@ -33,6 +33,6 @@
 #'
 #' @export
 factorize <- function (n) {
-  setNamesX(lapply(n, factor_u64), n)
+  setNamesX(lapply(n, factor_u64_cpp), n)
 }
  

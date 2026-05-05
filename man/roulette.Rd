@@ -47,9 +47,9 @@ table(roulette$parity, useNA = "ifany")
 
 }
 \seealso{
-Other datasets: 
+Other datasets:
 \code{\link{cards}},
-\code{\link{courseData}()},
+\code{\link[=courseData]{courseData()}},
 \code{\link{tarot}}
 }
 \concept{datasets}

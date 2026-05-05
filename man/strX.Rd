@@ -22,14 +22,14 @@ strX(d.pizza)
 \seealso{
 \code{\link{str}}
 
-Other pkg.introspection: 
-\code{\link{funArgs}()},
-\code{\link{funCalls}()},
-\code{\link{funKeywords}()},
-\code{\link{funList}()},
-\code{\link{getRdLabels}()},
-\code{\link{inDots}()},
-\code{\link{mergeArgs}()}
+Other pkg.introspection:
+\code{\link[=funArgs]{funArgs()}},
+\code{\link[=funCalls]{funCalls()}},
+\code{\link[=funKeywords]{funKeywords()}},
+\code{\link[=funList]{funList()}},
+\code{\link[=getRdLabels]{getRdLabels()}},
+\code{\link[=inDots]{inDots()}},
+\code{\link[=mergeArgs]{mergeArgs()}}
 }
 \concept{data-inspection}
 \concept{package-utilities}

@@ -30,15 +30,15 @@ allIdentical(A, B, C, E)     # FALSE
 \seealso{
 \code{\link{identical}}
 
-Other data.inspection: 
-\code{\link{allDuplicated}()},
-\code{\link{completeColumns}()},
-\code{\link{countCompCases}()},
-\code{\link{flags}()},
-\code{\link{isDichotomous}()},
-\code{\link{isNumeric}()},
-\code{\link{isWholeLike}()},
-\code{\link{isZero}()}
+Other data.inspection:
+\code{\link[=allDuplicated]{allDuplicated()}},
+\code{\link[=completeColumns]{completeColumns()}},
+\code{\link[=countCompCases]{countCompCases()}},
+\code{\link[=flags]{flags()}},
+\code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=isZero]{isZero()}}
 }
 \concept{data-inspection}
 \concept{data.inspection}

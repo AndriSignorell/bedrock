@@ -118,14 +118,14 @@ void factor_rec(uint64_t n, std::vector<uint64_t>& factors) {
  ============================================================ */
 
 // [[Rcpp::export]]
-bool is_prime_u64(double x) {
+bool is_prime_cpp(double x) {
   if (x < 2 || x != std::floor(x) || x > 9.22e18)
     return false;
   return miller_rabin_u64((uint64_t)x);
 }
 
 // [[Rcpp::export]]
-IntegerVector primes_upto(int n) {
+IntegerVector primes_upto_cpp(int n) {
   if (n < 2) return IntegerVector();
   
   std::vector<bool> is_prime(n + 1, true);
@@ -147,7 +147,7 @@ IntegerVector primes_upto(int n) {
 }
 
 // // [[Rcpp::export]]
-// NumericVector factor_u64(double x) {
+// NumericVector factor_u64_cpp(double x) {
 //   if (x < 2 || x != std::floor(x) || x > 9.22e18)
 //     stop("x must be an integer in [2, 2^63)");
 //   
@@ -164,7 +164,7 @@ IntegerVector primes_upto(int n) {
 
 
 // [[Rcpp::export]]
-NumericMatrix factor_u64(double x) {
+NumericMatrix factor_u64_cpp(double x) {
   if (x < 2 || x != std::floor(x) || x > 9.22e18)
     stop("x must be an integer in [2, 2^63)");
   

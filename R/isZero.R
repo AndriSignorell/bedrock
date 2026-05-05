@@ -5,7 +5,6 @@
 #' below the machine tolerance.
 #' 
 #' @name isZero
-#' @aliases isZero
 #' 
 #' @param x a (non-empty) numeric vector of data values. 
 #' @param tol tolerance to be used 
@@ -13,9 +12,8 @@
 #' before the computation proceeds. Defaults to \code{FALSE}. 
 #' 
 #' @return logical vector of the same dimension as x.
-#' @author R-Core, Andri Signorell <andri@@signorell.net>, Thomas W. Yee 
 #' @seealso \code{\link{is.integer}} 
-#' @keywords logic
+#' 
 #' @examples
 #' # ... These are people who live in ignorance of the Floating Point Gods.
 #' # These pagans expect ... (Burns, 2011)" the following to be TRUE:
@@ -31,6 +29,8 @@
 #' @concept vector-manipulation
 #'
 #'
+
+
 #' @export
 isZero <-function(x, tol = sqrt(.Machine$double.eps), na.rm=FALSE) {
   

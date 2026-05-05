@@ -4,11 +4,11 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-LogicalVector between_num(NumericVector x,
-                          NumericVector from,
-                          NumericVector to,
-                          bool left_closed = true,
-                          bool right_closed = true) {
+LogicalVector between_num_cpp(NumericVector x,
+                              NumericVector from,
+                              NumericVector to,
+                              bool left_closed = true,
+                              bool right_closed = true) {
   
   int n = x.size();
   LogicalVector res(n);

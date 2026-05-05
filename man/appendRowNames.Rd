@@ -4,17 +4,17 @@
 \alias{appendRowNames}
 \title{Append Rownames to a Data Frame or Matrix}
 \usage{
-appendRowNames(x, col_name = "rowname", after = 0L, remove_rownames = TRUE)
+appendRowNames(x, colName = "rowname", after = 0L, removeRownames = TRUE)
 }
 \arguments{
 \item{x}{A data.frame or matrix.}
 
-\item{col_name}{Name of the new column containing the row names.}
+\item{colName}{Name of the new column containing the row names.}
 
 \item{after}{Position after which the column is inserted.
 Default is 0 (first column).}
 
-\item{remove_rownames}{Logical; if TRUE, existing row names are removed.}
+\item{removeRownames}{Logical; if TRUE, existing row names are removed.}
 }
 \value{
 A data.frame (or matrix coerced to data.frame) with row names
@@ -30,27 +30,27 @@ appendRowNames(dd)
 
 }
 \seealso{
-\code{\link{appendX}}
+\code{\link{append}}
 
-Other data.manipulation: 
-\code{\link{appendX}()},
-\code{\link{as.array.xtabs}()},
-\code{\link{columnWrap}()},
-\code{\link{combLevels}()},
-\code{\link{nf}()},
-\code{\link{parseSASDatalines}()},
-\code{\link{recodeX}()},
-\code{\link{recycle}()},
-\code{\link{revCode}()},
-\code{\link{revX}()},
-\code{\link{setNamesX}()},
-\code{\link{set_strip_attr}},
-\code{\link{sortX}()},
-\code{\link{splitX}()},
-\code{\link{stringsAsFactors}()},
-\code{\link{toBaseR}()},
+Other data.manipulation:
+\code{\link[=appendX]{appendX()}},
+\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+\code{\link[=columnWrap]{columnWrap()}},
+\code{\link[=combLevels]{combLevels()}},
+\code{\link[=nf]{nf()}},
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=recodeX]{recodeX()}},
+\code{\link[=recycle]{recycle()}},
+\code{\link[=revCode]{revCode()}},
+\code{\link[=revX]{revX()}},
+\code{\link{set-and-remove-attributes}},
+\code{\link[=setNamesX]{setNamesX()}},
+\code{\link[=sortX]{sortX()}},
+\code{\link[=splitX]{splitX()}},
+\code{\link[=stringsAsFactors]{stringsAsFactors()}},
+\code{\link[=toBaseR]{toBaseR()}},
 \code{\link{tolong_towide}},
-\code{\link{untable}()}
+\code{\link[=untable]{untable()}}
 }
 \concept{data-manipulation}
 \concept{data.manipulation}

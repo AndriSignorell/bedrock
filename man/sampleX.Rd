@@ -38,12 +38,12 @@ sampleX(d.pizza, size=5)
 \seealso{
 \code{\link{sample}}
 
-Other combinatorics: 
-\code{\link{combN}()},
-\code{\link{combPairs}()},
-\code{\link{combSet}()},
-\code{\link{permn}()},
-\code{\link{rndGroupSplit}()}
+Other combinatorics:
+\code{\link[=combN]{combN()}},
+\code{\link[=combPairs]{combPairs()}},
+\code{\link[=combSet]{combSet()}},
+\code{\link[=permn]{permn()}},
+\code{\link[=randGroupSplit]{randGroupSplit()}}
 }
 \concept{combinatorics}
 \concept{vector-manipulation}

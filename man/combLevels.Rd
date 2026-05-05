@@ -47,25 +47,25 @@ combLevels(x, y, na = TRUE)
 
 }
 \seealso{
-Other data.manipulation: 
-\code{\link{appendRowNames}()},
-\code{\link{appendX}()},
-\code{\link{as.array.xtabs}()},
-\code{\link{columnWrap}()},
-\code{\link{nf}()},
-\code{\link{parseSASDatalines}()},
-\code{\link{recodeX}()},
-\code{\link{recycle}()},
-\code{\link{revCode}()},
-\code{\link{revX}()},
-\code{\link{setNamesX}()},
-\code{\link{set_strip_attr}},
-\code{\link{sortX}()},
-\code{\link{splitX}()},
-\code{\link{stringsAsFactors}()},
-\code{\link{toBaseR}()},
+Other data.manipulation:
+\code{\link[=appendRowNames]{appendRowNames()}},
+\code{\link[=appendX]{appendX()}},
+\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+\code{\link[=columnWrap]{columnWrap()}},
+\code{\link[=nf]{nf()}},
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=recodeX]{recodeX()}},
+\code{\link[=recycle]{recycle()}},
+\code{\link[=revCode]{revCode()}},
+\code{\link[=revX]{revX()}},
+\code{\link{set-and-remove-attributes}},
+\code{\link[=setNamesX]{setNamesX()}},
+\code{\link[=sortX]{sortX()}},
+\code{\link[=splitX]{splitX()}},
+\code{\link[=stringsAsFactors]{stringsAsFactors()}},
+\code{\link[=toBaseR]{toBaseR()}},
 \code{\link{tolong_towide}},
-\code{\link{untable}()}
+\code{\link[=untable]{untable()}}
 }
 \concept{data-manipulation}
 \concept{data-structures}

@@ -50,6 +50,6 @@
 #'
 #' @export
 as.CDateFmt <- function(fmt) {
-  as_CDateFmt_cpp(fmt)
+  as_cdate_fmt_cpp(fmt)
 }
 

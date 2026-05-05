@@ -79,10 +79,10 @@ printCharMatrix(m, width = 20)
 
 }
 \seealso{
-Other table.utils: 
-\code{\link{collapseTable}()},
-\code{\link{dummy}()},
-\code{\link{multMerge}()}
+Other table.utils:
+\code{\link[=collapseTable]{collapseTable()}},
+\code{\link[=dummy]{dummy()}},
+\code{\link[=multMerge]{multMerge()}}
 }
 \concept{string-formatting}
 \concept{table-manipulation}

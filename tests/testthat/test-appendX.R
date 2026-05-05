@@ -39,7 +39,7 @@ test_that("appendX.matrix inserts columns correctly", {
 test_that("appendX.matrix column names are assigned", {
   x <- matrix(1:6, nrow = 3)
   
-  res <- appendX(x, 7:9, new_names = "newcol")
+  res <- appendX(x, 7:9, newNames = "newcol")
   
   expect_equal(colnames(res)[ncol(res)], "newcol")
 })
@@ -63,7 +63,7 @@ test_that("appendX.matrix inserts rows correctly", {
 test_that("appendX.matrix row names assigned", {
   x <- matrix(1:6, nrow = 3)
   
-  res <- appendX(x, 10:11, rows = TRUE, new_names = "newrow")
+  res <- appendX(x, 10:11, rows = TRUE, newNames = "newrow")
   expect_true("newrow" %in% rownames(res))
 })
 
@@ -74,7 +74,7 @@ test_that("appendX.matrix row names assigned", {
 test_that("appendX.data.frame inserts columns correctly", {
   df <- data.frame(a = 1:3, b = 4:6)
   
-  res <- appendX(df, c(7,8,9), new_names = "c")
+  res <- appendX(df, c(7,8,9), newNames = "c")
   expect_true("c" %in% names(res))
   expect_equal(res$c, c(7,8,9))
 })
@@ -82,7 +82,7 @@ test_that("appendX.data.frame inserts columns correctly", {
 test_that("appendX.data.frame respects insertion position", {
   df <- data.frame(a = 1:3, b = 4:6)
   
-  res <- appendX(df, c(7,8,9), after = 0, new_names = "c")
+  res <- appendX(df, c(7,8,9), after = 0, newNames = "c")
   expect_equal(names(res)[1], "c")
 })
 
@@ -96,7 +96,7 @@ test_that("appendX.data.frame inserts rows correctly", {
   res <- appendX(df, c(10, 20),
                  rows = TRUE,
                  after = 0,
-                 new_names = names(df))
+                 newNames = names(df))
   
   expect_equal(nrow(res), 4)
   expect_equal(as.numeric(res[1, ]), c(10, 20))

@@ -79,8 +79,8 @@ callIf(plot, TRUE, defaults = list(x, y))
 
 }
 \seealso{
-Other utilities: 
-\code{\link{isNA}()}
+Other utilities:
+\code{\link[=isNA]{isNA()}}
 }
 \concept{functional-programming}
 \concept{programming-helpers}

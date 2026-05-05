@@ -49,9 +49,9 @@ desc$codes[["gender"]]
 
 }
 \seealso{
-Other label.utils: 
-\code{\link{label}()},
-\code{\link{openDataObject}()}
+Other label.utils:
+\code{\link[=label]{label()}},
+\code{\link[=openDataObject]{openDataObject()}}
 }
 \concept{data-description}
 \concept{data-manipulation}

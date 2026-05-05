@@ -41,8 +41,8 @@ isNA(c(1, NA))       # FALSE
 
 }
 \seealso{
-Other utilities: 
-\code{\link{callIf}()}
+Other utilities:
+\code{\link[=callIf]{callIf()}}
 }
 \concept{logical-helpers}
 \concept{programming-helpers}

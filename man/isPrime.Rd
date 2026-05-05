@@ -34,13 +34,13 @@ isPrime(c(17, 18, 19))
 
 }
 \seealso{
-Other number.theory: 
-\code{\link{conv_numeric}},
-\code{\link{digitSum}()},
-\code{\link{factorize}()},
-\code{\link{fibonacci}()},
-\code{\link{isOdd}()},
-\code{\link{primes}()}
+Other number.theory:
+\code{\link[=digitSum]{digitSum()}},
+\code{\link[=factorize]{factorize()}},
+\code{\link[=fibonacci]{fibonacci()}},
+\code{\link[=isOdd]{isOdd()}},
+\code{\link{numeric-conversions}},
+\code{\link[=primes]{primes()}}
 }
 \concept{data-inspection}
 \concept{number-theory}

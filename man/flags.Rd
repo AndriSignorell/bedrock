@@ -64,15 +64,15 @@ flags(dat, na.rm = TRUE)
 \seealso{
 \code{\link{isDichotomous}}
 
-Other data.inspection: 
-\code{\link{allDuplicated}()},
-\code{\link{allIdentical}()},
-\code{\link{completeColumns}()},
-\code{\link{countCompCases}()},
-\code{\link{isDichotomous}()},
-\code{\link{isNumeric}()},
-\code{\link{isWholeLike}()},
-\code{\link{isZero}()}
+Other data.inspection:
+\code{\link[=allDuplicated]{allDuplicated()}},
+\code{\link[=allIdentical]{allIdentical()}},
+\code{\link[=completeColumns]{completeColumns()}},
+\code{\link[=countCompCases]{countCompCases()}},
+\code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=isZero]{isZero()}}
 }
 \concept{data-inspection}
 \concept{data-manipulation}

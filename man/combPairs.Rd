@@ -38,12 +38,12 @@ combPairs(which(sapply(CO2, is.numeric)), which(sapply(CO2, is.factor)))
 \code{\link{combn}}, \code{\link{expand.grid}},
 \code{\link{outer}}, \code{\link{lower.tri}}
 
-Other combinatorics: 
-\code{\link{combN}()},
-\code{\link{combSet}()},
-\code{\link{permn}()},
-\code{\link{rndGroupSplit}()},
-\code{\link{sampleX}()}
+Other combinatorics:
+\code{\link[=combN]{combN()}},
+\code{\link[=combSet]{combSet()}},
+\code{\link[=permn]{permn()}},
+\code{\link[=randGroupSplit]{randGroupSplit()}},
+\code{\link[=sampleX]{sampleX()}}
 }
 \concept{combinatorics}
 \concept{mathematics}

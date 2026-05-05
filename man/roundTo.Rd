@@ -82,14 +82,14 @@ cbind(x =       x,
 \code{\link{round}}, \code{\link{trunc}}, \code{\link{ceiling}},
 \code{\link{floor}}
 
-Other math.utils: 
-\code{\link{crossProd}()},
-\code{\link{crossProdN}()},
-\code{\link{dotProd}()},
-\code{\link{percentRank}()},
+Other math.utils:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=dotProd]{dotProd()}},
+\code{\link[=percentRank]{percentRank()}},
 \code{\link{precision}},
-\code{\link{ptInPoly}()},
-\code{\link{unirootAll}()}
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=unirootAll]{unirootAll()}}
 }
 \concept{data-manipulation}
 \concept{math.utils}

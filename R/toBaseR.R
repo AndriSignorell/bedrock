@@ -42,7 +42,7 @@ toBaseR.tbl_df <- function(x, ...){
   # get rid of unimportant SPSS specific attributes
   res <- as.data.frame(
     lapply(res, 
-           stripAttr, 
+           removeAttr, 
            attr=c("format.spss", "display_width", "format.stata"))) 
   
   for(i in which(sapply(x, inherits, "haven_labelled") )){

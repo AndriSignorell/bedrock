@@ -36,12 +36,12 @@ combN(n, m, repl=FALSE, ord=FALSE)
 \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 \cr \code{vignette("Combinatorics")}
 
-Other combinatorics: 
-\code{\link{combPairs}()},
-\code{\link{combSet}()},
-\code{\link{permn}()},
-\code{\link{rndGroupSplit}()},
-\code{\link{sampleX}()}
+Other combinatorics:
+\code{\link[=combPairs]{combPairs()}},
+\code{\link[=combSet]{combSet()}},
+\code{\link[=permn]{permn()}},
+\code{\link[=randGroupSplit]{randGroupSplit()}},
+\code{\link[=sampleX]{sampleX()}}
 }
 \concept{combinatorics}
 \concept{mathematics}

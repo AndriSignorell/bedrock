@@ -31,6 +31,8 @@
 #' @export
 inDots <- function(..., arg, default = NULL) {
   
+  warning("Deprecated! Use extractArgs()")
+  
   dots <- list(...)
   nms <- names(dots)
   

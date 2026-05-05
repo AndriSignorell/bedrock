@@ -69,9 +69,9 @@ strSplitToCol(df)
 
 }
 \seealso{
-Other string.utilities: 
-\code{\link{charToAsc}()},
-\code{\link{strSplitToDummy}()}
+Other string.utilities:
+\code{\link{char-ascii-conversion}},
+\code{\link[=strSplitToDummy]{strSplitToDummy()}}
 }
 \concept{data-manipulation}
 \concept{data-structures}

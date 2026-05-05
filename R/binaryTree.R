@@ -41,7 +41,7 @@ binaryTree <- function(n) {
   if(length(n) != 1 || n < 1)
     stop("n must be a positive integer")
   
-  binaryTree_cpp(n)
+  binary_tree_cpp(n)
   
 }
 

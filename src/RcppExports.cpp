@@ -10,20 +10,20 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// as_CDateFmt_cpp
-std::string as_CDateFmt_cpp(std::string fmt);
-RcppExport SEXP _bedrock_as_CDateFmt_cpp(SEXP fmtSEXP) {
+// as_cdate_fmt_cpp
+std::string as_cdate_fmt_cpp(std::string fmt);
+RcppExport SEXP _bedrock_as_cdate_fmt_cpp(SEXP fmtSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type fmt(fmtSEXP);
-    rcpp_result_gen = Rcpp::wrap(as_CDateFmt_cpp(fmt));
+    rcpp_result_gen = Rcpp::wrap(as_cdate_fmt_cpp(fmt));
     return rcpp_result_gen;
 END_RCPP
 }
-// between_num
-LogicalVector between_num(NumericVector x, NumericVector from, NumericVector to, bool left_closed, bool right_closed);
-RcppExport SEXP _bedrock_between_num(SEXP xSEXP, SEXP fromSEXP, SEXP toSEXP, SEXP left_closedSEXP, SEXP right_closedSEXP) {
+// between_num_cpp
+LogicalVector between_num_cpp(NumericVector x, NumericVector from, NumericVector to, bool left_closed, bool right_closed);
+RcppExport SEXP _bedrock_between_num_cpp(SEXP xSEXP, SEXP fromSEXP, SEXP toSEXP, SEXP left_closedSEXP, SEXP right_closedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -32,62 +32,62 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< NumericVector >::type to(toSEXP);
     Rcpp::traits::input_parameter< bool >::type left_closed(left_closedSEXP);
     Rcpp::traits::input_parameter< bool >::type right_closed(right_closedSEXP);
-    rcpp_result_gen = Rcpp::wrap(between_num(x, from, to, left_closed, right_closed));
+    rcpp_result_gen = Rcpp::wrap(between_num_cpp(x, from, to, left_closed, right_closed));
     return rcpp_result_gen;
 END_RCPP
 }
-// binaryTree_cpp
-Rcpp::IntegerVector binaryTree_cpp(int n);
-RcppExport SEXP _bedrock_binaryTree_cpp(SEXP nSEXP) {
+// binary_tree_cpp
+Rcpp::IntegerVector binary_tree_cpp(int n);
+RcppExport SEXP _bedrock_binary_tree_cpp(SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type n(nSEXP);
-    rcpp_result_gen = Rcpp::wrap(binaryTree_cpp(n));
+    rcpp_result_gen = Rcpp::wrap(binary_tree_cpp(n));
     return rcpp_result_gen;
 END_RCPP
 }
-// conv_DecToBin
-CharacterVector conv_DecToBin(IntegerVector n);
-RcppExport SEXP _bedrock_conv_DecToBin(SEXP nSEXP) {
+// dec_to_bin_cpp
+CharacterVector dec_to_bin_cpp(IntegerVector n);
+RcppExport SEXP _bedrock_dec_to_bin_cpp(SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< IntegerVector >::type n(nSEXP);
-    rcpp_result_gen = Rcpp::wrap(conv_DecToBin(n));
+    rcpp_result_gen = Rcpp::wrap(dec_to_bin_cpp(n));
     return rcpp_result_gen;
 END_RCPP
 }
-// is_prime_u64
-bool is_prime_u64(double x);
-RcppExport SEXP _bedrock_is_prime_u64(SEXP xSEXP) {
+// is_prime_cpp
+bool is_prime_cpp(double x);
+RcppExport SEXP _bedrock_is_prime_cpp(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< double >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(is_prime_u64(x));
+    rcpp_result_gen = Rcpp::wrap(is_prime_cpp(x));
     return rcpp_result_gen;
 END_RCPP
 }
-// primes_upto
-IntegerVector primes_upto(int n);
-RcppExport SEXP _bedrock_primes_upto(SEXP nSEXP) {
+// primes_upto_cpp
+IntegerVector primes_upto_cpp(int n);
+RcppExport SEXP _bedrock_primes_upto_cpp(SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type n(nSEXP);
-    rcpp_result_gen = Rcpp::wrap(primes_upto(n));
+    rcpp_result_gen = Rcpp::wrap(primes_upto_cpp(n));
     return rcpp_result_gen;
 END_RCPP
 }
-// factor_u64
-NumericMatrix factor_u64(double x);
-RcppExport SEXP _bedrock_factor_u64(SEXP xSEXP) {
+// factor_u64_cpp
+NumericMatrix factor_u64_cpp(double x);
+RcppExport SEXP _bedrock_factor_u64_cpp(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< double >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(factor_u64(x));
+    rcpp_result_gen = Rcpp::wrap(factor_u64_cpp(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -105,28 +105,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// roman2int_cpp
-IntegerVector roman2int_cpp(CharacterVector x);
-RcppExport SEXP _bedrock_roman2int_cpp(SEXP xSEXP) {
+// roman_to_int_cpp
+IntegerVector roman_to_int_cpp(CharacterVector x);
+RcppExport SEXP _bedrock_roman_to_int_cpp(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< CharacterVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(roman2int_cpp(x));
+    rcpp_result_gen = Rcpp::wrap(roman_to_int_cpp(x));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_bedrock_as_CDateFmt_cpp", (DL_FUNC) &_bedrock_as_CDateFmt_cpp, 1},
-    {"_bedrock_between_num", (DL_FUNC) &_bedrock_between_num, 5},
-    {"_bedrock_binaryTree_cpp", (DL_FUNC) &_bedrock_binaryTree_cpp, 1},
-    {"_bedrock_conv_DecToBin", (DL_FUNC) &_bedrock_conv_DecToBin, 1},
-    {"_bedrock_is_prime_u64", (DL_FUNC) &_bedrock_is_prime_u64, 1},
-    {"_bedrock_primes_upto", (DL_FUNC) &_bedrock_primes_upto, 1},
-    {"_bedrock_factor_u64", (DL_FUNC) &_bedrock_factor_u64, 1},
+    {"_bedrock_as_cdate_fmt_cpp", (DL_FUNC) &_bedrock_as_cdate_fmt_cpp, 1},
+    {"_bedrock_between_num_cpp", (DL_FUNC) &_bedrock_between_num_cpp, 5},
+    {"_bedrock_binary_tree_cpp", (DL_FUNC) &_bedrock_binary_tree_cpp, 1},
+    {"_bedrock_dec_to_bin_cpp", (DL_FUNC) &_bedrock_dec_to_bin_cpp, 1},
+    {"_bedrock_is_prime_cpp", (DL_FUNC) &_bedrock_is_prime_cpp, 1},
+    {"_bedrock_primes_upto_cpp", (DL_FUNC) &_bedrock_primes_upto_cpp, 1},
+    {"_bedrock_factor_u64_cpp", (DL_FUNC) &_bedrock_factor_u64_cpp, 1},
     {"_bedrock_pip_cpp", (DL_FUNC) &_bedrock_pip_cpp, 4},
-    {"_bedrock_roman2int_cpp", (DL_FUNC) &_bedrock_roman2int_cpp, 1},
+    {"_bedrock_roman_to_int_cpp", (DL_FUNC) &_bedrock_roman_to_int_cpp, 1},
     {NULL, NULL, 0}
 };
 

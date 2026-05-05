@@ -54,14 +54,14 @@ percentRank(c(5, NA, NA))
 \seealso{
 \code{\link{rankX}}, \code{\link[base]{rank}}
 
-Other math.utils: 
-\code{\link{crossProd}()},
-\code{\link{crossProdN}()},
-\code{\link{dotProd}()},
+Other math.utils:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=dotProd]{dotProd()}},
 \code{\link{precision}},
-\code{\link{ptInPoly}()},
-\code{\link{roundTo}()},
-\code{\link{unirootAll}()}
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=roundTo]{roundTo()}},
+\code{\link[=unirootAll]{unirootAll()}}
 }
 \concept{descriptive-statistics}
 \concept{math.utils}

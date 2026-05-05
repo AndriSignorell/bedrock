@@ -16,12 +16,12 @@ search. \cr This function creates the appropriate link to the pdf file on
 CRAN and opens the pdf manual in a browser window.
 }
 \seealso{
-Other file.utils: 
-\code{\link{buildPath}()},
-\code{\link{fileExistURL}()},
-\code{\link{findDownload}()},
-\code{\link{readD}()},
-\code{\link{splitPath}()}
+Other file.utils:
+\code{\link[=buildPath]{buildPath()}},
+\code{\link[=fileExistURL]{fileExistURL()}},
+\code{\link[=findDownload]{findDownload()}},
+\code{\link[=readD]{readD()}},
+\code{\link[=splitPath]{splitPath()}}
 }
 \concept{file-utilities}
 \concept{file.utils}

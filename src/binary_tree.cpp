@@ -4,7 +4,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-Rcpp::IntegerVector binaryTree_cpp(int n) {
+Rcpp::IntegerVector binary_tree_cpp(int n) {
   
   if(n < 1)
     Rcpp::stop("n must be >= 1");

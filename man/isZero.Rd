@@ -33,20 +33,16 @@ isZero(.1 - .3 / 3)
 \seealso{
 \code{\link{is.integer}}
 
-Other data.inspection: 
-\code{\link{allDuplicated}()},
-\code{\link{allIdentical}()},
-\code{\link{completeColumns}()},
-\code{\link{countCompCases}()},
-\code{\link{flags}()},
-\code{\link{isDichotomous}()},
-\code{\link{isNumeric}()},
-\code{\link{isWholeLike}()}
-}
-\author{
-R-Core, Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}, Thomas W. Yee
+Other data.inspection:
+\code{\link[=allDuplicated]{allDuplicated()}},
+\code{\link[=allIdentical]{allIdentical()}},
+\code{\link[=completeColumns]{completeColumns()}},
+\code{\link[=countCompCases]{countCompCases()}},
+\code{\link[=flags]{flags()}},
+\code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isWholeLike]{isWholeLike()}}
 }
 \concept{data-inspection}
 \concept{data.inspection}
 \concept{vector-manipulation}
-\keyword{logic}

@@ -5,7 +5,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-CharacterVector conv_DecToBin(IntegerVector n)
+CharacterVector dec_to_bin_cpp(IntegerVector n)
 {
   const unsigned g_unMaxBits = 32;
   int len = n.size();

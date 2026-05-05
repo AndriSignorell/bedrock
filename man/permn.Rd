@@ -34,16 +34,16 @@ permn(c("a", "b", "c", "a"))
 
 }
 \seealso{
-\link[base:Special]{base::choose}, \code{\link[utils:combn]{utils::combn()}}, \code{\link[base:Special]{base::factorial()}},
+\link[base:choose]{base::choose}, \code{\link[utils:combn]{utils::combn()}}, \code{\link[base:factorial]{base::factorial()}},
 \link{combPairs}
 \cr \code{vignette("Combinatorics")}
 
-Other combinatorics: 
-\code{\link{combN}()},
-\code{\link{combPairs}()},
-\code{\link{combSet}()},
-\code{\link{rndGroupSplit}()},
-\code{\link{sampleX}()}
+Other combinatorics:
+\code{\link[=combN]{combN()}},
+\code{\link[=combPairs]{combPairs()}},
+\code{\link[=combSet]{combSet()}},
+\code{\link[=randGroupSplit]{randGroupSplit()}},
+\code{\link[=sampleX]{sampleX()}}
 }
 \author{
 Friederich Leisch

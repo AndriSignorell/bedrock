@@ -53,13 +53,10 @@ multMerge(x1, x2, x3, by="v")
 \seealso{
 \code{\link{merge}}
 
-Other table.utils: 
-\code{\link{collapseTable}()},
-\code{\link{dummy}()},
-\code{\link{printCharMatrix}()}
-}
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
+Other table.utils:
+\code{\link[=collapseTable]{collapseTable()}},
+\code{\link[=dummy]{dummy()}},
+\code{\link[=printCharMatrix]{printCharMatrix()}}
 }
 \concept{data-manipulation}
 \concept{table-manipulation}

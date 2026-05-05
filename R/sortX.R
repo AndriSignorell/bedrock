@@ -144,7 +144,7 @@ sortX.table <- function(x,
                         factorsAsCharacter = TRUE,
                         ...) {
   method    <- match.arg(method)
-  row_order <- .sortX_core(x, ord, decreasing, na.last, method,
+  row_order <- .sortXEngine(x, ord, decreasing, na.last, method,
                            factorsAsCharacter = factorsAsCharacter,
                            allow_marginal     = TRUE)
   x[row_order, , drop = FALSE]
@@ -165,7 +165,7 @@ sortX.matrix <- function(x,
                          factorsAsCharacter = TRUE,
                          ...) {
   method    <- match.arg(method)
-  row_order <- .sortX_core(x, ord, decreasing, na.last, method,
+  row_order <- .sortXEngine(x, ord, decreasing, na.last, method,
                            factorsAsCharacter = factorsAsCharacter,
                            allow_marginal     = TRUE)
   x[row_order, , drop = FALSE]
@@ -186,7 +186,7 @@ sortX.data.frame <- function(x,
                              factorsAsCharacter = TRUE,
                              ...) {
   method    <- match.arg(method)
-  row_order <- .sortX_core(x, ord, decreasing, na.last, method,
+  row_order <- .sortXEngine(x, ord, decreasing, na.last, method,
                            factorsAsCharacter = factorsAsCharacter,
                            allow_marginal     = FALSE)  # row sums not supported
   x[row_order, , drop = FALSE]
@@ -261,7 +261,7 @@ sortX.data.frame <- function(x,
 
 
 # ----------------------------------------------------------------------
-#  .sortX_core  --  shared row-ordering logic for 2-d objects
+#  .sortXEngine  --  shared row-ordering logic for 2-d objects
 #
 #  Returns an integer index vector of length nrow(x).
 #
@@ -274,7 +274,7 @@ sortX.data.frame <- function(x,
 #    factorsAsCharacter convert factor columns to character before sorting
 #    allow_marginal    if FALSE, ord = ncol(x)+1 raises an error
 # ----------------------------------------------------------------------
-.sortX_core <- function(x,
+.sortXEngine <- function(x,
                         ord,
                         decreasing,
                         na.last,

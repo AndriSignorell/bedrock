@@ -33,5 +33,5 @@
 #'
 #' @export
 isPrime <- function(n) {
-  sapply(n, is_prime_u64)
+  sapply(n, is_prime_cpp)
 }

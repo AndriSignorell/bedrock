@@ -21,7 +21,6 @@
 #' corespondence in the first data frame and so on. The columns are the
 #' remaining columns in x1 and then those in x2 and then those in x3. The
 #' result has the row names resulting from the merge. 
-#' @author Andri Signorell <andri@@signorell.net> 
 #' 
 #' @seealso \code{\link{merge}} 
 #' 

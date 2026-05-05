@@ -29,5 +29,5 @@
 #'
 #' @export
 primes <- function (n) { 
-  setNamesX(lapply(n, primes_upto), n)
+  setNamesX(lapply(n, primes_upto_cpp), n)
 }

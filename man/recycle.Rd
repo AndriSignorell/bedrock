@@ -33,25 +33,25 @@ sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]),
 \seealso{
 \code{\link{rep}}, \code{\link{replicate}}
 
-Other data.manipulation: 
-\code{\link{appendRowNames}()},
-\code{\link{appendX}()},
-\code{\link{as.array.xtabs}()},
-\code{\link{columnWrap}()},
-\code{\link{combLevels}()},
-\code{\link{nf}()},
-\code{\link{parseSASDatalines}()},
-\code{\link{recodeX}()},
-\code{\link{revCode}()},
-\code{\link{revX}()},
-\code{\link{setNamesX}()},
-\code{\link{set_strip_attr}},
-\code{\link{sortX}()},
-\code{\link{splitX}()},
-\code{\link{stringsAsFactors}()},
-\code{\link{toBaseR}()},
+Other data.manipulation:
+\code{\link[=appendRowNames]{appendRowNames()}},
+\code{\link[=appendX]{appendX()}},
+\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+\code{\link[=columnWrap]{columnWrap()}},
+\code{\link[=combLevels]{combLevels()}},
+\code{\link[=nf]{nf()}},
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=recodeX]{recodeX()}},
+\code{\link[=revCode]{revCode()}},
+\code{\link[=revX]{revX()}},
+\code{\link{set-and-remove-attributes}},
+\code{\link[=setNamesX]{setNamesX()}},
+\code{\link[=sortX]{sortX()}},
+\code{\link[=splitX]{splitX()}},
+\code{\link[=stringsAsFactors]{stringsAsFactors()}},
+\code{\link[=toBaseR]{toBaseR()}},
 \code{\link{tolong_towide}},
-\code{\link{untable}()}
+\code{\link[=untable]{untable()}}
 }
 \concept{data-manipulation}
 \concept{data.manipulation}

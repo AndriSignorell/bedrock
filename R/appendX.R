@@ -10,7 +10,7 @@
 #' @param after Position after which to insert. If \code{NULL}, values are appended
 #'   at the end. Use \code{0} to prepend.
 #' @param rows Logical; if TRUE, insert rows instead of columns. Ignored for vectors.
-#' @param new_names Optional names for inserted elements.
+#' @param newNames Optional names for inserted elements.
 #' @param ... Additional arguments.
 #'
 #' @return Object of same type as \code{x}.
@@ -41,7 +41,7 @@ appendX.default <- function(x, values, after = NULL, ...) {
 #' @rdname appendX
 #' @export
 appendX.matrix <- function(x, values, after = NULL,
-                           rows = FALSE, new_names = NULL, ...) {
+                           rows = FALSE, newNames = NULL, ...) {
   
   if (rows) {
     
@@ -53,8 +53,8 @@ appendX.matrix <- function(x, values, after = NULL,
     
     values <- matrix(values, ncol = ncol(x))
     
-    if (!is.null(new_names))
-      rownames(values) <- new_names
+    if (!is.null(newNames))
+      rownames(values) <- newNames
     
     if (after == 0) {
       res <- rbind(values, x)
@@ -80,8 +80,8 @@ appendX.matrix <- function(x, values, after = NULL,
     
     values <- matrix(values, nrow = nrow(x))
     
-    if (!is.null(new_names))
-      colnames(values) <- new_names
+    if (!is.null(newNames))
+      colnames(values) <- newNames
     
     if (after == 0) {
       res <- cbind(values, x)
@@ -106,7 +106,7 @@ appendX.matrix <- function(x, values, after = NULL,
 #' @rdname appendX
 #' @export
 appendX.data.frame <- function(x, values, after = NULL,
-                               rows = FALSE, new_names = NULL, ...) {
+                               rows = FALSE, newNames = NULL, ...) {
   
   if (rows) {
     
@@ -116,8 +116,8 @@ appendX.data.frame <- function(x, values, after = NULL,
     if (!is.list(values))
       values <- as.list(values)
     
-    if (!is.null(new_names))
-      names(values) <- new_names
+    if (!is.null(newNames))
+      names(values) <- newNames
     
     values <- as.data.frame(values, stringsAsFactors = FALSE)
     
@@ -141,8 +141,8 @@ appendX.data.frame <- function(x, values, after = NULL,
     n <- ncol(x)
     after <- .validateAfter(after, n)
     
-    if (!is.null(new_names))
-      values <- setNamesX(list(values), names = new_names)
+    if (!is.null(newNames))
+      values <- setNamesX(list(values), names = newNames)
     else
       values <- list(values)
     
@@ -157,10 +157,10 @@ appendX.data.frame <- function(x, values, after = NULL,
 #' @rdname appendX
 #' @export
 appendX.TOne <- function(x, values, after = NULL,
-                         rows = TRUE, new_names = NULL, ...) {
+                         rows = TRUE, newNames = NULL, ...) {
 
   res <- appendX.matrix(x, values, after = after,
-                        rows = rows, new_names = new_names, ...)
+                        rows = rows, newNames = newNames, ...)
 
   attr(res, "legend") <- attr(x, "legend")
   class(res) <- "TOne"

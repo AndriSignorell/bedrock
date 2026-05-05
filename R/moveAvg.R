@@ -35,7 +35,7 @@
 #' @seealso There's a faster implementation of running mean in the package
 #' \pkg{caTools} \code{\link[caTools]{runmean}()} and a slower one in
 #' \pkg{forecast} \code{\link[forecast]{ma}()}. There's similar code in
-#' \code{\link[aurora]{midx}()}. 
+#' \code{\link{midx}()}. 
 #' 
 #' @keywords univar
 #' @examples

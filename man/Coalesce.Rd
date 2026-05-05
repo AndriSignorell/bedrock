@@ -23,9 +23,6 @@ return a single vector of the first non \code{NA} element(s) of the
 given data structure.
 }
 \description{
-Return the first element of a vector, not being NA.
-}
-\details{
 If several vectors are supplied, the evaluation will be elementwise, resp.
 rowwise if x is a data.frame or a matrix. The first element of the result is
 the first non \code{NA} element of the first elements of all the arguments,
@@ -74,22 +71,22 @@ Coalesce(as.list(d.frm))
 \seealso{
 \code{\link{is.na}}, \code{\link{is.finite}}
 
-Other vector.ops: 
-\code{\link{closest}()},
-\code{\link{midx}()},
-\code{\link{moveAvg}()},
-\code{\link{naIf}()},
-\code{\link{naReplace}()},
-\code{\link{nz}()},
-\code{\link{pairApply}()},
-\code{\link{quot}()},
-\code{\link{rankX}()},
-\code{\link{splitAt}()},
-\code{\link{trim}()},
-\code{\link{unwhich}()},
-\code{\link{vRot}()},
-\code{\link{vShift}()},
-\code{\link{winsorize}()}
+Other vector.ops:
+\code{\link[=closest]{closest()}},
+\code{\link[=midx]{midx()}},
+\code{\link[=moveAvg]{moveAvg()}},
+\code{\link[=naIf]{naIf()}},
+\code{\link[=naReplace]{naReplace()}},
+\code{\link[=nz]{nz()}},
+\code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
+\code{\link[=rankX]{rankX()}},
+\code{\link[=splitAt]{splitAt()}},
+\code{\link[=trim]{trim()}},
+\code{\link[=unwhich]{unwhich()}},
+\code{\link[=vRot]{vRot()}},
+\code{\link[=vShift]{vShift()}},
+\code{\link[=winsorize]{winsorize()}}
 }
 \concept{missing-data}
 \concept{vector-manipulation}

@@ -41,14 +41,14 @@ getRdLabels("d.pizza", "bedrock")
 \seealso{
 \code{\link[bedrock:label]{bedrock::label}}
 
-Other pkg.introspection: 
-\code{\link{funArgs}()},
-\code{\link{funCalls}()},
-\code{\link{funKeywords}()},
-\code{\link{funList}()},
-\code{\link{inDots}()},
-\code{\link{mergeArgs}()},
-\code{\link{strX}()}
+Other pkg.introspection:
+\code{\link[=funArgs]{funArgs()}},
+\code{\link[=funCalls]{funCalls()}},
+\code{\link[=funKeywords]{funKeywords()}},
+\code{\link[=funList]{funList()}},
+\code{\link[=inDots]{inDots()}},
+\code{\link[=mergeArgs]{mergeArgs()}},
+\code{\link[=strX]{strX()}}
 }
 \concept{package-utilities}
 \concept{pkg.introspection}

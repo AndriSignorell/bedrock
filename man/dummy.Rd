@@ -81,10 +81,10 @@ Statistics with S}. Fourth edition. Springer.
 \code{\link{model.frame}}, \code{\link{contrasts}},
 \code{\link[nnet]{class.ind}} in the package \pkg{nnet}
 
-Other table.utils: 
-\code{\link{collapseTable}()},
-\code{\link{multMerge}()},
-\code{\link{printCharMatrix}()}
+Other table.utils:
+\code{\link[=collapseTable]{collapseTable()}},
+\code{\link[=multMerge]{multMerge()}},
+\code{\link[=printCharMatrix]{printCharMatrix()}}
 }
 \author{
 Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}

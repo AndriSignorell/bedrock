@@ -56,22 +56,22 @@ closest(c(2, 3, 4, 5), a=c(3.1, 3.9), which=c(FALSE, TRUE))
 \seealso{
 \code{\link{which}}
 
-Other vector.ops: 
-\code{\link{Coalesce}()},
-\code{\link{midx}()},
-\code{\link{moveAvg}()},
-\code{\link{naIf}()},
-\code{\link{naReplace}()},
-\code{\link{nz}()},
-\code{\link{pairApply}()},
-\code{\link{quot}()},
-\code{\link{rankX}()},
-\code{\link{splitAt}()},
-\code{\link{trim}()},
-\code{\link{unwhich}()},
-\code{\link{vRot}()},
-\code{\link{vShift}()},
-\code{\link{winsorize}()}
+Other vector.ops:
+\code{\link[=Coalesce]{Coalesce()}},
+\code{\link[=midx]{midx()}},
+\code{\link[=moveAvg]{moveAvg()}},
+\code{\link[=naIf]{naIf()}},
+\code{\link[=naReplace]{naReplace()}},
+\code{\link[=nz]{nz()}},
+\code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
+\code{\link[=rankX]{rankX()}},
+\code{\link[=splitAt]{splitAt()}},
+\code{\link[=trim]{trim()}},
+\code{\link[=unwhich]{unwhich()}},
+\code{\link[=vRot]{vRot()}},
+\code{\link[=vShift]{vShift()}},
+\code{\link[=winsorize]{winsorize()}}
 }
 \concept{data-inspection}
 \concept{mathematics}

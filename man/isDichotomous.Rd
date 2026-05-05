@@ -32,15 +32,15 @@ isDichotomous(c("A", "A", "B", "C"))
 isDichotomous(factor(c("A", "A", "B", "C")))
 }
 \seealso{
-Other data.inspection: 
-\code{\link{allDuplicated}()},
-\code{\link{allIdentical}()},
-\code{\link{completeColumns}()},
-\code{\link{countCompCases}()},
-\code{\link{flags}()},
-\code{\link{isNumeric}()},
-\code{\link{isWholeLike}()},
-\code{\link{isZero}()}
+Other data.inspection:
+\code{\link[=allDuplicated]{allDuplicated()}},
+\code{\link[=allIdentical]{allIdentical()}},
+\code{\link[=completeColumns]{completeColumns()}},
+\code{\link[=countCompCases]{countCompCases()}},
+\code{\link[=flags]{flags()}},
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=isZero]{isZero()}}
 }
 \concept{data-inspection}
 \concept{data.inspection}

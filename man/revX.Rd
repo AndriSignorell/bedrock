@@ -72,25 +72,25 @@ revX(aa, margin=(1:3))
 \code{\link{rev}}, \code{\link{order}}, \code{\link{sort}},
 \code{\link{seq}}
 
-Other data.manipulation: 
-\code{\link{appendRowNames}()},
-\code{\link{appendX}()},
-\code{\link{as.array.xtabs}()},
-\code{\link{columnWrap}()},
-\code{\link{combLevels}()},
-\code{\link{nf}()},
-\code{\link{parseSASDatalines}()},
-\code{\link{recodeX}()},
-\code{\link{recycle}()},
-\code{\link{revCode}()},
-\code{\link{setNamesX}()},
-\code{\link{set_strip_attr}},
-\code{\link{sortX}()},
-\code{\link{splitX}()},
-\code{\link{stringsAsFactors}()},
-\code{\link{toBaseR}()},
+Other data.manipulation:
+\code{\link[=appendRowNames]{appendRowNames()}},
+\code{\link[=appendX]{appendX()}},
+\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+\code{\link[=columnWrap]{columnWrap()}},
+\code{\link[=combLevels]{combLevels()}},
+\code{\link[=nf]{nf()}},
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=recodeX]{recodeX()}},
+\code{\link[=recycle]{recycle()}},
+\code{\link[=revCode]{revCode()}},
+\code{\link{set-and-remove-attributes}},
+\code{\link[=setNamesX]{setNamesX()}},
+\code{\link[=sortX]{sortX()}},
+\code{\link[=splitX]{splitX()}},
+\code{\link[=stringsAsFactors]{stringsAsFactors()}},
+\code{\link[=toBaseR]{toBaseR()}},
 \code{\link{tolong_towide}},
-\code{\link{untable}()}
+\code{\link[=untable]{untable()}}
 }
 \concept{data-manipulation}
 \concept{data.manipulation}

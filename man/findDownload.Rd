@@ -32,12 +32,12 @@ findDownload("data.csv")
 \seealso{
 \code{\link{readD}}
 
-Other file.utils: 
-\code{\link{buildPath}()},
-\code{\link{fileExistURL}()},
-\code{\link{pdfManual}()},
-\code{\link{readD}()},
-\code{\link{splitPath}()}
+Other file.utils:
+\code{\link[=buildPath]{buildPath()}},
+\code{\link[=fileExistURL]{fileExistURL()}},
+\code{\link[=pdfManual]{pdfManual()}},
+\code{\link[=readD]{readD()}},
+\code{\link[=splitPath]{splitPath()}}
 }
 \concept{data-inspection}
 \concept{file-utilities}

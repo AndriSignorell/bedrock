@@ -51,14 +51,14 @@ prec(as.numeric(x))
 \code{\link{format.info}}, \code{\link{as.integer}},
 \code{\link{trunc}}
 
-Other math.utils: 
-\code{\link{crossProd}()},
-\code{\link{crossProdN}()},
-\code{\link{dotProd}()},
-\code{\link{percentRank}()},
-\code{\link{ptInPoly}()},
-\code{\link{roundTo}()},
-\code{\link{unirootAll}()}
+Other math.utils:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=dotProd]{dotProd()}},
+\code{\link[=percentRank]{percentRank()}},
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=roundTo]{roundTo()}},
+\code{\link[=unirootAll]{unirootAll()}}
 }
 \concept{data-inspection}
 \concept{math.utils}

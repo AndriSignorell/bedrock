@@ -51,12 +51,12 @@ combSet(x=x, m=c(1, 3, 5), as.list=TRUE)
 \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 \cr \code{vignette("Combinatorics")}
 
-Other combinatorics: 
-\code{\link{combN}()},
-\code{\link{combPairs}()},
-\code{\link{permn}()},
-\code{\link{rndGroupSplit}()},
-\code{\link{sampleX}()}
+Other combinatorics:
+\code{\link[=combN]{combN()}},
+\code{\link[=combPairs]{combPairs()}},
+\code{\link[=permn]{permn()}},
+\code{\link[=randGroupSplit]{randGroupSplit()}},
+\code{\link[=sampleX]{sampleX()}}
 }
 \concept{combinatorics}
 \concept{mathematics}

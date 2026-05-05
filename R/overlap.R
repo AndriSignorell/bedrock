@@ -22,7 +22,7 @@
 #'
 #' @export
 overlap <- function(x, y) {
-  dat <- .interval_core(x, y)
+  dat <- .intervalEngine(x, y)
   x <- dat$x; y <- dat$y
   
   overlap <- pmin(x[,2], y[,2]) - pmax(x[,1], y[,1])
@@ -51,7 +51,7 @@ overlap <- function(x, y) {
 #'
 #' @export
 overlaps <- function(x, y) {
-  dat <- .interval_core(x, y)
+  dat <- .intervalEngine(x, y)
   x <- dat$x; y <- dat$y
   
   !(x[,2] < y[,1] | y[,2] < x[,1])
@@ -75,7 +75,7 @@ overlaps <- function(x, y) {
 #'
 #' @export
 distance <- function(x, y) {
-  dat <- .interval_core(x, y)
+  dat <- .intervalEngine(x, y)
   x <- dat$x; y <- dat$y
   
   d <- pmax(
@@ -118,7 +118,7 @@ distance <- function(x, y) {
 #'
 #' @return A list with normalized and recycled matrices `x` and `y`
 #' @keywords internal
-.interval_core <- function(x, y) {
+.intervalEngine <- function(x, y) {
   if (is.vector(x)) x <- matrix(x, ncol = 2, byrow = TRUE)
   if (is.vector(y)) y <- matrix(y, ncol = 2, byrow = TRUE)
   

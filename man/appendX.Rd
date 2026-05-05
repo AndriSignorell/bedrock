@@ -12,11 +12,11 @@ appendX(x, values, after = NULL, ...)
 
 \method{appendX}{default}(x, values, after = NULL, ...)
 
-\method{appendX}{matrix}(x, values, after = NULL, rows = FALSE, new_names = NULL, ...)
+\method{appendX}{matrix}(x, values, after = NULL, rows = FALSE, newNames = NULL, ...)
 
-\method{appendX}{data.frame}(x, values, after = NULL, rows = FALSE, new_names = NULL, ...)
+\method{appendX}{data.frame}(x, values, after = NULL, rows = FALSE, newNames = NULL, ...)
 
-\method{appendX}{TOne}(x, values, after = NULL, rows = TRUE, new_names = NULL, ...)
+\method{appendX}{TOne}(x, values, after = NULL, rows = TRUE, newNames = NULL, ...)
 }
 \arguments{
 \item{x}{Object to which values are appended.}
@@ -30,7 +30,7 @@ at the end. Use \code{0} to prepend.}
 
 \item{rows}{Logical; if TRUE, insert rows instead of columns. Ignored for vectors.}
 
-\item{new_names}{Optional names for inserted elements.}
+\item{newNames}{Optional names for inserted elements.}
 }
 \value{
 Object of same type as \code{x}.
@@ -39,25 +39,25 @@ Object of same type as \code{x}.
 Generic function to append elements to vectors, matrices, and data frames.
 }
 \seealso{
-Other data.manipulation: 
-\code{\link{appendRowNames}()},
-\code{\link{as.array.xtabs}()},
-\code{\link{columnWrap}()},
-\code{\link{combLevels}()},
-\code{\link{nf}()},
-\code{\link{parseSASDatalines}()},
-\code{\link{recodeX}()},
-\code{\link{recycle}()},
-\code{\link{revCode}()},
-\code{\link{revX}()},
-\code{\link{setNamesX}()},
-\code{\link{set_strip_attr}},
-\code{\link{sortX}()},
-\code{\link{splitX}()},
-\code{\link{stringsAsFactors}()},
-\code{\link{toBaseR}()},
+Other data.manipulation:
+\code{\link[=appendRowNames]{appendRowNames()}},
+\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+\code{\link[=columnWrap]{columnWrap()}},
+\code{\link[=combLevels]{combLevels()}},
+\code{\link[=nf]{nf()}},
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=recodeX]{recodeX()}},
+\code{\link[=recycle]{recycle()}},
+\code{\link[=revCode]{revCode()}},
+\code{\link[=revX]{revX()}},
+\code{\link{set-and-remove-attributes}},
+\code{\link[=setNamesX]{setNamesX()}},
+\code{\link[=sortX]{sortX()}},
+\code{\link[=splitX]{splitX()}},
+\code{\link[=stringsAsFactors]{stringsAsFactors()}},
+\code{\link[=toBaseR]{toBaseR()}},
 \code{\link{tolong_towide}},
-\code{\link{untable}()}
+\code{\link[=untable]{untable()}}
 }
 \concept{data-manipulation}
 \concept{data.manipulation}

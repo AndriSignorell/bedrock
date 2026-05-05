@@ -39,22 +39,22 @@ splitAt(x, c(7, 4, 4, 20))
 \seealso{
 \code{\link{split}}
 
-Other vector.ops: 
-\code{\link{Coalesce}()},
-\code{\link{closest}()},
-\code{\link{midx}()},
-\code{\link{moveAvg}()},
-\code{\link{naIf}()},
-\code{\link{naReplace}()},
-\code{\link{nz}()},
-\code{\link{pairApply}()},
-\code{\link{quot}()},
-\code{\link{rankX}()},
-\code{\link{trim}()},
-\code{\link{unwhich}()},
-\code{\link{vRot}()},
-\code{\link{vShift}()},
-\code{\link{winsorize}()}
+Other vector.ops:
+\code{\link[=Coalesce]{Coalesce()}},
+\code{\link[=closest]{closest()}},
+\code{\link[=midx]{midx()}},
+\code{\link[=moveAvg]{moveAvg()}},
+\code{\link[=naIf]{naIf()}},
+\code{\link[=naReplace]{naReplace()}},
+\code{\link[=nz]{nz()}},
+\code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
+\code{\link[=rankX]{rankX()}},
+\code{\link[=trim]{trim()}},
+\code{\link[=unwhich]{unwhich()}},
+\code{\link[=vRot]{vRot()}},
+\code{\link[=vShift]{vShift()}},
+\code{\link[=winsorize]{winsorize()}}
 }
 \concept{data-manipulation}
 \concept{vector-manipulation}

@@ -68,9 +68,9 @@ tryCatch(
 \seealso{
 \code{\link[base]{strsplit}}, \code{\link[stats]{na.omit}}
 
-Other string.utilities: 
-\code{\link{charToAsc}()},
-\code{\link{strSplitToCol}()}
+Other string.utilities:
+\code{\link{char-ascii-conversion}},
+\code{\link[=strSplitToCol]{strSplitToCol()}}
 }
 \concept{data-manipulation}
 \concept{data-structures}

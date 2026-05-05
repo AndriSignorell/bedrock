@@ -50,22 +50,22 @@ text(tab, x = xpos, y = b, col = "red")
 \seealso{
 \code{\link{moveAvg}}
 
-Other vector.ops: 
-\code{\link{Coalesce}()},
-\code{\link{closest}()},
-\code{\link{moveAvg}()},
-\code{\link{naIf}()},
-\code{\link{naReplace}()},
-\code{\link{nz}()},
-\code{\link{pairApply}()},
-\code{\link{quot}()},
-\code{\link{rankX}()},
-\code{\link{splitAt}()},
-\code{\link{trim}()},
-\code{\link{unwhich}()},
-\code{\link{vRot}()},
-\code{\link{vShift}()},
-\code{\link{winsorize}()}
+Other vector.ops:
+\code{\link[=Coalesce]{Coalesce()}},
+\code{\link[=closest]{closest()}},
+\code{\link[=moveAvg]{moveAvg()}},
+\code{\link[=naIf]{naIf()}},
+\code{\link[=naReplace]{naReplace()}},
+\code{\link[=nz]{nz()}},
+\code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
+\code{\link[=rankX]{rankX()}},
+\code{\link[=splitAt]{splitAt()}},
+\code{\link[=trim]{trim()}},
+\code{\link[=unwhich]{unwhich()}},
+\code{\link[=vRot]{vRot()}},
+\code{\link[=vShift]{vShift()}},
+\code{\link[=winsorize]{winsorize()}}
 }
 \concept{descriptive-statistics}
 \concept{vector-manipulation}

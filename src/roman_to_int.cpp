@@ -54,7 +54,7 @@ using namespace Rcpp;
 ----------------------------------------------------------- */
 
 // [[Rcpp::export]]
-IntegerVector roman2int_cpp(CharacterVector x)
+IntegerVector roman_to_int_cpp(CharacterVector x)
 {
   int n = x.size();
   IntegerVector res(n);

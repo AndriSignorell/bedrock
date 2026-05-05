@@ -4,15 +4,15 @@
 #' Adds the row names of a data.frame or matrix as a column.
 #'
 #' @param x A data.frame or matrix.
-#' @param col_name Name of the new column containing the row names.
+#' @param colName Name of the new column containing the row names.
 #' @param after Position after which the column is inserted.
 #'   Default is 0 (first column).
-#' @param remove_rownames Logical; if TRUE, existing row names are removed.
+#' @param removeRownames Logical; if TRUE, existing row names are removed.
 #'
 #' @return A data.frame (or matrix coerced to data.frame) with row names
 #'   added as a column.
 #'
-#' @seealso \code{\link{appendX}}
+#' @seealso \code{\link{append}}
 #'
 #' @examples
 #' dd <- data.frame(x=1:5, y=6:10, z=LETTERS[1:5],
@@ -26,8 +26,8 @@
 #'
 #'
 #' @export
-appendRowNames <- function(x, col_name = "rowname",
-                           after = 0L, remove_rownames = TRUE) {
+appendRowNames <- function(x, colName = "rowname",
+                           after = 0L, removeRownames = TRUE) {
   
   if (!(is.data.frame(x) || is.matrix(x)))
     stop("'x' must be a data.frame or matrix")
@@ -36,9 +36,9 @@ appendRowNames <- function(x, col_name = "rowname",
   if (is.null(rn))
     rn <- seq_len(nrow(x))
   
-  res <- appendX(x, rn, after = after, names = col_name)
+  res <- appendX(x, rn, after = after, names = colName)
   
-  if (remove_rownames)
+  if (removeRownames)
     rownames(res) <- NULL
   
   res

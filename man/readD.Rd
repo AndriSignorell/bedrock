@@ -51,12 +51,12 @@ readD("data.csv", base = FALSE)
 \code{\link[readxl]{read_excel}},
 \code{\link[readr]{read_csv}}
 
-Other file.utils: 
-\code{\link{buildPath}()},
-\code{\link{fileExistURL}()},
-\code{\link{findDownload}()},
-\code{\link{pdfManual}()},
-\code{\link{splitPath}()}
+Other file.utils:
+\code{\link[=buildPath]{buildPath()}},
+\code{\link[=fileExistURL]{fileExistURL()}},
+\code{\link[=findDownload]{findDownload()}},
+\code{\link[=pdfManual]{pdfManual()}},
+\code{\link[=splitPath]{splitPath()}}
 }
 \concept{data-manipulation}
 \concept{file-utilities}

@@ -47,13 +47,13 @@ fibo(30:33)                             # 1346269 2178309 3524578 5702887
 \url{https://mathworld.wolfram.com/GoldenRatio.html}
 }
 \seealso{
-Other number.theory: 
-\code{\link{conv_numeric}},
-\code{\link{digitSum}()},
-\code{\link{factorize}()},
-\code{\link{isOdd}()},
-\code{\link{isPrime}()},
-\code{\link{primes}()}
+Other number.theory:
+\code{\link[=digitSum]{digitSum()}},
+\code{\link[=factorize]{factorize()}},
+\code{\link[=isOdd]{isOdd()}},
+\code{\link[=isPrime]{isPrime()}},
+\code{\link{numeric-conversions}},
+\code{\link[=primes]{primes()}}
 }
 \concept{mathematics}
 \concept{number-theory}

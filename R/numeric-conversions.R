@@ -9,7 +9,7 @@
 #' \code{decToBin} does it the other way round.\cr Oct means octal 
 #' system and hex hexadecimal.
 #' 
-#' @name conv_numeric
+#' @name numeric-conversions
 #' @aliases binToDec decToBin octToDec decToOct hexToDec decToHex
 #' 
 #' @param x a vector of numbers, resp. alphanumerical representation of numbers
@@ -33,7 +33,7 @@
 #' 
 
 
-#' @rdname conv_numeric
+#' @rdname numeric-conversions
 #' @family number.theory
 #' @concept number-theory
 #' @concept data-manipulation
@@ -47,24 +47,24 @@ hexToDec <- function(x)
 # example: strtoi(c("9A", "3B"), 16L)
 
 
-#' @rdname conv_numeric
+#' @rdname numeric-conversions
 #' @export
 decToHex <- function(x) as.hexmode(as.numeric(x))
 
 
-#' @rdname conv_numeric
+#' @rdname numeric-conversions
 #' @export
 octToDec <- function(x) strtoi(x, 8L)
 # example: strtoi(c("12", "24"), 8L)
 
 
-#' @rdname conv_numeric
+#' @rdname numeric-conversions
 #' @export
 decToOct <- function(x) as.numeric(as.character(as.octmode(as.numeric(x))))
 # Alternative: as.numeric(sprintf(242, fmt="%o"))
 
 
-#' @rdname conv_numeric
+#' @rdname numeric-conversions
 #' @export
 binToDec <- function(x) {
   # Alternative:  bin2dec <- function(x) { sum(2^.subset((length(x)-1):0, x)) }
@@ -73,22 +73,22 @@ binToDec <- function(x) {
 }
 
 
-#' @rdname conv_numeric
+#' @rdname numeric-conversions
 #' @export
 decToBin <- function (x) {
-  z <- conv_DecToBin(x)
+  z <- dec_to_bin_cpp(x)
   z[x > 536870911] <- NA
   return(sub("^0+", "", z))
 }
 
 
-#' @rdname conv_numeric
+#' @rdname numeric-conversions
 #' @export
 romanToInt <- function (x) {
   # opposite to as.roman
   roman <- trimws(toupper(as.character(x)))
   tryIt <- function(x) {
-    retval <- try(roman2int_cpp(x)(x), silent = TRUE)
+    retval <- try(roman_to_int_cpp(x)(x), silent = TRUE)
     if (is.numeric(retval))
       retval
     else NA

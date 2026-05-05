@@ -29,14 +29,14 @@ New S Language}. Wadsworth & Brooks/Cole.
 \seealso{
 \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}}
 
-Other pkg.introspection: 
-\code{\link{funCalls}()},
-\code{\link{funKeywords}()},
-\code{\link{funList}()},
-\code{\link{getRdLabels}()},
-\code{\link{inDots}()},
-\code{\link{mergeArgs}()},
-\code{\link{strX}()}
+Other pkg.introspection:
+\code{\link[=funCalls]{funCalls()}},
+\code{\link[=funKeywords]{funKeywords()}},
+\code{\link[=funList]{funList()}},
+\code{\link[=getRdLabels]{getRdLabels()}},
+\code{\link[=inDots]{inDots()}},
+\code{\link[=mergeArgs]{mergeArgs()}},
+\code{\link[=strX]{strX()}}
 }
 \concept{data-inspection}
 \concept{package-utilities}

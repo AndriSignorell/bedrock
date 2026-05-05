@@ -35,14 +35,14 @@ f(col = "blue", col = "green")  # returns "green"
 
 }
 \seealso{
-Other pkg.introspection: 
-\code{\link{funArgs}()},
-\code{\link{funCalls}()},
-\code{\link{funKeywords}()},
-\code{\link{funList}()},
-\code{\link{getRdLabels}()},
-\code{\link{mergeArgs}()},
-\code{\link{strX}()}
+Other pkg.introspection:
+\code{\link[=funArgs]{funArgs()}},
+\code{\link[=funCalls]{funCalls()}},
+\code{\link[=funKeywords]{funKeywords()}},
+\code{\link[=funList]{funList()}},
+\code{\link[=getRdLabels]{getRdLabels()}},
+\code{\link[=mergeArgs]{mergeArgs()}},
+\code{\link[=strX]{strX()}}
 }
 \concept{data-manipulation}
 \concept{package-utilities}

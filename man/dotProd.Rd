@@ -53,14 +53,14 @@ dotProd(x, y)
 \seealso{
 \code{\link[base]{crossprod}}
 
-Other math.utils: 
-\code{\link{crossProd}()},
-\code{\link{crossProdN}()},
-\code{\link{percentRank}()},
+Other math.utils:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=percentRank]{percentRank()}},
 \code{\link{precision}},
-\code{\link{ptInPoly}()},
-\code{\link{roundTo}()},
-\code{\link{unirootAll}()}
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=roundTo]{roundTo()}},
+\code{\link[=unirootAll]{unirootAll()}}
 }
 \concept{math.utils}
 \concept{mathematics}

@@ -5,7 +5,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-std::string as_CDateFmt_cpp(std::string fmt) {
+std::string as_cdate_fmt_cpp(std::string fmt) {
   
   static const std::unordered_map<std::string, std::string> map = {
     {"dddd", "%A"},

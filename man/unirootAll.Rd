@@ -83,14 +83,14 @@ unirootAll(g, c(0.1, 5))
 \seealso{
 \code{\link[stats]{uniroot}} for the underlying single-root solver.
 
-Other math.utils: 
-\code{\link{crossProd}()},
-\code{\link{crossProdN}()},
-\code{\link{dotProd}()},
-\code{\link{percentRank}()},
+Other math.utils:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=dotProd]{dotProd()}},
+\code{\link[=percentRank]{percentRank()}},
 \code{\link{precision}},
-\code{\link{ptInPoly}()},
-\code{\link{roundTo}()}
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=roundTo]{roundTo()}}
 }
 \concept{math.utils}
 \concept{mathematics}

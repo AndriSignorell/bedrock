@@ -117,22 +117,22 @@
 #' @rdname between
 #' @export
 `%[]%` <- function(x, rng)
-  .between_core(x, rng, TRUE, TRUE)
+  .betweenDispatch(x, rng, TRUE, TRUE)
 
 #' @rdname between
 #' @export
 `%[)%` <- function(x, rng)
-  .between_core(x, rng, TRUE, FALSE)
+  .betweenDispatch(x, rng, TRUE, FALSE)
 
 #' @rdname between
 #' @export
 `%(]%` <- function(x, rng)
-  .between_core(x, rng, FALSE, TRUE)
+  .betweenDispatch(x, rng, FALSE, TRUE)
 
 #' @rdname between
 #' @export
 `%()%` <- function(x, rng)
-  .between_core(x, rng, FALSE, FALSE)
+  .betweenDispatch(x, rng, FALSE, FALSE)
 
 
 
@@ -204,7 +204,7 @@
 # =====================================================================
 # Between operators -- internal helper functions
 
-.between_core <- function(x, rng,
+.betweenDispatch <- function(x, rng,
                           left_closed = TRUE,
                           right_closed = TRUE) {
   
@@ -215,7 +215,7 @@
     x   <- rep(x,  length.out = maxdim)
     rng <- rng[rep(seq_len(nrow(rng)), length.out = maxdim), , drop = FALSE]
     
-    res <- between_num(
+    res <- between_num_cpp(
       as.numeric(x),
       as.numeric(rng[, 1L]),
       as.numeric(rng[, 2L]),
@@ -230,7 +230,7 @@
   ## --- Numeric / Date ----------------------------------------------
   if (is.numeric(x) || inherits(x, c("Date", "POSIXct", "POSIXlt")) ) {
     
-    res <- between_num(
+    res <- between_num_cpp(
       as.numeric(x),
       as.numeric(rng[1L]),
       as.numeric(rng[2L]),
@@ -248,7 +248,7 @@
     lo <- match(rng[1L], levels(x))
     hi <- match(rng[2L], levels(x))
     
-    res <- between_num(
+    res <- between_num_cpp(
       as.numeric(x),
       lo, hi,
       left_closed  = left_closed,

@@ -32,12 +32,12 @@ buildPath("data/", "file.csv")
 
 }
 \seealso{
-Other file.utils: 
-\code{\link{fileExistURL}()},
-\code{\link{findDownload}()},
-\code{\link{pdfManual}()},
-\code{\link{readD}()},
-\code{\link{splitPath}()}
+Other file.utils:
+\code{\link[=fileExistURL]{fileExistURL()}},
+\code{\link[=findDownload]{findDownload()}},
+\code{\link[=pdfManual]{pdfManual()}},
+\code{\link[=readD]{readD()}},
+\code{\link[=splitPath]{splitPath()}}
 }
 \concept{file-utilities}
 \concept{file.utils}

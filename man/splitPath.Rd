@@ -55,12 +55,12 @@ splitPath("/home/user/folder/", last.is.file = FALSE)
 \code{\link{basename}}, \code{\link{dirname}},
 \code{\link[tools]{file_ext}}, \code{\link[tools]{file_path_sans_ext}}
 
-Other file.utils: 
-\code{\link{buildPath}()},
-\code{\link{fileExistURL}()},
-\code{\link{findDownload}()},
-\code{\link{pdfManual}()},
-\code{\link{readD}()}
+Other file.utils:
+\code{\link[=buildPath]{buildPath()}},
+\code{\link[=fileExistURL]{fileExistURL()}},
+\code{\link[=findDownload]{findDownload()}},
+\code{\link[=pdfManual]{pdfManual()}},
+\code{\link[=readD]{readD()}}
 }
 \concept{file-utilities}
 \concept{file.utils}

@@ -29,13 +29,13 @@ factorize(47)
 factorize(seq(101, 120, by=2))
 }
 \seealso{
-Other number.theory: 
-\code{\link{conv_numeric}},
-\code{\link{digitSum}()},
-\code{\link{fibonacci}()},
-\code{\link{isOdd}()},
-\code{\link{isPrime}()},
-\code{\link{primes}()}
+Other number.theory:
+\code{\link[=digitSum]{digitSum()}},
+\code{\link[=fibonacci]{fibonacci()}},
+\code{\link[=isOdd]{isOdd()}},
+\code{\link[=isPrime]{isPrime()}},
+\code{\link{numeric-conversions}},
+\code{\link[=primes]{primes()}}
 }
 \concept{mathematics}
 \concept{number-theory}

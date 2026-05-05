@@ -12,8 +12,8 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{abind}{\code{\link[abind]{abind}}}
+  \item{abind}{\code{\link[abind:abind]{abind()}}}
 
-  \item{expm}{\code{\link[expm:matpow]{\%^\%}}}
+  \item{expm}{\code{\link[expm:\%^\%]{\%^\%}}}
 }}
 
