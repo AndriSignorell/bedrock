@@ -2,41 +2,34 @@
 % Please edit documentation in R/permn.R
 \name{permn}
 \alias{permn}
-\title{Number and Samples for Permutations or Combinations of a Set}
+\title{Set of Permutations}
 \usage{
-permn(x, sort = FALSE)
+permn(x, sortResults = FALSE)
 }
 \arguments{
-\item{x}{a vector of numeric values or characters. Characters need not be
-unique.}
+\item{x}{Atomic vector. Missing values are not supported.}
 
-\item{sort}{logical, defining if the result set should be sorted. Default is
-FALSE.}
+\item{sortResults}{Logical scalar. If \code{TRUE}, the result matrix is sorted
+using \code{\link[=sortX]{sortX()}}. Default is \code{FALSE}.}
 }
 \value{
-a matrix with all possible permutations of the
-values in x
+A matrix containing all distinct permutations of \code{x}, one
+permutation per row.
 }
 \description{
-Return the set of permutations for a given set of values. The values can be
-numeric values, characters or factors. \code{combN} computes the number of
-combinations with and without replacement and order, whereas \code{combSet}
-returns the value sets.
+Returns all distinct permutations of a vector. Repeated values in \code{x}
+are treated as indistinguishable, so duplicated permutations are not returned.
 }
 \examples{
-
 permn(letters[2:5])
 permn(2:5)
 
-# containing the same element more than once
+# repeated elements are handled as indistinguishable
 permn(c("a", "b", "c", "a"))
-
 
 }
 \seealso{
-\link[base:choose]{base::choose}, \code{\link[utils:combn]{utils::combn()}}, \code{\link[base:factorial]{base::factorial()}},
-\link{combPairs}
-\cr \code{vignette("Combinatorics")}
+\code{\link[utils:combn]{utils::combn()}}, \code{\link[base:factorial]{base::factorial()}}, \link{combPairs}
 
 Other combinatorics:
 \code{\link[=combN]{combN()}},
@@ -44,9 +37,6 @@ Other combinatorics:
 \code{\link[=combSet]{combSet()}},
 \code{\link[=randGroupSplit]{randGroupSplit()}},
 \code{\link[=sampleX]{sampleX()}}
-}
-\author{
-Friederich Leisch
 }
 \concept{combinatorics}
 \concept{mathematics}

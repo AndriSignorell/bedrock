@@ -3,7 +3,7 @@
 #'
 #' Convenience helpers to add or remove attributes from an object.
 #'
-#' @name set-and-remove-attributes
+#' @name setAttr-removeAttr
 #'
 #' @param x Object to modify
 #' @param attrNames Character vector of attribute names
@@ -30,7 +30,7 @@
 NULL
 
 
-#' @rdname set-and-remove-attributes
+#' @rdname setAttr-removeAttr
 #' @family data.manipulation
 #' @concept data-manipulation
 #' @concept data-structures
@@ -54,7 +54,7 @@ setAttr <- function(x, attrNames, attrValues) {
 }
 
 
-#' @rdname set-and-remove-attributes
+#' @rdname setAttr-removeAttr
 #' @export
 removeAttr <- function(x, attrNames = NULL) {
   

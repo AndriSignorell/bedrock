@@ -2,7 +2,7 @@
 % Please edit documentation in R/dummy.R
 \name{dummy}
 \alias{dummy}
-\title{Generate dummy Codes for a Factor}
+\title{Generate Dummy Codes for a Factor}
 \usage{
 dummy(
   x,
@@ -12,84 +12,64 @@ dummy(
 )
 }
 \arguments{
-\item{x}{factor or vector of classes for cases.}
+\item{x}{Factor or vector of classes.}
 
-\item{method}{defines the method of the contrasts being formed. Can be one
-out of \code{"treatment"}, \code{"sum"}, \code{"helmert"}, \code{"poly"},
-\code{"full"}, whereas \code{"treatment"} is the default one. Abbreviations
-are accepted.\cr The option \code{"full"} returns a full set of class
-indicators, say a dummy factor for \bold{each} level of x.  Note that this
-would be redundant for \code{\link{lm}()} and friends!}
+\item{method}{Character string specifying the contrast method. One of
+\code{"treatment"}, \code{"sum"}, \code{"helmert"}, \code{"poly"}, or \code{"full"}.
+Abbreviations are accepted.}
 
-\item{base}{an integer specifying which group is considered the baseline
-group.}
+\item{base}{Integer or character string specifying the baseline group for
+treatment contrasts.}
 
-\item{levels}{an optional vector of the values (as character strings) that
-\code{x} might have taken.  The default is the unique set of values taken by
-as.character(x), sorted into increasing order of x.\cr This is directly
-passed on to \code{\link{factor}}.}
+\item{levels}{Optional character vector specifying the possible levels of
+\code{x}. If \code{NULL}, levels are inferred by \code{factor(x)}.}
 }
 \value{
-a matrix with the dummy codes. The number of rows correspond to the
-number of elements in \code{x} and the number of columns to the number of
-its levels - 1, respectively to the number of levels given as argument -1.
+A matrix with dummy codes. The number of rows equals \code{length(x)}.
+For \code{method = "full"}, the number of columns equals the number of levels.
+Otherwise, the number of columns equals the number of levels minus one.
 
-When \code{method = "full"} is chosen the number of columns will correspond
-to the number of levels.
+The returned matrix has an attribute \code{"base"} containing the baseline level
+for non-full coding, and \code{NA} for full coding.
 }
 \description{
-Generate a matrix of dummy codes (class indicators) for a given factor.
+Generate a matrix of dummy codes, also known as class indicators, for a
+factor or class vector.
 }
 \details{
-For reverting dummy codes see the approach in the examples below.
+The argument \code{method} controls the contrast coding. The option \code{"full"}
+returns one indicator column for each level of \code{x}. This full-rank coding is
+usually redundant for \code{lm()} and related modelling functions.
 }
 \examples{
-
-x <- c("red","blue","green","blue","green","red","red","blue")
+x <- c("red", "blue", "green", "blue", "green", "red", "red", "blue")
 dummy(x)
-dummy(x, base=2)
+dummy(x, base = 2)
+dummy(x, method = "sum")
 
-dummy(x, method="sum")
-
-
-y <- c("Max","Max","Max","Max","Max","Bill","Bill","Bill")
-
+y <- c("Max", "Max", "Max", "Max", "Max", "Bill", "Bill", "Bill")
 dummy(y)
-dummy(y, base="Max")
+dummy(y, base = "Max")
+dummy(y, base = "Max", method = "full")
 
-dummy(y, base="Max", method="full")
+# Revert full dummy coding
+m <- dummy(y, method = "full")
+apply(m, 1, function(z) colnames(m)[z == 1])
 
-
-# "Undummy" (revert the dummy coding)
-m <- dummy(y, method="full")
-m
-z <- apply(m, 1, function(x) colnames(m)[x==1])
-z
-identical(y, as.vector(z))
-
+# Revert treatment dummy coding
 m <- dummy(y)
-m
-z <- apply(m, 1, function(x) ifelse(sum(x)==0, attr(m,"base"), colnames(m)[x==1]))
-z
+apply(
+  m,
+  1,
+  function(z) ifelse(sum(z) == 0, attr(m, "base"), colnames(m)[z == 1])
+)
 
-}
-\references{
-Venables, W N and Ripley, B D (2002): \emph{Modern Applied
-Statistics with S}. Fourth edition. Springer.
 }
 \seealso{
-\code{\link{model.frame}}, \code{\link{contrasts}},
-\code{\link[nnet]{class.ind}} in the package \pkg{nnet}
-
-Other table.utils:
-\code{\link[=collapseTable]{collapseTable()}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=printCharMatrix]{printCharMatrix()}}
+\code{model.frame}, \code{contrasts}, \code{stats::contr.treatment},
+\code{stats::contr.sum}, \code{stats::contr.helmert}, \code{stats::contr.poly}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
-\concept{data-manipulation}
+\concept{data-transformation}
 \concept{factor-handling}
 \concept{table-manipulation}
-\concept{table.utils}
+\concept{topic.factorHandling}

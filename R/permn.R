@@ -1,73 +1,108 @@
 
-#' Number and Samples for Permutations or Combinations of a Set 
-#' 
-#' Return the set of permutations for a given set of values. The values can be
-#' numeric values, characters or factors. \code{combN} computes the number of
-#' combinations with and without replacement and order, whereas \code{combSet}
-#' returns the value sets.
-#' 
-#' @param x a vector of numeric values or characters. Characters need not be
-#' unique. 
-#' @param sort logical, defining if the result set should be sorted. Default is
-#' FALSE. 
-#' @return a matrix with all possible permutations of the
-#' values in x
-#' 
-#' @author Friederich Leisch 
-#' 
-#' @seealso [base::choose], [utils::combn()], [base::factorial()],
-#' [bedrock::combPairs]
-#' \cr \code{vignette("Combinatorics")} 
-#' 
-
+##' Set of Permutations
+#'
+#' Returns all distinct permutations of a vector. Repeated values in `x`
+#' are treated as indistinguishable, so duplicated permutations are not returned.
+#'
+#' @param x Atomic vector. Missing values are not supported.
+#' @param sortResults Logical scalar. If `TRUE`, the result matrix is sorted
+#'   using [sortX()]. Default is `FALSE`.
+#'
+#' @return A matrix containing all distinct permutations of `x`, one
+#'   permutation per row.
+#'
+#' @seealso [utils::combn()], [base::factorial()], [bedrock::combPairs]
+#'
 #' @examples
-#' 
 #' permn(letters[2:5])
 #' permn(2:5)
-#' 
-#' # containing the same element more than once
+#'
+#' # repeated elements are handled as indistinguishable
 #' permn(c("a", "b", "c", "a"))
-#' 
-#' 
-
-
+#'
 #' @family combinatorics
 #' @concept combinatorics
 #' @concept mathematics
 #'
-#'
+
+
 #' @export
-permn <- function(x, sort = FALSE) {
+permn <- function(x, sortResults = FALSE) {
   
-  # by F. Leisch
+  if (!is.atomic(x))
+    stop("'x' must be an atomic vector")
   
-  n <- length(x)
+  if (is.factor(x))
+    stop("factors are not supported; use as.character(x) or as.numeric(x)")
   
-  if (n == 1L)
-    return(matrix(x))
-  # Andri: why should we need that??? ...
-  #   else if (n < 2)
-  #     stop("n must be a positive integer")
+  if (!is.logical(sortResults) || length(sortResults) != 1L || is.na(sortResults))
+    stop("'sortResults' must be TRUE or FALSE")
   
-  z <- matrix(1L)
-  for (i in 2L:n) {
-    y <- cbind(z, i)
-    a <- c(1L:i, 1:(i - 1L))
-    z <- matrix(0L, ncol = ncol(y), nrow = i * nrow(y))
-    z[1L:nrow(y), ] <- y
-    for (j in 2L:i - 1L) {
-      z[j * nrow(y) + 1L:nrow(y), ] <- y[, a[1L:i + j]]
-    }
+  if (length(x) == 0L)
+    return(matrix(x, nrow = 1L, ncol = 0L))
+  
+  if (anyNA(x))
+    stop("missing values are not supported")
+  
+  tbl  <- table(x)
+  cnts <- as.integer(tbl)
+  n    <- sum(cnts)
+  
+  log_nperm <- lfactorial(n) - sum(lfactorial(cnts))
+  if (log_nperm > log(.Machine$integer.max))
+    stop(sprintf("too many permutations (%s); reduce input size",
+                 format(round(exp(log_nperm)), big.mark = "'")))
+  
+  vals <- names(tbl)
+
+  res <- .permn_inner(vals, cnts)
+  
+  # map character keys back to original type via first occurrence in x
+  lookup <- x[match(vals, as.character(x))]
+  res    <- matrix(lookup[match(res, vals)], nrow = nrow(res))
+  
+  if (!is.null(names(x)))
+    colnames(res) <- names(x)
+  
+  if (sortResults) res <- sortX(res)
+  
+  res
+}
+
+
+
+# == internal helper functions =================================================
+
+.permn_inner <- function(vals, cnts) {
+  n <- sum(cnts)
+  k <- length(vals)
+  
+  if (k == 0L)
+    return(matrix(character(0), nrow = 1L, ncol = 0L))
+  
+  if (k == 1L)
+    return(matrix(rep(vals, cnts), nrow = 1L))
+  
+  if (k == 2L) {
+    combs  <- combn(n, cnts[1L])
+    result <- matrix(rep(vals[2L], n), nrow = ncol(combs), ncol = n)
+    idx    <- cbind(as.vector(col(combs)), as.vector(combs))
+    result[idx] <- vals[1L]
+    return(result)
   }
-  dimnames(z) <- NULL
   
-  m <- apply(z, 2L, function(i) x[i])
+  fvr_perms  <- .permn_inner(c("1", "0"), c(cnts[1L], n - cnts[1L]))
+  rest_perms <- .permn_inner(vals[-1L], cnts[-1L])
   
-  if(any(duplicated(x)))
-    m <- unique(m)
+  nr_fvr  <- nrow(fvr_perms)
+  nr_rest <- nrow(rest_perms)
+  result  <- matrix(vals[1L], nrow = nr_fvr * nr_rest, ncol = n)
   
-  if(sort) m <- sortX(m)
-  return(m)
-  
+  for (i in seq_len(nr_fvr)) {
+    rest_pos <- which(fvr_perms[i, ] == "0")
+    rows     <- ((i - 1L) * nr_rest + 1L):(i * nr_rest)
+    result[rows, rest_pos] <- rest_perms
+  }
+  result
 }
 

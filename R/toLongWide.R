@@ -1,140 +1,143 @@
 
-#' Reshape a Vector From Long to Wide Shape Or Vice Versa 
-#' 
-#' Simple reshaping a vector from long to wide or from wide to long shape by
-#' means of a single factor. 
-#' 
-#' \code{toLong} expects x as a matrix or a data.frame and reshapes it to a
-#' (long) factor representation. \code{toWide} expects the vectors x, g, by,
-#' wheras x being the variable, g the splitting factor and by a vector for
-#' rowwise merging. 
-#' 
-#' @name tolong_towide
-#' @aliases toWide toLong
-#' @param x the vector to be reshaped 
-#' @param g the grouping vector to be used for the new columns. The resulting
-#' \code{data.frame} will return one column per grouplevel. 
-#' @param by a vector to be used to merge the pieces of \code{x}. If this is
-#' left to \code{NULL} the pieces will be merged by rownames in the order they
-#' are supplied. 
-#' @param varnames the variable names if not the grouping levels should be
-#' used.
-#' @param incl.rownames logical (default \code{FALSE}), if set to \code{TRUE} a
-#' column containing the rownames will be appended at the end of the
-#' data.frame.
-#' @return the reshaped object of \code{data.frame} class
- 
-#' @seealso \code{\link{reshape}} 
-#' @keywords manip
+#' Reshape Between Long and Wide Format
+#'
+#' Reshape data between long and wide format using a grouping variable.
+#'
+#' `toLong()` expects `x` to be a matrix, table, data frame, or list and
+#' reshapes it to a long data frame representation. `toWide()` expects a vector
+#' `x` and a grouping vector `groups`, and reshapes the values into one column
+#' per group.
+#'
+#' @name long-wide-reshape
+#'
+#' @param x Object to reshape. For `toLong()`, a matrix, table, data frame, or
+#'   list. For `toWide()`, a vector.
+#' @param groups Grouping vector used to define the columns in the wide result.
+#' @param by Optional vector used to align values row-wise when reshaping to
+#'   wide format. If `NULL`, values are aligned by their order within each group.
+#' @param varNames Optional character vector of column names for the result.
+#' @param includeRowNames Logical. If `TRUE`, append a column containing the row
+#'   names of `x` when reshaping to long format.
+#'
+#' @return
+#' A reshaped object of class `data.frame`.
+#'
+#' @seealso `reshape`, `stack`, `unstack`
+#'
 #' @examples
-#' 
-#' d.x <- read.table(header=TRUE, text="
+#' d.x <- read.table(header = TRUE, text = "
 #' AA BB CC DD EE FF GG
 #' 7.9 18.1 13.3 6.2 9.3 8.3 10.6
 #' 9.8 14.0 13.6 7.9 2.9 9.1 13.0
 #' 6.4 17.4 16.0 10.9 8.6 11.7 17.5
 #' ")
-#' 
+#'
 #' toLong(d.x)
-#' 
-#' # toWide by row numbers (by = NULL)
+#'
+#' # to wide by row order
 #' toWide(PlantGrowth$weight, PlantGrowth$group)
-#' 
-#' # To wide aligned by key
+#'
+#' # to wide aligned by key
 #' set.seed(41)
 #' PlantGrowth$nr <- c(sample(12, 10), sample(12, 10), sample(12, 10))
-#' head(PlantGrowth)
-#' 
-#' toWide(PlantGrowth$weight, PlantGrowth$group, by=PlantGrowth$nr)
-#' 
-
-
-# *********************************** 12.12.2014
-# stack/unstack does exactly that
-
-#' @rdname tolong_towide
-#' @family data.manipulation
+#' toWide(PlantGrowth$weight, PlantGrowth$group, by = PlantGrowth$nr)
+#'
+#' @family topic.dataManipulation
 #' @concept data-manipulation
 #' @concept data-structures
-#'
-#'
+
+
 #' @export
-toLong <- function (x, varnames = NULL, incl.rownames=FALSE) {
-  
-  if(!is.list(x)) {
-    if(is.matrix(x) || is.table(x))
+toLong <- function(x, varNames = NULL, includeRowNames = FALSE) {
+  if (!is.list(x)) {
+    if (is.matrix(x) || is.table(x)) {
       x <- as.data.frame(x)
+    }
     lst <- as.list(x)
   } else {
     lst <- x
   }
-  grpnames <- names(lst)
-  if(is.null(grpnames)) grpnames <- paste("X", 1:length(lst), sep="")
-  res <- data.frame(rep(grpnames, lapply(lst, length)), unlist(lst))
+  
+  groupNames <- names(lst)
+  if (is.null(groupNames)) {
+    groupNames <- paste0("X", seq_along(lst))
+  }
+  
+  res <- data.frame(
+    rep(groupNames, lengths(lst)),
+    unlist(lst),
+    stringsAsFactors = FALSE
+  )
+  
   rownames(res) <- NULL
-  if(!is.null(rownames(x)))
-    rownames(res) <- do.call(paste, c(expand.grid(rownames(x), grpnames), sep="."))
   
-  if(incl.rownames)
-    res <- appendX(res, rep(rownames(x), times=ncol(x)), 
-                  after = 2)
+  if (!is.null(rownames(x))) {
+    rownames(res) <- do.call(
+      paste,
+      c(expand.grid(rownames(x), groupNames), sep = ".")
+    )
+  }
   
-  if (is.null(varnames))
-    varnames <- c("grp", "x", "rowname")
+  if (includeRowNames) {
+    res <- appendX(
+      res,
+      rep(rownames(x), times = ncol(x)),
+      after = 2
+    )
+  }
   
-  colnames(res) <- varnames[seq(ncol(res))]
+  if (is.null(varNames)) {
+    varNames <- c("groups", "x", "rowNames")
+  }
   
-  return(res)
+  colnames(res) <- varNames[seq_len(ncol(res))]
   
+  res
 }
 
 
-
-#' @rdname tolong_towide
+#' @rdname long-wide-reshape
 #' @export
-toWide <- function(x, g, by=NULL, varnames=NULL){
+toWide <- function(x, groups, by = NULL, varNames = NULL) {
+  groups <- factor(groups)
   
-  if(is.null(varnames))
-    varnames <- levels(g)
-  
-  if(is.null(by)){
-    by <- "row.names"
-    
-  }  else {
-    x <- data.frame(x, idx=by)
-    by <- "idx"
-    varnames <- c("by", varnames)
+  if (is.null(varNames)) {
+    varNames <- levels(groups)
   }
   
-  g <- factor(g)
-  s <- split(x, g)
+  if (is.null(by)) {
+    by <- "row.names"
+  } else {
+    x <- data.frame(x = x, idx = by)
+    by <- "idx"
+    varNames <- c("by", varNames)
+  }
   
-  if(by != "row.names"){
-    # set the columnname for the value according to the group level
-    # in order to avoid duplicate names in Reduce() down the road ...
-    for(i in seq(s)){
+  s <- split(x, groups)
+  
+  if (by != "row.names") {
+    for (i in seq_along(s)) {
       colnames(s[[i]])[1] <- names(s)[i]
     }
   }
   
   res <- Reduce(function(x, y) {
+    if (inherits(x, "data.frame")) {
+      if (colnames(x)[ncol(x)] != "idx") {
+        colnames(x)[ncol(x)] <- paste0(colnames(x)[ncol(x) - 1L], "y")
+      }
+    }
     
-    # overwrite the last column name, in order to avoid:
-    # Warning message:
-    #   In merge.data.frame(x, y, by = by, all.x = TRUE, all.y = TRUE) :
-    #   column names 'y.x', 'y.y' are duplicated in the result
+    z <- merge(x, y, by = by, all.x = TRUE, all.y = TRUE)
     
-    if(inherits(x, "data.frame"))
-      if(colnames(x)[ncol(x)] != "idx")
-        colnames(x)[ncol(x)] <- paste0(colnames(x)[ncol(x)-1], "y")
+    if (by == "row.names") {
+      z <- z[, -grep("Row.names", names(z)), drop = FALSE]
+    }
     
-    z <- merge(x, y, by=by, all.x=TRUE, all.y=TRUE)
-    # kill the rownames
-    if(by=="row.names") z <- z[, -grep("Row.names", names(z))]
-    return(z)
+    z
   }, s)
   
-  colnames(res) <- varnames
-  return(res)
-  
+  colnames(res) <- varNames
+  res
 }
+

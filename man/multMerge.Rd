@@ -55,7 +55,6 @@ multMerge(x1, x2, x3, by="v")
 
 Other table.utils:
 \code{\link[=collapseTable]{collapseTable()}},
-\code{\link[=dummy]{dummy()}},
 \code{\link[=printCharMatrix]{printCharMatrix()}}
 }
 \concept{data-manipulation}

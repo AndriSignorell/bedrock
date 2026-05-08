@@ -50,11 +50,10 @@
 #' @export
 combSet <- function(x, m, repl=FALSE, ord=FALSE, as.list=FALSE) {
   
-  if(length(m)>1){
+  if(length(m) > 1L){
     res <- lapply(m, function(i) combSet(x=x, m=i, repl=repl, ord=ord))
     
   } else {
-    # generate the samples for the 4 combinatoric cases
     if(repl){
       res <- as.matrix(do.call(expand.grid, as.list(as.data.frame(replicate(m, x)))))
       dimnames(res) <- NULL
@@ -63,7 +62,9 @@ combSet <- function(x, m, repl=FALSE, ord=FALSE, as.list=FALSE) {
       }
     } else {
       if(ord){
-        res <- do.call(rbind, combn(x, m=m, FUN=permn, simplify = FALSE))
+        # Permn returns a matrix directly, no rbind needed
+        # also handles repeated values efficiently without full N! expansion
+        res <- do.call(rbind, combn(x, m=m, FUN=permn, simplify=FALSE))
       } else {
         res <- t(combn(x, m))
       }
@@ -71,22 +72,16 @@ combSet <- function(x, m, repl=FALSE, ord=FALSE, as.list=FALSE) {
   }
   
   if(as.list){
-    
-    # Alternative: we could flatten the whole list
-    # and now flatten the list of lists into one list
-    # lst <- split(unlist(lst), rep(1:length(idx <- rapply(lst, length)), idx))
-    
     if(is.list(res)){
       res <- do.call(c, lapply(res,
-                               function(x){ as.list(as.data.frame(t(x), stringsAsFactors = FALSE))}))
+                               function(x){ as.list(as.data.frame(t(x), stringsAsFactors=FALSE))}))
     } else {
-      res <- as.list(as.data.frame(t(res), stringsAsFactors = FALSE))
+      res <- as.list(as.data.frame(t(res), stringsAsFactors=FALSE))
     }
     names(res) <- NULL
   }
-  return(res)
   
+  return(res)
 }
-
 
 

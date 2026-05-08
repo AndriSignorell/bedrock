@@ -52,12 +52,11 @@ Other data.manipulation:
 \code{\link[=recycle]{recycle()}},
 \code{\link[=revCode]{revCode()}},
 \code{\link[=revX]{revX()}},
-\code{\link{set-and-remove-attributes}},
+\code{\link{setAttr-removeAttr}},
 \code{\link[=setNamesX]{setNamesX()}},
 \code{\link[=sortX]{sortX()}},
 \code{\link[=splitX]{splitX()}},
 \code{\link[=toBaseR]{toBaseR()}},
-\code{\link{tolong_towide}},
 \code{\link[=untable]{untable()}}
 }
 \concept{data-manipulation}

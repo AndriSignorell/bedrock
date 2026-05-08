@@ -10,7 +10,7 @@ printCharMatrix(
   sep = 2,
   show_rownames = TRUE,
   show_colnames = TRUE,
-  cli_style = FALSE,
+  cliStyle = FALSE,
   width = getOption("width")
 )
 }
@@ -27,7 +27,7 @@ Either \code{"right"} (default) or \code{"left"}.}
 
 \item{show_colnames}{Logical. Should column names be printed? Default is \code{TRUE}.}
 
-\item{cli_style}{Logical. If \code{TRUE}, column names and row names are styled
+\item{cliStyle}{Logical. If \code{TRUE}, column names and row names are styled
 using \code{cli::style_bold()}. Default is \code{FALSE}.}
 
 \item{width}{Integer. Maximum output width (in characters). Defaults to
@@ -71,7 +71,7 @@ printCharMatrix(m, align = "left", sep = 4)
 
 # With CLI styling (requires cli package)
 if (requireNamespace("cli", quietly = TRUE)) {
-  printCharMatrix(m, cli_style = TRUE)
+  printCharMatrix(m, cliStyle = TRUE)
 }
 
 # Force wrapping by reducing width
@@ -81,7 +81,6 @@ printCharMatrix(m, width = 20)
 \seealso{
 Other table.utils:
 \code{\link[=collapseTable]{collapseTable()}},
-\code{\link[=dummy]{dummy()}},
 \code{\link[=multMerge]{multMerge()}}
 }
 \concept{string-formatting}

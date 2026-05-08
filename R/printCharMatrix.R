@@ -12,7 +12,7 @@
 #' @param sep Integer. Number of spaces between columns. Default is \code{2}.
 #' @param show_rownames Logical. Should row names be printed? Default is \code{TRUE}.
 #' @param show_colnames Logical. Should column names be printed? Default is \code{TRUE}.
-#' @param cli_style Logical. If \code{TRUE}, column names and row names are styled
+#' @param cliStyle Logical. If \code{TRUE}, column names and row names are styled
 #'   using \code{cli::style_bold()}. Default is \code{FALSE}.
 #' @param width Integer. Maximum output width (in characters). Defaults to
 #'   \code{getOption("width")}. If the table exceeds this width, it is split into
@@ -50,7 +50,7 @@
 #'
 #' # With CLI styling (requires cli package)
 #' if (requireNamespace("cli", quietly = TRUE)) {
-#'   printCharMatrix(m, cli_style = TRUE)
+#'   printCharMatrix(m, cliStyle = TRUE)
 #' }
 #'
 #' # Force wrapping by reducing width
@@ -70,7 +70,7 @@ printCharMatrix <- function(
     sep = 2,
     show_rownames = TRUE,
     show_colnames = TRUE,
-    cli_style = FALSE,
+    cliStyle = FALSE,
     width = getOption("width")
 ) {
   align <- match.arg(align)
@@ -103,13 +103,13 @@ printCharMatrix <- function(
   
   # --- CLI Styling ---
   style_header <- function(x) {
-    if (cli_style) cli::style_bold(x) else x
-    # if (cli_style) cli::col_blue(x) else x
+    if (cliStyle) cli::style_bold(x) else x
+    # if (cliStyle) cli::col_blue(x) else x
   }
   
   style_rowname <- function(x) {
-  if (cli_style) cli::style_bold(x) else x
-    #  if (cli_style) cli::col_blue(x) else x
+  if (cliStyle) cli::style_bold(x) else x
+    #  if (cliStyle) cli::col_blue(x) else x
   }
   
   # --- Wie viele Spalten passen? ---
@@ -166,7 +166,7 @@ printCharMatrix <- function(
       
       if (show_rownames) {
         # nur rowname fett machen
-        if (cli_style) {
+        if (cliStyle) {
           rn_part <- pad_fun(rn[i], rowname_width)
           rn_part <- cli::style_bold(rn_part)
           rest <- paste(mapply(pad_fun, m[i, cols], col_widths[cols]), collapse = sep_str)

@@ -65,7 +65,6 @@ and positional assignment of unnamed arguments produces a warning.
 }
 \seealso{
 Other table.utils:
-\code{\link[=dummy]{dummy()}},
 \code{\link[=multMerge]{multMerge()}},
 \code{\link[=printCharMatrix]{printCharMatrix()}}
 }
