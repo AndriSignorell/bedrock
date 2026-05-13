@@ -41,8 +41,7 @@ Other pkg.introspection:
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},
 \code{\link[=getRdLabels]{getRdLabels()}},
-\code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=strX]{strX()}}
+\code{\link[=mergeArgs]{mergeArgs()}}
 }
 \concept{data-manipulation}
 \concept{package-utilities}

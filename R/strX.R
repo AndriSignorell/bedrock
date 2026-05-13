@@ -17,7 +17,6 @@
 #'   Default is `FALSE`.
 #' @param strict.width Character string passed to [utils::str()].
 #'   Default is `"cut"`.
-#' @param indent Numeric. Indentation passed to [utils::str()]. Default is `2`.
 #'
 #' @return
 #' Invisibly returns the character vector produced by [utils::str()].

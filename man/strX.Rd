@@ -2,36 +2,58 @@
 % Please edit documentation in R/strX.R
 \name{strX}
 \alias{strX}
-\title{Compactly Display the Structure of any R Object}
+\title{Extended str() with numbered variables}
 \usage{
-strX(x, ...)
+strX(
+  object,
+  ...,
+  number.variables = TRUE,
+  recursive = FALSE,
+  strict.width = "cut"
+)
 }
 \arguments{
-\item{x}{any \code{R} object about which you want to have some information.}
+\item{object}{Any R object.}
 
-\item{\dots}{dots are passed to \code{\link{str}}.}
+\item{...}{Additional arguments passed to \code{\link[utils:str]{utils::str()}}.}
+
+\item{number.variables}{Logical. Should variables/elements be numbered?
+Default is \code{TRUE}.}
+
+\item{recursive}{Logical. Should nested list elements also be numbered?
+Default is \code{FALSE}.}
+
+\item{strict.width}{Character string passed to \code{\link[utils:str]{utils::str()}}.
+Default is \code{"cut"}.}
+}
+\value{
+Invisibly returns the character vector produced by \code{\link[utils:str]{utils::str()}}.
 }
 \description{
-Basically a wrapper for \code{\link{str}()}, extended with an enumeration
-for the variables of a data.frame.
+Wrapper around \code{\link[utils:str]{utils::str()}} that optionally numbers variables in
+lists and data frames. Useful for large objects where variables should
+be referenced by position.
+}
+\details{
+By default, only top-level elements are numbered. Recursive numbering
+of nested list elements can be enabled with \code{recursive = TRUE}.
 }
 \examples{
+# Data frame
+strX(mtcars)
 
-strX(d.pizza)
-}
-\seealso{
-\code{\link{str}}
+# Nested list
+x <- list(
+  a = 1,
+  b = list(
+    c = 2,
+    d = 3
+  )
+)
 
-Other pkg.introspection:
-\code{\link[=funArgs]{funArgs()}},
-\code{\link[=funCalls]{funCalls()}},
-\code{\link[=funKeywords]{funKeywords()}},
-\code{\link[=funList]{funList()}},
-\code{\link[=getRdLabels]{getRdLabels()}},
-\code{\link[=inDots]{inDots()}},
-\code{\link[=mergeArgs]{mergeArgs()}}
+strX(x)
+
+# Recursive numbering
+strX(x, recursive = TRUE)
+
 }
-\concept{data-inspection}
-\concept{package-utilities}
-\concept{pkg.introspection}
-\keyword{utilities}

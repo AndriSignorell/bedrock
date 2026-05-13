@@ -33,8 +33,7 @@ Other pkg.introspection:
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},
 \code{\link[=getRdLabels]{getRdLabels()}},
-\code{\link[=inDots]{inDots()}},
-\code{\link[=strX]{strX()}}
+\code{\link[=inDots]{inDots()}}
 }
 \concept{data-manipulation}
 \concept{package-utilities}
