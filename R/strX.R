@@ -1,48 +1,116 @@
 
-#' Compactly Display the Structure of any R Object 
-#' 
-#' Basically a wrapper for \code{\link{str}()}, extended with an enumeration
-#' for the variables of a data.frame. 
-#' 
-#' 
-#' @param x any \code{R} object about which you want to have some information.
-#' @param \dots dots are passed to \code{\link{str}}. 
-#' 
-#' @seealso \code{\link{str}} 
-#' @keywords utilities
+
+#' Extended str() with numbered variables
+#'
+#' Wrapper around [utils::str()] that optionally numbers variables in
+#' lists and data frames. Useful for large objects where variables should
+#' be referenced by position.
+#'
+#' By default, only top-level elements are numbered. Recursive numbering
+#' of nested list elements can be enabled with `recursive = TRUE`.
+#'
+#' @param object Any R object.
+#' @param ... Additional arguments passed to [utils::str()].
+#' @param number.variables Logical. Should variables/elements be numbered?
+#'   Default is `TRUE`.
+#' @param recursive Logical. Should nested list elements also be numbered?
+#'   Default is `FALSE`.
+#' @param strict.width Character string passed to [utils::str()].
+#'   Default is `"cut"`.
+#' @param indent Numeric. Indentation passed to [utils::str()]. Default is `2`.
+#'
+#' @return
+#' Invisibly returns the character vector produced by [utils::str()].
+#'
 #' @examples
-#' 
-#' strX(d.pizza)
-
-
-#' @family pkg.introspection
-#' @concept package-utilities
-#' @concept data-inspection
+#' # Data frame
+#' strX(mtcars)
 #'
+#' # Nested list
+#' x <- list(
+#'   a = 1,
+#'   b = list(
+#'     c = 2,
+#'     d = 3
+#'   )
+#' )
 #'
+#' strX(x)
+#'
+#' # Recursive numbering
+#' strX(x, recursive = TRUE)
+#'
+
 #' @export
-strX <- function(x, ...) {
+strX <- function(
+    object,
+    ...,
+    number.variables = TRUE,
+    recursive = FALSE,
+    strict.width = "cut"
+) {
   
-  if (is.data.frame(x) || is.list(x)) {
+  # ---- checks --------------------------------------------------------------
+  
+  stopifnot(
+    is.logical(number.variables),
+    length(number.variables) == 1L,
+    is.logical(recursive),
+    length(recursive) == 1L
+  )
+  
+  # ---- capture str output --------------------------------------------------
+  
+  out <- capture.output(
+    str(
+      object,
+      ...,
+      strict.width = strict.width
+    )
+  )
+  
+  # ---- numbering -----------------------------------------------------------
+  
+  if (
+    number.variables &&
+    (is.list(object) || is.data.frame(object))
+  ) {
     
-    args <- list(...)
-    if (is.null(args$strict.width)) args$strict.width <- "cut"
+    idx <- if (recursive) {
+      grep("^\\s*\\$", out)
+    } else {
+      grep("^ \\$ ", out)
+    }
     
-    out <- capture.output(do.call(str, c(list(object = x), args)))
-    
-    idx <- grep("^ \\$", out)
-    
-    out[idx] <- sub("^ \\$", 
-                    paste0(" ", seq_along(idx), " $"), 
-                    out[idx])
-    
-    res <- out
-    
-  } else {
-    res <- capture.output(str(x, ...))
+    if (length(idx)) {
+      
+      width <- nchar(length(idx))
+      
+      out[idx] <- mapply(
+        FUN = function(line, i) {
+          
+          num <- sprintf(
+            paste0("%", width, "d"),
+            i
+          )
+          
+          sub(
+            "^(\\s*)\\$",
+            paste0("\\1", num, " $"),
+            line
+          )
+        },
+        line = out[idx],
+        i = seq_along(idx),
+        USE.NAMES = FALSE
+      )
+    }
   }
   
-  cat(res, sep = "\n")
-  invisible(res)
+  # ---- print ---------------------------------------------------------------
+  
+  cat(out, sep = "\n")
+  
+  invisible(out)
 }
 
