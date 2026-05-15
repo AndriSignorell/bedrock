@@ -35,10 +35,10 @@
 #' @return Character string. A valid \code{strftime} format.
 #'
 #' @examples
-#' as.CDateFmt("yyyy-mm-dd")
-#' as.CDateFmt("dd.mm.yy")
-#' as.CDateFmt("yyyymmdd")
-#' as.CDateFmt("mmm d, yyyy")
+#' asCDateFmt("yyyy-mm-dd")
+#' asCDateFmt("dd.mm.yy")
+#' asCDateFmt("yyyymmdd")
+#' asCDateFmt("mmm d, yyyy")
 #'
 
 
@@ -49,7 +49,7 @@
 #'
 #'
 #' @export
-as.CDateFmt <- function(fmt) {
+asCDateFmt <- function(fmt) {
   as_cdate_fmt_cpp(fmt)
 }
 

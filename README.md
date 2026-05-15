@@ -47,7 +47,7 @@ remotes::install_github("AndriSignorell/bedrock")
 
 ### 🔹 String Utilities
 
--   as.CDateFmt()
+-   asCDateFmt()
 -   charToAscii() / asciiToChar()
 -   columnWrap()
 
@@ -82,7 +82,7 @@ Coalesce(c(NA, NA, 5, 3))
 
 combSet(letters[1:4], 2)
 
-as.CDateFmt("yyyy-mm-dd")
+asCDateFmt("yyyy-mm-dd")
 ```
 
 ## 📜 License
