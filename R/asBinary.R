@@ -55,6 +55,7 @@
 #' @concept data-manipulation
 
 
+
 #' @export
 asBinary <- function(x, ref = NULL, warn = TRUE) {
   
