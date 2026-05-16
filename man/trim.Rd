@@ -73,9 +73,6 @@ Other vector.ops:
 \code{\link[=vShift]{vShift()}},
 \code{\link[=winsorize]{winsorize()}}
 }
-\author{
-R-Core (function mean), Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
 \concept{data-manipulation}
 \concept{vector-manipulation}
 \concept{vector.ops}

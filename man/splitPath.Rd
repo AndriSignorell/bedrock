@@ -60,7 +60,7 @@ Other file.utils:
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
 \code{\link[=pdfManual]{pdfManual()}},
-\code{\link[=readD]{readD()}}
+\code{\link[=readDownload]{readDownload()}}
 }
 \concept{file-utilities}
 \concept{file.utils}

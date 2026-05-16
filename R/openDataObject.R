@@ -46,9 +46,6 @@
 #'
 #' @importFrom httr GET write_disk http_status status_code
 #' @importFrom readxl read_excel excel_sheets
-#' @seealso \code{\link{dataDescription}}, \code{\link{label}}
-#'
-
 
 
 #' @family label.utils

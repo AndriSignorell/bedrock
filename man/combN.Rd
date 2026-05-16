@@ -13,7 +13,7 @@ combN(n, m, repl = FALSE, ord = FALSE)
 numeric vector too.}
 
 \item{repl}{logical. Should repetition of the same element be allowed?
-Defaults to FALSE}
+Defaults to \code{FALSE}}
 
 \item{ord}{logical. Does the order matter? Default is \code{FALSE}.}
 }

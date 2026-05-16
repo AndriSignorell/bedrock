@@ -8,57 +8,86 @@ moveAvg(
   x,
   order,
   align = c("center", "left", "right"),
-  endrule = c("NA", "keep", "constant")
+  endrule = c("NA", "keep", "constant", "trim")
 )
 }
 \arguments{
-\item{x}{univariate time series.}
+\item{x}{A univariate numeric vector or \code{ts} object.
+Matrices and multi-column objects are not supported.}
 
-\item{order}{order of moving average.}
+\item{order}{A single positive integer giving the window width.
+Must satisfy \code{1 <= order <= length(x)}.}
 
-\item{align}{specifies whether result should be centered (default),
-left-aligned or right-aligned.}
-
-\item{endrule}{Character string indicating how the values at the beginning
-and the end of the data should be treated.
+\item{align}{A character string controlling how the window is
+positioned relative to each output value:
 \describe{
-\item{"keep"}{
-Keeps the first and last \eqn{k_2}{k2} values at both ends,
-where \eqn{k_2}{k2} is the half-bandwidth \code{k2 = k \%/\% 2},
-i.e., \code{y[j] = x[j]} for
-\eqn{j \in \{1,\ldots,k_2\}} and
-\eqn{j \in \{n-k_2+1,\ldots,n\}}.
-}
-\item{"constant"}{
-Fills the ends with the first and last calculated value in the output
-array, e.g., \code{out[1:k2] = out[k2+1]}.
-}
-\item{"NA"}{
-The default. Leaves the values as \code{NA},
-as returned by \code{\link{filter}}.
-}
+\item{\code{"center"}}{Default.  The window is centred on the
+current observation.  For odd \code{order} the window is
+symmetric; for even \code{order} see Details.}
+\item{\code{"left"}}{The window starts at the current observation
+and extends to the right.}
+\item{\code{"right"}}{The window ends at the current observation
+and extends to the left.}
+}}
+
+\item{endrule}{A character string indicating how boundary values
+(where a full window is unavailable) are handled:
+\describe{
+\item{\code{"NA"}}{Default.  Boundary values are left as
+\code{NA}.}
+\item{\code{"keep"}}{Boundary values are taken from the original
+\code{x}.}
+\item{\code{"constant"}}{Boundary values are filled with the
+nearest computed moving-average value.}
+\item{\code{"trim"}}{Boundary values are computed from all
+available observations in a progressively smaller window.}
 }}
 }
 \value{
-Returns a vector of the same size and same class as x.
+A vector of the same length and class as \code{x}, with
+\code{NA} at boundary positions unless \code{endrule} specifies
+otherwise.
 }
 \description{
-Compute a simple moving average (running mean).
+Computes a simple moving average (running mean) of a numeric vector
+or time series.
 }
 \details{
-The implementation is using the function \code{filter} to calculate the
-moving average.
+The core computation uses cumulative sums for O(n) efficiency:
+\deqn{
+  \bar x_i = \frac{1}{k}\sum_{j} x_{i+j}
+}
+where the summation range depends on \code{align}.
+
+\strong{Even-order windows and center alignment}
+
+For even \code{order}, centering is ambiguous.  This implementation
+averages the two adjacent right-aligned windows of width \code{order},
+which is the convention used by \code{\link[forecast]{ma}}.
+
+\strong{Boundary handling (\code{endrule = "trim"})}
+
+At the boundaries the window is contracted to include only the
+available observations.  For center alignment with even \code{order},
+the boundary window width at position \eqn{i} is
+\eqn{i + \lfloor order/2 \rfloor}.
+
+\strong{Missing values}
+
+\code{NA} in \code{x} propagates through \code{cumsum()} and will
+produce \code{NA} in all moving-average values whose window contains
+that observation.  There is no \code{na.rm} option; pre-filter with
+\code{x[!is.na(x)]} if needed (note this changes index positions).
 }
 \examples{
-
-moveAvg(AirPassengers, order=5)
+moveAvg(AirPassengers, order = 5)
+moveAvg(AirPassengers, order = 5, endrule = "trim")
+moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 
 }
 \seealso{
-There's a faster implementation of running mean in the package
-\pkg{caTools} \code{\link[caTools]{runmean}()} and a slower one in
-\pkg{forecast} \code{\link[forecast]{ma}()}. There's similar code in
-\code{\link{midx}()}.
+\code{\link[caTools]{runmean}},
+\code{\link[forecast]{ma}}
 
 Other vector.ops:
 \code{\link[=Coalesce]{Coalesce()}},
@@ -81,4 +110,3 @@ Other vector.ops:
 \concept{time-series}
 \concept{vector-manipulation}
 \concept{vector.ops}
-\keyword{univar}

@@ -8,11 +8,11 @@
 #' @param m number of elements to choose. For \code{combSet} can \code{m} be a
 #' numeric vector too.
 #' @param repl logical. Should repetition of the same element be allowed?
-#' Defaults to FALSE
+#' Defaults to \code{FALSE}
 #' @param ord logical. Does the order matter? Default is FALSE.
 #' @param as.list logical, defining if the results should be returned in a flat
 #' list, say every sample is a single element of the resulting list. Default is
-#' FALSE.
+#' \code{FALSE}
 #' 
 #' @return a matrix with all possible combinations of the
 #' values in x\cr if m contains more than

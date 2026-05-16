@@ -7,7 +7,7 @@
 #' @param m number of elements to choose. For \code{combSet} can \code{m} be a
 #' numeric vector too.
 #' @param repl logical. Should repetition of the same element be allowed?
-#' Defaults to FALSE
+#' Defaults to \code{FALSE}
 #' @param ord logical. Does the order matter? Default is \code{FALSE}.
 #' 
 #' @return an integer value

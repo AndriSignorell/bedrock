@@ -15,8 +15,9 @@
 #' \code{colnames} or \code{names}. Setting \code{rownames=NULL} would remove
 #' existing rownames. All kind of names can be changed at the same time.
 #' Default would be \code{names}. Abbreviations are supported. 
-#' @return An object of the same sort as object with the new names assigned. 
-#' @seealso \code{\link{setNames}}, \code{\link[DescTools]{Rename}} 
+#' @return An object of the same sort as object with the new names assigned.
+#'  
+#' @seealso \code{\link{setNames}}
 #' @keywords list
 #' @examples
 #' 
@@ -39,13 +40,14 @@
 #'        dipstick=c("positive","negative"),
 #'        culture=c("positive","negative")))
 #' 
- 
-
+#' 
 #' @family data.manipulation
 #' @concept data-manipulation
 #' @concept data-structures
 #'
 #'
+
+
 #' @export
 setNamesX <- function (x, ...) {
   
@@ -57,7 +59,8 @@ setNamesX <- function (x, ...) {
   if (is.null(names(args)))
     names(args) <- "names"
   
-  names(args) <- lapply(names(args), match.arg, c("names", "rownames", "colnames", "dimnames"))
+  names(args) <- lapply(names(args), match.arg, 
+                        c("names", "rownames", "colnames", "dimnames"))
   
   if ("dimnames" %in% names(args)) {
     if(is.null(args[["dimnames"]]))
@@ -90,3 +93,6 @@ setNamesX <- function (x, ...) {
   x
   
 }
+
+
+

@@ -14,13 +14,13 @@ unique.}
 numeric vector too.}
 
 \item{repl}{logical. Should repetition of the same element be allowed?
-Defaults to FALSE}
+Defaults to \code{FALSE}}
 
 \item{ord}{logical. Does the order matter? Default is FALSE.}
 
 \item{as.list}{logical, defining if the results should be returned in a flat
 list, say every sample is a single element of the resulting list. Default is
-FALSE.}
+\code{FALSE}}
 }
 \value{
 a matrix with all possible combinations of the

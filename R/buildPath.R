@@ -16,7 +16,11 @@
 #' construction across platforms and avoids issues with trailing slashes.
 #'
 #' The argument \code{mustWork = FALSE} allows returning paths that do not yet exist.
-#'
+#' 
+#' @note Converting between forward slashes and backslashes is a frequent 
+#' necessity—and a hassle—especially in Windows. The \code{FlipSlashes()} 
+#' function in the \code{swissButler} package is useful for this purpose.
+#' 
 #' @examples
 #' buildPath("data", "file.csv")
 #' buildPath("data/", "file.csv")
@@ -27,6 +31,8 @@
 #' @concept string-manipulation
 #'
 #'
+
+
 #' @export
 buildPath <- function(dir, filename) {
   

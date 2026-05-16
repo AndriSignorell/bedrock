@@ -26,6 +26,11 @@ construction across platforms and avoids issues with trailing slashes.
 
 The argument \code{mustWork = FALSE} allows returning paths that do not yet exist.
 }
+\note{
+Converting between forward slashes and backslashes is a frequent
+necessity—and a hassle—especially in Windows. The \code{FlipSlashes()}
+function in the \code{swissButler} package is useful for this purpose.
+}
 \examples{
 buildPath("data", "file.csv")
 buildPath("data/", "file.csv")
@@ -36,7 +41,7 @@ Other file.utils:
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
 \code{\link[=pdfManual]{pdfManual()}},
-\code{\link[=readD]{readD()}},
+\code{\link[=readDownload]{readDownload()}},
 \code{\link[=splitPath]{splitPath()}}
 }
 \concept{file-utilities}

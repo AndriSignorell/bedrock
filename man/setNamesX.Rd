@@ -48,9 +48,10 @@ tab <- setNamesX(
        dipstick=c("positive","negative"),
        culture=c("positive","negative")))
 
+
 }
 \seealso{
-\code{\link{setNames}}, \code{\link[DescTools]{Rename}}
+\code{\link{setNames}}
 
 Other data.manipulation:
 \code{\link[=appendRowNames]{appendRowNames()}},

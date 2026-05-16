@@ -25,20 +25,19 @@
 #' A \code{data.frame} (or tibble if \code{base = FALSE}).
 #'
 #' @seealso
-#' \code{\link{findDownload}},
 #' \code{\link[readxl]{read_excel}},
 #' \code{\link[readr]{read_csv}}
 #'
 #' @examples
 #' \dontrun{
 #' # Read Excel file
-#' readD("data.xlsx")
+#' readDownload("data.xlsx")
 #'
 #' # Read CSV file
-#' readD("data.csv")
+#' readDownload("data.csv")
 #'
 #' # Keep tibble output
-#' readD("data.csv", base = FALSE)
+#' readDownload("data.csv", base = FALSE)
 #' }
 #'
 
@@ -49,7 +48,7 @@
 #'
 #'
 #' @export
-readD <- function(fname, ..., base = TRUE) {
+readDownload <- function(fname, ..., base = TRUE) {
   
   file <- findDownload(fname)
   ext  <- tolower(tools::file_ext(file))

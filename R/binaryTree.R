@@ -23,6 +23,7 @@
 #' Substantially based on code by Terry Therneau, with major extensions 
 #' and improvements by the package author.
 #' 
+#' @seealso [aurora::plotBinaryTree()]
 #' @examples
 #' 
 #' binaryTree(12)

@@ -35,6 +35,9 @@ and improvements by the package author.
 binaryTree(12)
 
 }
+\seealso{
+\code{\link[aurora:plotBinaryTree]{aurora::plotBinaryTree()}}
+}
 \concept{data-manipulation}
 \concept{data-structures}
 \concept{data.structures}

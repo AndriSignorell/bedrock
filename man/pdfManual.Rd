@@ -20,7 +20,7 @@ Other file.utils:
 \code{\link[=buildPath]{buildPath()}},
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
-\code{\link[=readD]{readD()}},
+\code{\link[=readDownload]{readDownload()}},
 \code{\link[=splitPath]{splitPath()}}
 }
 \concept{file-utilities}

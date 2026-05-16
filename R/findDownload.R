@@ -21,9 +21,6 @@
 #' findDownload("data.csv")
 #' }
 #'
-#' @seealso \code{\link{readD}}
-#'
-
 
 #' @family file.utils
 #' @concept file-utilities

@@ -3,13 +3,14 @@
 \name{numeric-conversions}
 \alias{numeric-conversions}
 \alias{hexToDec}
-\alias{binToDec}
-\alias{decToBin}
+\alias{decToHex}
 \alias{octToDec}
 \alias{decToOct}
-\alias{decToHex}
+\alias{binToDec}
+\alias{decToBin}
 \alias{romanToInt}
-\title{Converts Numbers From Binmode, Octmode or Hexmode to Decimal and Vice Versa}
+\alias{baseToBase}
+\title{Converts Numbers Between Bases}
 \usage{
 hexToDec(x)
 
@@ -24,28 +25,56 @@ binToDec(x)
 decToBin(x)
 
 romanToInt(x)
+
+baseToBase(x, from, to, width = NULL)
 }
 \arguments{
-\item{x}{a vector of numbers, resp. alphanumerical representation of numbers
-(hex), to be converted.}
+\item{x}{A vector of numbers or character representations to be
+converted.}
+
+\item{from}{A single integer in \eqn{[2, 36]} giving the input base
+(\code{baseToBase} only).}
+
+\item{to}{A single integer in \eqn{[2, 36]} giving the output base
+(\code{baseToBase} only).}
+
+\item{width}{A single non-negative integer or \code{NULL} (default).
+If supplied, the output is left-padded with zeros to at least
+\code{width} characters (\code{baseToBase} only).}
 }
 \value{
-A numeric or character vector of the same length as x containing the
-converted values. Binary, octal and decimal values are numeric, hex-values
-are returned as class \code{hexmode}.
+A numeric or character vector of the same length as \code{x}
+containing the converted values.  Binary, octal and decimal values
+are numeric; hex values are returned as class \code{hexmode}.
+\code{baseToBase()} always returns a character vector (uppercase).
+\code{NA} input produces \code{NA} output.
 }
 \description{
-These functions convert numbers from one base to another. There are several
-solutions for this problem out there, but the naming is quite heterogeneous
-and so consistent function names might be helpful.
+These functions convert numbers from one base to another.  There are
+several solutions for this problem out there, but the naming is quite
+heterogeneous and so consistent function names might be helpful.
 }
 \details{
-\code{binToDec()} converts numbers from binary mode into decimal values.
-\code{decToBin} does it the other way round.\cr Oct means octal
-system and hex hexadecimal.
+\code{binToDec()} converts numbers from binary mode into decimal
+values; \code{decToBin()} does the reverse.  Oct means octal system
+and hex hexadecimal.  \code{baseToBase()} is the general case,
+supporting any base from 2 to 36.
+
+All specialist functions are special cases of \code{baseToBase()}:
+\tabular{ll}{
+\code{hexToDec(x)} \tab \code{baseToBase(x, 16, 10)} \cr
+\code{decToHex(x)} \tab \code{baseToBase(x, 10, 16)} \cr
+\code{octToDec(x)} \tab \code{baseToBase(x,  8, 10)} \cr
+\code{decToOct(x)} \tab \code{baseToBase(x, 10,  8)} \cr
+\code{binToDec(x)} \tab \code{baseToBase(x,  2, 10)} \cr
+\code{decToBin(x)} \tab \code{baseToBase(x, 10,  2)} \cr
+}
+
+\code{baseToBase()} uses \code{\link{strtoi}()} for parsing, which
+operates on \code{long int} internally.  Values above approximately
+\eqn{2^{31} - 1} may return \code{NA} on 32-bit platforms.
 }
 \examples{
-
 decToBin(c(17, 25))
 binToDec(c(101, 11101))
 
@@ -55,9 +84,23 @@ octToDec(c(11, 77))
 decToHex(c(17, 25))
 hexToDec(c("FF", "AA", "ABC"))
 
+# general base conversion
+baseToBase("FF",       from = 16, to = 10)   # hex -> dec
+baseToBase("255",      from = 10, to = 16)   # dec -> hex
+baseToBase("11111111", from = 2,  to = 10)   # bin -> dec
+baseToBase("1A3F",     from = 16, to = 2)    # hex -> bin
+baseToBase("Z9",       from = 36, to = 10)   # base-36 -> dec
+
+# fixed-width output
+baseToBase(c("0", "7", "255"), from = 10, to = 2, width = 8)
+
+# vectorized
+baseToBase(c("A", "B", "FF"), from = 16, to = 10)
+
 }
 \seealso{
-\code{\link{strtoi}}
+\code{\link{strtoi}}, \code{\link{as.hexmode}},
+\code{\link{as.octmode}}
 
 Other number.theory:
 \code{\link[=digitSum]{digitSum()}},
@@ -71,4 +114,3 @@ Other number.theory:
 \concept{number-theory}
 \concept{number.theory}
 \concept{string-manipulation}
-\keyword{arith}

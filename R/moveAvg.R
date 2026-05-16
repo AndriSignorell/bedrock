@@ -1,121 +1,183 @@
 
-#' Moving Average 
-#' 
-#' Compute a simple moving average (running mean). 
-#' 
-#' The implementation is using the function \code{filter} to calculate the
-#' moving average.
-#' 
-#' @param x univariate time series.
-#' @param order order of moving average.
-#' @param align specifies whether result should be centered (default),
-#' left-aligned or right-aligned.
-#' @param endrule Character string indicating how the values at the beginning
-#' and the end of the data should be treated.
-#' \describe{
-#'   \item{"keep"}{
-#'     Keeps the first and last \eqn{k_2}{k2} values at both ends,
-#'     where \eqn{k_2}{k2} is the half-bandwidth \code{k2 = k \%/\% 2},
-#'     i.e., \code{y[j] = x[j]} for
-#'     \eqn{j \in \{1,\ldots,k_2\}} and
-#'     \eqn{j \in \{n-k_2+1,\ldots,n\}}.
-#'   }
-#'   \item{"constant"}{
-#'     Fills the ends with the first and last calculated value in the output
-#'     array, e.g., \code{out[1:k2] = out[k2+1]}.
-#'   }
-#'   \item{"NA"}{
-#'     The default. Leaves the values as \code{NA},
-#'     as returned by \code{\link{filter}}.
-#'   }
+#' Moving Average
+#'
+#' Computes a simple moving average (running mean) of a numeric vector
+#' or time series.
+#'
+#' @details
+#' The core computation uses cumulative sums for O(n) efficiency:
+#' \deqn{
+#'   \bar x_i = \frac{1}{k}\sum_{j} x_{i+j}
 #' }
-#'  
-#' @return Returns a vector of the same size and same class as x.
-#' 
-#' @seealso There's a faster implementation of running mean in the package
-#' \pkg{caTools} \code{\link[caTools]{runmean}()} and a slower one in
-#' \pkg{forecast} \code{\link[forecast]{ma}()}. There's similar code in
-#' \code{\link{midx}()}. 
-#' 
-#' @keywords univar
+#' where the summation range depends on \code{align}.
+#'
+#' **Even-order windows and center alignment**
+#'
+#' For even \code{order}, centering is ambiguous.  This implementation
+#' averages the two adjacent right-aligned windows of width \code{order},
+#' which is the convention used by \code{\link[forecast]{ma}}.
+#'
+#' **Boundary handling (\code{endrule = "trim"})**
+#'
+#' At the boundaries the window is contracted to include only the
+#' available observations.  For center alignment with even \code{order},
+#' the boundary window width at position \eqn{i} is
+#' \eqn{i + \lfloor order/2 \rfloor}.
+#'
+#' **Missing values**
+#'
+#' \code{NA} in \code{x} propagates through \code{cumsum()} and will
+#' produce \code{NA} in all moving-average values whose window contains
+#' that observation.  There is no \code{na.rm} option; pre-filter with
+#' \code{x[!is.na(x)]} if needed (note this changes index positions).
+#'
+#' @param x       A univariate numeric vector or \code{ts} object.
+#'   Matrices and multi-column objects are not supported.
+#' @param order   A single positive integer giving the window width.
+#'   Must satisfy \code{1 <= order <= length(x)}.
+#' @param align   A character string controlling how the window is
+#'   positioned relative to each output value:
+#'   \describe{
+#'     \item{\code{"center"}}{Default.  The window is centred on the
+#'       current observation.  For odd \code{order} the window is
+#'       symmetric; for even \code{order} see Details.}
+#'     \item{\code{"left"}}{The window starts at the current observation
+#'       and extends to the right.}
+#'     \item{\code{"right"}}{The window ends at the current observation
+#'       and extends to the left.}
+#'   }
+#' @param endrule A character string indicating how boundary values
+#'   (where a full window is unavailable) are handled:
+#'   \describe{
+#'     \item{\code{"NA"}}{Default.  Boundary values are left as
+#'       \code{NA}.}
+#'     \item{\code{"keep"}}{Boundary values are taken from the original
+#'       \code{x}.}
+#'     \item{\code{"constant"}}{Boundary values are filled with the
+#'       nearest computed moving-average value.}
+#'     \item{\code{"trim"}}{Boundary values are computed from all
+#'       available observations in a progressively smaller window.}
+#'   }
+#'
+#' @return A vector of the same length and class as \code{x}, with
+#'   \code{NA} at boundary positions unless \code{endrule} specifies
+#'   otherwise.
+#'
+#' @seealso
+#' \code{\link[caTools]{runmean}},
+#' \code{\link[forecast]{ma}}
+#'
 #' @examples
-#' 
-#' moveAvg(AirPassengers, order=5)
-#' 
- 
-
-
+#' moveAvg(AirPassengers, order = 5)
+#' moveAvg(AirPassengers, order = 5, endrule = "trim")
+#' moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
+#'
 #' @family vector.ops
 #' @concept vector-manipulation
 #' @concept descriptive-statistics
 #' @concept time-series
 #'
-#'
+
+
 #' @export
-moveAvg <- function(x, order,
-                         align = c("center","left","right"),
-                         endrule = c("NA", "keep", "constant")) {
+moveAvg <- function(x,
+                    order,
+                    align   = c("center", "left", "right"),
+                    endrule = c("NA", "keep", "constant", "trim")) {
+  
+  # --- input checks --------------------------------------------------
+  if (!is.null(dim(x)))
+    stop("'x' must be a univariate vector or time series, not a matrix.")
+  if (!is.numeric(x))
+    stop("'x' must be numeric.")
+  
+  if (!is.numeric(order) || length(order) != 1L ||
+      is.na(order) || order < 1L || order %% 1 != 0)
+    stop("'order' must be a single positive integer.")
+  
+  n <- length(x)
+  order <- as.integer(order)
+  
+  if (order > n)
+    stop("'order' must be <= length(x) (", n, ").")
+  
+  # order == 1: moving average is the series itself
+  if (order == 1L)
+    return(x)
   
   align   <- match.arg(align)
   endrule <- match.arg(endrule)
   
-  n <- length(x)
-  
-  if (!is.numeric(order) || length(order) != 1 || order < 1 || order %% 1 != 0) {
-    stop("'order' must be a positive integer")
-  }
-  if (order > n) {
-    stop("'order' must be <= length(x)")
-  }
-  
-  # --- core: cumulative sum ---
+  # --- cumulative-sum core -------------------------------------------
+  # cs[i+1] - cs[j] = sum(x[j:i]), so a window of width `order` ending
+  # at position i is cs[i+1] - cs[i - order + 1].
+  # `ma` contains right-aligned running means for positions order..n.
   cs <- c(0, cumsum(x))
+  ma <- (cs[(order + 1L):(n + 1L)] - cs[1L:(n - order + 1L)]) / order
   
-  # rolling mean (right-aligned base)
-  ma <- (cs[(order+1):(n+1)] - cs[1:(n-order+1)]) / order
-  
-  # pad with NA to full length
+  # --- align running means into output --------------------------------
   z <- rep(NA_real_, n)
   
   if (align == "right") {
     
     z[order:n] <- ma
-    idx <- seq_len(order - 1)
-    idx_const <- rep(order, length(idx))
+    bnd       <- seq_len(order - 1L)
+    bnd_const <- rep(order, length(bnd))
     
   } else if (align == "left") {
     
-    z[1:(n-order+1)] <- ma
-    idx <- (n-order+2):n
-    idx_const <- rep(n-order+1, length(idx))
+    z[1:(n - order + 1L)] <- ma
+    bnd       <- (n - order + 2L):n
+    bnd_const <- rep(n - order + 1L, length(bnd))
     
-  } else { # center
+  } else {
+    # center alignment
+    k2 <- order %/% 2L
     
-    k2 <- order %/% 2
+    if (order %% 2L == 1L) {
+      # odd window: exactly symmetric
+      z[(k2 + 1L):(n - k2)] <- ma
+    } else {
+      # even window: average the two adjacent right-aligned windows
+      z[(k2 + 1L):(n - k2)] <-
+        (ma[seq_len(length(ma) - 1L)] + ma[seq_len(length(ma) - 1L) + 1L]) / 2
+    }
     
-    if (order %% 2 == 1) {
-      # odd window
-      z[(k2+1):(n-k2)] <- ma
-      idx <- c(seq_len(k2), (n-k2+1):n)
-      idx_const <- c(rep(k2+1, k2), rep(n-k2, k2))
+    bnd       <- c(seq_len(k2), (n - k2 + 1L):n)
+    bnd_const <- c(rep(k2 + 1L, k2), rep(n - k2, k2))
+  }
+  
+  # --- end rules ------------------------------------------------------
+  if (endrule == "keep") {
+    
+    z[bnd] <- x[bnd]
+    
+  } else if (endrule == "constant") {
+    
+    z[bnd] <- z[bnd_const]
+    
+  } else if (endrule == "trim") {
+    
+    if (align == "right") {
+      for (i in seq_len(order - 1L))
+        z[i] <- mean(x[seq_len(i)])
+      
+    } else if (align == "left") {
+      for (i in seq_len(order - 1L))
+        z[n - i + 1L] <- mean(x[(n - i + 1L):n])
       
     } else {
-      # even window: shift by half
-      z[(k2+1):(n-k2)] <- (ma[1:(length(ma)-1)] + ma[2:length(ma)]) / 2
-      idx <- c(seq_len(k2), (n-k2+1):n)
-      idx_const <- c(rep(k2+1, k2), rep(n-k2, k2))
+      k2 <- order %/% 2L
+      for (i in seq_len(k2)) {
+        z[i]          <- mean(x[seq_len(i + k2)])
+        z[n - i + 1L] <- mean(x[(n - k2 - i + 1L):n])
+      }
     }
   }
+  # endrule == "NA": boundaries stay NA — nothing to do
   
-  # --- end rules ---
-  if (endrule == "keep") {
-    z[idx] <- x[idx]
-  } else if (endrule == "constant") {
-    z[idx] <- z[idx_const]
-  }
-  
-  # --- preserve class ---
-  attributes(z) <- attributes(x)
-  
-  return(z)
+  # --- preserve ts attributes (tsp, class) ----------------------------
+  mostattributes(z) <- attributes(x)
+  z
 }
+

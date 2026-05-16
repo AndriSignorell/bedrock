@@ -1,5 +1,4 @@
 
-
 #' Trim a Vector 
 #' 
 #' Clean data by means of trimming, i.e., by omitting outlying observations. 
@@ -22,8 +21,6 @@
 #' @note This function is basically an excerpt from the base function
 #' \code{\link{mean}}, which allows the vector \code{x} to be trimmed before
 #' calculating the mean. But what if a trimmed standard deviation is needed?
-#' @author R-Core (function mean), Andri Signorell <andri@@signorell.net> 
-#' 
 #' 
 #' @examples
 #' 
