@@ -8,9 +8,9 @@ printCharMatrix(
   m,
   align = c("right", "left"),
   sep = 2,
-  show_rownames = TRUE,
-  show_colnames = TRUE,
-  cliStyle = FALSE,
+  showRownames = TRUE,
+  showColnames = TRUE,
+  useCliStyle = FALSE,
   width = getOption("width")
 )
 }
@@ -23,11 +23,11 @@ Either \code{"right"} (default) or \code{"left"}.}
 
 \item{sep}{Integer. Number of spaces between columns. Default is \code{2}.}
 
-\item{show_rownames}{Logical. Should row names be printed? Default is \code{TRUE}.}
+\item{showRownames}{Logical. Should row names be printed? Default is \code{TRUE}.}
 
-\item{show_colnames}{Logical. Should column names be printed? Default is \code{TRUE}.}
+\item{showColnames}{Logical. Should column names be printed? Default is \code{TRUE}.}
 
-\item{cliStyle}{Logical. If \code{TRUE}, column names and row names are styled
+\item{useCliStyle}{Logical. If \code{TRUE}, column names and row names are styled
 using \code{cli::style_bold()}. Default is \code{FALSE}.}
 
 \item{width}{Integer. Maximum output width (in characters). Defaults to
@@ -71,7 +71,7 @@ printCharMatrix(m, align = "left", sep = 4)
 
 # With CLI styling (requires cli package)
 if (requireNamespace("cli", quietly = TRUE)) {
-  printCharMatrix(m, cliStyle = TRUE)
+  printCharMatrix(m, useCliStyle = TRUE)
 }
 
 # Force wrapping by reducing width

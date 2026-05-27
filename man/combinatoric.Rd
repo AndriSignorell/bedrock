@@ -4,52 +4,95 @@
 \alias{combSet}
 \title{Samples for Combinations of a Set}
 \usage{
-combSet(x, m, repl = FALSE, ord = FALSE, as.list = FALSE)
+combSet(x, m, replace = FALSE, ordered = FALSE, output = c("matrix", "list"))
 }
 \arguments{
-\item{x}{a vector of numeric values or characters. Characters need not be
-unique.}
+\item{x}{A vector of numeric values or characters.
+Character values need not be unique.}
 
-\item{m}{number of elements to choose. For \code{combSet} can \code{m} be a
-numeric vector too.}
+\item{m}{Number of elements to choose.
+May be a vector.}
 
-\item{repl}{logical. Should repetition of the same element be allowed?
-Defaults to \code{FALSE}}
+\item{replace}{Logical. Should repetition of the same element
+be allowed? Default is \code{FALSE}.}
 
-\item{ord}{logical. Does the order matter? Default is FALSE.}
+\item{ordered}{Logical. Does the order matter?
+Default is \code{FALSE}.}
 
-\item{as.list}{logical, defining if the results should be returned in a flat
-list, say every sample is a single element of the resulting list. Default is
-\code{FALSE}}
+\item{output}{Character string specifying the output representation.
+One of:
+
+\describe{
+\item{\code{\"matrix\"}}{
+Return combinations as a matrix.
+}
+\item{\code{\"list\"}}{
+Return combinations as a flat list.
+}
+}
+
+Default is \code{\"matrix\"}.}
 }
 \value{
-a matrix with all possible combinations of the
-values in x\cr if m contains more than
-one element the result will be a list of matrices or a flat list if
-\code{as.list} is set to \code{TRUE}
+If \code{output = \"matrix\"}:
+
+\itemize{
+\item a matrix with one combination per row
+\item if \code{length(m) > 1}, a list of matrices
+}
+
+If \code{output = \"list\"}:
+
+\itemize{
+\item a flat list with one element per combination
+}
 }
 \description{
 Return the value sets of combinations.
+}
+\details{
+Depending on \code{output}, the result is returned either as:
+
+\itemize{
+\item a matrix with one combination per row
+\item a flat list where each element represents one combination
+}
+
+If \code{m} contains more than one value, combinations are generated
+independently for each value of \code{m}.
 }
 \examples{
 x <- letters[1:4]
 m <- 2
 
-# the samples
-combSet(x, m, repl=TRUE, ord=FALSE)
-combSet(x, m, repl=TRUE, ord=TRUE)
-combSet(x, m, repl=FALSE, ord=TRUE)
-combSet(x, m, repl=FALSE, ord=FALSE)
+# combinations with replacement
+combSet(x, m, replace = TRUE, ordered = FALSE)
 
-# build all subsets of length 1, 3 and 5 and return a flat list
+# ordered combinations with replacement
+combSet(x, m, replace = TRUE, ordered = TRUE)
+
+# ordered combinations without replacement
+combSet(x, m, replace = FALSE, ordered = TRUE)
+
+# unordered combinations without replacement
+combSet(x, m, replace = FALSE, ordered = FALSE)
+
+# return as flat list
 x <- letters[1:5]
-combSet(x=x, m=c(1, 3, 5), as.list=TRUE)
+
+combSet(
+  x = x,
+  m = c(1, 3, 5),
+  output = "list"
+)
 
 }
 \seealso{
 \code{\link{combPairs}},
-\code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
-\cr \code{vignette("Combinatorics")}
+\code{\link{combn}},
+\code{\link{choose}},
+\code{\link{factorial}},
+\code{vignette("Combinatorics")}
 
 Other combinatorics:
 \code{\link[=combN]{combN()}},

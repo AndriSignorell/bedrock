@@ -4,7 +4,7 @@
 #' Combining or rearranging a factor can be tedious if it has many levels.
 #' \code{recodeX()} supports this step by accepting a direct definition of new
 #' levels by enumerating old levelnames as argument and adding an
-#' \code{"elselevel"} option. If new levels are given as integer values they
+#' \code{"elseLevel"} option. If new levels are given as integer values they
 #' will be translated in the according levels.
 #' 
 #' 
@@ -15,11 +15,11 @@
 #' named with the new level:\cr \code{newlevel_a = c("old_a", "old_b"),
 #' }\cr\code{newlevel_b = c("old_c", "old_d")}\cr See examples.
 #' @param keep vector of levels that should be left untouched.
-#' @param elselevel the value for levels, which are not matched by newlevel
-#' list.  If this is set to \code{NULL}, the elselevels will be left unchanged.
+#' @param elseLevel the value for levels, which are not matched by newlevel
+#' list.  If this is set to \code{NULL}, the elseLevels will be left unchanged.
 #' If set to \code{NA} (default) non matched levels will be set to \code{NA}.
 #' @param ref the reference level, typically a string.
-#' @param use.empty logical. Defines how a new level, which can't be found in
+#' @param useEmpty logical. Defines how a new level, which can't be found in
 #' x, should be handled.  Should it be left in the level's list or be dropped?
 #' The default is \code{FALSE}, which drops empty levels.
 #' @param num logical. If set to \code{TRUE} the result will be numeric. This
@@ -43,7 +43,7 @@
 #'             "new_1"   = c("old_1","old_4","old_5"),
 #'             "new_2"   = c("old_6","old_10","old_11"),
 #'             "new_3"   = c("old_12","old_13"),
-#'             elselevel = "other")
+#'             elseLevel = "other")
 #' data.frame(x=x, y=y)
 #' 
 #' # Coding NAs, NA is recoded to new_1
@@ -54,12 +54,12 @@
 #'   x, 
 #'   RecodeNA = recodeX(x,
 #'                     "new_1"   = c("old_4","old_8", NA),
-#'                     elselevel = "other"),
+#'                     elseLevel = "other"),
 #'        
 #'   # NAs remain unaffected, unless specified to be processed      
 #'   NoRecodeNA = recodeX(x,
 #'                       "new_1"   = c("old_4","old_8"),
-#'                       elselevel = "other")
+#'                       elseLevel = "other")
 #' )         
 #' 
 #' # keep some levels, collapse others and reset the reference level
@@ -68,16 +68,16 @@
 #' recodeX(ff, 
 #'        stone=c("peach", "plum"), 
 #'        keep=c("apple","banana"),
-#'        elselevel = "other", ref="stone")
+#'        elseLevel = "other", ref="stone")
 #' 
 #' 
 #' x <- factor(letters[1:6])
 #' 
-#' z1 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elselevel="none of these")
-#' z2 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elselevel=NA)
-#' z3 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elselevel=NULL)
-#' z4 <- recodeX(x, AB=c("a","b"), GH=c("g","h"), elselevel=NA, use.empty=TRUE)
-#' z5 <- recodeX(x, AB=c("a","b"), GH=c("g","h"), elselevel=NA, use.empty=FALSE)
+#' z1 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elseLevel="none of these")
+#' z2 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elseLevel=NA)
+#' z3 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elseLevel=NULL)
+#' z4 <- recodeX(x, AB=c("a","b"), GH=c("g","h"), elseLevel=NA, useEmpty=TRUE)
+#' z5 <- recodeX(x, AB=c("a","b"), GH=c("g","h"), elseLevel=NA, useEmpty=FALSE)
 #' 
 #' data.frame(z1, z2, z3, z4, z5)
 #' 
@@ -104,8 +104,8 @@
 #'
 #'
 #' @export
-recodeX <- function(x, ..., keep=NULL, elselevel=NA, ref= NULL, 
-                   use.empty=FALSE, num=FALSE){
+recodeX <- function(x, ..., keep=NULL, elseLevel=NA, ref= NULL, 
+                   useEmpty=FALSE, num=FALSE){
   
   # if x is character, turn it to factor and reconvert it when finished
   if(xchar <- is.character(x)){
@@ -121,19 +121,19 @@ recodeX <- function(x, ..., keep=NULL, elselevel=NA, ref= NULL,
   if(all(is.numeric(unlist(newlevels))))
     newlevels <- lapply(newlevels, function(i) levels(x)[i])
   
-  if(is.null(elselevel)) { # leave elselevels as they are
-    elselevels <- setdiff(levels(x), unlist(newlevels))
-    names(elselevels) <- elselevels
-    newlevels <- c(newlevels, elselevels)
+  if(is.null(elseLevel)) { # leave elseLevels as they are
+    elseLevels <- setdiff(levels(x), unlist(newlevels))
+    names(elseLevels) <- elseLevels
+    newlevels <- c(newlevels, elseLevels)
     
   } else {
-    if(!is.na(elselevel)){
+    if(!is.na(elseLevel)){
       newlevels[[length(newlevels)+1]] <- setdiff(levels(x), unlist(newlevels))
-      names(newlevels)[[length(newlevels)]] <- elselevel
+      names(newlevels)[[length(newlevels)]] <- elseLevel
     }
   }
   levels(x) <- newlevels
-  if(!use.empty) x <- factor(x)  # delete potentially empty levels
+  if(!useEmpty) x <- factor(x)  # delete potentially empty levels
   
   # handle NA levels
   if(any(i <- sapply(lapply(newlevels, is.na), any)))
@@ -152,3 +152,5 @@ recodeX <- function(x, ..., keep=NULL, elselevel=NA, ref= NULL,
   return(x)
   
 }
+
+

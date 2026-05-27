@@ -6,9 +6,8 @@
 \usage{
 isNumeric(
   x,
-  length.arg = NULL,
-  integer.valued = FALSE,
-  positive = FALSE,
+  isIntegerValued = FALSE,
+  isPositive = FALSE,
   tol = sqrt(.Machine$double.eps),
   na.rm = FALSE
 )
@@ -16,16 +15,13 @@ isNumeric(
 \arguments{
 \item{x}{An object to be tested.}
 
-\item{length.arg}{Optional integer. If provided, \code{x} must have
-exactly this length.}
-
-\item{integer.valued}{Logical. If \code{TRUE}, values must be whole-like
+\item{isIntegerValued}{Logical. If \code{TRUE}, values must be whole-like
 (within tolerance). Uses \code{\link{isWholeLike}} internally.}
 
-\item{positive}{Logical. If \code{TRUE}, all values must be strictly
+\item{isPositive}{Logical. If \code{TRUE}, all values must be strictly
 greater than zero.}
 
-\item{tol}{Numerical tolerance used when \code{integer.valued = TRUE}.
+\item{tol}{Numerical tolerance used when \code{isIntegerValued = TRUE}.
 Default is \code{sqrt(.Machine$double.eps)}.}
 
 \item{na.rm}{Logical. If \code{TRUE}, missing values are removed before
@@ -37,25 +33,25 @@ A single logical value.
 }
 \description{
 Validates that an object is numeric and optionally satisfies additional
-structural constraints such as length, integer-valuedness, or positivity.
+structural constraints such as integer-valuedness or positivity.
 }
 \details{
 The function checks:
 \itemize{
 \item Whether \code{x} is numeric.
 \item Whether all values are finite.
-\item Optional length constraint.
 \item Optional integer-like constraint via \code{isWholeLike()}.
 \item Optional positivity constraint.
 }
 
 This function is intended for internal validation in statistical routines.
+Length validation is the responsibility of the caller and should be
+performed separately with an explicit \code{length()} check.
 }
 \examples{
 isNumeric(c(1, 2, 3))
-isNumeric(c(1, 2.1, 3), integer.valued = TRUE)
-isNumeric(c(1, 2, 3), length.arg = 3)
-isNumeric(c(1, -2, 3), positive = TRUE)
+isNumeric(c(1, 2.1, 3), isIntegerValued = TRUE)
+isNumeric(c(1, -2, 3), isPositive = TRUE)
 isNumeric(c(1, NA), na.rm = TRUE)
 
 }

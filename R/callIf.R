@@ -22,8 +22,8 @@
 #'   Default is \code{NULL}.
 #' @param forbidden Optional character vector of argument names that are not
 #'   allowed. If any of these appear in \code{arg}, they are removed before
-#'   calling \code{fun}. A warning is issued unless \code{warn = FALSE}.
-#' @param warn Logical. If \code{TRUE} (default), a warning is issued when
+#'   calling \code{fun}. A warning is issued unless \code{showWarnings = FALSE}.
+#' @param showWarnings Logical. If \code{TRUE} (default), a warning is issued when
 #'   forbidden arguments are removed.
 #'
 #' @return Returns the result of \code{fun(...)} if called. If \code{arg} is
@@ -72,7 +72,7 @@
 
 
 #' @export
-callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
+callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, showWarnings = TRUE) {
   
   if (isFALSE(arg) || is.null(arg) || isNA(arg))
     return(invisible(NULL))
@@ -91,7 +91,7 @@ callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
           deparse(substitute(fun)),
           paste(bad, collapse = ", ")
         )
-        if (warn) warning(msg)
+        if (showWarnings) warning(msg)
         arg[bad] <- NULL
       }
     }

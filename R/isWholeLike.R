@@ -8,7 +8,7 @@
 #' @param all Logical. If \code{TRUE} (default), returns a single logical
 #'   indicating whether all elements are whole-like. If \code{FALSE},
 #'   returns a logical vector of the same length as \code{x}.
-#' @param nonNegative Logical. If \code{TRUE}, additionally requires values
+#' @param isNonNegative Logical. If \code{TRUE}, additionally requires values
 #'   to be non-negative.
 #' @param tol Numerical tolerance for comparing to the nearest integer.
 #'   Default is \code{sqrt(.Machine$double.eps)}.
@@ -30,7 +30,7 @@
 #' isWholeLike(c(1, 2, 3))
 #' isWholeLike(c(1, 2.0000001), tol = 1e-6)
 #' isWholeLike(c(1, 2.5), all = FALSE)
-#' isWholeLike(c(1, -2), nonNegative = TRUE)
+#' isWholeLike(c(1, -2), isNonNegative = TRUE)
 #' isWholeLike(1:5 + 0i)
 #'
 
@@ -42,7 +42,7 @@
 #' @export
 isWholeLike <- function(x,
                         all = TRUE,
-                        nonNegative = FALSE,
+                        isNonNegative = FALSE,
                         tol = sqrt(.Machine$double.eps),
                         na.rm = FALSE) {
   
@@ -64,7 +64,7 @@ isWholeLike <- function(x,
       abs(Im(x) - round(Im(x))) < tol
   }
   
-  if (nonNegative) {
+  if (isNonNegative) {
     if (is.complex(x)) {
       res <- res & (Re(x) >= 0 & Im(x) >= 0)
     } else {

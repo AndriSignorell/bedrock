@@ -4,7 +4,7 @@
 \alias{callIf}
 \title{Conditionally Call a Function}
 \usage{
-callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
+callIf(fun, arg, defaults = NULL, forbidden = NULL, showWarnings = TRUE)
 }
 \arguments{
 \item{fun}{A function to be called.}
@@ -26,9 +26,9 @@ Default is \code{NULL}.}
 
 \item{forbidden}{Optional character vector of argument names that are not
 allowed. If any of these appear in \code{arg}, they are removed before
-calling \code{fun}. A warning is issued unless \code{warn = FALSE}.}
+calling \code{fun}. A warning is issued unless \code{showWarnings = FALSE}.}
 
-\item{warn}{Logical. If \code{TRUE} (default), a warning is issued when
+\item{showWarnings}{Logical. If \code{TRUE} (default), a warning is issued when
 forbidden arguments are removed.}
 }
 \value{

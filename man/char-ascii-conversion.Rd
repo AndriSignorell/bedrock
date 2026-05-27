@@ -6,27 +6,34 @@
 \alias{asciiToChar}
 \title{Character <-> ASCII Conversion}
 \usage{
-charToAscii(x, simplify = TRUE)
+charToAscii(x, output = c("vector", "list"))
 
 asciiToChar(i)
 }
 \arguments{
 \item{x}{Character vector.}
 
-\item{simplify}{Logical. If \code{TRUE}, simplify the result of
-\code{charToAscii()} when possible:
-\itemize{
-\item single string -> integer vector
-\item all strings length 1 -> integer vector
-\item otherwise -> list
-}}
+\item{output}{Character string specifying the output representation.
+One of:
+
+\describe{
+\item{\code{\"vector\"}}{
+Return a simplified integer vector when possible.
+}
+\item{\code{\"list\"}}{
+Always return a list of integer vectors.
+}
+}
+
+Default is \code{\"vector\"}.}
 
 \item{i}{Integer vector of ASCII codes (1–255).}
 }
 \value{
 \itemize{
-\item \code{charToAscii()} returns either an integer vector or a list of
-integer vectors depending on \code{simplify}.
+\item \code{charToAscii()} returns either an integer vector or
+a list of integer vectors depending on \code{output}.
+
 \item \code{asciiToChar()} returns a character vector.
 }
 }
@@ -34,13 +41,39 @@ integer vectors depending on \code{simplify}.
 Convert characters to ASCII codes and vice versa.
 }
 \details{
-\code{charToAscii()} converts each character in a string to its ASCII code.
+\code{charToAscii()} converts each character in a string to its
+ASCII code.
+
 \code{asciiToChar()} converts ASCII codes back to characters.
 
-Only codes in \code{1:127} are standard ASCII and consistent across systems.
-Codes above 127 depend on the current locale and encoding (e.g. ISO-8859-1).
+Only codes in \code{1:127} are standard ASCII and consistent across
+systems.
+
+Codes above 127 depend on the current locale and encoding
+(e.g. ISO-8859-1).
 
 Note that \code{0} (NUL) is not supported in R character strings.
+
+The \code{output} argument controls the representation returned by
+\code{charToAscii()}:
+
+\describe{
+\item{\code{\"vector\"}}{
+Simplify the result when possible:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{\\itemize\{
+  \\item single string -> integer vector
+  \\item all strings length 1 -> integer vector
+  \\item otherwise -> list
+\}
+}\if{html}{\out{</div>}}
+
+}
+
+\item{\code{\"list\"}}{
+Always return a list of integer vectors.
+}
+}
 }
 \examples{
 # basic usage
@@ -50,7 +83,7 @@ x
 asciiToChar(x)
 
 # multiple strings
-charToAscii(c("A", "BC"), simplify = FALSE)
+charToAscii(c("A", "BC"), output = "list")
 
 # split into individual characters
 strsplit(asciiToChar(x), split = NULL)
@@ -59,7 +92,8 @@ strsplit(asciiToChar(x), split = NULL)
 charToRaw("Silvia")
 }
 \seealso{
-\code{\link{charToRaw}}, \code{\link{rawToChar}}
+\code{\link{charToRaw}},
+\code{\link{rawToChar}}
 
 Other string.utilities:
 \code{\link[=strSplitToCol]{strSplitToCol()}},

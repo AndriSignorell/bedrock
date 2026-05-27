@@ -54,9 +54,9 @@ test_that("factor default produces warning", {
   expect_warning(asBinary(x), "coercing factor")
 })
 
-test_that("factor with warn = FALSE produces no warning", {
+test_that("factor with showWarnings = FALSE produces no warning", {
   x <- factor(c("A","B"))
-  expect_no_warning(asBinary(x, warn = FALSE))
+  expect_no_warning(asBinary(x, showWarnings = FALSE))
 })
 # -------------------------------------------------------------------------
 # character

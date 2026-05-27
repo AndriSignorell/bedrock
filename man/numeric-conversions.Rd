@@ -100,7 +100,7 @@ baseToBase(c("A", "B", "FF"), from = 16, to = 10)
 }
 \seealso{
 \code{\link{strtoi}}, \code{\link{as.hexmode}},
-\code{\link{as.octmode}}
+\code{\link{as.octmode}}, \code{\link{as.roman}}
 
 Other number.theory:
 \code{\link[=digitSum]{digitSum()}},

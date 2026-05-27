@@ -2,12 +2,14 @@
 % Please edit documentation in R/funArgs.R
 \name{funArgs}
 \alias{funArgs}
-\title{List All Arguments in a Function}
+\title{List all arguments in a function.}
 \usage{
-funArgs(name, sort = FALSE)
+funArgs(fun, package = NULL, sort = FALSE)
 }
 \arguments{
-\item{name}{the name of the function}
+\item{fun}{the name of the function}
+
+\item{package}{the name of the package which contains the function}
 
 \item{sort}{logical (default \code{FALSE}) should the arguments be alphabetically sorted?}
 }

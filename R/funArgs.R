@@ -1,9 +1,8 @@
 
-#' List All Arguments in a Function
-#' 
 #' List all arguments in a function.
 #' 
-#' @param name the name of the function
+#' @param fun the name of the function
+#' @param package the name of the package which contains the function
 #' @param sort logical (default \code{FALSE}) should the arguments be alphabetically sorted?
 #' 
  
@@ -26,37 +25,54 @@
 #' @concept data-inspection
 #'
 #'
-#' @export
-funArgs <- function(name, sort=FALSE) {
 
-  # got that somewhere, but don't know from where...
+#' @export
+funArgs <- function(fun, package = NULL, sort = FALSE) {
   
-  if(is.function(name)) name <- as.character(substitute(name))
-  a <- formals(get(name, pos=1))
-  if(is.null(a))
-    return(NULL)
-  arg.labels <- names(a)
-  arg.values <- as.character(a)
-  char <- sapply(a, is.character)
-  arg.values[char] <- paste("\"", arg.values[char], "\"", sep="")
-  
-  if(sort)
-  {
-    ord <- order(arg.labels)
-    if(any(arg.labels == "..."))
-      ord <- c(ord[-which(arg.labels[ord]=="...")],
-               which(arg.labels=="..."))
-    arg.labels <- arg.labels[ord]
-    arg.values <- arg.values[ord]
+  # Funktion auflösen
+  if (is.character(fun)) {
+    
+    if (!is.null(package)) {
+      
+      fun <- getExportedValue(package, fun)
+      
+    } else {
+      
+      fun <- get(fun, mode = "function")
+    }
   }
   
-  output <- data.frame(name=arg.labels, value=I(arg.values))
-  attr(output, "string") <- paste(gettextf("%s = %s", arg.labels, arg.values),
-                                   collapse = ", ")
+  fmls <- formals(fun)
   
-  class(output) <- c("FunArgs", "data.frame")
+  if (is.null(fmls))
+    return(NULL)
   
-  return(output)
+  out <- data.frame(
+    name = names(fmls),
+    value = vapply(
+      fmls,
+      function(x)
+        paste(deparse(x), collapse = " "),
+      character(1)
+    ),
+    stringsAsFactors = FALSE
+  )
   
+  if (sort) {
+    
+    dots <- out$name == "..."
+    
+    out <- rbind(
+      out[order(out$name[!dots]), ],
+      out[dots, ]
+    )
+  }
+  
+  attr(out, "string") <-
+    paste(sprintf("%s = %s", out$name, out$value),
+          collapse = ", ")
+  
+  class(out) <- c("FunArgs", "data.frame")
+  
+  out
 }
-

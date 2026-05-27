@@ -10,9 +10,9 @@
 #' @param align Character string specifying alignment of cell contents.
 #'   Either \code{"right"} (default) or \code{"left"}.
 #' @param sep Integer. Number of spaces between columns. Default is \code{2}.
-#' @param show_rownames Logical. Should row names be printed? Default is \code{TRUE}.
-#' @param show_colnames Logical. Should column names be printed? Default is \code{TRUE}.
-#' @param cliStyle Logical. If \code{TRUE}, column names and row names are styled
+#' @param showRownames Logical. Should row names be printed? Default is \code{TRUE}.
+#' @param showColnames Logical. Should column names be printed? Default is \code{TRUE}.
+#' @param useCliStyle Logical. If \code{TRUE}, column names and row names are styled
 #'   using \code{cli::style_bold()}. Default is \code{FALSE}.
 #' @param width Integer. Maximum output width (in characters). Defaults to
 #'   \code{getOption("width")}. If the table exceeds this width, it is split into
@@ -50,7 +50,7 @@
 #'
 #' # With CLI styling (requires cli package)
 #' if (requireNamespace("cli", quietly = TRUE)) {
-#'   printCharMatrix(m, cliStyle = TRUE)
+#'   printCharMatrix(m, useCliStyle = TRUE)
 #' }
 #'
 #' # Force wrapping by reducing width
@@ -68,9 +68,9 @@ printCharMatrix <- function(
     m,
     align = c("right", "left"),
     sep = 2,
-    show_rownames = TRUE,
-    show_colnames = TRUE,
-    cliStyle = FALSE,
+    showRownames = TRUE,
+    showColnames = TRUE,
+    useCliStyle = FALSE,
     width = getOption("width")
 ) {
   align <- match.arg(align)
@@ -87,11 +87,11 @@ printCharMatrix <- function(
   
   # Breiten berechnen
   col_widths <- apply(m, 2, function(col) max(nchar(col), na.rm = TRUE))
-  if (show_colnames) {
+  if (showColnames) {
     col_widths <- pmax(col_widths, nchar(cn))
   }
   
-  rowname_width <- if (show_rownames) max(nchar(rn)) else 0
+  rowname_width <- if (showRownames) max(nchar(rn)) else 0
   
   pad_fun <- function(x, width) {
     if (align == "right") {
@@ -103,20 +103,20 @@ printCharMatrix <- function(
   
   # --- CLI Styling ---
   style_header <- function(x) {
-    if (cliStyle) cli::style_bold(x) else x
-    # if (cliStyle) cli::col_blue(x) else x
+    if (useCliStyle) cli::style_bold(x) else x
+    # if (useCliStyle) cli::col_blue(x) else x
   }
   
   style_rowname <- function(x) {
-  if (cliStyle) cli::style_bold(x) else x
-    #  if (cliStyle) cli::col_blue(x) else x
+  if (useCliStyle) cli::style_bold(x) else x
+    #  if (useCliStyle) cli::col_blue(x) else x
   }
   
   # --- Wie viele Spalten passen? ---
   sep_str <- paste(rep(" ", sep), collapse = "")
   
   calc_block <- function(start_col) {
-    total <- if (show_rownames) rowname_width + sep else 0
+    total <- if (showRownames) rowname_width + sep else 0
     cols <- c()
     
     for (j in start_col:ncol(m)) {
@@ -139,10 +139,10 @@ printCharMatrix <- function(
     cols <- calc_block(col_start)
     
     # Header
-    if (show_colnames) {
+    if (showColnames) {
       header <- c()
       
-      if (show_rownames) {
+      if (showRownames) {
         header <- c(header, pad_fun("", rowname_width))
       }
       
@@ -156,7 +156,7 @@ printCharMatrix <- function(
     for (i in seq_len(nrow(m))) {
       row <- c()
       
-      if (show_rownames) {
+      if (showRownames) {
         row <- c(row, pad_fun(rn[i], rowname_width))
       }
       
@@ -164,12 +164,13 @@ printCharMatrix <- function(
       
       line <- paste(row, collapse = sep_str)
       
-      if (show_rownames) {
+      if (showRownames) {
         # nur rowname fett machen
-        if (cliStyle) {
+        if (useCliStyle) {
           rn_part <- pad_fun(rn[i], rowname_width)
           rn_part <- cli::style_bold(rn_part)
-          rest <- paste(mapply(pad_fun, m[i, cols], col_widths[cols]), collapse = sep_str)
+          rest <- paste(mapply(pad_fun, m[i, cols], col_widths[cols]), 
+                        collapse = sep_str)
           line <- paste(c(rn_part, rest), collapse = sep_str)
         }
       }

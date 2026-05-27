@@ -24,11 +24,11 @@
 #'   Defaults to \code{\link[stats]{na.pass}}.
 #' @param allowed a character vector restricting which design types are
 #'   accepted. Any combination of:
-#'   \code{"one.sample"},
-#'   \code{"two.sample.independent"},
-#'   \code{"two.sample.dependent"},
-#'   \code{"n.sample.independent"},
-#'   \code{"n.sample.dependent"}.
+#'   \code{"one-sample"},
+#'   \code{"two-sample-independent"},
+#'   \code{"two-sample-dependent"},
+#'   \code{"n-sample-independent"},
+#'   \code{"n-sample-dependent"}.
 #'   An error is raised if the detected type is not in \code{allowed}.
 #'   Default allows all types.
 #'
@@ -37,11 +37,11 @@
 #'
 #' \tabular{lll}{
 #'   \strong{type}                  \tab \strong{Formula}        \tab \strong{Examples} \cr
-#'   \code{one.sample}              \tab \code{y ~ 1}            \tab t-test, Wilcoxon one-sample \cr
-#'   \code{two.sample.independent}  \tab \code{y ~ g} (k=2)     \tab t-test, Wilcoxon rank-sum \cr
-#'   \code{two.sample.dependent}    \tab \code{Pair(x,y) ~ 1}   \tab paired t-test, Wilcoxon signed-rank \cr
-#'   \code{n.sample.independent}    \tab \code{y ~ g} (k>2)     \tab ANOVA, Kruskal-Wallis \cr
-#'   \code{n.sample.dependent}      \tab \code{y ~ trt | block} \tab repeated measures ANOVA, Friedman \cr
+#'   \code{one-sample}              \tab \code{y ~ 1}            \tab t-test, Wilcoxon one-sample \cr
+#'   \code{two-sample-independent}  \tab \code{y ~ g} (k=2)     \tab t-test, Wilcoxon rank-sum \cr
+#'   \code{two-sample-dependent}    \tab \code{Pair(x,y) ~ 1}   \tab paired t-test, Wilcoxon signed-rank \cr
+#'   \code{n-sample-independent}    \tab \code{y ~ g} (k>2)     \tab ANOVA, Kruskal-Wallis \cr
+#'   \code{n-sample-dependent}      \tab \code{y ~ trt | block} \tab repeated measures ANOVA, Friedman \cr
 #' }
 #'
 #' \strong{subset handling:}
@@ -67,11 +67,11 @@
 #'
 #' \tabular{ll}{
 #'   \strong{type}                  \tab \strong{Additional components} \cr
-#'   \code{one.sample}              \tab \code{x} \cr
-#'   \code{two.sample.independent}  \tab \code{x}, \code{y}, \code{group} \cr
-#'   \code{two.sample.dependent}    \tab \code{x}, \code{y} \cr
-#'   \code{n.sample.independent}    \tab \code{x}, \code{group} \cr
-#'   \code{n.sample.dependent}      \tab \code{response}, \code{group}, \code{block} \cr
+#'   \code{one-sample}              \tab \code{x} \cr
+#'   \code{two-sample-independent}  \tab \code{x}, \code{y}, \code{group} \cr
+#'   \code{two-sample-dependent}    \tab \code{x}, \code{y} \cr
+#'   \code{n-sample-independent}    \tab \code{x}, \code{group} \cr
+#'   \code{n-sample-dependent}      \tab \code{response}, \code{group}, \code{block} \cr
 #' }
 #'
 #' @return a named list with at minimum:
@@ -99,30 +99,30 @@
 #'
 #' # one-sample
 #' resolveFormula(y ~ 1, data = df)$type
-#' #> [1] "one.sample"
+#' #> [1] "one-sample"
 #'
 #' # two-sample independent
 #' resolveFormula(y ~ g2, data = df,
-#'                allowed = c("two.sample.independent",
-#'                            "n.sample.independent"))$type
-#' #> [1] "two.sample.independent"
+#'                allowed = c("two-sample-independent",
+#'                            "n-sample-independent"))$type
+#' #> [1] "two-sample-independent"
 #'
 #' # n-sample independent
 #' resolveFormula(y ~ g3, data = df,
-#'                allowed = "n.sample.independent")$type
-#' #> [1] "n.sample.independent"
+#'                allowed = "n-sample-independent")$type
+#' #> [1] "n-sample-independent"
 #'
 #' # two-sample dependent (paired)
 #' df2 <- data.frame(pre = rnorm(15, 50, 10), post = rnorm(15, 55, 10))
 #' resolveFormula(Pair(pre, post) ~ 1, data = df2,
-#'                allowed = c("one.sample",
-#'                            "two.sample.dependent"))$type
-#' #> [1] "two.sample.dependent"
+#'                allowed = c("one-sample",
+#'                            "two-sample-dependent"))$type
+#' #> [1] "two-sample-dependent"
 #'
 #' # n-sample dependent (blocked)
 #' resolveFormula(y ~ trt | blk, data = df,
-#'                allowed = "n.sample.dependent")$type
-#' #> [1] "n.sample.dependent"
+#'                allowed = "n-sample-dependent")$type
+#' #> [1] "n-sample-dependent"
 #'
 #' @family formula.utils
 #' @concept formula-handling
@@ -135,11 +135,11 @@ resolveFormula <- function(
     data,
     subset,
     na.action = na.pass,
-    allowed   = c("one.sample",
-                  "two.sample.independent",
-                  "two.sample.dependent",
-                  "n.sample.independent",
-                  "n.sample.dependent")
+    allowed   = c("one-sample",
+                  "two-sample-independent",
+                  "two-sample-dependent",
+                  "n-sample-independent",
+                  "n-sample-dependent")
 ) {
   
   # ── Validate ──────────────────────────────────────────────────────────────
@@ -175,13 +175,13 @@ resolveFormula <- function(
     do.call(model.frame, args)
   }
   
-  # ── 1. n.sample.dependent: y ~ trt | block ───────────────────────────────
+  # ── 1. n-sample-dependent: y ~ trt | block ───────────────────────────────
   rhs <- formula[[3L]]
   
   if (is.call(rhs) && identical(rhs[[1L]], as.name("|"))) {
     
-    if (!"n.sample.dependent" %in% allowed)
-      stop("'n.sample.dependent' design not allowed by 'allowed' argument")
+    if (!"n-sample-dependent" %in% allowed)
+      stop("'n-sample-dependent' design not allowed by 'allowed' argument")
     
     f2             <- formula
     f2[[3L]][[1L]] <- as.name("+")
@@ -191,7 +191,7 @@ resolveFormula <- function(
       stop("blocked formula must be of the form y ~ trt | block")
     
     return(list(
-      type      = "n.sample.dependent",
+      type      = "n-sample-dependent",
       mf        = mf,
       response  = mf[[1L]],
       group     = mf[[2L]],
@@ -210,17 +210,17 @@ resolveFormula <- function(
   # ── 2a. One-sample or two-sample dependent ────────────────────────────────
   if (ncol(mf) == 1L) {
     
-    if (!any(c("one.sample", "two.sample.dependent") %in% allowed))
-      stop("'one.sample' / 'two.sample.dependent' design not allowed by 'allowed' argument")
+    if (!any(c("one-sample", "two-sample-dependent") %in% allowed))
+      stop("'one-sample' / 'two-sample-dependent' design not allowed by 'allowed' argument")
     
     if (is.matrix(response) && ncol(response) == 2L &&
         inherits(response, "Pair")) {
       
-      if (!"two.sample.dependent" %in% allowed)
-        stop("'two.sample.dependent' design not allowed by 'allowed' argument")
+      if (!"two-sample-dependent" %in% allowed)
+        stop("'two-sample-dependent' design not allowed by 'allowed' argument")
       
       return(list(
-        type      = "two.sample.dependent",
+        type      = "two-sample-dependent",
         mf        = mf,
         x         = response[, 1L],
         y         = response[, 2L],
@@ -228,11 +228,11 @@ resolveFormula <- function(
       ))
     }
     
-    if (!"one.sample" %in% allowed)
-      stop("'one.sample' design not allowed by 'allowed' argument")
+    if (!"one-sample" %in% allowed)
+      stop("'one-sample' design not allowed by 'allowed' argument")
     
     return(list(
-      type      = "one.sample",
+      type      = "one-sample",
       mf        = mf,
       x         = response,
       data.name = dname
@@ -246,10 +246,10 @@ resolveFormula <- function(
   if (k < 2L)
     stop("grouping factor must have at least 2 levels")
   
-  if (k == 2L && "two.sample.independent" %in% allowed) {
+  if (k == 2L && "two-sample-independent" %in% allowed) {
     DATA <- split(response, g, drop = TRUE)
     return(list(
-      type      = "two.sample.independent",
+      type      = "two-sample-independent",
       mf        = mf,
       x         = DATA[[1L]],
       y         = DATA[[2L]],
@@ -258,9 +258,9 @@ resolveFormula <- function(
     ))
   }
   
-  if ("n.sample.independent" %in% allowed) {
+  if ("n-sample-independent" %in% allowed) {
     return(list(
-      type      = "n.sample.independent",
+      type      = "n-sample-independent",
       mf        = mf,
       x         = response,
       group     = g,

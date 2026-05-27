@@ -7,7 +7,7 @@
 isWholeLike(
   x,
   all = TRUE,
-  nonNegative = FALSE,
+  isNonNegative = FALSE,
   tol = sqrt(.Machine$double.eps),
   na.rm = FALSE
 )
@@ -19,7 +19,7 @@ isWholeLike(
 indicating whether all elements are whole-like. If \code{FALSE},
 returns a logical vector of the same length as \code{x}.}
 
-\item{nonNegative}{Logical. If \code{TRUE}, additionally requires values
+\item{isNonNegative}{Logical. If \code{TRUE}, additionally requires values
 to be non-negative.}
 
 \item{tol}{Numerical tolerance for comparing to the nearest integer.
@@ -47,7 +47,7 @@ For complex numbers, both real and imaginary parts must be whole-like.
 isWholeLike(c(1, 2, 3))
 isWholeLike(c(1, 2.0000001), tol = 1e-6)
 isWholeLike(c(1, 2.5), all = FALSE)
-isWholeLike(c(1, -2), nonNegative = TRUE)
+isWholeLike(c(1, -2), isNonNegative = TRUE)
 isWholeLike(1:5 + 0i)
 
 }

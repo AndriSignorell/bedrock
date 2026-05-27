@@ -98,7 +98,7 @@ test_that("callIf removes forbidden arguments", {
 
 # ---------------------------
 
-test_that("callIf suppresses warning when warn = FALSE", {
+test_that("callIf suppresses warning when showWarnings = FALSE", {
   f <- function(x) x
   
   expect_silent(
@@ -106,7 +106,7 @@ test_that("callIf suppresses warning when warn = FALSE", {
       f,
       list(x = 1, y = 2),
       forbidden = "y",
-      warn = FALSE
+      showWarnings = FALSE
     )
   )
 })

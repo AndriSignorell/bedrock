@@ -4,7 +4,7 @@
 \alias{asBinary}
 \title{Coerce a Vector to Binary (0/1)}
 \usage{
-asBinary(x, ref = NULL, warn = TRUE)
+asBinary(x, ref = NULL, showWarnings = TRUE)
 }
 \arguments{
 \item{x}{a logical, numeric, integer, factor, or character vector.}
@@ -13,7 +13,7 @@ asBinary(x, ref = NULL, warn = TRUE)
 \code{ref} are coded as 1 and all others as 0. Must be one of the
 observed values or factor levels.}
 
-\item{warn}{logical. If \code{TRUE} (default), a warning is issued when
+\item{showWarnings}{logical. If \code{TRUE} (default), a warning is issued when
 a factor or character vector is coerced to binary without an explicit
 \code{ref}, indicating which value is coded as 1.}
 }

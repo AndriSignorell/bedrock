@@ -18,15 +18,15 @@ test_that("basic midpoints are correct", {
 
 # ---------------------------
 
-# incl.zero
+# inclZero
 
 # ---------------------------
 
-test_that("incl.zero prepends zero correctly", {
+test_that("inclZero prepends zero correctly", {
   x <- c(1, 3, 6, 7)
   
   expect_equal(
-    midx(x, incl.zero = TRUE),
+    midx(x, inclZero = TRUE),
     c(0.5, 2, 4.5, 6.5)
   )
 })
@@ -48,15 +48,15 @@ test_that("cumulate returns cumulative sum", {
 
 # ---------------------------
 
-# incl.zero + cumulate
+# inclZero + cumulate
 
 # ---------------------------
 
-test_that("incl.zero and cumulate together", {
+test_that("inclZero and cumulate together", {
   x <- c(1, 3, 6, 7)
   
   expect_equal(
-    midx(x, incl.zero = TRUE, cumulate = TRUE),
+    midx(x, inclZero = TRUE, cumulate = TRUE),
     cumsum(c(0.5, 2, 4.5, 6.5))
   )
 })
@@ -71,7 +71,7 @@ test_that("output length is correct", {
   x <- rnorm(10)
   
   expect_length(midx(x), length(x) - 1)
-  expect_length(midx(x, incl.zero = TRUE), length(x))
+  expect_length(midx(x, inclZero = TRUE), length(x))
 })
 
 # ---------------------------
@@ -84,7 +84,7 @@ test_that("edge cases: short vectors", {
   expect_equal(midx(numeric(0)), numeric(0))
   expect_equal(midx(5), numeric(0))
   
-  expect_equal(midx(5, incl.zero = TRUE), 2.5)
+  expect_equal(midx(5, inclZero = TRUE), 2.5)
 })
 
 # ---------------------------
@@ -137,7 +137,7 @@ test_that("non-numeric input throws error", {
 test_that("works correctly with apply (matrix columns)", {
   tab <- matrix(c(1,2,3,4,5,6), nrow = 2)
   
-  res <- t(apply(tab, 2, midx, incl.zero = TRUE, cumulate = TRUE))
+  res <- t(apply(tab, 2, midx, inclZero = TRUE, cumulate = TRUE))
   
   expect_true(is.matrix(res))
   expect_equal(ncol(res), nrow(tab))

@@ -20,9 +20,9 @@ test_that("tolerance works correctly", {
   expect_false(isWholeLike(x, tol = 1e-12))
 })
 
-test_that("nonNegative constraint works", {
-  expect_true(isWholeLike(c(1, 2, 3), nonNegative = TRUE))
-  expect_false(isWholeLike(c(1, -2, 3), nonNegative = TRUE))
+test_that("isNonNegative constraint works", {
+  expect_true(isWholeLike(c(1, 2, 3), isNonNegative = TRUE))
+  expect_false(isWholeLike(c(1, -2, 3), isNonNegative = TRUE))
 })
 
 test_that("NA handling works", {

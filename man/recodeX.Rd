@@ -8,9 +8,9 @@ recodeX(
   x,
   ...,
   keep = NULL,
-  elselevel = NA,
+  elseLevel = NA,
   ref = NULL,
-  use.empty = FALSE,
+  useEmpty = FALSE,
   num = FALSE
 )
 }
@@ -25,13 +25,13 @@ named with the new level:\cr \code{newlevel_a = c("old_a", "old_b"),
 
 \item{keep}{vector of levels that should be left untouched.}
 
-\item{elselevel}{the value for levels, which are not matched by newlevel
-list.  If this is set to \code{NULL}, the elselevels will be left unchanged.
+\item{elseLevel}{the value for levels, which are not matched by newlevel
+list.  If this is set to \code{NULL}, the elseLevels will be left unchanged.
 If set to \code{NA} (default) non matched levels will be set to \code{NA}.}
 
 \item{ref}{the reference level, typically a string.}
 
-\item{use.empty}{logical. Defines how a new level, which can't be found in
+\item{useEmpty}{logical. Defines how a new level, which can't be found in
 x, should be handled.  Should it be left in the level's list or be dropped?
 The default is \code{FALSE}, which drops empty levels.}
 
@@ -46,7 +46,7 @@ the factor having the new levels applied.\cr if \code{x} was a
 Combining or rearranging a factor can be tedious if it has many levels.
 \code{recodeX()} supports this step by accepting a direct definition of new
 levels by enumerating old levelnames as argument and adding an
-\code{"elselevel"} option. If new levels are given as integer values they
+\code{"elseLevel"} option. If new levels are given as integer values they
 will be translated in the according levels.
 }
 \examples{
@@ -59,7 +59,7 @@ y <- recodeX(x,
             "new_1"   = c("old_1","old_4","old_5"),
             "new_2"   = c("old_6","old_10","old_11"),
             "new_3"   = c("old_12","old_13"),
-            elselevel = "other")
+            elseLevel = "other")
 data.frame(x=x, y=y)
 
 # Coding NAs, NA is recoded to new_1
@@ -70,12 +70,12 @@ data.frame(
   x, 
   RecodeNA = recodeX(x,
                     "new_1"   = c("old_4","old_8", NA),
-                    elselevel = "other"),
+                    elseLevel = "other"),
        
   # NAs remain unaffected, unless specified to be processed      
   NoRecodeNA = recodeX(x,
                       "new_1"   = c("old_4","old_8"),
-                      elselevel = "other")
+                      elseLevel = "other")
 )         
 
 # keep some levels, collapse others and reset the reference level
@@ -84,16 +84,16 @@ ff <- factor(c("apple","pear","banana","kiwi",
 recodeX(ff, 
        stone=c("peach", "plum"), 
        keep=c("apple","banana"),
-       elselevel = "other", ref="stone")
+       elseLevel = "other", ref="stone")
 
 
 x <- factor(letters[1:6])
 
-z1 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elselevel="none of these")
-z2 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elselevel=NA)
-z3 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elselevel=NULL)
-z4 <- recodeX(x, AB=c("a","b"), GH=c("g","h"), elselevel=NA, use.empty=TRUE)
-z5 <- recodeX(x, AB=c("a","b"), GH=c("g","h"), elselevel=NA, use.empty=FALSE)
+z1 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elseLevel="none of these")
+z2 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elseLevel=NA)
+z3 <- recodeX(x, AB=c("a","b"), CD=c("c","d"), elseLevel=NULL)
+z4 <- recodeX(x, AB=c("a","b"), GH=c("g","h"), elseLevel=NA, useEmpty=TRUE)
+z5 <- recodeX(x, AB=c("a","b"), GH=c("g","h"), elseLevel=NA, useEmpty=FALSE)
 
 data.frame(z1, z2, z3, z4, z5)
 

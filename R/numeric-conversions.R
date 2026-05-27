@@ -26,8 +26,7 @@
 #' \eqn{2^{31} - 1} may return \code{NA} on 32-bit platforms.
 #'
 #' @name numeric-conversions
-#' @aliases hexToDec decToHex octToDec decToOct binToDec decToBin
-#'   romanToInt baseToBase
+#' @aliases hexToDec decToHex octToDec decToOct binToDec decToBin romanToInt baseToBase
 #'
 #' @param x A vector of numbers or character representations to be
 #'   converted.

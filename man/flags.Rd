@@ -4,48 +4,78 @@
 \alias{flags}
 \title{Extract Dichotomous (Binary) Variables}
 \usage{
-flags(
-  x,
-  strict = FALSE,
-  na.rm = FALSE,
-  return = c("data", "names", "index", "logical")
-)
+flags(x, strict = FALSE, na.rm = FALSE, output = "data")
 }
 \arguments{
 \item{x}{A data frame or matrix.}
 
-\item{strict}{Logical; if \code{TRUE}, only variables with exactly two
-distinct values are considered dichotomous. If \code{FALSE}, variables
-with one or two distinct values are allowed. Default is \code{FALSE}.}
+\item{strict}{Logical.
 
-\item{na.rm}{Logical; should missing values be ignored when checking
-for dichotomous variables? Default is \code{FALSE}.}
+If \code{TRUE}, only variables with exactly two
+distinct values are considered dichotomous.
 
-\item{return}{Character string specifying the return format:
-\itemize{
-\item \code{"data"}: subset of \code{x} containing only dichotomous variables (default)
-\item \code{"names"}: names of dichotomous variables
-\item \code{"index"}: column indices of dichotomous variables
-\item \code{"logical"}: logical vector indicating dichotomous variables
-}}
+If \code{FALSE}, variables with one or two
+distinct values are allowed.
+
+Default is \code{FALSE}.}
+
+\item{na.rm}{Logical.
+
+Should missing values be ignored when checking
+for dichotomous variables?
+
+Default is \code{FALSE}.}
+
+\item{output}{Character string specifying the output representation.
+
+One of:
+
+\describe{
+\item{\code{\"data\"}}{
+Subset of \code{x} containing only dichotomous variables.
+}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{\\item\{\code{\"names\"}\}\{
+  Names of dichotomous variables.
+\}
+
+\\item\{\code{\"index\"}\}\{
+  Column indices of dichotomous variables.
+\}
+
+\\item\{\code{\"logical\"}\}\{
+  Logical vector indicating dichotomous variables.
+\}
+}\if{html}{\out{</div>}}
+
+}
+
+Default is \code{\"data\"}.}
 }
 \value{
-Depending on \code{return}:
+Depending on \code{output}:
+
 \itemize{
-\item \code{"data"}: data frame or matrix
-\item \code{"names"}: character vector
-\item \code{"index"}: integer vector
-\item \code{"logical"}: logical vector
+\item \code{\"data\"}: data frame or matrix
+\item \code{\"names\"}: character vector
+\item \code{\"index\"}: integer vector
+\item \code{\"logical\"}: logical vector
 }
 }
 \description{
-Identifies and extracts dichotomous (binary) variables from a data frame
+Identify and extract dichotomous (binary) variables from a data frame
 or matrix using \code{isDichotomous()}.
 }
 \details{
-Variables with only missing values are not considered dichotomous when
-\code{na.rm = FALSE}. When \code{na.rm = TRUE}, such variables are treated
-as empty vectors and are considered dichotomous only if \code{strict = FALSE}.
+Variables with only missing values are not considered dichotomous
+when \code{na.rm = FALSE}.
+
+When \code{na.rm = TRUE}, such variables are treated as empty vectors
+and are considered dichotomous only if \code{strict = FALSE}.
+
+Internally, variables with indeterminate dichotomous status
+(i.e. \code{NA} returned by \code{isDichotomous()})
+are treated as non-dichotomous for filtering purposes.
 }
 \examples{
 dat <- data.frame(
@@ -57,8 +87,14 @@ dat <- data.frame(
 
 flags(dat)
 
-# Effect of na.rm:
+# effect of na.rm
 flags(dat, na.rm = TRUE)
+
+# return variable names
+flags(dat, output = "names")
+
+# return column indices
+flags(dat, output = "index")
 
 }
 \seealso{

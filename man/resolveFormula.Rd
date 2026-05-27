@@ -9,8 +9,8 @@ resolveFormula(
   data,
   subset,
   na.action = na.pass,
-  allowed = c("one.sample", "two.sample.independent", "two.sample.dependent",
-    "n.sample.independent", "n.sample.dependent")
+  allowed = c("one-sample", "two-sample-independent", "two-sample-dependent",
+    "n-sample-independent", "n-sample-dependent")
 )
 }
 \arguments{
@@ -37,11 +37,11 @@ Defaults to \code{\link[stats]{na.pass}}.}
 
 \item{allowed}{a character vector restricting which design types are
 accepted. Any combination of:
-\code{"one.sample"},
-\code{"two.sample.independent"},
-\code{"two.sample.dependent"},
-\code{"n.sample.independent"},
-\code{"n.sample.dependent"}.
+\code{"one-sample"},
+\code{"two-sample-independent"},
+\code{"two-sample-dependent"},
+\code{"n-sample-independent"},
+\code{"n-sample-dependent"}.
 An error is raised if the detected type is not in \code{allowed}.
 Default allows all types.}
 }
@@ -65,11 +65,11 @@ a formula interface.
 
 \tabular{lll}{
 \strong{type}                  \tab \strong{Formula}        \tab \strong{Examples} \cr
-\code{one.sample}              \tab \code{y ~ 1}            \tab t-test, Wilcoxon one-sample \cr
-\code{two.sample.independent}  \tab \code{y ~ g} (k=2)     \tab t-test, Wilcoxon rank-sum \cr
-\code{two.sample.dependent}    \tab \code{Pair(x,y) ~ 1}   \tab paired t-test, Wilcoxon signed-rank \cr
-\code{n.sample.independent}    \tab \code{y ~ g} (k>2)     \tab ANOVA, Kruskal-Wallis \cr
-\code{n.sample.dependent}      \tab \code{y ~ trt | block} \tab repeated measures ANOVA, Friedman \cr
+\code{one-sample}              \tab \code{y ~ 1}            \tab t-test, Wilcoxon one-sample \cr
+\code{two-sample-independent}  \tab \code{y ~ g} (k=2)     \tab t-test, Wilcoxon rank-sum \cr
+\code{two-sample-dependent}    \tab \code{Pair(x,y) ~ 1}   \tab paired t-test, Wilcoxon signed-rank \cr
+\code{n-sample-independent}    \tab \code{y ~ g} (k>2)     \tab ANOVA, Kruskal-Wallis \cr
+\code{n-sample-dependent}      \tab \code{y ~ trt | block} \tab repeated measures ANOVA, Friedman \cr
 }
 
 \strong{subset handling:}
@@ -95,11 +95,11 @@ Additional components depend on the design:
 
 \tabular{ll}{
 \strong{type}                  \tab \strong{Additional components} \cr
-\code{one.sample}              \tab \code{x} \cr
-\code{two.sample.independent}  \tab \code{x}, \code{y}, \code{group} \cr
-\code{two.sample.dependent}    \tab \code{x}, \code{y} \cr
-\code{n.sample.independent}    \tab \code{x}, \code{group} \cr
-\code{n.sample.dependent}      \tab \code{response}, \code{group}, \code{block} \cr
+\code{one-sample}              \tab \code{x} \cr
+\code{two-sample-independent}  \tab \code{x}, \code{y}, \code{group} \cr
+\code{two-sample-dependent}    \tab \code{x}, \code{y} \cr
+\code{n-sample-independent}    \tab \code{x}, \code{group} \cr
+\code{n-sample-dependent}      \tab \code{response}, \code{group}, \code{block} \cr
 }
 }
 \examples{
@@ -114,30 +114,30 @@ df <- data.frame(
 
 # one-sample
 resolveFormula(y ~ 1, data = df)$type
-#> [1] "one.sample"
+#> [1] "one-sample"
 
 # two-sample independent
 resolveFormula(y ~ g2, data = df,
-               allowed = c("two.sample.independent",
-                           "n.sample.independent"))$type
-#> [1] "two.sample.independent"
+               allowed = c("two-sample-independent",
+                           "n-sample-independent"))$type
+#> [1] "two-sample-independent"
 
 # n-sample independent
 resolveFormula(y ~ g3, data = df,
-               allowed = "n.sample.independent")$type
-#> [1] "n.sample.independent"
+               allowed = "n-sample-independent")$type
+#> [1] "n-sample-independent"
 
 # two-sample dependent (paired)
 df2 <- data.frame(pre = rnorm(15, 50, 10), post = rnorm(15, 55, 10))
 resolveFormula(Pair(pre, post) ~ 1, data = df2,
-               allowed = c("one.sample",
-                           "two.sample.dependent"))$type
-#> [1] "two.sample.dependent"
+               allowed = c("one-sample",
+                           "two-sample-dependent"))$type
+#> [1] "two-sample-dependent"
 
 # n-sample dependent (blocked)
 resolveFormula(y ~ trt | blk, data = df,
-               allowed = "n.sample.dependent")$type
-#> [1] "n.sample.dependent"
+               allowed = "n-sample-dependent")$type
+#> [1] "n-sample-dependent"
 
 }
 \seealso{
