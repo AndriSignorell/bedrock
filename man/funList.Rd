@@ -37,7 +37,6 @@ Other pkg.introspection:
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=getRdLabels]{getRdLabels()}},
-\code{\link[=inDots]{inDots()}},
 \code{\link[=mergeArgs]{mergeArgs()}}
 }
 \concept{data-inspection}

@@ -23,20 +23,18 @@ as factors. This function helps to convert some or
 all columns of a data.frame to factors.
 }
 \examples{
-# get some data
-d.dat <- data.frame(char_x=LETTERS[1:5],
-                    char_y=LETTERS[6:10],
-                    n=1:5)
+d.dat <- data.frame(char_x = LETTERS[1:5],
+                    char_y = LETTERS[6:10],
+                    n = 1:5)
 
-# all characters
+# all character columns
 str(stringsAsFactors(d.dat))
 # only char_y
-str(stringsAsFactors(d.dat, columns="char_y"))
+str(stringsAsFactors(d.dat, columns = "char_y"))
 # only char_x
-str(stringsAsFactors(d.dat, columns="char_x"))
-
-# all characters, besides 2 (second column, so "char_y")
-str(stringsAsFactors(d.dat, columns=-2))
+str(stringsAsFactors(d.dat, columns = "char_x"))
+# all character columns except the second one ("char_y")
+str(stringsAsFactors(d.dat, columns = -2))
 
 }
 \seealso{

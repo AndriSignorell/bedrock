@@ -4,7 +4,7 @@
 \alias{mergeArgs}
 \title{Merge default arguments with user overrides}
 \usage{
-mergeArgs(defaults, user, forbidden = NULL, warn = TRUE)
+mergeArgs(defaults, user, forbidden = NULL, showWarnings = TRUE)
 }
 \arguments{
 \item{defaults}{Named list of default arguments.}
@@ -13,7 +13,7 @@ mergeArgs(defaults, user, forbidden = NULL, warn = TRUE)
 
 \item{forbidden}{Character vector of argument names that are not allowed.}
 
-\item{warn}{Logical; whether to issue a warning if forbidden arguments are removed.}
+\item{showWarnings}{Logical; whether to issue a warning if forbidden arguments are removed.}
 }
 \value{
 A named list of merged arguments.
@@ -32,8 +32,7 @@ Other pkg.introspection:
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},
-\code{\link[=getRdLabels]{getRdLabels()}},
-\code{\link[=inDots]{inDots()}}
+\code{\link[=getRdLabels]{getRdLabels()}}
 }
 \concept{data-manipulation}
 \concept{package-utilities}

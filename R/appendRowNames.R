@@ -36,7 +36,7 @@ appendRowNames <- function(x, colName = "rowname",
   if (is.null(rn))
     rn <- seq_len(nrow(x))
   
-  res <- appendX(x, rn, after = after, names = colName)
+  res <- appendX(x, rn, after = after, newNames = colName)
   
   if (removeRownames)
     rownames(res) <- NULL

@@ -4,10 +4,10 @@
 \alias{strSplitToCol}
 \title{Split Strings into Multiple Columns}
 \usage{
-strSplitToCol(x, split = " ", fixed = TRUE, na.form = "", colnames = NULL)
+strSplitToCol(x, split = " ", fixed = TRUE, na.form = "", col.names = NULL)
 }
 \arguments{
-\item{x}{A vector, list, or data frame of character elements to be split.
+\item{x}{A character vector or a data frame of character columns to be split.
 Each element (or column) is processed separately.}
 
 \item{split}{Character string specifying the delimiter for splitting.
@@ -19,7 +19,7 @@ Otherwise, it is treated as a regular expression.}
 \item{na.form}{Character value used to replace missing elements created
 by unequal split lengths.}
 
-\item{colnames}{Optional character vector specifying column names for the
+\item{col.names}{Optional character vector specifying column names for the
 resulting data frame. Recycled if necessary.}
 }
 \value{
@@ -46,8 +46,8 @@ For each element (or column) in \code{x}, the function:
 \item Combines results into a matrix via \code{\link[base]{rbind}}
 }
 
-The final result is a data frame where each original element contributes
-one or more columns depending on the number of splits.
+The final result is a data frame where each original element or column
+contributes one or more columns depending on the number of splits.
 
 An attribute \code{"cols"} is attached, indicating the number of columns
 generated for each element of \code{x}.
@@ -63,7 +63,8 @@ strSplitToCol(x, split = "|")
 # Multiple columns
 df <- data.frame(
   a = c("x y", "z"),
-  b = c("1 2 3", "4 5")
+  b = c("1 2 3", "4 5"),
+  stringsAsFactors = FALSE
 )
 strSplitToCol(df)
 

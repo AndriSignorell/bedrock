@@ -46,10 +46,10 @@ vShift <- function(x, k = 1L){
   
   if (k > 0L) {
     k <- min(k, n)
-    c(rep(NA, k), x[1L:(n - k)])
+    c(rep(NA, k), head(x, n - k))
   } else {
     k <- min(abs(k), n)
-    c(x[(k + 1L):n], rep(NA, k))
+    c(tail(x, n - k), rep(NA, k))
   }
 }
 

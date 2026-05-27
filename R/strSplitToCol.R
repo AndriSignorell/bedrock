@@ -1,5 +1,4 @@
 
-
 #' Split Strings into Multiple Columns
 #'
 #' Splits character vectors into multiple columns based on a delimiter.
@@ -9,16 +8,16 @@
 #' All rows are padded to the same number of columns per input element.
 #' Missing values are filled with \code{na.form}.
 #'
-#' @param x A vector, list, or data frame of character elements to be split.
-#' Each element (or column) is processed separately.
+#' @param x A character vector or a data frame of character columns to be split.
+#'   Each element (or column) is processed separately.
 #' @param split Character string specifying the delimiter for splitting.
-#' Passed to \code{\link[base]{strsplit}}.
+#'   Passed to \code{\link[base]{strsplit}}.
 #' @param fixed Logical; if \code{TRUE}, \code{split} is used as a fixed string.
-#' Otherwise, it is treated as a regular expression.
+#'   Otherwise, it is treated as a regular expression.
 #' @param na.form Character value used to replace missing elements created
-#' by unequal split lengths.
-#' @param colnames Optional character vector specifying column names for the
-#' resulting data frame. Recycled if necessary.
+#'   by unequal split lengths.
+#' @param col.names Optional character vector specifying column names for the
+#'   resulting data frame. Recycled if necessary.
 #'
 #' @details
 #' For each element (or column) in \code{x}, the function:
@@ -29,8 +28,8 @@
 #'   \item Combines results into a matrix via \code{\link[base]{rbind}}
 #' }
 #'
-#' The final result is a data frame where each original element contributes
-#' one or more columns depending on the number of splits.
+#' The final result is a data frame where each original element or column
+#' contributes one or more columns depending on the number of splits.
 #'
 #' An attribute \code{"cols"} is attached, indicating the number of columns
 #' generated for each element of \code{x}.
@@ -53,51 +52,63 @@
 #' # Multiple columns
 #' df <- data.frame(
 #'   a = c("x y", "z"),
-#'   b = c("1 2 3", "4 5")
+#'   b = c("1 2 3", "4 5"),
+#'   stringsAsFactors = FALSE
 #' )
 #' strSplitToCol(df)
 #'
-
-
-
 #' @family string.utilities
 #' @concept string-manipulation
 #' @concept data-manipulation
 #' @concept data-structures
 #'
-#'
+
+
 #' @export
-strSplitToCol <- function(x, split=" ", fixed = TRUE, na.form="", colnames=NULL){
+strSplitToCol <- function(x, split = " ", fixed = TRUE, na.form = "", col.names = NULL) {
   
-  lst <- lapply(x, function(z)
-    strsplit(z, split = split, fixed = fixed))
+  # input validation
+  if (!is.data.frame(x) && !is.character(x))
+    stop("'x' must be a character vector or a data.frame of character columns.")
   
-  # we don't want to have values recycled here, but need same number
-  # of elements to afterwards be able to use rbind()
-  for(i in seq_along(lst)){
-    # find the maximal length of the splits in the column
-    maxlen <- max(sapply(lst[[i]], length))
-    # set all character vectors to same length
-    for(j in seq_along(lst[[i]])){
-      length(lst[[i]][[j]]) <- maxlen
-      # set na.form for missings
-      lst[[i]][[j]][is.na(lst[[i]][[j]])] <- na.form
-    }
+  if (is.data.frame(x) && !all(vapply(x, is.character, logical(1))))
+    stop("All columns in 'x' must be character.")
+  
+  # normalise input: data.frame -> list of columns, vector -> list of one column
+  lst <- if (is.data.frame(x)) {
+    lapply(x, function(col) strsplit(col, split = split, fixed = fixed))
+  } else {
+    list(strsplit(x, split = split, fixed = fixed))
   }
   
-  # rbind all the columns
-  lst <- lapply(lst, function(z) do.call(rbind, z))
+  # pad each split to the same length within its column
+  lst <- lapply(lst, function(splits) {
+    maxlen <- max(vapply(splits, length, integer(1)))
+    lapply(splits, function(s) {
+      if (length(s) < maxlen)
+        s <- c(s, rep(na.form, maxlen - length(s)))
+      s
+    })
+  })
   
-  res <- do.call(data.frame, list(lst, stringsAsFactors=FALSE))
+  # collapse each column's list of vectors into a matrix;
+  # clear dimnames to prevent "[,1]"-style artefacts in the data.frame
+  lst <- lapply(lst, function(splits) {
+    mat <- do.call(rbind, splits)
+    colnames(mat) <- NULL
+    mat
+  })
   
-  if(!is.null(colnames))
-    colnames(res) <- rep(colnames, length.out=ncol(res))
+  res <- do.call(data.frame, c(lst, list(stringsAsFactors = FALSE)))
   
-  # communicate the number of columns found 
-  attr(res, "cols") <- sapply(lst, ncol)
+  # optionally rename columns (col.names recycled to fit)
+  if (!is.null(col.names))
+    colnames(res) <- rep(col.names, length.out = ncol(res))
+  
+  # communicate the number of columns generated per input element
+  attr(res, "cols") <- vapply(lst, ncol, integer(1))
   
   return(res)
   
 }
-
 

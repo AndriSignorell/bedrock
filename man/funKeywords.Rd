@@ -38,7 +38,6 @@ Other pkg.introspection:
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funList]{funList()}},
 \code{\link[=getRdLabels]{getRdLabels()}},
-\code{\link[=inDots]{inDots()}},
 \code{\link[=mergeArgs]{mergeArgs()}}
 }
 \author{

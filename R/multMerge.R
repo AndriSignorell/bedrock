@@ -41,73 +41,64 @@
 #' multMerge(x1, x2, x3, by="v")
 #' 
 
-
 #' @family table.utils
 #' @concept table-manipulation
 #' @concept data-manipulation
 #'
 #'
 #' @export
-multMerge <- function(..., all.x=TRUE, all.y=TRUE, by=NULL) {
+multMerge <- function(..., all.x = TRUE, all.y = TRUE, by = NULL) {
   
   lst <- list(...)
   
   # if just one object, there's nothing to merge
-  if(length(lst)==1)  return(lst[[1]])
+  if (length(lst) == 1) return(lst[[1]])
   
-  if(!is.null(by)){
+  if (!is.null(by)) {
     # merge column is given and must exist in all the data.frames
     # we overwrite the row.names and remove the merge column
-    for(i in seq_along(lst)){
+    for (i in seq_along(lst)) {
       rownames(lst[[i]]) <- lst[[i]][[by]]
       lst[[i]][by] <- NULL
     }
-  }  
+  }
   
   # the columnnames must be unique within the resulting data.frame
-  unames <- splitAt(make.unique(unlist(lapply(lst, colnames)), sep = "."), 
-                    cumsum(sapply(head(lst, -1), ncol))+1)
+  unames <- splitAt(make.unique(unlist(lapply(lst, colnames)), sep = "."),
+                    cumsum(sapply(head(lst, -1), ncol)) + 1)
   
-  for(i in seq_along(unames))
+  for (i in seq_along(unames))
     colnames(lst[[i]]) <- unames[[i]]
   
-  # works perfectly, but sadly does not pass CRAN check :-(
-  #
-  # transform(Reduce(function(y, z)
-  #                     merge(y, z, all.x=all.x, all.y=all.x),
-  #                  lapply(lst, function(x)
-  #                                 data.frame(x, rn=row.names(x))
-  #                         ))
-  #           , row.names=rn, rn=NULL)
-  
-  res <- Reduce(function(y, z)
-    merge(y, z, all.x=all.x, all.y=all.x),
+  # merge by explicit "rn" key to prevent rn.x/rn.y splitting across rounds
+  res <- Reduce(
+    function(y, z)
+      merge(y, z,
+            by     = "rn",
+            all.x  = all.x,
+            all.y  = all.y,
+            sort   = FALSE),
     lapply(lst, function(x)
-      data.frame(x, rn=row.names(x))
+      data.frame(rn = row.names(x), x, stringsAsFactors = FALSE)
     ))
   rownames(res) <- res$rn
   res$rn <- NULL
   
-  
-  # define a better order than merge is returning, rownames from left to right
-  seq_ord <- function(xlst){
+  # order rows: rownames from left to right, new ones appended as they appear
+  seq_ord <- function(xlst) {
     jj <- character(0)
-    for(i in seq_along(xlst)){
+    for (i in seq_along(xlst))
       jj <- c(jj, setdiff(xlst[[i]], jj))
-    }
     return(jj)
   }
   
-  # the coefficients should be ordered such, that the coeffs of the first model
-  # come first, then the coeffs from the second model which were not included
-  # in the model one, then the coeffs from mod3 not present in mod1 and mod2
-  # and so forth...
   ord <- seq_ord(lapply(lst, rownames))
+  ord <- intersect(ord, rownames(res))
   
-  res[ord, ]
+  res <- res[ord, , drop = FALSE]
   
-  if(!is.null(by)){
-    # restore key and remove rownames if there was one
+  if (!is.null(by)) {
+    # restore key column and remove rownames
     res <- data.frame(row.names(res), res)
     colnames(res)[1] <- by
     rownames(res) <- c()
@@ -115,7 +106,5 @@ multMerge <- function(..., all.x=TRUE, all.y=TRUE, by=NULL) {
   
   return(res)
   
-  
 }
-
 

@@ -66,5 +66,14 @@ toBaseR.haven_labelled <- function(x, ...) {
 
 #' @export
 toBaseR.default <- function(x, ...){
-  warning(gettextf('Not implemented for class(es) "%s"', paste(class(x), collapse=", ")))
+  
+  warning(
+    gettextf(
+      'Not implemented for class(es) "%s"',
+      paste(class(x), collapse = ", ")
+    )
+  )
+  
+  invisible(NULL)
+  
 }

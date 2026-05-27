@@ -46,7 +46,6 @@ Other pkg.introspection:
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},
-\code{\link[=inDots]{inDots()}},
 \code{\link[=mergeArgs]{mergeArgs()}}
 }
 \concept{package-utilities}

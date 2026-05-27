@@ -39,8 +39,8 @@ sampleX <-  function (x, size, replace = FALSE, prob = NULL) {
 #' @export
 sampleX.data.frame <- function (x, size, replace = FALSE, prob = NULL) {
   
-  x[sample(nrow(x), size, replace = replace, prob=prob), ]
-  
+  x[sample(nrow(x), size, replace = replace, prob=prob), , drop = FALSE]
+
 }
 
 
