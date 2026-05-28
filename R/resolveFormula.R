@@ -145,8 +145,10 @@ resolveFormula <- function(
   # ── Validate ──────────────────────────────────────────────────────────────
   if (missing(formula))
     stop("'formula' is missing")
+  
   if (!inherits(formula, "formula"))
     stop("'formula' must be a formula object")
+
   
   # ── Coerce matrix data ────────────────────────────────────────────────────
   if (!missing(data) && is.matrix(data))

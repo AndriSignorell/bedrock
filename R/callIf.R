@@ -72,7 +72,8 @@
 
 
 #' @export
-callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, showWarnings = TRUE) {
+callIf <- function(fun, arg, defaults = NULL, 
+                   forbidden = NULL, showWarnings = TRUE) {
   
   if (isFALSE(arg) || is.null(arg) || isNA(arg))
     return(invisible(NULL))
