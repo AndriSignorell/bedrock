@@ -28,7 +28,7 @@ remotes::install_github("AndriSignorell/bedrock")
 
 ### 🔹 Vector & Utilities
 
--   Coalesce()
+-   coalesceX()
 -   closest()
 -   between operators (%\[\]%, etc.)
 
@@ -78,7 +78,7 @@ library(bedrock)
 x <- 1:10
 x %[]% c(3, 6)
 
-Coalesce(c(NA, NA, 5, 3))
+coalesceX(c(NA, NA, 5, 3))
 
 combSet(letters[1:4], 2)
 

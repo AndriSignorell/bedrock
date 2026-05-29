@@ -76,8 +76,8 @@ winsorize(x, val = c(-2, max(x, na.rm = TRUE))) # lower bound only
 \code{\link[DescToolsX]{scaleX}}, \code{\link[robustHD]{winsorize}}
 
 Other vector.ops:
-\code{\link[=Coalesce]{Coalesce()}},
 \code{\link[=closest]{closest()}},
+\code{\link[=coalesceX]{coalesceX()}},
 \code{\link[=midx]{midx()}},
 \code{\link[=moveAvg]{moveAvg()}},
 \code{\link[=naIf]{naIf()}},

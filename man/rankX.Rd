@@ -83,8 +83,8 @@ rankX(a, b)
 \code{\link[base]{rank}}, \code{\link[data.table]{frankv}}
 
 Other vector.ops:
-\code{\link[=Coalesce]{Coalesce()}},
 \code{\link[=closest]{closest()}},
+\code{\link[=coalesceX]{coalesceX()}},
 \code{\link[=midx]{midx()}},
 \code{\link[=moveAvg]{moveAvg()}},
 \code{\link[=naIf]{naIf()}},

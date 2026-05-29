@@ -90,8 +90,8 @@ moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 \code{\link[forecast]{ma}}
 
 Other vector.ops:
-\code{\link[=Coalesce]{Coalesce()}},
 \code{\link[=closest]{closest()}},
+\code{\link[=coalesceX]{coalesceX()}},
 \code{\link[=midx]{midx()}},
 \code{\link[=naIf]{naIf()}},
 \code{\link[=naReplace]{naReplace()}},

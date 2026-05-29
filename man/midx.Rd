@@ -51,8 +51,8 @@ text(tab, x = xpos, y = b, col = "red")
 \code{\link{moveAvg}}
 
 Other vector.ops:
-\code{\link[=Coalesce]{Coalesce()}},
 \code{\link[=closest]{closest()}},
+\code{\link[=coalesceX]{coalesceX()}},
 \code{\link[=moveAvg]{moveAvg()}},
 \code{\link[=naIf]{naIf()}},
 \code{\link[=naReplace]{naReplace()}},

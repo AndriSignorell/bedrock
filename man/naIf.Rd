@@ -19,8 +19,8 @@ Replaces specified values in a vector with \code{NA}.
 }
 \seealso{
 Other vector.ops:
-\code{\link[=Coalesce]{Coalesce()}},
 \code{\link[=closest]{closest()}},
+\code{\link[=coalesceX]{coalesceX()}},
 \code{\link[=midx]{midx()}},
 \code{\link[=moveAvg]{moveAvg()}},
 \code{\link[=naReplace]{naReplace()}},

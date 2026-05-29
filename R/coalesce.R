@@ -25,9 +25,9 @@
 #' @keywords manip
 #' @examples
 #' 
-#' Coalesce(c(NA, NA, NA, 5, 3))
-#' Coalesce(c(NA, NULL, "a"))
-#' Coalesce(NULL, 5, 3)
+#' coalesceX(c(NA, NA, NA, 5, 3))
+#' coalesceX(c(NA, NULL, "a"))
+#' coalesceX(NULL, 5, 3)
 #' 
 #' d.frm <- data.frame(matrix(c(
 #'   1, 2, NA, 4,
@@ -36,14 +36,14 @@
 #'   NA, Inf, 1, 1), nrow=4, byrow=TRUE)
 #' )
 #' 
-#' Coalesce(d.frm)
-#' Coalesce(as.matrix(d.frm))
-#' Coalesce(d.frm$X1, d.frm$X2, d.frm$X3, d.frm$X4)
-#' Coalesce(d.frm$X1, d.frm$X2, d.frm$X3, d.frm$X4, method="is.finite")
-#' Coalesce(list(d.frm[,1], d.frm[,2]))
+#' coalesceX(d.frm)
+#' coalesceX(as.matrix(d.frm))
+#' coalesceX(d.frm$X1, d.frm$X2, d.frm$X3, d.frm$X4)
+#' coalesceX(d.frm$X1, d.frm$X2, d.frm$X3, d.frm$X4, method="is.finite")
+#' coalesceX(list(d.frm[,1], d.frm[,2]))
 #' 
 #' # returns the first finite element
-#' Coalesce(d.frm, method="is.finite")
+#' coalesceX(d.frm, method="is.finite")
 #' 
 #' # with characters (take care, factors won't work!)
 #' # is.finite does not make sense here...
@@ -54,9 +54,9 @@
 #'   NA, Inf, 1, 1), nrow=4, byrow=TRUE)
 #' , stringsAsFactors = FALSE)
 #' 
-#' Coalesce(d.frm$X1, d.frm$X2, d.frm$X3, d.frm$X4)
-#' Coalesce(d.frm)
-#' Coalesce(as.list(d.frm))
+#' coalesceX(d.frm$X1, d.frm$X2, d.frm$X3, d.frm$X4)
+#' coalesceX(d.frm)
+#' coalesceX(as.list(d.frm))
 #' 
 
 # would not return characters correctly
@@ -67,7 +67,7 @@
 #'
 #'
 #' @export
-Coalesce <- function(..., method = c("is.na", "is.null","is.finite"), flatten=TRUE) {
+coalesceX <- function(..., method = c("is.na", "is.null","is.finite"), flatten=TRUE) {
   # Returns the first element in x which is not NA
   
   # problem: if we want the first list element of ... which is not NULL

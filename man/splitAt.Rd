@@ -40,8 +40,8 @@ splitAt(x, c(7, 4, 4, 20))
 \code{\link{split}}
 
 Other vector.ops:
-\code{\link[=Coalesce]{Coalesce()}},
 \code{\link[=closest]{closest()}},
+\code{\link[=coalesceX]{coalesceX()}},
 \code{\link[=midx]{midx()}},
 \code{\link[=moveAvg]{moveAvg()}},
 \code{\link[=naIf]{naIf()}},

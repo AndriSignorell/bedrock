@@ -73,8 +73,8 @@ Sabbe, N. (2012). Inverse of \code{which}.
 \code{\link{which}}
 
 Other vector.ops:
-\code{\link[=Coalesce]{Coalesce()}},
 \code{\link[=closest]{closest()}},
+\code{\link[=coalesceX]{coalesceX()}},
 \code{\link[=midx]{midx()}},
 \code{\link[=moveAvg]{moveAvg()}},
 \code{\link[=naIf]{naIf()}},
