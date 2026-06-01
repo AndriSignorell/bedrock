@@ -25,7 +25,7 @@
 #' @param ref optional reference value. If supplied, observations equal to
 #'   \code{ref} are coded as 1 and all others as 0. Must be one of the
 #'   observed values or factor levels.
-#' @param showWarnings logical. If \code{TRUE} (default), a warning is issued when
+#' @param warn logical. If \code{TRUE} (default), a warning is issued when
 #'   a factor or character vector is coerced to binary without an explicit
 #'   \code{ref}, indicating which value is coded as 1.
 #'
@@ -57,7 +57,7 @@
 
 
 #' @export
-asBinary <- function(x, ref = NULL, showWarnings = TRUE) {
+asBinary <- function(x, ref = NULL, warn = TRUE) {
   
   x <- unname(x)
   
@@ -93,7 +93,7 @@ asBinary <- function(x, ref = NULL, showWarnings = TRUE) {
       return(as.numeric(x == ref))
     }
     
-    if (showWarnings)
+    if (warn)
       warning(
         gettextf("coercing factor to binary (0/1): using '%s' as '1'", lev[2]),
         call. = FALSE
@@ -119,7 +119,7 @@ asBinary <- function(x, ref = NULL, showWarnings = TRUE) {
       return(as.numeric(x == ref))
     }
     
-    if (showWarnings)
+    if (warn)
       warning(
         gettextf("coercing character to binary (0/1): using '%s' as '1'", u[2]),
         call. = FALSE

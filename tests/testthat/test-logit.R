@@ -37,23 +37,23 @@ test_that("logit clamps values outside interval", {
 
 ## --- warning behavior ---
 
-test_that("showWarnings = TRUE triggers warning at boundaries", {
+test_that("warn = TRUE triggers warning at boundaries", {
   expect_warning(
-    logit(c(0, 0.5, 1), showWarnings = TRUE),
+    logit(c(0, 0.5, 1), warn = TRUE),
     "clamped"
   )
 })
 
-test_that("showWarnings = TRUE triggers warning outside interval", {
+test_that("warn = TRUE triggers warning outside interval", {
   expect_warning(
-    logit(c(-0.1, 0.5, 1.1), showWarnings = TRUE),
+    logit(c(-0.1, 0.5, 1.1), warn = TRUE),
     "clamped"
   )
 })
 
 test_that("no warning when values strictly inside interval", {
   expect_silent(
-    logit(c(0.1, 0.5, 0.9), showWarnings = TRUE)
+    logit(c(0.1, 0.5, 0.9), warn = TRUE)
   )
 })
 

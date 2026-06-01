@@ -4,14 +4,20 @@
 \alias{renameX}
 \title{Rename Elements of a Named Object}
 \usage{
-renameX(x, ..., useGsub = FALSE, fixed = TRUE, warn = TRUE)
+renameX(x, ..., which = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
 }
 \arguments{
 \item{x}{A named object.  Any type that supports \code{names()},
-e.g. a vector, list, or data frame.}
+\code{rownames()}, or \code{colnames()}, e.g. a vector, list, data frame,
+or matrix.}
 
-\item{...}{Name mappings of the form \code{old = "new"}.  Unnamed
-elements are applied positionally (see Details).}
+\item{...}{Name mappings of the form \code{old = "new"}, a single
+function to apply to all names (e.g. \code{toupper}), or unnamed
+character strings applied positionally (see Details).}
+
+\item{which}{Character scalar specifying which names to operate on.
+One of \code{"names"} (default), \code{"rownames"}, or \code{"colnames"}.
+Partial matching is supported.}
 
 \item{useGsub}{Logical scalar.  If \code{TRUE}, each mapping is applied as
 a \code{gsub()} pattern substitution across all current names rather than
@@ -23,7 +29,8 @@ fixed strings rather than regular expressions.}
 
 \item{warn}{Logical scalar.  If \code{TRUE} (default), a warning is
 issued when one or more old names supplied in \code{...} are not found in
-\code{names(x)}.  Only relevant in exact mode (\code{useGsub = FALSE}).}
+the targeted names of \code{x}.  Only relevant in exact mode
+(\code{useGsub = FALSE}).}
 }
 \value{
 The object \code{x} with updated names; all other attributes are
@@ -32,10 +39,12 @@ preserved.
 \description{
 Renames selected elements of a named object by specifying old-to-new name
 mappings.  Works on any R object that supports \code{\link{names}()},
-including vectors, lists, data frames, and matrices.
+including vectors, lists, data frames, and matrices.  For matrix-like
+objects, \code{rownames} and \code{colnames} can be targeted via the
+\code{which} argument.
 }
 \details{
-The function supports two modes controlled by \code{useGsub}:
+The function supports three modes:
 
 \describe{
 \item{Exact mode (\code{useGsub = FALSE}, default)}{
@@ -48,19 +57,28 @@ Each mapping is treated as a \code{\link{gsub}()} substitution applied
 in sequence to \emph{all} current names.  The left-hand side is the
 pattern, the right-hand side is the replacement.  The \code{fixed}
 argument is forwarded to \code{gsub()}.}
+\item{Function mode}{
+If a single function is passed in \code{...}, it is applied to all
+current names.  Useful for bulk transformations such as
+\code{toupper}, \code{tolower}, or \code{make.names}.}
 }
 
-When \code{...} contains unnamed elements, the names are assigned
+When \code{...} contains unnamed character elements, the names are assigned
 positionally: the first element replaces \code{names(x)[1]}, the second
 \code{names(x)[2]}, and so on.
 }
 \examples{
-# Exact mode: rename by old = "new" pairs
 x <- c(a = 1, b = 2, c = 3)
+
+# Exact mode: rename by old = "new" pairs
 renameX(x, a = "alpha", c = "gamma")
 
-# Positional mode: no names supplied in ...
+# Positional mode: replaces names(x)[1:2]
 renameX(x, "alpha", "beta")
+
+# Function mode: apply a function to all names
+renameX(x, toupper)
+renameX(x, tolower)
 
 # Data frame columns
 d <- data.frame(foo = 1:3, bar = 4:6)
@@ -70,12 +88,23 @@ renameX(d, foo = "x", bar = "y")
 y <- c(v_mean = 1, v_sd = 2, v_n = 3)
 renameX(y, v_ = "", useGsub = TRUE)
 
-# Pattern mode with regex (fixed = FALSE): backticks needed for non-syntactic names
+# Pattern mode with regex (fixed = FALSE)
 renameX(y, `^v_` = "", useGsub = TRUE, fixed = FALSE)
+
+# Matrix: rename colnames selectively
+m <- matrix(1:6, nrow = 2,
+            dimnames = list(c("row_a", "row_b"), c("col_x", "col_y", "col_z")))
+renameX(m, col_x = "alpha", which = "colnames")
+
+# Matrix: uppercase all rownames via function mode
+renameX(m, toupper, which = "rownames")
+
+# Matrix: rename rownames via gsub
+renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, which = "rownames")
 
 }
 \seealso{
-\code{\link{names}}
+\code{\link{names}}, \code{\link{setNamesX}}
 }
 \concept{data-manipulation}
 \concept{names}

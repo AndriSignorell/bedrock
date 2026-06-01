@@ -5,7 +5,7 @@
 \alias{logitInv}
 \title{Logit Transformation and Its Inverse}
 \usage{
-logit(x, min = 0, max = 1, eps = .Machine$double.eps, showWarnings = FALSE)
+logit(x, min = 0, max = 1, eps = .Machine$double.eps, warn = FALSE)
 
 logitInv(x, min = 0, max = 1)
 }
@@ -22,7 +22,7 @@ real number.}
 \eqn{0} and \eqn{1} for numerical stability in \code{logit()}.
 Default: \code{.Machine$double.eps}.}
 
-\item{showWarnings}{Logical; if \code{TRUE}, a warning is issued when values are
+\item{warn}{Logical; if \code{TRUE}, a warning is issued when values are
 effectively clamped because they fall outside the open interval
 \eqn{(min, max)}. Default: \code{FALSE}.}
 }
@@ -55,7 +55,7 @@ applying the transformation. This prevents returning \code{-Inf} or
 \code{Inf} for values exactly equal to \code{min} or \code{max}, or slightly
 outside the interval due to floating point error.
 
-If \code{showWarnings = TRUE}, a warning is issued when such clamping occurs.
+If \code{warn = TRUE}, a warning is issued when such clamping occurs.
 
 The inverse transformation is given by:
 
@@ -78,11 +78,11 @@ logitInv(z)
 # 0 -> eps, 1 -> 1 - eps
 logit(c(0, 0.5, 1))
 
-# With showWarnings = TRUE, clamping at the boundaries triggers a warning
-logit(c(0, 0.5, 1), showWarnings = TRUE)
+# With warn = TRUE, clamping at the boundaries triggers a warning
+logit(c(0, 0.5, 1), warn = TRUE)
 
 # Values strictly outside the interval also trigger a warning
-logit(c(-0.1, 0.5, 1.1), showWarnings = TRUE)
+logit(c(-0.1, 0.5, 1.1), warn = TRUE)
 
 # Custom interval
 x <- seq(10, 20, length.out = 5)

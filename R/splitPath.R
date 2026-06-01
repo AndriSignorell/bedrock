@@ -7,7 +7,7 @@
 #' and Unix-like systems.
 #'
 #' @param path A character vector of file paths.
-#' @param last.is.file Logical; if \code{TRUE}, the last component of
+#' @param lastIsFile Logical; if \code{TRUE}, the last component of
 #'   \code{path} is treated as a file name. If \code{FALSE}, it is treated
 #'   as part of the directory path. If \code{NULL} (default), the function
 #'   determines this automatically based on whether the path ends with a
@@ -30,7 +30,7 @@
 #' platform-independent path handling. File name and extension are extracted
 #' using \code{\link[tools]{file_path_sans_ext}} and \code{\link[tools]{file_ext}}.
 #'
-#' If \code{last.is.file = FALSE}, the path is treated as a directory and
+#' If \code{lastIsFile = FALSE}, the path is treated as a directory and
 #' file-related components (\code{fullfilename}, \code{filename},
 #' \code{extension}) are returned as \code{NA}.
 #'
@@ -43,7 +43,7 @@
 #' splitPath("/home/user/data.csv")
 #'
 #' # treat as directory
-#' splitPath("/home/user/folder/", last.is.file = FALSE)
+#' splitPath("/home/user/folder/", lastIsFile = FALSE)
 #'
 
 
@@ -53,24 +53,24 @@
 #'
 #'
 #' @export
-splitPath <- function(path, last.is.file = NULL) {
+splitPath <- function(path, lastIsFile = NULL) {
   
   path <- normalizePath(path, mustWork = FALSE)
   drive <- if (.Platform$OS.type == "windows") substr(path, 1, 2) else NA_character_
   
-  if (is.null(last.is.file)) {
-    last.is.file <- !grepl("[/\\\\]$", path)
+  if (is.null(lastIsFile)) {
+    lastIsFile <- !grepl("[/\\\\]$", path)
   }
   
-  fullfilename <- if (last.is.file) basename(path) else NA_character_
+  fullfilename <- if (lastIsFile) basename(path) else NA_character_
   dirname_ <- dirname(path)
   
-  if (!last.is.file) {
+  if (!lastIsFile) {
     dirname_ <- file.path(dirname_, basename(path))
   }
   
-  filename <- if (last.is.file) tools::file_path_sans_ext(fullfilename) else NA_character_
-  extension <- if (last.is.file) tools::file_ext(fullfilename) else NA_character_
+  filename <- if (lastIsFile) tools::file_path_sans_ext(fullfilename) else NA_character_
+  extension <- if (lastIsFile) tools::file_ext(fullfilename) else NA_character_
 
   list(
     normpath = path,

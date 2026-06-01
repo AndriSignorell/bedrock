@@ -1,35 +1,55 @@
 
-#' List all arguments in a function.
-#' 
-#' @param fun the name of the function
-#' @param package the name of the package which contains the function
-#' @param sort logical (default \code{FALSE}) should the arguments be alphabetically sorted?
-#' 
- 
-#' @seealso \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}} 
-#' 
-#' @references Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The
-#' New S Language}. Wadsworth & Brooks/Cole. 
-#' 
+#' List all arguments of a function
+#'
+#' Returns the formal arguments of a function together with their default
+#' values.
+#'
+#' @param fun Function object or function name.
+#' @param package Optional package name used to resolve \code{fun}.
+#' @param sort Logical; should arguments be sorted alphabetically?
+#'   Ignored when \code{output = "list"}.
+#' @param output Character string specifying the output format:
+#'   \itemize{
+#'     \item \code{"data.frame"} (default): return a data frame.
+#'     \item \code{"list"}: return a named list of formal arguments.
+#'     \item \code{"string"}: return a comma-separated character string of
+#'       argument assignments.
+#'   }
+#'
+#' @return
+#' Depending on \code{output}:
+#' \itemize{
+#'   \item \code{"data.frame"}: a data frame with columns
+#'     \code{name} and \code{value}.
+#'   \item \code{"list"}: a named list of formal arguments.
+#'   \item \code{"string"}: a character vector of length one.
+#' }
+#'
+#' @seealso \code{\link{formals}}, \code{\link{args}}
+#'
 #' @examples
-#' 
 #' funArgs("combN")
-#' funArgs("combN")$value
-#' 
-#' cat(attr(funArgs("combN"), "string"))
-#' 
-
-
+#'
+#' funArgs("combN", output = "list")
+#'
+#' funArgs("combN", output = "string")
+#'
+#' cat(funArgs("combN", output = "string"))
+#'
 #' @family pkg.introspection
 #' @concept package-utilities
 #' @concept data-inspection
 #'
-#'
-
 #' @export
-funArgs <- function(fun, package = NULL, sort = FALSE) {
+funArgs <- function(
+    fun,
+    package = NULL,
+    sort = FALSE,
+    output = c("data.frame", "list", "string")
+) {
   
-  # Funktion auflösen
+  output <- match.arg(output)
+  
   if (is.character(fun)) {
     
     if (!is.null(package)) {
@@ -39,13 +59,33 @@ funArgs <- function(fun, package = NULL, sort = FALSE) {
     } else {
       
       fun <- get(fun, mode = "function")
+      
     }
   }
   
-  fmls <- formals(fun)
+  fmls <- suppressWarnings(formals(fun))
   
-  if (is.null(fmls))
-    return(NULL)
+  if (is.null(fmls)) {
+    
+    return(
+      switch(
+        output,
+        "list" = list(),
+        "string" = "",
+        "data.frame" = structure(
+          data.frame(
+            name = character(),
+            value = character()
+          ),
+          class = c("FunArgs", "data.frame")
+        )
+      )
+    )
+    
+  }
+  
+  if (output == "list")
+    return(fmls)
   
   out <- data.frame(
     name = names(fmls),
@@ -54,8 +94,7 @@ funArgs <- function(fun, package = NULL, sort = FALSE) {
       function(x)
         paste(deparse(x), collapse = " "),
       character(1)
-    ),
-    stringsAsFactors = FALSE
+    )
   )
   
   if (sort) {
@@ -63,16 +102,29 @@ funArgs <- function(fun, package = NULL, sort = FALSE) {
     dots <- out$name == "..."
     
     out <- rbind(
-      out[order(out$name[!dots]), ],
+      out[!dots, ][order(out$name[!dots]), ],
       out[dots, ]
     )
+    
   }
   
-  attr(out, "string") <-
-    paste(sprintf("%s = %s", out$name, out$value),
-          collapse = ", ")
+  string <- paste(
+    ifelse(
+      out$value == "",
+      out$name,
+      paste(out$name, out$value, sep = " = ")
+    ),
+    collapse = ", "
+  )
+  
+  if (output == "string")
+    return(string)
+  
+  attr(out, "string") <- string
   
   class(out) <- c("FunArgs", "data.frame")
   
   out
+  
 }
+

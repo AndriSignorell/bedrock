@@ -16,7 +16,7 @@
 #' @param eps Small positive value used to clamp probabilities away from
 #'   \eqn{0} and \eqn{1} for numerical stability in \code{logit()}.
 #'   Default: \code{.Machine$double.eps}.
-#' @param showWarnings Logical; if \code{TRUE}, a warning is issued when values are
+#' @param warn Logical; if \code{TRUE}, a warning is issued when values are
 #'   effectively clamped because they fall outside the open interval
 #'   \eqn{(min, max)}. Default: \code{FALSE}.
 #'
@@ -40,7 +40,7 @@
 #' \code{Inf} for values exactly equal to \code{min} or \code{max}, or slightly
 #' outside the interval due to floating point error.
 #'
-#' If \code{showWarnings = TRUE}, a warning is issued when such clamping occurs.
+#' If \code{warn = TRUE}, a warning is issued when such clamping occurs.
 #'
 #' The inverse transformation is given by:
 #'
@@ -66,11 +66,11 @@
 #' # 0 -> eps, 1 -> 1 - eps
 #' logit(c(0, 0.5, 1))
 #'
-#' # With showWarnings = TRUE, clamping at the boundaries triggers a warning
-#' logit(c(0, 0.5, 1), showWarnings = TRUE)
+#' # With warn = TRUE, clamping at the boundaries triggers a warning
+#' logit(c(0, 0.5, 1), warn = TRUE)
 #'
 #' # Values strictly outside the interval also trigger a warning
-#' logit(c(-0.1, 0.5, 1.1), showWarnings = TRUE)
+#' logit(c(-0.1, 0.5, 1.1), warn = TRUE)
 #'
 #' # Custom interval
 #' x <- seq(10, 20, length.out = 5)
@@ -89,7 +89,7 @@
 #' @export
 logit <- function(x, min = 0, max = 1,
                   eps = .Machine$double.eps,
-                  showWarnings = FALSE) {
+                  warn = FALSE) {
   
   if (!is.numeric(x))
     stop("x must be numeric")
@@ -99,7 +99,7 @@ logit <- function(x, min = 0, max = 1,
   
   p <- (x - min) / (max - min)
   
-  if (showWarnings && any(p <= 0 | p >= 1, na.rm = TRUE)) {
+  if (warn && any(p <= 0 | p >= 1, na.rm = TRUE)) {
     warning("Values outside (min, max) were clamped to avoid -Inf/Inf")
   }
   

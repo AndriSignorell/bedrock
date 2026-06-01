@@ -10,7 +10,7 @@ test_that("splitPath extracts filename", {
 
 test_that("splitPath handles directories", {
 
-  p <- splitPath("test/folder/", last.is.file=FALSE)
+  p <- splitPath("test/folder/", lastIsFile=FALSE)
 
   expect_true(is.na(p$filename))
 })

@@ -6,7 +6,7 @@
 #' and the resulting parts are expanded into separate columns.
 #'
 #' All rows are padded to the same number of columns per input element.
-#' Missing values are filled with \code{na.form}.
+#' Missing values are filled with \code{naForm}.
 #'
 #' @param x A character vector or a data frame of character columns to be split.
 #'   Each element (or column) is processed separately.
@@ -14,7 +14,7 @@
 #'   Passed to \code{\link[base]{strsplit}}.
 #' @param fixed Logical; if \code{TRUE}, \code{split} is used as a fixed string.
 #'   Otherwise, it is treated as a regular expression.
-#' @param na.form Character value used to replace missing elements created
+#' @param naForm Character value used to replace missing elements created
 #'   by unequal split lengths.
 #' @param col.names Optional character vector specifying column names for the
 #'   resulting data frame. Recycled if necessary.
@@ -24,7 +24,7 @@
 #' \enumerate{
 #'   \item Splits each entry using \code{\link[base]{strsplit}}
 #'   \item Determines the maximum number of split parts
-#'   \item Pads shorter splits with \code{na.form}
+#'   \item Pads shorter splits with \code{naForm}
 #'   \item Combines results into a matrix via \code{\link[base]{rbind}}
 #' }
 #'
@@ -65,7 +65,7 @@
 
 
 #' @export
-strSplitToCol <- function(x, split = " ", fixed = TRUE, na.form = "", col.names = NULL) {
+strSplitToCol <- function(x, split = " ", fixed = TRUE, naForm = "", col.names = NULL) {
   
   # input validation
   if (!is.data.frame(x) && !is.character(x))
@@ -86,7 +86,7 @@ strSplitToCol <- function(x, split = " ", fixed = TRUE, na.form = "", col.names 
     maxlen <- max(vapply(splits, length, integer(1)))
     lapply(splits, function(s) {
       if (length(s) < maxlen)
-        s <- c(s, rep(na.form, maxlen - length(s)))
+        s <- c(s, rep(naForm, maxlen - length(s)))
       s
     })
   })

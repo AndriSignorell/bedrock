@@ -4,7 +4,7 @@
 \alias{mergeArgs}
 \title{Merge default arguments with user overrides}
 \usage{
-mergeArgs(defaults, user, forbidden = NULL, showWarnings = TRUE)
+mergeArgs(defaults, user, forbidden = NULL, warn = TRUE)
 }
 \arguments{
 \item{defaults}{Named list of default arguments.}
@@ -13,7 +13,7 @@ mergeArgs(defaults, user, forbidden = NULL, showWarnings = TRUE)
 
 \item{forbidden}{Character vector of argument names that are not allowed.}
 
-\item{showWarnings}{Logical; whether to issue a warning if forbidden arguments are removed.}
+\item{warn}{Logical; whether to issue a warning if forbidden arguments are removed.}
 }
 \value{
 A named list of merged arguments.

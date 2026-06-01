@@ -4,7 +4,7 @@
 \alias{strSplitToCol}
 \title{Split Strings into Multiple Columns}
 \usage{
-strSplitToCol(x, split = " ", fixed = TRUE, na.form = "", col.names = NULL)
+strSplitToCol(x, split = " ", fixed = TRUE, naForm = "", col.names = NULL)
 }
 \arguments{
 \item{x}{A character vector or a data frame of character columns to be split.
@@ -16,7 +16,7 @@ Passed to \code{\link[base]{strsplit}}.}
 \item{fixed}{Logical; if \code{TRUE}, \code{split} is used as a fixed string.
 Otherwise, it is treated as a regular expression.}
 
-\item{na.form}{Character value used to replace missing elements created
+\item{naForm}{Character value used to replace missing elements created
 by unequal split lengths.}
 
 \item{col.names}{Optional character vector specifying column names for the
@@ -36,13 +36,13 @@ and the resulting parts are expanded into separate columns.
 }
 \details{
 All rows are padded to the same number of columns per input element.
-Missing values are filled with \code{na.form}.
+Missing values are filled with \code{naForm}.
 
 For each element (or column) in \code{x}, the function:
 \enumerate{
 \item Splits each entry using \code{\link[base]{strsplit}}
 \item Determines the maximum number of split parts
-\item Pads shorter splits with \code{na.form}
+\item Pads shorter splits with \code{naForm}
 \item Combines results into a matrix via \code{\link[base]{rbind}}
 }
 

@@ -52,7 +52,7 @@ test_that("forbidden arguments are removed", {
     defaults,
     user,
     forbidden = "b",
-    showWarnings = FALSE
+    warn = FALSE
   )
   
   expect_equal(
@@ -73,7 +73,7 @@ test_that("warning is issued for forbidden arguments", {
       defaults,
       user,
       forbidden = "b",
-      showWarnings = TRUE
+      warn = TRUE
     ),
     "Ignoring forbidden arguments"
   )
@@ -81,7 +81,7 @@ test_that("warning is issued for forbidden arguments", {
 })
 
 
-test_that("no warning is issued if showWarnings = FALSE", {
+test_that("no warning is issued if warn = FALSE", {
   
   defaults <- list(a = 1)
   user <- list(b = 2)
@@ -91,7 +91,7 @@ test_that("no warning is issued if showWarnings = FALSE", {
       defaults,
       user,
       forbidden = "b",
-      showWarnings = FALSE
+      warn = FALSE
     )
   )
   
@@ -107,7 +107,7 @@ test_that("multiple forbidden arguments are removed", {
     defaults,
     user,
     forbidden = c("b", "d"),
-    showWarnings = FALSE
+    warn = FALSE
   )
   
   expect_equal(

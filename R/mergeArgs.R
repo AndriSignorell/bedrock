@@ -9,7 +9,7 @@
 #' @param defaults Named list of default arguments.
 #' @param user Named list of user-supplied arguments.
 #' @param forbidden Character vector of argument names that are not allowed.
-#' @param showWarnings Logical; whether to issue a warning if forbidden arguments are removed.
+#' @param warn Logical; whether to issue a warning if forbidden arguments are removed.
 #'
 #' @return A named list of merged arguments.
 #'
@@ -24,7 +24,7 @@
 mergeArgs <- function(defaults,
                        user,
                        forbidden = NULL,
-                       showWarnings = TRUE) {
+                       warn = TRUE) {
   
   if (is.null(user))
     return(defaults)
@@ -33,7 +33,7 @@ mergeArgs <- function(defaults,
     bad <- intersect(names(user), forbidden)
     
     if (length(bad) > 0) {
-      if (showWarnings) {
+      if (warn) {
         warning(
           "Ignoring forbidden arguments: ",
           paste(bad, collapse = ", "),

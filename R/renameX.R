@@ -1,12 +1,15 @@
 
+
 #' Rename Elements of a Named Object
 #'
 #' Renames selected elements of a named object by specifying old-to-new name
 #' mappings.  Works on any R object that supports \code{\link{names}()},
-#' including vectors, lists, data frames, and matrices.
+#' including vectors, lists, data frames, and matrices.  For matrix-like
+#' objects, \code{rownames} and \code{colnames} can be targeted via the
+#' \code{which} argument.
 #'
 #' @details
-#' The function supports two modes controlled by \code{useGsub}:
+#' The function supports three modes:
 #'
 #' \describe{
 #'   \item{Exact mode (\code{useGsub = FALSE}, default)}{
@@ -19,16 +22,25 @@
 #'     in sequence to \emph{all} current names.  The left-hand side is the
 #'     pattern, the right-hand side is the replacement.  The \code{fixed}
 #'     argument is forwarded to \code{gsub()}.}
+#'   \item{Function mode}{
+#'     If a single function is passed in \code{...}, it is applied to all
+#'     current names.  Useful for bulk transformations such as
+#'     \code{toupper}, \code{tolower}, or \code{make.names}.}
 #' }
 #'
-#' When \code{...} contains unnamed elements, the names are assigned
+#' When \code{...} contains unnamed character elements, the names are assigned
 #' positionally: the first element replaces \code{names(x)[1]}, the second
 #' \code{names(x)[2]}, and so on.
 #'
-#' @param x      A named object.  Any type that supports \code{names()},
-#'   e.g. a vector, list, or data frame.
-#' @param ...    Name mappings of the form \code{old = "new"}.  Unnamed
-#'   elements are applied positionally (see Details).
+#' @param x     A named object.  Any type that supports \code{names()},
+#'   \code{rownames()}, or \code{colnames()}, e.g. a vector, list, data frame,
+#'   or matrix.
+#' @param ...   Name mappings of the form \code{old = "new"}, a single
+#'   function to apply to all names (e.g. \code{toupper}), or unnamed
+#'   character strings applied positionally (see Details).
+#' @param which Character scalar specifying which names to operate on.
+#'   One of \code{"names"} (default), \code{"rownames"}, or \code{"colnames"}.
+#'   Partial matching is supported.
 #' @param useGsub Logical scalar.  If \code{TRUE}, each mapping is applied as
 #'   a \code{gsub()} pattern substitution across all current names rather than
 #'   an exact replacement.  Default is \code{FALSE}.
@@ -37,12 +49,13 @@
 #'   fixed strings rather than regular expressions.
 #' @param warn   Logical scalar.  If \code{TRUE} (default), a warning is
 #'   issued when one or more old names supplied in \code{...} are not found in
-#'   \code{names(x)}.  Only relevant in exact mode (\code{useGsub = FALSE}).
+#'   the targeted names of \code{x}.  Only relevant in exact mode
+#'   (\code{useGsub = FALSE}).
 #'
 #' @return The object \code{x} with updated names; all other attributes are
 #'   preserved.
 #'
-#' @seealso \code{\link{names}}
+#' @seealso \code{\link{names}}, \code{\link{setNamesX}}
 #'
 #' @family topic.utilities
 #' @concept names
@@ -50,12 +63,17 @@
 #' @concept data-manipulation
 #'
 #' @examples
-#' # Exact mode: rename by old = "new" pairs
 #' x <- c(a = 1, b = 2, c = 3)
+#'
+#' # Exact mode: rename by old = "new" pairs
 #' renameX(x, a = "alpha", c = "gamma")
 #'
-#' # Positional mode: no names supplied in ...
+#' # Positional mode: replaces names(x)[1:2]
 #' renameX(x, "alpha", "beta")
+#'
+#' # Function mode: apply a function to all names
+#' renameX(x, toupper)
+#' renameX(x, tolower)
 #'
 #' # Data frame columns
 #' d <- data.frame(foo = 1:3, bar = 4:6)
@@ -65,45 +83,75 @@
 #' y <- c(v_mean = 1, v_sd = 2, v_n = 3)
 #' renameX(y, v_ = "", useGsub = TRUE)
 #'
-#' # Pattern mode with regex (fixed = FALSE): backticks needed for non-syntactic names
+#' # Pattern mode with regex (fixed = FALSE)
 #' renameX(y, `^v_` = "", useGsub = TRUE, fixed = FALSE)
+#'
+#' # Matrix: rename colnames selectively
+#' m <- matrix(1:6, nrow = 2,
+#'             dimnames = list(c("row_a", "row_b"), c("col_x", "col_y", "col_z")))
+#' renameX(m, col_x = "alpha", which = "colnames")
+#'
+#' # Matrix: uppercase all rownames via function mode
+#' renameX(m, toupper, which = "rownames")
+#'
+#' # Matrix: rename rownames via gsub
+#' renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, which = "rownames")
 #'
 
 
 #' @export
-renameX <- function(x, ..., useGsub = FALSE, fixed = TRUE, warn = TRUE) {
+renameX <- function(x, ..., which = "names",
+                    useGsub = FALSE, fixed = TRUE, warn = TRUE) {
   
-  if (is.null(names(x)))
-    stop("Argument 'x' has no names.")
+  which <- match.arg(which, c("names", "rownames", "colnames"))
+  
+  # --- extract the targeted names -------------------------------------------
+  nms <- switch(which,
+                names    = names(x),
+                rownames = rownames(x),
+                colnames = colnames(x)
+  )
+  
+  if (is.null(nms))
+    stop(sprintf("Argument 'x' has no %s.", which))
+  
+  # --- early exit if nothing to do ------------------------------------------
+  dots <- list(...)
+  if (length(dots) == 0L)
+    return(x)
+  
+  # --- function mode: single function in ... --------------------------------
+  if (length(dots) == 1L && is.function(..1)) {
+    nms <- ..1(nms)
+    return(.assignNames(x, nms, which))
+  }
   
   subst <- c(...)
   
-  # --- guard: mixed named/unnamed arguments are ambiguous ---------------
-  nms        <- names(subst)
-  all_named  <- all(nzchar(nms))
-  none_named <- all(!nzchar(nms))
+  # --- guard: mixed named/unnamed arguments are ambiguous ------------------
+  arg_nms    <- names(subst)
+  all_named  <- all(nzchar(arg_nms))
+  none_named <- all(!nzchar(arg_nms))
   if (!(all_named || none_named))
     stop("Either all or none of the replacement arguments in '...' must be named.")
   
-  # --- positional fallback: no names on ... → assign by position --------
+  # --- positional mode: replaces names(x)[1:length(subst)] -----------------
   if (none_named) {
-    if (length(subst) > length(names(x)))
+    if (length(subst) > length(nms))
       stop("More replacement names supplied than names exist in 'x'.")
-    names(x)[seq_along(subst)] <- subst
-    return(x)
+    nms[seq_along(subst)] <- subst
+    return(.assignNames(x, nms, which))
   }
   
-  # --- pattern mode (gsub over all names) --------------------------------
+  # --- pattern mode (gsub over all names) -----------------------------------
   if (useGsub) {
-    nms <- names(x)
     for (i in seq_along(subst))
       nms <- gsub(names(subst)[i], subst[i], nms, fixed = fixed)
-    names(x) <- nms
-    return(x)
+    return(.assignNames(x, nms, which))
   }
   
-  # --- exact mode (match old names, replace with new) -------------------
-  i <- match(names(subst), names(x))
+  # --- exact mode (match old names, replace with new) ----------------------
+  i <- match(names(subst), nms)
   
   if (anyNA(i)) {
     if (warn)
@@ -114,8 +162,18 @@ renameX <- function(x, ..., useGsub = FALSE, fixed = TRUE, warn = TRUE) {
   }
   
   if (length(i))
-    names(x)[i] <- subst
+    nms[i] <- subst
   
-  x
+  .assignNames(x, nms, which)
 }
 
+
+# internal helper: write nms back to the correct slot of x
+.assignNames <- function(x, nms, which) {
+  switch(which,
+         names    = { names(x)    <- nms },
+         rownames = { rownames(x) <- nms },
+         colnames = { colnames(x) <- nms }
+  )
+  x
+}
