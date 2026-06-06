@@ -2,34 +2,56 @@
 % Please edit documentation in R/funArgs.R
 \name{funArgs}
 \alias{funArgs}
-\title{List all arguments in a function.}
+\title{List all arguments of a function}
 \usage{
-funArgs(fun, package = NULL, sort = FALSE)
+funArgs(
+  fun,
+  package = NULL,
+  sort = FALSE,
+  output = c("data.frame", "list", "string")
+)
 }
 \arguments{
-\item{fun}{the name of the function}
+\item{fun}{Function object or function name.}
 
-\item{package}{the name of the package which contains the function}
+\item{package}{Optional package name used to resolve \code{fun}.}
 
-\item{sort}{logical (default \code{FALSE}) should the arguments be alphabetically sorted?}
+\item{sort}{Logical; should arguments be sorted alphabetically?
+Ignored when \code{output = "list"}.}
+
+\item{output}{Character string specifying the output format:
+\itemize{
+\item \code{"data.frame"} (default): return a data frame.
+\item \code{"list"}: return a named list of formal arguments.
+\item \code{"string"}: return a comma-separated character string of
+argument assignments.
+}}
+}
+\value{
+Depending on \code{output}:
+\itemize{
+\item \code{"data.frame"}: a data frame with columns
+\code{name} and \code{value}.
+\item \code{"list"}: a named list of formal arguments.
+\item \code{"string"}: a character vector of length one.
+}
 }
 \description{
-List all arguments in a function.
+Returns the formal arguments of a function together with their default
+values.
 }
 \examples{
-
 funArgs("combN")
-funArgs("combN")$value
 
-cat(attr(funArgs("combN"), "string"))
+funArgs("combN", output = "list")
 
-}
-\references{
-Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The
-New S Language}. Wadsworth & Brooks/Cole.
+funArgs("combN", output = "string")
+
+cat(funArgs("combN", output = "string"))
+
 }
 \seealso{
-\code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}}
+\code{\link{formals}}, \code{\link{args}}
 
 Other pkg.introspection:
 \code{\link[=funCalls]{funCalls()}},

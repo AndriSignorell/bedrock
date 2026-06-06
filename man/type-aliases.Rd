@@ -5,6 +5,7 @@
 \alias{int}
 \alias{chr}
 \alias{nchr}
+\alias{bin}
 \title{Coerce to numeric}
 \usage{
 num(x, ...)
@@ -14,13 +15,42 @@ int(x, ...)
 chr(x, ...)
 
 nchr(x)
+
+bin(x, ...)
 }
 \arguments{
-\item{x}{a factor or character vector}
+\item{x}{a vector with exactly two unique non-\code{NA} values.}
 
-\item{...}{further arguments passed to \code{as.character}}
+\item{...}{further arguments passed to \code{\link{asBinary}}.}
+}
+\value{
+A logical vector of the same length as \code{x}.
 }
 \description{
 Shortcut for \code{as.numeric(as.character(x))}. Avoids returning
 internal factor codes when coercing factors directly with \code{as.numeric}.
+
+Converts any two-valued vector (character, factor, integer, numeric)
+to logical. Analogous to \code{\link{num}()}, \code{\link{int}()},
+\code{\link{chr}()}.
+}
+\details{
+The mapping follows the behaviour of \code{\link{factor}()}: levels are
+ordered alphabetically (or by existing factor level order), and the
+\emph{first} level maps to \code{FALSE}, the \emph{second} to
+\code{TRUE}.
+
+To reverse the mapping, negate the result: \code{!bin(x)}.
+}
+\examples{
+bin(c(0L, 1L, 0L, 1L))               # integer 0/1
+bin(c(0.0, 1.0, 0.0))                # numeric 0/1
+bin(c("no", "yes", "no"))            # "no" -> FALSE, "yes" -> TRUE
+!bin(c("no", "yes", "no"))           # reversed: "no" -> TRUE, "yes" -> FALSE
+bin(factor(c("m", "w", "m")))        # factor: "m" -> FALSE, "w" -> TRUE
+
+}
+\seealso{
+\code{\link{num}()}, \code{\link{int}()}, \code{\link{chr}()},
+\code{\link{asBinary}()}
 }

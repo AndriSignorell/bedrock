@@ -99,7 +99,12 @@ asBinary <- function(x, ref = NULL, warn = TRUE) {
         call. = FALSE
       )
     
-    return(as.numeric(x == lev[2]))
+    # factor-Zweig analog:
+    result <- as.numeric(x == lev[2])
+    attr(result, "coding") <- setNamesX(c(0L, 1L), lev)
+    
+    return(result)
+    
   }
   
   ## -------------------------------------------------------------------
@@ -107,7 +112,7 @@ asBinary <- function(x, ref = NULL, warn = TRUE) {
   ## -------------------------------------------------------------------
   if (is.character(x)) {
     
-    u <- unique(x[!is.na(x)])
+    u <- sort(unique(x[!is.na(x)]))
     
     if (length(u) != 2L)
       stop("character 'x' must have exactly 2 distinct non-missing values")
@@ -125,7 +130,11 @@ asBinary <- function(x, ref = NULL, warn = TRUE) {
         call. = FALSE
       )
     
-    return(as.numeric(x == u[2]))
+    result <- as.numeric(x == u[2])
+    attr(result, "coding") <- setNames(c(0L, 1L), u)
+    
+    return(result)
+    
   }
   
   ## -------------------------------------------------------------------
