@@ -148,7 +148,7 @@ parseSASDatalines <- function(x, validate_names = FALSE) {
   # --- 3. DATALINES / CARDS / CARDS4 block ---
   # Locate the keyword + its opening semicolon, extract body_start from
   # the *same* match to keep keyword and terminator logic consistent.
-  kw_rx    <- "(?is)\\b(datalines|cards4|cards)\\s*;"
+  kw_rx    <- "(?is)\\b(datalines|cards4|Cards)\\s*;"
   kw_match <- regexpr(kw_rx, x, perl = TRUE)
   
   if (kw_match == -1) {

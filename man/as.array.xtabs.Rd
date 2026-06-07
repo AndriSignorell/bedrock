@@ -36,7 +36,7 @@ Other data.manipulation:
 \code{\link[=recycle]{recycle()}},
 \code{\link[=revCode]{revCode()}},
 \code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr}},
+\code{\link{setAttr-removeAttr-keepAttr}},
 \code{\link[=setNamesX]{setNamesX()}},
 \code{\link[=sortX]{sortX()}},
 \code{\link[=splitX]{splitX()}},

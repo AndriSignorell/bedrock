@@ -1,7 +1,7 @@
 
-#' Playing cards dataset
+#' Playing Cards dataset
 #'
-#' A dataset representing a standard deck of playing cards. Each row corresponds
+#' A dataset representing a standard deck of playing Cards. Each row corresponds
 #' to a single card and includes information such as suit, rank and numerical value.
 #'
 #' The dataset can be used for simulations, probability calculations and teaching
@@ -19,13 +19,13 @@
 #' probability experiments, simulations and demonstrations of categorical data.
 #'
 #' @examples
-#' head(cards)
-#' table(cards$suit)
+#' head(Cards)
+#' table(Cards$suit)
 #'
 #' @family datasets
 #' @concept simulation
 #' @concept probability
 #'
 #' @source Simulated data.
-"cards"
+"Cards"
 

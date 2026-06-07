@@ -117,6 +117,7 @@ romanToInt <- function(x) {
   sapply(roman, tryIt)
 }
 
+
 #' @rdname numeric-conversions
 #' @export
 baseToBase <- function(x, from, to, width = NULL) {

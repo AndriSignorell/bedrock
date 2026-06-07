@@ -1,62 +1,82 @@
 
-## ------------------------------------------------------------
-## Tests for setAttr() and removeAttr()
-## ------------------------------------------------------------
+# ── setAttr ───────────────────────────────────────────────────────────────────
+test_that("setAttr sets a single attribute", {
+  x <- setAttr(runif(5), attrNames = "a", attrValues = 1)
+  expect_identical(attr(x, "a"), 1)
+})
 
-## --- Setup ---------------------------------------------------
-x0 <- runif(5)
+test_that("setAttr sets multiple attributes", {
+  x <- setAttr(runif(5), attrNames = c("a", "b"), attrValues = c(1, 2))
+  expect_identical(attr(x, "a"), 1)
+  expect_identical(attr(x, "b"), 2)
+})
 
-## --- Test: set single attribute ------------------------------
-x1 <- setAttr(x0, attrNames = "a", attrValues = 1)
-stopifnot(identical(attr(x1, "a"), 1))
+test_that("setAttr overwrites existing attribute", {
+  x <- setAttr(runif(5), attrNames = "a", attrValues = 1)
+  x <- setAttr(x,        attrNames = "a", attrValues = 99)
+  expect_identical(attr(x, "a"), 99)
+})
 
-## --- Test: set multiple attributes ---------------------------
-x2 <- setAttr(
-  x0,
-  attrNames  = c("a", "b"),
-  attrValues = c(1, 2)
-)
-stopifnot(
-  identical(attr(x2, "a"), 1),
-  identical(attr(x2, "b"), 2)
-)
+test_that("setAttr stops on length mismatch", {
+  expect_error(setAttr(runif(5), c("a", "b"), 1))
+})
 
-## --- Test: overwrite attribute -------------------------------
-x3 <- setAttr(x2, attrNames = "a", attrValues = 99)
-stopifnot(identical(attr(x3, "a"), 99))
+test_that("setAttr stops on non-character attrNames", {
+  expect_error(setAttr(runif(5), 1, "val"))
+})
 
-## --- Test: remove single attribute ---------------------------
-x4 <- removeAttr(x2, "a")
-stopifnot(
-  is.null(attr(x4, "a")),
-  identical(attr(x4, "b"), 2)
-)
 
-## --- Test: remove multiple attributes ------------------------
-x5 <- removeAttr(x2, c("a", "b"))
-stopifnot(
-  is.null(attr(x5, "a")),
-  is.null(attr(x5, "b"))
-)
+# ── removeAttr ────────────────────────────────────────────────────────────────
+test_that("removeAttr removes a single attribute", {
+  x <- setAttr(runif(5), c("a", "b"), c(1, 2))
+  x <- removeAttr(x, "a")
+  expect_null(attr(x, "a"))
+  expect_identical(attr(x, "b"), 2)
+})
 
-## --- Test: remove all attributes -----------------------------
-x6 <- removeAttr(x2)
-stopifnot(is.null(attributes(x6)))
+test_that("removeAttr removes multiple attributes", {
+  x <- setAttr(runif(5), c("a", "b"), c(1, 2))
+  x <- removeAttr(x, c("a", "b"))
+  expect_null(attr(x, "a"))
+  expect_null(attr(x, "b"))
+})
 
-## --- Test: NA handling (attributes should not affect values) -
-stopifnot(identical(unname(x0), unname(removeAttr(x2))))
+test_that("removeAttr removes all attributes when called without attrNames", {
+  x <- setAttr(runif(5), c("a", "b"), c(1, 2))
+  x <- removeAttr(x)
+  expect_null(attributes(x))
+})
 
-## --- Test: vector recycling NOT allowed (should error) -------
-err <- try(setAttr(x0, c("a","b"), 1), silent = TRUE)
-stopifnot(inherits(err, "try-error"))
+test_that("removeAttr does not affect values", {
+  x0 <- runif(5)
+  x  <- setAttr(x0, "a", 1)
+  expect_identical(unname(removeAttr(x)), unname(x0))
+})
 
-## --- Test: length mismatch -----------------------------------
-err <- try(setAttr(x0, c("a","b"), c(1)), silent = TRUE)
-stopifnot(inherits(err, "try-error"))
+test_that("removeAttr silently ignores non-existing attribute", {
+  x <- runif(5)
+  expect_no_error(removeAttr(x, "does_not_exist"))
+})
 
-## --- Test: remove non-existing attribute ---------------------
-x7 <- removeAttr(x0, "does_not_exist")
-stopifnot(is.null(attr(x7, "does_not_exist")))
 
-## --- All tests passed ----------------------------------------
-cat("All tests passed.\n")
+# ── keepAttr ──────────────────────────────────────────────────────────────────
+test_that("keepAttr retains only specified attributes", {
+  x <- setAttr(runif(5), c("a", "b", "c"), c(1, 2, 3))
+  x <- keepAttr(x, "b")
+  expect_null(attr(x, "a"))
+  expect_identical(attr(x, "b"), 2)
+  expect_null(attr(x, "c"))
+})
+
+test_that("keepAttr retains class attribute", {
+  r.lm <- lm(Fertility ~ ., swiss)
+  t     <- keepAttr(r.lm$terms, "class")
+  expect_equal(class(t), c("terms", "formula"))
+  expect_null(attr(t, "variables"))
+})
+
+test_that("keepAttr with empty attrNames removes all attributes", {
+  x <- setAttr(runif(5), c("a", "b"), c(1, 2))
+  x <- keepAttr(x, character(0))
+  expect_null(attributes(x))
+})

@@ -34,7 +34,7 @@ functions.
 \examples{
 # Extract labels from a package dataset
 \dontrun{
-getRdLabels("d.pizza", "bedrock")
+getRdLabels("Pizza", "bedrock")
 }
 
 }

@@ -41,7 +41,8 @@ accepted. Any combination of:
 \code{"two-sample-independent"},
 \code{"two-sample-dependent"},
 \code{"n-sample-independent"},
-\code{"n-sample-dependent"}.
+\code{"n-sample-dependent"},
+\code{"numeric-numeric"}.
 An error is raised if the detected type is not in \code{allowed}.
 Default allows all types.}
 }
@@ -70,6 +71,7 @@ a formula interface.
 \code{two-sample-dependent}    \tab \code{Pair(x,y) ~ 1}   \tab paired t-test, Wilcoxon signed-rank \cr
 \code{n-sample-independent}    \tab \code{y ~ g} (k>2)     \tab ANOVA, Kruskal-Wallis \cr
 \code{n-sample-dependent}      \tab \code{y ~ trt | block} \tab repeated measures ANOVA, Friedman \cr
+\code{numeric-numeric}         \tab \code{y ~ x} (x numeric) \tab correlation, regression \cr
 }
 
 \strong{subset handling:}
@@ -100,6 +102,7 @@ Additional components depend on the design:
 \code{two-sample-dependent}    \tab \code{x}, \code{y} \cr
 \code{n-sample-independent}    \tab \code{x}, \code{group} \cr
 \code{n-sample-dependent}      \tab \code{response}, \code{group}, \code{block} \cr
+\code{numeric-numeric}         \tab \code{x}, \code{group} (numeric predictor) \cr
 }
 }
 \examples{

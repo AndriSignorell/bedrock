@@ -71,6 +71,6 @@
 #' \emph{Arbeitsbuch zur deskriptiven und induktiven Statistik}
 #' Springer, Berlin Heidelberg.
 #'
-"d.pizza"
+"Pizza"
 
 

@@ -32,7 +32,7 @@ base::sample() and offers additionally an interface for data frames.
 }
 \examples{
 
-sampleX(d.pizza, size=5)
+sampleX(Pizza, size=5)
 
 }
 \seealso{

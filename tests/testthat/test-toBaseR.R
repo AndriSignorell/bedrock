@@ -26,4 +26,12 @@ test_that("toBaseR converts data.frame unchanged", {
   
 })
 
+# ── toBaseR ───────────────────────────────────────────────────────────────────
+test_that("toBaseR.default warns and returns NULL for unsupported class", {
+  expect_warning(res <- toBaseR(42), "Not implemented")
+  expect_null(res)
+})
+
+
+
 

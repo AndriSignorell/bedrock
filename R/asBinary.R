@@ -131,7 +131,7 @@ asBinary <- function(x, ref = NULL, warn = TRUE) {
       )
     
     result <- as.numeric(x == u[2])
-    attr(result, "coding") <- setNames(c(0L, 1L), u)
+    attr(result, "coding") <- setNamesX(c(0L, 1L), u)
     
     return(result)
     

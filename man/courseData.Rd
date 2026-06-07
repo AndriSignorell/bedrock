@@ -58,9 +58,9 @@ courseData("mydata.csv", url = "http://example.com/data/")
 \code{\link{fileExistURL}}
 
 Other datasets:
-\code{\link{cards}},
-\code{\link{roulette}},
-\code{\link{tarot}}
+\code{\link{Cards}},
+\code{\link{Roulette}},
+\code{\link{Tarot}}
 }
 \concept{data-manipulation}
 \concept{datasets}

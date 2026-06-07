@@ -1,6 +1,4 @@
 
-library(testthat)
-
 # -------------------------------------------------------------------------
 # default method (vector)
 # -------------------------------------------------------------------------
@@ -161,5 +159,26 @@ test_that("single value insertion works", {
   
   res <- appendX(x, 99)
   expect_equal(ncol(res), 3)
+})
+
+
+test_that("appendX.matrix inserts column in middle", {
+  x   <- matrix(1:6, nrow = 3)
+  res <- appendX(x, 7:9, after = 1)
+  expect_equal(ncol(res), 3)
+  expect_equal(res[, 2], 7:9)
+})
+
+test_that("appendX.matrix inserts row in middle", {
+  x   <- matrix(1:6, nrow = 3)
+  res <- appendX(x, 10:11, rows = TRUE, after = 1)
+  expect_equal(nrow(res), 4)
+  expect_equal(as.numeric(res[2, ]), c(10, 11))
+})
+
+test_that("appendX.data.frame inserts column in middle", {
+  df  <- data.frame(a = 1:3, b = 4:6)
+  res <- appendX(df, c(7, 8, 9), after = 1, newNames = "c")
+  expect_equal(names(res)[2], "c")
 })
 

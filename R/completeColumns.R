@@ -33,10 +33,10 @@
 #'
 #' @examples
 #' # Names of columns without missing values
-#' completeColumns(d.pizza)
+#' completeColumns(Pizza)
 #'
 #' # Logical vector indicating completeness
-#' completeColumns(d.pizza, which = FALSE)
+#' completeColumns(Pizza, which = FALSE)
 #'
 
 

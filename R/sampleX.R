@@ -17,7 +17,7 @@
 #' @keywords IO distribution
 #' @examples
 #' 
-#' sampleX(d.pizza, size=5)
+#' sampleX(Pizza, size=5)
 #' 
 
 

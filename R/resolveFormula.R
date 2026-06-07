@@ -1,3 +1,4 @@
+
 #' Parse and Classify a Model Formula
 #'
 #' Parses a model formula, constructs a model frame, and classifies
@@ -28,7 +29,8 @@
 #'   \code{"two-sample-independent"},
 #'   \code{"two-sample-dependent"},
 #'   \code{"n-sample-independent"},
-#'   \code{"n-sample-dependent"}.
+#'   \code{"n-sample-dependent"},
+#'   \code{"numeric-numeric"}.
 #'   An error is raised if the detected type is not in \code{allowed}.
 #'   Default allows all types.
 #'
@@ -42,6 +44,7 @@
 #'   \code{two-sample-dependent}    \tab \code{Pair(x,y) ~ 1}   \tab paired t-test, Wilcoxon signed-rank \cr
 #'   \code{n-sample-independent}    \tab \code{y ~ g} (k>2)     \tab ANOVA, Kruskal-Wallis \cr
 #'   \code{n-sample-dependent}      \tab \code{y ~ trt | block} \tab repeated measures ANOVA, Friedman \cr
+#'   \code{numeric-numeric}         \tab \code{y ~ x} (x numeric) \tab correlation, regression \cr
 #' }
 #'
 #' \strong{subset handling:}
@@ -72,6 +75,7 @@
 #'   \code{two-sample-dependent}    \tab \code{x}, \code{y} \cr
 #'   \code{n-sample-independent}    \tab \code{x}, \code{group} \cr
 #'   \code{n-sample-dependent}      \tab \code{response}, \code{group}, \code{block} \cr
+#'   \code{numeric-numeric}         \tab \code{x}, \code{group} (numeric predictor) \cr
 #' }
 #'
 #' @return a named list with at minimum:
@@ -148,7 +152,7 @@ resolveFormula <- function(
   
   if (!inherits(formula, "formula"))
     stop("'formula' must be a formula object")
-
+  
   
   # ── Coerce matrix data ────────────────────────────────────────────────────
   if (!missing(data) && is.matrix(data))
@@ -241,12 +245,33 @@ resolveFormula <- function(
     ))
   }
   
-  # ── 2b. Grouped: two-sample or n-sample independent ──────────────────────
-  g <- droplevels(factor(mf[[2L]], exclude = NULL))
+  # ── 2b. numeric ~ numeric ────────────────────────────────────────────────
+  if (is.numeric(mf[[2L]]) && "numeric-numeric" %in% allowed) {
+    return(list(
+      type      = "numeric-numeric",
+      mf        = mf,
+      x         = response,
+      group     = mf[[2L]],     # numeric predictor
+      data.name = dname
+    ))
+  }
+  
+  # ── 2c. Grouped: two-sample or n-sample independent ──────────────────────
+  g <- droplevels(factor(mf[[2L]], exclude = NA))
   k <- nlevels(g)
   
-  if (k < 2L)
-    stop("grouping factor must have at least 2 levels")
+  # k == 1: Fallback to one-sample if allowed
+  if (k == 1L) {
+    if (!"one-sample" %in% allowed)
+      stop("grouping factor has only 1 level")
+    return(list(
+      type      = "one-sample",
+      mf        = mf,
+      x         = response,
+      data.name = dname
+    ))
+  }
+  
   
   if (k == 2L && "two-sample-independent" %in% allowed) {
     DATA <- split(response, g, drop = TRUE)

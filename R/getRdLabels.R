@@ -25,7 +25,7 @@
 #' @examples
 #' # Extract labels from a package dataset
 #' \dontrun{
-#' getRdLabels("d.pizza", "bedrock")
+#' getRdLabels("Pizza", "bedrock")
 #' }
 #'
 #' @seealso \code{\link[bedrock:label]{bedrock::label}}
@@ -51,7 +51,7 @@ getRdLabels <- function(data_name, package) {
   # --- 1. Rd database laden ---
   rd_db <- tools::Rd_db(package)
   
-  # Namen sehen typischerweise so aus: "d.pizza.Rd"
+  # Namen sehen typischerweise so aus: "Pizza.Rd"
   rd_name <- paste0(data_name, ".Rd")
   
   if (!rd_name %in% names(rd_db)) {

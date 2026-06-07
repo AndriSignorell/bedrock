@@ -30,7 +30,8 @@ test_that("numeric with values other than 0/1 throws error", {
 test_that("factor default codes second level as 1", {
   x   <- factor(c("A","B","A","B"), levels = c("A","B"))
   res <- suppressWarnings(asBinary(x))
-  expect_equal(res, c(0, 1, 0, 1))
+  expect_equal(res, c(0, 1, 0, 1), ignore_attr = TRUE)
+  expect_equal(attr(res, "coding"), c(A = 0L, B = 1L))
 })
 
 test_that("factor with explicit ref codes correctly", {
@@ -64,8 +65,9 @@ test_that("factor with warn = FALSE produces no warning", {
 test_that("character default codes second unique value as 1", {
   x   <- c("no","yes","no","yes")
   res <- suppressWarnings(asBinary(x))
-  # second unique value in order of appearance: "yes"
-  expect_equal(res, c(0, 1, 0, 1))
+  # second unique value alphabetically: "yes"
+  expect_equal(res, c(0, 1, 0, 1), ignore_attr = TRUE)
+  expect_equal(attr(res, "coding"), c(no = 0L, yes = 1L))
 })
 
 test_that("character with explicit ref codes correctly", {

@@ -1,5 +1,4 @@
 
-
 # ── Tests for resolveFormula ──────────────────────────────────────────────────
 
 library(testthat)
@@ -108,12 +107,30 @@ test_that("missing formula raises error", {
   expect_error(resolveFormula(), "missing")
 })
 
-test_that("grouping factor with < 2 levels raises error", {
+test_that("grouping factor with 1 level falls back to one-sample", {
+  df$g1 <- "A"
+  res <- resolveFormula(y ~ g1, data = df,
+                        allowed = c("one-sample", "n-sample-independent"))
+  expect_equal(res$type, "one-sample")
+})
+
+test_that("grouping factor with 1 level raises error if one-sample not allowed", {
   df$g1 <- "A"
   expect_error(
-    resolveFormula(y ~ g1, data = df),
-    "at least 2 levels"
+    resolveFormula(y ~ g1, data = df,
+                   allowed = "n-sample-independent"),
+    "1 level"
   )
+})
+
+# ── 10. numeric-numeric ───────────────────────────────────────────────────────
+test_that("numeric-numeric: y ~ x (both numeric)", {
+  res <- resolveFormula(y ~ blk, data = df,
+                        allowed = c("numeric-numeric", "n-sample-independent"))
+  expect_equal(res$type, "numeric-numeric")
+  expect_true(all(c("x", "group") %in% names(res)))
+  expect_equal(length(res$x), nrow(df))
+  expect_true(is.numeric(res$group))
 })
 
 test_that("formula with > 2 terms raises error", {

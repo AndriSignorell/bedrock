@@ -1,5 +1,4 @@
 
-
 #' Rename Elements of a Named Object
 #'
 #' Renames selected elements of a named object by specifying old-to-new name
@@ -97,8 +96,6 @@
 #' # Matrix: rename rownames via gsub
 #' renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, which = "rownames")
 #'
-
-
 #' @export
 renameX <- function(x, ..., which = "names",
                     useGsub = FALSE, fixed = TRUE, warn = TRUE) {
@@ -121,8 +118,8 @@ renameX <- function(x, ..., which = "names",
     return(x)
   
   # --- function mode: single function in ... --------------------------------
-  if (length(dots) == 1L && is.function(..1)) {
-    nms <- ..1(nms)
+  if (length(dots) == 1L && is.function(dots[[1L]])) {
+    nms <- dots[[1L]](nms)
     return(.assignNames(x, nms, which))
   }
   
@@ -177,3 +174,4 @@ renameX <- function(x, ..., which = "names",
   )
   x
 }
+
