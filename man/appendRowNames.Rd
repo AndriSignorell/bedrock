@@ -33,6 +33,7 @@ appendRowNames(dd)
 \code{\link{append}}
 
 Other data.manipulation:
+\code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendX]{appendX()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},
 \code{\link[=columnWrap]{columnWrap()}},

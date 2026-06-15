@@ -35,6 +35,7 @@ nf(c("low", "medium", "high"), levels = c("low", "medium", "high"))
 \code{\link{factor}}, \code{\link{as.numeric}}
 
 Other data.manipulation:
+\code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=appendX]{appendX()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},

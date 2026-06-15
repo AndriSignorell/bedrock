@@ -34,6 +34,7 @@ sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]),
 \code{\link{rep}}, \code{\link{replicate}}
 
 Other data.manipulation:
+\code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=appendX]{appendX()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},

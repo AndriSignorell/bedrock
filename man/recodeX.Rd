@@ -120,6 +120,7 @@ recodeX(likert, "1"=1:6, "2"=7:8, "5"=9:10, num=TRUE)
 package \bold{car}.
 
 Other data.manipulation:
+\code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=appendX]{appendX()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},

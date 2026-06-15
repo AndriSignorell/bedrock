@@ -40,6 +40,7 @@ Generic function to append elements to vectors, matrices, and data frames.
 }
 \seealso{
 Other data.manipulation:
+\code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},
 \code{\link[=columnWrap]{columnWrap()}},

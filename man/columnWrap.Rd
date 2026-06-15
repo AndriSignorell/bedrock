@@ -31,6 +31,7 @@ print(columnWrap("This is a very long text for a table", 12))
 \code{\link[=strwrap]{strwrap()}}
 
 Other data.manipulation:
+\code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=appendX]{appendX()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},

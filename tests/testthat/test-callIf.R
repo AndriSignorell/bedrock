@@ -1,12 +1,7 @@
 
-library(testthat)
-
 # ---------------------------
-
 # skip behavior
-
 # ---------------------------
-
 test_that("callIf skips when arg is FALSE/NULL/NA", {
   f <- function() 1
   
@@ -16,11 +11,8 @@ test_that("callIf skips when arg is FALSE/NULL/NA", {
 })
 
 # ---------------------------
-
 # TRUE uses defaults
-
 # ---------------------------
-
 test_that("callIf with TRUE uses defaults", {
   f <- function(x) x + 1
   
@@ -31,11 +23,8 @@ test_that("callIf with TRUE uses defaults", {
 })
 
 # ---------------------------
-
 # TRUE without defaults
-
 # ---------------------------
-
 test_that("callIf with TRUE calls function without args", {
   f <- function() 42
   
@@ -43,11 +32,8 @@ test_that("callIf with TRUE calls function without args", {
 })
 
 # ---------------------------
-
 # list passes arguments
-
 # ---------------------------
-
 test_that("callIf passes named list as arguments", {
   f <- function(x, y) x + y
   
@@ -58,11 +44,8 @@ test_that("callIf passes named list as arguments", {
 })
 
 # ---------------------------
-
 # defaults + override
-
 # ---------------------------
-
 test_that("callIf merges defaults and arg correctly", {
   f <- function(x, y) x + y
   
@@ -73,11 +56,31 @@ test_that("callIf merges defaults and arg correctly", {
 })
 
 # ---------------------------
+# NULL values in arg are passed through (not deleted)
+# ---------------------------
+test_that("callIf passes NULL values from arg (not deleted by modifyList)", {
+  # NULL in arg must override default, not silently drop the key
+  f <- function(nx = NA, ny = NA) list(nx = nx, ny = ny)
+  
+  res <- callIf(f, list(nx = NA, ny = NULL),
+                defaults = list(nx = NA, ny = NA))
+  
+  expect_true(is.null(res$ny))   # ny must be NULL, not NA
+  expect_identical(res$nx, NA)
+})
 
-# forbidden arguments removed
+test_that("callIf passes NULL values from arg without defaults", {
+  f <- function(nx = NA, ny = NA) list(nx = nx, ny = ny)
+  
+  res <- callIf(f, list(nx = NA, ny = NULL))
+  
+  expect_true(is.null(res$ny))
+  expect_identical(res$nx, NA)
+})
 
 # ---------------------------
-
+# forbidden arguments removed
+# ---------------------------
 test_that("callIf removes forbidden arguments", {
   f <- function(x, y = 0) x + y
   
@@ -93,11 +96,8 @@ test_that("callIf removes forbidden arguments", {
 })
 
 # ---------------------------
-
 # forbidden without warning
-
 # ---------------------------
-
 test_that("callIf suppresses warning when warn = FALSE", {
   f <- function(x) x
   
@@ -112,11 +112,8 @@ test_that("callIf suppresses warning when warn = FALSE", {
 })
 
 # ---------------------------
-
 # invalid arg type
-
 # ---------------------------
-
 test_that("callIf errors on invalid arg", {
   f <- function(x) x
   
@@ -125,11 +122,8 @@ test_that("callIf errors on invalid arg", {
 })
 
 # ---------------------------
-
 # unnamed list rejected
-
 # ---------------------------
-
 test_that("callIf requires named list", {
   f <- function(x) x
   
@@ -137,11 +131,8 @@ test_that("callIf requires named list", {
 })
 
 # ---------------------------
-
 # return value propagated
-
 # ---------------------------
-
 test_that("callIf returns result of function", {
   f <- function(x) x * 2
   
@@ -149,11 +140,8 @@ test_that("callIf returns result of function", {
 })
 
 # ---------------------------
-
 # side-effect usage
-
 # ---------------------------
-
 test_that("callIf works with side-effect functions", {
   
   expect_silent(callIf(message, FALSE))
@@ -163,8 +151,6 @@ test_that("callIf works with side-effect functions", {
     "hello"
   )
 })
-
-
 
 
 

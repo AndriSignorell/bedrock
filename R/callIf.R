@@ -72,8 +72,7 @@
 
 
 #' @export
-callIf <- function(fun, arg, defaults = NULL, 
-                   forbidden = NULL, warn = TRUE) {
+callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
   
   if (isFALSE(arg) || is.null(arg) || isNA(arg))
     return(invisible(NULL))
@@ -85,19 +84,19 @@ callIf <- function(fun, arg, defaults = NULL,
     
     if (!is.null(forbidden)) {
       bad <- intersect(names(arg), forbidden)
-      
       if (length(bad)) {
-        msg <- sprintf(
-          "Ignoring forbidden argument(s) for '%s': %s",
-          deparse(substitute(fun)),
-          paste(bad, collapse = ", ")
-        )
-        if (warn) warning(msg)
+        msg <- sprintf("Ignoring forbidden argument(s) for '%s': %s",
+                       deparse(substitute(fun)),
+                       paste(bad, collapse = ", "))
+        if (warn)
+          warning(msg)
         arg[bad] <- NULL
       }
     }
     
-    args <- if (is.null(defaults)) arg else modifyList(defaults, arg)
+    args <- defaults %||% list()
+    for (nm in names(arg))
+      args[nm] <- list(arg[[nm]])      # list() wrapper verhindert das Löschen
     
   } else {
     stop("Argument 'arg' must be TRUE, FALSE, NA/NULL or a named list.")

@@ -26,6 +26,7 @@ class(as.matrix(xt))
 }
 \seealso{
 Other data.manipulation:
+\code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=appendX]{appendX()}},
 \code{\link[=columnWrap]{columnWrap()}},
