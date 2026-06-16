@@ -10,7 +10,7 @@ resolveFormula(
   subset,
   na.action = na.pass,
   allowed = c("one-sample", "two-sample-independent", "two-sample-dependent",
-    "n-sample-independent", "n-sample-dependent")
+    "n-sample-independent", "n-sample-dependent", "numeric-numeric")
 )
 }
 \arguments{
@@ -22,6 +22,8 @@ resolveFormula(
 paired observations.}
 \item{\code{y ~ g}}{two-sample or n-sample independent group
 comparison}
+\item{\code{y ~ x}, \code{x} numeric}{numeric-numeric (correlation,
+regression)}
 \item{\code{y ~ trt | block}}{n-sample dependent (blocked design)}
 }}
 
@@ -49,7 +51,7 @@ Default allows all types.}
 \value{
 a named list with at minimum:
 \describe{
-\item{\code{type}}{character, one of the five design types listed above}
+\item{\code{type}}{character, one of the design types listed above}
 \item{\code{mf}}{the \code{\link[stats]{model.frame}}}
 \item{\code{data.name}}{the deparsed formula string}
 }
@@ -72,6 +74,28 @@ a formula interface.
 \code{n-sample-independent}    \tab \code{y ~ g} (k>2)     \tab ANOVA, Kruskal-Wallis \cr
 \code{n-sample-dependent}      \tab \code{y ~ trt | block} \tab repeated measures ANOVA, Friedman \cr
 \code{numeric-numeric}         \tab \code{y ~ x} (x numeric) \tab correlation, regression \cr
+}
+
+\strong{Field naming contract (binding across all types):}
+
+\itemize{
+\item \code{group} is reserved exclusively for a categorical,
+factor-coercible variable of length \code{n} (the full sample) that
+splits the response into groups. It is never pre-split and never
+used for a continuous variable. \code{x} + \code{group} have an
+\emph{identical shape} for both \code{two-sample-independent} and
+\code{n-sample-independent} - callers can use
+\code{split(r$x, r$group)} uniformly, without branching on \code{k}.
+\item \code{predictor} is used for a continuous, numeric right-hand
+side variable (\code{numeric-numeric}). Never called \code{group}.
+\item \code{treatment} is used for the treated/explanatory variable in
+a blocked design (\code{n-sample-dependent}), distinct from
+\code{block}, the stratification factor. Never called \code{group}.
+\item \code{y}, where present, is always a \emph{convenience} field
+(e.g. group 2 of a two-sample design, or the second paired vector).
+It is never required for correct use - \code{x} + \code{group} (or
+\code{x} + \code{predictor} / \code{treatment} + \code{block}) is
+always sufficient and is the canonical access path.
 }
 
 \strong{subset handling:}
@@ -98,11 +122,11 @@ Additional components depend on the design:
 \tabular{ll}{
 \strong{type}                  \tab \strong{Additional components} \cr
 \code{one-sample}              \tab \code{x} \cr
-\code{two-sample-independent}  \tab \code{x}, \code{y}, \code{group} \cr
+\code{two-sample-independent}  \tab \code{x}, \code{group}, \code{y} (convenience: group 2) \cr
 \code{two-sample-dependent}    \tab \code{x}, \code{y} \cr
 \code{n-sample-independent}    \tab \code{x}, \code{group} \cr
-\code{n-sample-dependent}      \tab \code{response}, \code{group}, \code{block} \cr
-\code{numeric-numeric}         \tab \code{x}, \code{group} (numeric predictor) \cr
+\code{n-sample-dependent}      \tab \code{response}, \code{treatment}, \code{block} \cr
+\code{numeric-numeric}         \tab \code{x}, \code{predictor} \cr
 }
 }
 \examples{
@@ -119,11 +143,14 @@ df <- data.frame(
 resolveFormula(y ~ 1, data = df)$type
 #> [1] "one-sample"
 
-# two-sample independent
-resolveFormula(y ~ g2, data = df,
-               allowed = c("two-sample-independent",
-                           "n-sample-independent"))$type
+# two-sample independent: x + group have full length, same shape as k>2
+r2 <- resolveFormula(y ~ g2, data = df,
+                     allowed = c("two-sample-independent",
+                                 "n-sample-independent"))
+r2$type
 #> [1] "two-sample-independent"
+length(r2$x) == length(r2$group)
+#> [1] TRUE
 
 # n-sample independent
 resolveFormula(y ~ g3, data = df,
@@ -137,10 +164,20 @@ resolveFormula(Pair(pre, post) ~ 1, data = df2,
                            "two-sample-dependent"))$type
 #> [1] "two-sample-dependent"
 
-# n-sample dependent (blocked)
-resolveFormula(y ~ trt | blk, data = df,
-               allowed = "n-sample-dependent")$type
+# n-sample dependent (blocked): treatment, not group
+r4 <- resolveFormula(y ~ trt | blk, data = df,
+                     allowed = "n-sample-dependent")
+r4$type
 #> [1] "n-sample-dependent"
+names(r4)
+
+# numeric-numeric: predictor, not group
+df3 <- data.frame(y = rnorm(20), x = rnorm(20))
+r5 <- resolveFormula(y ~ x, data = df3, allowed = "numeric-numeric")
+r5$type
+#> [1] "numeric-numeric"
+is.numeric(r5$predictor)
+#> [1] TRUE
 
 }
 \seealso{

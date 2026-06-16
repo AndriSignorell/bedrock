@@ -36,7 +36,15 @@ test_that("two-sample-independent: y ~ g (k=2)", {
                                     "n-sample-independent"))
   expect_equal(res$type, "two-sample-independent")
   expect_true(all(c("x", "y", "group") %in% names(res)))
-  expect_equal(length(res$x) + length(res$y), nrow(df))
+  
+  # contract: x and group are full-length (n), the same shape as the
+  # n-sample-independent case below - this is what makes
+  # split(res$x, res$group) work uniformly regardless of k.
+  expect_equal(length(res$x), nrow(df))
+  expect_equal(length(res$group), nrow(df))
+  
+  # y is a convenience-only field: just group 2, NOT part of x.
+  expect_equal(length(res$y), sum(res$group == levels(res$group)[2]))
 })
 
 test_that("two-sample-independent: falls back to n.sample if not allowed", {
@@ -91,7 +99,10 @@ test_that("n-sample-dependent: y ~ trt | block", {
   res <- resolveFormula(y ~ trt | blk, data = df,
                         allowed = "n-sample-dependent")
   expect_equal(res$type, "n-sample-dependent")
-  expect_true(all(c("response", "group", "block") %in% names(res)))
+  expect_true(all(c("response", "treatment", "block") %in% names(res)))
+  # 'group' is reserved for the *-independent designs only - must not
+  # leak into the blocked-design result.
+  expect_false("group" %in% names(res))
 })
 
 test_that("n-sample-dependent: not allowed raises error", {
@@ -128,9 +139,20 @@ test_that("numeric-numeric: y ~ x (both numeric)", {
   res <- resolveFormula(y ~ blk, data = df,
                         allowed = c("numeric-numeric", "n-sample-independent"))
   expect_equal(res$type, "numeric-numeric")
-  expect_true(all(c("x", "group") %in% names(res)))
+  expect_true(all(c("x", "predictor") %in% names(res)))
   expect_equal(length(res$x), nrow(df))
-  expect_true(is.numeric(res$group))
+  expect_true(is.numeric(res$predictor))
+  # 'group' is reserved for categorical designs - must not leak in here.
+  expect_false("group" %in% names(res))
+})
+
+test_that("numeric-numeric is reachable via the default 'allowed'", {
+  # regression guard: numeric-numeric was missing from the default
+  # 'allowed' vector, so y ~ x (x numeric) silently fell through to
+  # the grouped-design branch and coerced x into a factor with one
+  # level per unique value.
+  res <- resolveFormula(y ~ blk, data = df)
+  expect_equal(res$type, "numeric-numeric")
 })
 
 test_that("formula with > 2 terms raises error", {
@@ -156,7 +178,8 @@ test_that("subset filters observations correctly", {
                         subset  = subset_expr,
                         allowed = c("two-sample-independent",
                                     "n-sample-independent"))
-  expect_equal(length(res$x) + length(res$y), sum(df$g3 != "C"))
+  expect_equal(length(res$x), sum(df$g3 != "C"))
+  expect_equal(length(res$group), sum(df$g3 != "C"))
 })
 
 # ── 8. na.action ──────────────────────────────────────────────────────────────
@@ -167,7 +190,7 @@ test_that("na.action = na.omit removes NAs", {
                         na.action = na.omit,
                         allowed   = c("two-sample-independent",
                                       "n-sample-independent"))
-  expect_equal(length(res$x) + length(res$y), nrow(df) - 3L)
+  expect_equal(length(res$x), nrow(df) - 3L)
 })
 
 test_that("na.action = na.pass keeps NAs (default)", {
@@ -176,7 +199,7 @@ test_that("na.action = na.pass keeps NAs (default)", {
   res <- resolveFormula(y ~ g2, data = df_na,
                         allowed = c("two-sample-independent",
                                     "n-sample-independent"))
-  expect_true(any(is.na(c(res$x, res$y))))
+  expect_true(anyNA(res$x))
 })
 
 # ── 9. data.name ──────────────────────────────────────────────────────────────
@@ -191,6 +214,35 @@ test_that("data.name for blocked design contains 'and'", {
   res <- resolveFormula(y ~ trt | blk, data = df,
                         allowed = "n-sample-dependent")
   expect_match(res$data.name, "|", fixed = TRUE)
+})
+
+# ── 11. shape-consistency contract (k=2 vs k>2) ──────────────────────────────
+test_that("x/group have the same shape across k=2 and k>2 (no special-casing)", {
+  
+  res2 <- resolveFormula(y ~ g2, data = df,
+                         allowed = c("two-sample-independent",
+                                     "n-sample-independent"))
+  res3 <- resolveFormula(y ~ g3, data = df,
+                         allowed = c("two-sample-independent",
+                                     "n-sample-independent"))
+  
+  expect_equal(length(res2$x), length(res2$group))
+  expect_equal(length(res3$x), length(res3$group))
+  expect_equal(length(res2$x), nrow(df))
+  expect_equal(length(res3$x), nrow(df))
+})
+
+test_that("split(x, group) works for k=2 without a length-mismatch warning", {
+  # regression guard for the original bug: split.default(r$x, r$group)
+  # warned 'data length is not a multiple of split variable' because
+  # r$x used to be pre-split (group 1 only) while r$group spanned both
+  # groups.
+  res <- resolveFormula(y ~ g2, data = df,
+                        allowed = c("two-sample-independent",
+                                    "n-sample-independent"))
+  expect_no_warning(s <- split(res$x, res$group))
+  expect_equal(length(s), 2L)
+  expect_equal(sum(lengths(s)), nrow(df))
 })
 
 cat("\nAll resolveFormula tests passed.\n")
