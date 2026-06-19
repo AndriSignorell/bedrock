@@ -1,3 +1,4 @@
+
 #' Count Unique Values
 #'
 #' Returns the number of unique elements in a vector.
@@ -8,19 +9,52 @@
 #'
 #' @return An integer of length one.
 #'
+#' @seealso [isLowCardinality()] to check whether `x` has fewer than a given
+#'   number of unique values, without counting all of them first.
+#'
 #' @examples
-#' nunique(c(1, 1, 2, 3))
+#' nUnique(c(1, 1, 2, 3))
 #'
-#' nunique(c(1, 1, 2, NA))
+#' nUnique(c(1, 1, 2, NA))
 #'
-#' nunique(c(1, 1, 2, NA), na.rm = TRUE)
+#' nUnique(c(1, 1, 2, NA), na.rm = TRUE)
 #'
 
 #' @export
-nunique <- function(x, na.rm = FALSE) {
+nUnique <- function(x, na.rm = FALSE) {
   if (na.rm) {
     x <- x[!is.na(x)]
   }
   
   length(unique(x))
 }
+
+
+
+#' Check for Low Cardinality
+#'
+#' Checks whether `x` contains fewer than `maxUnique` unique, non-missing
+#' values. Unlike [nUnique()], this stops counting as soon as the threshold
+#' is exceeded, which makes it considerably faster for large,
+#' high-cardinality vectors.
+#'
+#' @param x A numeric or integer vector.
+#' @param maxUnique Integer. The threshold below which `x` is considered to
+#'   have low cardinality. Defaults to `12`.
+#'
+#' @return A logical of length one: `TRUE` if `x` has `maxUnique` or fewer
+#'   unique, non-`NA` values, `FALSE` otherwise.
+#'
+#' @seealso [nUnique()] for the uncapped count.
+#'
+#' @examples
+#' isLowCardinality(c(1, 2, 2, 3, NA))
+#'
+#' isLowCardinality(1:100, maxUnique = 12)
+#'
+#' @export
+isLowCardinality <- function(x, maxUnique = 12) {
+  .Call(`_bedrock_isLowCardinality`, x, maxUnique)
+}
+
+

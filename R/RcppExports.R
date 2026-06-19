@@ -29,6 +29,10 @@ factor_u64_cpp <- function(x) {
     .Call(`_bedrock_factor_u64_cpp`, x)
 }
 
+isLowCardinality <- function(x, maxUnique = 12L) {
+    .Call(`_bedrock_isLowCardinality`, x, maxUnique)
+}
+
 pip_cpp <- function(ptx, pty, plx, ply) {
     .Call(`_bedrock_pip_cpp`, ptx, pty, plx, ply)
 }

@@ -91,6 +91,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// isLowCardinality
+bool isLowCardinality(SEXP x, int maxUnique);
+RcppExport SEXP _bedrock_isLowCardinality(SEXP xSEXP, SEXP maxUniqueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type maxUnique(maxUniqueSEXP);
+    rcpp_result_gen = Rcpp::wrap(isLowCardinality(x, maxUnique));
+    return rcpp_result_gen;
+END_RCPP
+}
 // pip_cpp
 IntegerVector pip_cpp(NumericVector ptx, NumericVector pty, NumericVector plx, NumericVector ply);
 RcppExport SEXP _bedrock_pip_cpp(SEXP ptxSEXP, SEXP ptySEXP, SEXP plxSEXP, SEXP plySEXP) {
@@ -125,6 +137,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_bedrock_is_prime_cpp", (DL_FUNC) &_bedrock_is_prime_cpp, 1},
     {"_bedrock_primes_upto_cpp", (DL_FUNC) &_bedrock_primes_upto_cpp, 1},
     {"_bedrock_factor_u64_cpp", (DL_FUNC) &_bedrock_factor_u64_cpp, 1},
+    {"_bedrock_isLowCardinality", (DL_FUNC) &_bedrock_isLowCardinality, 2},
     {"_bedrock_pip_cpp", (DL_FUNC) &_bedrock_pip_cpp, 4},
     {"_bedrock_roman_to_int_cpp", (DL_FUNC) &_bedrock_roman_to_int_cpp, 1},
     {NULL, NULL, 0}
