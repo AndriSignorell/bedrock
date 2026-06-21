@@ -7,13 +7,16 @@
 #' 
 #' The "BETWEEN" operators basically combine two conditional statements into
 #' one and simplify the query process.\cr They are merely a wrapper for:
-#' \code{x >= rng[1] & x <= rng[2]}, where the round bracket \code{(} means
-#' \emph{strictly greater (>)} and the square bracket \code{[} means
+#' \code{x >= rng\[1\] & x <= rng\[2\]}, where the round bracket \code{(} means
+#' \emph{strictly greater (>)} and the square bracket \code{\[} means
 #' \emph{greater or equal (>=)}.  Numerical values of x will be handled by
 #' C-code, which is significantly faster than two comparisons in R (especially
-#' when x is huge). .\cr \code{%][%} is the negation of \code{%()%}, meaning
-#' all values lying outside the given range. Elements on the limits will return
-#' \code{TRUE}.
+#' when x is huge).\cr
+#' 
+#' Elements on the limits of the corresponding between-range will return
+#' \code{FALSE} for the matching outside-operator (i.e. boundary elements
+#' are never "outside" if the between-operator they negate included that
+#' boundary).
 #' 
 #' Both arguments, \code{x} and \code{rng}, will be recycled to the highest
 #' dimension, which is either the length of the vector (\code{x}) or the number
@@ -21,15 +24,19 @@
 #' whether two ranges overlap (\code{\link{overlap}}, 
 #' \code{\link{distance}}).
 #' 
-#' \code{%:%} returns all the elements of a vector between the (first found)
-#' element \code{rng[1]} and \code{rng[2]}. If no match is found it returns
-#' \code{NA}. If \code{rng[2]} occurs before \code{rng[1]} in the vector the
-#' elements will be returned in reverse order (which is the same behaviour as
-#' the \code{:} operator). \cr \code{%::%} does the same in greedy mood. It
-#' uses the first match for \code{from} and the last match for \code{to}. \cr
-#' 
+#' The "OUTSIDE" operators are the negations of the corresponding "BETWEEN"
+#' operators, matched by \emph{meaning} rather than by mirrored bracket
+#' symbols:
+#' \itemize{
+#'   \item \code{\%][\%} negates \code{\%()\%} (strictly outside both bounds)
+#'   \item \code{\%](\%} negates \code{\%(]\%}
+#'   \item \code{\%)[\%} negates \code{\%[)\%}
+#'   \item \code{\%)(\%} negates \code{\%[]\%} (strictly outside, both bounds
+#'     of the between-operator were closed)
+#' }
+#'  
 #' @name between
-#' @aliases between %()% %(]% %[)% %[]% %][% %)[% %](% %)(% %:% %::% 
+#' @aliases between `%()%` `%(]%` `%[)%` `%[]%` `%][%` `%)[%` `%](%` `%)(%`
 #' @param x is a variable with at least ordinal scale, usually a numeric value,
 #' but can be an ordered factor or a text as well. Texts would be treated
 #' alphabetically.
@@ -83,36 +90,6 @@
 #' # both arguments are recycled
 #' c(2,3) %[]% cbind(1:4,2:5)
 #' 
-#' 
-#' # between operator for vector positions
-#' set.seed(4)
-#' (x <- sample(LETTERS, size=10, replace=TRUE))
-#' # [1] "X" "K" "S" "C" "G" "L" "S" "V" "U" "Z"
-#' 
-#' # return all elements between "S" and "L" 
-#' x %:% c("S","L")
-#' # [1] "S" "C" "G" "L"
-#'  
-#' x %:% c("S","A")
-#' # [1] "S" "C" "G" "L" "S" "V" "U" "Z"
-#'  
-#' x %:% c("A","S")
-#' # [1] "X" "K" "S"
-#' 
-#' # reverted matches return the elements in reverse order
-#' x %:% c("G","X")
-#' # [1] "G" "C" "S" "K" "X"
-#' 
-#' # no match results in NA
-#' x %:% c("Y","B")
-#' 
-#' (x <- c("B", "A", "X", "K", "S", "K", "G", "L", "K", "V", "K", "Z"))
-#' # lazy
-#' x %:% c("A", "K")
-#' # greedy
-#' x %::% c("A", "K")
-#' 
- 
 
 #' @rdname between
 #' @export
@@ -160,43 +137,6 @@
 #' @export
 `%)(%` <- function(x, rng) {
   return(!(x %[]% rng))
-}
-
-
-
-# lazy: takes the first matches
-#' @rdname between
-#' @export
-`%:%` <- function(x, rng){
-  i <- match(x, rng, nomatch = 0)
-  from <- ifelse(length(from <- which(i==1))==0, 1, from)[1]
-  to <- ifelse(length(to <- which(i==2))==0, length(x), to)[1]
-  
-  # why the NA here???  
-  # if(from==1 & to==length(x))
-  #   NA
-  # else
-  
-  x[from:to]
-  
-}
-
-
-# greedy: takes the first and the last
-#' @rdname between
-#' @export
-`%::%` <- function(x, rng){
-  i <- match(x, rng, nomatch = 0)
-  from <- ifelse(length(from <- which(i==1))==0, 1, from)[1]
-  to <- ifelse(length(to <- which(i==2))==0, length(x), tail(to, 1))[1]
-  
-  # why the NA here???  
-  # if(from==1 & to==length(x))
-  #   NA
-  # else
-  
-  x[from:to]
-  
 }
 
 
