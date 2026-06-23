@@ -4,7 +4,7 @@
 \alias{strSplitToCol}
 \title{Split Strings into Multiple Columns}
 \usage{
-strSplitToCol(x, split = " ", fixed = TRUE, naForm = "", col.names = NULL)
+strSplitToCol(x, split = " ", fixed = TRUE, naForm = "", colNames = NULL)
 }
 \arguments{
 \item{x}{A character vector or a data frame of character columns to be split.
@@ -19,7 +19,7 @@ Otherwise, it is treated as a regular expression.}
 \item{naForm}{Character value used to replace missing elements created
 by unequal split lengths.}
 
-\item{col.names}{Optional character vector specifying column names for the
+\item{colNames}{Optional character vector specifying column names for the
 resulting data frame. Recycled if necessary.}
 }
 \value{

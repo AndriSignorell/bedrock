@@ -7,7 +7,7 @@
 strX(
   object,
   ...,
-  number.variables = TRUE,
+  enumerate = TRUE,
   recursive = FALSE,
   strict.width = "cut"
 )
@@ -17,7 +17,7 @@ strX(
 
 \item{...}{Additional arguments passed to \code{\link[utils:str]{utils::str()}}.}
 
-\item{number.variables}{Logical. Should variables/elements be numbered?
+\item{enumerate}{Logical. Should variables/elements be numbered?
 Default is \code{TRUE}.}
 
 \item{recursive}{Logical. Should nested list elements also be numbered?

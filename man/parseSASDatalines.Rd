@@ -4,13 +4,13 @@
 \alias{parseSASDatalines}
 \title{Parse SAS DATALINES/CARDS blocks into a data.frame}
 \usage{
-parseSASDatalines(x, validate_names = FALSE)
+parseSASDatalines(x, validateNames = FALSE)
 }
 \arguments{
 \item{x}{A single character string containing a SAS DATA step with
 a DATALINES, CARDS, or CARDS4 block.}
 
-\item{validate_names}{Logical. If \code{TRUE} (default \code{FALSE}), emits
+\item{validateNames}{Logical. If \code{TRUE} (default \code{FALSE}), emits
 a warning when the dataset name violates SAS naming rules.}
 }
 \value{

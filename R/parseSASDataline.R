@@ -22,7 +22,7 @@
 #' 
 #' @param x A single character string containing a SAS DATA step with
 #'   a DATALINES, CARDS, or CARDS4 block.
-#' @param validate_names Logical. If \code{TRUE} (default \code{FALSE}), emits
+#' @param validateNames Logical. If \code{TRUE} (default \code{FALSE}), emits
 #'   a warning when the dataset name violates SAS naming rules.
 #'
 #' @return A data.frame with column names taken from the INPUT statement.
@@ -61,7 +61,7 @@
 #'
 
 #' @export
-parseSASDatalines <- function(x, validate_names = FALSE) {
+parseSASDatalines <- function(x, validateNames = FALSE) {
   
  # see: http://www.psychstatistics.com/2012/12/07/using-datalines-in-sas/
   # or:  http://www.ats.ucla.edu/stat/sas/library/SASRead_os.htm
@@ -84,7 +84,7 @@ parseSASDatalines <- function(x, validate_names = FALSE) {
   dsname       <- data_res[2]
   is_null_data <- toupper(dsname) == "_NULL_"
   
-  if (validate_names && !is_null_data) {
+  if (validateNames && !is_null_data) {
     if (nchar(dsname) > 32 || !grepl("^[A-Za-z_][A-Za-z0-9_]*$", dsname)) {
       warning(sprintf(
         "'%s' is not a valid SAS dataset name (max 32 chars, pattern [A-Za-z_][A-Za-z0-9_]*)",

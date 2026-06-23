@@ -30,7 +30,7 @@ test_that("strX works without numbering", {
   out <- capture.output(
     strX(
       mtcars,
-      number.variables = FALSE
+      enumerate = FALSE
     )
   )
   
@@ -69,7 +69,7 @@ test_that("strX errors on invalid logical arguments", {
   )
   
   expect_error(
-    strX(mtcars, number.variables = NA)
+    strX(mtcars, enumerate = NA)
   )
   
 })

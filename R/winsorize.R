@@ -61,8 +61,8 @@
 #' winsorize(x, val = quantile(x, c(0.1, 0.9), type = 1, na.rm = TRUE))
 #'
 #' # One-sided winsorization
-#' winsorize(x, val = c(min(x, na.rm = TRUE), 2))  # upper bound only
-#' winsorize(x, val = c(-2, max(x, na.rm = TRUE))) # lower bound only
+#' winsorize(x, val = c(-Inf, 2))  # upper bound only
+#' winsorize(x, val = c(-2, Inf)) # lower bound only
 #'
 
 

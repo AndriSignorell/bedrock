@@ -4,7 +4,7 @@
 \alias{resolveContingency}
 \title{Resolve Contingency Table}
 \usage{
-resolveContingency(x, y = NULL, square = FALSE, integer.counts = TRUE)
+resolveContingency(x, y = NULL, square = FALSE, integerCounts = TRUE)
 }
 \arguments{
 \item{x}{a contingency table, factor or vector.}
@@ -15,7 +15,7 @@ Ignored when \code{x} is a matrix.}
 \item{square}{logical indicating whether a square contingency table
 is required.}
 
-\item{integer.counts}{logical; if \code{TRUE} (default) a warning is
+\item{integerCounts}{logical; if \code{TRUE} (default) a warning is
 issued when the table contains non-integer counts.}
 }
 \value{

@@ -16,7 +16,7 @@
 #'   Otherwise, it is treated as a regular expression.
 #' @param naForm Character value used to replace missing elements created
 #'   by unequal split lengths.
-#' @param col.names Optional character vector specifying column names for the
+#' @param colNames Optional character vector specifying column names for the
 #'   resulting data frame. Recycled if necessary.
 #'
 #' @details
@@ -65,7 +65,8 @@
 
 
 #' @export
-strSplitToCol <- function(x, split = " ", fixed = TRUE, naForm = "", col.names = NULL) {
+strSplitToCol <- function(x, split = " ", fixed = TRUE, 
+                          naForm = "", colNames = NULL) {
   
   # input validation
   if (!is.data.frame(x) && !is.character(x))
@@ -101,9 +102,9 @@ strSplitToCol <- function(x, split = " ", fixed = TRUE, naForm = "", col.names =
   
   res <- do.call(data.frame, c(lst, list(stringsAsFactors = FALSE)))
   
-  # optionally rename columns (col.names recycled to fit)
-  if (!is.null(col.names))
-    colnames(res) <- rep(col.names, length.out = ncol(res))
+  # optionally rename columns (colNames recycled to fit)
+  if (!is.null(colNames))
+    colnames(res) <- rep(colNames, length.out = ncol(res))
   
   # communicate the number of columns generated per input element
   attr(res, "cols") <- vapply(lst, ncol, integer(1))

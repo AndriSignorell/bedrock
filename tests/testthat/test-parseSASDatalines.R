@@ -178,7 +178,7 @@ test_that("invalid dataset name triggers warning", {
     ;
   "
   
-  expect_warning(parseSASDatalines(txt, validate_names = TRUE))
+  expect_warning(parseSASDatalines(txt, validateNames = TRUE))
 })
 
 test_that("single variable works", {

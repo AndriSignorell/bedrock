@@ -11,7 +11,7 @@
 #'
 #' @param object Any R object.
 #' @param ... Additional arguments passed to [utils::str()].
-#' @param number.variables Logical. Should variables/elements be numbered?
+#' @param enumerate Logical. Should variables/elements be numbered?
 #'   Default is `TRUE`.
 #' @param recursive Logical. Should nested list elements also be numbered?
 #'   Default is `FALSE`.
@@ -44,7 +44,7 @@
 strX <- function(
     object,
     ...,
-    number.variables = TRUE,
+    enumerate = TRUE,
     recursive = FALSE,
     strict.width = "cut"
 ) {
@@ -52,8 +52,8 @@ strX <- function(
   # ---- checks --------------------------------------------------------------
   
   stopifnot(
-    is.logical(number.variables),
-    length(number.variables) == 1L,
+    is.logical(enumerate),
+    length(enumerate) == 1L,
     is.logical(recursive),
     length(recursive) == 1L
   )
@@ -71,7 +71,7 @@ strX <- function(
   # ---- numbering -----------------------------------------------------------
   
   if (
-    number.variables &&
+    enumerate &&
     (is.list(object) || is.data.frame(object))
   ) {
     

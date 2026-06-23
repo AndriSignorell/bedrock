@@ -13,7 +13,7 @@
 #' Ignored when \code{x} is a matrix.
 #' @param square logical indicating whether a square contingency table
 #' is required.
-#' @param integer.counts logical; if \code{TRUE} (default) a warning is
+#' @param integerCounts logical; if \code{TRUE} (default) a warning is
 #' issued when the table contains non-integer counts.
 #'
 #' @return A list containing:
@@ -37,7 +37,7 @@ resolveContingency <- function(
     x,
     y = NULL,
     square = FALSE,
-    integer.counts = TRUE
+    integerCounts = TRUE
 ) {
   if (is.matrix(x)) {
     
@@ -48,7 +48,7 @@ resolveContingency <- function(
     if (any(x < 0, na.rm = TRUE) || any(!is.finite(x)))
       stop("all entries of 'x' must be nonnegative and finite")
     
-    if (integer.counts && any(x != round(x)))
+    if (integerCounts && any(x != round(x)))
       warning("'x' contains non-integer counts", call. = FALSE)
     
     DNAME <- deparse1(substitute(x))
