@@ -57,7 +57,9 @@ percentRank(c(5, NA, NA))
 Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=divisors]{divisors()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link{gcd_lcm}},
 \code{\link{precision}},
 \code{\link[=ptInPoly]{ptInPoly()}},
 \code{\link[=roundTo]{roundTo()}},

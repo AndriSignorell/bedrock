@@ -4,13 +4,7 @@
 \alias{strX}
 \title{Extended str() with numbered variables}
 \usage{
-strX(
-  object,
-  ...,
-  enumerate = TRUE,
-  recursive = FALSE,
-  strict.width = "cut"
-)
+strX(object, ..., enumerate = TRUE, recursive = FALSE, strict.width = "cut")
 }
 \arguments{
 \item{object}{Any R object.}

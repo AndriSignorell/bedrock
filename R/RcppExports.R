@@ -29,6 +29,18 @@ factor_u64_cpp <- function(x) {
     .Call(`_bedrock_factor_u64_cpp`, x)
 }
 
+lcm_cpp <- function(a, b) {
+    .Call(`_bedrock_lcm_cpp`, a, b)
+}
+
+gcd_cpp <- function(a, b) {
+    .Call(`_bedrock_gcd_cpp`, a, b)
+}
+
+divs <- function(x) {
+    .Call(`_bedrock_divs`, x)
+}
+
 isLowCardinality <- function(x, maxUnique = 12L) {
     .Call(`_bedrock_isLowCardinality`, x, maxUnique)
 }

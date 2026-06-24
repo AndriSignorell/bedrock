@@ -91,6 +91,41 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// lcm_cpp
+long long lcm_cpp(long long int a, long long int b);
+RcppExport SEXP _bedrock_lcm_cpp(SEXP aSEXP, SEXP bSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< long long int >::type a(aSEXP);
+    Rcpp::traits::input_parameter< long long int >::type b(bSEXP);
+    rcpp_result_gen = Rcpp::wrap(lcm_cpp(a, b));
+    return rcpp_result_gen;
+END_RCPP
+}
+// gcd_cpp
+long long gcd_cpp(long long int a, long long int b);
+RcppExport SEXP _bedrock_gcd_cpp(SEXP aSEXP, SEXP bSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< long long int >::type a(aSEXP);
+    Rcpp::traits::input_parameter< long long int >::type b(bSEXP);
+    rcpp_result_gen = Rcpp::wrap(gcd_cpp(a, b));
+    return rcpp_result_gen;
+END_RCPP
+}
+// divs
+IntegerVector divs(int x);
+RcppExport SEXP _bedrock_divs(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(divs(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // isLowCardinality
 bool isLowCardinality(SEXP x, int maxUnique);
 RcppExport SEXP _bedrock_isLowCardinality(SEXP xSEXP, SEXP maxUniqueSEXP) {
@@ -137,6 +172,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_bedrock_is_prime_cpp", (DL_FUNC) &_bedrock_is_prime_cpp, 1},
     {"_bedrock_primes_upto_cpp", (DL_FUNC) &_bedrock_primes_upto_cpp, 1},
     {"_bedrock_factor_u64_cpp", (DL_FUNC) &_bedrock_factor_u64_cpp, 1},
+    {"_bedrock_lcm_cpp", (DL_FUNC) &_bedrock_lcm_cpp, 2},
+    {"_bedrock_gcd_cpp", (DL_FUNC) &_bedrock_gcd_cpp, 2},
+    {"_bedrock_divs", (DL_FUNC) &_bedrock_divs, 1},
     {"_bedrock_isLowCardinality", (DL_FUNC) &_bedrock_isLowCardinality, 2},
     {"_bedrock_pip_cpp", (DL_FUNC) &_bedrock_pip_cpp, 4},
     {"_bedrock_roman_to_int_cpp", (DL_FUNC) &_bedrock_roman_to_int_cpp, 1},

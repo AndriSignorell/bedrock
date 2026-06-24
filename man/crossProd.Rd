@@ -59,7 +59,9 @@ crossProd(x, y, "cols")
 \seealso{
 Other math.utils:
 \code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=divisors]{divisors()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link{gcd_lcm}},
 \code{\link[=percentRank]{percentRank()}},
 \code{\link{precision}},
 \code{\link[=ptInPoly]{ptInPoly()}},

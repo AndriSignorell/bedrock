@@ -45,7 +45,9 @@ crossProdN(A)
 \seealso{
 Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
+\code{\link[=divisors]{divisors()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link{gcd_lcm}},
 \code{\link[=percentRank]{percentRank()}},
 \code{\link{precision}},
 \code{\link[=ptInPoly]{ptInPoly()}},
