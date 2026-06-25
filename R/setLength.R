@@ -20,7 +20,7 @@
 #'
 
 #' @export
-setLength <- function(x, n, fill = "") {
+setLength <- function(x, n, fill = NA) {
   head(c(x, rep(fill, max(0, n - length(x)))), n)
 }
 

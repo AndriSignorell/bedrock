@@ -31,6 +31,6 @@ colnames(Pizza) \%:\% c("price", "nps")
 
 }
 \seealso{
-the \code{\link{\%::\%}} operator for the greedy variant, which uses the
+the \verb{\%::\%} operator for the greedy variant, which uses the
 \emph{last} occurrence of \code{rng[2]}.
 }

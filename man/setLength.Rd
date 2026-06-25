@@ -4,7 +4,7 @@
 \alias{setLength}
 \title{Set the length of a vector, padding or truncating as needed}
 \usage{
-setLength(x, n, fill = "")
+setLength(x, n, fill = NA)
 }
 \arguments{
 \item{x}{a vector}

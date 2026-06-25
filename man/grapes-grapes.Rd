@@ -29,6 +29,6 @@ x \%::\% c("c", "e")
 
 }
 \seealso{
-the \code{\link{\%::\%}} operator for the lazy variant, which uses the
+the \verb{\%::\%}. operator for the lazy variant, which uses the
 \emph{first} occurrence of \code{rng[2]}.
 }

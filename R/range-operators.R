@@ -12,7 +12,7 @@
 #' @return a subset of `x`, from the first occurrence of `rng[1]` to the
 #'   first occurrence of `rng[2]`.
 #'
-#' @seealso the \code{\link{\%::\%}} operator for the greedy variant, which uses the
+#' @seealso the \verb{\%::\%} operator for the greedy variant, which uses the
 #'   *last* occurrence of `rng[2]`.
 #'
 #' @examples
@@ -58,7 +58,7 @@
 #' @return a subset of `x`, from the first occurrence of `rng[1]` to the
 #'   last occurrence of `rng[2]`.
 #'
-#' @seealso the \code{\link{\%::\%}} operator for the lazy variant, which uses the
+#' @seealso the \verb{\%::\%}. operator for the lazy variant, which uses the
 #'   *first* occurrence of `rng[2]`.
 #'
 #' @examples

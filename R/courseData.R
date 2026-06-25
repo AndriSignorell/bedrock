@@ -96,6 +96,7 @@ courseData <- function(name,
 
 
 #' @keywords internal
+#' @noRd
 .resolveCourseURL <- function(name, candidates) {
   
   # yields first valid URL or NULL
