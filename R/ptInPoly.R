@@ -10,8 +10,8 @@
 #'
 #' @param x Numeric vector of x-coordinates of the query points.
 #' @param y Numeric vector of y-coordinates of the query points.
-#' @param poly_x Numeric vector of x-coordinates of the polygon vertices.
-#' @param poly_y Numeric vector of y-coordinates of the polygon vertices.
+#' @param polyX Numeric vector of x-coordinates of the polygon vertices.
+#' @param polyY Numeric vector of y-coordinates of the polygon vertices.
 #'
 #' @return An integer vector of length `length(x)`:
 #' \describe{
@@ -42,28 +42,28 @@
 #'
 #'
 #' @export
-ptInPoly <- function(x, y, poly_x, poly_y) {
+ptInPoly <- function(x, y, polyX, polyY) {
   
   # Input checks
   if (length(x) != length(y)) {
     stop("x and y must have the same length")
   }
   
-  if (length(poly_x) != length(poly_y)) {
-    stop("poly_x and poly_y must have the same length")
+  if (length(polyX) != length(polyY)) {
+    stop("polyX and polyY must have the same length")
   }
   
-  if (length(poly_x) < 3) {
+  if (length(polyX) < 3) {
     stop("Polygon must have at least 3 vertices")
   }
   
   # Ensure numeric type
   x <- as.numeric(x)
   y <- as.numeric(y)
-  poly_x <- as.numeric(poly_x)
-  poly_y <- as.numeric(poly_y)
+  polyX <- as.numeric(polyX)
+  polyY <- as.numeric(polyY)
   
   # Call C++ implementation
-  pip_cpp(x, y, poly_x, poly_y)
+  pip_cpp(x, y, polyX, polyY)
 }
 

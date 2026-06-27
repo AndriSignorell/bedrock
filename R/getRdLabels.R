@@ -8,7 +8,7 @@
 #' This function is useful for automatically generating variable labels from
 #' documented datasets in R packages.
 #'
-#' @param data_name Character string. Name of the dataset.
+#' @param dataName Character string. Name of the dataset.
 #' @param package Character string. Name of the package containing the dataset.
 #'
 #' @return A named character vector where names are variable names and values
@@ -38,7 +38,7 @@
 #'
 #'
 #' @export
-getRdLabels <- function(data_name, package) {
+getRdLabels <- function(dataName, package) {
   
   if (!requireNamespace("bedrock", quietly = TRUE)) {
     stop("Package 'bedrock' is required.")
@@ -52,10 +52,10 @@ getRdLabels <- function(data_name, package) {
   rd_db <- tools::Rd_db(package)
   
   # Namen sehen typischerweise so aus: "Pizza.Rd"
-  rd_name <- paste0(data_name, ".Rd")
+  rd_name <- paste0(dataName, ".Rd")
   
   if (!rd_name %in% names(rd_db)) {
-    stop("No Rd entry found for ", data_name)
+    stop("No Rd entry found for ", dataName)
   }
   
   rd <- rd_db[[rd_name]]

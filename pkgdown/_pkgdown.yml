@@ -1,0 +1,312 @@
+
+
+home:
+  title: bedrock
+  description: Base functions for the DescToolsX ecosystem
+
+destination: docs
+
+development:
+  mode: auto
+
+template:
+  default_assets: true
+  bootstrap: 5
+  params:
+  bootswatch: flatly
+
+navbar:
+  structure:
+    left:  [version, home, intro, reference, articles, tutorials, news]
+    right: [github]
+  components:
+    version:
+      icon: fa-book
+      menu:
+      - text: "Documentation for version of package:"
+      - text: Released
+        href: https://andrisignorell.github.io/bedrock/
+      - text: In-development
+        href: https://andrisignorell.github.io/bedrock/dev/
+    articles:
+      text: Tutorials
+      menu:
+        - text: "PDF:"
+        - text: 'Combinatorics'
+          href:  https://github.com/AndriSignorell/bedrock/raw/master/vignettes/Combinatorics.pdf
+
+# About package ==============================================================
+reference:
+
+# Operators ==================================================================
+  - title: "Operators"
+    contents:
+      - between
+      - range-operators
+      - intervals
+
+# Data Manipulation ==========================================================
+  - title: "Data Manipulation"
+
+  - subtitle: "Data Frames"
+    contents:
+      - appendX
+      - appendEnum
+      - appendRowNames
+      - compareDataFrames
+      - multMerge
+      - collapseTable
+      - as.array.xtabs
+
+  - subtitle: "Reshaping"
+    contents:
+      - toLong
+      - toWide
+      - untable
+
+  - subtitle: "Columns"
+    contents:
+      - dummy
+      - strSplitToDummy
+      - strSplitToCol
+      - recycle
+      - pairApply
+
+  - subtitle: "Tables"
+    contents:
+      - crossProd
+      - crossProdN
+      - printCharMatrix
+
+# Vectors ====================================================================
+  - title: "Vector Operations"
+    contents:
+      - rankX
+      - sortX
+      - revX
+      - vRot
+      - vShift
+      - splitAt
+      - splitX
+      - unwhich
+      - midx
+      - setLength
+      - setNamesX
+      - sampleX
+      - winsorize
+      - moveAvg
+      - percentRank
+      - locf
+      - recodeX
+      - renameX
+      - bin
+      - abind
+      - closest
+      - flags
+
+# Strings ====================================================================
+  - title: "Strings"
+
+  - subtitle: "String Manipulation"
+    contents:
+      - strX
+      - trim
+      - mReplace
+      - mGsub
+      - strSplitToCol
+      - strSplitToDummy
+      - nz
+
+  - subtitle: "Formatting"
+    contents:
+      - nf
+      - prec
+      - quot
+      - columnWrap
+
+  - subtitle: "Character Utilities"
+    contents:
+      - chr
+      - nchr
+      - nUnique
+      - nDec
+      - asciiToChar
+      - charToAscii
+
+  - subtitle: "Paths"
+    contents:
+      - buildPath
+      - splitPath
+
+# Missing Values =============================================================
+  - title: "Missing Values"
+    contents:
+      - isNA
+      - naIf
+      - naReplace
+      - coalesceX
+      - locf
+      - countCompCases
+      - completeColumns
+
+# Data Inspection ============================================================
+  - title: "Data Inspection"
+    contents:
+      - dataDescription
+      - isLowCardinality
+      - allIdentical
+      - allDuplicated
+      - isDichotomous
+      - maxDigits
+      - stringsAsFactors
+      - openDataObject
+
+# Predicates =================================================================
+  - title: "Predicates & Type Checks"
+    contents:
+      - isNA
+      - isZero
+      - isNumeric
+      - isWholeLike
+      - isOdd
+      - isPrime
+      - isFilePath
+      - isURL
+      - isEuclid
+      - isLowCardinality
+      - isDichotomous
+      - allIdentical
+      - allDuplicated
+
+# Attributes & Labels ========================================================
+  - title: "Attributes & Labels"
+    contents:
+      - label
+      - label<-
+      - keepAttr
+      - removeAttr
+      - setAttr
+      - getRdLabels
+
+# Mathematics ================================================================
+  - title: "Mathematics"
+
+  - subtitle: "General Math"
+    contents:
+      - dotProd
+      - roundTo
+      - linScale
+      - logit
+      - logitInv
+      - frac
+      - int
+      - num
+      - unirootAll
+
+  - subtitle: "Geometry"
+    contents:
+      - distance
+      - overlap
+      - overlaps
+      - ptInPoly
+
+  - subtitle: "Number Theory"
+    contents:
+      - GCD
+      - LCM
+      - divisors
+      - primes
+      - isPrime
+      - fibonacci
+      - factorize
+      - digitSum
+
+# Combinatorics ==============================================================
+  - title: "Combinatorics"
+    contents:
+      - combN
+      - combPairs
+      - combSet
+      - combLevels
+      - permn
+      - randGroupSplit
+
+# Base Conversion ============================================================
+  - title: "Base Conversion"
+    contents:
+      - baseToBase
+      - toBaseR
+      - decToHex
+      - hexToDec
+      - decToBin
+      - binToDec
+      - decToOct
+      - octToDec
+      - asBinary
+
+# Programming Utilities ======================================================
+  - title: "Programming Utilities"
+
+  - subtitle: "Function Inspection"
+    contents:
+      - funArgs
+      - funCalls
+      - funList
+      - funKeywords
+
+  - subtitle: "Argument Handling"
+    contents:
+      - extractArgs
+      - mergeArgs
+      - getDotsArg
+
+  - subtitle: "Formula Handling"
+    contents:
+      - resolveFormula
+      - resolveGroups
+      - resolveContingency
+
+  - subtitle: "Conditional Evaluation"
+    contents:
+      - callIf
+
+# Files & URLs ===============================================================
+  - title: "Files & URLs"
+    contents:
+      - isFilePath
+      - isURL
+      - fileExistURL
+      - readDownload
+      - findDownload
+      - pdfManual
+
+# Miscellaneous ==============================================================
+  - title: "Miscellaneous"
+
+  - subtitle: "Date & Time"
+    contents:
+      - asCDateFmt
+
+  - subtitle: "Encoding"
+    contents:
+      - romanToInt
+      - revCode
+
+  - subtitle: "Algorithms"
+    contents:
+      - binaryTree
+
+  - subtitle: "Datasets"
+    contents:
+      - courseData
+      - parseSASDatalines
+
+# Data =======================================================================
+  - title: "Data"
+    contents:
+      - Pizza
+      - Cards
+      - Roulette
+      - Tarot
+      
+

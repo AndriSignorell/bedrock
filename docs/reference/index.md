@@ -1,0 +1,342 @@
+# Package index
+
+## Operators
+
+- [`` `%[]%` ``](between.md) [`` `%[)%` ``](between.md)
+  [`` `%(]%` ``](between.md) [`` `%()%` ``](between.md)
+  [`` `%][%` ``](between.md) [`` `%](%` ``](between.md)
+  [`` `%)[%` ``](between.md) [`` `%)(%` ``](between.md) : Operators To
+  Check, If a Value Lies Within Or Outside a Given Range
+- [`` `%:%` ``](range-operators.md) [`` `%::%` ``](range-operators.md) :
+  Select a Range Between Two Elements (Lazy)
+- [`overlap()`](intervals.md) [`overlaps()`](intervals.md)
+  [`distance()`](intervals.md) [`` `%overlaps%` ``](intervals.md) :
+  Interval Arithmetic
+
+## Data Manipulation
+
+### Data Frames
+
+- [`appendX()`](appendX.md) : Append Elements to Objects
+
+- [`appendEnum()`](appendEnum.md) : Add an enumeration column
+
+- [`appendRowNames()`](appendRowNames.md) : Append Rownames to a Data
+  Frame or Matrix
+
+- [`compareDataFrames()`](compareDataFrames.md) : Compare Two Data
+  Frames by Key Column
+
+- [`multMerge()`](multMerge.md) : Merge Multiple Data Frames
+
+- [`collapseTable()`](collapseTable.md) : Collapse Table Dimensions by
+  Remapping Factor Levels
+
+- [`as.array(`*`<xtabs>`*`)`](as.array.xtabs.md) :
+
+  Coerce `xtabs` Object to Array or Matrix
+
+### Reshaping
+
+- [`toLong()`](long-wide-reshape.md) [`toWide()`](long-wide-reshape.md)
+  : Reshape Between Long and Wide Format
+- [`untable()`](untable.md) : Recover Original Data From Contingency
+  Table
+
+### Columns
+
+- [`dummy()`](dummy.md) : Generate Dummy Codes for a Factor
+- [`strSplitToDummy()`](strSplitToDummy.md) : Split a Character Vector
+  into a Dummy Matrix
+- [`strSplitToCol()`](strSplitToCol.md) : Split Strings into Multiple
+  Columns
+- [`recycle()`](recycle.md) : Recyle a List of Elements
+- [`pairApply()`](pairApply.md) : Pairwise Calculations
+
+### Tables
+
+- [`crossProd()`](crossProd.md) : Cross Product of 3D Vectors or
+  Matrices
+- [`crossProdN()`](crossProdN.md) : Generalized Cross Product via
+  Determinants
+- [`printCharMatrix()`](printCharMatrix.md) : Pretty-print a character
+  matrix with alignment, spacing and wrapping
+
+## Vector Operations
+
+- [`rankX()`](rankX.md) : Fast Ranking with Extended Tie Handling
+- [`sortX()`](sortX.md) : Sort Vectors, Matrices, Tables, and Data
+  Frames
+- [`revX()`](revX.md) : Reverse Elements of a Vector, a Matrix, a Table,
+  an Array or a Data.frame
+- [`vRot()`](vRot.md) : Rotate a vector
+- [`vShift()`](vShift.md) : Shift a vector with NA padding
+- [`splitAt()`](splitAt.md) : Split a Vector at Given Positions
+- [`splitX()`](splitX.md) : Split Data into Groups (Extended Interface)
+- [`unwhich()`](unwhich.md) : Inverse Which
+- [`midx()`](midx.md) : Midpoints of a Numeric Vector
+- [`setLength()`](setLength.md) : Set the length of a vector, padding or
+  truncating as needed
+- [`setNamesX()`](setNamesX.md) : Set the Names in an Object
+- [`sampleX()`](sampleX.md) : Random Samples and Permutations
+- [`winsorize()`](winsorize.md) : Winsorize a Numeric Vector
+- [`moveAvg()`](moveAvg.md) : Moving Average
+- [`percentRank()`](percentRank.md) : Percent Rank of a Numeric Vector
+- [`locf()`](locf.md) : Last Observation Carried Forward
+- [`recodeX()`](recodeX.md) : Recode a Variable
+- [`renameX()`](renameX.md) : Rename Elements of a Named Object
+- [`num()`](type-aliases.md) [`int()`](type-aliases.md)
+  [`chr()`](type-aliases.md) [`nchr()`](type-aliases.md)
+  [`bin()`](type-aliases.md) : Type Coercion Shortcuts
+- [`reexports`](reexports.md) [`abind`](reexports.md)
+  [`%^%`](reexports.md) : Objects exported from other packages
+- [`closest()`](closest.md) : Find the Closest Value
+- [`flags()`](flags.md) : Extract Dichotomous (Binary) Variables
+
+## Strings
+
+### String Manipulation
+
+- [`strX()`](strX.md) : Extended str() with numbered variables
+- [`trim()`](trim.md) : Trim a Vector
+- [`mReplace()`](mReplace.md) : Replace Multiple Values in a Vector
+- [`mGsub()`](mGsub.md) : Multiple String Substitution
+- [`strSplitToCol()`](strSplitToCol.md) : Split Strings into Multiple
+  Columns
+- [`strSplitToDummy()`](strSplitToDummy.md) : Split a Character Vector
+  into a Dummy Matrix
+- [`nz()`](nz.md) : Extract Non-Zero Values
+
+### Formatting
+
+- [`nf()`](nf.md) : Convert to Numeric via Factor
+- [`nDec()`](precision.md) [`prec()`](precision.md)
+  [`frac()`](precision.md) [`maxDigits()`](precision.md) : Fractional
+  Part and Maximal Digits of a Numeric Value
+- [`quot()`](quot.md) : Lagged Quotients
+- [`columnWrap()`](columnWrap.md) : Column Wrap
+
+### Character Utilities
+
+- [`num()`](type-aliases.md) [`int()`](type-aliases.md)
+  [`chr()`](type-aliases.md) [`nchr()`](type-aliases.md)
+  [`bin()`](type-aliases.md) : Type Coercion Shortcuts
+- [`nUnique()`](nUnique.md) : Count Unique Values
+- [`nDec()`](precision.md) [`prec()`](precision.md)
+  [`frac()`](precision.md) [`maxDigits()`](precision.md) : Fractional
+  Part and Maximal Digits of a Numeric Value
+- [`charToAscii()`](char-ascii-conversion.md)
+  [`asciiToChar()`](char-ascii-conversion.md) : Character \<-\> ASCII
+  Conversion
+
+### Paths
+
+- [`buildPath()`](buildPath.md) : Construct a normalized file path
+- [`splitPath()`](splitPath.md) : Split a File Path into Components
+
+## Missing Values
+
+- [`isNA()`](isNA.md) : Test for a Scalar Missing Value
+- [`naIf()`](naIf.md) : Replace Values with NA
+- [`naReplace()`](naReplace.md) : Replace NA Values
+- [`coalesceX()`](coalesceX.md) : Return the First Element Not Being NA
+- [`locf()`](locf.md) : Last Observation Carried Forward
+- [`countCompCases()`](countCompCases.md) : Count Complete Cases
+- [`completeColumns()`](completeColumns.md) : Identify Columns Without
+  Missing Values
+
+## Data Inspection
+
+- [`dataDescription()`](dataDescription.md) : Extract Data Description
+  from Excel File
+- [`isLowCardinality()`](isLowCardinality.md) : Check for Low
+  Cardinality
+- [`allIdentical()`](allIdentical.md) : Test Whether Multiple Objects
+  Are Identical
+- [`allDuplicated()`](allDuplicated.md) : Logical Indicator for All
+  Values Involved in Ties
+- [`isDichotomous()`](isDichotomous.md) : Check Whether a Vector Is
+  Dichotomous
+- [`nDec()`](precision.md) [`prec()`](precision.md)
+  [`frac()`](precision.md) [`maxDigits()`](precision.md) : Fractional
+  Part and Maximal Digits of a Numeric Value
+- [`stringsAsFactors()`](stringsAsFactors.md) : Convert Character
+  Columns to Factors
+- [`openDataObject()`](openDataObject.md) : Load Excel Data with
+  Metadata (Codes and Labels)
+
+## Predicates & Type Checks
+
+- [`isNA()`](isNA.md) : Test for a Scalar Missing Value
+- [`isZero()`](isZero.md) : Check a Vector For Being Zero
+- [`isNumeric()`](isNumeric.md) : Check Whether an Object Is a Valid
+  Numeric Vector
+- [`isWholeLike()`](isWholeLike.md) : Test Whether Values Are (Nearly)
+  Whole Numbers
+- [`isOdd()`](isOdd.md) : Test if numbers are odd
+- [`isPrime()`](isPrime.md) : Test Whether Numbers Are Prime
+- [`isFilePath()`](isFilePath.md) : Check whether a string is a file
+  path
+- [`isURL()`](isURL.md) : Check whether a string is a URL
+- [`isEuclid()`](isEuclid.md) : Test if a distance matrix is Euclidean
+- [`isLowCardinality()`](isLowCardinality.md) : Check for Low
+  Cardinality
+- [`isDichotomous()`](isDichotomous.md) : Check Whether a Vector Is
+  Dichotomous
+- [`allIdentical()`](allIdentical.md) : Test Whether Multiple Objects
+  Are Identical
+- [`allDuplicated()`](allDuplicated.md) : Logical Indicator for All
+  Values Involved in Ties
+
+## Attributes & Labels
+
+- [`label()`](label.md) [`` `label<-`() ``](label.md) : Get or set
+  object and variable labels
+- [`setAttr()`](setAttr-removeAttr-keepAttr.md)
+  [`removeAttr()`](setAttr-removeAttr-keepAttr.md)
+  [`keepAttr()`](setAttr-removeAttr-keepAttr.md) : Set and Remove Object
+  Attributes
+- [`getRdLabels()`](getRdLabels.md) : Extract variable labels from Rd
+  documentation
+
+## Mathematics
+
+### General Math
+
+- [`dotProd()`](dotProd.md) : Dot Product of Vectors or Matrices
+- [`roundTo()`](roundTo.md) : Round to Multiple
+- [`linScale()`](linScale.md) : Linearly Rescale Numeric Data
+- [`logit()`](logit.md) [`logitInv()`](logit.md) : Logit Transformation
+  and Its Inverse
+- [`nDec()`](precision.md) [`prec()`](precision.md)
+  [`frac()`](precision.md) [`maxDigits()`](precision.md) : Fractional
+  Part and Maximal Digits of a Numeric Value
+- [`num()`](type-aliases.md) [`int()`](type-aliases.md)
+  [`chr()`](type-aliases.md) [`nchr()`](type-aliases.md)
+  [`bin()`](type-aliases.md) : Type Coercion Shortcuts
+- [`unirootAll()`](unirootAll.md) : Find multiple roots of a function
+  within an interval
+
+### Geometry
+
+- [`overlap()`](intervals.md) [`overlaps()`](intervals.md)
+  [`distance()`](intervals.md) [`` `%overlaps%` ``](intervals.md) :
+  Interval Arithmetic
+- [`ptInPoly()`](ptInPoly.md) : Point-in-Polygon Test (Angle Summation,
+  Rcpp)
+
+### Number Theory
+
+- [`GCD()`](gcd_lcm.md) [`LCM()`](gcd_lcm.md) : Greatest Common Divisor
+  and Least Common Multiple
+- [`divisors()`](divisors.md) : Calculate Divisors
+- [`primes()`](primes.md) : Generate Prime Numbers up to Given Limits
+- [`isPrime()`](isPrime.md) : Test Whether Numbers Are Prime
+- [`fibonacci()`](fibonacci.md) : Fibonacci Numbers
+- [`factorize()`](factorize.md) : Prime Factorization of Integers
+- [`digitSum()`](digitSum.md) : Digit sum for integer values
+
+## Combinatorics
+
+- [`combN()`](combN.md) : Number of Combinations of a Set
+- [`combPairs()`](combPairs.md) : Get All Pairs Out of One or Two Sets
+  of Elements
+- [`combSet()`](combinatoric.md) : Samples for Combinations of a Set
+- [`combLevels()`](combLevels.md) : Combine Levels from Multiple Inputs
+- [`permn()`](permn.md) : Set of Permutations
+- [`randGroupSplit()`](randGroupSplit.md) : Randomly Split a Vector into
+  Groups of Given Sizes
+
+## Base Conversion
+
+- [`hexToDec()`](numeric-conversions.md)
+  [`decToHex()`](numeric-conversions.md)
+  [`octToDec()`](numeric-conversions.md)
+  [`decToOct()`](numeric-conversions.md)
+  [`binToDec()`](numeric-conversions.md)
+  [`decToBin()`](numeric-conversions.md)
+  [`romanToInt()`](numeric-conversions.md)
+  [`baseToBase()`](numeric-conversions.md) : Converts Numbers Between
+  Bases
+- [`toBaseR()`](toBaseR.md) : Back to Basics with Tibbles
+- [`asBinary()`](asBinary.md) : Coerce a Vector to Binary (0/1)
+
+## Programming Utilities
+
+### Function Inspection
+
+- [`funArgs()`](funArgs.md) : List all arguments of a function
+- [`funCalls()`](funCalls.md) : List Calls Used in Function
+- [`funList()`](funList.md) : List Objects, Functions Or Data in a
+  Package
+- [`funKeywords()`](funKeywords.md) : List Keywords For R Manual Pages
+
+### Argument Handling
+
+- [`extractArgs()`](extractArgs.md) : Extract named arguments from dots
+  with defaults
+- [`mergeArgs()`](mergeArgs.md) : Merge default arguments with user
+  overrides
+- [`getDotsArg()`](getDotsArg.md) : Get a single argument from dots with
+  default
+
+### Formula Handling
+
+- [`resolveFormula()`](resolveFormula.md) : Parse and Classify a Model
+  Formula
+- [`resolveGroups()`](resolveGroups.md) : Resolve Grouped Data
+- [`resolveContingency()`](resolveContingency.md) : Resolve Contingency
+  Table
+
+### Conditional Evaluation
+
+- [`callIf()`](callIf.md) : Conditionally Call a Function
+
+## Files & URLs
+
+- [`isFilePath()`](isFilePath.md) : Check whether a string is a file
+  path
+- [`isURL()`](isURL.md) : Check whether a string is a URL
+- [`fileExistURL()`](fileExistURL.md) : Check if a File Exists at a URL
+- [`readDownload()`](readDownload.md) : Read a File from the Downloads
+  Directory
+- [`findDownload()`](findDownload.md) : Locate a File in the Downloads
+  Directory
+- [`pdfManual()`](pdfManual.md) : Open CRAN PDF manual of a package
+
+## Miscellaneous
+
+### Date & Time
+
+- [`asCDateFmt()`](asCDateFmt.md) : Convert custom date format to
+  strftime format
+
+### Encoding
+
+- [`hexToDec()`](numeric-conversions.md)
+  [`decToHex()`](numeric-conversions.md)
+  [`octToDec()`](numeric-conversions.md)
+  [`decToOct()`](numeric-conversions.md)
+  [`binToDec()`](numeric-conversions.md)
+  [`decToBin()`](numeric-conversions.md)
+  [`romanToInt()`](numeric-conversions.md)
+  [`baseToBase()`](numeric-conversions.md) : Converts Numbers Between
+  Bases
+- [`revCode()`](revCode.md) : Reverse Coding of Variables
+
+### Algorithms
+
+- [`binaryTree()`](binaryTree.md) : Binary Tree
+
+### Datasets
+
+- [`courseData()`](courseData.md) : Load Course Dataset from Server
+- [`parseSASDatalines()`](parseSASDatalines.md) : Parse SAS
+  DATALINES/CARDS blocks into a data.frame
+
+## Data
+
+- [`Pizza`](Pizza.md) : Pizza delivery data (extended)
+- [`Cards`](Cards.md) : Playing Cards dataset
+- [`Roulette`](Roulette.md) : Roulette wheel dataset
+- [`Tarot`](Tarot.md) : Tarot Cards dataset

@@ -4,7 +4,7 @@
 \alias{extractArgs}
 \title{Extract named arguments from dots with defaults}
 \usage{
-extractArgs(dots, defaults, validate = NULL, return_rest = FALSE)
+extractArgs(dots, defaults, validate = NULL, returnRest = FALSE)
 }
 \arguments{
 \item{dots}{Named list of arguments (usually \code{list(...)})}
@@ -13,7 +13,7 @@ extractArgs(dots, defaults, validate = NULL, return_rest = FALSE)
 
 \item{validate}{Optional validation function}
 
-\item{return_rest}{Logical; return unused arguments}
+\item{returnRest}{Logical; return unused arguments}
 }
 \value{
 Named list of extracted arguments (and optionally remaining ones)

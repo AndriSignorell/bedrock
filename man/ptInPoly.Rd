@@ -4,16 +4,16 @@
 \alias{ptInPoly}
 \title{Point-in-Polygon Test (Angle Summation, Rcpp)}
 \usage{
-ptInPoly(x, y, poly_x, poly_y)
+ptInPoly(x, y, polyX, polyY)
 }
 \arguments{
 \item{x}{Numeric vector of x-coordinates of the query points.}
 
 \item{y}{Numeric vector of y-coordinates of the query points.}
 
-\item{poly_x}{Numeric vector of x-coordinates of the polygon vertices.}
+\item{polyX}{Numeric vector of x-coordinates of the polygon vertices.}
 
-\item{poly_y}{Numeric vector of y-coordinates of the polygon vertices.}
+\item{polyY}{Numeric vector of y-coordinates of the polygon vertices.}
 }
 \value{
 An integer vector of length \code{length(x)}:

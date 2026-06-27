@@ -4,7 +4,8 @@
 #' Returns the elements of `x` from the first occurrence of `rng[1]` to the
 #' first occurrence of `rng[2]`. Equivalent to a non-greedy ("lazy") match,
 #' analogous to lazy quantifiers in regular expressions.
-#'
+#' 
+#' @name range-operators
 #' @param x a vector.
 #' @param rng a vector of length 2: `c(from, to)`. May contain `NA` to match
 #'   missing values in `x`.
@@ -51,6 +52,7 @@
 #' *last* occurrence of `rng[2]`. Equivalent to a greedy match, analogous to
 #' greedy quantifiers in regular expressions.
 #'
+#' @rdname range-operators
 #' @param x a vector.
 #' @param rng a vector of length 2: `c(from, to)`. May contain `NA` to match
 #'   missing values in `x`.

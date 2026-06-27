@@ -8,13 +8,13 @@
 #' @param dots Named list of arguments (usually `list(...)`)
 #' @param defaults Named list of default values
 #' @param validate Optional validation function
-#' @param return_rest Logical; return unused arguments
+#' @param returnRest Logical; return unused arguments
 #'
 #' @return Named list of extracted arguments (and optionally remaining ones)
 
 
 #' @export
-extractArgs <- function(dots, defaults, validate = NULL, return_rest = FALSE) {
+extractArgs <- function(dots, defaults, validate = NULL, returnRest = FALSE) {
   
   out <- defaults
   
@@ -29,7 +29,7 @@ extractArgs <- function(dots, defaults, validate = NULL, return_rest = FALSE) {
     validate(out)
   }
   
-  if (return_rest) {
+  if (returnRest) {
     rest <- dots[setdiff(names(dots), names(defaults))]
     return(list(args = out, rest = rest))
   }

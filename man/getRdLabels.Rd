@@ -4,10 +4,10 @@
 \alias{getRdLabels}
 \title{Extract variable labels from Rd documentation}
 \usage{
-getRdLabels(data_name, package)
+getRdLabels(dataName, package)
 }
 \arguments{
-\item{data_name}{Character string. Name of the dataset.}
+\item{dataName}{Character string. Name of the dataset.}
 
 \item{package}{Character string. Name of the package containing the dataset.}
 }

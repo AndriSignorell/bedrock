@@ -24,7 +24,7 @@ test_that("extractArgs returns rest arguments", {
   dots <- list(a=1, z=9)
   defaults <- list(a=0)
 
-  res <- extractArgs(dots, defaults, return_rest=TRUE)
+  res <- extractArgs(dots, defaults, returnRest=TRUE)
 
   expect_equal(res$args, list(a=1))
   expect_equal(res$rest, list(z=9))

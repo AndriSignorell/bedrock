@@ -1,67 +1,69 @@
 
-# Type coercion aliases
-# Shorter, more intuitive alternatives to base R coercion functions
+#' Type Coercion Shortcuts
+#'
+#' Concise aliases for common base R coercion functions.
+#' \code{num()}, \code{int()}, \code{chr()} are direct wrappers around
+#' \code{as.numeric()}, \code{as.integer()}, and \code{as.character()}.
+#' \code{nchr()} handles the common pitfall of coercing factors to numeric.
+#' \code{bin()} converts any two-valued vector to logical.
+#'
+#' @details
+#' \describe{
+#'   \item{\code{num(x, ...)}}{Equivalent to \code{as.numeric(x)}.}
+#'   \item{\code{int(x, ...)}}{Equivalent to \code{as.integer(x)}.}
+#'   \item{\code{chr(x, ...)}}{Equivalent to \code{as.character(x)}.}
+#'   \item{\code{nchr(x)}}{Shortcut for \code{as.numeric(as.character(x))}.
+#'     Avoids the trap of \code{as.numeric(factor)} returning internal
+#'     integer codes instead of the label values.}
+#'   \item{\code{bin(x, ...)}}{Converts a two-valued vector (character,
+#'     factor, integer, or numeric) to logical. Mapping follows
+#'     \code{\link{factor}()} level order: the \emph{first} level becomes
+#'     \code{FALSE}, the \emph{second} \code{TRUE}. To reverse, use
+#'     \code{!bin(x)}.}
+#' }
+#'
+#' @param x a vector. For \code{bin()}, exactly two unique non-\code{NA}
+#'   values are required.
+#' @param ... further arguments passed to the underlying base function
+#'   (\code{as.numeric}, \code{as.integer}, \code{as.character}, or
+#'   \code{\link{asBinary}}).
+#'
+#' @return A vector of the target type and the same length as \code{x}.
+#'
+#' @examples
+#' num("3.14")
+#' int(3.9)                               # truncates, does not round
+#' chr(1:3)
+#' nchr(factor(c("1.5", "2.0", "1.5"))) # correct: 1.5 2.0 1.5
+#' as.numeric(factor(c("1.5", "2.0")))  # wrong:   1   2
+#'
+#' bin(c(0L, 1L, 0L, 1L))
+#' bin(c("no", "yes", "no"))            # "no" -> FALSE, "yes" -> TRUE
+#' !bin(c("no", "yes", "no"))           # reversed
+#' bin(factor(c("m", "w", "m")))        # "m" -> FALSE, "w" -> TRUE
+#'
+#' @seealso \code{\link{asBinary}()}
+#' @name type-aliases
+#' @aliases num int chr nchr bin
+NULL
 
-#' Coerce to numeric
-#' @param x a vector
-#' @param ... further arguments passed to \code{as.numeric}
+
 #' @rdname type-aliases
 #' @export
 num <- function(x, ...) as.numeric(x, ...)
 
-#' Coerce to integer
-#' @param x a vector
-#' @param ... further arguments passed to \code{as.integer}
 #' @rdname type-aliases
 #' @export
 int <- function(x, ...) as.integer(x, ...)
 
-#' Coerce to character
-#' @param x a vector
-#' @param ... further arguments passed to \code{as.character}
 #' @rdname type-aliases
 #' @export
 chr <- function(x, ...) as.character(x, ...)
 
-#' Coerce factor or character to numeric
-#'
-#' Shortcut for \code{as.numeric(as.character(x))}. Avoids returning
-#' internal factor codes when coercing factors directly with \code{as.numeric}.
-#'
-#' @param x a factor or character vector
 #' @rdname type-aliases
 #' @export
 nchr <- function(x) as.numeric(as.character(x))
 
-
-#' Coerce to logical
-#'
-#' Converts any two-valued vector (character, factor, integer, numeric)
-#' to logical. Analogous to \code{\link{num}()}, \code{\link{int}()},
-#' \code{\link{chr}()}.
-#'
-#' @param x a vector with exactly two unique non-\code{NA} values.
-#' @param ... further arguments passed to \code{\link{asBinary}}.
-#'
-#' @details
-#' The mapping follows the behaviour of \code{\link{factor}()}: levels are
-#' ordered alphabetically (or by existing factor level order), and the
-#' \emph{first} level maps to \code{FALSE}, the \emph{second} to
-#' \code{TRUE}.
-#'
-#' To reverse the mapping, negate the result: \code{!bin(x)}.
-#'
-#' @return A logical vector of the same length as \code{x}.
-#'
-#' @examples
-#' bin(c(0L, 1L, 0L, 1L))               # integer 0/1
-#' bin(c(0.0, 1.0, 0.0))                # numeric 0/1
-#' bin(c("no", "yes", "no"))            # "no" -> FALSE, "yes" -> TRUE
-#' !bin(c("no", "yes", "no"))           # reversed: "no" -> TRUE, "yes" -> FALSE
-#' bin(factor(c("m", "w", "m")))        # factor: "m" -> FALSE, "w" -> TRUE
-#'
-#' @seealso \code{\link{num}()}, \code{\link{int}()}, \code{\link{chr}()},
-#'   \code{\link{asBinary}()}
 #' @rdname type-aliases
 #' @export
 bin <- function(x, ...) {
@@ -70,4 +72,3 @@ bin <- function(x, ...) {
   attr(result, "coding") <- attr(b, "coding")
   result
 }
-
