@@ -48,10 +48,10 @@
 #' @importFrom readxl read_excel excel_sheets
 
 
-#' @family label.utils
-#' @concept variable-labels
-#' @concept data-manipulation
-#' @concept file-utilities
+
+#' @family label.utils  
+#' @concept label  
+#' @concept attribute
 #'
 #'
 #' @export

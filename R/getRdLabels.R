@@ -25,7 +25,7 @@
 #' @examples
 #' # Extract labels from a package dataset
 #' \dontrun{
-#' getRdLabels("Pizza", "bedrock")
+#' rdLabels("Pizza", "bedrock")
 #' }
 #'
 #' @seealso \code{\link[bedrock:label]{bedrock::label}}
@@ -38,7 +38,7 @@
 #'
 #'
 #' @export
-getRdLabels <- function(dataName, package) {
+rdLabels <- function(dataName, package) {
   
   if (!requireNamespace("bedrock", quietly = TRUE)) {
     stop("Package 'bedrock' is required.")

@@ -58,9 +58,9 @@
 #'
 
 
-#' @family table.utils
-#' @concept table-manipulation
-#' @concept string-formatting
+
+#' @family table.utils  
+#' @concept table
 #'
 #'
 #' @export

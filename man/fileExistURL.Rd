@@ -46,10 +46,10 @@ attr(res, "error")
 Other file.utils:
 \code{\link[=buildPath]{buildPath()}},
 \code{\link[=findDownload]{findDownload()}},
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
 \code{\link[=pdfManual]{pdfManual()}},
 \code{\link[=readDownload]{readDownload()}},
 \code{\link[=splitPath]{splitPath()}}
 }
-\concept{data-inspection}
-\concept{file-utilities}
 \concept{file.utils}
+\concept{programming}

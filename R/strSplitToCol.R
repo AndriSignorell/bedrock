@@ -57,13 +57,14 @@
 #' )
 #' strSplitToCol(df)
 #'
-#' @family string.utilities
-#' @concept string-manipulation
-#' @concept data-manipulation
-#' @concept data-structures
+
+
+
+#' @family string.utilities  
+#' @concept string-manipulation  
+#' @concept reshape
 #'
-
-
+#'
 #' @export
 strSplitToCol <- function(x, split = " ", fixed = TRUE, 
                           naForm = "", colNames = NULL) {

@@ -91,8 +91,19 @@ logitInv(z, min = 10, max = 20)
 }
 \seealso{
 \code{\link[stats]{qlogis}}, \code{\link[stats]{plogis}}
+
+Other math.utils:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=dotProd]{dotProd()}},
+\code{\link[=linScale]{linScale()}},
+\code{\link[=nUnique]{nUnique()}},
+\code{\link[=percentRank]{percentRank()}},
+\code{\link{precision}},
+\code{\link[=rankX]{rankX()}},
+\code{\link[=roundTo]{roundTo()}},
+\code{\link[=unirootAll]{unirootAll()}},
+\code{\link[=untable]{untable()}}
 }
-\concept{descriptive-statistics}
-\concept{mathematics}
+\concept{math.utils}
 \concept{transformation}
-\concept{transformations}

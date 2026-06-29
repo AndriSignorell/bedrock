@@ -28,12 +28,16 @@ Internal helper used to:
 }
 \seealso{
 Other pkg.introspection:
+\code{\link[=extractArgs]{extractArgs()}},
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},
-\code{\link[=getRdLabels]{getRdLabels()}}
+\code{\link[=getDotsArg]{getDotsArg()}},
+\code{\link[=quot]{quot()}},
+\code{\link[=rdLabels]{rdLabels()}},
+\code{\link[=rdTitle]{rdTitle()}},
+\code{\link[=strX]{strX()}}
 }
-\concept{data-manipulation}
-\concept{package-utilities}
 \concept{pkg.introspection}
+\concept{programming}

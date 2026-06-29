@@ -43,9 +43,10 @@ Other combinatorics:
 \code{\link[=combPairs]{combPairs()}},
 \code{\link[=combSet]{combSet()}},
 \code{\link[=permn]{permn()}},
-\code{\link[=randGroupSplit]{randGroupSplit()}}
+\code{\link[=randGroupSplit]{randGroupSplit()}},
+\code{\link[=unwhich]{unwhich()}}
 }
 \concept{combinatorics}
-\concept{vector-manipulation}
+\concept{sampling}
 \keyword{IO}
 \keyword{distribution}

@@ -42,10 +42,9 @@
 #'
 
 
-#' @family date.utils
-#' @concept date-handling
-#' @concept string-manipulation
-#' @concept data-manipulation
+
+#' @family data.manipulation  
+#' @concept date-time
 #'
 #'
 #' @export

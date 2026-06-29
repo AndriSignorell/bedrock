@@ -96,6 +96,8 @@ charToRaw("Silvia")
 \code{\link{rawToChar}}
 
 Other string.utilities:
+\code{\link[=mGsub]{mGsub()}},
+\code{\link[=mReplace]{mReplace()}},
 \code{\link[=strSplitToCol]{strSplitToCol()}},
 \code{\link[=strSplitToDummy]{strSplitToDummy()}}
 }

@@ -41,13 +41,13 @@
 #'        culture=c("positive","negative")))
 #' 
 #' 
-#' @family data.manipulation
-#' @concept data-manipulation
-#' @concept data-structures
-#'
-#'
 
 
+
+#' @family data.manipulation  
+#' @concept attribute
+#'
+#'
 #' @export
 setNamesX <- function (x, ...) {
   

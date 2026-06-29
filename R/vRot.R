@@ -19,10 +19,9 @@
 #' # 2 3 4 5 1
 #'
 
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept mathematics
-#' @concept geometry
+
+#' @family vector.ops  
+#' @concept ordering
 #'
 #'
 #' @export

@@ -57,6 +57,6 @@ Other table.utils:
 \code{\link[=collapseTable]{collapseTable()}},
 \code{\link[=printCharMatrix]{printCharMatrix()}}
 }
-\concept{data-manipulation}
-\concept{table-manipulation}
+\concept{merge}
+\concept{table}
 \concept{table.utils}

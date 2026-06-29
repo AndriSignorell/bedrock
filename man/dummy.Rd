@@ -68,8 +68,31 @@ apply(
 \seealso{
 \code{model.frame}, \code{contrasts}, \code{stats::contr.treatment},
 \code{stats::contr.sum}, \code{stats::contr.helmert}, \code{stats::contr.poly}
+
+Other data.manipulation:
+\code{\link[=appendEnum]{appendEnum()}},
+\code{\link[=appendRowNames]{appendRowNames()}},
+\code{\link[=appendX]{appendX()}},
+\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+\code{\link[=asBinary]{asBinary()}},
+\code{\link[=asCDateFmt]{asCDateFmt()}},
+\code{\link[=columnWrap]{columnWrap()}},
+\code{\link[=combLevels]{combLevels()}},
+\code{\link[=compareDataFrames]{compareDataFrames()}},
+\code{\link[=nf]{nf()}},
+\code{\link[=recodeX]{recodeX()}},
+\code{\link[=recycle]{recycle()}},
+\code{\link[=renameX]{renameX()}},
+\code{\link[=revCode]{revCode()}},
+\code{\link[=revX]{revX()}},
+\code{\link{setAttr-removeAttr-keepAttr}},
+\code{\link[=setNamesX]{setNamesX()}},
+\code{\link[=sortX]{sortX()}},
+\code{\link[=splitAt]{splitAt()}},
+\code{\link[=splitX]{splitX()}},
+\code{\link[=stringsAsFactors]{stringsAsFactors()}},
+\code{\link[=toBaseR]{toBaseR()}}
 }
-\concept{data-transformation}
-\concept{factor-handling}
-\concept{table-manipulation}
-\concept{topic.factorHandling}
+\concept{categorization}
+\concept{data.manipulation}
+\concept{dummy-coding}

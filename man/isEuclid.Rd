@@ -42,6 +42,18 @@ attr(res, "eigenvalues")
 attr(res, "min_eigenvalue")
 
 }
-\concept{correlation}
-\concept{data-inspection}
-\concept{mathematics}
+\seealso{
+Other data.inspection:
+\code{\link[=allDuplicated]{allDuplicated()}},
+\code{\link[=allIdentical]{allIdentical()}},
+\code{\link[=completeColumns]{completeColumns()}},
+\code{\link[=countCompCases]{countCompCases()}},
+\code{\link[=flags]{flags()}},
+\code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isURL]{isURL()}},
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=isZero]{isZero()}}
+}
+\concept{data.inspection}
+\concept{ordering}

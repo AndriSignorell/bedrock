@@ -21,9 +21,9 @@
 
 
 
-#' @family data.manipulation
-#' @concept data-manipulation
-#' @concept data-structures
+
+#' @family data.manipulation  
+#' @concept reshape
 #'
 #'
 #' @export 

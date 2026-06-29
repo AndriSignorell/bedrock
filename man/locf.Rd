@@ -42,11 +42,25 @@ d.frm
 \seealso{
 See also the package \pkg{Hmisc} for less coarse imputation
 functions.
+
+Other vector.ops:
+\code{\link[=closest]{closest()}},
+\code{\link[=coalesceX]{coalesceX()}},
+\code{\link[=midx]{midx()}},
+\code{\link[=moveAvg]{moveAvg()}},
+\code{\link[=naIf]{naIf()}},
+\code{\link[=naReplace]{naReplace()}},
+\code{\link[=nz]{nz()}},
+\code{\link[=pairApply]{pairApply()}},
+\code{\link[=setLength]{setLength()}},
+\code{\link[=trim]{trim()}},
+\code{\link[=vRot]{vRot()}},
+\code{\link[=vShift]{vShift()}},
+\code{\link[=winsorize]{winsorize()}}
 }
 \author{
 Daniel Wollschlaeger \href{mailto:dwoll@psychologie.uni-kiel.de}{dwoll@psychologie.uni-kiel.de}
 }
-\concept{data-manipulation}
-\concept{imputation}
-\concept{missing-data}
+\concept{missing-value}
 \concept{time-series}
+\concept{vector.ops}

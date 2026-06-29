@@ -25,9 +25,9 @@
 #' 
 
 
-#' @family combinatorics
+
+#' @family combinatorics  
 #' @concept combinatorics
-#' @concept mathematics
 #'
 #'
 #' @export

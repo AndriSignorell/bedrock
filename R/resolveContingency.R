@@ -26,12 +26,14 @@
 #'   \item{data.name}{name of the data}
 #' }
 #'
-#' @family data.utils
-#' @concept contingency-tables
-#' @concept data-manipulation
+
+
+
+#' @family data.utils  
+#' @concept formula  
+#' @concept frequency-table
 #'
-
-
+#'
 #' @export
 resolveContingency <- function(
     x,

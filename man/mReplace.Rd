@@ -27,3 +27,12 @@ mReplace(c("a", "b", "c", "d"), c("a", "c"), c("A", "C"))
 # [1] "A" "b" "C" "d"
 
 }
+\seealso{
+Other string.utilities:
+\code{\link{char-ascii-conversion}},
+\code{\link[=mGsub]{mGsub()}},
+\code{\link[=strSplitToCol]{strSplitToCol()}},
+\code{\link[=strSplitToDummy]{strSplitToDummy()}}
+}
+\concept{string-manipulation}
+\concept{string.utilities}

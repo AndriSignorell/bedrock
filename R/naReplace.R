@@ -26,10 +26,9 @@
 #'
 
 
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept missing-data
-#' @concept data-manipulation
+
+#' @family vector.ops  
+#' @concept missing-value
 #'
 #'
 #' @export

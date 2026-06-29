@@ -31,9 +31,9 @@
 
 
 
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept data-manipulation
+
+#' @family data.manipulation  
+#' @concept reshape
 #'
 #'
 #' @export

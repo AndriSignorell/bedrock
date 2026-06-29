@@ -25,8 +25,9 @@
 #'
 
 
-#' @family data.manipulation
-#' @concept data-manipulation
+
+#' @family data.manipulation  
+#' @concept categorization  
 #' @concept factor-handling
 #'
 #'

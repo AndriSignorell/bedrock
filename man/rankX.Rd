@@ -82,24 +82,19 @@ rankX(a, b)
 \seealso{
 \code{\link[base]{rank}}, \code{\link[data.table]{frankv}}
 
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=unwhich]{unwhich()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+Other math.utils:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=dotProd]{dotProd()}},
+\code{\link[=linScale]{linScale()}},
+\code{\link[=logit]{logit()}},
+\code{\link[=nUnique]{nUnique()}},
+\code{\link[=percentRank]{percentRank()}},
+\code{\link{precision}},
+\code{\link[=roundTo]{roundTo()}},
+\code{\link[=unirootAll]{unirootAll()}},
+\code{\link[=untable]{untable()}}
 }
-\concept{descriptive-statistics}
-\concept{nonparametric}
-\concept{vector-manipulation}
-\concept{vector.ops}
+\concept{math.utils}
+\concept{ordering}
+\concept{rank-correlation}

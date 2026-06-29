@@ -29,20 +29,18 @@ number of its divisors can be determined with the function
 divisors(c(145, 786))
 }
 \seealso{
-Other math.utils:
-\code{\link[=crossProd]{crossProd()}},
-\code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=dotProd]{dotProd()}},
+Other number.theory:
+\code{\link[=digitSum]{digitSum()}},
+\code{\link[=factorize]{factorize()}},
+\code{\link[=fibonacci]{fibonacci()}},
 \code{\link{gcd_lcm}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=ptInPoly]{ptInPoly()}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}}
+\code{\link[=isOdd]{isOdd()}},
+\code{\link[=isPrime]{isPrime()}},
+\code{\link{numeric-conversions}},
+\code{\link[=primes]{primes()}}
 }
 \author{
 Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
 }
-\concept{math.utils}
-\concept{mathematics}
 \concept{number-theory}
+\concept{number.theory}

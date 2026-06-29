@@ -31,12 +31,13 @@
 #' isNA(1)              # FALSE
 #' isNA(c(1, NA))       # FALSE
 #'
-#' @family utilities
-#' @concept programming-helpers
-#' @concept logical-helpers
+
+
+
+#' @family utilities  
+#' @concept missing-value
 #'
-
-
+#'
 #' @export
 isNA <- function(x) {
   is.atomic(x) && length(x) == 1L && is.na(x)

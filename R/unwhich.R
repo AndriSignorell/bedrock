@@ -56,12 +56,13 @@
 #' # empty index -> all-FALSE vector
 #' unwhich(integer(0), n = 5L)
 #'
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept data-manipulation
+
+
+
+#' @family combinatorics  
+#' @concept ordering
 #'
-
-
+#'
 #' @export
 unwhich <- function(idx,
                     n = if (length(idx) > 0L && all(idx > 0L)) max(idx) else 0L,

@@ -36,9 +36,11 @@ Other data.inspection:
 \code{\link[=countCompCases]{countCompCases()}},
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isEuclid]{isEuclid()}},
 \code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isURL]{isURL()}},
 \code{\link[=isWholeLike]{isWholeLike()}},
 \code{\link[=isZero]{isZero()}}
 }
-\concept{data-inspection}
 \concept{data.inspection}
+\concept{ordering}

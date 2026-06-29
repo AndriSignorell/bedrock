@@ -37,9 +37,9 @@
 #' d.frm
 
 
-#' @family imputation
-#' @concept missing-data
-#' @concept data-manipulation
+
+#' @family vector.ops  
+#' @concept missing-value  
 #' @concept time-series
 #'
 #'

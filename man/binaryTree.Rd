@@ -37,7 +37,12 @@ binaryTree(12)
 }
 \seealso{
 \code{\link[aurora:plotBinaryTree]{aurora::plotBinaryTree()}}
+
+Other data.utils:
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=resolveContingency]{resolveContingency()}},
+\code{\link[=resolveFormula]{resolveFormula()}},
+\code{\link[=resolveGroups]{resolveGroups()}}
 }
-\concept{data-manipulation}
-\concept{data-structures}
-\concept{data.structures}
+\concept{data.utils}
+\concept{tree}

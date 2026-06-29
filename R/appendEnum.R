@@ -17,11 +17,13 @@
 #'
 #' @return \code{x} with an additional enumeration column
 #'
-#' @family data.manipulation
-#' @concept data-manipulation
+
+
+
+#' @family data.manipulation  
+#' @concept categorization
 #'
-
-
+#'
 #' @export
 appendEnum <- function(x, type = c("roman-lcase", "roman-ucase", "arabic"),
                        suffix = ". ", startWith = 1L, after = 0L,

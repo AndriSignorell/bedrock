@@ -8,7 +8,7 @@ descriptions.
 ## Usage
 
 ``` r
-getRdLabels(dataName, package)
+rdLabels(dataName, package)
 ```
 
 ## Arguments
@@ -52,6 +52,6 @@ Other pkg.introspection: [`funArgs()`](funArgs.md),
 ``` r
 # Extract labels from a package dataset
 if (FALSE) { # \dontrun{
-getRdLabels("Pizza", "bedrock")
+rdLabels("Pizza", "bedrock")
 } # }
 ```

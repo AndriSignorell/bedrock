@@ -72,9 +72,9 @@
 #' 
 #' 
 
-#' @family math.utils
-#' @concept mathematics
-#' @concept data-manipulation
+
+#' @family math.utils  
+#' @concept number-formatting
 #'
 #'
 #' @export

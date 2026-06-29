@@ -61,9 +61,9 @@
 
 # would not return characters correctly
 
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept missing-data
+
+#' @family vector.ops  
+#' @concept missing-value
 #'
 #'
 #' @export

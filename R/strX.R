@@ -40,6 +40,11 @@
 #' strX(x, recursive = TRUE)
 #'
 
+
+#' @family pkg.introspection  
+#' @concept introspection
+#'
+#'
 #' @export
 strX <- function(
     object,

@@ -36,7 +36,8 @@ Other combinatorics:
 \code{\link[=combPairs]{combPairs()}},
 \code{\link[=combSet]{combSet()}},
 \code{\link[=randGroupSplit]{randGroupSplit()}},
-\code{\link[=sampleX]{sampleX()}}
+\code{\link[=sampleX]{sampleX()}},
+\code{\link[=unwhich]{unwhich()}}
 }
 \concept{combinatorics}
-\concept{mathematics}
+\concept{sampling}

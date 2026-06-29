@@ -57,15 +57,16 @@ percentRank(c(5, NA, NA))
 Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=divisors]{divisors()}},
 \code{\link[=dotProd]{dotProd()}},
-\code{\link{gcd_lcm}},
+\code{\link[=linScale]{linScale()}},
+\code{\link[=logit]{logit()}},
+\code{\link[=nUnique]{nUnique()}},
 \code{\link{precision}},
-\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=rankX]{rankX()}},
 \code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}}
+\code{\link[=unirootAll]{unirootAll()}},
+\code{\link[=untable]{untable()}}
 }
-\concept{descriptive-statistics}
 \concept{math.utils}
-\concept{mathematics}
-\concept{vector-manipulation}
+\concept{ordering}
+\concept{transformation}

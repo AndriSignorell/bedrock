@@ -20,6 +20,11 @@
 #' nUnique(c(1, 1, 2, NA), na.rm = TRUE)
 #'
 
+
+#' @family math.utils  
+#' @concept ordering
+#'
+#'
 #' @export
 nUnique <- function(x, na.rm = FALSE) {
   if (na.rm) {

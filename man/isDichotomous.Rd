@@ -38,10 +38,11 @@ Other data.inspection:
 \code{\link[=completeColumns]{completeColumns()}},
 \code{\link[=countCompCases]{countCompCases()}},
 \code{\link[=flags]{flags()}},
+\code{\link[=isEuclid]{isEuclid()}},
 \code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isURL]{isURL()}},
 \code{\link[=isWholeLike]{isWholeLike()}},
 \code{\link[=isZero]{isZero()}}
 }
-\concept{data-inspection}
+\concept{binary}
 \concept{data.inspection}
-\concept{factor-handling}

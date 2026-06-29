@@ -24,9 +24,9 @@
 #' isDichotomous(factor(c("A", "A", "B", "C")))
 
 
-#' @family data.inspection
-#' @concept data-inspection
-#' @concept factor-handling
+
+#' @family data.inspection  
+#' @concept binary
 #'
 #'
 #' @export

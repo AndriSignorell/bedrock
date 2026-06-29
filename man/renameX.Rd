@@ -105,8 +105,30 @@ renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, which = "rownames")
 }
 \seealso{
 \code{\link{names}}, \code{\link{setNamesX}}
+
+Other data.manipulation:
+\code{\link[=appendEnum]{appendEnum()}},
+\code{\link[=appendRowNames]{appendRowNames()}},
+\code{\link[=appendX]{appendX()}},
+\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+\code{\link[=asBinary]{asBinary()}},
+\code{\link[=asCDateFmt]{asCDateFmt()}},
+\code{\link[=columnWrap]{columnWrap()}},
+\code{\link[=combLevels]{combLevels()}},
+\code{\link[=compareDataFrames]{compareDataFrames()}},
+\code{\link[=dummy]{dummy()}},
+\code{\link[=nf]{nf()}},
+\code{\link[=recodeX]{recodeX()}},
+\code{\link[=recycle]{recycle()}},
+\code{\link[=revCode]{revCode()}},
+\code{\link[=revX]{revX()}},
+\code{\link{setAttr-removeAttr-keepAttr}},
+\code{\link[=setNamesX]{setNamesX()}},
+\code{\link[=sortX]{sortX()}},
+\code{\link[=splitAt]{splitAt()}},
+\code{\link[=splitX]{splitX()}},
+\code{\link[=stringsAsFactors]{stringsAsFactors()}},
+\code{\link[=toBaseR]{toBaseR()}}
 }
-\concept{data-manipulation}
-\concept{names}
-\concept{rename}
-\concept{topic.utilities}
+\concept{attribute}
+\concept{data.manipulation}

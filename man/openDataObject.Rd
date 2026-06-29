@@ -60,7 +60,6 @@ Other label.utils:
 \code{\link[=dataDescription]{dataDescription()}},
 \code{\link[=label]{label()}}
 }
-\concept{data-manipulation}
-\concept{file-utilities}
+\concept{attribute}
+\concept{label}
 \concept{label.utils}
-\concept{variable-labels}

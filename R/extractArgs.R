@@ -13,6 +13,11 @@
 #' @return Named list of extracted arguments (and optionally remaining ones)
 
 
+
+#' @family pkg.introspection  
+#' @concept programming
+#'
+#'
 #' @export
 extractArgs <- function(dots, defaults, validate = NULL, returnRest = FALSE) {
   

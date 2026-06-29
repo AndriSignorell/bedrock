@@ -59,20 +59,17 @@ setequal(c(s[attr(s.tr, "trim")], s.tr), s)
 Other vector.ops:
 \code{\link[=closest]{closest()}},
 \code{\link[=coalesceX]{coalesceX()}},
+\code{\link[=locf]{locf()}},
 \code{\link[=midx]{midx()}},
 \code{\link[=moveAvg]{moveAvg()}},
 \code{\link[=naIf]{naIf()}},
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=nz]{nz()}},
 \code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=rankX]{rankX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=unwhich]{unwhich()}},
+\code{\link[=setLength]{setLength()}},
 \code{\link[=vRot]{vRot()}},
 \code{\link[=vShift]{vShift()}},
 \code{\link[=winsorize]{winsorize()}}
 }
-\concept{data-manipulation}
-\concept{vector-manipulation}
+\concept{ordering}
 \concept{vector.ops}

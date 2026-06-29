@@ -38,10 +38,9 @@
 #'
 
 
-#' @family data.manipulation
-#' @concept data-manipulation
-#' @concept data-structures
-#' @concept factor-handling
+
+#' @family data.manipulation  
+#' @concept categorization
 #'
 #'
 #' @export

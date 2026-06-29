@@ -27,4 +27,18 @@ isURL("./script.R")                     # FALSE
 }
 \seealso{
 \code{\link[=isFilePath]{isFilePath()}} for the complementary file-path check.
+
+Other data.inspection:
+\code{\link[=allDuplicated]{allDuplicated()}},
+\code{\link[=allIdentical]{allIdentical()}},
+\code{\link[=completeColumns]{completeColumns()}},
+\code{\link[=countCompCases]{countCompCases()}},
+\code{\link[=flags]{flags()}},
+\code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isEuclid]{isEuclid()}},
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=isZero]{isZero()}}
 }
+\concept{data.inspection}
+\concept{ordering}

@@ -59,9 +59,9 @@ Other file.utils:
 \code{\link[=buildPath]{buildPath()}},
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
 \code{\link[=pdfManual]{pdfManual()}},
 \code{\link[=readDownload]{readDownload()}}
 }
-\concept{file-utilities}
 \concept{file.utils}
-\concept{string-manipulation}
+\concept{programming}

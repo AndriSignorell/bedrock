@@ -62,5 +62,5 @@ Other datasets:
 \code{\link{Roulette}},
 \code{\link{Tarot}}
 }
-\concept{data-manipulation}
+\concept{dataset}
 \concept{datasets}

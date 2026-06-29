@@ -34,8 +34,8 @@
 
 
 #' @rdname gcd_lcm
-#' @family math.utils
-#' @concept mathematics
+
+#' @family number.theory  
 #' @concept number-theory
 #'
 #'

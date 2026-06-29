@@ -22,9 +22,9 @@
 #' primes(10)
 #' primes(c(5, 10))
 #' 
-#' @family number.theory
+
+#' @family number.theory  
 #' @concept number-theory
-#' @concept mathematics
 #'
 #'
 #' @export

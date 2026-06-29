@@ -43,9 +43,9 @@
 #'
 
 
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept data-manipulation
+
+#' @family vector.ops  
+#' @concept ordering
 #'
 #'
 #' @export 

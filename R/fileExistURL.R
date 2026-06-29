@@ -37,9 +37,9 @@
 #'
 
 
-#' @family file.utils
-#' @concept file-utilities
-#' @concept data-inspection
+
+#' @family file.utils  
+#' @concept programming
 #'
 #'
 #' @export

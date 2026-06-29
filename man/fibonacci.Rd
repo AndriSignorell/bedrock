@@ -49,12 +49,13 @@ fibo(30:33)                             # 1346269 2178309 3524578 5702887
 \seealso{
 Other number.theory:
 \code{\link[=digitSum]{digitSum()}},
+\code{\link[=divisors]{divisors()}},
 \code{\link[=factorize]{factorize()}},
+\code{\link{gcd_lcm}},
 \code{\link[=isOdd]{isOdd()}},
 \code{\link[=isPrime]{isPrime()}},
 \code{\link{numeric-conversions}},
 \code{\link[=primes]{primes()}}
 }
-\concept{mathematics}
 \concept{number-theory}
 \concept{number.theory}

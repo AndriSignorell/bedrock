@@ -68,10 +68,10 @@
 #'
 
 
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept descriptive-statistics
-#' @concept nonparametric
+
+#' @family math.utils  
+#' @concept ordering  
+#' @concept rank-correlation
 #'
 #'
 #' @export

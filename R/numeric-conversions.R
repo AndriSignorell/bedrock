@@ -1,73 +1,94 @@
 
-#' Converts Numbers Between Bases
+#' Convert Numbers Between Bases
 #'
-#' These functions convert numbers from one base to another.  There are
-#' several solutions for this problem out there, but the naming is quite
-#' heterogeneous and so consistent function names might be helpful.
+#' Vectorized conversion between positional numeral systems (bases 2–36),
+#' plus Roman-numeral parsing.  The convenience wrappers cover the most
+#' common cases; \code{baseToBase()} handles any combination of bases.
 #'
-#' \code{binToDec()} converts numbers from binary mode into decimal
-#' values; \code{decToBin()} does the reverse.  Oct means octal system
-#' and hex hexadecimal.  \code{baseToBase()} is the general case,
-#' supporting any base from 2 to 36.
-#'
-#' @details
-#' All specialist functions are special cases of \code{baseToBase()}:
-#' \tabular{ll}{
-#'   \code{hexToDec(x)} \tab \code{baseToBase(x, 16, 10)} \cr
-#'   \code{decToHex(x)} \tab \code{baseToBase(x, 10, 16)} \cr
-#'   \code{octToDec(x)} \tab \code{baseToBase(x,  8, 10)} \cr
-#'   \code{decToOct(x)} \tab \code{baseToBase(x, 10,  8)} \cr
-#'   \code{binToDec(x)} \tab \code{baseToBase(x,  2, 10)} \cr
-#'   \code{decToBin(x)} \tab \code{baseToBase(x, 10,  2)} \cr
+#' @section Convenience wrappers:
+#' All specialist functions are thin wrappers around \code{baseToBase()}:
+#' \tabular{lll}{
+#'   \bold{Function}    \tab \bold{Equivalent call}              \tab \bold{Returns}         \cr
+#'   \code{binToDec(x)} \tab \code{baseToBase(x,  2, 10)}       \tab integer                \cr
+#'   \code{decToBin(x)} \tab \code{baseToBase(x, 10,  2)}       \tab character              \cr
+#'   \code{octToDec(x)} \tab \code{baseToBase(x,  8, 10)}       \tab integer                \cr
+#'   \code{decToOct(x)} \tab \code{baseToBase(x, 10,  8)}       \tab numeric (octal digits) \cr
+#'   \code{hexToDec(x)} \tab \code{baseToBase(x, 16, 10)}       \tab integer                \cr
+#'   \code{decToHex(x)} \tab \code{baseToBase(x, 10, 16)}       \tab \code{hexmode}         \cr
 #' }
+#' \code{hexToDec()} additionally strips a leading \code{#} from CSS-style
+#' colour strings.
 #'
-#' \code{baseToBase()} uses \code{\link{strtoi}()} for parsing, which
-#' operates on \code{long int} internally.  Values above approximately
-#' \eqn{2^{31} - 1} may return \code{NA} on 32-bit platforms.
+#' @section Roman numerals:
+#' \code{romanToInt()} converts Roman numeral strings (e.g. \code{"XIV"}) to
+#' integers.  Input is trimmed and upper-cased before parsing; invalid strings
+#' return \code{NA}.  See also base R's \code{\link{as.roman}()} for the
+#' reverse direction.
+#'
+#' @section Platform limits:
+#' \code{baseToBase()} uses \code{\link{strtoi}()} internally, which operates
+#' on \code{long int}.  On 32-bit platforms values above \eqn{2^{31} - 1}
+#' may silently return \code{NA}.  \code{decToBin()} applies the same cap
+#' explicitly (values \eqn{> 536\,870\,911} become \code{NA}).
 #'
 #' @name numeric-conversions
 #' @aliases hexToDec decToHex octToDec decToOct binToDec decToBin romanToInt baseToBase
 #'
-#' @param x A vector of numbers or character representations to be
-#'   converted.
-#' @param from A single integer in \eqn{[2, 36]} giving the input base
-#'   (\code{baseToBase} only).
-#' @param to   A single integer in \eqn{[2, 36]} giving the output base
-#'   (\code{baseToBase} only).
+#' @param x A vector of numbers or character strings representing values in
+#'   the input base.  For \code{baseToBase()} a numeric \code{x} is accepted
+#'   only when \code{from = 10}.  \code{NA} propagates to the output.
+#' @param from A single integer in \eqn{[2, 36]} specifying the input base
+#'   (\code{baseToBase()} only).
+#' @param to A single integer in \eqn{[2, 36]} specifying the output base
+#'   (\code{baseToBase()} only).
 #' @param width A single non-negative integer or \code{NULL} (default).
-#'   If supplied, the output is left-padded with zeros to at least
-#'   \code{width} characters (\code{baseToBase} only).
+#'   When given, output strings are left-padded with zeros to at least
+#'   \code{width} characters (\code{baseToBase()} only).
 #'
-#' @return A numeric or character vector of the same length as \code{x}
-#'   containing the converted values.  Binary, octal and decimal values
-#'   are numeric; hex values are returned as class \code{hexmode}.
-#'   \code{baseToBase()} always returns a character vector (uppercase).
-#'   \code{NA} input produces \code{NA} output.
+#' @return
+#' A vector of the same length as \code{x}:
+#' \itemize{
+#'   \item \code{binToDec()}, \code{octToDec()}, \code{hexToDec()},
+#'         \code{romanToInt()} — integer or numeric vector.
+#'   \item \code{decToHex()} — object of class \code{\link{hexmode}}.
+#'   \item \code{decToOct()} — numeric vector (octal digit string coerced to
+#'         numeric).
+#'   \item \code{decToBin()}, \code{baseToBase()} — character vector
+#'         (uppercase digits).
+#' }
+#' \code{NA} input always produces \code{NA} output.
 #'
 #' @seealso \code{\link{strtoi}}, \code{\link{as.hexmode}},
 #'   \code{\link{as.octmode}}, \code{\link{as.roman}}
 #'
 #' @examples
-#' decToBin(c(17, 25))
-#' binToDec(c(101, 11101))
+#' # binary
+#' decToBin(c(0, 1, 17, 255))
+#' binToDec(c("0", "1", "10001", "11111111"))
 #'
-#' decToOct(c(17, 25))
-#' octToDec(c(11, 77))
+#' # octal
+#' decToOct(c(8, 64, 255))
+#' octToDec(c(10, 100, 377))
 #'
-#' decToHex(c(17, 25))
-#' hexToDec(c("FF", "AA", "ABC"))
+#' # hexadecimal  (CSS colour strings are also accepted by hexToDec)
+#' decToHex(c(0, 255, 65535))
+#' hexToDec(c("FF", "ff", "#1A2B3C"))
 #'
-#' # general base conversion
-#' baseToBase("FF",       from = 16, to = 10)   # hex -> dec
-#' baseToBase("255",      from = 10, to = 16)   # dec -> hex
-#' baseToBase("11111111", from = 2,  to = 10)   # bin -> dec
-#' baseToBase("1A3F",     from = 16, to = 2)    # hex -> bin
-#' baseToBase("Z9",       from = 36, to = 10)   # base-36 -> dec
+#' # Roman numerals
+#' romanToInt(c("I", "IV", "XIV", "MCMXCIX"))   # 1, 4, 14, 1999
+#' romanToInt("invalid")                          # NA
 #'
-#' # fixed-width output
-#' baseToBase(c("0", "7", "255"), from = 10, to = 2, width = 8)
+#' # baseToBase: general case
+#' baseToBase("FF",       from = 16, to = 10)   # 255
+#' baseToBase("255",      from = 10, to = 16)   # "FF"
+#' baseToBase("11111111", from =  2, to = 10)   # 255
+#' baseToBase("1A3F",     from = 16, to =  2)   # binary expansion
+#' baseToBase("Z9",       from = 36, to = 10)   # base-36 -> decimal
 #'
-#' # vectorized
+#' # fixed-width padding (useful for bit-pattern alignment)
+#' baseToBase(c(0, 7, 255), from = 10, to = 2, width = 8)
+#'
+#' # vectorized over x
 #' baseToBase(c("A", "B", "FF"), from = 16, to = 10)
 #'
 #' @rdname numeric-conversions

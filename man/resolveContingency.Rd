@@ -40,8 +40,11 @@ is constructed after removing incomplete observations.
 }
 \seealso{
 Other data.utils:
+\code{\link[=binaryTree]{binaryTree()}},
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=resolveFormula]{resolveFormula()}},
 \code{\link[=resolveGroups]{resolveGroups()}}
 }
-\concept{contingency-tables}
-\concept{data-manipulation}
 \concept{data.utils}
+\concept{formula}
+\concept{frequency-table}

@@ -10,6 +10,11 @@
 #' @return The value of the argument or default
 
 
+
+#' @family pkg.introspection  
+#' @concept programming
+#'
+#'
 #' @export
 getDotsArg <- function(dots, name, default = NULL) {
   

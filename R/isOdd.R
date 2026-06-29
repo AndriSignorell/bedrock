@@ -19,9 +19,9 @@
 #'
 
 
-#' @family number.theory
+
+#' @family number.theory  
 #' @concept number-theory
-#' @concept data-inspection
 #'
 #'
 #' @export

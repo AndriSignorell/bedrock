@@ -51,11 +51,15 @@
 #' # character with explicit reference
 #' asBinary(c("F", "U", "F", "U"), ref = "F")
 #'
-#' @family data-utils
-#' @concept data-manipulation
 
 
 
+
+#' @family data.manipulation  
+#' @concept binary  
+#' @concept dummy-coding
+#'
+#'
 #' @export
 asBinary <- function(x, ref = NULL, warn = TRUE) {
   

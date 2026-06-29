@@ -99,8 +99,8 @@ Other combinatorics:
 \code{\link[=combPairs]{combPairs()}},
 \code{\link[=permn]{permn()}},
 \code{\link[=randGroupSplit]{randGroupSplit()}},
-\code{\link[=sampleX]{sampleX()}}
+\code{\link[=sampleX]{sampleX()}},
+\code{\link[=unwhich]{unwhich()}}
 }
 \concept{combinatorics}
-\concept{mathematics}
-\concept{vector-manipulation}
+\concept{sampling}

@@ -35,10 +35,9 @@
 #' 
 
 
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept mathematics
-#' @concept time-series
+
+#' @family pkg.introspection  
+#' @concept programming
 #'
 #'
 #' @export

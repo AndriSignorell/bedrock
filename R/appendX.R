@@ -16,9 +16,9 @@
 #' @return Object of same type as \code{x}.
 #'
 
-#' @family data.manipulation
-#' @concept data-manipulation
-#' @concept vector-manipulation
+
+#' @family data.manipulation  
+#' @concept merge
 #'
 #'
 #' @export

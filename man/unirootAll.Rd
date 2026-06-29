@@ -86,14 +86,15 @@ unirootAll(g, c(0.1, 5))
 Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=divisors]{divisors()}},
 \code{\link[=dotProd]{dotProd()}},
-\code{\link{gcd_lcm}},
+\code{\link[=linScale]{linScale()}},
+\code{\link[=logit]{logit()}},
+\code{\link[=nUnique]{nUnique()}},
 \code{\link[=percentRank]{percentRank()}},
 \code{\link{precision}},
-\code{\link[=ptInPoly]{ptInPoly()}},
-\code{\link[=roundTo]{roundTo()}}
+\code{\link[=rankX]{rankX()}},
+\code{\link[=roundTo]{roundTo()}},
+\code{\link[=untable]{untable()}}
 }
 \concept{math.utils}
-\concept{mathematics}
 \concept{numerical-methods}

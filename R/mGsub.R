@@ -27,6 +27,11 @@
 #' @seealso \code{\link{mReplace}} for exact whole-element replacement.
 
 
+
+#' @family string.utilities  
+#' @concept string-manipulation
+#'
+#'
 #' @export
 mGsub <- function(x, patterns, replacements) {
   

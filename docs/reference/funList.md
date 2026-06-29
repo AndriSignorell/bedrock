@@ -39,7 +39,7 @@ Language*. Wadsworth & Brooks/Cole.
 
 Other pkg.introspection: [`funArgs()`](funArgs.md),
 [`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
-[`getRdLabels()`](getRdLabels.md), [`mergeArgs()`](mergeArgs.md)
+[`rdLabels()`](rdLabels.md), [`mergeArgs()`](mergeArgs.md)
 
 ## Examples
 
@@ -84,7 +84,7 @@ funList("bedrock")
 #> [106] "splitAt"            "logitInv"           "columnWrap"        
 #> [109] "buildPath"          "untable"            "LCM"               
 #> [112] "nUnique"            "%(]%"               "nchr"              
-#> [115] "extractArgs"        "resolveFormula"     "getRdLabels"       
+#> [115] "extractArgs"        "resolveFormula"     "rdLabels"       
 #> [118] "%][%"               "isURL"              "mGsub"             
 #> [121] "mergeArgs"          "appendEnum"         "combSet"           
 #> [124] "resolveGroups"      "findDownload"       "sortX"             

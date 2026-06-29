@@ -25,10 +25,9 @@
 
 
 
-#' @family combinatorics
-#' @concept combinatorics
-#' @concept data-manipulation
-#' @concept vector-manipulation
+
+#' @family combinatorics  
+#' @concept sampling
 #'
 #'
 #' @export

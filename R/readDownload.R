@@ -4,7 +4,7 @@
 #' Reads a file from the Downloads directory and returns it as a data frame.
 #' The file type is automatically detected from the extension.
 #'
-#' @param fname Character string. Name of the file.
+#' @param file Character string. Name of the file.
 #' @param base Logical; if \code{TRUE} (default), the result is converted
 #' to a base R \code{data.frame} using \code{DescToolsX::toBaseR}.
 #' @param ... Additional arguments passed to the underlying read function.
@@ -42,15 +42,15 @@
 #'
 
 
-#' @family file.utils
-#' @concept file-utilities
-#' @concept data-manipulation
+
+#' @family file.utils  
+#' @concept programming
 #'
 #'
 #' @export
-readDownload <- function(fname, ..., base = TRUE) {
+readDownload <- function(file, ..., base = TRUE) {
   
-  file <- findDownload(fname)
+  file <- findDownload(file)
   ext  <- tolower(tools::file_ext(file))
   
   res <- switch(ext,

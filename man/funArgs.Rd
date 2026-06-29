@@ -54,12 +54,16 @@ cat(funArgs("combN", output = "string"))
 \code{\link{formals}}, \code{\link{args}}
 
 Other pkg.introspection:
+\code{\link[=extractArgs]{extractArgs()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},
-\code{\link[=getRdLabels]{getRdLabels()}},
-\code{\link[=mergeArgs]{mergeArgs()}}
+\code{\link[=getDotsArg]{getDotsArg()}},
+\code{\link[=mergeArgs]{mergeArgs()}},
+\code{\link[=quot]{quot()}},
+\code{\link[=rdLabels]{rdLabels()}},
+\code{\link[=rdTitle]{rdTitle()}},
+\code{\link[=strX]{strX()}}
 }
-\concept{data-inspection}
-\concept{package-utilities}
+\concept{introspection}
 \concept{pkg.introspection}

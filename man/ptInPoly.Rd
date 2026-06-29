@@ -48,17 +48,11 @@ ptInPoly(x, y, px, py)
 
 }
 \seealso{
-Other math.utils:
-\code{\link[=crossProd]{crossProd()}},
-\code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=divisors]{divisors()}},
-\code{\link[=dotProd]{dotProd()}},
-\code{\link{gcd_lcm}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}}
+Other data.utils:
+\code{\link[=binaryTree]{binaryTree()}},
+\code{\link[=resolveContingency]{resolveContingency()}},
+\code{\link[=resolveFormula]{resolveFormula()}},
+\code{\link[=resolveGroups]{resolveGroups()}}
 }
+\concept{data.utils}
 \concept{geometry}
-\concept{math.utils}
-\concept{mathematics}

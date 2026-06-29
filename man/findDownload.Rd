@@ -4,10 +4,10 @@
 \alias{findDownload}
 \title{Locate a File in the Downloads Directory}
 \usage{
-findDownload(fname)
+findDownload(file)
 }
 \arguments{
-\item{fname}{Character string. Name of the file.}
+\item{file}{Character string. Name of the file.}
 }
 \value{
 A character string giving the full path to the file.
@@ -17,7 +17,7 @@ Returns the full path to a file located in the user's Downloads directory.
 }
 \details{
 The function resolves the path to the user's Downloads directory using
-an internal helper and appends \code{fname}. It does not perform any
+an internal helper and appends \code{file}. It does not perform any
 downloading; it only locates files that already exist locally.
 
 If the file does not exist, an error is thrown.
@@ -33,10 +33,10 @@ findDownload("data.csv")
 Other file.utils:
 \code{\link[=buildPath]{buildPath()}},
 \code{\link[=fileExistURL]{fileExistURL()}},
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
 \code{\link[=pdfManual]{pdfManual()}},
 \code{\link[=readDownload]{readDownload()}},
 \code{\link[=splitPath]{splitPath()}}
 }
-\concept{data-inspection}
-\concept{file-utilities}
 \concept{file.utils}
+\concept{programming}

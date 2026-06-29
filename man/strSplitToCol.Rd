@@ -72,9 +72,10 @@ strSplitToCol(df)
 \seealso{
 Other string.utilities:
 \code{\link{char-ascii-conversion}},
+\code{\link[=mGsub]{mGsub()}},
+\code{\link[=mReplace]{mReplace()}},
 \code{\link[=strSplitToDummy]{strSplitToDummy()}}
 }
-\concept{data-manipulation}
-\concept{data-structures}
+\concept{reshape}
 \concept{string-manipulation}
 \concept{string.utilities}

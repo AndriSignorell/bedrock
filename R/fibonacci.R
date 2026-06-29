@@ -38,9 +38,9 @@
 #' fibo(30:33)                             # 1346269 2178309 3524578 5702887
 #' 
  
-#' @family number.theory
+
+#' @family number.theory  
 #' @concept number-theory
-#' @concept mathematics
 #'
 #'
 #' @export

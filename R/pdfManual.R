@@ -9,9 +9,9 @@
 #' @param package Package name (symbol or character)
 
 
-#' @family file.utils
-#' @concept file-utilities
-#' @concept package-utilities
+
+#' @family file.utils  
+#' @concept programming
 #'
 #'
 #' @export

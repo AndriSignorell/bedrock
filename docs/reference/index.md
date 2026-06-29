@@ -196,7 +196,7 @@
   [`removeAttr()`](setAttr-removeAttr-keepAttr.md)
   [`keepAttr()`](setAttr-removeAttr-keepAttr.md) : Set and Remove Object
   Attributes
-- [`getRdLabels()`](getRdLabels.md) : Extract variable labels from Rd
+- [`rdLabels()`](rdLabels.md) : Extract variable labels from Rd
   documentation
 
 ## Mathematics

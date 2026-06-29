@@ -68,6 +68,6 @@ Other table.utils:
 \code{\link[=multMerge]{multMerge()}},
 \code{\link[=printCharMatrix]{printCharMatrix()}}
 }
-\concept{factor-handling}
-\concept{table-manipulation}
+\concept{frequency-table}
+\concept{table}
 \concept{table.utils}

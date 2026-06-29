@@ -52,12 +52,14 @@
 #' # Example usage (assuming suitable table 'tab')
 #' # collapseTable(tab, age = c("young", "adult", "adult"))
 #'
-#' @family table.utils
-#' @concept table-manipulation
-#' @concept factor-handling
+
+
+
+#' @family table.utils  
+#' @concept table  
+#' @concept frequency-table
 #'
-
-
+#'
 #' @export
 collapseTable <- function(x, ..., strict = TRUE) {
   

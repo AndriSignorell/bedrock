@@ -76,9 +76,10 @@
 #' 
 
 #' @rdname untable
-#' @family data.manipulation
-#' @concept data-manipulation
-#' @concept table-manipulation
+
+#' @family math.utils  
+#' @concept frequency-table  
+#' @concept reshape
 #'
 #'
 #' @export

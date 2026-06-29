@@ -13,9 +13,9 @@
 
 
  
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept data-inspection
+
+#' @family vector.ops  
+#' @concept missing-value
 #'
 #'
 #' @export

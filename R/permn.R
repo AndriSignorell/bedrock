@@ -20,12 +20,14 @@
 #' # repeated elements are handled as indistinguishable
 #' permn(c("a", "b", "c", "a"))
 #'
-#' @family combinatorics
-#' @concept combinatorics
-#' @concept mathematics
+
+
+
+#' @family combinatorics  
+#' @concept combinatorics  
+#' @concept sampling
 #'
-
-
+#'
 #' @export
 permn <- function(x, sortResults = FALSE) {
   

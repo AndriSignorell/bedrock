@@ -70,9 +70,10 @@ tryCatch(
 
 Other string.utilities:
 \code{\link{char-ascii-conversion}},
+\code{\link[=mGsub]{mGsub()}},
+\code{\link[=mReplace]{mReplace()}},
 \code{\link[=strSplitToCol]{strSplitToCol()}}
 }
-\concept{data-manipulation}
-\concept{data-structures}
+\concept{dummy-coding}
 \concept{string-manipulation}
 \concept{string.utilities}

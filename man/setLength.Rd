@@ -29,3 +29,21 @@ setLength(LETTERS[1:3], 2)
 setLength(1:4, 6, fill = 0)
 
 }
+\seealso{
+Other vector.ops:
+\code{\link[=closest]{closest()}},
+\code{\link[=coalesceX]{coalesceX()}},
+\code{\link[=locf]{locf()}},
+\code{\link[=midx]{midx()}},
+\code{\link[=moveAvg]{moveAvg()}},
+\code{\link[=naIf]{naIf()}},
+\code{\link[=naReplace]{naReplace()}},
+\code{\link[=nz]{nz()}},
+\code{\link[=pairApply]{pairApply()}},
+\code{\link[=trim]{trim()}},
+\code{\link[=vRot]{vRot()}},
+\code{\link[=vShift]{vShift()}},
+\code{\link[=winsorize]{winsorize()}}
+}
+\concept{ordering}
+\concept{vector.ops}

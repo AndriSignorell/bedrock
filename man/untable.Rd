@@ -94,27 +94,20 @@ untable(d.freq)
 \code{\link{expand.grid}}, \code{\link{rep}}, \code{\link{gl}},
 \code{\link{xtabs}}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=parseSASDatalines]{parseSASDatalines()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+Other math.utils:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=dotProd]{dotProd()}},
+\code{\link[=linScale]{linScale()}},
+\code{\link[=logit]{logit()}},
+\code{\link[=nUnique]{nUnique()}},
+\code{\link[=percentRank]{percentRank()}},
+\code{\link{precision}},
+\code{\link[=rankX]{rankX()}},
+\code{\link[=roundTo]{roundTo()}},
+\code{\link[=unirootAll]{unirootAll()}}
 }
-\concept{data-manipulation}
-\concept{data.manipulation}
-\concept{table-manipulation}
+\concept{frequency-table}
+\concept{math.utils}
+\concept{reshape}
 \keyword{manip}

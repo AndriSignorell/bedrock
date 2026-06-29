@@ -9,13 +9,13 @@
 #' effect-size calculations and plotting functions.
 #'
 #' @param x a numeric vector of observations, or a list of numeric vectors.
-#' @param g a grouping variable of the same length as \code{x}.
+#' @param groups a grouping variable of the same length as \code{x}.
 #'   Ignored when \code{x} is a list.
 #'
 #' @return A list containing:
 #' \describe{
 #'   \item{x}{numeric response vector}
-#'   \item{g}{grouping factor}
+#'   \item{groups}{grouping factor}
 #'   \item{n}{total number of observations}
 #'   \item{k}{number of groups}
 #'   \item{group.sizes}{group sample sizes}
@@ -23,22 +23,24 @@
 #'   \item{data.name}{character description of the input}
 #' }
 #'
-#' @family data.utils
-#' @concept grouped-data
-#' @concept data-manipulation
+
+
+
+#' @family data.utils  
+#' @concept formula  
+#' @concept modelling
 #'
-
-
+#'
 #' @export
-resolveGroups <- function(x, g) {
+resolveGroups <- function(x, groups) {
   
   if (is.list(x)) {
     
     if (length(x) < 2L)
       stop("'x' must contain at least two groups")
     
-    if (!missing(g))
-      warning("'x' is a list, so ignoring argument 'g'")
+    if (!missing(groups))
+      warning("'x' is a list, so ignoring argument 'groups'")
     
     dname <- deparse1(substitute(x))
     
@@ -57,43 +59,43 @@ resolveGroups <- function(x, g) {
     if (any(group.sizes == 0L))
       stop("all groups must contain observations")
     
-    g <- factor(
+    groups <- factor(
       rep.int(seq_along(x), group.sizes)
     )
     
     if (!is.null(names(x)))
-      levels(g) <- names(x)
+      levels(groups) <- names(x)
     
     x <- unlist(x, use.names = FALSE)
     
   } else {
     
-    if (missing(g))
-      stop("'g' is missing")
+    if (missing(groups))
+      stop("'groups' is missing")
     
-    if (length(x) != length(g))
-      stop("'x' and 'g' must have the same length")
+    if (length(x) != length(groups))
+      stop("'x' and 'groups' must have the same length")
     
     dname <- paste(
       deparse1(substitute(x)),
       "and",
-      deparse1(substitute(g))
+      deparse1(substitute(groups))
     )
     
-    ok <- complete.cases(x, g)
+    ok <- complete.cases(x, groups)
     
     x <- x[ok]
-    g <- factor(g[ok])
+    groups <- factor(groups[ok])
     
     n <- length(x)
     
     if (n < 2L)
       stop("not enough observations")
     
-    if (nlevels(g) < 2L)
+    if (nlevels(groups) < 2L)
       stop("all observations are in the same group")
     
-    group.sizes <- table(g)
+    group.sizes <- table(groups)
   }
   
   n <- length(x)
@@ -103,11 +105,11 @@ resolveGroups <- function(x, g) {
   
   list(
     x = x,
-    g = g,
+    groups = groups,
     n = n,
-    k = nlevels(g),
+    k = nlevels(groups),
     group.sizes = group.sizes,
-    group.names = levels(g),
+    group.names = levels(groups),
     data.name = dname
   )
   

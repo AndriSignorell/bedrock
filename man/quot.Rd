@@ -50,25 +50,18 @@ New S Language}.  Wadsworth & Brooks/Cole.
 \seealso{
 \code{\link{diff}}
 
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=rankX]{rankX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=unwhich]{unwhich()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+Other pkg.introspection:
+\code{\link[=extractArgs]{extractArgs()}},
+\code{\link[=funArgs]{funArgs()}},
+\code{\link[=funCalls]{funCalls()}},
+\code{\link[=funKeywords]{funKeywords()}},
+\code{\link[=funList]{funList()}},
+\code{\link[=getDotsArg]{getDotsArg()}},
+\code{\link[=mergeArgs]{mergeArgs()}},
+\code{\link[=rdLabels]{rdLabels()}},
+\code{\link[=rdTitle]{rdTitle()}},
+\code{\link[=strX]{strX()}}
 }
-\concept{mathematics}
-\concept{time-series}
-\concept{vector-manipulation}
-\concept{vector.ops}
+\concept{pkg.introspection}
+\concept{programming}
 \keyword{arith}

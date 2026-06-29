@@ -26,9 +26,9 @@
 
 
 #' @rdname factorize
-#' @family number.theory
+
+#' @family number.theory  
 #' @concept number-theory
-#' @concept mathematics
 #'
 #'
 #' @export

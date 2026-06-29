@@ -4,19 +4,19 @@
 \alias{resolveGroups}
 \title{Resolve Grouped Data}
 \usage{
-resolveGroups(x, g)
+resolveGroups(x, groups)
 }
 \arguments{
 \item{x}{a numeric vector of observations, or a list of numeric vectors.}
 
-\item{g}{a grouping variable of the same length as \code{x}.
+\item{groups}{a grouping variable of the same length as \code{x}.
 Ignored when \code{x} is a list.}
 }
 \value{
 A list containing:
 \describe{
 \item{x}{numeric response vector}
-\item{g}{grouping factor}
+\item{groups}{grouping factor}
 \item{n}{total number of observations}
 \item{k}{number of groups}
 \item{group.sizes}{group sample sizes}
@@ -35,8 +35,11 @@ effect-size calculations and plotting functions.
 }
 \seealso{
 Other data.utils:
-\code{\link[=resolveContingency]{resolveContingency()}}
+\code{\link[=binaryTree]{binaryTree()}},
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=resolveContingency]{resolveContingency()}},
+\code{\link[=resolveFormula]{resolveFormula()}}
 }
-\concept{data-manipulation}
 \concept{data.utils}
-\concept{grouped-data}
+\concept{formula}
+\concept{modelling}

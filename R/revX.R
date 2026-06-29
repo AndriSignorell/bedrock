@@ -55,9 +55,9 @@
 
 
 #' @rdname revX
-#' @family data.manipulation
-#' @concept data-manipulation
-#' @concept vector-manipulation
+
+#' @family data.manipulation  
+#' @concept ordering
 #'
 #'
 #' @export

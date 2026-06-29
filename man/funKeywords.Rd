@@ -34,16 +34,20 @@ funKeywords("merge")
 \code{\link[utils]{help}}
 
 Other pkg.introspection:
+\code{\link[=extractArgs]{extractArgs()}},
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funList]{funList()}},
-\code{\link[=getRdLabels]{getRdLabels()}},
-\code{\link[=mergeArgs]{mergeArgs()}}
+\code{\link[=getDotsArg]{getDotsArg()}},
+\code{\link[=mergeArgs]{mergeArgs()}},
+\code{\link[=quot]{quot()}},
+\code{\link[=rdLabels]{rdLabels()}},
+\code{\link[=rdTitle]{rdTitle()}},
+\code{\link[=strX]{strX()}}
 }
 \author{
 Gregory R. Warnes \email{greg@warnes.net}
 }
-\concept{data-inspection}
-\concept{package-utilities}
+\concept{introspection}
 \concept{pkg.introspection}
 \keyword{documentation}

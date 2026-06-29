@@ -51,12 +51,14 @@
 #'   function(z) ifelse(sum(z) == 0, attr(m, "base"), colnames(m)[z == 1])
 #' )
 #'
-#' @family topic.factorHandling
-#' @concept factor-handling
-#' @concept data-transformation
-#' @concept table-manipulation
 
 
+
+#' @family data.manipulation  
+#' @concept dummy-coding  
+#' @concept categorization
+#'
+#'
 #' @export
 dummy <- function(
     x,

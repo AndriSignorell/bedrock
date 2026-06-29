@@ -47,9 +47,9 @@
 #'
 
 
-#' @family datasets
-#' @concept datasets
-#' @concept data-manipulation
+
+#' @family datasets  
+#' @concept dataset
 #'
 #'
 #' @export

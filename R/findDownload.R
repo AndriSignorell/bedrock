@@ -3,11 +3,11 @@
 #'
 #' Returns the full path to a file located in the user's Downloads directory.
 #'
-#' @param fname Character string. Name of the file.
+#' @param file Character string. Name of the file.
 #'
 #' @details
 #' The function resolves the path to the user's Downloads directory using
-#' an internal helper and appends \code{fname}. It does not perform any
+#' an internal helper and appends \code{file}. It does not perform any
 #' downloading; it only locates files that already exist locally.
 #'
 #' If the file does not exist, an error is thrown.
@@ -22,16 +22,16 @@
 #' }
 #'
 
-#' @family file.utils
-#' @concept file-utilities
-#' @concept data-inspection
+
+#' @family file.utils  
+#' @concept programming
 #'
 #'
 #' @export
-findDownload <- function(fname) {
+findDownload <- function(file) {
   
   dir <- .getDownloadsPath()
-  file <- file.path(dir, fname)
+  file <- file.path(dir, file)
   
   if (!file.exists(file)) {
     stop(sprintf("File not found: %s", file))

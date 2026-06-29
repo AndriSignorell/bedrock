@@ -36,9 +36,10 @@
 #'
 #' cat(funArgs("combN", output = "string"))
 #'
-#' @family pkg.introspection
-#' @concept package-utilities
-#' @concept data-inspection
+
+#' @family pkg.introspection  
+#' @concept introspection
+#'
 #'
 #' @export
 funArgs <- function(

@@ -184,7 +184,13 @@ is.numeric(r5$predictor)
 \code{\link[stats]{model.frame}},
 \code{\link[stats]{Pair}},
 \code{\link[DescToolsX]{desc}}
+
+Other data.utils:
+\code{\link[=binaryTree]{binaryTree()}},
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=resolveContingency]{resolveContingency()}},
+\code{\link[=resolveGroups]{resolveGroups()}}
 }
-\concept{data-manipulation}
-\concept{formula-handling}
-\concept{formula.utils}
+\concept{data.utils}
+\concept{formula}
+\concept{modelling}

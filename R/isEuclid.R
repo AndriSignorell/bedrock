@@ -35,10 +35,9 @@
 
 
 
-#' @family correlation
-#' @concept correlation
-#' @concept data-inspection
-#' @concept mathematics
+
+#' @family data.inspection  
+#' @concept ordering
 #'
 #'
 #' @export

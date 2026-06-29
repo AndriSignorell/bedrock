@@ -26,9 +26,9 @@
 #'
 
 
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept time-series
+
+#' @family vector.ops  
+#' @concept ordering
 #'
 #'
 #' @export

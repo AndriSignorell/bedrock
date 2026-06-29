@@ -47,9 +47,9 @@
 #'
 
 
-#' @family file.utils
-#' @concept file-utilities
-#' @concept string-manipulation
+
+#' @family file.utils  
+#' @concept programming
 #'
 #'
 #' @export

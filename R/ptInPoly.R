@@ -36,8 +36,8 @@
 #' ptInPoly(x, y, px, py)
 #'
 
-#' @family math.utils
-#' @concept mathematics
+
+#' @family data.utils  
 #' @concept geometry
 #'
 #'

@@ -23,9 +23,9 @@
 #' }
 
 
-#' @family data.manipulation
-#' @concept data-manipulation
-#' @concept data-structures
+
+#' @family data.manipulation  
+#' @concept reshape
 #'
 #'
 #' @export
@@ -55,8 +55,10 @@ toBaseR.tbl_df <- function(x, ...){
 
 #' @export
 toBaseR.haven_labelled <- function(x, ...) {
+  
   if (requireNamespace("haven", quietly = TRUE)) {
     haven::as_factor(x, ...)
+    
   } else {
     warning("Package 'haven' not installed: returning original object")
     x
@@ -77,3 +79,5 @@ toBaseR.default <- function(x, ...){
   invisible(NULL)
   
 }
+
+

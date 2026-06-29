@@ -40,9 +40,9 @@
 #'
 
 
-#' @family data.inspection
-#' @concept data-inspection
-#' @concept missing-data
+
+#' @family data.inspection  
+#' @concept missing-value
 #'
 #'
 #' @export

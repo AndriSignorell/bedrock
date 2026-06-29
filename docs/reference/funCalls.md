@@ -42,7 +42,7 @@ Language*. Wadsworth & Brooks/Cole.
 
 Other pkg.introspection: [`funArgs()`](funArgs.md),
 [`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`getRdLabels()`](getRdLabels.md), [`mergeArgs()`](mergeArgs.md)
+[`rdLabels()`](rdLabels.md), [`mergeArgs()`](mergeArgs.md)
 
 ## Examples
 

@@ -15,9 +15,9 @@
 #'
 
 
-#' @family pkg.introspection
-#' @concept package-utilities
-#' @concept data-manipulation
+
+#' @family pkg.introspection  
+#' @concept programming
 #'
 #'
 #' @export

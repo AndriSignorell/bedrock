@@ -6,12 +6,12 @@ directory.
 ## Usage
 
 ``` r
-findDownload(fname)
+findDownload(file)
 ```
 
 ## Arguments
 
-- fname:
+- file:
 
   Character string. Name of the file.
 
@@ -22,7 +22,7 @@ A character string giving the full path to the file.
 ## Details
 
 The function resolves the path to the user's Downloads directory using
-an internal helper and appends `fname`. It does not perform any
+an internal helper and appends `file`. It does not perform any
 downloading; it only locates files that already exist locally.
 
 If the file does not exist, an error is thrown.

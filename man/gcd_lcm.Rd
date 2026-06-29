@@ -47,20 +47,18 @@ LCM(2*3, 3*5, 5*7)
 
 }
 \seealso{
-Other math.utils:
-\code{\link[=crossProd]{crossProd()}},
-\code{\link[=crossProdN]{crossProdN()}},
+Other number.theory:
+\code{\link[=digitSum]{digitSum()}},
 \code{\link[=divisors]{divisors()}},
-\code{\link[=dotProd]{dotProd()}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=ptInPoly]{ptInPoly()}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}}
+\code{\link[=factorize]{factorize()}},
+\code{\link[=fibonacci]{fibonacci()}},
+\code{\link[=isOdd]{isOdd()}},
+\code{\link[=isPrime]{isPrime()}},
+\code{\link{numeric-conversions}},
+\code{\link[=primes]{primes()}}
 }
 \author{
 Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
 }
-\concept{math.utils}
-\concept{mathematics}
 \concept{number-theory}
+\concept{number.theory}

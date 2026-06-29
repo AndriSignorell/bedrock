@@ -29,12 +29,13 @@ isOdd(c(2, 3, 4.5, NA, Inf))
 \seealso{
 Other number.theory:
 \code{\link[=digitSum]{digitSum()}},
+\code{\link[=divisors]{divisors()}},
 \code{\link[=factorize]{factorize()}},
 \code{\link[=fibonacci]{fibonacci()}},
+\code{\link{gcd_lcm}},
 \code{\link[=isPrime]{isPrime()}},
 \code{\link{numeric-conversions}},
 \code{\link[=primes]{primes()}}
 }
-\concept{data-inspection}
 \concept{number-theory}
 \concept{number.theory}

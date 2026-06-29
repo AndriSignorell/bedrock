@@ -21,8 +21,8 @@
 #' 
 #' divisors(c(145, 786))
 
-#' @family math.utils
-#' @concept mathematics
+
+#' @family number.theory  
 #' @concept number-theory
 #'
 #'

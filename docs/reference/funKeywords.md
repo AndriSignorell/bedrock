@@ -27,7 +27,7 @@ doc/Keywords file.
 
 Other pkg.introspection: [`funArgs()`](funArgs.md),
 [`funCalls()`](funCalls.md), [`funList()`](funList.md),
-[`getRdLabels()`](getRdLabels.md), [`mergeArgs()`](mergeArgs.md)
+[`rdLabels()`](rdLabels.md), [`mergeArgs()`](mergeArgs.md)
 
 ## Author
 

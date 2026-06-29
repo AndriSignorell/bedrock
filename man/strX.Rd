@@ -51,3 +51,18 @@ strX(x)
 strX(x, recursive = TRUE)
 
 }
+\seealso{
+Other pkg.introspection:
+\code{\link[=extractArgs]{extractArgs()}},
+\code{\link[=funArgs]{funArgs()}},
+\code{\link[=funCalls]{funCalls()}},
+\code{\link[=funKeywords]{funKeywords()}},
+\code{\link[=funList]{funList()}},
+\code{\link[=getDotsArg]{getDotsArg()}},
+\code{\link[=mergeArgs]{mergeArgs()}},
+\code{\link[=quot]{quot()}},
+\code{\link[=rdLabels]{rdLabels()}},
+\code{\link[=rdTitle]{rdTitle()}}
+}
+\concept{introspection}
+\concept{pkg.introspection}

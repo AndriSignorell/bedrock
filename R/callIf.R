@@ -65,12 +65,13 @@
 #' y <- x^2
 #' callIf(plot, TRUE, defaults = list(x, y))
 #'
-#' @family utilities
-#' @concept programming-helpers
-#' @concept functional-programming
+
+
+
+#' @family utilities  
+#' @concept programming
 #'
-
-
+#'
 #' @export
 callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
   

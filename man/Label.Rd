@@ -74,7 +74,6 @@ Other label.utils:
 \code{\link[=dataDescription]{dataDescription()}},
 \code{\link[=openDataObject]{openDataObject()}}
 }
-\concept{data-description}
-\concept{data-manipulation}
+\concept{attribute}
+\concept{label}
 \concept{label.utils}
-\concept{variable-labels}

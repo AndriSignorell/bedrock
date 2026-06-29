@@ -24,9 +24,9 @@
 # sample interface for data.frames
 
 #' @rdname sampleX
-#' @family combinatorics
-#' @concept combinatorics
-#' @concept vector-manipulation
+
+#' @family combinatorics  
+#' @concept sampling
 #'
 #'
 #' @export

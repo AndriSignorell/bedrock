@@ -89,13 +89,14 @@
 #' # return column indices
 #' flags(dat, output = "index")
 #'
-#' @family data.inspection
-#' @concept data-inspection
-#' @concept data-manipulation
-#' @concept factor-handling
+
+
+
+#' @family data.inspection  
+#' @concept binary  
+#' @concept categorization
 #'
-
-
+#'
 #' @export
 flags <- function(
     x,

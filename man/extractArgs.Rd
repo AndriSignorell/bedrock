@@ -22,3 +22,18 @@ Named list of extracted arguments (and optionally remaining ones)
 Utility to extract a subset of arguments from a list (typically \code{list(...)})
 and merge them with default values.
 }
+\seealso{
+Other pkg.introspection:
+\code{\link[=funArgs]{funArgs()}},
+\code{\link[=funCalls]{funCalls()}},
+\code{\link[=funKeywords]{funKeywords()}},
+\code{\link[=funList]{funList()}},
+\code{\link[=getDotsArg]{getDotsArg()}},
+\code{\link[=mergeArgs]{mergeArgs()}},
+\code{\link[=quot]{quot()}},
+\code{\link[=rdLabels]{rdLabels()}},
+\code{\link[=rdTitle]{rdTitle()}},
+\code{\link[=strX]{strX()}}
+}
+\concept{pkg.introspection}
+\concept{programming}

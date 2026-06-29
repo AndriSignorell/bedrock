@@ -24,13 +24,13 @@
 #' 
 
 #' @rdname isZero
-#' @family data.inspection
-#' @concept data-inspection
-#' @concept vector-manipulation
-#'
-#'
 
 
+
+#' @family data.inspection  
+#' @concept ordering
+#'
+#'
 #' @export
 isZero <-function(x, tol = sqrt(.Machine$double.eps), na.rm=FALSE) {
   

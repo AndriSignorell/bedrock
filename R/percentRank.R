@@ -49,10 +49,10 @@
 #'
 
 
-#' @family math.utils
-#' @concept mathematics
-#' @concept descriptive-statistics
-#' @concept vector-manipulation
+
+#' @family math.utils  
+#' @concept ordering  
+#' @concept transformation
 #'
 #'
 #' @export

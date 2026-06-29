@@ -23,8 +23,8 @@ test_that("resolveGroups removes NAs", {
   expect_equal(res$n, 5L)
 })
 
-test_that("resolveGroups stops if g missing", {
-  expect_error(resolveGroups(c(1,2,3)), "'g' is missing")
+test_that("resolveGroups stops if groups missing", {
+  expect_error(resolveGroups(c(1,2,3)), "'groups' is missing")
 })
 
 test_that("resolveGroups stops if only one group", {

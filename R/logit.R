@@ -80,10 +80,9 @@
 
 
 #' @rdname logit
-#' @family transformations
+
+#' @family math.utils  
 #' @concept transformation
-#' @concept descriptive-statistics
-#' @concept mathematics
 #'
 #'
 #' @export

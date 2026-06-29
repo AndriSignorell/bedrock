@@ -27,13 +27,14 @@ digitSum(c(10L, 99L, -1234L))
 }
 \seealso{
 Other number.theory:
+\code{\link[=divisors]{divisors()}},
 \code{\link[=factorize]{factorize()}},
 \code{\link[=fibonacci]{fibonacci()}},
+\code{\link{gcd_lcm}},
 \code{\link[=isOdd]{isOdd()}},
 \code{\link[=isPrime]{isPrime()}},
 \code{\link{numeric-conversions}},
 \code{\link[=primes]{primes()}}
 }
-\concept{mathematics}
 \concept{number-theory}
 \concept{number.theory}

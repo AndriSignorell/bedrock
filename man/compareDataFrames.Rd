@@ -19,13 +19,13 @@ A named list with four elements:
 \describe{
 \item{\code{identical}}{Logical. \code{TRUE} if the two data frames are
 identical with respect to the common columns and key.}
-\item{\code{only_in_x}}{Data frame of rows whose key value appears in
+\item{\code{onlyInX}}{Data frame of rows whose key value appears in
 \code{x} but not in \code{y}.}
-\item{\code{only_in_y}}{Data frame of rows whose key value appears in
+\item{\code{onlyInY}}{Data frame of rows whose key value appears in
 \code{y} but not in \code{x}.}
-\item{\code{diffs}}{Data frame with columns \code{strat_x} (the key value)
-and \code{diff_cols} (a list column of character vectors naming the
-differing columns for that key).}
+\item{\code{diffs}}{Data frame with columns named after the \code{key}
+argument (the key value) and \code{diffCols} (a list column of character
+vectors naming the differing columns for that key).}
 }
 }
 \description{
@@ -44,3 +44,30 @@ y <- data.frame(strat_x = c("A", "B", "D"), v1 = c(1L, 9L, 4L), v2 = c(10, 20, 4
 compareDataFrames(x, y)
 
 }
+\seealso{
+Other data.manipulation:
+\code{\link[=appendEnum]{appendEnum()}},
+\code{\link[=appendRowNames]{appendRowNames()}},
+\code{\link[=appendX]{appendX()}},
+\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+\code{\link[=asBinary]{asBinary()}},
+\code{\link[=asCDateFmt]{asCDateFmt()}},
+\code{\link[=columnWrap]{columnWrap()}},
+\code{\link[=combLevels]{combLevels()}},
+\code{\link[=dummy]{dummy()}},
+\code{\link[=nf]{nf()}},
+\code{\link[=recodeX]{recodeX()}},
+\code{\link[=recycle]{recycle()}},
+\code{\link[=renameX]{renameX()}},
+\code{\link[=revCode]{revCode()}},
+\code{\link[=revX]{revX()}},
+\code{\link{setAttr-removeAttr-keepAttr}},
+\code{\link[=setNamesX]{setNamesX()}},
+\code{\link[=sortX]{sortX()}},
+\code{\link[=splitAt]{splitAt()}},
+\code{\link[=splitX]{splitX()}},
+\code{\link[=stringsAsFactors]{stringsAsFactors()}},
+\code{\link[=toBaseR]{toBaseR()}}
+}
+\concept{data.manipulation}
+\concept{table}

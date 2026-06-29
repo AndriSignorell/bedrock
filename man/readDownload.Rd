@@ -4,10 +4,10 @@
 \alias{readDownload}
 \title{Read a File from the Downloads Directory}
 \usage{
-readDownload(fname, ..., base = TRUE)
+readDownload(file, ..., base = TRUE)
 }
 \arguments{
-\item{fname}{Character string. Name of the file.}
+\item{file}{Character string. Name of the file.}
 
 \item{...}{Additional arguments passed to the underlying read function.}
 
@@ -54,9 +54,9 @@ Other file.utils:
 \code{\link[=buildPath]{buildPath()}},
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
 \code{\link[=pdfManual]{pdfManual()}},
 \code{\link[=splitPath]{splitPath()}}
 }
-\concept{data-manipulation}
-\concept{file-utilities}
 \concept{file.utils}
+\concept{programming}

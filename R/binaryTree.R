@@ -31,9 +31,9 @@
 
 
 #' @rdname binaryTree
-#' @family data.structures
-#' @concept data-structures
-#' @concept data-manipulation
+
+#' @family data.utils  
+#' @concept tree
 #'
 #'
 #' @export

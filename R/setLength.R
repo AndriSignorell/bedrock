@@ -19,6 +19,11 @@
 #' setLength(1:4, 6, fill = 0)
 #'
 
+
+#' @family vector.ops  
+#' @concept ordering
+#'
+#'
 #' @export
 setLength <- function(x, n, fill = NA) {
   head(c(x, rep(fill, max(0, n - length(x)))), n)

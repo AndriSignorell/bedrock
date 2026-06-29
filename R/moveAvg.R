@@ -72,13 +72,13 @@
 #' moveAvg(AirPassengers, order = 5, endrule = "trim")
 #' moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 #'
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept descriptive-statistics
+
+
+
+#' @family vector.ops  
 #' @concept time-series
 #'
-
-
+#'
 #' @export
 moveAvg <- function(x,
                     order,

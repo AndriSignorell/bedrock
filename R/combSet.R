@@ -83,10 +83,11 @@
 #' )
 #'
 #' @rdname combinatoric
-#' @family combinatorics
-#' @concept combinatorics
-#' @concept mathematics
-#' @concept vector-manipulation
+
+#' @family combinatorics  
+#' @concept combinatorics  
+#' @concept sampling
+#'
 #'
 #' @export
 combSet <- function(x,

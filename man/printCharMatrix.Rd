@@ -83,6 +83,5 @@ Other table.utils:
 \code{\link[=collapseTable]{collapseTable()}},
 \code{\link[=multMerge]{multMerge()}}
 }
-\concept{string-formatting}
-\concept{table-manipulation}
+\concept{table}
 \concept{table.utils}

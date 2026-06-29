@@ -18,6 +18,11 @@
 #' isURL("/home/user/file.csv")            # FALSE
 #' isURL("./script.R")                     # FALSE
 #'
+
+#' @family data.inspection  
+#' @concept ordering
+#'
+#'
 #' @export
 isURL <- function(x) {
   .detectInputType(x) == "url"

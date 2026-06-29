@@ -56,11 +56,6 @@
 #'
 #' @seealso \code{\link{names}}, \code{\link{setNamesX}}
 #'
-#' @family topic.utilities
-#' @concept names
-#' @concept rename
-#' @concept data-manipulation
-#'
 #' @examples
 #' x <- c(a = 1, b = 2, c = 3)
 #'
@@ -95,6 +90,11 @@
 #'
 #' # Matrix: rename rownames via gsub
 #' renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, which = "rownames")
+#'
+
+#' @family data.manipulation  
+#' @concept attribute
+#'
 #'
 #' @export
 renameX <- function(x, ..., which = "names",

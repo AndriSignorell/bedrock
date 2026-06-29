@@ -135,3 +135,5 @@ distance <- function(x, y) {
   
   list(x = x, y = y)
 }
+
+

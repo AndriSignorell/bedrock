@@ -20,8 +20,9 @@
 #' allIdentical(A, B, C)        # TRUE
 #' allIdentical(A, B, C, E)     # FALSE
 #'
-#' @family data.inspection
-#' @concept data-inspection
+
+#' @family data.inspection  
+#' @concept ordering
 #'
 #'
 #' @export

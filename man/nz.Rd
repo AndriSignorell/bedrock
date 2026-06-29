@@ -23,20 +23,17 @@ model formulas or quick vector filtering.
 Other vector.ops:
 \code{\link[=closest]{closest()}},
 \code{\link[=coalesceX]{coalesceX()}},
+\code{\link[=locf]{locf()}},
 \code{\link[=midx]{midx()}},
 \code{\link[=moveAvg]{moveAvg()}},
 \code{\link[=naIf]{naIf()}},
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=rankX]{rankX()}},
-\code{\link[=splitAt]{splitAt()}},
+\code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
-\code{\link[=unwhich]{unwhich()}},
 \code{\link[=vRot]{vRot()}},
 \code{\link[=vShift]{vShift()}},
 \code{\link[=winsorize]{winsorize()}}
 }
-\concept{data-inspection}
-\concept{vector-manipulation}
+\concept{missing-value}
 \concept{vector.ops}

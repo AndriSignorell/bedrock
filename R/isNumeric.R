@@ -38,11 +38,12 @@
 #'
 #' @seealso \code{\link{isWholeLike}}
 #'
-#' @family data.inspection
-#' @concept data-inspection
-#' @concept data-manipulation
-#'
 
+
+#' @family data.inspection  
+#' @concept ordering
+#'
+#'
 #' @export
 isNumeric <- function(x,
                       isIntegerValued = FALSE,

@@ -21,8 +21,9 @@
 #'
 
 
-#' @family data.manipulation
-#' @concept data-manipulation
+
+#' @family data.manipulation  
+#' @concept table
 #'
 #'
 #' @export

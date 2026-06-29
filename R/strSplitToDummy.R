@@ -55,10 +55,10 @@
 #' )
 #'
 
-#' @family string.utilities
-#' @concept string-manipulation
-#' @concept data-manipulation
-#' @concept data-structures
+
+#' @family string.utilities  
+#' @concept string-manipulation  
+#' @concept dummy-coding
 #'
 #'
 #' @export

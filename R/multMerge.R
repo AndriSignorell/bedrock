@@ -41,9 +41,10 @@
 #' multMerge(x1, x2, x3, by="v")
 #' 
 
-#' @family table.utils
-#' @concept table-manipulation
-#' @concept data-manipulation
+
+#' @family table.utils  
+#' @concept merge  
+#' @concept table
 #'
 #'
 #' @export

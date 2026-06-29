@@ -59,15 +59,16 @@ crossProd(x, y, "cols")
 \seealso{
 Other math.utils:
 \code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=divisors]{divisors()}},
 \code{\link[=dotProd]{dotProd()}},
-\code{\link{gcd_lcm}},
+\code{\link[=linScale]{linScale()}},
+\code{\link[=logit]{logit()}},
+\code{\link[=nUnique]{nUnique()}},
 \code{\link[=percentRank]{percentRank()}},
 \code{\link{precision}},
-\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=rankX]{rankX()}},
 \code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}}
+\code{\link[=unirootAll]{unirootAll()}},
+\code{\link[=untable]{untable()}}
 }
 \concept{math.utils}
-\concept{mathematics}
-\concept{vector-manipulation}
+\concept{numerical-methods}

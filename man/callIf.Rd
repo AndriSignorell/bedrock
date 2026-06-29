@@ -82,6 +82,5 @@ callIf(plot, TRUE, defaults = list(x, y))
 Other utilities:
 \code{\link[=isNA]{isNA()}}
 }
-\concept{functional-programming}
-\concept{programming-helpers}
+\concept{programming}
 \concept{utilities}

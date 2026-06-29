@@ -66,10 +66,9 @@
 #'
 
 
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept outlier-detection
-#' @concept descriptive-statistics
+
+#' @family vector.ops  
+#' @concept robust-statistics
 #'
 #'
 #' @export

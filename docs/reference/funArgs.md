@@ -57,7 +57,7 @@ Depending on `output`:
 
 Other pkg.introspection: [`funCalls()`](funCalls.md),
 [`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`getRdLabels()`](getRdLabels.md), [`mergeArgs()`](mergeArgs.md)
+[`rdLabels()`](rdLabels.md), [`mergeArgs()`](mergeArgs.md)
 
 ## Examples
 

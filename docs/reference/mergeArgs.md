@@ -41,4 +41,4 @@ A named list of merged arguments.
 
 Other pkg.introspection: [`funArgs()`](funArgs.md),
 [`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
-[`funList()`](funList.md), [`getRdLabels()`](getRdLabels.md)
+[`funList()`](funList.md), [`rdLabels()`](rdLabels.md)

@@ -106,11 +106,12 @@ Other data.inspection:
 \code{\link[=completeColumns]{completeColumns()}},
 \code{\link[=countCompCases]{countCompCases()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isEuclid]{isEuclid()}},
 \code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isURL]{isURL()}},
 \code{\link[=isWholeLike]{isWholeLike()}},
 \code{\link[=isZero]{isZero()}}
 }
-\concept{data-inspection}
-\concept{data-manipulation}
+\concept{binary}
+\concept{categorization}
 \concept{data.inspection}
-\concept{factor-handling}

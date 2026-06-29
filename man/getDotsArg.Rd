@@ -19,3 +19,18 @@ The value of the argument or default
 \description{
 Lightweight helper to extract a named argument from a list (typically list(...)).
 }
+\seealso{
+Other pkg.introspection:
+\code{\link[=extractArgs]{extractArgs()}},
+\code{\link[=funArgs]{funArgs()}},
+\code{\link[=funCalls]{funCalls()}},
+\code{\link[=funKeywords]{funKeywords()}},
+\code{\link[=funList]{funList()}},
+\code{\link[=mergeArgs]{mergeArgs()}},
+\code{\link[=quot]{quot()}},
+\code{\link[=rdLabels]{rdLabels()}},
+\code{\link[=rdTitle]{rdTitle()}},
+\code{\link[=strX]{strX()}}
+}
+\concept{pkg.introspection}
+\concept{programming}

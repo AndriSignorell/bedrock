@@ -34,9 +34,9 @@
 #' isWholeLike(1:5 + 0i)
 #'
 
-#' @family data.inspection
-#' @concept data-inspection
-#' @concept mathematics
+
+#' @family data.inspection  
+#' @concept ordering
 #'
 #'
 #' @export

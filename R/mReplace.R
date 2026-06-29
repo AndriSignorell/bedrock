@@ -16,6 +16,11 @@
 #' mReplace(c("a", "b", "c", "d"), c("a", "c"), c("A", "C"))
 #' # [1] "A" "b" "C" "d"
 #'
+
+#' @family string.utilities  
+#' @concept string-manipulation
+#'
+#'
 #' @export
 
 

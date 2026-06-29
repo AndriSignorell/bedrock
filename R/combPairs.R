@@ -33,10 +33,9 @@
 
 
 #' @rdname combPairs
-#' @family combinatorics
+
+#' @family combinatorics  
 #' @concept combinatorics
-#' @concept mathematics
-#' @concept vector-manipulation
 #'
 #'
 #' @export

@@ -107,13 +107,13 @@
 #'   output = c("value", "index")
 #' )
 #'
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept data-inspection
-#' @concept mathematics
+
+
+
+#' @family vector.ops  
+#' @concept ordering
 #'
-
-
+#'
 #' @export
 closest <- function(
     x,

@@ -37,10 +37,10 @@
 #' @seealso \code{\link{scale}}
 #'
 
-#' @family coordinate.transform
-#' @concept geometry
-#' @concept mathematics
-#' @concept data-manipulation
+
+#' @family math.utils  
+#' @concept transformation  
+#' @concept standardization
 #'
 #'
 #' @export

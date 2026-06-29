@@ -64,9 +64,9 @@
 #' tab[tab > 1]
 
 
-#' @family data.inspection
-#' @concept data-inspection
-#' @concept data-manipulation
+
+#' @family data.inspection  
+#' @concept ordering
 #'
 #'
 #' @export

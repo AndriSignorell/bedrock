@@ -29,4 +29,19 @@ nUnique(c(1, 1, 2, NA), na.rm = TRUE)
 \seealso{
 \code{\link[=isLowCardinality]{isLowCardinality()}} to check whether \code{x} has fewer than a given
 number of unique values, without counting all of them first.
+
+Other math.utils:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=dotProd]{dotProd()}},
+\code{\link[=linScale]{linScale()}},
+\code{\link[=logit]{logit()}},
+\code{\link[=percentRank]{percentRank()}},
+\code{\link{precision}},
+\code{\link[=rankX]{rankX()}},
+\code{\link[=roundTo]{roundTo()}},
+\code{\link[=unirootAll]{unirootAll()}},
+\code{\link[=untable]{untable()}}
 }
+\concept{math.utils}
+\concept{ordering}

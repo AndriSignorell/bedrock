@@ -64,26 +64,13 @@ df <- parseSASDatalines(sas_code)
 
 }
 \seealso{
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}},
-\code{\link[=untable]{untable()}}
+Other file.utils:
+\code{\link[=buildPath]{buildPath()}},
+\code{\link[=fileExistURL]{fileExistURL()}},
+\code{\link[=findDownload]{findDownload()}},
+\code{\link[=pdfManual]{pdfManual()}},
+\code{\link[=readDownload]{readDownload()}},
+\code{\link[=splitPath]{splitPath()}}
 }
-\concept{data-manipulation}
-\concept{data.manipulation}
-\concept{string-manipulation}
+\concept{file.utils}
+\concept{reshape}

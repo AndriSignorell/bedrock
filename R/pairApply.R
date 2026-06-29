@@ -43,10 +43,9 @@
 #' 
 
 
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept data-manipulation
-#' @concept combinatorics
+
+#' @family vector.ops  
+#' @concept ordering
 #'
 #'
 #' @export

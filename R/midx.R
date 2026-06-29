@@ -38,12 +38,13 @@
 #' xpos <- t(apply(tab, 2, midx, inclZero = TRUE, cumulate = TRUE))
 #' text(tab, x = xpos, y = b, col = "red")
 #'
-#' @family vector.ops
-#' @concept vector-manipulation
-#' @concept descriptive-statistics
+
+
+
+#' @family vector.ops  
+#' @concept ordering
 #'
-
-
+#'
 #' @export
 midx <- function(x, inclZero = FALSE, cumulate = FALSE) {
   

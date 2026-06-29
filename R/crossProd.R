@@ -48,9 +48,9 @@
 #'
 
 
-#' @family math.utils
-#' @concept mathematics
-#' @concept vector-manipulation
+
+#' @family math.utils  
+#' @concept numerical-methods
 #'
 #'
 #' @export

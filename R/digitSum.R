@@ -17,13 +17,13 @@
 #' digitSum(c(10L, 99L, -1234L))
 #'
 
-#' @family number.theory
+
+
+
+#' @family number.theory  
 #' @concept number-theory
-#' @concept mathematics
 #'
 #'
-
-
 #' @export
 digitSum <- function(x) {
   # --- type check ---

@@ -165,9 +165,10 @@
 #' is.numeric(r5$predictor)
 #' #> [1] TRUE
 #'
-#' @family formula.utils
-#' @concept formula-handling
-#' @concept data-manipulation
+
+#' @family data.utils  
+#' @concept formula  
+#' @concept modelling
 #'
 #'
 #' @export

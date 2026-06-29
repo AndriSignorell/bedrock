@@ -6,12 +6,12 @@ frame. The file type is automatically detected from the extension.
 ## Usage
 
 ``` r
-readDownload(fname, ..., base = TRUE)
+readDownload(file, ..., base = TRUE)
 ```
 
 ## Arguments
 
-- fname:
+- file:
 
   Character string. Name of the file.
 

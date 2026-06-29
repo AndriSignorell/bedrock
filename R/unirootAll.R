@@ -59,8 +59,8 @@
 #'
 
 
-#' @family math.utils
-#' @concept mathematics
+
+#' @family math.utils  
 #' @concept numerical-methods
 #'
 #'

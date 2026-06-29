@@ -72,23 +72,13 @@ Sabbe, N. (2012). Inverse of \code{which}.
 \seealso{
 \code{\link{which}}
 
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=rankX]{rankX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+Other combinatorics:
+\code{\link[=combN]{combN()}},
+\code{\link[=combPairs]{combPairs()}},
+\code{\link[=combSet]{combSet()}},
+\code{\link[=permn]{permn()}},
+\code{\link[=randGroupSplit]{randGroupSplit()}},
+\code{\link[=sampleX]{sampleX()}}
 }
-\concept{data-manipulation}
-\concept{vector-manipulation}
-\concept{vector.ops}
+\concept{combinatorics}
+\concept{ordering}

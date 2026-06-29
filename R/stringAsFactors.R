@@ -25,12 +25,13 @@
 #' # all character columns except the second one ("char_y")
 #' str(stringsAsFactors(d.dat, columns = -2))
 #'
-#' @family data.manipulation
-#' @concept data-manipulation
-#' @concept factor-handling
+
+
+
+#' @family data.manipulation  
+#' @concept categorization
 #'
-
-
+#'
 #' @export
 stringsAsFactors <- function(x, columns = NULL) {
   
