@@ -27,7 +27,8 @@ Logical scalar.
 Other data.inspection: [`allDuplicated()`](allDuplicated.md),
 [`completeColumns()`](completeColumns.md),
 [`countCompCases()`](countCompCases.md), [`flags()`](flags.md),
-[`isDichotomous()`](isDichotomous.md), [`isNumeric()`](isNumeric.md),
+[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
+[`isNumeric()`](isNumeric.md), [`isURL()`](isURL.md),
 [`isWholeLike()`](isWholeLike.md), [`isZero()`](isZero.md)
 
 ## Examples

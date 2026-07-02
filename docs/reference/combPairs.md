@@ -39,7 +39,8 @@ combinations.
 
 Other combinatorics: [`combN()`](combN.md),
 [`combSet()`](combinatoric.md), [`permn()`](permn.md),
-[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md)
+[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md),
+[`unwhich()`](unwhich.md)
 
 ## Examples
 

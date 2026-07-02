@@ -57,10 +57,11 @@ If `FUN` is set to `ceiling` it will always round up, and if set to
 [`floor`](https://rdrr.io/r/base/Round.html)
 
 Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`divisors()`](divisors.md),
-[`dotProd()`](dotProd.md), [`gcd_lcm`](gcd_lcm.md),
-[`percentRank()`](percentRank.md), [`precision`](precision.md),
-[`ptInPoly()`](ptInPoly.md), [`unirootAll()`](unirootAll.md)
+[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
+[`linScale()`](linScale.md), [`logit()`](logit.md),
+[`nUnique()`](nUnique.md), [`percentRank()`](percentRank.md),
+[`precision`](precision.md), [`rankX()`](rankX.md),
+[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
 
 ## Examples
 

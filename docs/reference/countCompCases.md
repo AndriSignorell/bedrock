@@ -30,7 +30,7 @@ and the complete cases to be expected if this variable would be omitted.
 
 ## See also
 
-`plotMiss`,
+[`plotMiss`](https://rdrr.io/pkg/aurora/man/plotMiss.html),
 [`complete.cases`](https://rdrr.io/r/stats/complete.cases.html),
 [`is.na`](https://rdrr.io/r/base/NA.html),
 [`na.omit`](https://rdrr.io/r/stats/na.fail.html)
@@ -38,7 +38,8 @@ and the complete cases to be expected if this variable would be omitted.
 Other data.inspection: [`allDuplicated()`](allDuplicated.md),
 [`allIdentical()`](allIdentical.md),
 [`completeColumns()`](completeColumns.md), [`flags()`](flags.md),
-[`isDichotomous()`](isDichotomous.md), [`isNumeric()`](isNumeric.md),
+[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
+[`isNumeric()`](isNumeric.md), [`isURL()`](isURL.md),
 [`isWholeLike()`](isWholeLike.md), [`isZero()`](isZero.md)
 
 ## Examples

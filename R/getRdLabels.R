@@ -49,7 +49,7 @@ rdLabels <- function(dataName, package) {
   }
   
   # --- 1. Rd database laden ---
-  rd_db <- tools::Rd_db(package)
+  rd_db <- Rd_db(package)
   
   # Namen sehen typischerweise so aus: "Pizza.Rd"
   rd_name <- paste0(dataName, ".Rd")

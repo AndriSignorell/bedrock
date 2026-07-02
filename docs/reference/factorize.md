@@ -31,7 +31,8 @@ faster!).
 ## See also
 
 Other number.theory: [`digitSum()`](digitSum.md),
-[`fibonacci()`](fibonacci.md), [`isOdd()`](isOdd.md),
+[`divisors()`](divisors.md), [`fibonacci()`](fibonacci.md),
+[`gcd_lcm`](gcd_lcm.md), [`isOdd()`](isOdd.md),
 [`isPrime()`](isPrime.md),
 [`numeric-conversions`](numeric-conversions.md), [`primes()`](primes.md)
 

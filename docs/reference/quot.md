@@ -53,14 +53,12 @@ Language*. Wadsworth & Brooks/Cole.
 
 [`diff`](https://rdrr.io/r/base/diff.html)
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`rankX()`](rankX.md),
-[`splitAt()`](splitAt.md), [`trim()`](trim.md),
-[`unwhich()`](unwhich.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+Other pkg.introspection: [`extractArgs()`](extractArgs.md),
+[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
+[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
+[`getDotsArg()`](getDotsArg.md), [`mergeArgs()`](mergeArgs.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
+[`strX()`](strX.md)
 
 ## Examples
 

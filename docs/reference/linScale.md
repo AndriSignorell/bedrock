@@ -41,6 +41,13 @@ Constant columns (where `high == low`) are mapped to `newLow`.
 
 [`scale`](https://rdrr.io/r/base/scale.html)
 
+Other math.utils: [`crossProd()`](crossProd.md),
+[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
+[`logit()`](logit.md), [`nUnique()`](nUnique.md),
+[`percentRank()`](percentRank.md), [`precision`](precision.md),
+[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
+[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
+
 ## Examples
 
 ``` r

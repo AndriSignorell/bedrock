@@ -36,7 +36,8 @@ unequal sizes are required.
 
 Other combinatorics: [`combN()`](combN.md),
 [`combPairs()`](combPairs.md), [`combSet()`](combinatoric.md),
-[`permn()`](permn.md), [`sampleX()`](sampleX.md)
+[`permn()`](permn.md), [`sampleX()`](sampleX.md),
+[`unwhich()`](unwhich.md)
 
 ## Examples
 

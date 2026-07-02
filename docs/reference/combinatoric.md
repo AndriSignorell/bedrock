@@ -75,7 +75,8 @@ independently for each value of `m`.
 
 Other combinatorics: [`combN()`](combN.md),
 [`combPairs()`](combPairs.md), [`permn()`](permn.md),
-[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md)
+[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md),
+[`unwhich()`](unwhich.md)
 
 ## Examples
 

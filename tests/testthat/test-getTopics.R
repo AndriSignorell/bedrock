@@ -1,6 +1,8 @@
 # ------------------------------------------------------------------------------
 # getTopics
 # ------------------------------------------------------------------------------
+# Voraussetzung: Rd_db() ist via @importFrom tools importiert und wird in
+# getTopics() OHNE tools::-Prefix aufgerufen.
 
 test_that("getTopics returns sorted unique topics", {
   fake_rd <- list(
@@ -13,13 +15,17 @@ test_that("getTopics returns sorted unique topics", {
       class = "Rd"
     )
   )
-  mockery::stub(getTopics, "tools::Rd_db", function(...) fake_rd)
+  local_mocked_bindings(
+    Rd_db = function(...) fake_rd
+  )
   res <- getTopics("somepkg")
   expect_equal(res, c("anova", "regression"))
 })
 
 test_that("getTopics returns character(0) when no concepts", {
-  mockery::stub(getTopics, "tools::Rd_db", function(...) list())
+  local_mocked_bindings(
+    Rd_db = function(...) list()
+  )
   expect_equal(getTopics("somepkg"), character(0))
 })
 
@@ -33,9 +39,9 @@ test_that("getTopics sort = FALSE preserves order", {
       class = "Rd"
     )
   )
-  mockery::stub(getTopics, "tools::Rd_db", function(...) fake_rd)
+  local_mocked_bindings(
+    Rd_db = function(...) fake_rd
+  )
   res <- getTopics("somepkg", sort = FALSE)
   expect_equal(res, c("z", "a"))
 })
-
-

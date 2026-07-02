@@ -42,10 +42,11 @@ If `x` contains fewer than two non-missing values, all results are `NA`.
 [`rankX`](rankX.md), [`rank`](https://rdrr.io/r/base/rank.html)
 
 Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`divisors()`](divisors.md),
-[`dotProd()`](dotProd.md), [`gcd_lcm`](gcd_lcm.md),
-[`precision`](precision.md), [`ptInPoly()`](ptInPoly.md),
-[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
+[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
+[`linScale()`](linScale.md), [`logit()`](logit.md),
+[`nUnique()`](nUnique.md), [`precision`](precision.md),
+[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
+[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
 
 ## Examples
 

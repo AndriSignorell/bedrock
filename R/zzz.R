@@ -19,9 +19,9 @@
 #' @importFrom utils combn modifyList tail browseURL find getAnywhere head help.search str capture.output readRegistry as.roman
 #'             
 #' @importFrom tools Rd_db file_ext
-#' @importFrom readr read_csv read_tsv read_table
-#' @importFrom readxl read_excel
+#' @importFrom readxl excel_sheets read_excel
 #' @importFrom cli col_cyan col_blue style_bold
-#' 
+#' @importFrom httr HEAD GET status_code timeout
+#'  
 NULL
 

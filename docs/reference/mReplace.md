@@ -30,6 +30,13 @@ mReplace(x, patterns, replacements)
 A character vector of the same length as `x`, with matching elements
 replaced. Non-matching elements are returned unchanged.
 
+## See also
+
+Other string.utilities:
+[`char-ascii-conversion`](char-ascii-conversion.md),
+[`mGsub()`](mGsub.md), [`strSplitToCol()`](strSplitToCol.md),
+[`strSplitToDummy()`](strSplitToDummy.md)
+
 ## Examples
 
 ``` r

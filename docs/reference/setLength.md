@@ -29,6 +29,15 @@ setLength(x, n, fill = NA)
 
 `x`, of length `n`
 
+## See also
+
+Other vector.ops: [`closest()`](closest.md),
+[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
+[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
+[`naReplace()`](naReplace.md), [`nz()`](nz.md),
+[`pairApply()`](pairApply.md), [`trim()`](trim.md), [`vRot()`](vRot.md),
+[`vShift()`](vShift.md), [`winsorize()`](winsorize.md)
+
 ## Examples
 
 ``` r

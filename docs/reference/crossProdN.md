@@ -38,10 +38,11 @@ positive.
 ## See also
 
 Other math.utils: [`crossProd()`](crossProd.md),
-[`divisors()`](divisors.md), [`dotProd()`](dotProd.md),
-[`gcd_lcm`](gcd_lcm.md), [`percentRank()`](percentRank.md),
-[`precision`](precision.md), [`ptInPoly()`](ptInPoly.md),
-[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
+[`dotProd()`](dotProd.md), [`linScale()`](linScale.md),
+[`logit()`](logit.md), [`nUnique()`](nUnique.md),
+[`percentRank()`](percentRank.md), [`precision`](precision.md),
+[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
+[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
 
 ## Examples
 

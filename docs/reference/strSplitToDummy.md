@@ -68,6 +68,7 @@ and may not be syntactically valid R identifiers. The attribute
 
 Other string.utilities:
 [`char-ascii-conversion`](char-ascii-conversion.md),
+[`mGsub()`](mGsub.md), [`mReplace()`](mReplace.md),
 [`strSplitToCol()`](strSplitToCol.md)
 
 ## Examples

@@ -44,8 +44,10 @@ function returns `FALSE` and stores the error message as an attribute.
 ## See also
 
 Other file.utils: [`buildPath()`](buildPath.md),
-[`findDownload()`](findDownload.md), [`pdfManual()`](pdfManual.md),
-[`readDownload()`](readDownload.md), [`splitPath()`](splitPath.md)
+[`findDownload()`](findDownload.md),
+[`parseSASDatalines()`](parseSASDatalines.md),
+[`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md),
+[`splitPath()`](splitPath.md)
 
 ## Examples
 

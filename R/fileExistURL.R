@@ -47,13 +47,13 @@ fileExistURL <- function(url, timeout = 5) {
   HTTP_STATUS_OK <- 200
   
   res <- tryCatch({
-    r <- httr::HEAD(url, httr::timeout(timeout))
-    status <- httr::status_code(r)
+    r <- HEAD(url, timeout(timeout))
+    status <- status_code(r)
     
     # Fallback: try GET if HEAD fails
     if (status >= 400) {
-      r <- httr::GET(url, httr::timeout(timeout))
-      status <- httr::status_code(r)
+      r <- GET(url, timeout(timeout))
+      status <- status_code(r)
     }
     
     out <- status == HTTP_STATUS_OK

@@ -60,8 +60,7 @@ Other file.utils:
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
 \code{\link[=parseSASDatalines]{parseSASDatalines()}},
-\code{\link[=pdfManual]{pdfManual()}},
-\code{\link[=readDownload]{readDownload()}}
+\code{\link[=pdfManual]{pdfManual()}}
 }
 \concept{file.utils}
 \concept{programming}

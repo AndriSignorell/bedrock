@@ -32,7 +32,8 @@ The golden ratio is defined as `phi = 0.5*(1+sqrt(5))`.
 ## See also
 
 Other number.theory: [`digitSum()`](digitSum.md),
-[`factorize()`](factorize.md), [`isOdd()`](isOdd.md),
+[`divisors()`](divisors.md), [`factorize()`](factorize.md),
+[`gcd_lcm`](gcd_lcm.md), [`isOdd()`](isOdd.md),
 [`isPrime()`](isPrime.md),
 [`numeric-conversions`](numeric-conversions.md), [`primes()`](primes.md)
 

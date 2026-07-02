@@ -96,14 +96,12 @@ to:
 [`rank`](https://rdrr.io/r/base/rank.html),
 [`frankv`](https://rdrr.io/pkg/data.table/man/frank.html)
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`quot()`](quot.md),
-[`splitAt()`](splitAt.md), [`trim()`](trim.md),
-[`unwhich()`](unwhich.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+Other math.utils: [`crossProd()`](crossProd.md),
+[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
+[`linScale()`](linScale.md), [`logit()`](logit.md),
+[`nUnique()`](nUnique.md), [`percentRank()`](percentRank.md),
+[`precision`](precision.md), [`roundTo()`](roundTo.md),
+[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
 
 ## Examples
 

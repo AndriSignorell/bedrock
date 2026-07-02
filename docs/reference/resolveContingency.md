@@ -64,4 +64,6 @@ removing incomplete observations.
 
 ## See also
 
-Other data.utils: [`resolveGroups()`](resolveGroups.md)
+Other data.utils: [`binaryTree()`](binaryTree.md),
+[`ptInPoly()`](ptInPoly.md), [`resolveFormula()`](resolveFormula.md),
+[`resolveGroups()`](resolveGroups.md)

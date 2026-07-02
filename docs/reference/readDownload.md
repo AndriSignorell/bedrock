@@ -53,8 +53,9 @@ By default, the result is converted to a base R `data.frame`.
 
 Other file.utils: [`buildPath()`](buildPath.md),
 [`fileExistURL()`](fileExistURL.md),
-[`findDownload()`](findDownload.md), [`pdfManual()`](pdfManual.md),
-[`splitPath()`](splitPath.md)
+[`findDownload()`](findDownload.md),
+[`parseSASDatalines()`](parseSASDatalines.md),
+[`pdfManual()`](pdfManual.md), [`splitPath()`](splitPath.md)
 
 ## Examples
 

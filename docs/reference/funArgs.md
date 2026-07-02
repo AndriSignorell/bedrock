@@ -55,9 +55,12 @@ Depending on `output`:
 [`formals`](https://rdrr.io/r/base/formals.html),
 [`args`](https://rdrr.io/r/base/args.html)
 
-Other pkg.introspection: [`funCalls()`](funCalls.md),
-[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`rdLabels()`](rdLabels.md), [`mergeArgs()`](mergeArgs.md)
+Other pkg.introspection: [`extractArgs()`](extractArgs.md),
+[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
+[`funList()`](funList.md), [`getDotsArg()`](getDotsArg.md),
+[`mergeArgs()`](mergeArgs.md), [`quot()`](quot.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
+[`strX()`](strX.md)
 
 ## Examples
 

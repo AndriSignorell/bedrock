@@ -76,7 +76,8 @@ The `output` argument controls the representation returned by
 [`charToRaw`](https://rdrr.io/r/base/rawConversion.html),
 [`rawToChar`](https://rdrr.io/r/base/rawConversion.html)
 
-Other string.utilities: [`strSplitToCol()`](strSplitToCol.md),
+Other string.utilities: [`mGsub()`](mGsub.md),
+[`mReplace()`](mReplace.md), [`strSplitToCol()`](strSplitToCol.md),
 [`strSplitToDummy()`](strSplitToDummy.md)
 
 ## Examples

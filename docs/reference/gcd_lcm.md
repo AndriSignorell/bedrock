@@ -39,11 +39,11 @@ The following relation is always true:
 
 ## See also
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`divisors()`](divisors.md),
-[`dotProd()`](dotProd.md), [`percentRank()`](percentRank.md),
-[`precision`](precision.md), [`ptInPoly()`](ptInPoly.md),
-[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
+Other number.theory: [`digitSum()`](digitSum.md),
+[`divisors()`](divisors.md), [`factorize()`](factorize.md),
+[`fibonacci()`](fibonacci.md), [`isOdd()`](isOdd.md),
+[`isPrime()`](isPrime.md),
+[`numeric-conversions`](numeric-conversions.md), [`primes()`](primes.md)
 
 ## Author
 

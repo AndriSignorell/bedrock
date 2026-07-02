@@ -62,16 +62,10 @@ splits on whitespace and does not handle quoted strings.
 
 ## See also
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md),
-[`columnWrap()`](columnWrap.md), [`combLevels()`](combLevels.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`revCode()`](revCode.md), [`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitX()`](splitX.md), [`stringsAsFactors()`](stringsAsFactors.md),
-[`toBaseR()`](toBaseR.md), [`untable()`](untable.md)
+Other file.utils: [`buildPath()`](buildPath.md),
+[`fileExistURL()`](fileExistURL.md),
+[`findDownload()`](findDownload.md), [`pdfManual()`](pdfManual.md),
+[`readDownload()`](readDownload.md), [`splitPath()`](splitPath.md)
 
 ## Examples
 

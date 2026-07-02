@@ -78,8 +78,9 @@ returned as `NA`.
 
 Other file.utils: [`buildPath()`](buildPath.md),
 [`fileExistURL()`](fileExistURL.md),
-[`findDownload()`](findDownload.md), [`pdfManual()`](pdfManual.md),
-[`readDownload()`](readDownload.md)
+[`findDownload()`](findDownload.md),
+[`parseSASDatalines()`](parseSASDatalines.md),
+[`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md)
 
 ## Examples
 

@@ -34,6 +34,11 @@ A character vector of the same length as `x`.
 
 [`mReplace`](mReplace.md) for exact whole-element replacement.
 
+Other string.utilities:
+[`char-ascii-conversion`](char-ascii-conversion.md),
+[`mReplace()`](mReplace.md), [`strSplitToCol()`](strSplitToCol.md),
+[`strSplitToDummy()`](strSplitToDummy.md)
+
 ## Examples
 
 ``` r

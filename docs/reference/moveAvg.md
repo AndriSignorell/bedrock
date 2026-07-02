@@ -107,11 +107,10 @@ There is no `na.rm` option; pre-filter with `x[!is.na(x)]` if needed
 [`ma`](https://pkg.robjhyndman.com/forecast/reference/ma.html)
 
 Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`midx()`](midx.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`quot()`](quot.md),
-[`rankX()`](rankX.md), [`splitAt()`](splitAt.md), [`trim()`](trim.md),
-[`unwhich()`](unwhich.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
+[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
+[`naIf()`](naIf.md), [`naReplace()`](naReplace.md), [`nz()`](nz.md),
+[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
+[`trim()`](trim.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
 [`winsorize()`](winsorize.md)
 
 ## Examples

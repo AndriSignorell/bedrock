@@ -27,7 +27,7 @@
 #' @concept data-inspection
 getTopics <- function(pkg, sort = TRUE) {
   
-  rd_db <- tools::Rd_db(pkg)
+  rd_db <- Rd_db(pkg)
   
   concepts <- unlist(lapply(rd_db, function(rd) {
     

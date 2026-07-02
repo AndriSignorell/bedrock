@@ -157,7 +157,13 @@ components depend on the design:
 ## See also
 
 [`model.frame`](https://rdrr.io/r/stats/model.frame.html),
-[`Pair`](https://rdrr.io/r/stats/Pair.html), `desc`
+[`Pair`](https://rdrr.io/r/stats/Pair.html),
+[`desc`](https://rdrr.io/pkg/DescToolsX/man/desc.html)
+
+Other data.utils: [`binaryTree()`](binaryTree.md),
+[`ptInPoly()`](ptInPoly.md),
+[`resolveContingency()`](resolveContingency.md),
+[`resolveGroups()`](resolveGroups.md)
 
 ## Examples
 

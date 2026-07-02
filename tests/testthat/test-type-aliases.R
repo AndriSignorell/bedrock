@@ -44,7 +44,11 @@ test_that("nchr handles character input", {
 })
 
 test_that("nchr returns NA for non-numeric strings", {
-  expect_true(is.na(nchr("abc")))
+  # as.numeric warnt hier ("NAs introduced by coercion") — gewollt,
+  # der Wrapper soll die Diagnostik nicht schlucken.
+  # Kein Message-Pattern, da die base-Meldung locale-abhaengig ist.
+  expect_warning(res <- nchr("abc"))
+  expect_true(is.na(res))
 })
 
 

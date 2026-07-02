@@ -72,6 +72,7 @@ generated for each element of `x`.
 
 Other string.utilities:
 [`char-ascii-conversion`](char-ascii-conversion.md),
+[`mGsub()`](mGsub.md), [`mReplace()`](mReplace.md),
 [`strSplitToDummy()`](strSplitToDummy.md)
 
 ## Examples

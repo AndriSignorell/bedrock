@@ -28,14 +28,16 @@ A matrix with no additional classes.
 
 Other data.manipulation: [`appendEnum()`](appendEnum.md),
 [`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
+[`asBinary()`](asBinary.md), [`asCDateFmt()`](asCDateFmt.md),
 [`columnWrap()`](columnWrap.md), [`combLevels()`](combLevels.md),
-[`nf()`](nf.md), [`parseSASDatalines()`](parseSASDatalines.md),
-[`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`revCode()`](revCode.md), [`revX()`](revX.md),
+[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
+[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
+[`renameX()`](renameX.md), [`revCode()`](revCode.md),
+[`revX()`](revX.md),
 [`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
 [`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitX()`](splitX.md), [`stringsAsFactors()`](stringsAsFactors.md),
-[`toBaseR()`](toBaseR.md), [`untable()`](untable.md)
+[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
+[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
 
 ## Examples
 

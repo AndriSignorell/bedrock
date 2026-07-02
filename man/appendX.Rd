@@ -21,7 +21,8 @@ appendX(x, values, after = NULL, ...)
 \arguments{
 \item{x}{Object to which values are appended.}
 
-\item{values}{Values to insert into \code{x}.}
+\item{values}{Values to insert into \code{x}. For matrices with
+\code{rows = TRUE}, values are read row by row.}
 
 \item{after}{Position after which to insert. If \code{NULL}, values are appended
 at the end. Use \code{0} to prepend.}

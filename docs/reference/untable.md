@@ -74,17 +74,12 @@ For x being a vector this reduces to `rep(..., n)` with n as vector
 [`gl`](https://rdrr.io/r/base/gl.html),
 [`xtabs`](https://rdrr.io/r/stats/xtabs.html)
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md),
-[`columnWrap()`](columnWrap.md), [`combLevels()`](combLevels.md),
-[`nf()`](nf.md), [`parseSASDatalines()`](parseSASDatalines.md),
-[`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`revCode()`](revCode.md), [`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitX()`](splitX.md), [`stringsAsFactors()`](stringsAsFactors.md),
-[`toBaseR()`](toBaseR.md)
+Other math.utils: [`crossProd()`](crossProd.md),
+[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
+[`linScale()`](linScale.md), [`logit()`](logit.md),
+[`nUnique()`](nUnique.md), [`percentRank()`](percentRank.md),
+[`precision`](precision.md), [`rankX()`](rankX.md),
+[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
 
 ## Examples
 

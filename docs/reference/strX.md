@@ -46,6 +46,15 @@ Invisibly returns the character vector produced by
 By default, only top-level elements are numbered. Recursive numbering of
 nested list elements can be enabled with `recursive = TRUE`.
 
+## See also
+
+Other pkg.introspection: [`extractArgs()`](extractArgs.md),
+[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
+[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
+[`getDotsArg()`](getDotsArg.md), [`mergeArgs()`](mergeArgs.md),
+[`quot()`](quot.md), [`rdLabels()`](rdLabels.md),
+[`rdTitle()`](rdTitle.md)
+
 ## Examples
 
 ``` r

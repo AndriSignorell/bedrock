@@ -29,6 +29,13 @@ An integer of length one.
 fewer than a given number of unique values, without counting all of them
 first.
 
+Other math.utils: [`crossProd()`](crossProd.md),
+[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
+[`linScale()`](linScale.md), [`logit()`](logit.md),
+[`percentRank()`](percentRank.md), [`precision`](precision.md),
+[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
+[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
+
 ## Examples
 
 ``` r

@@ -40,9 +40,12 @@ Language*. Wadsworth & Brooks/Cole.
 [`ls.str`](https://rdrr.io/r/utils/ls_str.html),
 [`lsf.str`](https://rdrr.io/r/utils/ls_str.html)
 
-Other pkg.introspection: [`funArgs()`](funArgs.md),
-[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`rdLabels()`](rdLabels.md), [`mergeArgs()`](mergeArgs.md)
+Other pkg.introspection: [`extractArgs()`](extractArgs.md),
+[`funArgs()`](funArgs.md), [`funKeywords()`](funKeywords.md),
+[`funList()`](funList.md), [`getDotsArg()`](getDotsArg.md),
+[`mergeArgs()`](mergeArgs.md), [`quot()`](quot.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
+[`strX()`](strX.md)
 
 ## Examples
 

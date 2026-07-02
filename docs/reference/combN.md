@@ -43,7 +43,8 @@ an integer value
 
 Other combinatorics: [`combPairs()`](combPairs.md),
 [`combSet()`](combinatoric.md), [`permn()`](permn.md),
-[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md)
+[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md),
+[`unwhich()`](unwhich.md)
 
 ## Examples
 

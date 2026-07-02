@@ -1,8 +1,8 @@
-# Converts Numbers Between Bases
+# Convert Numbers Between Bases
 
-These functions convert numbers from one base to another. There are
-several solutions for this problem out there, but the naming is quite
-heterogeneous and so consistent function names might be helpful.
+Vectorized conversion between positional numeral systems (bases 2–36),
+plus Roman-numeral parsing. The convenience wrappers cover the most
+common cases; `baseToBase()` handles any combination of bases.
 
 ## Usage
 
@@ -28,52 +28,73 @@ baseToBase(x, from, to, width = NULL)
 
 - x:
 
-  A vector of numbers or character representations to be converted.
+  A vector of numbers or character strings representing values in the
+  input base. For `baseToBase()` a numeric `x` is accepted only when
+  `from = 10`. `NA` propagates to the output.
 
 - from:
 
-  A single integer in \\\[2, 36\]\\ giving the input base (`baseToBase`
-  only).
+  A single integer in \\\[2, 36\]\\ specifying the input base
+  (`baseToBase()` only).
 
 - to:
 
-  A single integer in \\\[2, 36\]\\ giving the output base (`baseToBase`
-  only).
+  A single integer in \\\[2, 36\]\\ specifying the output base
+  (`baseToBase()` only).
 
 - width:
 
-  A single non-negative integer or `NULL` (default). If supplied, the
-  output is left-padded with zeros to at least `width` characters
-  (`baseToBase` only).
+  A single non-negative integer or `NULL` (default). When given, output
+  strings are left-padded with zeros to at least `width` characters
+  (`baseToBase()` only).
 
 ## Value
 
-A numeric or character vector of the same length as `x` containing the
-converted values. Binary, octal and decimal values are numeric; hex
-values are returned as class `hexmode`. `baseToBase()` always returns a
-character vector (uppercase). `NA` input produces `NA` output.
+A vector of the same length as `x`:
 
-## Details
+- `binToDec()`, `octToDec()`, `hexToDec()`, `romanToInt()` — integer or
+  numeric vector.
 
-`binToDec()` converts numbers from binary mode into decimal values;
-`decToBin()` does the reverse. Oct means octal system and hex
-hexadecimal. `baseToBase()` is the general case, supporting any base
-from 2 to 36.
+- `decToHex()` — object of class
+  [`hexmode`](https://rdrr.io/r/base/hexmode.html).
 
-All specialist functions are special cases of `baseToBase()`:
+- `decToOct()` — numeric vector (octal digit string coerced to numeric).
 
-|               |                         |
-|---------------|-------------------------|
-| `hexToDec(x)` | `baseToBase(x, 16, 10)` |
-| `decToHex(x)` | `baseToBase(x, 10, 16)` |
-| `octToDec(x)` | `baseToBase(x, 8, 10)`  |
-| `decToOct(x)` | `baseToBase(x, 10, 8)`  |
-| `binToDec(x)` | `baseToBase(x, 2, 10)`  |
-| `decToBin(x)` | `baseToBase(x, 10, 2)`  |
+- `decToBin()`, `baseToBase()` — character vector (uppercase digits).
 
-`baseToBase()` uses [`strtoi()`](https://rdrr.io/r/base/strtoi.html) for
-parsing, which operates on `long int` internally. Values above
-approximately \\2^{31} - 1\\ may return `NA` on 32-bit platforms.
+`NA` input always produces `NA` output.
+
+## Convenience wrappers
+
+All specialist functions are thin wrappers around `baseToBase()`:
+
+|               |                         |                        |
+|---------------|-------------------------|------------------------|
+| **Function**  | **Equivalent call**     | **Returns**            |
+| `binToDec(x)` | `baseToBase(x, 2, 10)`  | integer                |
+| `decToBin(x)` | `baseToBase(x, 10, 2)`  | character              |
+| `octToDec(x)` | `baseToBase(x, 8, 10)`  | integer                |
+| `decToOct(x)` | `baseToBase(x, 10, 8)`  | numeric (octal digits) |
+| `hexToDec(x)` | `baseToBase(x, 16, 10)` | integer                |
+| `decToHex(x)` | `baseToBase(x, 10, 16)` | `hexmode`              |
+
+`hexToDec()` additionally strips a leading `#` from CSS-style colour
+strings.
+
+## Roman numerals
+
+`romanToInt()` converts Roman numeral strings (e.g. `"XIV"`) to
+integers. Input is trimmed and upper-cased before parsing; invalid
+strings return `NA`. See also base R's
+[`as.roman()`](https://rdrr.io/r/utils/roman.html) for the reverse
+direction.
+
+## Platform limits
+
+`baseToBase()` uses [`strtoi()`](https://rdrr.io/r/base/strtoi.html)
+internally, which operates on `long int`. On 32-bit platforms values
+above \\2^{31} - 1\\ may silently return `NA`. `decToBin()` applies the
+same cap explicitly (values \\\> 536\\870\\911\\ become `NA`).
 
 ## See also
 
@@ -83,45 +104,57 @@ approximately \\2^{31} - 1\\ may return `NA` on 32-bit platforms.
 [`as.roman`](https://rdrr.io/r/utils/roman.html)
 
 Other number.theory: [`digitSum()`](digitSum.md),
-[`factorize()`](factorize.md), [`fibonacci()`](fibonacci.md),
+[`divisors()`](divisors.md), [`factorize()`](factorize.md),
+[`fibonacci()`](fibonacci.md), [`gcd_lcm`](gcd_lcm.md),
 [`isOdd()`](isOdd.md), [`isPrime()`](isPrime.md),
 [`primes()`](primes.md)
 
 ## Examples
 
 ``` r
-decToBin(c(17, 25))
-#> [1] "10001" "11001"
-binToDec(c(101, 11101))
-#> [1]  5 29
+# binary
+decToBin(c(0, 1, 17, 255))
+#> [1] "0"        "1"        "10001"    "11111111"
+binToDec(c("0", "1", "10001", "11111111"))
+#> [1]   0   1  17 255
 
-decToOct(c(17, 25))
-#> [1] 21 31
-octToDec(c(11, 77))
-#> [1]  9 63
+# octal
+decToOct(c(8, 64, 255))
+#> [1]  10 100 377
+octToDec(c(10, 100, 377))
+#> [1]   8  64 255
 
-decToHex(c(17, 25))
-#> [1] "11" "19"
-hexToDec(c("FF", "AA", "ABC"))
-#> [1]  255  170 2748
+# hexadecimal  (CSS colour strings are also accepted by hexToDec)
+decToHex(c(0, 255, 65535))
+#> [1] "0000" "00ff" "ffff"
+hexToDec(c("FF", "ff", "#1A2B3C"))
+#> [1]     255     255 1715004
 
-# general base conversion
-baseToBase("FF",       from = 16, to = 10)   # hex -> dec
+# Roman numerals
+romanToInt(c("I", "IV", "XIV", "MCMXCIX"))   # 1, 4, 14, 1999
+#>       I      IV     XIV MCMXCIX 
+#>       1       4      14    1999 
+romanToInt("invalid")                          # NA
+#> INVALID 
+#>      NA 
+
+# baseToBase: general case
+baseToBase("FF",       from = 16, to = 10)   # 255
 #> [1] "255"
-baseToBase("255",      from = 10, to = 16)   # dec -> hex
+baseToBase("255",      from = 10, to = 16)   # "FF"
 #> [1] "FF"
-baseToBase("11111111", from = 2,  to = 10)   # bin -> dec
+baseToBase("11111111", from =  2, to = 10)   # 255
 #> [1] "255"
-baseToBase("1A3F",     from = 16, to = 2)    # hex -> bin
+baseToBase("1A3F",     from = 16, to =  2)   # binary expansion
 #> [1] "1101000111111"
-baseToBase("Z9",       from = 36, to = 10)   # base-36 -> dec
+baseToBase("Z9",       from = 36, to = 10)   # base-36 -> decimal
 #> [1] "1269"
 
-# fixed-width output
-baseToBase(c("0", "7", "255"), from = 10, to = 2, width = 8)
+# fixed-width padding (useful for bit-pattern alignment)
+baseToBase(c(0, 7, 255), from = 10, to = 2, width = 8)
 #> [1] "00000000" "00000111" "11111111"
 
-# vectorized
+# vectorized over x
 baseToBase(c("A", "B", "FF"), from = 16, to = 10)
 #> [1] "10"  "11"  "255"
 ```

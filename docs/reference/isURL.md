@@ -24,6 +24,14 @@ isURL(x)
 
 [`isFilePath()`](isFilePath.md) for the complementary file-path check.
 
+Other data.inspection: [`allDuplicated()`](allDuplicated.md),
+[`allIdentical()`](allIdentical.md),
+[`completeColumns()`](completeColumns.md),
+[`countCompCases()`](countCompCases.md), [`flags()`](flags.md),
+[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
+[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
+[`isZero()`](isZero.md)
+
 ## Examples
 
 ``` r

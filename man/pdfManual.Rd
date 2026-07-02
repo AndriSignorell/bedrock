@@ -21,7 +21,6 @@ Other file.utils:
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
 \code{\link[=parseSASDatalines]{parseSASDatalines()}},
-\code{\link[=readDownload]{readDownload()}},
 \code{\link[=splitPath]{splitPath()}}
 }
 \concept{file.utils}

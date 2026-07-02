@@ -30,7 +30,8 @@ returned as a named list, with names corresponding to the input values.
 ## See also
 
 Other number.theory: [`digitSum()`](digitSum.md),
-[`factorize()`](factorize.md), [`fibonacci()`](fibonacci.md),
+[`divisors()`](divisors.md), [`factorize()`](factorize.md),
+[`fibonacci()`](fibonacci.md), [`gcd_lcm`](gcd_lcm.md),
 [`isOdd()`](isOdd.md), [`isPrime()`](isPrime.md),
 [`numeric-conversions`](numeric-conversions.md)
 

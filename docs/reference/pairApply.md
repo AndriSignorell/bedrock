@@ -49,12 +49,11 @@ functions.
 [`pairwise.table`](https://rdrr.io/r/stats/pairwise.table.html)
 
 Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`midx()`](midx.md),
+[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
 [`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md), [`quot()`](quot.md),
-[`rankX()`](rankX.md), [`splitAt()`](splitAt.md), [`trim()`](trim.md),
-[`unwhich()`](unwhich.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+[`naReplace()`](naReplace.md), [`nz()`](nz.md),
+[`setLength()`](setLength.md), [`trim()`](trim.md), [`vRot()`](vRot.md),
+[`vShift()`](vShift.md), [`winsorize()`](winsorize.md)
 
 ## Examples
 

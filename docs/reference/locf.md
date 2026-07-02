@@ -39,6 +39,14 @@ may result in biased estimates and may underestimate the variability.
 
 See also the package Hmisc for less coarse imputation functions.
 
+Other vector.ops: [`closest()`](closest.md),
+[`coalesceX()`](coalesceX.md), [`midx()`](midx.md),
+[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
+[`naReplace()`](naReplace.md), [`nz()`](nz.md),
+[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
+[`trim()`](trim.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
+[`winsorize()`](winsorize.md)
+
 ## Author
 
 Daniel Wollschlaeger <dwoll@psychologie.uni-kiel.de>

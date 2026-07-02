@@ -198,6 +198,7 @@
   Attributes
 - [`rdLabels()`](rdLabels.md) : Extract variable labels from Rd
   documentation
+- [`rdTitle()`](rdTitle.md) : Extract the Title from an Rd Help File
 
 ## Mathematics
 
@@ -256,7 +257,7 @@
   [`binToDec()`](numeric-conversions.md)
   [`decToBin()`](numeric-conversions.md)
   [`romanToInt()`](numeric-conversions.md)
-  [`baseToBase()`](numeric-conversions.md) : Converts Numbers Between
+  [`baseToBase()`](numeric-conversions.md) : Convert Numbers Between
   Bases
 - [`toBaseR()`](toBaseR.md) : Back to Basics with Tibbles
 - [`asBinary()`](asBinary.md) : Coerce a Vector to Binary (0/1)
@@ -320,7 +321,7 @@
   [`binToDec()`](numeric-conversions.md)
   [`decToBin()`](numeric-conversions.md)
   [`romanToInt()`](numeric-conversions.md)
-  [`baseToBase()`](numeric-conversions.md) : Converts Numbers Between
+  [`baseToBase()`](numeric-conversions.md) : Convert Numbers Between
   Bases
 - [`revCode()`](revCode.md) : Reverse Coding of Variables
 

@@ -9,7 +9,7 @@ present in only one of the two frames and columns that differ in matched rows.">
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.935</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.937</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,18 +76,18 @@ Must be present in both <code>x</code> and <code>y</code>. Default is <code>"str
 <dd><p>Logical. <code>TRUE</code> if the two data frames are
 identical with respect to the common columns and key.</p></dd>
 
-<dt><code>only_in_x</code></dt>
+<dt><code>onlyInX</code></dt>
 <dd><p>Data frame of rows whose key value appears in
 <code>x</code> but not in <code>y</code>.</p></dd>
 
-<dt><code>only_in_y</code></dt>
+<dt><code>onlyInY</code></dt>
 <dd><p>Data frame of rows whose key value appears in
 <code>y</code> but not in <code>x</code>.</p></dd>
 
 <dt><code>diffs</code></dt>
-<dd><p>Data frame with columns <code>strat_x</code> (the key value)
-and <code>diff_cols</code> (a list column of character vectors naming the
-differing columns for that key).</p></dd>
+<dd><p>Data frame with columns named after the <code>key</code>
+argument (the key value) and <code>diffCols</code> (a list column of character
+vectors naming the differing columns for that key).</p></dd>
 
 
 </dl></div>
@@ -98,6 +98,32 @@ the <code>key</code> column using <code><a href="https://rdrr.io/r/base/identica
 so type differences (e.g., <code>integer</code> vs. <code>double</code>) will be flagged
 as differences.</p>
     </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other data.manipulation:
+<code><a href="appendEnum.html">appendEnum()</a></code>,
+<code><a href="appendRowNames.html">appendRowNames()</a></code>,
+<code><a href="appendX.html">appendX()</a></code>,
+<code><a href="as.array.xtabs.html">as.array.xtabs()</a></code>,
+<code><a href="asBinary.html">asBinary()</a></code>,
+<code><a href="asCDateFmt.html">asCDateFmt()</a></code>,
+<code><a href="columnWrap.html">columnWrap()</a></code>,
+<code><a href="combLevels.html">combLevels()</a></code>,
+<code><a href="dummy.html">dummy()</a></code>,
+<code><a href="nf.html">nf()</a></code>,
+<code><a href="recodeX.html">recodeX()</a></code>,
+<code><a href="recycle.html">recycle()</a></code>,
+<code><a href="renameX.html">renameX()</a></code>,
+<code><a href="revCode.html">revCode()</a></code>,
+<code><a href="revX.html">revX()</a></code>,
+<code><a href="setAttr-removeAttr-keepAttr.html">setAttr-removeAttr-keepAttr</a></code>,
+<code><a href="setNamesX.html">setNamesX()</a></code>,
+<code><a href="sortX.html">sortX()</a></code>,
+<code><a href="splitAt.html">splitAt()</a></code>,
+<code><a href="splitX.html">splitX()</a></code>,
+<code><a href="stringsAsFactors.html">stringsAsFactors()</a></code>,
+<code><a href="toBaseR.html">toBaseR()</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
@@ -107,17 +133,17 @@ as differences.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $identical</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $only_in_x</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $onlyInX</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   strat_x v1 v2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3       C  3 30</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $only_in_y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $onlyInY</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   strat_x v1 v2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3       D  4 40</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $diffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   strat_x diff_cols</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       B        v1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   strat_x diffCols</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       B       v1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

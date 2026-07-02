@@ -26,3 +26,12 @@ getDotsArg(dots, name, default = NULL)
 ## Value
 
 The value of the argument or default
+
+## See also
+
+Other pkg.introspection: [`extractArgs()`](extractArgs.md),
+[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
+[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
+[`mergeArgs()`](mergeArgs.md), [`quot()`](quot.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
+[`strX()`](strX.md)

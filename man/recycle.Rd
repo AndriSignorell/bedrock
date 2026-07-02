@@ -2,7 +2,7 @@
 % Please edit documentation in R/recycle.R
 \name{recycle}
 \alias{recycle}
-\title{Recyle a List of Elements}
+\title{Recycle a List of Elements}
 \usage{
 recycle(..., maxdim = NULL, strict = FALSE)
 }
@@ -16,17 +16,17 @@ the maximal dimension of the list.}
 }
 \value{
 a list of the supplied elements\cr \code{attr(,"maxdim")} contains
-the maximal dimension of the recyled list
+the maximal dimension of the recycled list
 }
 \description{
-This function recycles all supplied elments to the maximal dimension.
+This function recycles all supplied elements to the maximal dimension.
 }
 \examples{
 
 recycle(x=1:5, y=1, s=letters[1:2])
 
 z <- recycle(x=letters[1:5], n=2:3, sep=c("-"," "))
-sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]), 
+sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]),
                                         collapse=z$sep[i]))
 
 }

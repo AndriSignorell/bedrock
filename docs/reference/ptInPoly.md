@@ -52,11 +52,10 @@ implemented in C++ via Rcpp.
 
 ## See also
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`divisors()`](divisors.md),
-[`dotProd()`](dotProd.md), [`gcd_lcm`](gcd_lcm.md),
-[`percentRank()`](percentRank.md), [`precision`](precision.md),
-[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
+Other data.utils: [`binaryTree()`](binaryTree.md),
+[`resolveContingency()`](resolveContingency.md),
+[`resolveFormula()`](resolveFormula.md),
+[`resolveGroups()`](resolveGroups.md)
 
 ## Examples
 

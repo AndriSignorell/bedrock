@@ -61,6 +61,20 @@ functions.
 [`stats::contr.helmert`](https://rdrr.io/r/stats/contrast.html),
 [`stats::contr.poly`](https://rdrr.io/r/stats/contrast.html)
 
+Other data.manipulation: [`appendEnum()`](appendEnum.md),
+[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
+[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
+[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
+[`combLevels()`](combLevels.md),
+[`compareDataFrames()`](compareDataFrames.md), [`nf()`](nf.md),
+[`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
+[`renameX()`](renameX.md), [`revCode()`](revCode.md),
+[`revX()`](revX.md),
+[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
+[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
+[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
+[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+
 ## Examples
 
 ``` r

@@ -36,14 +36,19 @@ Each element of the returned list corresponds to a contiguous subset of
 
 [`split`](https://rdrr.io/r/base/split.html)
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`quot()`](quot.md),
-[`rankX()`](rankX.md), [`trim()`](trim.md), [`unwhich()`](unwhich.md),
-[`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+Other data.manipulation: [`appendEnum()`](appendEnum.md),
+[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
+[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
+[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
+[`combLevels()`](combLevels.md),
+[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
+[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
+[`renameX()`](renameX.md), [`revCode()`](revCode.md),
+[`revX()`](revX.md),
+[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
+[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
+[`splitX()`](splitX.md), [`stringsAsFactors()`](stringsAsFactors.md),
+[`toBaseR()`](toBaseR.md)
 
 ## Examples
 

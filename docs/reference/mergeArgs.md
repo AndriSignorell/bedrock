@@ -39,6 +39,9 @@ A named list of merged arguments.
 
 ## See also
 
-Other pkg.introspection: [`funArgs()`](funArgs.md),
-[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
-[`funList()`](funList.md), [`rdLabels()`](rdLabels.md)
+Other pkg.introspection: [`extractArgs()`](extractArgs.md),
+[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
+[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
+[`getDotsArg()`](getDotsArg.md), [`quot()`](quot.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
+[`strX()`](strX.md)

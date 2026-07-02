@@ -79,6 +79,13 @@ well-defined for all real inputs, so no stabilization is required.
 [`qlogis`](https://rdrr.io/r/stats/Logistic.html),
 [`plogis`](https://rdrr.io/r/stats/Logistic.html)
 
+Other math.utils: [`crossProd()`](crossProd.md),
+[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
+[`linScale()`](linScale.md), [`nUnique()`](nUnique.md),
+[`percentRank()`](percentRank.md), [`precision`](precision.md),
+[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
+[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
+
 ## Examples
 
 ``` r

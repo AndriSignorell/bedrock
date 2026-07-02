@@ -30,3 +30,12 @@ extractArgs(dots, defaults, validate = NULL, returnRest = FALSE)
 ## Value
 
 Named list of extracted arguments (and optionally remaining ones)
+
+## See also
+
+Other pkg.introspection: [`funArgs()`](funArgs.md),
+[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
+[`funList()`](funList.md), [`getDotsArg()`](getDotsArg.md),
+[`mergeArgs()`](mergeArgs.md), [`quot()`](quot.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
+[`strX()`](strX.md)

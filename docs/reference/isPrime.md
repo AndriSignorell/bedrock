@@ -33,7 +33,8 @@ Non-integer or non-finite values will result in `FALSE`.
 ## See also
 
 Other number.theory: [`digitSum()`](digitSum.md),
-[`factorize()`](factorize.md), [`fibonacci()`](fibonacci.md),
+[`divisors()`](divisors.md), [`factorize()`](factorize.md),
+[`fibonacci()`](fibonacci.md), [`gcd_lcm`](gcd_lcm.md),
 [`isOdd()`](isOdd.md), [`numeric-conversions`](numeric-conversions.md),
 [`primes()`](primes.md)
 

@@ -186,7 +186,8 @@ reference:
       - keepAttr
       - removeAttr
       - setAttr
-      - getRdLabels
+      - rdLabels
+      - rdTitle
 
 # Mathematics ================================================================
   - title: "Mathematics"

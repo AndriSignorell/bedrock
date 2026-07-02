@@ -38,7 +38,12 @@ improvements by the package author.
 
 ## See also
 
-`aurora::plotBinaryTree()`
+[`aurora::plotBinaryTree()`](https://rdrr.io/pkg/aurora/man/binaryTree.html)
+
+Other data.utils: [`ptInPoly()`](ptInPoly.md),
+[`resolveContingency()`](resolveContingency.md),
+[`resolveFormula()`](resolveFormula.md),
+[`resolveGroups()`](resolveGroups.md)
 
 ## Examples
 

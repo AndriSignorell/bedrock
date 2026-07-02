@@ -70,8 +70,9 @@ Other data.inspection: [`allDuplicated()`](allDuplicated.md),
 [`allIdentical()`](allIdentical.md),
 [`completeColumns()`](completeColumns.md),
 [`countCompCases()`](countCompCases.md), [`flags()`](flags.md),
-[`isDichotomous()`](isDichotomous.md),
-[`isWholeLike()`](isWholeLike.md), [`isZero()`](isZero.md)
+[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
+[`isURL()`](isURL.md), [`isWholeLike()`](isWholeLike.md),
+[`isZero()`](isZero.md)
 
 ## Examples
 

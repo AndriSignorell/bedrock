@@ -53,13 +53,13 @@
 #' @export
 dataDescription <- function(fn, sheet = "Description") {
   
-  sheets <- readxl::excel_sheets(fn)
+  sheets <- excel_sheets(fn)
   
   if (!(sheet %in% sheets) || length(sheets) <= 1) {
     return(NULL)
   }
   
-  d.desc <- as.data.frame(readxl::read_excel(fn, sheet = sheet))
+  d.desc <- as.data.frame(read_excel(fn, sheet = sheet))
   
   empty_rows <- which(apply(d.desc, 1, function(x) all(is.na(x))))
   if (length(empty_rows) > 0) {

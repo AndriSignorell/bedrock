@@ -30,8 +30,10 @@ If the file does not exist, an error is thrown.
 ## See also
 
 Other file.utils: [`buildPath()`](buildPath.md),
-[`fileExistURL()`](fileExistURL.md), [`pdfManual()`](pdfManual.md),
-[`readDownload()`](readDownload.md), [`splitPath()`](splitPath.md)
+[`fileExistURL()`](fileExistURL.md),
+[`parseSASDatalines()`](parseSASDatalines.md),
+[`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md),
+[`splitPath()`](splitPath.md)
 
 ## Examples
 

@@ -4,34 +4,43 @@
 \alias{readDownload}
 \title{Read a File from the Downloads Directory}
 \usage{
-readDownload(file, ..., base = TRUE)
+readDownload(file, ..., output = c("data.frame", "tibble"))
 }
 \arguments{
-\item{file}{Character string. Name of the file.}
+\item{file}{character string specifying the name of the file.}
 
-\item{...}{Additional arguments passed to the underlying read function.}
+\item{\dots}{additional arguments passed to the underlying read
+function, e.g. \code{sheet} for Excel files or \code{delim}
+for text files.}
 
-\item{base}{Logical; if \code{TRUE} (default), the result is converted
-to a base R \code{data.frame} using \code{DescToolsX::toBaseR}.}
+\item{output}{character, either \code{"data.frame"} (default) or
+\code{"tibble"}, determining the class of the returned object.
+Conversion to \code{data.frame} is done by \code{\link{toBaseR}}.
+The argument can be abbreviated. Note that it must be given as a
+named argument, as it follows the dots.}
 }
 \value{
-A \code{data.frame} (or tibble if \code{base = FALSE}).
+a \code{data.frame} or a tibble, according to \code{output}.
 }
 \description{
-Reads a file from the Downloads directory and returns it as a data frame.
-The file type is automatically detected from the extension.
+Reads a file from the Downloads directory and returns it as a data
+frame. The file type is automatically detected from the extension.
 }
 \details{
 This is a convenience wrapper combining \code{\link{findDownload}} with
 common file readers:
 \itemize{
-\item Excel files (\code{.xls}, \code{.xlsx}) via \code{readxl}
+\item Excel files (\code{.xls}, \code{.xlsx}) via
+\code{readxl::read_excel}
 \item CSV files via \code{readr::read_csv}
 \item TSV files via \code{readr::read_tsv}
-\item Text files via \code{readr::read_table}
+\item Text files (\code{.txt}) via \code{readr::read_delim},
+which guesses the delimiter from the file content
 }
 
-By default, the result is converted to a base R \code{data.frame}.
+For the readr-based formats the column specification message is
+suppressed by default; supply \code{show_col_types = TRUE} to restore
+it. By default, the result is converted to a base R \code{data.frame}.
 }
 \examples{
 \dontrun{
@@ -42,21 +51,20 @@ readDownload("data.xlsx")
 readDownload("data.csv")
 
 # Keep tibble output
-readDownload("data.csv", base = FALSE)
+readDownload("data.csv", output = "tibble")
 }
 
 }
 \seealso{
-\code{\link[readxl]{read_excel}},
+\code{\link{findDownload}}, \code{\link{peekFile}},
+\code{\link{toBaseR}}, \code{\link[readxl]{read_excel}},
 \code{\link[readr]{read_csv}}
 
-Other file.utils:
-\code{\link[=buildPath]{buildPath()}},
-\code{\link[=fileExistURL]{fileExistURL()}},
-\code{\link[=findDownload]{findDownload()}},
-\code{\link[=parseSASDatalines]{parseSASDatalines()}},
-\code{\link[=pdfManual]{pdfManual()}},
-\code{\link[=splitPath]{splitPath()}}
+Other io:
+\code{\link[=peekFile]{peekFile()}}
 }
-\concept{file.utils}
-\concept{programming}
+\author{
+Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
+}
+\concept{data-import}
+\concept{io}

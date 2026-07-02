@@ -23,4 +23,5 @@ pdfManual(package)
 Other file.utils: [`buildPath()`](buildPath.md),
 [`fileExistURL()`](fileExistURL.md),
 [`findDownload()`](findDownload.md),
+[`parseSASDatalines()`](parseSASDatalines.md),
 [`readDownload()`](readDownload.md), [`splitPath()`](splitPath.md)

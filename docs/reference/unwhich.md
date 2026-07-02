@@ -62,14 +62,10 @@ Sabbe, N. (2012). Inverse of `which`.
 
 [`which`](https://rdrr.io/r/base/which.html)
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`quot()`](quot.md),
-[`rankX()`](rankX.md), [`splitAt()`](splitAt.md), [`trim()`](trim.md),
-[`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+Other combinatorics: [`combN()`](combN.md),
+[`combPairs()`](combPairs.md), [`combSet()`](combinatoric.md),
+[`permn()`](permn.md), [`randGroupSplit()`](randGroupSplit.md),
+[`sampleX()`](sampleX.md)
 
 ## Examples
 

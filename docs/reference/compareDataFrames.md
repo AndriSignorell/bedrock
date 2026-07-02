@@ -34,19 +34,19 @@ A named list with four elements:
   Logical. `TRUE` if the two data frames are identical with respect to
   the common columns and key.
 
-- `only_in_x`:
+- `onlyInX`:
 
   Data frame of rows whose key value appears in `x` but not in `y`.
 
-- `only_in_y`:
+- `onlyInY`:
 
   Data frame of rows whose key value appears in `y` but not in `x`.
 
 - `diffs`:
 
-  Data frame with columns `strat_x` (the key value) and `diff_cols` (a
-  list column of character vectors naming the differing columns for that
-  key).
+  Data frame with columns named after the `key` argument (the key value)
+  and `diffCols` (a list column of character vectors naming the
+  differing columns for that key).
 
 ## Details
 
@@ -55,6 +55,21 @@ by the `key` column using
 [`identical`](https://rdrr.io/r/base/identical.html) for element-wise
 comparison, so type differences (e.g., `integer` vs. `double`) will be
 flagged as differences.
+
+## See also
+
+Other data.manipulation: [`appendEnum()`](appendEnum.md),
+[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
+[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
+[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
+[`combLevels()`](combLevels.md), [`dummy()`](dummy.md), [`nf()`](nf.md),
+[`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
+[`renameX()`](renameX.md), [`revCode()`](revCode.md),
+[`revX()`](revX.md),
+[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
+[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
+[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
+[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
 
 ## Examples
 
@@ -65,16 +80,16 @@ compareDataFrames(x, y)
 #> $identical
 #> [1] FALSE
 #> 
-#> $only_in_x
+#> $onlyInX
 #>   strat_x v1 v2
 #> 3       C  3 30
 #> 
-#> $only_in_y
+#> $onlyInY
 #>   strat_x v1 v2
 #> 3       D  4 40
 #> 
 #> $diffs
-#>   strat_x diff_cols
-#> 1       B        v1
+#>   strat_x diffCols
+#> 1       B       v1
 #> 
 ```

@@ -30,11 +30,11 @@ function [`length()`](https://rdrr.io/r/base/length.html).
 
 ## See also
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`gcd_lcm`](gcd_lcm.md), [`percentRank()`](percentRank.md),
-[`precision`](precision.md), [`ptInPoly()`](ptInPoly.md),
-[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
+Other number.theory: [`digitSum()`](digitSum.md),
+[`factorize()`](factorize.md), [`fibonacci()`](fibonacci.md),
+[`gcd_lcm`](gcd_lcm.md), [`isOdd()`](isOdd.md),
+[`isPrime()`](isPrime.md),
+[`numeric-conversions`](numeric-conversions.md), [`primes()`](primes.md)
 
 ## Author
 

@@ -1,6 +1,6 @@
 Package: bedrock
 Title: Base functions for the DescToolsX ecosystem
-Version: 0.0.0.937
+Version: 0.0.0.938
 Authors@R: 
     person("Andri", "Signorell", , "andri@signorell.net", role = c("aut", "cre"))
 Description: Provides low level, generic utilities and basic routines used in DescToolsX.
@@ -9,9 +9,9 @@ License: GPL (>= 2)
 Encoding: UTF-8
 LinkingTo: Rcpp
 Roxygen: list(markdown = TRUE)
-Imports: Rcpp, abind, expm, tools, data.table, readr, readxl, httr, cli
+Imports: Rcpp, abind, expm, tools, data.table, readxl, httr, cli
 Suggests:
-    testthat (>= 3.0.0), haven, R.rsp, mockery, tibble
+    testthat (>= 3.0.0), haven, R.rsp, readr, tibble
 Config/testthat/edition: 3
 VignetteBuilder: R.rsp
 LazyData: true

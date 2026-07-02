@@ -45,7 +45,8 @@ sampled elements in the same structure as x
 
 Other combinatorics: [`combN()`](combN.md),
 [`combPairs()`](combPairs.md), [`combSet()`](combinatoric.md),
-[`permn()`](permn.md), [`randGroupSplit()`](randGroupSplit.md)
+[`permn()`](permn.md), [`randGroupSplit()`](randGroupSplit.md),
+[`unwhich()`](unwhich.md)
 
 ## Examples
 

@@ -6,7 +6,7 @@ grouping variable or as a list of group-specific vectors.
 ## Usage
 
 ``` r
-resolveGroups(x, g)
+resolveGroups(x, groups)
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ resolveGroups(x, g)
 
   a numeric vector of observations, or a list of numeric vectors.
 
-- g:
+- groups:
 
   a grouping variable of the same length as `x`. Ignored when `x` is a
   list.
@@ -28,7 +28,7 @@ A list containing:
 
   numeric response vector
 
-- g:
+- groups:
 
   grouping factor
 
@@ -60,4 +60,7 @@ effect-size calculations and plotting functions.
 
 ## See also
 
-Other data.utils: [`resolveContingency()`](resolveContingency.md)
+Other data.utils: [`binaryTree()`](binaryTree.md),
+[`ptInPoly()`](ptInPoly.md),
+[`resolveContingency()`](resolveContingency.md),
+[`resolveFormula()`](resolveFormula.md)

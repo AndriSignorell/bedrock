@@ -28,7 +28,8 @@ Non-integer values (e.g. 3.5), `NA`, `NaN`, or `Inf` return `NA`.
 ## See also
 
 Other number.theory: [`digitSum()`](digitSum.md),
-[`factorize()`](factorize.md), [`fibonacci()`](fibonacci.md),
+[`divisors()`](divisors.md), [`factorize()`](factorize.md),
+[`fibonacci()`](fibonacci.md), [`gcd_lcm`](gcd_lcm.md),
 [`isPrime()`](isPrime.md),
 [`numeric-conversions`](numeric-conversions.md), [`primes()`](primes.md)
 

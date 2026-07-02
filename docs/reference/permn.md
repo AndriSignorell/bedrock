@@ -34,7 +34,8 @@ per row.
 
 Other combinatorics: [`combN()`](combN.md),
 [`combPairs()`](combPairs.md), [`combSet()`](combinatoric.md),
-[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md)
+[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md),
+[`unwhich()`](unwhich.md)
 
 ## Examples
 

@@ -11,7 +11,9 @@ test_that("finds simple roots correctly", {
 
 test_that("returns numeric(0) when no roots exist", {
   f <- function(x) x^2 + 1
-  roots <- unirootAll(f, c(-10, 10))
+  # Warning ist gewollt und wird separat getestet
+  # (siehe "warns when no roots found but finite values exist")
+  roots <- suppressWarnings(unirootAll(f, c(-10, 10)))
   
   expect_equal(roots, numeric(0))
 })

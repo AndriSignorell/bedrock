@@ -26,8 +26,9 @@ supplied, an error is thrown. Missing values (`NA`) are propagated.
 
 ## See also
 
-Other number.theory: [`factorize()`](factorize.md),
-[`fibonacci()`](fibonacci.md), [`isOdd()`](isOdd.md),
+Other number.theory: [`divisors()`](divisors.md),
+[`factorize()`](factorize.md), [`fibonacci()`](fibonacci.md),
+[`gcd_lcm`](gcd_lcm.md), [`isOdd()`](isOdd.md),
 [`isPrime()`](isPrime.md),
 [`numeric-conversions`](numeric-conversions.md), [`primes()`](primes.md)
 

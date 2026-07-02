@@ -47,10 +47,11 @@ optimized via BLAS for high performance.
 [`crossprod`](https://rdrr.io/r/base/crossprod.html)
 
 Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`divisors()`](divisors.md),
-[`gcd_lcm`](gcd_lcm.md), [`percentRank()`](percentRank.md),
-[`precision`](precision.md), [`ptInPoly()`](ptInPoly.md),
-[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
+[`crossProdN()`](crossProdN.md), [`linScale()`](linScale.md),
+[`logit()`](logit.md), [`nUnique()`](nUnique.md),
+[`percentRank()`](percentRank.md), [`precision`](precision.md),
+[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
+[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
 
 ## Examples
 
