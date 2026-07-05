@@ -32,8 +32,8 @@ Downloads and loads a dataset from predefined course servers or a user-defined U
 \details{
 If no \code{url} is provided, the function searches for the file in the following locations:
 \itemize{
-\item \url{http://www.signorell.net/hwz/datasets/}
-\item \url{http://www.signorell.net/buch/}
+\item \url{https://www.signorell.net/hwz/datasets/}
+\item \url{https://www.signorell.net/buch/}
 }
 
 The first location where the file exists is used.
@@ -50,7 +50,7 @@ File type handling:
 courseData("mydata.csv")
 
 # Load from custom URL
-courseData("mydata.csv", url = "http://example.com/data/")
+courseData("mydata.csv", url = "https://example.com/data/")
 }
 
 }

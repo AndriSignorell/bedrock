@@ -1,13 +1,13 @@
 
-#' Check whether a string is a URL
+#' Check Whether a String Is a URL
 #'
 #' Returns `TRUE` if the given string starts with a recognised URL scheme,
 #' `FALSE` otherwise. Convenience wrapper around the internal
 #' \code{.detectInputType()} helper.
 #'
-#' @param x `character(1)` – the string to test.
+#' @param x `character(1)` - the string to test.
 #'
-#' @return `logical(1)` – `TRUE` if `x` is a URL, `FALSE` otherwise.
+#' @return `logical(1)` - `TRUE` if `x` is a URL, `FALSE` otherwise.
 #'
 #' @seealso [isFilePath()] for the complementary file-path check.
 #'
@@ -18,26 +18,23 @@
 #' isURL("/home/user/file.csv")            # FALSE
 #' isURL("./script.R")                     # FALSE
 #'
-
-#' @family data.inspection  
+#' @family data.inspection
 #' @concept ordering
-#'
-#'
 #' @export
 isURL <- function(x) {
   .detectInputType(x) == "url"
 }
 
 
-#' Check whether a string is a file path
+#' Check Whether a String Is a File Path
 #'
 #' Returns `TRUE` if the given string looks like a local file path (absolute
 #' or relative, Unix/Windows style), `FALSE` otherwise. Convenience wrapper
 #' around the internal \code{.detectInputType()} helper.
 #'
-#' @param x `character(1)` – the string to test.
+#' @param x `character(1)` - the string to test.
 #'
-#' @return `logical(1)` – `TRUE` if `x` is a file path, `FALSE` otherwise.
+#' @return `logical(1)` - `TRUE` if `x` is a file path, `FALSE` otherwise.
 #'
 #' @seealso [isURL()] for the complementary URL check.
 #'
@@ -49,6 +46,8 @@ isURL <- function(x) {
 #' isFilePath("C:/Users/Hans/file.xlsx")    # TRUE
 #' isFilePath("https://example.com/f.csv")  # FALSE
 #'
+#' @family data.inspection
+#' @concept ordering
 #' @export
 isFilePath <- function(x) {
   .detectInputType(x) == "filepath"
@@ -62,19 +61,19 @@ isFilePath <- function(x) {
 # Detect whether a string is a URL, a file path, or neither.
 #
 # Parameters:
-#   x  character(1) – the string to inspect.
+#   x  character(1) - the string to inspect.
 #
 # Returns:
-#   character(1) – one of "url", "filepath", or "unknown".
-#
-
+#   character(1) - one of "url", "filepath", or "unknown".
 
 .detectInputType <- function(x) {
-  stopifnot(is.character(x), length(x) == 1L)
-  
+
+  if (!is.character(x) || length(x) != 1L)
+    stop("'x' must be a single character string.")
+
   # --- URL detection ----------------------------------------------------
   # Match any known protocol scheme at the start of the string
-  url_pattern <- paste0(
+  urlPattern <- paste0(
     "^(",
     "https?://",          # HTTP and HTTPS
     "|ftps?://",          # FTP and FTPS
@@ -82,14 +81,14 @@ isFilePath <- function(x) {
     "|s3://|gs://|az://", # cloud storage (AWS, GCP, Azure)
     ")"
   )
-  
-  if (grepl(url_pattern, x, ignore.case = TRUE)) {
+
+  if (grepl(urlPattern, x, ignore.case = TRUE)) {
     return("url")
   }
-  
+
   # --- File path detection ----------------------------------------------
   # Match common path prefixes for Unix, macOS, and Windows
-  path_pattern <- paste0(
+  pathPattern <- paste0(
     "^(",
     "/",                  # absolute Unix path
     "|~/",                # home directory shorthand
@@ -97,18 +96,17 @@ isFilePath <- function(x) {
     "|[A-Za-z]:[/\\\\]",  # Windows drive letter: C:/ or C:\
     ")"
   )
-  
-  if (grepl(path_pattern, x)) {
+
+  if (grepl(pathPattern, x)) {
     return("filepath")
   }
-  
+
   # If the string contains any path separator but no URL scheme,
   # it is most likely a relative or ambiguous file path
   if (grepl("[/\\\\]", x)) {
     return("filepath")
   }
-  
+
   # --- Fallback ---------------------------------------------------------
   return("unknown")
 }
-

@@ -59,15 +59,16 @@ and positional assignment of unnamed arguments produces a warning.
 }
 }
 \examples{
-# Example usage (assuming suitable table 'tab')
-# collapseTable(tab, age = c("young", "adult", "adult"))
+tab <- xtabs(~ gear + cyl, data = mtcars)
+tab
+
+# merge the 4- and 6-cylinder categories
+collapseTable(tab, cyl = c("le6", "le6", "8"))
+
+# positional assignment (first dimension), silent with strict = FALSE
+collapseTable(tab, c("3-4", "3-4", "5"), strict = FALSE)
 
 }
-\seealso{
-Other table.utils:
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=printCharMatrix]{printCharMatrix()}}
-}
+\concept{frequency}
 \concept{frequency-table}
 \concept{table}
-\concept{table.utils}

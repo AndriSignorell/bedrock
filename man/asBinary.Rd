@@ -4,27 +4,31 @@
 \alias{asBinary}
 \title{Coerce a Vector to Binary (0/1)}
 \usage{
-asBinary(x, ref = NULL, warn = TRUE)
+asBinary(x, pos = NULL, warn = TRUE)
 }
 \arguments{
 \item{x}{a logical, numeric, integer, factor, or character vector.}
 
-\item{ref}{optional reference value. If supplied, observations equal to
-\code{ref} are coded as 1 and all others as 0. Must be one of the
+\item{pos}{optional positive value. If supplied, observations equal to
+\code{pos} are coded as 1 and all others as 0. Must be one of the
 observed values or factor levels.}
 
 \item{warn}{logical. If \code{TRUE} (default), a warning is issued when
 a factor or character vector is coerced to binary without an explicit
-\code{ref}, indicating which value is coded as 1.}
+\code{pos}, indicating which value is coded as 1.}
 }
 \value{
 a numeric vector of 0s and 1s (and \code{NA}s where present in
-\code{x}).
+\code{x}). For factor and character input, the result carries a
+\code{"coding"} attribute, a named integer vector documenting which
+original value was mapped to 0 and which to 1.
 }
 \description{
-A unified conversion utility for binary variables. Handles the four most
-common input types and provides consistent behavior across all of them.
-
+A unified conversion utility for binary variables. Converts a logical,
+numeric, factor, or character vector to a binary numeric vector coded
+as 0 and 1.
+}
+\details{
 For \strong{logical} input, \code{TRUE} is mapped to 1 and \code{FALSE}
 to 0.
 
@@ -32,15 +36,12 @@ For \strong{numeric} input, values must already be 0 or 1 (or \code{NA});
 any other value raises an error.
 
 For \strong{factor} input, the vector must have exactly two levels. By
-default the second level (alphabetically) is coded as 1. Use \code{ref}
-to specify which level should be coded as 1.
+default the second level is coded as 1. Use \code{pos} to specify which
+level should be coded as 1.
 
 For \strong{character} input, the vector must have exactly two distinct
-non-missing values. The same \code{ref} logic applies.
-}
-\details{
-Converts a logical, numeric, factor, or character vector to a binary
-numeric vector coded as 0 and 1.
+non-missing values. By default the alphabetically second value is coded
+as 1. The same \code{pos} logic applies.
 }
 \examples{
 # logical
@@ -52,14 +53,14 @@ asBinary(c(0, 1, 1, 0))
 # factor: second level coded as 1 by default
 asBinary(factor(c("control", "treatment", "control")))
 
-# factor with explicit reference
-asBinary(factor(c("control", "treatment", "control")), ref = "treatment")
+# factor with explicit positive value
+asBinary(factor(c("control", "treatment", "control")), pos = "treatment")
 
 # character
 asBinary(c("no", "yes", "no", "yes"))
 
-# character with explicit reference
-asBinary(c("F", "U", "F", "U"), ref = "F")
+# character with explicit positive value
+asBinary(c("F", "U", "F", "U"), pos = "F")
 
 }
 \seealso{
@@ -68,10 +69,8 @@ Other data.manipulation:
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=appendX]{appendX()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asCDateFmt]{asCDateFmt()}},
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=dummy]{dummy()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},

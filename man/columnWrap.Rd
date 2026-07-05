@@ -7,15 +7,19 @@
 columnWrap(x, width = NULL)
 }
 \arguments{
-\item{x}{the matrix with one row}
+\item{x}{a character vector, typically one row of a matrix
+(e.g. via \code{apply(m, 1, columnWrap)})}
 
-\item{width}{integer, the width of the columns in characters}
+\item{width}{integer, the width of the columns in characters, recycled to
+the length of \code{x}. Defaults to an equal share of
+\code{getOption("width")} per column.}
 }
 \value{
-a character matrix
+a character matrix with one column per element of \code{x} and
+one row per wrapped line
 }
 \description{
-Wraps text in a character matrix so, that it's displayed over more than one
+Wraps text in a character matrix so that it's displayed over more than one
 line.
 }
 \details{
@@ -26,6 +30,7 @@ lines within the columns.
 \examples{
 
 print(columnWrap("This is a very long text for a table", 12))
+
 }
 \seealso{
 \code{\link[=strwrap]{strwrap()}}
@@ -36,9 +41,7 @@ Other data.manipulation:
 \code{\link[=appendX]{appendX()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=asCDateFmt]{asCDateFmt()}},
 \code{\link[=combLevels]{combLevels()}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=dummy]{dummy()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},

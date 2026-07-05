@@ -39,7 +39,7 @@ test_that("courseData errors when explicit url does not contain file", {
     fileExistURL = function(...) FALSE
   )
   expect_error(courseData("ghost.csv", url = "http://example.com/"),
-               "existiert nicht")
+               "does not exist")
 })
 
 test_that("courseData dispatches to read.table for .csv", {

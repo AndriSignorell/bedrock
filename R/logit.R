@@ -8,21 +8,6 @@
 #' line \eqn{(-\infty, \infty)}. The inverse transformation \code{logitInv()}
 #' maps real-valued inputs back to \eqn{[min, max]}.
 #'
-#' @param x Numeric vector. For \code{logit()}, values are interpreted relative
-#'   to the interval \eqn{[min, max]}. For \code{logitInv()}, \code{x} can be any
-#'   real number.
-#' @param min Lower bound of the interval. Must be finite.
-#' @param max Upper bound of the interval. Must be finite and greater than \code{min}.
-#' @param eps Small positive value used to clamp probabilities away from
-#'   \eqn{0} and \eqn{1} for numerical stability in \code{logit()}.
-#'   Default: \code{.Machine$double.eps}.
-#' @param warn Logical; if \code{TRUE}, a warning is issued when values are
-#'   effectively clamped because they fall outside the open interval
-#'   \eqn{(min, max)}. Default: \code{FALSE}.
-#'
-#' @return A numeric vector of the same length as \code{x}.
-#'
-#' @details
 #' The logit transformation is defined as:
 #'
 #' \deqn{
@@ -54,7 +39,20 @@
 #' intentional: \code{\link[stats]{plogis}} is well-defined for all real inputs,
 #' so no stabilization is required.
 #'
-
+#' @param x Numeric vector. For \code{logit()}, values are interpreted relative
+#'   to the interval \eqn{[min, max]}. For \code{logitInv()}, \code{x} can be any
+#'   real number.
+#' @param min Lower bound of the interval. Must be finite.
+#' @param max Upper bound of the interval. Must be finite and greater than \code{min}.
+#' @param eps Small positive value used to clamp probabilities away from
+#'   \eqn{0} and \eqn{1} for numerical stability in \code{logit()}.
+#'   Default: \code{.Machine$double.eps}.
+#' @param warn Logical; if \code{TRUE}, a warning is issued when values are
+#'   effectively clamped because they fall outside \eqn{(eps, 1 - eps)} after
+#'   rescaling. Default: \code{FALSE}.
+#'
+#' @return A numeric vector of the same length as \code{x}.
+#'
 #' @seealso \code{\link[stats]{qlogis}}, \code{\link[stats]{plogis}}
 #'
 #' @examples
@@ -76,34 +74,29 @@
 #' x <- seq(10, 20, length.out = 5)
 #' z <- logit(x, min = 10, max = 20)
 #' logitInv(z, min = 10, max = 20)
-
-
-
-#' @rdname logit
-
-#' @family math.utils  
+#'
+#' @family math.utils
 #' @concept transformation
-#'
-#'
 #' @export
 logit <- function(x, min = 0, max = 1,
                   eps = .Machine$double.eps,
                   warn = FALSE) {
-  
+
   if (!is.numeric(x))
-    stop("x must be numeric")
-  
+    stop("'x' must be numeric")
+
   if (!is.finite(min) || !is.finite(max) || min >= max)
-    stop("min < max must hold")
-  
+    stop("'min' and 'max' must be finite with min < max")
+
   p <- (x - min) / (max - min)
-  
-  if (warn && any(p <= 0 | p >= 1, na.rm = TRUE)) {
+
+  # warn exactly when the subsequent clamping changes a value
+  if (warn && any(p < eps | p > 1 - eps, na.rm = TRUE)) {
     warning("Values outside (min, max) were clamped to avoid -Inf/Inf")
   }
-  
+
   p <- pmin(pmax(p, eps), 1 - eps)
-  
+
   qlogis(p)
 }
 
@@ -111,15 +104,14 @@ logit <- function(x, min = 0, max = 1,
 #' @rdname logit
 #' @export
 logitInv <- function(x, min = 0, max = 1) {
-  
+
   if (!is.numeric(x))
-    stop("x must be numeric")
-  
+    stop("'x' must be numeric")
+
   if (!is.finite(min) || !is.finite(max) || min >= max)
-    stop("min < max must hold")
-  
+    stop("'min' and 'max' must be finite with min < max")
+
   p <- plogis(x)
-  
+
   p * (max - min) + min
 }
-

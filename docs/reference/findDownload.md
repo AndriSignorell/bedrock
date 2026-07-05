@@ -32,8 +32,7 @@ If the file does not exist, an error is thrown.
 Other file.utils: [`buildPath()`](buildPath.md),
 [`fileExistURL()`](fileExistURL.md),
 [`parseSASDatalines()`](parseSASDatalines.md),
-[`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md),
-[`splitPath()`](splitPath.md)
+[`pdfManual()`](pdfManual.md), [`splitPath()`](splitPath.md)
 
 ## Examples
 

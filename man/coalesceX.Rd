@@ -12,8 +12,10 @@ vector, several vectors of same length, a matrix, a data.frame or a list of
 vectors (of same length). See examples.}
 
 \item{method}{one out of \code{"is.na"} (default), \code{"is.null"} or
-\code{"is.finite"}. The \code{"is.na"} option allows \code{Inf} values to be
-in the result, the second one eliminates them.}
+\code{"is.finite"}. With \code{"is.na"}, \code{Inf} values are treated as
+valid; with \code{"is.finite"} they are skipped. \code{"is.null"} operates
+on the arguments themselves and returns the first one that is not
+\code{NULL}.}
 
 \item{flatten}{logical, defines whether lists are going to be flattened
 (default \code{TRUE}).}
@@ -28,8 +30,11 @@ rowwise if x is a data.frame or a matrix. The first element of the result is
 the first non \code{NA} element of the first elements of all the arguments,
 the second element of the result is the one of the second elements of all
 the arguments and so on. \cr Shorter inputs (of non-zero length) are NOT
-recycled. The function will bark, if multiple vectors do not all have the
-same dimension.\cr The idea is borrowed from SQL. Might sometimes be useful
+recycled: if all inputs have length greater than 1, they must have the same
+length (the function will bark otherwise). If any input has length 1 or 0,
+all inputs are flattened into a single vector (dropping \code{NULL}s) and
+the first valid element is returned, in the manner of a scalar SQL
+\code{COALESCE}.\cr The idea is borrowed from SQL. Might sometimes be useful
 when preparing data in R instead of in SQL.
 }
 \examples{
@@ -53,6 +58,9 @@ coalesceX(list(d.frm[,1], d.frm[,2]))
 
 # returns the first finite element (skips NA, Inf, NaN)
 coalesceX(d.frm, method="is.finite")
+
+# returns the first argument that is not NULL
+coalesceX(NULL, NULL, 7, method = "is.null")
 
 # with characters (take care, factors won't work!)
 # is.finite does not make sense here...

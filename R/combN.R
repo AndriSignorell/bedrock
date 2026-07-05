@@ -1,56 +1,53 @@
 
-#' Number of Combinations of a Set 
-#' 
-#' Return the number of combinations with and without replacement and order. 
-#' 
+#' Number of Combinations of a Set
+#'
+#' Return the number of combinations with and without replacement and order.
+#'
 #' @param n number of elements from which to choose.
 #' @param m number of elements to choose. For \code{combSet} can \code{m} be a
 #' numeric vector too.
-#' @param repl logical. Should repetition of the same element be allowed?
+#' @param replace logical. Should repetition of the same element be allowed?
 #' Defaults to \code{FALSE}
-#' @param ord logical. Does the order matter? Default is \code{FALSE}.
-#' 
-#' @return an integer value
-#' 
-#' @seealso \code{\link{combPairs}}, 
+#' @param ordered logical. Does the order matter? Default is \code{FALSE}.
+#'
+#' @return a numeric value
+#'
+#' @seealso \code{\link{combPairs}},
 #' \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
-#' \cr \code{vignette("Combinatorics")} 
-#' 
+#' \cr \code{vignette("Combinatorics")}
+#'
 #' @examples
 #' n <- 5; m <- 2
-#' combN(n, m, repl=TRUE, ord=FALSE)
-#' combN(n, m, repl=TRUE, ord=TRUE)
-#' combN(n, m, repl=FALSE, ord=TRUE)
-#' combN(n, m, repl=FALSE, ord=FALSE)
-#' 
-
-
-
-#' @family combinatorics  
+#' combN(n, m, replace=TRUE, ordered=FALSE)
+#' combN(n, m, replace=TRUE, ordered=TRUE)
+#' combN(n, m, replace=FALSE, ordered=TRUE)
+#' combN(n, m, replace=FALSE, ordered=FALSE)
+#'
+#' @family combinatorics
 #' @concept combinatorics
-#'
-#'
 #' @export
-combN <- function(n, m, repl=FALSE, ord=FALSE){
+combN <- function(n, m, replace = FALSE, ordered = FALSE) {
   # return the number for the 4 combinatoric cases
-  # n <- length(x)
-  if(repl){
+
+  if (replace) {
     res <- n^m
-    if(!ord){
-      res <- choose(n+m-1, m)
+    if (!ordered) {
+      res <- choose(n + m - 1, m)
     }
   } else {
-    if(ord){
+    if (m > n)
+      return(0)
+
+    if (ordered) {
       # res <- choose(n, m) * factorial(m)
-      # res <- gamma(n+1) / gamma(m+1)
-      # avoid numeric overflow
-      res <- exp(lgamma(n + 1L) - lgamma(n - m + 1L))
+      # use lgamma to avoid numeric overflow; round to compensate
+      # for floating point error in exp()
+      res <- round(exp(lgamma(n + 1L) - lgamma(n - m + 1L)))
     } else {
       res <- choose(n, m)
     }
   }
-  
-  return(res)
-  
-}
 
+  return(res)
+
+}

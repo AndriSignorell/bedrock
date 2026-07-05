@@ -7,7 +7,8 @@
 combPairs(x, y = NULL)
 }
 \arguments{
-\item{x}{a vector of elements}
+\item{x}{a vector of elements, must contain at least 2 elements if
+\code{y} is \code{NULL}.}
 
 \item{y}{a vector of elements, need not be same dimension as x.  If y is not
 \code{NULL} then all combination x and y are returned.}
@@ -21,7 +22,8 @@ Returns all combinations of 2 out of the elements in x or x and y (if
 defined). Combinations of the same elements will be dropped (no replacing).
 The vector \code{x} need not contain unique values. Duplicate elements
 in \code{x} will result in duplicate pairs.
-
+}
+\details{
 If y = \code{NULL} then all combination of 2 out of x are returned. \cr If y
 is defined then all combinations of x and y are calculated.
 }

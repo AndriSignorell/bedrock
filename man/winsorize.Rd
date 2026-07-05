@@ -73,7 +73,7 @@ winsorize(x, val = c(-2, Inf)) # lower bound only
 
 }
 \seealso{
-\code{\link[DescToolsX]{scaleX}}, \code{\link[robustHD]{winsorize}}
+\code{\link[DescToolsX]{scaleX}()}, \code{\link[robustHD]{winsorize}()} (in package \pkg{robustHD})
 
 Other vector.ops:
 \code{\link[=closest]{closest()}},

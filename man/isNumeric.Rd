@@ -61,6 +61,8 @@ isNumeric(c(1, NA), na.rm = TRUE)
 Other data.inspection:
 \code{\link[=allDuplicated]{allDuplicated()}},
 \code{\link[=allIdentical]{allIdentical()}},
+\code{\link{between}},
+\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=completeColumns]{completeColumns()}},
 \code{\link[=countCompCases]{countCompCases()}},
 \code{\link[=flags]{flags()}},

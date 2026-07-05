@@ -3,14 +3,6 @@
 \name{between}
 \alias{between}
 \alias{\%[]\%}
-\alias{`\%()\%`}
-\alias{`\%(]\%`}
-\alias{`\%[)\%`}
-\alias{`\%[]\%`}
-\alias{`\%][\%`}
-\alias{`\%)[\%`}
-\alias{`\%](\%`}
-\alias{`\%)(\%`}
 \alias{\%[)\%}
 \alias{\%(]\%}
 \alias{\%()\%}
@@ -43,7 +35,8 @@ alphabetically.}
 
 \item{rng}{a vector of two values or a matrix with 2 columns, defining the
 minimum and maximum of the range for x. \cr If rng is a matrix, x or rng
-will be recycled.}
+will be recycled. Matrix ranges are supported for numeric (and date)
+\code{x} only.}
 }
 \value{
 A logical vector of the same length as x.
@@ -56,16 +49,15 @@ values can be numbers, text or dates. Ordered factors are supported.
 \details{
 The "BETWEEN" operators basically combine two conditional statements into
 one and simplify the query process.\cr They are merely a wrapper for:
-\code{x >= rng\[1\] & x <= rng\[2\]}, where the round bracket \code{(} means
-\emph{strictly greater (>)} and the square bracket \code{\[} means
+\code{\verb{x >= rng[1] & x <= rng[2]}}, where the round bracket \code{(} means
+\emph{strictly greater (>)} and the square bracket \code{\verb{[}} means
 \emph{greater or equal (>=)}.  Numerical values of x will be handled by
 C-code, which is significantly faster than two comparisons in R (especially
 when x is huge).\cr
 
-Elements on the limits of the corresponding between-range will return
-\code{FALSE} for the matching outside-operator (i.e. boundary elements
-are never "outside" if the between-operator they negate included that
-boundary).
+For the matching outside-operator, boundary elements of the corresponding
+between-range return \code{FALSE}; that is, they are not considered outside
+whenever the negated between-operator includes that boundary.
 
 Both arguments, \code{x} and \code{rng}, will be recycled to the highest
 dimension, which is either the length of the vector (\code{x}) or the number
@@ -83,9 +75,6 @@ symbols:
 \item \code{\%)(\%} negates \code{\%[]\%} (strictly outside, both bounds
 of the between-operator were closed)
 }
-}
-\note{
-Based on C-code by Kevin Ushey
 }
 \examples{
 
@@ -118,7 +107,7 @@ x <- runif(20)
 x \%[]\% c(0.4, 0.5)
 
 # use it with an ordered factor
-x <- ordered(sample(LETTERS, 20))
+x <- ordered(sample(LETTERS, 20), levels = LETTERS)
 x \%[)\% c("G","K")
 
 
@@ -132,4 +121,20 @@ c(2,3) \%[]\% cbind(1:4,2:5)
 \seealso{
 \code{\link{if}}, \code{\link{ifelse}}, \code{\link{Comparison}},
 \code{\link{overlap}}, \code{\link{distance}}
+
+Other data.inspection:
+\code{\link[=allDuplicated]{allDuplicated()}},
+\code{\link[=allIdentical]{allIdentical()}},
+\code{\link[=compareDataFrames]{compareDataFrames()}},
+\code{\link[=completeColumns]{completeColumns()}},
+\code{\link[=countCompCases]{countCompCases()}},
+\code{\link[=flags]{flags()}},
+\code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isEuclid]{isEuclid()}},
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isURL]{isURL()}},
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=isZero]{isZero()}}
 }
+\concept{data.inspection}
+\concept{range}

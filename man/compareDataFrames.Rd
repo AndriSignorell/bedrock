@@ -4,7 +4,7 @@
 \alias{compareDataFrames}
 \title{Compare Two Data Frames by Key Column}
 \usage{
-compareDataFrames(x, y, key = "strat_x")
+compareDataFrames(x, y, key)
 }
 \arguments{
 \item{x}{A data frame.}
@@ -12,7 +12,7 @@ compareDataFrames(x, y, key = "strat_x")
 \item{y}{A data frame to compare against \code{x}.}
 
 \item{key}{Character string. Name of the column used as row identifier.
-Must be present in both \code{x} and \code{y}. Default is \code{"strat_x"}.}
+Must be present in both \code{x} and \code{y}, with unique values.}
 }
 \value{
 A named list with four elements:
@@ -37,37 +37,29 @@ Only columns present in both data frames are compared. Rows are matched by
 the \code{key} column using \code{\link{identical}} for element-wise comparison,
 so type differences (e.g., \code{integer} vs. \code{double}) will be flagged
 as differences.
+
+The values of the \code{key} column must be unique in both data frames.
 }
 \examples{
-x <- data.frame(strat_x = c("A", "B", "C"), v1 = 1:3, v2 = c(10, 20, 30))
-y <- data.frame(strat_x = c("A", "B", "D"), v1 = c(1L, 9L, 4L), v2 = c(10, 20, 40))
-compareDataFrames(x, y)
+x <- data.frame(id = c("A", "B", "C"), v1 = 1:3, v2 = c(10, 20, 30))
+y <- data.frame(id = c("A", "B", "D"), v1 = c(1L, 9L, 4L), v2 = c(10, 20, 40))
+compareDataFrames(x, y, key = "id")
 
 }
 \seealso{
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=asCDateFmt]{asCDateFmt()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+Other data.inspection:
+\code{\link[=allDuplicated]{allDuplicated()}},
+\code{\link[=allIdentical]{allIdentical()}},
+\code{\link{between}},
+\code{\link[=completeColumns]{completeColumns()}},
+\code{\link[=countCompCases]{countCompCases()}},
+\code{\link[=flags]{flags()}},
+\code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isEuclid]{isEuclid()}},
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isURL]{isURL()}},
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=isZero]{isZero()}}
 }
-\concept{data.manipulation}
+\concept{data.inspection}
 \concept{table}

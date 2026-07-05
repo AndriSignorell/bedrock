@@ -4,6 +4,15 @@
 #' Performs an HTTP request to determine whether a resource exists at a given URL.
 #' Uses a \code{HEAD} request by default and falls back to \code{GET} if necessary.
 #'
+#' The function first sends an HTTP \code{HEAD} request to minimize data transfer.
+#' If the server responds with a status indicating that \code{HEAD} itself is not
+#' supported (403, 405, 501), a \code{GET} request is attempted as a fallback. A
+#' plain 404 is taken at face value, so that non-existing files do not trigger a
+#' second request.
+#'
+#' If the request fails (e.g., due to network issues or invalid URLs), the function
+#' returns \code{FALSE} and stores the error message as an attribute.
+#'
 #' @param url Character string. The full URL to check.
 #' @param timeout Numeric. Timeout in seconds for the HTTP request. Default is 5.
 #'
@@ -16,57 +25,47 @@
 #'   \item \code{error}: Error message (if a request error occurred)
 #' }
 #'
-#' @details
-#' The function first sends an HTTP \code{HEAD} request to minimize data transfer.
-#' If the server responds with an error status (>= 400), a \code{GET} request is
-#' attempted as a fallback because some servers do not properly support \code{HEAD}.
-#'
-#' If the request fails (e.g., due to network issues or invalid URLs), the function
-#' returns \code{FALSE} and stores the error message as an attribute.
-#'
 #' @examples
 #' \dontrun{
-#' fileExistURL("http://www.example.com/data.csv")
+#' fileExistURL("https://www.example.com/data.csv")
 #'
-#' res <- fileExistURL("http://invalid-url.test/file.csv")
+#' res <- fileExistURL("https://invalid-url.test/file.csv")
 #' attr(res, "status")
 #' attr(res, "error")
 #' }
 #'
-#' @importFrom httr HEAD GET timeout status_code
-#'
-
-
-
-#' @family file.utils  
+#' @family file.utils
 #' @concept programming
-#'
-#'
 #' @export
 fileExistURL <- function(url, timeout = 5) {
+
+  if (!requireNamespace("httr", quietly = TRUE))
+    stop("Package 'httr' is required for this function. ",
+         "Please install it with install.packages(\"httr\").")
+
   HTTP_STATUS_OK <- 200
-  
+
   res <- tryCatch({
-    r <- HEAD(url, timeout(timeout))
-    status <- status_code(r)
-    
-    # Fallback: try GET if HEAD fails
-    if (status >= 400) {
-      r <- GET(url, timeout(timeout))
-      status <- status_code(r)
+    r <- httr::HEAD(url, httr::timeout(timeout))
+    status <- httr::status_code(r)
+
+    # fallback: some servers do not properly support HEAD (403 Forbidden,
+    # 405 Method Not Allowed, 501 Not Implemented); a plain 404 is trusted
+    if (status %in% c(403L, 405L, 501L)) {
+      r <- httr::GET(url, httr::timeout(timeout))
+      status <- httr::status_code(r)
     }
-    
+
     out <- status == HTTP_STATUS_OK
     attr(out, "status") <- status
     out
-    
+
   }, error = function(e) {
     out <- FALSE
-    attr(out, "status") <- NA
+    attr(out, "status") <- NA_integer_
     attr(out, "error") <- e$message
     out
   })
-  
+
   return(res)
 }
-

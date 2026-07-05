@@ -1,5 +1,5 @@
 
-#' Convert custom date format to strftime format
+#' Convert Custom Date Format to strftime Format
 #'
 #' Translates a custom date format string using tokens like
 #' \code{yyyy}, \code{mm}, \code{dd}, \code{mmm}, etc. into a valid
@@ -40,15 +40,9 @@
 #' asCDateFmt("yyyymmdd")
 #' asCDateFmt("mmm d, yyyy")
 #'
-
-
-
-#' @family data.manipulation  
+#' @family format
 #' @concept date-time
-#'
-#'
 #' @export
 asCDateFmt <- function(fmt) {
   as_cdate_fmt_cpp(fmt)
 }
-

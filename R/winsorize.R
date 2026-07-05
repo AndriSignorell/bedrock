@@ -45,7 +45,7 @@
 #' of outliers. In some cases, it can be beneficial to standardize the data
 #' (e.g., using \code{\link{scale}}) before applying winsorization.
 #'
-#' @seealso \code{\link[DescToolsX]{scaleX}}, \code{\link[robustHD]{winsorize}}
+#' @seealso \code{\link[DescToolsX]{scaleX}()}, \code{\link[robustHD]{winsorize}()} (in package \pkg{robustHD})
 #'
 #' @examples
 #' set.seed(9128)

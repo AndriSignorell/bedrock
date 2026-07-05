@@ -20,28 +20,18 @@ be allowed? Default is \code{FALSE}.}
 Default is \code{FALSE}.}
 
 \item{output}{Character string specifying the output representation.
-One of:
-
-\describe{
-\item{\code{\"matrix\"}}{
-Return combinations as a matrix.
-}
-\item{\code{\"list\"}}{
-Return combinations as a flat list.
-}
-}
-
-Default is \code{\"matrix\"}.}
+One of \code{"matrix"} (return combinations as a matrix, the default)
+or \code{"list"} (return combinations as a flat list).}
 }
 \value{
-If \code{output = \"matrix\"}:
+If \code{output = "matrix"}:
 
 \itemize{
 \item a matrix with one combination per row
 \item if \code{length(m) > 1}, a list of matrices
 }
 
-If \code{output = \"list\"}:
+If \code{output = "list"}:
 
 \itemize{
 \item a flat list with one element per combination

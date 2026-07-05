@@ -5,7 +5,6 @@
 #' Multiple values are returned if ties occur or if duplicate values
 #' share the same minimum distance.
 #'
-#' @details
 #' Distance is computed as \eqn{|x_i - a|}. Ties are detected via
 #' \code{isZero()} rather than exact equality, which avoids spurious
 #' misses due to floating-point representation (e.g.
@@ -24,35 +23,18 @@
 #' @param x A numeric vector to search in.
 #' @param a The reference value. May be a vector; see Details.
 #' @param output Character string specifying the output representation.
-#'
-#'   One of:
-#'
-#'   \describe{
-#'     \item{\code{\"value\"}}{
-#'       Return the closest value(s).
-#'     }
-#'     \item{\code{\"index\"}}{
-#'       Return the index position(s) in \code{x}.
-#'     }
-#'   }
-#'
-#'   Default is \code{\"value\"}.
-#'
+#'   One of \code{"value"} (return the closest value(s), the default) or
+#'   \code{"index"} (return the index position(s) in \code{x}).
 #'   May be a vector; recycled to the length of \code{a}.
-#'
-#' @param na.rm Logical.
-#'
-#'   If \code{TRUE}, \code{NA} values in \code{x}
-#'   are ignored before searching.
-#'
-#'   Default is \code{FALSE}.
+#' @param na.rm Logical. If \code{TRUE}, \code{NA} values in \code{x}
+#'   are ignored before searching. Default is \code{FALSE}.
 #'
 #' @return
 #' If \code{a} and \code{output} are scalar:
 #'
 #' \itemize{
-#'   \item numeric vector if \code{output = \"value\"}
-#'   \item integer vector if \code{output = \"index\"}
+#'   \item numeric vector if \code{output = "value"}
+#'   \item integer vector if \code{output = "index"}
 #' }
 #'
 #' If \code{a} or \code{output} are vectors:
@@ -107,70 +89,57 @@
 #'   output = c("value", "index")
 #' )
 #'
-
-
-
-#' @family vector.ops  
+#' @family vector.ops
 #' @concept ordering
-#'
-#'
 #' @export
-closest <- function(
-    x,
-    a,
-    output = "value",
-    na.rm = FALSE
-) {
-  
+closest <- function(x, a, output = "value", na.rm = FALSE) {
+
   if (!is.numeric(x))
     stop("Argument 'x' must be numeric.")
-  
+
   if (!is.numeric(a))
     stop("Argument 'a' must be numeric.")
-  
+
   output <- match.arg(
     output,
     choices = c("value", "index"),
     several.ok = TRUE
   )
-  
+
   FUN <- function(a, output) {
-    
-    if (length(x) == 0L)
-      return(NA)
-    
+
     ok <- if (na.rm)
       !is.na(x)
     else
       rep_len(TRUE, length(x))
-    
-    if (!any(ok))
-      return(NA)
-    
+
+    if (length(x) == 0L || !any(ok))
+      return(switch(output, value = NA_real_, index = NA_integer_))
+
     d <- abs(x[ok] - a)
-    
+
     mdist <- min(d)
-    
+
     hits <- logical(length(x))
-    
+
     hits[ok] <- isZero(d - mdist)
-    
+
     switch(
       output,
-      
+
       value = x[hits],
-      
+
       index = which(hits)
     )
   }
-  
+
   res <- mapply(
     FUN      = FUN,
     a        = a,
     output   = output,
     SIMPLIFY = FALSE
   )
-  
+
   if (length(a) == 1L && length(output) == 1L)
     res[[1L]]
   else

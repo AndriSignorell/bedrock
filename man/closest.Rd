@@ -12,35 +12,19 @@ closest(x, a, output = "value", na.rm = FALSE)
 \item{a}{The reference value. May be a vector; see Details.}
 
 \item{output}{Character string specifying the output representation.
-
-One of:
-
-\describe{
-\item{\code{\"value\"}}{
-Return the closest value(s).
-}
-\item{\code{\"index\"}}{
-Return the index position(s) in \code{x}.
-}
-}
-
-Default is \code{\"value\"}.
-
+One of \code{"value"} (return the closest value(s), the default) or
+\code{"index"} (return the index position(s) in \code{x}).
 May be a vector; recycled to the length of \code{a}.}
 
-\item{na.rm}{Logical.
-
-If \code{TRUE}, \code{NA} values in \code{x}
-are ignored before searching.
-
-Default is \code{FALSE}.}
+\item{na.rm}{Logical. If \code{TRUE}, \code{NA} values in \code{x}
+are ignored before searching. Default is \code{FALSE}.}
 }
 \value{
 If \code{a} and \code{output} are scalar:
 
 \itemize{
-\item numeric vector if \code{output = \"value\"}
-\item integer vector if \code{output = \"index\"}
+\item numeric vector if \code{output = "value"}
+\item integer vector if \code{output = "index"}
 }
 
 If \code{a} or \code{output} are vectors:

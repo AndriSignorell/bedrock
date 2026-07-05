@@ -4,16 +4,17 @@
 #' Compares two data frames row-by-row based on a key column, identifying rows
 #' present in only one of the two frames and columns that differ in matched rows.
 #'
-#' @param x A data frame.
-#' @param y A data frame to compare against \code{x}.
-#' @param key Character string. Name of the column used as row identifier.
-#'   Must be present in both \code{x} and \code{y}. Default is \code{"strat_x"}.
-#'
-#' @details
 #' Only columns present in both data frames are compared. Rows are matched by
 #' the \code{key} column using \code{\link{identical}} for element-wise comparison,
 #' so type differences (e.g., \code{integer} vs. \code{double}) will be flagged
 #' as differences.
+#'
+#' The values of the \code{key} column must be unique in both data frames.
+#'
+#' @param x A data frame.
+#' @param y A data frame to compare against \code{x}.
+#' @param key Character string. Name of the column used as row identifier.
+#'   Must be present in both \code{x} and \code{y}, with unique values.
 #'
 #' @return A named list with four elements:
 #' \describe{
@@ -29,41 +30,46 @@
 #' }
 #'
 #' @examples
-#' x <- data.frame(strat_x = c("A", "B", "C"), v1 = 1:3, v2 = c(10, 20, 30))
-#' y <- data.frame(strat_x = c("A", "B", "D"), v1 = c(1L, 9L, 4L), v2 = c(10, 20, 40))
-#' compareDataFrames(x, y)
+#' x <- data.frame(id = c("A", "B", "C"), v1 = 1:3, v2 = c(10, 20, 30))
+#' y <- data.frame(id = c("A", "B", "D"), v1 = c(1L, 9L, 4L), v2 = c(10, 20, 40))
+#' compareDataFrames(x, y, key = "id")
 #'
-
-
-
-#' @family data.manipulation  
+#' @family data.inspection
 #' @concept table
-#'
-#'
 #' @export
-compareDataFrames <- function(x, y, key = "strat_x") {
-  
-  # gemeinsame Spalten
+compareDataFrames <- function(x, y, key) {
+
+  # key must be present in both frames (check before subsetting,
+  # so the error message points at the actual problem)
+  if (!key %in% names(x))
+    stop(sprintf("Key column '%s' not found in 'x'", key))
+  if (!key %in% names(y))
+    stop(sprintf("Key column '%s' not found in 'y'", key))
+
+  # matching by key is only well-defined for unique keys
+  if (anyDuplicated(x[[key]]))
+    stop(sprintf("Key column '%s' has duplicated values in 'x'", key))
+  if (anyDuplicated(y[[key]]))
+    stop(sprintf("Key column '%s' has duplicated values in 'y'", key))
+
+  # common columns
   commonCols <- intersect(names(x), names(y))
   x <- x[commonCols]
   y <- y[commonCols]
-  
-  # sicherstellen: key vorhanden
-  stopifnot(key %in% names(x), key %in% names(y))
-  
-  # fehlende Keys
+
+  # missing keys
   onlyInX <- x[!(x[[key]] %in% y[[key]]), , drop = FALSE]
   onlyInY <- y[!(y[[key]] %in% x[[key]]), , drop = FALSE]
-  
-  # auf gemeinsame Keys reduzieren
+
+  # reduce to common keys
   commonKeys <- intersect(x[[key]], y[[key]])
   x2 <- x[match(commonKeys, x[[key]]), , drop = FALSE]
   y2 <- y[match(commonKeys, y[[key]]), , drop = FALSE]
-  
-  # Vergleich ohne key
+
+  # compare without the key column
   cmpCols <- setdiff(commonCols, key)
   diffsList <- vector("list", length(commonKeys))
-  
+
   for (i in seq_along(commonKeys)) {
     diffCols <- cmpCols[!mapply(identical,
                                 x2[i, cmpCols, drop = TRUE],
@@ -75,10 +81,10 @@ compareDataFrames <- function(x, y, key = "strat_x") {
       )
     }
   }
-  
+
   diffsList <- Filter(Negate(is.null), diffsList)
-  
-  # in data.frame umwandeln
+
+  # convert to data.frame
   if (length(diffsList) > 0) {
     diffs <- data.frame(
       key      = sapply(diffsList, `[[`, "key"),
@@ -92,7 +98,7 @@ compareDataFrames <- function(x, y, key = "strat_x") {
     )
     names(diffs)[1] <- key
   }
-  
+
   list(
     identical = (nrow(onlyInX) == 0 &&
                    nrow(onlyInY) == 0 &&

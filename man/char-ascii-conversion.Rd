@@ -11,67 +11,59 @@ charToAscii(x, output = c("vector", "list"))
 asciiToChar(i)
 }
 \arguments{
-\item{x}{Character vector.}
+\item{x}{A character vector.}
 
 \item{output}{Character string specifying the output representation.
-One of:
+One of \code{"vector"} (simplify the result whenever possible, the
+default) or \code{"list"} (always return a list). See Details.}
 
-\describe{
-\item{\code{\"vector\"}}{
-Return a simplified integer vector when possible.
-}
-\item{\code{\"list\"}}{
-Always return a list of integer vectors.
-}
-}
-
-Default is \code{\"vector\"}.}
-
-\item{i}{Integer vector of ASCII codes (1–255).}
+\item{i}{An integer vector of character codes (1--255).}
 }
 \value{
 \itemize{
-\item \code{charToAscii()} returns either an integer vector or
-a list of integer vectors depending on \code{output}.
+\item \code{charToAscii()} returns either an integer vector or a
+list of integer vectors, depending on \code{output}.
 
 \item \code{asciiToChar()} returns a character vector.
 }
 }
 \description{
-Convert characters to ASCII codes and vice versa.
+Convert characters to their numeric character codes and vice versa.
 }
 \details{
 \code{charToAscii()} converts each character in a string to its
-ASCII code.
+corresponding numeric code.
 
-\code{asciiToChar()} converts ASCII codes back to characters.
+\code{asciiToChar()} converts numeric codes back to characters.
 
-Only codes in \code{1:127} are standard ASCII and consistent across
-systems.
+Only values in the range \code{1:127} belong to the ASCII standard and
+therefore have the same meaning across all systems. Values
+\code{128:255} depend on the current character encoding (for example
+ISO-8859-1 or Windows-1252) and may produce different characters on
+different platforms.
 
-Codes above 127 depend on the current locale and encoding
-(e.g. ISO-8859-1).
-
-Note that \code{0} (NUL) is not supported in R character strings.
+Note that \code{0} (NUL) cannot be represented in R character strings
+and is therefore not supported.
 
 The \code{output} argument controls the representation returned by
 \code{charToAscii()}:
 
 \describe{
-\item{\code{\"vector\"}}{
-Simplify the result when possible:
+\item{\code{"vector"}}{
+Simplifies the result whenever possible.
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{\\itemize\{
-  \\item single string -> integer vector
-  \\item all strings length 1 -> integer vector
-  \\item otherwise -> list
-\}
-}\if{html}{\out{</div>}}
+Returns an integer vector if:
 
+\itemize{
+\item the input consists of a single string, or
+\item all input strings have length one.
 }
 
-\item{\code{\"list\"}}{
-Always return a list of integer vectors.
+Otherwise, a list of integer vectors is returned.
+}
+
+\item{\code{"list"}}{
+Always returns a list of integer vectors.
 }
 }
 }
@@ -95,12 +87,8 @@ charToRaw("Silvia")
 \code{\link{charToRaw}},
 \code{\link{rawToChar}}
 
-Other string.utilities:
-\code{\link[=mGsub]{mGsub()}},
-\code{\link[=mReplace]{mReplace()}},
-\code{\link[=strSplitToCol]{strSplitToCol()}},
-\code{\link[=strSplitToDummy]{strSplitToDummy()}}
+Other string:
+\code{\link[=mGsub]{mGsub()}}
 }
-\concept{data-manipulation}
-\concept{string-manipulation}
-\concept{string.utilities}
+\concept{character-conversion}
+\concept{string}

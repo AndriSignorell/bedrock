@@ -71,8 +71,6 @@ strSplitToCol(df)
 }
 \seealso{
 Other string.utilities:
-\code{\link{char-ascii-conversion}},
-\code{\link[=mGsub]{mGsub()}},
 \code{\link[=mReplace]{mReplace()}},
 \code{\link[=strSplitToDummy]{strSplitToDummy()}}
 }

@@ -4,60 +4,6 @@
 #' Identify and extract dichotomous (binary) variables from a data frame
 #' or matrix using \code{isDichotomous()}.
 #'
-#' @param x A data frame or matrix.
-#'
-#' @param strict Logical.
-#'
-#'   If \code{TRUE}, only variables with exactly two
-#'   distinct values are considered dichotomous.
-#'
-#'   If \code{FALSE}, variables with one or two
-#'   distinct values are allowed.
-#'
-#'   Default is \code{FALSE}.
-#'
-#' @param na.rm Logical.
-#'
-#'   Should missing values be ignored when checking
-#'   for dichotomous variables?
-#'
-#'   Default is \code{FALSE}.
-#'
-#' @param output Character string specifying the output representation.
-#'
-#'   One of:
-#'
-#'   \describe{
-#'     \item{\code{\"data\"}}{
-#'       Subset of \code{x} containing only dichotomous variables.
-#'     }
-#'
-#'     \item{\code{\"names\"}}{
-#'       Names of dichotomous variables.
-#'     }
-#'
-#'     \item{\code{\"index\"}}{
-#'       Column indices of dichotomous variables.
-#'     }
-#'
-#'     \item{\code{\"logical\"}}{
-#'       Logical vector indicating dichotomous variables.
-#'     }
-#'   }
-#'
-#'   Default is \code{\"data\"}.
-#'
-#' @return
-#' Depending on \code{output}:
-#'
-#' \itemize{
-#'   \item \code{\"data\"}: data frame or matrix
-#'   \item \code{\"names\"}: character vector
-#'   \item \code{\"index\"}: integer vector
-#'   \item \code{\"logical\"}: logical vector
-#' }
-#'
-#' @details
 #' Variables with only missing values are not considered dichotomous
 #' when \code{na.rm = FALSE}.
 #'
@@ -67,6 +13,28 @@
 #' Internally, variables with indeterminate dichotomous status
 #' (i.e. \code{NA} returned by \code{isDichotomous()})
 #' are treated as non-dichotomous for filtering purposes.
+#'
+#' @param x A data frame or matrix.
+#' @param strict Logical. If \code{TRUE}, only variables with exactly two
+#'   distinct values are considered dichotomous. If \code{FALSE} (default),
+#'   variables with one or two distinct values are allowed.
+#' @param na.rm Logical. Should missing values be ignored when checking
+#'   for dichotomous variables? Default is \code{FALSE}.
+#' @param output Character string specifying the output representation.
+#'   One of \code{"data"} (subset of \code{x} containing only dichotomous
+#'   variables, the default), \code{"names"} (names of dichotomous
+#'   variables), \code{"index"} (column indices) or \code{"logical"}
+#'   (logical vector indicating dichotomous variables).
+#'
+#' @return
+#' Depending on \code{output}:
+#'
+#' \itemize{
+#'   \item \code{"data"}: data frame or matrix
+#'   \item \code{"names"}: character vector
+#'   \item \code{"index"}: integer vector
+#'   \item \code{"logical"}: logical vector
+#' }
 #'
 #' @seealso \code{\link{isDichotomous}}
 #'
@@ -89,30 +57,18 @@
 #' # return column indices
 #' flags(dat, output = "index")
 #'
-
-
-
-#' @family data.inspection  
-#' @concept binary  
+#' @family data.inspection
+#' @concept binary
 #' @concept categorization
-#'
-#'
 #' @export
-flags <- function(
-    x,
-    strict = FALSE,
-    na.rm = FALSE,
-    output = "data"
-) {
-  
-  output <- match.arg(
-    output,
-    choices = c("data", "names", "index", "logical")
-  )
-  
+flags <- function(x, strict = FALSE, na.rm = FALSE,
+                  output = c("data", "names", "index", "logical")) {
+
+  output <- match.arg(output)
+
   if (!is.data.frame(x) && !is.matrix(x))
     stop("Argument 'x' must be a data.frame or matrix.")
-  
+
   isFlag <- vapply(
     seq_len(ncol(x)),
     function(i)
@@ -123,23 +79,22 @@ flags <- function(
       ),
     logical(1L)
   )
-  
+
   names(isFlag) <- colnames(x)
-  
+
   # Variables with indeterminate dichotomous status
   # are treated as non-dichotomous for filtering
   isFlag[is.na(isFlag)] <- FALSE
-  
+
   switch(
     output,
-    
+
     data = x[, isFlag, drop = FALSE],
-    
+
     names = names(isFlag)[isFlag],
-    
+
     index = which(isFlag),
-    
+
     logical = isFlag
   )
 }
-

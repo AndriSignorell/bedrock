@@ -23,28 +23,18 @@
 #' @param ordered Logical. Does the order matter?
 #'   Default is \code{FALSE}.
 #' @param output Character string specifying the output representation.
-#'   One of:
-#'
-#'   \describe{
-#'     \item{\code{\"matrix\"}}{
-#'       Return combinations as a matrix.
-#'     }
-#'     \item{\code{\"list\"}}{
-#'       Return combinations as a flat list.
-#'     }
-#'   }
-#'
-#'   Default is \code{\"matrix\"}.
+#'   One of \code{"matrix"} (return combinations as a matrix, the default)
+#'   or \code{"list"} (return combinations as a flat list).
 #'
 #' @return
-#' If \code{output = \"matrix\"}:
+#' If \code{output = "matrix"}:
 #'
 #' \itemize{
 #'   \item a matrix with one combination per row
 #'   \item if \code{length(m) > 1}, a list of matrices
 #' }
 #'
-#' If \code{output = \"list\"}:
+#' If \code{output = "list"}:
 #'
 #' \itemize{
 #'   \item a flat list with one element per combination
@@ -82,24 +72,20 @@
 #'   output = "list"
 #' )
 #'
-#' @rdname combinatoric
-
-#' @family combinatorics  
-#' @concept combinatorics  
+#' @family combinatorics
+#' @concept combinatorics
 #' @concept sampling
-#'
-#'
 #' @export
 combSet <- function(x,
                     m,
                     replace = FALSE,
                     ordered = FALSE,
                     output = c("matrix", "list")) {
-  
+
   output <- match.arg(output)
-  
+
   if (length(m) > 1L) {
-    
+
     res <- lapply(
       m,
       function(i)
@@ -111,45 +97,51 @@ combSet <- function(x,
           output  = "matrix"
         )
     )
-    
+
   } else {
-    
+
     if (replace) {
-      
+
       res <- as.matrix(
         do.call(
           expand.grid,
           as.list(as.data.frame(replicate(m, x)))
         )
       )
-      
+
       dimnames(res) <- NULL
-      
+
       if (!ordered) {
-        res <- unique(t(apply(res, 1L, sort)))
+        if (m > 1L) {
+          res <- unique(t(apply(res, 1L, sort)))
+        } else {
+          # apply() would drop the dimension for m = 1 and t() would
+          # flip the result into a single row
+          res <- unique(res)
+        }
       }
-      
+
     } else {
-      
+
       if (ordered) {
-        
+
         # permn() returns a matrix directly
         res <- do.call(
           rbind,
           combn(x, m = m, FUN = permn, simplify = FALSE)
         )
-        
+
       } else {
-        
+
         res <- t(combn(x, m))
       }
     }
   }
-  
+
   if (output == "list") {
-    
+
     if (is.list(res)) {
-      
+
       res <- do.call(
         c,
         lapply(
@@ -161,9 +153,9 @@ combSet <- function(x,
           }
         )
       )
-      
+
     } else {
-      
+
       res <- as.list(
         as.data.frame(
           t(res),
@@ -171,11 +163,10 @@ combSet <- function(x,
         )
       )
     }
-    
+
     names(res) <- NULL
   }
-  
-  res
-  
-}
 
+  res
+
+}

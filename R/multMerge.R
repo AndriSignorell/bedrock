@@ -9,12 +9,13 @@
 #' @param all.x logical; if \code{TRUE}, then extra rows will be added to the
 #' output, one for each row in x that has no matching row in y. These rows will
 #' have \code{NA}s in those columns that are usually filled with values from y.
-#' The default is \code{FALSE}, so that only rows with data from both x and y
-#' are included in the output. 
+#' The default is \code{TRUE}, so that non-matching rows are kept and
+#' padded with \code{NA}s (full outer join). 
 #' @param all.y logical; analogous to \code{all.x}. 
 #' @param by column used for merging, if this is not defined rownames will be
 #' used by default. The column must be included in all the provided data
-#' frames.
+#' frames and its values must be unique within each data frame. Note that
+#' the restored key column is of type character.
 #' @return A data frame. The rows are sorted according to the appearance of
 #' previously unobserved rownames. So the rownames appearing in the first data
 #' frame are first, then the rownames in the second data frame, which have no
@@ -39,14 +40,9 @@
 #' 
 #' # merge by column v
 #' multMerge(x1, x2, x3, by="v")
-#' 
-
-
-#' @family table.utils  
-#' @concept merge  
-#' @concept table
 #'
-#'
+#' @family data.manipulation
+#' @concept merge
 #' @export
 multMerge <- function(..., all.x = TRUE, all.y = TRUE, by = NULL) {
   
@@ -56,9 +52,14 @@ multMerge <- function(..., all.x = TRUE, all.y = TRUE, by = NULL) {
   if (length(lst) == 1) return(lst[[1]])
   
   if (!is.null(by)) {
-    # merge column is given and must exist in all the data.frames
-    # we overwrite the row.names and remove the merge column
+    # merge column is given and must exist in all the data.frames;
+    # we overwrite the row.names and remove the merge column, hence
+    # the values must be unique within each data frame
     for (i in seq_along(lst)) {
+      if (!by %in% colnames(lst[[i]]))
+        stop(sprintf("'by' column '%s' not found in data frame %d", by, i))
+      if (anyDuplicated(lst[[i]][[by]]))
+        stop(sprintf("'by' values must be unique within each data frame (data frame %d)", i))
       rownames(lst[[i]]) <- lst[[i]][[by]]
       lst[[i]][by] <- NULL
     }
@@ -71,19 +72,20 @@ multMerge <- function(..., all.x = TRUE, all.y = TRUE, by = NULL) {
   for (i in seq_along(unames))
     colnames(lst[[i]]) <- unames[[i]]
   
-  # merge by explicit "rn" key to prevent rn.x/rn.y splitting across rounds
+  # merge by an explicit internal key column (named so that it cannot
+  # collide with user columns) to prevent .x/.y splitting across rounds
   res <- Reduce(
     function(y, z)
       merge(y, z,
-            by     = "rn",
+            by     = ".mmKey",
             all.x  = all.x,
             all.y  = all.y,
             sort   = FALSE),
     lapply(lst, function(x)
-      data.frame(rn = row.names(x), x, stringsAsFactors = FALSE)
+      data.frame(.mmKey = row.names(x), x, stringsAsFactors = FALSE)
     ))
-  rownames(res) <- res$rn
-  res$rn <- NULL
+  rownames(res) <- res$.mmKey
+  res$.mmKey <- NULL
   
   # order rows: rownames from left to right, new ones appended as they appear
   seq_ord <- function(xlst) {
@@ -102,7 +104,7 @@ multMerge <- function(..., all.x = TRUE, all.y = TRUE, by = NULL) {
     # restore key column and remove rownames
     res <- data.frame(row.names(res), res)
     colnames(res)[1] <- by
-    rownames(res) <- c()
+    rownames(res) <- NULL
   }
   
   return(res)

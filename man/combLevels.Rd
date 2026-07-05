@@ -4,12 +4,12 @@
 \alias{combLevels}
 \title{Combine Levels from Multiple Inputs}
 \usage{
-combLevels(..., sort = FALSE, na = FALSE)
+combLevels(..., sorted = FALSE, na = FALSE)
 }
 \arguments{
 \item{...}{One or more vectors or factors.}
 
-\item{sort}{Logical; if \code{TRUE}, the resulting levels are sorted.}
+\item{sorted}{Logical; if \code{TRUE}, the resulting levels are sorted.}
 
 \item{na}{Logical; if \code{TRUE}, \code{NA} is treated as a valid level
 (i.e., included in the result).}
@@ -23,13 +23,15 @@ Non-factor inputs are coerced to factors before extracting levels.
 }
 \details{
 Each input is coerced to a factor (if not already one), and its levels
-are extracted. The union of all levels is returned.
+are extracted. The union of all levels is returned. Unused levels of
+factor inputs are preserved.
 
 By default, missing values (\code{NA}) are not included as a level.
-Set \code{na = TRUE} to include them.
+Set \code{na = TRUE} to include them; \code{NA} is then placed last
+when sorting.
 
 The order of levels follows their first occurrence unless
-\code{sort = TRUE}.
+\code{sorted = TRUE}.
 }
 \examples{
 x <- factor(c("A", "B"))
@@ -38,7 +40,7 @@ y <- c("B", "C")
 combLevels(x, y)
 
 # Sorted levels
-combLevels(x, y, sort = TRUE)
+combLevels(x, y, sorted = TRUE)
 
 # Including NA as a level
 x <- c("A", NA)
@@ -53,9 +55,7 @@ Other data.manipulation:
 \code{\link[=appendX]{appendX()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=asCDateFmt]{asCDateFmt()}},
 \code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=dummy]{dummy()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
@@ -73,3 +73,4 @@ Other data.manipulation:
 }
 \concept{categorization}
 \concept{data.manipulation}
+\concept{recoding}

@@ -72,4 +72,5 @@ Other file.utils:
 \code{\link[=splitPath]{splitPath()}}
 }
 \concept{file.utils}
-\concept{reshape}
+\concept{programming}
+\concept{string-manipulation}

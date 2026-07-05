@@ -3,6 +3,20 @@
 #'
 #' Downloads and loads a dataset from predefined course servers or a user-defined URL.
 #'
+#' If no \code{url} is provided, the function searches for the file in the following locations:
+#' \itemize{
+#'   \item \url{https://www.signorell.net/hwz/datasets/}
+#'   \item \url{https://www.signorell.net/buch/}
+#' }
+#'
+#' The first location where the file exists is used.
+#'
+#' File type handling:
+#' \itemize{
+#'   \item \code{.xls}, \code{.xlsx}: loaded via \code{openDataObject()}
+#'   \item other files: loaded via \code{read.table()}
+#' }
+#'
 #' @param name Character string. File name including extension (e.g. \code{"data.csv"}).
 #' @param url Optional character string. Base URL where the file is located.
 #'   If \code{NULL}, default course repositories are searched.
@@ -18,74 +32,56 @@
 #'   \item For Excel files: an object returned by \code{openDataObject()}
 #' }
 #'
-#' @details
-#' If no \code{url} is provided, the function searches for the file in the following locations:
-#' \itemize{
-#'   \item \url{http://www.signorell.net/hwz/datasets/}
-#'   \item \url{http://www.signorell.net/buch/}
-#' }
-#'
-#' The first location where the file exists is used.
-#'
-#' File type handling:
-#' \itemize{
-#'   \item \code{.xls}, \code{.xlsx}: loaded via \code{openDataObject()}
-#'   \item other files: loaded via \code{read.table()}
-#' }
-#'
 #' @examples
 #' \dontrun{
 #' # Load from default repositories
 #' courseData("mydata.csv")
 #'
 #' # Load from custom URL
-#' courseData("mydata.csv", url = "http://example.com/data/")
+#' courseData("mydata.csv", url = "https://example.com/data/")
 #' }
 #'
 #' @importFrom utils read.table
 #' @seealso \code{\link{fileExistURL}}
 #'
-
-
-
-#' @family datasets  
+#' @family datasets
 #' @concept dataset
-#'
-#'
 #' @export
 courseData <- function(name,
                        url    = NULL,
                        header = TRUE,
                        sep    = ";",
                        ...) {
-  
+
   if (is.null(url)) {
     candidates <- c(
-      "http://www.signorell.net/hwz/datasets/",
-      "http://www.signorell.net/buch/"
+      "https://www.signorell.net/hwz/datasets/",
+      "https://www.signorell.net/buch/"
     )
     url <- .resolveCourseURL(name, candidates)
-    
+
     if (is.null(url)) {
       stop(sprintf(
-        "Datei '%s' wurde in keinem Suchpfad gefunden:\n%s",
+        "File '%s' was not found in any of the search paths:\n%s",
         name,
         paste(candidates, collapse = "\n")
       ))
     }
   } else {
-    if (!fileExistURL(file.path(url, name))) {
-      stop(sprintf("Datei '%s/%s' existiert nicht.", url, name))
+    if (!fileExistURL(file.path(sub("/+$", "", url), name))) {
+      stop(sprintf("File '%s/%s' does not exist.", sub("/+$", "", url), name))
     }
   }
-  
+
+  url <- sub("/+$", "", url)
+
   ext <- tolower(tools::file_ext(name))
-  full_path <- file.path(url, name)
-  
+  fullPath <- file.path(url, name)
+
   if (ext %in% c("xls", "xlsx")) {
     return(openDataObject(name = name, url = url, doc = NA, ...))
   } else {
-    return(read.table(full_path, header = header, sep = sep, ...))
+    return(read.table(fullPath, header = header, sep = sep, ...))
   }
 }
 
@@ -98,14 +94,12 @@ courseData <- function(name,
 #' @keywords internal
 #' @noRd
 .resolveCourseURL <- function(name, candidates) {
-  
+
   # yields first valid URL or NULL
-  
+
   for (base in candidates) {
-    full <- file.path(base, name)
+    full <- file.path(sub("/+$", "", base), name)
     if (fileExistURL(full)) return(base)
   }
   return(NULL)
 }
-
-

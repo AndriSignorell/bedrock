@@ -26,10 +26,11 @@ multiplied with. The result will be returned rounded to integer. Defaults to
 \code{NA} and will then be ignored.}
 }
 \description{
+\code{nDec()} returns the number of decimals.\cr
+\code{prec()} returns the precision of a number x, i.e. the smallest positional
+value of its last significant digit (e.g. 0.001 for 3.142) \code{x}.
 \code{frac()} returns the fractional part of a numeric value.
-\code{maxDigits()} return the number of digits in \code{x}. \cr
-\code{nDec()} returns the number of decimals.\cr \code{prec()} returns the
-precision of a number \code{x}.
+\code{maxDigits()} returns the number of digits in \code{x}. \cr
 }
 \examples{
 

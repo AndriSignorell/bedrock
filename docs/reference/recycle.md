@@ -1,6 +1,6 @@
-# Recyle a List of Elements
+# Recycle a List of Elements
 
-This function recycles all supplied elments to the maximal dimension.
+This function recycles all supplied elements to the maximal dimension.
 
 ## Usage
 
@@ -26,7 +26,7 @@ recycle(..., maxdim = NULL, strict = FALSE)
 ## Value
 
 a list of the supplied elements  
-`attr(,"maxdim")` contains the maximal dimension of the recyled list
+`attr(,"maxdim")` contains the maximal dimension of the recycled list
 
 ## See also
 
@@ -64,7 +64,7 @@ recycle(x=1:5, y=1, s=letters[1:2])
 #> [1] 5
 
 z <- recycle(x=letters[1:5], n=2:3, sep=c("-"," "))
-sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]), 
+sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]),
                                         collapse=z$sep[i]))
 #> [1] "a-a"   "b b b" "c-c"   "d d d" "e-e"  
 ```

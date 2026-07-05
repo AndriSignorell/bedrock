@@ -23,7 +23,7 @@ test_that("completeColumns returns logical vector when which = FALSE", {
     b = c(1, NA, 3)
   )
   
-  res <- completeColumns(df, which = FALSE)
+  res <- completeColumns(df, output="logical")
   
   expect_type(res, "logical")
   expect_equal(unname(res), c(TRUE, FALSE))
@@ -69,7 +69,7 @@ test_that("completeColumns works with empty input", {
   x <- list()
   
   expect_equal(completeColumns(x), character(0))
-  expect_equal(completeColumns(x, which = FALSE), logical(0))
+  expect_equal(completeColumns(x, output="logical"), logical(0))
 })
 
 test_that("completeColumns handles all missing columns", {
@@ -79,7 +79,7 @@ test_that("completeColumns handles all missing columns", {
     b = c(NA, NA)
   )
   
-  res <- completeColumns(x, which = FALSE)
+  res <- completeColumns(x, output="logical")
   
   expect_equal(unname(res), c(FALSE, FALSE))
   expect_equal(names(res), c("a", "b"))
@@ -92,7 +92,7 @@ test_that("completeColumns handles no missing values", {
     b = 4:6
   )
   
-  res <- completeColumns(x, which = FALSE)
+  res <- completeColumns(x, output="logical")
   
   expect_equal(unname(res), c(TRUE, TRUE))
   expect_equal(names(res), c("a", "b"))

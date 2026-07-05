@@ -2,9 +2,12 @@
 % Please edit documentation in R/as.matrix.xtabs.R
 \name{as.array.xtabs}
 \alias{as.array.xtabs}
+\alias{as.matrix.xtabs}
 \title{Coerce \code{xtabs} Object to Array or Matrix}
 \usage{
 \method{as.array}{xtabs}(x, ...)
+
+\method{as.matrix}{xtabs}(x, ...)
 }
 \arguments{
 \item{x}{An object of class \code{"xtabs"}.}
@@ -12,16 +15,18 @@
 \item{...}{Ignored.}
 }
 \value{
-A matrix with no additional classes.
+An array (or matrix in the two-dimensional case) with no
+additional classes.
 }
 \description{
-Converts an object of class \code{"xtabs"} to a plain matrix by
-dropping all additional classes such as \code{"xtabs"} and \code{"table"}.
+Converts an object of class \code{"xtabs"} to a plain array or matrix by
+dropping all additional classes such as \code{"xtabs"} and \code{"table"},
+along with the \code{call} attribute.
 }
 \examples{
 xt <- xtabs(~ cyl + gear, data = mtcars)
 class(as.matrix(xt))
-# "matrix"
+# "matrix" "array"
 
 }
 \seealso{
@@ -30,10 +35,8 @@ Other data.manipulation:
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=appendX]{appendX()}},
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=asCDateFmt]{asCDateFmt()}},
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=dummy]{dummy()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
@@ -49,7 +52,5 @@ Other data.manipulation:
 \code{\link[=stringsAsFactors]{stringsAsFactors()}},
 \code{\link[=toBaseR]{toBaseR()}}
 }
-\concept{data-manipulation}
-\concept{data-structures}
 \concept{data.manipulation}
-\concept{table-manipulation}
+\concept{table}

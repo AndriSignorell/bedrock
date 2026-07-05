@@ -2,7 +2,7 @@
 % Please edit documentation in R/asCDateFmt.R
 \name{asCDateFmt}
 \alias{asCDateFmt}
-\title{Convert custom date format to strftime format}
+\title{Convert Custom Date Format to strftime Format}
 \usage{
 asCDateFmt(fmt)
 }
@@ -50,30 +50,5 @@ asCDateFmt("yyyymmdd")
 asCDateFmt("mmm d, yyyy")
 
 }
-\seealso{
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
-}
-\concept{data.manipulation}
 \concept{date-time}
+\concept{format}

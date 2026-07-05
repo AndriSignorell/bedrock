@@ -6,6 +6,11 @@
 #' target of a later one. Internally uses temporary unique tokens as
 #' an intermediate step.
 #'
+#' Patterns are processed in the given order. For overlapping patterns
+#' (e.g. \code{"AB"} and \code{"A"}), list the longer pattern first,
+#' otherwise the shorter one consumes its characters before the longer
+#' one is considered.
+#'
 #' @param x A character vector in which substitutions are performed.
 #' @param patterns A character vector of substrings to search for
 #'   (\code{fixed = TRUE}).
@@ -21,37 +26,32 @@
 #' # Without simultaneous replacement this would yield "foo foo"
 #' # with sequential gsub().
 #'
-#'x <- c("A", "B", "AB", "BA")
-#'mGsub(x, patterns = c("A", "B"), replacements = c("BX", "CY"))
+#' x <- c("A", "B", "AB", "BA")
+#' mGsub(x, patterns = c("A", "B"), replacements = c("BX", "CY"))
 #'
 #' @seealso \code{\link{mReplace}} for exact whole-element replacement.
-
-
-
-#' @family string.utilities  
+#'
+#' @family string
 #' @concept string-manipulation
-#'
-#'
 #' @export
 mGsub <- function(x, patterns, replacements) {
-  
-  stopifnot(length(patterns) == length(replacements))
 
-  # temporäre eindeutige Tokens
+  if (length(patterns) != length(replacements))
+    stop("'patterns' and 'replacements' must have the same length")
+
+  # temporary unique tokens
   tokens <- paste0("\u0001", seq_along(patterns), "\u0001")
 
-  # Schritt 1: patterns -> tokens
+  # step 1: patterns -> tokens
   for (i in seq_along(patterns)) {
     x <- gsub(patterns[i], tokens[i], x, fixed = TRUE)
   }
 
-  # Schritt 2: tokens -> replacements
+  # step 2: tokens -> replacements
   for (i in seq_along(replacements)) {
     x <- gsub(tokens[i], replacements[i], x, fixed = TRUE)
   }
 
   x
-  
+
 }
-
-

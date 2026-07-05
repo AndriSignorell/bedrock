@@ -82,6 +82,7 @@ test_that("appendX.data.frame inserts columns correctly", {
   df <- data.frame(a = 1:3, b = 4:6)
 
   res <- appendX(df, c(7,8,9), newNames = "c")
+  expect_s3_class(res, "data.frame")
   expect_true("c" %in% names(res))
   expect_equal(res$c, c(7,8,9))
 })
@@ -100,13 +101,28 @@ test_that("appendX.data.frame respects insertion position", {
 test_that("appendX.data.frame inserts rows correctly", {
   df <- data.frame(a = 1:3, b = 4:6)
 
-  res <- appendX(df, c(10, 20),
-                 rows = TRUE,
-                 after = 0,
-                 newNames = names(df))
+  res <- appendX(df, c(10, 20), rows = TRUE, after = 0)
 
+  expect_s3_class(res, "data.frame")
   expect_equal(nrow(res), 4)
   expect_equal(as.numeric(res[1, ]), c(10, 20))
+})
+
+test_that("appendX.data.frame newNames sets the row name", {
+  df <- data.frame(a = 1:3, b = 4:6)
+
+  res <- appendX(df, c(10, 20), rows = TRUE, after = 0, newNames = "new")
+  expect_equal(rownames(res)[1], "new")
+
+  # named values are matched by column name, order-independently
+  res <- appendX(df, list(b = 20, a = 10), rows = TRUE, after = 0)
+  expect_equal(res$a[1], 10)
+  expect_equal(res$b[1], 20)
+
+  expect_error(
+    appendX(df, list(q = 1, w = 2), rows = TRUE),
+    "must match the column names"
+  )
 })
 
 
@@ -137,10 +153,10 @@ test_that("appendX.matrix warns on improper recycling", {
 test_that("appendX.matrix recycles scalars and clean divisors silently", {
   x <- matrix(1:8, nrow = 4)
 
-  expect_no_warning(appendX(x, 99))            # Skalar
-  expect_no_warning(appendX(x, 1:2))           # Teiler von nrow
-  expect_no_warning(appendX(x, 1:8))           # Vielfaches von nrow
-  expect_no_warning(appendX(x, 1:2, rows = TRUE))  # genau ncol
+  expect_no_warning(appendX(x, 99))            # scalar
+  expect_no_warning(appendX(x, 1:2))           # divisor of nrow
+  expect_no_warning(appendX(x, 1:8))           # multiple of nrow
+  expect_no_warning(appendX(x, 1:2, rows = TRUE))  # exactly ncol
 })
 
 # -------------------------------------------------------------------------
@@ -152,7 +168,7 @@ test_that("appendX.TOne preserves class and attributes", {
   class(x) <- "TOne"
   attr(x, "legend") <- "test"
 
-  res <- appendX(x, 7:8)   # rows = TRUE (default): Laenge == ncol(x)
+  res <- appendX(x, 7:8)   # rows = TRUE (default): length == ncol(x)
 
   expect_equal(class(res), "TOne")
   expect_equal(attr(res, "legend"), "test")

@@ -22,9 +22,9 @@ horizontal row, 4--7 for the next, \ldots then the parent-child traversal
 becomes particularly easy. The basic idea is that the rows of the tree start
 at indices 1, 2, 4, \ldots.
 
-binaryTree(13) yields the vector \code{c(8, 4, 9, 2, 10, 5, 11, 1, 12, 6, 13,
-3, 7)} meaning that the smallest element will be in position 8 of the tree,
-the next smallest in position 4, etc.
+\code{binaryTree(13)} yields the vector \code{c(8, 4, 9, 2, 10, 5, 11, 1,
+12, 6, 13, 3, 7)} meaning that the smallest element will be in position 8
+of the tree, the next smallest in position 4, etc.
 }
 \note{
 Substantially based on code by Terry Therneau, with major extensions
@@ -36,7 +36,7 @@ binaryTree(12)
 
 }
 \seealso{
-\code{\link[aurora:plotBinaryTree]{aurora::plotBinaryTree()}}
+\code{\link[aurora]{plotBinaryTree}}
 
 Other data.utils:
 \code{\link[=ptInPoly]{ptInPoly()}},

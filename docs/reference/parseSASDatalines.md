@@ -65,7 +65,7 @@ splits on whitespace and does not handle quoted strings.
 Other file.utils: [`buildPath()`](buildPath.md),
 [`fileExistURL()`](fileExistURL.md),
 [`findDownload()`](findDownload.md), [`pdfManual()`](pdfManual.md),
-[`readDownload()`](readDownload.md), [`splitPath()`](splitPath.md)
+[`splitPath()`](splitPath.md)
 
 ## Examples
 

@@ -39,7 +39,7 @@ test_that("appendEnum colName sets column name", {
 test_that("appendEnum after inserts at correct position", {
   df  <- data.frame(a = 1:2, b = 3:4)
   res <- appendEnum(df, after = 1L, type = "arabic")
-  expect_equal(names(res), c("a", "", "b"))  
+  expect_equal(names(res), c("a", "V1", "b"))
 })
 
 test_that("appendEnum coerces vector input", {

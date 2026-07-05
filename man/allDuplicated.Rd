@@ -26,6 +26,10 @@ the duplicates beyond the first occurrence.
 
 Consequently, \code{!allDuplicated(x)} can be used to identify elements of
 \code{x} that appear exactly once.
+
+Missing values are considered equal to each other, so multiple \code{NA}s
+are flagged as ties. As the function builds on \code{\link{duplicated}},
+it also works for data frames (row-wise) and matrices.
 }
 \examples{
 x <- c(1:10, 4:6)
@@ -37,16 +41,6 @@ duplicated(x)
 
 # Elements appearing exactly once
 x[!allDuplicated(x)]
-
-# Set operations
-A <- c(sort(sample(1:20, 9)), NA)
-B <- c(sort(sample(3:23, 7)), NA)
-
-union(A, B)
-intersect(A, B)
-setdiff(A, B)
-setdiff(B, A)
-setequal(A, B)
 
 # Identify and analyse ties
 x <- sample(letters[1:10], 20, replace = TRUE)
@@ -62,18 +56,20 @@ sizes[sizes > 1]
 # Same via table()
 tab <- table(x)
 tab[tab > 1]
+
+
 }
 \seealso{
 \code{\link{duplicated}} for identifying duplicate elements (excluding first
 occurrences). \cr
 \code{\link{unique}} for extracting unique values. \cr
 \code{\link{split}} for grouping tied values. \cr
-\code{\link{table}} for counting frequencies. \cr
-\code{\link{union}}, \code{\link{intersect}}, \code{\link{setdiff}},
-\code{\link{setequal}} for set-based operations on vectors.
+\code{\link{table}} for counting frequencies.
 
 Other data.inspection:
 \code{\link[=allIdentical]{allIdentical()}},
+\code{\link{between}},
+\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=completeColumns]{completeColumns()}},
 \code{\link[=countCompCases]{countCompCases()}},
 \code{\link[=flags]{flags()}},
@@ -85,4 +81,4 @@ Other data.inspection:
 \code{\link[=isZero]{isZero()}}
 }
 \concept{data.inspection}
-\concept{ordering}
+\concept{ties}

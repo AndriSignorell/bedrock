@@ -80,7 +80,7 @@ Other file.utils: [`buildPath()`](buildPath.md),
 [`fileExistURL()`](fileExistURL.md),
 [`findDownload()`](findDownload.md),
 [`parseSASDatalines()`](parseSASDatalines.md),
-[`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md)
+[`pdfManual()`](pdfManual.md)
 
 ## Examples
 

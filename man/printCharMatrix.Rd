@@ -80,7 +80,6 @@ printCharMatrix(m, width = 20)
 }
 \seealso{
 Other table.utils:
-\code{\link[=collapseTable]{collapseTable()}},
 \code{\link[=multMerge]{multMerge()}}
 }
 \concept{table}

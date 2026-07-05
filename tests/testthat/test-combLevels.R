@@ -29,7 +29,7 @@ test_that("combLevels coerces character vectors", {
 test_that("combLevels sorts levels", {
   
   expect_equal(
-    combLevels(c("B", "A"), sort = TRUE),
+    combLevels(c("B", "A"), sorted = TRUE),
     c("A", "B")
   )
   

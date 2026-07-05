@@ -17,6 +17,15 @@ Extends \code{\link{identical}} to more than two objects. Returns
 \code{TRUE} if all supplied objects are exactly identical, and
 \code{FALSE} otherwise.
 }
+\details{
+If zero or one object is supplied, the function returns \code{TRUE}.
+
+Note that the objects themselves are compared, not their elements.
+So \code{allIdentical(list(A, B, C))} is \code{TRUE}, as a single
+object is trivially identical to itself. Use
+\code{do.call(allIdentical, myList)} to compare the elements of
+a list.
+}
 \examples{
 A <- LETTERS[1:5]
 B <- LETTERS[1:5]
@@ -26,12 +35,17 @@ E <- factor(LETTERS[1:5])
 allIdentical(A, B, C)        # TRUE
 allIdentical(A, B, C, E)     # FALSE
 
+allIdentical(1, 1L)          # FALSE (type matters)
+
+
 }
 \seealso{
 \code{\link{identical}}
 
 Other data.inspection:
 \code{\link[=allDuplicated]{allDuplicated()}},
+\code{\link{between}},
+\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=completeColumns]{completeColumns()}},
 \code{\link[=countCompCases]{countCompCases()}},
 \code{\link[=flags]{flags()}},
@@ -42,5 +56,5 @@ Other data.inspection:
 \code{\link[=isWholeLike]{isWholeLike()}},
 \code{\link[=isZero]{isZero()}}
 }
+\concept{comparison}
 \concept{data.inspection}
-\concept{ordering}

@@ -6,6 +6,19 @@
 #' logging, or callbacks, where the user can enable, disable, or parameterize
 #' a function call via a single argument.
 #'
+#' This function implements a flexible pattern for optional function calls:
+#'
+#' \itemize{
+#'   \item Enable/disable behavior with \code{TRUE}/\code{FALSE}
+#'   \item Customize behavior with a list of arguments
+#'   \item Provide safe defaults and restrict certain arguments
+#' }
+#'
+#' When merging \code{defaults} and \code{arg}, user-supplied arguments take
+#' precedence. Unlike \code{\link{modifyList}}, elements with the value
+#' \code{NULL} are preserved and passed on to \code{fun} (so that an explicit
+#' \code{NULL} can be used to reset an argument).
+#'
 #' @param fun A function to be called.
 #' @param arg Controls whether and how \code{fun} is called:
 #'   \itemize{
@@ -13,9 +26,10 @@
 #'       and \code{NULL} is returned invisibly.
 #'     \item \code{TRUE}: \code{fun} is called with \code{defaults} (if provided),
 #'       or with no arguments.
-#'     \item A named list: \code{fun} is called with the list elements as arguments.
-#'       If \code{defaults} is provided, it is merged with \code{arg}, where
-#'       elements of \code{arg} override those in \code{defaults}.
+#'     \item A fully named list: \code{fun} is called with the list elements as
+#'       arguments. If \code{defaults} is provided, it is merged with
+#'       \code{arg}, where elements of \code{arg} override those in
+#'       \code{defaults}.
 #'   }
 #' @param defaults A named list of default arguments passed to \code{fun} when
 #'   \code{arg = TRUE}, or used as a base when \code{arg} is a list.
@@ -28,18 +42,6 @@
 #'
 #' @return Returns the result of \code{fun(...)} if called. If \code{arg} is
 #'   \code{FALSE}, \code{NULL}, or \code{NA}, returns \code{NULL} invisibly.
-#'
-#' @details
-#' This function implements a flexible pattern for optional function calls:
-#'
-#' \itemize{
-#'   \item Enable/disable behavior with \code{TRUE}/\code{FALSE}
-#'   \item Customize behavior with a list of arguments
-#'   \item Provide safe defaults and restrict certain arguments
-#' }
-#'
-#' The merging of \code{defaults} and \code{arg} is performed using
-#' \code{\link{modifyList}}, where user-supplied arguments take precedence.
 #'
 #' @examples
 #' # Simple usage: skip
@@ -65,44 +67,43 @@
 #' y <- x^2
 #' callIf(plot, TRUE, defaults = list(x, y))
 #'
-
-
-
-#' @family utilities  
+#' @family utils
 #' @concept programming
-#'
-#'
 #' @export
 callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
-  
+
   if (isFALSE(arg) || is.null(arg) || isNA(arg))
     return(invisible(NULL))
-  
+
   if (isTRUE(arg)) {
     args <- defaults %||% list()
-    
-  } else if (is.list(arg) && !is.null(names(arg))) {
-    
+
+  } else if (is.list(arg)) {
+
+    if (is.null(names(arg)) || !all(nzchar(names(arg))))
+      stop("'arg' must be a fully named list.")
+
     if (!is.null(forbidden)) {
       bad <- intersect(names(arg), forbidden)
       if (length(bad)) {
-        msg <- sprintf("Ignoring forbidden argument(s) for '%s': %s",
-                       deparse(substitute(fun)),
-                       paste(bad, collapse = ", "))
         if (warn)
-          warning(msg)
+          warning(
+            gettextf("Ignoring forbidden argument(s) for '%s': %s",
+                     deparse(substitute(fun)),
+                     paste(bad, collapse = ", ")),
+            call. = FALSE
+          )
         arg[bad] <- NULL
       }
     }
-    
+
     args <- defaults %||% list()
     for (nm in names(arg))
-      args[nm] <- list(arg[[nm]])      # list() wrapper verhindert das Löschen
-    
+      args[nm] <- list(arg[[nm]])   # list() wrapper preserves NULL values
+
   } else {
     stop("Argument 'arg' must be TRUE, FALSE, NA/NULL or a named list.")
   }
-  
+
   return(do.call(fun, args))
 }
-

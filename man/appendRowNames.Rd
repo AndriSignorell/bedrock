@@ -4,7 +4,7 @@
 \alias{appendRowNames}
 \title{Append Rownames to a Data Frame or Matrix}
 \usage{
-appendRowNames(x, colName = "rowname", after = 0L, removeRownames = TRUE)
+appendRowNames(x, colName = "rowname", after = 0L, removeRowNames = TRUE)
 }
 \arguments{
 \item{x}{A data.frame or matrix.}
@@ -14,33 +14,33 @@ appendRowNames(x, colName = "rowname", after = 0L, removeRownames = TRUE)
 \item{after}{Position after which the column is inserted.
 Default is 0 (first column).}
 
-\item{removeRownames}{Logical; if TRUE, existing row names are removed.}
+\item{removeRowNames}{Logical; if TRUE, existing row names are removed.}
 }
 \value{
-A data.frame (or matrix coerced to data.frame) with row names
-added as a column.
+An object of the same class as \code{x} with the row names added
+as a column. Note that for matrices the result is coerced to the common
+mode, so appending (character) row names to a numeric matrix yields a
+character matrix.
 }
 \description{
 Adds the row names of a data.frame or matrix as a column.
 }
 \examples{
-dd <- data.frame(x=1:5, y=6:10, z=LETTERS[1:5],
+dd <- data.frame(x = 1:5, y = 6:10, z = LETTERS[1:5],
                  row.names = letters[1:5])
 appendRowNames(dd)
 
 }
 \seealso{
-\code{\link{append}}
+\code{\link{appendX}}, \code{\link{append}}
 
 Other data.manipulation:
 \code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendX]{appendX()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=asCDateFmt]{asCDateFmt()}},
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=dummy]{dummy()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},

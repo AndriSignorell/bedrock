@@ -1,13 +1,13 @@
 
-#' List all arguments of a function
+#' List All Arguments of a Function
 #'
 #' Returns the formal arguments of a function together with their default
 #' values.
 #'
 #' @param fun Function object or function name.
 #' @param package Optional package name used to resolve \code{fun}.
-#' @param sort Logical; should arguments be sorted alphabetically?
-#'   Ignored when \code{output = "list"}.
+#' @param sorted Logical; should arguments be sorted alphabetically?
+#'   \code{...} is always kept last. Ignored when \code{output = "list"}.
 #' @param output Character string specifying the output format:
 #'   \itemize{
 #'     \item \code{"data.frame"} (default): return a data frame.
@@ -36,38 +36,40 @@
 #'
 #' cat(funArgs("combN", output = "string"))
 #'
-
-#' @family pkg.introspection  
+#' @family pkg.introspection
 #' @concept introspection
-#'
-#'
 #' @export
-funArgs <- function(
-    fun,
-    package = NULL,
-    sort = FALSE,
-    output = c("data.frame", "list", "string")
-) {
-  
+funArgs <- function(fun,
+                    package = NULL,
+                    sorted = FALSE,
+                    output = c("data.frame", "list", "string")) {
+
   output <- match.arg(output)
-  
+
   if (is.character(fun)) {
-    
+
     if (!is.null(package)) {
-      
+
       fun <- getExportedValue(package, fun)
-      
+
     } else {
-      
-      fun <- get(fun, mode = "function")
-      
+
+      # resolve in the caller's environment: get() from within the
+      # package namespace would not see functions defined in the
+      # global environment
+      fun <- get(fun, mode = "function", envir = parent.frame())
+
     }
   }
-  
-  fmls <- suppressWarnings(formals(fun))
-  
+
+  fmls <- formals(fun)
+
+  # primitives have no formals; args() provides a usable stub for most
+  if (is.null(fmls) && is.function(fun) && !is.null(args(fun)))
+    fmls <- formals(args(fun))
+
   if (is.null(fmls)) {
-    
+
     return(
       switch(
         output,
@@ -82,12 +84,12 @@ funArgs <- function(
         )
       )
     )
-    
+
   }
-  
+
   if (output == "list")
     return(fmls)
-  
+
   out <- data.frame(
     name = names(fmls),
     value = vapply(
@@ -97,18 +99,18 @@ funArgs <- function(
       character(1)
     )
   )
-  
-  if (sort) {
-    
+
+  if (sorted) {
+
     dots <- out$name == "..."
-    
+
     out <- rbind(
       out[!dots, ][order(out$name[!dots]), ],
       out[dots, ]
     )
-    
+
   }
-  
+
   string <- paste(
     ifelse(
       out$value == "",
@@ -117,15 +119,14 @@ funArgs <- function(
     ),
     collapse = ", "
   )
-  
+
   if (output == "string")
     return(string)
-  
-  attr(out, "string") <- string
-  
-  class(out) <- c("FunArgs", "data.frame")
-  
-  out
-  
-}
 
+  attr(out, "string") <- string
+
+  class(out) <- c("FunArgs", "data.frame")
+
+  out
+
+}

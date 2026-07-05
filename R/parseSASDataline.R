@@ -54,12 +54,10 @@
 #' df <- parseSASDatalines(sas_code)
 #' 
 
+#' @family file.utils
+#' @concept programming
+#' @concept string-manipulation
 
-
-#' @family file.utils  
-#' @concept reshape
-#'
-#'
 #' @export
 parseSASDatalines <- function(x, validateNames = FALSE) {
   

@@ -49,17 +49,18 @@
 #'   aggregated frequencies.
 #'
 #' @examples
-#' # Example usage (assuming suitable table 'tab')
-#' # collapseTable(tab, age = c("young", "adult", "adult"))
+#' tab <- xtabs(~ gear + cyl, data = mtcars)
+#' tab
 #'
-
-
-
-#' @family table.utils  
-#' @concept table  
+#' # merge the 4- and 6-cylinder categories
+#' collapseTable(tab, cyl = c("le6", "le6", "8"))
+#'
+#' # positional assignment (first dimension), silent with strict = FALSE
+#' collapseTable(tab, c("3-4", "3-4", "5"), strict = FALSE)
+#'
+#' @family frequency
+#' @concept table
 #' @concept frequency-table
-#'
-#'
 #' @export
 collapseTable <- function(x, ..., strict = TRUE) {
   
@@ -110,8 +111,9 @@ collapseTable <- function(x, ..., strict = TRUE) {
       
       names(args)[missing_idx] <- unused[seq_along(missing_idx)]
       
-      warning("Unnamed argument(s) assigned to dimension(s) by position: ",
-              paste(names(args)[missing_idx], collapse = ", "))
+      if (strict)
+        warning("Unnamed argument(s) assigned to dimension(s) by position: ",
+                paste(names(args)[missing_idx], collapse = ", "))
     }
   }
   

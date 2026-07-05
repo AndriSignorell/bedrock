@@ -4,6 +4,13 @@
 #' Checks whether values are integer-like within a numerical tolerance.
 #' Works for numeric, integer, and complex vectors.
 #'
+#' A value is considered whole-like if the absolute difference between
+#' the value and its nearest integer is smaller than \code{tol}.
+#'
+#' For complex numbers, both real and imaginary parts must be whole-like;
+#' with \code{isNonNegative = TRUE}, both parts must additionally be
+#' non-negative.
+#'
 #' @param x A numeric, integer, or complex vector.
 #' @param all Logical. If \code{TRUE} (default), returns a single logical
 #'   indicating whether all elements are whole-like. If \code{FALSE},
@@ -17,14 +24,8 @@
 #'   the result is \code{FALSE}.
 #'
 #' @return
-#' If \code{all = TRUE}, a single logical value.  
+#' If \code{all = TRUE}, a single logical value.
 #' If \code{all = FALSE}, a logical vector.
-#'
-#' @details
-#' A value is considered whole-like if the absolute difference between
-#' the value and its nearest integer is smaller than \code{tol}.
-#'
-#' For complex numbers, both real and imaginary parts must be whole-like.
 #'
 #' @examples
 #' isWholeLike(c(1, 2, 3))
@@ -33,28 +34,24 @@
 #' isWholeLike(c(1, -2), isNonNegative = TRUE)
 #' isWholeLike(1:5 + 0i)
 #'
-
-
-#' @family data.inspection  
+#' @family data.inspection
 #' @concept ordering
-#'
-#'
 #' @export
 isWholeLike <- function(x,
                         all = TRUE,
                         isNonNegative = FALSE,
                         tol = sqrt(.Machine$double.eps),
                         na.rm = FALSE) {
-  
+
   if (!is.numeric(x) && !is.complex(x))
     return(if (all) FALSE else rep(FALSE, length(x)))
-  
+
   if (na.rm)
     x <- x[!is.na(x)]
-  
+
   if (!na.rm && anyNA(x))
     return(if (all) FALSE else rep(FALSE, length(x)))
-  
+
   if (is.integer(x)) {
     res <- rep(TRUE, length(x))
   } else if (is.numeric(x)) {
@@ -63,7 +60,7 @@ isWholeLike <- function(x,
     res <- abs(Re(x) - round(Re(x))) < tol &
       abs(Im(x) - round(Im(x))) < tol
   }
-  
+
   if (isNonNegative) {
     if (is.complex(x)) {
       res <- res & (Re(x) >= 0 & Im(x) >= 0)
@@ -71,7 +68,7 @@ isWholeLike <- function(x,
       res <- res & (x >= 0)
     }
   }
-  
+
   if (all) {
     return(base::all(res))
   } else {

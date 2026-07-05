@@ -2,7 +2,7 @@
 % Please edit documentation in R/appendEnum.R
 \name{appendEnum}
 \alias{appendEnum}
-\title{Add an enumeration column}
+\title{Add an Enumeration Column}
 \usage{
 appendEnum(
   x,
@@ -27,7 +27,8 @@ or \code{"arabic"}}
 \code{\link{appendX}}); default \code{0L} prepends it}
 
 \item{colName}{optional name for the new column; \code{NULL} (default)
-leaves it unnamed}
+leaves it unnamed for matrices, while for data frames a default name
+(\code{"V1"}) is used}
 }
 \value{
 \code{x} with an additional enumeration column
@@ -42,10 +43,8 @@ Other data.manipulation:
 \code{\link[=appendX]{appendX()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=asCDateFmt]{asCDateFmt()}},
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=dummy]{dummy()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},

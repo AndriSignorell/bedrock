@@ -1,48 +1,51 @@
 
-#' Digit sum for integer values
+#' Digit Sum for Integer Values
 #'
-#' Computes the sum of digits for integer inputs. Negative values are handled
-#' by taking the absolute value.
+#' Computes the sum of digits for whole-numbered inputs. Negative values are
+#' handled by taking the absolute value.
 #'
-#' @param x An integer vector.
+#' The function accepts integer vectors as well as doubles holding whole
+#' numbers (e.g. \code{124} and \code{124L} are both valid). Fractional
+#' values raise an error. Missing values (\code{NA}) are propagated.
+#'
+#' @param x An integer vector, or a numeric vector of whole numbers.
 #'
 #' @return An integer vector containing the digit sums.
 #'
-#' @details
-#' The function only accepts integer values. If non-integer numerics are supplied,
-#' an error is thrown. Missing values (\code{NA}) are propagated.
-#'
 #' @examples
-#' digitSum(124L)
+#' digitSum(124)
 #' digitSum(c(10L, 99L, -1234L))
 #'
-
-
-
-
-#' @family number.theory  
+#' @family number.theory
 #' @concept number-theory
-#'
-#'
 #' @export
 digitSum <- function(x) {
+
   # --- type check ---
-  if (!is.integer(x)) {
-    stop("`x` must be an integer vector (e.g., use 1L instead of 1).", call. = FALSE)
+  if (!is.numeric(x)) {
+    stop("'x' must be an integer vector or a numeric vector of whole numbers.")
   }
-  
+
+  if (any(x %% 1 != 0, na.rm = TRUE)) {
+    stop("'x' must contain whole numbers only.")
+  }
+
   # --- NA handling ---
   out <- integer(length(x))
-  na_idx <- is.na(x)
-  out[na_idx] <- NA_integer_
-  
+  naIdx <- is.na(x)
+  out[naIdx] <- NA_integer_
+
   # --- core computation ---
-  out[!na_idx] <- vapply(abs(x[!na_idx]), function(z) {
-    if (z == 0L) return(0L)
-    
-    sum(as.integer(strsplit(as.character(z), "")[[1]]))
+  # arithmetic digit extraction avoids as.character(), which would switch
+  # to scientific notation for large doubles
+  out[!naIdx] <- vapply(abs(x[!naIdx]), function(z) {
+    s <- 0
+    while (z > 0) {
+      s <- s + z %% 10
+      z <- z %/% 10
+    }
+    as.integer(s)
   }, integer(1L))
-  
+
   out
 }
-

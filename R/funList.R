@@ -1,46 +1,46 @@
 
-#' List Objects, Functions Or Data in a Package 
-#' 
-#' List all the objects, functions or data in a package. 
-#' 
-#' This is just a wrapper for \code{\link{ls}}, \code{\link{ls.str}} and
-#' \code{\link{lsf.str}} with the appropriate arguments (as I always forgot how
-#' to do the trick). \code{objList()} lists all objects, \code{funList()} just the
-#' functions in a package. 
-#' 
-#' @param package the name of the package 
-#' @param exported logical (default \code{TRUE}) should only exported functions be listed?
-#' 
- 
-#' @seealso \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}} 
-#' 
+#' List Functions in a Package
+#'
+#' List all the functions in a package.
+#'
+#' This is just a wrapper for the namespace inspection functions (as I always
+#' forgot how to do the trick). By default only the exported functions are
+#' returned; with \code{exported = FALSE} all functions defined in the
+#' package namespace are listed, including internal ones.
+#'
+#' @param package the name of the package
+#' @param exported logical (default \code{TRUE}) should only exported
+#'   functions be listed?
+#'
+#' @return A sorted character vector with the function names.
+#'
+#' @seealso \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}},
+#' \code{\link{getNamespaceExports}}
+#'
 #' @references Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The
-#' New S Language}. Wadsworth & Brooks/Cole. 
-#' 
+#' New S Language}. Wadsworth & Brooks/Cole.
+#'
 #' @examples
-#' 
+#'
 #' funList("bedrock")
-#' 
-
-
-#' @family pkg.introspection  
+#'
+#' @family pkg.introspection
 #' @concept introspection
-#'
-#'
 #' @export
 funList <- function(package, exported = TRUE) {
-  
+
   ns <- getNamespace(package)
-  
+
   objs <- if (exported) {
     getNamespaceExports(package)
   } else {
     ls(ns, all.names = TRUE)
   }
-  
-  objs[sapply(objs, function(x) is.function(get(x, envir = ns)))]
-  
-  # less robust: 
-  # as.vector(unclass(lsf.str(pos = gettextf("package:%s", package) )))
+
+  sort(objs[vapply(
+    objs,
+    function(x) is.function(get(x, envir = ns)),
+    logical(1L)
+  )])
 
 }

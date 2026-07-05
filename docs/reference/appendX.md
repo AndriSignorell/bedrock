@@ -29,7 +29,8 @@ appendX(x, values, after = NULL, rows = TRUE, newNames = NULL, ...)
 
 - values:
 
-  Values to insert into `x`.
+  Values to insert into `x`. For matrices with `rows = TRUE`, values are
+  read row by row.
 
 - after:
 

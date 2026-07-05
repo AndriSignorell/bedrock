@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">bedrock</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.937</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.938</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,11 +60,13 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="package-bedrock">📦 bedrock<a class="anchor" aria-label="anchor" href="#package-bedrock"></a>
 </h1></div>
-<p><strong>Version:</strong> 0.0.0.914<br><strong>Title:</strong> Base functions for the DescToolsX ecosystem<br><strong>License:</strong> GPL (≥ 2)</p>
+<p><strong>Version:</strong> 0.0.0.938<br><strong>Title:</strong> Base functions for the DescToolsX ecosystem<br><strong>License:</strong> GPL (≥ 2)</p>
 <div class="section level2">
 <h2 id="jigsaw-overview">🧩 Overview<a class="anchor" aria-label="anchor" href="#jigsaw-overview"></a>
 </h2>
-<p><code>bedrock</code> is a low-level utility package within the <strong>DescToolsX ecosystem</strong>. It provides foundational, reusable functions that serve as building blocks for higher-level statistical and analytical packages.</p>
+<p><code>bedrock</code> is the foundation layer of the <strong>DescToolsX ecosystem</strong>. It provides low-level, generic utilities and basic routines — data manipulation, inspection, vector operations, string handling, math and combinatorics — that serve as building blocks for the higher-level statistical, graphics, and modelling packages of the suite.</p>
+<p>The package follows the DescToolsX design rules: a consistent lowerCamelCase API, generic functions with S3 methods, predictable argument names and ordering, and performance-critical routines implemented in Rcpp.</p>
+<p>📖 <strong>Documentation:</strong> <a href="https://andrisignorell.github.io/bedrock/" class="external-link uri">https://andrisignorell.github.io/bedrock/</a></p>
 </div>
 <div class="section level2">
 <h2 id="gear-installation">⚙️ Installation<a class="anchor" aria-label="anchor" href="#gear-installation"></a>
@@ -78,77 +80,194 @@
 <div class="section level3">
 <h3 id="small_blue_diamond-data-manipulation">🔹 Data Manipulation<a class="anchor" aria-label="anchor" href="#small_blue_diamond-data-manipulation"></a>
 </h3>
+<p>Appending, recoding, renaming, sorting, and reshaping of vectors, factors, matrices, and data frames.</p>
 <ul>
-<li>appendX()</li>
-<li>appendRowNames()</li>
-<li>collapseTable()</li>
-<li>completeColumns()</li>
+<li>
+<code><a href="reference/appendX.html">appendX()</a></code>, <code><a href="reference/appendRowNames.html">appendRowNames()</a></code>, <code><a href="reference/appendEnum.html">appendEnum()</a></code>
+</li>
+<li>
+<code><a href="reference/recodeX.html">recodeX()</a></code>, <code><a href="reference/revCode.html">revCode()</a></code>, <code><a href="reference/combLevels.html">combLevels()</a></code>, <code><a href="reference/dummy.html">dummy()</a></code>
+</li>
+<li>
+<code><a href="reference/sortX.html">sortX()</a></code>, <code><a href="reference/revX.html">revX()</a></code>, <code><a href="reference/renameX.html">renameX()</a></code>, <code><a href="reference/setNamesX.html">setNamesX()</a></code>
+</li>
+<li>
+<code><a href="reference/splitX.html">splitX()</a></code>, <code><a href="reference/splitAt.html">splitAt()</a></code>, <code><a href="reference/long-wide-reshape.html">toLong()</a></code> / <code><a href="reference/long-wide-reshape.html">toWide()</a></code>
+</li>
+<li>
+<code><a href="reference/recycle.html">recycle()</a></code>, <code><a href="reference/columnWrap.html">columnWrap()</a></code>, <code><a href="reference/compareDataFrames.html">compareDataFrames()</a></code>
+</li>
+<li>
+<code><a href="reference/toBaseR.html">toBaseR()</a></code>, <code><a href="reference/stringsAsFactors.html">stringsAsFactors()</a></code>
+</li>
+<li>Type coercion shortcuts: <code><a href="reference/type-aliases.html">num()</a></code>, <code><a href="reference/type-aliases.html">int()</a></code>, <code><a href="reference/type-aliases.html">chr()</a></code>, <code><a href="reference/type-aliases.html">nchr()</a></code>, <code><a href="reference/type-aliases.html">bin()</a></code>
+</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="small_blue_diamond-vector--utilities">🔹 Vector &amp; Utilities<a class="anchor" aria-label="anchor" href="#small_blue_diamond-vector--utilities"></a>
+<h3 id="small_blue_diamond-data-inspection--validation">🔹 Data Inspection &amp; Validation<a class="anchor" aria-label="anchor" href="#small_blue_diamond-data-inspection--validation"></a>
 </h3>
+<p>Predicates and checks for data quality and structure.</p>
 <ul>
-<li>coalesceX()</li>
-<li>closest()</li>
-<li>between operators (%[]%, etc.)</li>
+<li>
+<code><a href="reference/isNumeric.html">isNumeric()</a></code>, <code><a href="reference/isDichotomous.html">isDichotomous()</a></code>, <code><a href="reference/isLowCardinality.html">isLowCardinality()</a></code>, <code><a href="reference/isWholeLike.html">isWholeLike()</a></code>, <code><a href="reference/isZero.html">isZero()</a></code>, <code><a href="reference/isNA.html">isNA()</a></code>
+</li>
+<li>
+<code><a href="reference/allDuplicated.html">allDuplicated()</a></code>, <code><a href="reference/allIdentical.html">allIdentical()</a></code>, <code><a href="reference/completeColumns.html">completeColumns()</a></code>, <code><a href="reference/countCompCases.html">countCompCases()</a></code>, <code><a href="reference/flags.html">flags()</a></code>
+</li>
+<li>Between operators: <code>%[]%</code>, <code>%()%</code>, <code>%[)%</code>, <code>%(]%</code>
+</li>
+<li>
+<code><a href="reference/isFilePath.html">isFilePath()</a></code>, <code><a href="reference/isURL.html">isURL()</a></code>, <code><a href="reference/isEuclid.html">isEuclid()</a></code>
+</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="small_blue_diamond-mathematical-functions">🔹 Mathematical Functions<a class="anchor" aria-label="anchor" href="#small_blue_diamond-mathematical-functions"></a>
+<h3 id="small_blue_diamond-vector-operations">🔹 Vector Operations<a class="anchor" aria-label="anchor" href="#small_blue_diamond-vector-operations"></a>
 </h3>
 <ul>
-<li>dotProd()</li>
-<li>crossProd()</li>
-<li>crossProdN()</li>
-<li>distance()</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="small_blue_diamond-combinatorics">🔹 Combinatorics<a class="anchor" aria-label="anchor" href="#small_blue_diamond-combinatorics"></a>
-</h3>
-<ul>
-<li>combN()</li>
-<li>combSet()</li>
-<li>combPairs()</li>
+<li>
+<code><a href="reference/coalesceX.html">coalesceX()</a></code>, <code><a href="reference/closest.html">closest()</a></code>, <code><a href="reference/locf.html">locf()</a></code>
+</li>
+<li>
+<code><a href="reference/naIf.html">naIf()</a></code>, <code><a href="reference/naReplace.html">naReplace()</a></code>, <code><a href="reference/nz.html">nz()</a></code>
+</li>
+<li>
+<code><a href="reference/trim.html">trim()</a></code>, <code><a href="reference/winsorize.html">winsorize()</a></code>, <code><a href="reference/setLength.html">setLength()</a></code>
+</li>
+<li>
+<code><a href="reference/moveAvg.html">moveAvg()</a></code>, <code><a href="reference/midx.html">midx()</a></code>, <code><a href="reference/vRot.html">vRot()</a></code>, <code><a href="reference/vShift.html">vShift()</a></code>, <code><a href="reference/pairApply.html">pairApply()</a></code>
+</li>
 </ul>
 </div>
 <div class="section level3">
 <h3 id="small_blue_diamond-string-utilities">🔹 String Utilities<a class="anchor" aria-label="anchor" href="#small_blue_diamond-string-utilities"></a>
 </h3>
 <ul>
-<li>asCDateFmt()</li>
-<li>charToAscii() / asciiToChar()</li>
-<li>columnWrap()</li>
+<li>
+<code><a href="reference/mGsub.html">mGsub()</a></code>, <code><a href="reference/mReplace.html">mReplace()</a></code>
+</li>
+<li>
+<code><a href="reference/strSplitToCol.html">strSplitToCol()</a></code>, <code><a href="reference/strSplitToDummy.html">strSplitToDummy()</a></code>
+</li>
+<li>
+<code><a href="reference/char-ascii-conversion.html">charToAscii()</a></code> / <code><a href="reference/char-ascii-conversion.html">asciiToChar()</a></code>, <code><a href="reference/asCDateFmt.html">asCDateFmt()</a></code>
+</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="small_blue_diamond-programming-utilities">🔹 Programming Utilities<a class="anchor" aria-label="anchor" href="#small_blue_diamond-programming-utilities"></a>
+<h3 id="small_blue_diamond-mathematical-functions">🔹 Mathematical Functions<a class="anchor" aria-label="anchor" href="#small_blue_diamond-mathematical-functions"></a>
 </h3>
 <ul>
-<li>callIf()</li>
-<li>extractArgs()</li>
-<li>mergeArgs()</li>
+<li>
+<code><a href="reference/roundTo.html">roundTo()</a></code>, <code><a href="reference/linScale.html">linScale()</a></code>, <code><a href="reference/logit.html">logit()</a></code>, <code><a href="reference/precision.html">precision()</a></code>
+</li>
+<li>
+<code><a href="reference/rankX.html">rankX()</a></code>, <code><a href="reference/percentRank.html">percentRank()</a></code>, <code><a href="reference/nUnique.html">nUnique()</a></code>
+</li>
+<li>
+<code><a href="reference/dotProd.html">dotProd()</a></code>, <code><a href="reference/crossProd.html">crossProd()</a></code>, <code><a href="reference/crossProdN.html">crossProdN()</a></code>
+</li>
+<li>
+<code><a href="reference/unirootAll.html">unirootAll()</a></code>, <code><a href="reference/untable.html">untable()</a></code>
+</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="small_blue_diamond-number-theory--combinatorics">🔹 Number Theory &amp; Combinatorics<a class="anchor" aria-label="anchor" href="#small_blue_diamond-number-theory--combinatorics"></a>
+</h3>
+<ul>
+<li>
+<code><a href="reference/primes.html">primes()</a></code>, <code><a href="reference/isPrime.html">isPrime()</a></code>, <code><a href="reference/factorize.html">factorize()</a></code>, <code><a href="reference/divisors.html">divisors()</a></code>
+</li>
+<li>
+<code>gcd()</code> / <code><a href="https://rdrr.io/r/graphics/layout.html" class="external-link">lcm()</a></code>, <code><a href="reference/fibonacci.html">fibonacci()</a></code>, <code><a href="reference/digitSum.html">digitSum()</a></code>, <code><a href="reference/isOdd.html">isOdd()</a></code>
+</li>
+<li>Base conversions: <code>numericConversions</code>
+</li>
+<li>
+<code><a href="reference/combN.html">combN()</a></code>, <code><a href="reference/combinatoric.html">combSet()</a></code>, <code><a href="reference/combPairs.html">combPairs()</a></code>, <code><a href="reference/permn.html">permn()</a></code>
+</li>
+<li>
+<code><a href="reference/sampleX.html">sampleX()</a></code>, <code><a href="reference/randGroupSplit.html">randGroupSplit()</a></code>, <code><a href="reference/unwhich.html">unwhich()</a></code>
+</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="small_blue_diamond-tables--merging">🔹 Tables &amp; Merging<a class="anchor" aria-label="anchor" href="#small_blue_diamond-tables--merging"></a>
+</h3>
+<ul>
+<li>
+<code><a href="reference/collapseTable.html">collapseTable()</a></code>, <code><a href="reference/multMerge.html">multMerge()</a></code>, <code><a href="reference/printCharMatrix.html">printCharMatrix()</a></code>
+</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="small_blue_diamond-labels--metadata">🔹 Labels &amp; Metadata<a class="anchor" aria-label="anchor" href="#small_blue_diamond-labels--metadata"></a>
+</h3>
+<ul>
+<li>
+<code><a href="reference/label.html">label()</a></code> — get or set variable labels</li>
+<li>
+<code><a href="reference/setAttr-removeAttr-keepAttr.html">setAttr()</a></code>, <code><a href="reference/setAttr-removeAttr-keepAttr.html">removeAttr()</a></code>, <code><a href="reference/setAttr-removeAttr-keepAttr.html">keepAttr()</a></code>
+</li>
+<li>
+<code><a href="reference/openDataObject.html">openDataObject()</a></code>, <code><a href="reference/dataDescription.html">dataDescription()</a></code> — Excel data with codes and labels</li>
 </ul>
 </div>
 <div class="section level3">
 <h3 id="small_blue_diamond-file-utilities">🔹 File Utilities<a class="anchor" aria-label="anchor" href="#small_blue_diamond-file-utilities"></a>
 </h3>
 <ul>
-<li>buildPath()</li>
-<li>fileExistURL()</li>
-<li>courseData()</li>
+<li>
+<code><a href="reference/buildPath.html">buildPath()</a></code>, <code><a href="reference/splitPath.html">splitPath()</a></code>
+</li>
+<li>
+<code><a href="reference/findDownload.html">findDownload()</a></code>, <code><a href="reference/readDownload.html">readDownload()</a></code>, <code><a href="reference/peekFile.html">peekFile()</a></code>
+</li>
+<li>
+<code><a href="reference/fileExistURL.html">fileExistURL()</a></code>, <code><a href="reference/pdfManual.html">pdfManual()</a></code>
+</li>
+<li>
+<code><a href="reference/parseSASDatalines.html">parseSASDatalines()</a></code> — parse SAS DATALINES blocks into a data.frame</li>
 </ul>
+</div>
+<div class="section level3">
+<h3 id="small_blue_diamond-programming--introspection">🔹 Programming &amp; Introspection<a class="anchor" aria-label="anchor" href="#small_blue_diamond-programming--introspection"></a>
+</h3>
+<ul>
+<li>
+<code><a href="reference/callIf.html">callIf()</a></code>, <code><a href="reference/mergeArgs.html">mergeArgs()</a></code>, <code><a href="reference/extractArgs.html">extractArgs()</a></code>, <code><a href="reference/getDotsArg.html">getDotsArg()</a></code>, <code><a href="reference/quot.html">quot()</a></code>
+</li>
+<li>
+<code><a href="reference/resolveFormula.html">resolveFormula()</a></code>, <code><a href="reference/resolveGroups.html">resolveGroups()</a></code>, <code><a href="reference/resolveContingency.html">resolveContingency()</a></code>
+</li>
+<li>
+<code><a href="reference/funArgs.html">funArgs()</a></code>, <code><a href="reference/funCalls.html">funCalls()</a></code>, <code><a href="reference/funList.html">funList()</a></code>, <code><a href="reference/funKeywords.html">funKeywords()</a></code>
+</li>
+<li>
+<code><a href="reference/rdTitle.html">rdTitle()</a></code>, <code><a href="reference/rdLabels.html">rdLabels()</a></code>, <code><a href="reference/strX.html">strX()</a></code>
+</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="small_blue_diamond-datasets">🔹 Datasets<a class="anchor" aria-label="anchor" href="#small_blue_diamond-datasets"></a>
+</h3>
+<p>Teaching and example datasets: <code>Cards</code>, <code>Pizza</code>, <code>Roulette</code>, <code>Tarot</code>, plus <code><a href="reference/courseData.html">courseData()</a></code> for loading course material.</p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="rocket-design-principles">🚀 Design Principles<a class="anchor" aria-label="anchor" href="#rocket-design-principles"></a>
 </h2>
 <ul>
-<li>Modular</li>
-<li>Fast (Rcpp)</li>
-<li>Robust</li>
-<li>Generic</li>
+<li>
+<strong>Consistent</strong> — lowerCamelCase API and uniform argument conventions across the whole DescToolsX suite</li>
+<li>
+<strong>Fast</strong> — performance-critical routines implemented in Rcpp</li>
+<li>
+<strong>Generic</strong> — S3 generics with methods for vectors, factors, matrices, tables, and data frames</li>
+<li>
+<strong>Robust</strong> — validated inputs, informative errors, extensive testthat coverage</li>
 </ul>
 </div>
 <div class="section level2">
@@ -157,14 +276,29 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://andrisignorell.github.io/bedrock/" class="external-link">bedrock</a></span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># range operators</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
 <span><span class="va">x</span> <span class="op"><a href="reference/between.html">%[]%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">6</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># first non-missing value</span></span>
 <span><span class="fu"><a href="reference/coalesceX.html">coalesceX</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span>, <span class="fl">5</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># round to arbitrary multiples</span></span>
+<span><span class="fu"><a href="reference/roundTo.html">roundTo</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.23</span>, <span class="fl">4.56</span><span class="op">)</span>, <span class="fl">0.25</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># all 2-element subsets</span></span>
 <span><span class="fu"><a href="reference/combinatoric.html">combSet</a></span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/asCDateFmt.html">asCDateFmt</a></span><span class="op">(</span><span class="st">"yyyy-mm-dd"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># parse a SAS data step</span></span>
+<span><span class="va">sas</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
+<span><span class="st">  data mydata;</span></span>
+<span><span class="st">    input name $ age score;</span></span>
+<span><span class="st">  datalines;</span></span>
+<span><span class="st">  Alice 30 95.5</span></span>
+<span><span class="st">  Bob   25 88.0</span></span>
+<span><span class="st">  ;</span></span>
+<span><span class="st">"</span></span>
+<span><span class="fu"><a href="reference/parseSASDatalines.html">parseSASDatalines</a></span><span class="op">(</span><span class="va">sas</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="scroll-license">📜 License<a class="anchor" aria-label="anchor" href="#scroll-license"></a>

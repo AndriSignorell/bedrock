@@ -11,20 +11,20 @@
 #' }
 #' where the summation range depends on \code{align}.
 #'
-#' **Even-order windows and center alignment**
+#' \strong{Even-order windows and center alignment}
 #'
 #' For even \code{order}, centering is ambiguous.  This implementation
 #' averages the two adjacent right-aligned windows of width \code{order},
-#' which is the convention used by \code{\link[forecast]{ma}}.
+#' which is the convention used by \code{forecast::ma()}.
 #'
-#' **Boundary handling (\code{endrule = "trim"})**
+#' \strong{Boundary handling (\code{endrule = "trim"})}
 #'
 #' At the boundaries the window is contracted to include only the
 #' available observations.  For center alignment with even \code{order},
 #' the boundary window width at position \eqn{i} is
 #' \eqn{i + \lfloor order/2 \rfloor}.
 #'
-#' **Missing values**
+#' \strong{Missing values}
 #'
 #' \code{NA} in \code{x} propagates through \code{cumsum()} and will
 #' produce \code{NA} in all moving-average values whose window contains
@@ -64,21 +64,16 @@
 #'   otherwise.
 #'
 #' @seealso
-#' \code{\link[caTools]{runmean}},
-#' \code{\link[forecast]{ma}}
+#' \code{caTools::runmean()},
+#' \code{forecast::ma()}
 #'
 #' @examples
 #' moveAvg(AirPassengers, order = 5)
 #' moveAvg(AirPassengers, order = 5, endrule = "trim")
 #' moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 #'
-
-
-
-#' @family vector.ops  
+#' @family vector.ops
 #' @concept time-series
-#'
-#'
 #' @export
 moveAvg <- function(x,
                     order,
@@ -122,13 +117,13 @@ moveAvg <- function(x,
     
     z[order:n] <- ma
     bnd       <- seq_len(order - 1L)
-    bnd_const <- rep(order, length(bnd))
+    bndConst <- rep(order, length(bnd))
     
   } else if (align == "left") {
     
     z[1:(n - order + 1L)] <- ma
     bnd       <- (n - order + 2L):n
-    bnd_const <- rep(n - order + 1L, length(bnd))
+    bndConst <- rep(n - order + 1L, length(bnd))
     
   } else {
     # center alignment
@@ -137,14 +132,16 @@ moveAvg <- function(x,
     if (order %% 2L == 1L) {
       # odd window: exactly symmetric
       z[(k2 + 1L):(n - k2)] <- ma
-    } else {
+    } else if (n > order) {
       # even window: average the two adjacent right-aligned windows
       z[(k2 + 1L):(n - k2)] <-
         (ma[seq_len(length(ma) - 1L)] + ma[seq_len(length(ma) - 1L) + 1L]) / 2
     }
+    # even window with order == n: no interior points, all cells are
+    # boundary cells and are handled by the endrule below
     
     bnd       <- c(seq_len(k2), (n - k2 + 1L):n)
-    bnd_const <- c(rep(k2 + 1L, k2), rep(n - k2, k2))
+    bndConst <- c(rep(k2 + 1L, k2), rep(n - k2, k2))
   }
   
   # --- end rules ------------------------------------------------------
@@ -154,7 +151,7 @@ moveAvg <- function(x,
     
   } else if (endrule == "constant") {
     
-    z[bnd] <- z[bnd_const]
+    z[bnd] <- z[bndConst]
     
   } else if (endrule == "trim") {
     

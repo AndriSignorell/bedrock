@@ -1,10 +1,10 @@
 Package: bedrock
 Title: Base functions for the DescToolsX ecosystem
-Version: 0.0.0.938
+Version: 0.0.0.940
 Authors@R: 
     person("Andri", "Signorell", , "andri@signorell.net", role = c("aut", "cre"))
 Description: Provides low level, generic utilities and basic routines used in DescToolsX.
-Depends: R (>= 4.2.0)
+Depends: R (>= 4.4.0)
 License: GPL (>= 2)
 Encoding: UTF-8
 LinkingTo: Rcpp

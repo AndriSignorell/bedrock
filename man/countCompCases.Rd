@@ -2,13 +2,12 @@
 % Please edit documentation in R/countCompCases.R
 \name{countCompCases}
 \alias{countCompCases}
-\alias{print.countCompCases}
 \title{Count Complete Cases}
 \usage{
 countCompCases(x)
 }
 \arguments{
-\item{x}{a data.frame containg the data.}
+\item{x}{a data.frame containing the data.}
 }
 \value{
 A list with three elements. The first gives the number of rows, the
@@ -19,15 +18,8 @@ element \code{tab} contains the data for the single variables.
 Return for each variable of a data frame the number of missing values and
 the complete cases to be expected if this variable would be omitted.
 }
-\details{
-Count Complete Cases
-
-Return for each variable of a data frame the number of missing values and
-the complete cases to be expected if this variable would be omitted.
-}
 \examples{
 countCompCases(airquality)
-
 
 }
 \seealso{
@@ -37,6 +29,8 @@ countCompCases(airquality)
 Other data.inspection:
 \code{\link[=allDuplicated]{allDuplicated()}},
 \code{\link[=allIdentical]{allIdentical()}},
+\code{\link{between}},
+\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=completeColumns]{completeColumns()}},
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},

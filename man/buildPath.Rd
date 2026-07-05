@@ -2,7 +2,7 @@
 % Please edit documentation in R/buildPath.R
 \name{buildPath}
 \alias{buildPath}
-\title{Construct a normalized file path}
+\title{Construct a Normalized File Path}
 \usage{
 buildPath(dir, filename)
 }
@@ -12,24 +12,33 @@ buildPath(dir, filename)
 \item{filename}{Character string. File name to append to \code{dir}.}
 }
 \value{
-A character string representing the normalized file path.
+A character string representing the file path.
 }
 \description{
 Safely constructs a file path from a directory and a filename, independent
-of whether the directory ends with a trailing slash. The resulting path is
-normalized and uses forward slashes.
+of whether the directory ends with a trailing slash. The resulting path
+uses forward slashes.
 }
 \details{
-This function is a thin wrapper around \code{\link[base:file.path]{file.path}}
-and \code{\link[base:normalizePath]{normalizePath}}. It ensures consistent path
-construction across platforms and avoids issues with trailing slashes.
+Trailing slashes (or backslashes) in \code{dir} are removed before the
+components are joined, so \code{buildPath("data", "file.csv")} and
+\code{buildPath("data/", "file.csv")} yield the same result.
 
-The argument \code{mustWork = FALSE} allows returning paths that do not yet exist.
+The path is then passed through
+\code{\link[base:normalizePath]{normalizePath}} with
+\code{mustWork = FALSE}, so paths that do not (yet) exist are allowed.
+Note that \code{normalizePath} resolves existing paths to absolute form,
+while non-existing paths are returned as constructed (i.e. possibly
+relative).
+
+Both arguments are vectorized in the usual
+\code{\link[base:file.path]{file.path}} manner.
 }
 \note{
 Converting between forward slashes and backslashes is a frequent
-necessity—and a hassle—especially in Windows. The \code{FlipSlashes()}
-function in the \code{swissButler} package is useful for this purpose.
+necessity -- and a hassle -- especially in Windows. The
+\code{cycleSlashes()} function in the \code{swissValet} package is
+useful for this purpose.
 }
 \examples{
 buildPath("data", "file.csv")

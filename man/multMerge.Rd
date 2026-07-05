@@ -54,7 +54,6 @@ multMerge(x1, x2, x3, by="v")
 \code{\link{merge}}
 
 Other table.utils:
-\code{\link[=collapseTable]{collapseTable()}},
 \code{\link[=printCharMatrix]{printCharMatrix()}}
 }
 \concept{merge}

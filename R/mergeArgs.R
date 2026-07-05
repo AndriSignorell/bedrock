@@ -1,37 +1,48 @@
 
-#' Merge default arguments with user overrides
+#' Merge Default Arguments with User Overrides
 #'
-#' Internal helper used to:
-#' - merge defaults with user arguments
-#' - remove forbidden argument names
-#' - optionally warn if forbidden arguments were supplied
+#' Internal helper used to merge defaults with user arguments, remove
+#' forbidden argument names, and optionally warn if forbidden arguments
+#' were supplied.
+#'
+#' User values override defaults of the same name. Unlike
+#' \code{\link{modifyList}}, elements with the value \code{NULL} are
+#' preserved (so that an explicit \code{NULL} can be passed on as an
+#' argument value instead of silently deleting the entry).
 #'
 #' @param defaults Named list of default arguments.
-#' @param user Named list of user-supplied arguments.
+#' @param user Named list of user-supplied arguments, or \code{NULL}.
 #' @param forbidden Character vector of argument names that are not allowed.
 #' @param warn Logical; whether to issue a warning if forbidden arguments are removed.
 #'
 #' @return A named list of merged arguments.
 #'
-
-
-
-#' @family pkg.introspection  
+#' @seealso \code{\link{extractArgs}}, \code{\link{getDotsArg}},
+#' \code{\link{callIf}}
+#'
+#' @examples
+#' mergeArgs(list(col = "black", lty = 1), list(col = "red"))
+#'
+#' # explicit NULL survives the merge
+#' mergeArgs(list(col = "black"), list(col = NULL))
+#'
+#' @family pkg.introspection
 #' @concept programming
-#'
-#'
 #' @export
 mergeArgs <- function(defaults,
-                       user,
-                       forbidden = NULL,
-                       warn = TRUE) {
-  
-  if (is.null(user))
+                      user,
+                      forbidden = NULL,
+                      warn = TRUE) {
+
+  if (is.null(user) || length(user) == 0L)
     return(defaults)
-  
+
+  if (is.null(names(user)) || !all(nzchar(names(user))))
+    stop("'user' must be a fully named list")
+
   if (!is.null(forbidden)) {
     bad <- intersect(names(user), forbidden)
-    
+
     if (length(bad) > 0) {
       if (warn) {
         warning(
@@ -43,11 +54,13 @@ mergeArgs <- function(defaults,
       user <- user[!names(user) %in% forbidden]
     }
   }
-  
-  # merge defaults with user arguments (user values override defaults)
-  modifyList(defaults, user)
-  
+
+  # merge, preserving explicit NULL values (the list() wrapper prevents
+  # the deletion that modifyList() would perform)
+  for (nm in names(user)) {
+    defaults[nm] <- list(user[[nm]])
+  }
+
+  defaults
+
 }
-
-
-

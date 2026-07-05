@@ -69,8 +69,6 @@ tryCatch(
 \code{\link[base]{strsplit}}, \code{\link[stats]{na.omit}}
 
 Other string.utilities:
-\code{\link{char-ascii-conversion}},
-\code{\link[=mGsub]{mGsub()}},
 \code{\link[=mReplace]{mReplace()}},
 \code{\link[=strSplitToCol]{strSplitToCol()}}
 }

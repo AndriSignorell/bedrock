@@ -61,5 +61,7 @@ rdTitle <- function(topic, man = "man") {
     }
   }
 
-  stop("Topic not found: ", sQuote(topic))
+  # Topic not found...
+  NA_character_
+  
 }

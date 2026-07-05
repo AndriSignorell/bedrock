@@ -4,7 +4,7 @@
 \alias{combN}
 \title{Number of Combinations of a Set}
 \usage{
-combN(n, m, repl = FALSE, ord = FALSE)
+combN(n, m, replace = FALSE, ordered = FALSE)
 }
 \arguments{
 \item{n}{number of elements from which to choose.}
@@ -12,23 +12,23 @@ combN(n, m, repl = FALSE, ord = FALSE)
 \item{m}{number of elements to choose. For \code{combSet} can \code{m} be a
 numeric vector too.}
 
-\item{repl}{logical. Should repetition of the same element be allowed?
+\item{replace}{logical. Should repetition of the same element be allowed?
 Defaults to \code{FALSE}}
 
-\item{ord}{logical. Does the order matter? Default is \code{FALSE}.}
+\item{ordered}{logical. Does the order matter? Default is \code{FALSE}.}
 }
 \value{
-an integer value
+a numeric value
 }
 \description{
 Return the number of combinations with and without replacement and order.
 }
 \examples{
 n <- 5; m <- 2
-combN(n, m, repl=TRUE, ord=FALSE)
-combN(n, m, repl=TRUE, ord=TRUE)
-combN(n, m, repl=FALSE, ord=TRUE)
-combN(n, m, repl=FALSE, ord=FALSE)
+combN(n, m, replace=TRUE, ordered=FALSE)
+combN(n, m, replace=TRUE, ordered=TRUE)
+combN(n, m, replace=FALSE, ordered=TRUE)
+combN(n, m, replace=FALSE, ordered=FALSE)
 
 }
 \seealso{

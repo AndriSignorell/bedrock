@@ -50,7 +50,7 @@
   into a Dummy Matrix
 - [`strSplitToCol()`](strSplitToCol.md) : Split Strings into Multiple
   Columns
-- [`recycle()`](recycle.md) : Recyle a List of Elements
+- [`recycle()`](recycle.md) : Recycle a List of Elements
 - [`pairApply()`](pairApply.md) : Pairwise Calculations
 
 ### Tables
@@ -304,6 +304,7 @@
 - [`findDownload()`](findDownload.md) : Locate a File in the Downloads
   Directory
 - [`pdfManual()`](pdfManual.md) : Open CRAN PDF manual of a package
+- [`peekFile()`](peekFile.md) : Preview a Delimited Text File
 
 ## Miscellaneous
 

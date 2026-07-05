@@ -29,26 +29,47 @@ at the end. Use \code{0} to prepend.}
 
 \item{...}{Additional arguments.}
 
-\item{rows}{Logical; if TRUE, insert rows instead of columns. Ignored for vectors.}
+\item{rows}{Logical; if TRUE, insert rows instead of columns. Ignored for
+vectors. Note that the method for \code{TOne} objects defaults to
+\code{rows = TRUE}, as appending rows is the typical use case there.}
 
-\item{newNames}{Optional names for inserted elements.}
+\item{newNames}{Optional names for the inserted elements: column names when
+inserting columns, row names when inserting rows. When inserting a column
+into a data.frame without giving \code{newNames}, default names
+(\code{"V1"}, \code{"V2"}, ...) are used.}
 }
 \value{
-Object of same type as \code{x}.
+Object of the same class as \code{x}.
 }
 \description{
 Generic function to append elements to vectors, matrices, and data frames.
 }
+\examples{
+# vectors
+appendX(1:5, 99, after = 2)
+
+# matrices: insert a column / a row
+m <- matrix(1:6, nrow = 2,
+            dimnames = list(c("r1", "r2"), c("a", "b", "c")))
+appendX(m, c(9, 9), after = 1, newNames = "z")
+appendX(m, 7:9, after = 1, rows = TRUE, newNames = "r1b")
+
+# data frames: insert a column / a row
+d <- data.frame(a = 1:3, b = 4:6)
+appendX(d, 7:9, after = 1, newNames = "z")
+appendX(d, list(a = 99, b = 88), after = 0, rows = TRUE)
+
+}
 \seealso{
+\code{\link{append}}
+
 Other data.manipulation:
 \code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=asCDateFmt]{asCDateFmt()}},
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
 \code{\link[=dummy]{dummy()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},

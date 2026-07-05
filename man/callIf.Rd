@@ -15,9 +15,10 @@ callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
 and \code{NULL} is returned invisibly.
 \item \code{TRUE}: \code{fun} is called with \code{defaults} (if provided),
 or with no arguments.
-\item A named list: \code{fun} is called with the list elements as arguments.
-If \code{defaults} is provided, it is merged with \code{arg}, where
-elements of \code{arg} override those in \code{defaults}.
+\item A fully named list: \code{fun} is called with the list elements as
+arguments. If \code{defaults} is provided, it is merged with
+\code{arg}, where elements of \code{arg} override those in
+\code{defaults}.
 }}
 
 \item{defaults}{A named list of default arguments passed to \code{fun} when
@@ -50,8 +51,10 @@ This function implements a flexible pattern for optional function calls:
 \item Provide safe defaults and restrict certain arguments
 }
 
-The merging of \code{defaults} and \code{arg} is performed using
-\code{\link{modifyList}}, where user-supplied arguments take precedence.
+When merging \code{defaults} and \code{arg}, user-supplied arguments take
+precedence. Unlike \code{\link{modifyList}}, elements with the value
+\code{NULL} are preserved and passed on to \code{fun} (so that an explicit
+\code{NULL} can be used to reset an argument).
 }
 \examples{
 # Simple usage: skip
@@ -78,9 +81,5 @@ y <- x^2
 callIf(plot, TRUE, defaults = list(x, y))
 
 }
-\seealso{
-Other utilities:
-\code{\link[=isNA]{isNA()}}
-}
 \concept{programming}
-\concept{utilities}
+\concept{utils}

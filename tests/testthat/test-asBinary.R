@@ -34,15 +34,21 @@ test_that("factor default codes second level as 1", {
   expect_equal(attr(res, "coding"), c(A = 0L, B = 1L))
 })
 
-test_that("factor with explicit ref codes correctly", {
+test_that("factor with explicit pos codes correctly", {
   x <- factor(c("control","treatment","control"), levels = c("control","treatment"))
-  expect_equal(asBinary(x, ref = "treatment"), c(0, 1, 0))
-  expect_equal(asBinary(x, ref = "control"),   c(1, 0, 1))
+
+  res <- asBinary(x, pos = "treatment")
+  expect_equal(res, c(0, 1, 0), ignore_attr = TRUE)
+  expect_equal(attr(res, "coding"), c(control = 0L, treatment = 1L))
+
+  res <- asBinary(x, pos = "control")
+  expect_equal(res, c(1, 0, 1), ignore_attr = TRUE)
+  expect_equal(attr(res, "coding"), c(treatment = 0L, control = 1L))
 })
 
-test_that("factor with wrong ref throws error", {
+test_that("factor with wrong pos throws error", {
   x <- factor(c("A","B"))
-  expect_error(asBinary(x, ref = "C"), "factor levels")
+  expect_error(asBinary(x, pos = "C"), "factor levels")
 })
 
 test_that("factor with != 2 levels throws error", {
@@ -70,14 +76,20 @@ test_that("character default codes second unique value as 1", {
   expect_equal(attr(res, "coding"), c(no = 0L, yes = 1L))
 })
 
-test_that("character with explicit ref codes correctly", {
+test_that("character with explicit pos codes correctly", {
   x <- c("F","U","F","U")
-  expect_equal(asBinary(x, ref = "F"), c(1, 0, 1, 0))
-  expect_equal(asBinary(x, ref = "U"), c(0, 1, 0, 1))
+
+  res <- asBinary(x, pos = "F")
+  expect_equal(res, c(1, 0, 1, 0), ignore_attr = TRUE)
+  expect_equal(attr(res, "coding"), c(U = 0L, F = 1L))
+
+  res <- asBinary(x, pos = "U")
+  expect_equal(res, c(0, 1, 0, 1), ignore_attr = TRUE)
+  expect_equal(attr(res, "coding"), c(F = 0L, U = 1L))
 })
 
-test_that("character with wrong ref throws error", {
-  expect_error(asBinary(c("A","B"), ref = "C"), "unique values")
+test_that("character with wrong pos throws error", {
+  expect_error(asBinary(c("A","B"), pos = "C"), "unique values")
 })
 
 test_that("character with > 2 unique values throws error", {

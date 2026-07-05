@@ -46,8 +46,7 @@ function in the `swissButler` package is useful for this purpose.
 Other file.utils: [`fileExistURL()`](fileExistURL.md),
 [`findDownload()`](findDownload.md),
 [`parseSASDatalines()`](parseSASDatalines.md),
-[`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md),
-[`splitPath()`](splitPath.md)
+[`pdfManual()`](pdfManual.md), [`splitPath()`](splitPath.md)
 
 ## Examples
 
