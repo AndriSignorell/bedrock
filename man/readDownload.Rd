@@ -59,9 +59,6 @@ readDownload("data.csv", output = "tibble")
 \code{\link{findDownload}}, \code{\link{peekFile}},
 \code{\link{toBaseR}}, \code{\link[readxl]{read_excel}},
 \code{\link[readr]{read_csv}}
-
-Other io:
-\code{\link[=peekFile]{peekFile()}}
 }
 \author{
 Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}

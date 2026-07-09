@@ -117,19 +117,19 @@ untable.default <- function(x, dimnames=NULL, type = NULL, rownames = NULL, coln
   
   if(!is.null(dimnames)) dimnames(x) <- dimnames
   if(is.null(dimnames) && identical(type, "as.numeric")) dimnames(x) <- list(seq_along(x))
-  # set a title for the table if it does not have one
   
-  # if(is.null(names(dimnames(x)))) names(dimnames(x)) <- ""
-  # if(length(dim(x))==1 && names(dimnames(x))=="") names(dimnames(x)) <- "Var1"
-  # replaced 26.3.2013
-  for( i in 1:length(dimnames(x)) )
-    if (is.null(names(dimnames(x)[i])) || names(dimnames(x)[i]) == "")
-      if (length(dimnames(x)) == 1) names(dimnames(x)) <- gettextf("Var%s", i)
-  else names(dimnames(x)[i]) <- gettextf("Var%s", i)
+  # name unnamed dimensions Var1, Var2, ...
+  # (the old loop modified a copy via names(dimnames(x)[i]) <- and was a no-op)
+  dn <- dimnames(x)
+  if (is.null(names(dn)))
+    names(dn) <- rep("", length(dn))
+  empty <- !nzchar(names(dn))
+  names(dn)[empty] <- paste0("Var", which(empty))
+  dimnames(x) <- dn
   
-  res <- as.data.frame(expand.grid(dimnames(x))[rep(1:prod(dim(x)), as.vector(x)),])
+  res <- expand.grid(dimnames(x))[rep(1:prod(dim(x)), as.vector(x)), , drop = FALSE]
   rownames(res) <- NULL
-  if(!all(names(dimnames(x))=="")) colnames(res) <- names(dimnames(x))
+  colnames(res) <- names(dimnames(x))
   
   # return ordered factors, if wanted...
   if(is.null(type)) type <- "as.factor"
@@ -140,7 +140,7 @@ untable.default <- function(x, dimnames=NULL, type = NULL, rownames = NULL, coln
     if(type[i]=="as.numeric"){
       res[,i] <- as.numeric(as.character(res[,i]))
     } else {
-      res[,i] <- eval(parse(text = gettextf("%s(res[,i])", type[i])))
+      res[,i] <- match.fun(type[i])(res[,i])
     }
   }
   

@@ -17,7 +17,9 @@ provided, they are ranked lexicographically (like \code{order}).
 All inputs must have the same length.}
 
 \item{decreasing}{Logical; if \code{TRUE}, larger values receive smaller
-ranks (i.e., ranking in descending order).}
+ranks (i.e., ranking in descending order). When ranking multiple
+inputs, a logical vector may be given to control the direction per
+input.}
 
 \item{na.last}{Logical or \code{"keep"}; determines the placement of
 \code{NA} values. Passed to \code{data.table::frankv}.}
@@ -86,6 +88,7 @@ Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=linScale]{linScale()}},
 \code{\link[=logit]{logit()}},
 \code{\link[=nUnique]{nUnique()}},
@@ -97,4 +100,3 @@ Other math.utils:
 }
 \concept{math.utils}
 \concept{ordering}
-\concept{rank-correlation}

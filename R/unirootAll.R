@@ -66,13 +66,13 @@
 #'
 #' @export
 unirootAll <- function(f,
-                              interval,
-                              lower = min(interval),
-                              upper = max(interval),
-                              tol = .Machine$double.eps^0.5,
-                              maxiter = 1000,
-                              n = 100,
-                              ...) {
+                       interval,
+                       lower = min(interval),
+                       upper = max(interval),
+                       tol = .Machine$double.eps^0.5,
+                       maxiter = 1000,
+                       n = 100,
+                       ...) {
   
   ## --- checks ---
   if (!missing(interval) && length(interval) != 2)
@@ -80,6 +80,10 @@ unirootAll <- function(f,
   
   if (!is.numeric(lower) || !is.numeric(upper) || lower >= upper)
     stop("require lower < upper")
+  
+  if (!is.numeric(n) || length(n) != 1L || is.na(n) || n < 1)
+    stop("'n' must be a single number >= 1")
+  n <- as.integer(n)
   
   ## --- grid ---
   xseq <- seq(lower, upper, length.out = n + 1)

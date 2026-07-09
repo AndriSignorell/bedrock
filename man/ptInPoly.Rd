@@ -50,6 +50,8 @@ ptInPoly(x, y, px, py)
 \seealso{
 Other data.utils:
 \code{\link[=binaryTree]{binaryTree()}},
+\code{\link{intervals}},
+\code{\link{range-operators}},
 \code{\link[=resolveContingency]{resolveContingency()}},
 \code{\link[=resolveFormula]{resolveFormula()}},
 \code{\link[=resolveGroups]{resolveGroups()}}

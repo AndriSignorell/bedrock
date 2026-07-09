@@ -58,6 +58,7 @@ Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=linScale]{linScale()}},
 \code{\link[=logit]{logit()}},
 \code{\link[=nUnique]{nUnique()}},

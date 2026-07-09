@@ -4,7 +4,6 @@
 \alias{naReplace}
 \alias{naReplace.default}
 \alias{naReplace.factor}
-\alias{naReplace.ordered}
 \title{Replace NA Values}
 \usage{
 naReplace(x, value)
@@ -12,14 +11,12 @@ naReplace(x, value)
 \method{naReplace}{default}(x, value)
 
 \method{naReplace}{factor}(x, value)
-
-\method{naReplace}{ordered}(x, value)
 }
 \arguments{
 \item{x}{A vector or factor.}
 
-\item{value}{The replacement value. For factors, a character string that
-will be added as a new level if not already present.}
+\item{value}{The replacement value. For factors, a single character
+string.}
 }
 \value{
 An object of the same class as \code{x} with \code{NA} values
@@ -27,6 +24,12 @@ replaced by \code{value}.
 }
 \description{
 Replaces \code{NA} values in a vector or factor with a specified value.
+}
+\details{
+For factors (including ordered factors), \code{value} is appended as a
+new level at the last position if it is not already present. If
+\code{value} is an existing level, the missing values are simply filled
+with it.
 }
 \examples{
 # default: numeric vector
@@ -38,9 +41,9 @@ naReplace(c("a", NA, "c"), "missing")
 # unordered factor
 naReplace(factor(c("a", "b", NA)), "missing")
 
-# ordered factor
+# ordered factor: the new level is appended at the end
 naReplace(factor(c("low", "high", NA), levels = c("low", "high"),
-                 ordered = TRUE), "medium")
+                 ordered = TRUE), "unknown")
 
 }
 \seealso{
@@ -53,6 +56,7 @@ Other vector.ops:
 \code{\link[=naIf]{naIf()}},
 \code{\link[=nz]{nz()}},
 \code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
 \code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
 \code{\link[=vRot]{vRot()}},

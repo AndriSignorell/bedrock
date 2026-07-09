@@ -2,26 +2,27 @@
 % Please edit documentation in R/digitSum.R
 \name{digitSum}
 \alias{digitSum}
-\title{Digit sum for integer values}
+\title{Digit Sum for Integer Values}
 \usage{
 digitSum(x)
 }
 \arguments{
-\item{x}{An integer vector.}
+\item{x}{An integer vector, or a numeric vector of whole numbers.}
 }
 \value{
 An integer vector containing the digit sums.
 }
 \description{
-Computes the sum of digits for integer inputs. Negative values are handled
-by taking the absolute value.
+Computes the sum of digits for whole-numbered inputs. Negative values are
+handled by taking the absolute value.
 }
 \details{
-The function only accepts integer values. If non-integer numerics are supplied,
-an error is thrown. Missing values (\code{NA}) are propagated.
+The function accepts integer vectors as well as doubles holding whole
+numbers (e.g. \code{124} and \code{124L} are both valid). Fractional
+values raise an error. Missing values (\code{NA}) are propagated.
 }
 \examples{
-digitSum(124L)
+digitSum(124)
 digitSum(c(10L, 99L, -1234L))
 
 }

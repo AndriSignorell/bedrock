@@ -22,6 +22,8 @@
 #' @section Errors:
 #' Throws an error if all values are \code{NA}, if only one of \code{min}/\code{max}
 #' is provided, if \code{min > max}, or if \code{x} is not numeric, logical, or factor.
+#' A warning is issued if values of \code{x} lie outside an explicitly
+#' provided \code{[min, max]} range.
 #'
 #' @examples
 #' # Numeric
@@ -69,6 +71,10 @@ revCode <- function(x, min = NULL, max = NULL, na.rm = FALSE) {
       }
       if (min > max) {
         stop("`min` must be <= `max`.")
+      }
+      if (any(x < min | x > max, na.rm = TRUE)) {
+        warning("Some values of `x` lie outside [min, max]; ",
+                "the reversed values will fall outside the scale.")
       }
       return(min + max - x)
     }

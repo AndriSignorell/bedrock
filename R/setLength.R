@@ -7,9 +7,9 @@
 #' of \code{NA}.
 #'
 #' @param x a vector
-#' @param n target length
+#' @param n target length, a single non-negative whole number
 #' @param fill value used for newly added elements when \code{x} is
-#'   extended (default \code{""})
+#'   extended (default \code{NA})
 #'
 #' @return \code{x}, of length \code{n}
 #'
@@ -26,6 +26,10 @@
 #'
 #' @export
 setLength <- function(x, n, fill = NA) {
+
+  if (length(n) != 1L || is.na(n) || n %% 1 != 0 || n < 0)
+    stop("'n' must be a single non-negative whole number.")
+
   head(c(x, rep(fill, max(0, n - length(x)))), n)
 }
 

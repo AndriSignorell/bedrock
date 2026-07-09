@@ -15,9 +15,18 @@ naIf(x, values)
 A vector of the same type as \code{x}.
 }
 \description{
-Replaces specified values in a vector with \code{NA}.
+Replaces specified values in a vector with \code{NA}, in the manner of
+SQL's \code{NULLIF}. This is the complementary operation to
+\code{\link{coalesceX}}.
+}
+\examples{
+naIf(c(1, 2, 99, 3, 99), 99)
+naIf(c("a", "b", "n/a", ""), c("n/a", ""))
+
 }
 \seealso{
+\code{\link{coalesceX}}
+
 Other vector.ops:
 \code{\link[=closest]{closest()}},
 \code{\link[=coalesceX]{coalesceX()}},
@@ -27,6 +36,7 @@ Other vector.ops:
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=nz]{nz()}},
 \code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
 \code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
 \code{\link[=vRot]{vRot()}},

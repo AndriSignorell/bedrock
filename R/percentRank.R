@@ -47,14 +47,9 @@
 #' # Single non-missing value
 #' percentRank(c(5, NA, NA))
 #'
-
-
-
-#' @family math.utils  
-#' @concept ordering  
+#' @family math.utils
+#' @concept ordering
 #' @concept transformation
-#'
-#'
 #' @export
 percentRank <- function(x) {
   n <- sum(!is.na(x))

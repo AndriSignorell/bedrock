@@ -13,13 +13,13 @@ revX(x, ...)
 
 \method{revX}{default}(x, ...)
 
-\method{revX}{array}(x, margin, ...)
+\method{revX}{array}(x, margin = seq_along(dim(x)), ...)
 
-\method{revX}{matrix}(x, margin, ...)
+\method{revX}{matrix}(x, margin = seq_along(dim(x)), ...)
 
-\method{revX}{table}(x, margin, ...)
+\method{revX}{table}(x, margin = seq_along(dim(x)), ...)
 
-\method{revX}{data.frame}(x, margin, ...)
+\method{revX}{data.frame}(x, margin = 1:2, ...)
 }
 \arguments{
 \item{x}{a vector, a matrix or a higher dimensional table to be reversed.}
@@ -52,8 +52,8 @@ revX(tab, margin=c(1, 2))
 t(tab)
 
 # reverse 3dimensional array
-aa <- abind(tab, 2 * tab, along=3)
-dimnames(aa)[[3]] <- c("A","Z")
+aa <- array(c(tab, 2 * tab), dim = c(3, 3, 2),
+            dimnames = c(dimnames(tab), list(mar3 = c("A", "Z"))))
 
 # reverse rows
 revX(aa, 1)
@@ -81,6 +81,8 @@ Other data.manipulation:
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
+\code{\link{long-wide-reshape}},
+\code{\link[=multMerge]{multMerge()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
 \code{\link[=recycle]{recycle()}},

@@ -39,7 +39,9 @@ binaryTree(12)
 \code{\link[aurora]{plotBinaryTree}}
 
 Other data.utils:
+\code{\link{intervals}},
 \code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link{range-operators}},
 \code{\link[=resolveContingency]{resolveContingency()}},
 \code{\link[=resolveFormula]{resolveFormula()}},
 \code{\link[=resolveGroups]{resolveGroups()}}

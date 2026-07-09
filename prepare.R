@@ -53,7 +53,7 @@ rename_rda("cards.rda",    "cards",    "Cards")
 rename_rda("roulette.rda", "roulette", "Roulette")
 rename_rda("tarot.rda",    "tarot",    "Tarot")
 
-
+splitPath
 
 
 

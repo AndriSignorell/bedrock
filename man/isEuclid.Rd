@@ -2,14 +2,15 @@
 % Please edit documentation in R/isEuclid.R
 \name{isEuclid}
 \alias{isEuclid}
-\title{Test if a distance matrix is Euclidean}
+\title{Test if a Distance Matrix Is Euclidean}
 \usage{
 isEuclid(distmat, tol = 0.0000001)
 }
 \arguments{
 \item{distmat}{An object of class \code{dist}.}
 
-\item{tol}{Numeric tolerance for detecting negative eigenvalues.}
+\item{tol}{Numeric tolerance for detecting negative eigenvalues,
+relative to the largest absolute eigenvalue.}
 }
 \value{
 A logical scalar. Returns \code{TRUE} if the distance matrix is
@@ -24,11 +25,15 @@ distance matrix \eqn{B = -\frac{1}{2} J D^2 J}. A distance matrix is
 Euclidean if and only if \eqn{B} is positive semi-definite, i.e., all
 eigenvalues are non-negative (within numerical tolerance).
 
+The tolerance is applied \emph{relative} to the largest absolute
+eigenvalue, so that the test is invariant to rescaling of the
+distances.
+
 The returned logical value carries additional diagnostic information
 as attributes:
 \itemize{
 \item \code{eigenvalues}: Eigenvalues of the centered matrix
-\item \code{min_eigenvalue}: Smallest eigenvalue
+\item \code{minEigenvalue}: Smallest eigenvalue
 \item \code{tol}: Tolerance used for the test
 }
 }
@@ -39,7 +44,7 @@ res
 
 # Access diagnostics
 attr(res, "eigenvalues")
-attr(res, "min_eigenvalue")
+attr(res, "minEigenvalue")
 
 }
 \seealso{
@@ -52,6 +57,7 @@ Other data.inspection:
 \code{\link[=countCompCases]{countCompCases()}},
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isFilePath]{isFilePath()}},
 \code{\link[=isNumeric]{isNumeric()}},
 \code{\link[=isURL]{isURL()}},
 \code{\link[=isWholeLike]{isWholeLike()}},

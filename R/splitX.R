@@ -10,7 +10,8 @@
 #' specifying the variable to split (\code{y}) and the grouping variables.
 #' @param data A data frame containing the variables in the formula.
 #' @param subset Optional logical expression indicating rows to include.
-#' @param na.action A function specifying how to handle missing values
+#' @param na.action A function specifying how missing values are handled,
+#' passed to \code{\link[stats]{model.frame}}
 #' (e.g., \code{\link[stats]{na.omit}}).
 #' @param drop Logical; if \code{TRUE}, unused factor levels are dropped.
 #' @param ... Further arguments passed to \code{\link[base]{split}}.
@@ -79,20 +80,18 @@ splitX.default <- function(x, f, drop=FALSE, ...){
 #' @rdname splitX
 #' @export
 splitX.formula <- function(formula, data, subset, na.action, drop=FALSE, ...){
-  
+
   if (missing(formula) || (length(formula) != 3L))
     stop("'formula' missing or incorrect")
-  
+
   m <- match.call(expand.dots = FALSE)
-  m$formula <- formula
+  m$drop  <- NULL
+  m$`...` <- NULL
   if (is.matrix(eval(m$data, parent.frame())))
     m$data <- as.data.frame(data)
-  
+
   m[[1L]] <- quote(stats::model.frame)
-  # in order to delete potentially provided tolerance or
-  # na.rm arguments to be passed later on
-  # m$... <- NULL
-  
+
   ## >>> IMPORTANT: Treat subset correctly due to collision with
   ##                the subset function.
   if (!missing(subset)) {
@@ -100,31 +99,26 @@ splitX.formula <- function(formula, data, subset, na.action, drop=FALSE, ...){
   } else {
     m$subset <- NULL                # remove completely
   }
-  ## (Optional) na.action pass through unchanged:
-  # if (missing(na.action)) m$na.action <- NULL
-  
+  # na.action remains in the call and is handled by model.frame()
+
   mf <- eval(m, parent.frame())
-  
+
   DNAME <- gettextf("%s by %s (rows)", names(mf)[1],
                     paste(names(mf)[-1], collapse=" : "))
-  
+
   ff <- mf[, -1]
   if(ncol(mf[, -1, drop=FALSE]) > 1)
     ff <- as.list(mf[, -1])
-  
+
   # now do the split
   res <- split(x=mf[, 1], f=ff, drop=drop, ...)
-  
-  # add na information
-  if(!missing(na.action)){
-    subj <- res[, names(mf)[2]]
-    res <- na.action(res)
-    # provide the names of omitted subjects
-    attr(attr(res, "na.action"), "values") <- subj[as.numeric(attr(res, "na.action"))]
-  }
-  
+
+  # carry over na.action info from the model.frame (e.g. for na.exclude)
+  if (!is.null(attr(mf, "na.action")))
+    attr(res, "na.action") <- attr(mf, "na.action")
+
   attr(res, "data.name") <- DNAME
   return(res)
-  
+
 }
 

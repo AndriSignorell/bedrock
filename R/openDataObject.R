@@ -7,7 +7,7 @@
 #'
 #' @param name Character string. File name including extension (e.g. \code{"data.xlsx"}).
 #' @param url Character string. Base URL where the file is located.
-#'   Defaults to \url{http://www.signorell.net/hwz/datasets/}.
+#'   Defaults to \url{https://www.signorell.net/hwz/datasets/}.
 #' @param doc List or \code{NA}. Defines the structure of the documentation sheet.
 #'   If \code{NULL}, the function tries to detect a sheet named \code{"Description"}.
 #'   If \code{NA}, no metadata processing is performed.
@@ -33,7 +33,9 @@
 #'   \item Scale ("nominal", "ordinal", etc.)
 #' }
 #'
-#' Variables with scale \code{"nominal"} or \code{"ordinal"} are converted to factors.
+#' Variables with scale \code{"nominal"} or \code{"ordinal"} are converted to
+#' factors. Data values without a matching entry in the codes column become
+#' \code{NA}.
 #'
 #' @examples
 #' \dontrun{
@@ -44,27 +46,25 @@
 #' openDataObject("example.xlsx", doc = NA)
 #' }
 #'
-#' @importFrom httr GET write_disk http_status status_code
-#' @importFrom readxl read_excel excel_sheets
-
-
-
-#' @family label.utils  
-#' @concept label  
+#'
+#' @family label.utils
+#' @concept label
 #' @concept attribute
-#'
-#'
 #' @export
 openDataObject <- function(name, url = NULL, doc = NULL, ...) {
-  
+
+  if (!requireNamespace("httr", quietly = TRUE) ||
+      !requireNamespace("readxl", quietly = TRUE))
+    stop("Packages 'httr' and 'readxl' are required for this function.")
+
   if (is.null(url))
-    url <- "http://www.signorell.net/hwz/datasets/"
-  
-  full_url <- paste0(url, name)
+    url <- "https://www.signorell.net/hwz/datasets/"
+
+  fullUrl <- paste0(sub("/+$", "", url), "/", name)
   
   tf <- tempfile(fileext = ".xlsx")
   
-  resp <- httr::GET(full_url, httr::write_disk(tf, overwrite = TRUE))
+  resp <- httr::GET(fullUrl, httr::write_disk(tf, overwrite = TRUE))
   
   if (httr::http_status(resp)$category != "Success") {
     stop(sprintf("Download failed [%s]", httr::status_code(resp)))
@@ -81,17 +81,17 @@ openDataObject <- function(name, url = NULL, doc = NULL, ...) {
       doc <- NA
   }
   
-  if (!is.na(doc)) {
+  if (!isNA(doc)) {
     
     doc_sheet <- names(doc)
     cols <- doc[[1]]
     
     code <- as.data.frame(readxl::read_excel(tf, sheet = doc_sheet))
     
-    # sichere NA-Zeilen-Erkennung
-    empty_rows <- which(apply(code, 1, function(x) all(is.na(x))))
-    if (length(empty_rows) > 0) {
-      code <- code[1:(min(empty_rows) - 1), ]
+    # trim trailing empty rows
+    emptyRows <- which(apply(code, 1, function(x) all(is.na(x))))
+    if (length(emptyRows) > 0) {
+      code <- code[seq_len(min(emptyRows) - 1), , drop = FALSE]
     }
     
     col_var   <- cols[1]
@@ -99,38 +99,41 @@ openDataObject <- function(name, url = NULL, doc = NULL, ...) {
     col_code  <- cols[3]
     col_scale <- cols[4]
     
-    # Faktoren definieren
+    # define factors
     id <- which(code[[col_scale]] %in% c("nominal", "ordinal"))
     
     if (length(id) > 0) {
       
-      codes <- lapply(strsplit(code[[col_code]][id], "\\r\\n"), function(x)
+      codes <- lapply(strsplit(code[[col_code]][id], "\r?\n"), function(x)
         strsplit(x, "=")
       )
       names(codes) <- code[[col_var]][id]
       
-      for (x in code[[col_var]][id]) {
-        
-        z[[x]] <- factor(
-          z[[x]],
-          ordered = code[[col_scale]][code[[col_var]] == x] == "ordinal"
+      for (v in code[[col_var]][id]) {
+
+        z[[v]] <- factor(
+          z[[v]],
+          ordered = code[[col_scale]][code[[col_var]] == v] == "ordinal"
         )
-        
-        if (!is.null(codes[[x]]) && !all(is.na(unlist(codes[[x]])))) {
-          
-          levels(z[[x]]) <- trimws(sapply(codes[[x]], `[`, 2))[
+
+        if (!is.null(codes[[v]]) && !all(is.na(unlist(codes[[v]])))) {
+
+          # note: data values without a matching code become NA
+          levels(z[[v]]) <- trimws(sapply(codes[[v]], `[`, 2))[
             match(
-              levels(z[[x]]),
-              trimws(sapply(codes[[x]], `[`, 1))
+              levels(z[[v]]),
+              trimws(sapply(codes[[v]], `[`, 1))
             )
           ]
         }
       }
     }
     
-    # Labels setzen
-    for (x in code[[col_var]]) {
-      label(z[[x]]) <- na.omit(code[[col_lbl]][code[[col_var]] == x])
+    # set variable labels
+    for (v in code[[col_var]]) {
+      lbl <- na.omit(code[[col_lbl]][code[[col_var]] == v])
+      if (length(lbl) == 1L)
+        label(z[[v]]) <- as.character(lbl)
     }
   }
   

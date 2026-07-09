@@ -2,14 +2,14 @@
 % Please edit documentation in R/mergeArgs.R
 \name{mergeArgs}
 \alias{mergeArgs}
-\title{Merge default arguments with user overrides}
+\title{Merge Default Arguments with User Overrides}
 \usage{
 mergeArgs(defaults, user, forbidden = NULL, warn = TRUE)
 }
 \arguments{
 \item{defaults}{Named list of default arguments.}
 
-\item{user}{Named list of user-supplied arguments.}
+\item{user}{Named list of user-supplied arguments, or \code{NULL}.}
 
 \item{forbidden}{Character vector of argument names that are not allowed.}
 
@@ -19,14 +19,27 @@ mergeArgs(defaults, user, forbidden = NULL, warn = TRUE)
 A named list of merged arguments.
 }
 \description{
-Internal helper used to:
-\itemize{
-\item merge defaults with user arguments
-\item remove forbidden argument names
-\item optionally warn if forbidden arguments were supplied
+Internal helper used to merge defaults with user arguments, remove
+forbidden argument names, and optionally warn if forbidden arguments
+were supplied.
 }
+\details{
+User values override defaults of the same name. Unlike
+\code{\link{modifyList}}, elements with the value \code{NULL} are
+preserved (so that an explicit \code{NULL} can be passed on as an
+argument value instead of silently deleting the entry).
+}
+\examples{
+mergeArgs(list(col = "black", lty = 1), list(col = "red"))
+
+# explicit NULL survives the merge
+mergeArgs(list(col = "black"), list(col = NULL))
+
 }
 \seealso{
+\code{\link{extractArgs}}, \code{\link{getDotsArg}},
+\code{\link{callIf}}
+
 Other pkg.introspection:
 \code{\link[=extractArgs]{extractArgs()}},
 \code{\link[=funArgs]{funArgs()}},
@@ -34,7 +47,6 @@ Other pkg.introspection:
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},
 \code{\link[=getDotsArg]{getDotsArg()}},
-\code{\link[=quot]{quot()}},
 \code{\link[=rdLabels]{rdLabels()}},
 \code{\link[=rdTitle]{rdTitle()}},
 \code{\link[=strX]{strX()}}

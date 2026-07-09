@@ -18,7 +18,10 @@ keepAttr(x, attrNames)
 
 \item{attrNames}{Character vector of attribute names}
 
-\item{attrValues}{Values for the attributes (only for setting)}
+\item{attrValues}{Values for the attributes (only for setting). For a
+single attribute name, \code{attrValues} is taken as the value itself
+(which may be a vector). For several names, supply one value per name;
+use a list for non-scalar or mixed-type values.}
 }
 \value{
 Modified object
@@ -35,6 +38,12 @@ x <- setAttr(
   attrNames = c("some_attr", "other_attr"),
   attrValues = c("First attribute", "Second attribute")
 )
+
+# a single attribute can take a vector value
+setAttr(1:10, "dim", c(2, 5))
+
+# several non-scalar values via list
+setAttr(1:10, c("dim", "myattr"), list(c(2, 5), "abc"))
 
 # remove single attribute
 removeAttr(x, "other_attr")
@@ -58,6 +67,8 @@ Other data.manipulation:
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
+\code{\link{long-wide-reshape}},
+\code{\link[=multMerge]{multMerge()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
 \code{\link[=recycle]{recycle()}},
@@ -71,6 +82,5 @@ Other data.manipulation:
 \code{\link[=stringsAsFactors]{stringsAsFactors()}},
 \code{\link[=toBaseR]{toBaseR()}}
 }
-\concept{data-manipulation}
-\concept{data-structures}
+\concept{attribute}
 \concept{data.manipulation}

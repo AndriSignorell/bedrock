@@ -38,6 +38,8 @@ Other data.manipulation:
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
+\code{\link{long-wide-reshape}},
+\code{\link[=multMerge]{multMerge()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
 \code{\link[=recycle]{recycle()}},

@@ -75,6 +75,9 @@ strSplitToCol <- function(x, split = " ", fixed = TRUE,
   
   if (is.data.frame(x) && !all(vapply(x, is.character, logical(1))))
     stop("All columns in 'x' must be character.")
+
+  if (NROW(x) == 0L)
+    return(structure(data.frame(), cols = integer(0)))
   
   # normalise input: data.frame -> list of columns, vector -> list of one column
   lst <- if (is.data.frame(x)) {

@@ -27,7 +27,8 @@ descriptions and coding information.
 The function reads the specified sheet and trims trailing empty rows.
 
 If a column named \code{"Codes"} is present, its contents are split by
-line breaks (\code{\\r\\n}) and returned as a list of codes per variable.
+line breaks and returned as a list of codes per variable, keyed by the
+\code{"Variable"} column.
 
 The Excel sheet is expected to contain at least:
 \itemize{

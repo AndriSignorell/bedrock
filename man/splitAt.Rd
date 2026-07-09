@@ -20,8 +20,9 @@ Splits a vector into consecutive segments at specified positions.
 }
 \details{
 The function splits \code{x} into consecutive chunks defined by \code{pos}.
-Internally, positions are sorted, duplicates are removed, and values outside
-the valid index range \code{[1, length(x)]} are ignored.
+Internally, positions are sorted, duplicates are removed, and values that
+would not produce a non-empty segment (\code{pos < 2} or
+\code{pos > length(x)}) are ignored. Empty segments are never returned.
 
 Each element of the returned list corresponds to a contiguous subset of
 \code{x}. The first segment always starts at position 1.
@@ -48,6 +49,8 @@ Other data.manipulation:
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
+\code{\link{long-wide-reshape}},
+\code{\link[=multMerge]{multMerge()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
 \code{\link[=recycle]{recycle()}},

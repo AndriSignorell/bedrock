@@ -2,15 +2,15 @@
 % Please edit documentation in R/isURL.R
 \name{isURL}
 \alias{isURL}
-\title{Check whether a string is a URL}
+\title{Check Whether a String Is a URL}
 \usage{
 isURL(x)
 }
 \arguments{
-\item{x}{\code{character(1)} – the string to test.}
+\item{x}{\code{character(1)} - the string to test.}
 }
 \value{
-\code{logical(1)} – \code{TRUE} if \code{x} is a URL, \code{FALSE} otherwise.
+\code{logical(1)} - \code{TRUE} if \code{x} is a URL, \code{FALSE} otherwise.
 }
 \description{
 Returns \code{TRUE} if the given string starts with a recognised URL scheme,
@@ -38,6 +38,7 @@ Other data.inspection:
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
 \code{\link[=isEuclid]{isEuclid()}},
+\code{\link[=isFilePath]{isFilePath()}},
 \code{\link[=isNumeric]{isNumeric()}},
 \code{\link[=isWholeLike]{isWholeLike()}},
 \code{\link[=isZero]{isZero()}}

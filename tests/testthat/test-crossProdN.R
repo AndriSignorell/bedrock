@@ -3,11 +3,11 @@ test_that("2D vector: perpendicular to input", {
   expect_equal(sum(v * c(1, 2)), 0)
 })
 
-test_that("2D vector: correct formula c(-b, a)", {
-  expect_equal(crossProdN(c(1, 2)),  c(-2,  1))
-  expect_equal(crossProdN(c(3, 0)),  c( 0,  3))
-  expect_equal(crossProdN(c(0, 1)),  c(-1,  0))
-  expect_equal(crossProdN(c(-1, 4)), c(-4, -1))
+test_that("2D vector: correct formula c(a2, -a1)", {
+  expect_equal(crossProdN(c(1, 2)),  c( 2, -1))
+  expect_equal(crossProdN(c(3, 0)),  c( 0, -3))
+  expect_equal(crossProdN(c(0, 1)),  c( 1,  0))
+  expect_equal(crossProdN(c(-1, 4)), c( 4,  1))
 })
 
 test_that("2D vector: length equals input length", {
@@ -86,12 +86,25 @@ test_that("4D case: correct norm", {
 
 # ── sign convention ───────────────────────────────────────────────────────────
 
-test_that("sign: first non-zero component is positive", {
+test_that("sign: numeric orientation matches determinant definition", {
+  # v_i = (-1)^(i+1) det(A_{-i}); the code orients v so that
+  # (-1)^n * det(rbind(A, v)) > 0. Verify that invariant directly.
   set.seed(7)
   for (i in 1:10) {
     A <- matrix(rnorm(6), nrow = 2, ncol = 3)
     v <- crossProdN(A)
-    idx <- which(abs(v) > .Machine$double.eps)[1]
+    n <- nrow(A)
+    expect_gt(det(rbind(A, v)) * (-1)^n, 0)
+  }
+})
+
+test_that("sign: complex first non-zero component has positive real part", {
+  set.seed(7)
+  for (i in 1:10) {
+    A <- matrix(complex(real = rnorm(6), imaginary = rnorm(6)),
+                nrow = 2, ncol = 3)
+    v <- crossProdN(A)
+    idx <- which(Mod(v) > .Machine$double.eps)[1]
     if (!is.na(idx)) expect_gt(Re(v[idx]), 0)
   }
 })

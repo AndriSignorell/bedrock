@@ -69,7 +69,6 @@ tryCatch(
 \code{\link[base]{strsplit}}, \code{\link[stats]{na.omit}}
 
 Other string.utilities:
-\code{\link[=mReplace]{mReplace()}},
 \code{\link[=strSplitToCol]{strSplitToCol()}}
 }
 \concept{dummy-coding}

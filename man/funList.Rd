@@ -2,23 +2,27 @@
 % Please edit documentation in R/funList.R
 \name{funList}
 \alias{funList}
-\title{List Objects, Functions Or Data in a Package}
+\title{List Functions in a Package}
 \usage{
 funList(package, exported = TRUE)
 }
 \arguments{
 \item{package}{the name of the package}
 
-\item{exported}{logical (default \code{TRUE}) should only exported functions be listed?}
+\item{exported}{logical (default \code{TRUE}) should only exported
+functions be listed?}
+}
+\value{
+A sorted character vector with the function names.
 }
 \description{
-List all the objects, functions or data in a package.
+List all the functions in a package.
 }
 \details{
-This is just a wrapper for \code{\link{ls}}, \code{\link{ls.str}} and
-\code{\link{lsf.str}} with the appropriate arguments (as I always forgot how
-to do the trick). \code{objList()} lists all objects, \code{funList()} just the
-functions in a package.
+This is just a wrapper for the namespace inspection functions (as I always
+forgot how to do the trick). By default only the exported functions are
+returned; with \code{exported = FALSE} all functions defined in the
+package namespace are listed, including internal ones.
 }
 \examples{
 
@@ -30,7 +34,8 @@ Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The
 New S Language}. Wadsworth & Brooks/Cole.
 }
 \seealso{
-\code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}}
+\code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}},
+\code{\link{getNamespaceExports}}
 
 Other pkg.introspection:
 \code{\link[=extractArgs]{extractArgs()}},
@@ -39,7 +44,6 @@ Other pkg.introspection:
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=getDotsArg]{getDotsArg()}},
 \code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=quot]{quot()}},
 \code{\link[=rdLabels]{rdLabels()}},
 \code{\link[=rdTitle]{rdTitle()}},
 \code{\link[=strX]{strX()}}

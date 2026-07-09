@@ -31,7 +31,7 @@ test_that("resolveGroups stops if only one group", {
   expect_error(resolveGroups(c(1,2,3), c("A","A","A")), "same group")
 })
 
-test_that("resolveGroups warns when list has non-numeric", {
-  expect_warning(resolveGroups(list(A = c("x","y"), B = c("a","b"))),
-                 "not numeric")
+test_that("resolveGroups errors when list has non-numeric", {
+  expect_error(resolveGroups(list(A = c("x","y"), B = c("a","b"))),
+               "must be numeric")
 })

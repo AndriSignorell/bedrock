@@ -15,7 +15,7 @@ test_that("dotProd works for matrices", {
 
   expect_equal(
     dotProd(x, y),
-    drop(crossprod(x, y))
+    diag(crossprod(x, y))
   )
 })
 

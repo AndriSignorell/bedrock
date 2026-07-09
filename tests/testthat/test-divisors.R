@@ -1,9 +1,9 @@
 
 
 test_that("divisors of primes returns only 1", {
-  expect_equal(divisors(7)[[1]],   1L)
-  expect_equal(divisors(11)[[1]],  1L)
-  expect_equal(divisors(97)[[1]],  1L)
+  expect_equal(divisors(7),   1L)
+  expect_equal(divisors(11),  1L)
+  expect_equal(divisors(97),  1L)
 })
 
 test_that("divisors of 12", {
@@ -26,6 +26,10 @@ test_that("divisors vectorised over x", {
 })
 
 test_that("divisors of 1 returns integer(0)", {
-  expect_equal(divisors(1)[[1]], integer(0))
+  expect_equal(divisors(1), integer(0))
+})
+
+test_that("divisors errors above integer.max", {
+  expect_error(divisors(.Machine$integer.max + 1), "integer.max")
 })
 

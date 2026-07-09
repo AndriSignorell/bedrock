@@ -14,10 +14,11 @@ be present. If \code{FALSE} (default), at most two distinct values are allowed.}
 
 \item{na.rm}{Logical. If \code{TRUE}, missing values are removed before
 evaluation. If \code{FALSE} (default), the presence of \code{NA} results
-in \code{FALSE}.}
+in \code{NA} (indeterminate status).}
 }
 \value{
-A single logical value.
+\code{TRUE}, \code{FALSE}, or \code{NA} if the status cannot be
+determined because of missing values (see \code{na.rm}).
 }
 \description{
 Determines whether a vector contains at most two distinct values.
@@ -26,10 +27,12 @@ Determines whether a vector contains at most two distinct values.
 isDichotomous(c(0, 1, 1))
 isDichotomous(c(1, 1, 1))
 isDichotomous(c(1, 1, 1), strict = TRUE)
+isDichotomous(c(0, 1, NA))               # NA
 isDichotomous(c(0, 1, NA), na.rm = TRUE)
 isDichotomous(c("A", "A", "B"))
 isDichotomous(c("A", "A", "B", "C"))
 isDichotomous(factor(c("A", "A", "B", "C")))
+
 }
 \seealso{
 Other data.inspection:
@@ -41,6 +44,7 @@ Other data.inspection:
 \code{\link[=countCompCases]{countCompCases()}},
 \code{\link[=flags]{flags()}},
 \code{\link[=isEuclid]{isEuclid()}},
+\code{\link[=isFilePath]{isFilePath()}},
 \code{\link[=isNumeric]{isNumeric()}},
 \code{\link[=isURL]{isURL()}},
 \code{\link[=isWholeLike]{isWholeLike()}},

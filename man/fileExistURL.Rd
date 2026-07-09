@@ -26,17 +26,19 @@ Uses a \code{HEAD} request by default and falls back to \code{GET} if necessary.
 }
 \details{
 The function first sends an HTTP \code{HEAD} request to minimize data transfer.
-If the server responds with an error status (>= 400), a \code{GET} request is
-attempted as a fallback because some servers do not properly support \code{HEAD}.
+If the server responds with a status indicating that \code{HEAD} itself is not
+supported (403, 405, 501), a \code{GET} request is attempted as a fallback. A
+plain 404 is taken at face value, so that non-existing files do not trigger a
+second request.
 
 If the request fails (e.g., due to network issues or invalid URLs), the function
 returns \code{FALSE} and stores the error message as an attribute.
 }
 \examples{
 \dontrun{
-fileExistURL("http://www.example.com/data.csv")
+fileExistURL("https://www.example.com/data.csv")
 
-res <- fileExistURL("http://invalid-url.test/file.csv")
+res <- fileExistURL("https://invalid-url.test/file.csv")
 attr(res, "status")
 attr(res, "error")
 }
@@ -48,6 +50,7 @@ Other file.utils:
 \code{\link[=findDownload]{findDownload()}},
 \code{\link[=parseSASDatalines]{parseSASDatalines()}},
 \code{\link[=pdfManual]{pdfManual()}},
+\code{\link[=peekFile]{peekFile()}},
 \code{\link[=splitPath]{splitPath()}}
 }
 \concept{file.utils}

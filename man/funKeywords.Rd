@@ -28,7 +28,6 @@ funKeywords(merge)
 funKeywords("merge")
 }
 
-
 }
 \seealso{
 \code{\link[utils]{help}}
@@ -40,7 +39,6 @@ Other pkg.introspection:
 \code{\link[=funList]{funList()}},
 \code{\link[=getDotsArg]{getDotsArg()}},
 \code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=quot]{quot()}},
 \code{\link[=rdLabels]{rdLabels()}},
 \code{\link[=rdTitle]{rdTitle()}},
 \code{\link[=strX]{strX()}}

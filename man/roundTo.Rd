@@ -45,7 +45,8 @@ roundTo(-10, -3)   # Rounds -10 to a nearest multiple of -3 (-9)
 
 roundTo(1.3, 0.2)  # Rounds 1.3 to a nearest multiple of 0.2 (1.2)
 roundTo(-1.3, 0.2) # Rounds -1.3 to a nearest multiple of 0.2 (-1.2)
-roundTo(5, -2)     # Returns an error, because -2 and 5 have different signs
+# Different signs of x and multiple raise an error
+try(roundTo(5, -2))
 
 # Round down
 roundTo(c(1,-1) * 1.2335, 0.05, floor)
@@ -86,6 +87,7 @@ Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=linScale]{linScale()}},
 \code{\link[=logit]{logit()}},
 \code{\link[=nUnique]{nUnique()}},

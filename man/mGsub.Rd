@@ -24,6 +24,12 @@ avoiding the cascade problem where an earlier replacement becomes the
 target of a later one. Internally uses temporary unique tokens as
 an intermediate step.
 }
+\details{
+Patterns are processed in the given order. For overlapping patterns
+(e.g. \code{"AB"} and \code{"A"}), list the longer pattern first,
+otherwise the shorter one consumes its characters before the longer
+one is considered.
+}
 \examples{
 mGsub(c("foo bar", "bar foo"), c("foo", "bar"), c("bar", "foo"))
 # [1] "bar foo" "foo bar"
@@ -39,7 +45,8 @@ mGsub(x, patterns = c("A", "B"), replacements = c("BX", "CY"))
 \code{\link{mReplace}} for exact whole-element replacement.
 
 Other string:
-\code{\link{char-ascii-conversion}}
+\code{\link{char-ascii-conversion}},
+\code{\link[=mReplace]{mReplace()}}
 }
 \concept{string}
 \concept{string-manipulation}

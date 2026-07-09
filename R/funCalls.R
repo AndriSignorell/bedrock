@@ -53,7 +53,7 @@ funCalls <- function(name, package = NULL, sorted = FALSE) {
   )
   src[!nzchar(src)] <- "<not found>"
 
-  outlist <- tapply(nms, factor(src), c)
+  outlist <- split(nms, factor(src))
 
   if (!is.null(package))
     outlist <- outlist[grep(package, names(outlist))]

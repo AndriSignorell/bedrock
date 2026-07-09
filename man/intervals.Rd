@@ -70,6 +70,14 @@ m <- matrix(c(1,3, 2,6, 5,8), ncol = 2, byrow = TRUE)
 overlap(m, c(4, 7))
 
 }
-\concept{interval-arithmetic}
-\concept{interval.ops}
-\concept{mathematics}
+\seealso{
+Other data.utils:
+\code{\link[=binaryTree]{binaryTree()}},
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link{range-operators}},
+\code{\link[=resolveContingency]{resolveContingency()}},
+\code{\link[=resolveFormula]{resolveFormula()}},
+\code{\link[=resolveGroups]{resolveGroups()}}
+}
+\concept{data.utils}
+\concept{range}

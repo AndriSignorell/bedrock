@@ -9,7 +9,7 @@ test_that("funCalls returns list", {
 
 test_that("funCalls supports sorting", {
 
-  res <- funCalls("mean", sort=TRUE)
+  res <- funCalls("mean", sorted=TRUE)
 
   expect_true(is.list(res))
 })

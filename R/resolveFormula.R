@@ -258,8 +258,7 @@ resolveFormula <- function(
     if (!any(c("one-sample", "two-sample-dependent") %in% allowed))
       stop("'one-sample' / 'two-sample-dependent' design not allowed by 'allowed' argument")
     
-    if (is.matrix(response) && ncol(response) == 2L &&
-        inherits(response, "Pair")) {
+    if (inherits(response, "Pair")) {
       
       if (!"two-sample-dependent" %in% allowed)
         stop("'two-sample-dependent' design not allowed by 'allowed' argument")
@@ -285,7 +284,11 @@ resolveFormula <- function(
   }
   
   # ── 2b. numeric ~ numeric ────────────────────────────────────────────────
-  if (is.numeric(mf[[2L]]) && "numeric-numeric" %in% allowed) {
+  if (is.numeric(mf[[2L]])) {
+    if (!"numeric-numeric" %in% allowed)
+      stop("right-hand side of 'formula' is numeric, but a ",
+           "'numeric-numeric' design is not allowed here; ",
+           "supply a grouping factor instead")
     return(list(
       type      = "numeric-numeric",
       mf        = mf,

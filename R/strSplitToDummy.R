@@ -64,7 +64,10 @@
 #' @export
 strSplitToDummy <- function(x, split = ",", trim = TRUE,
                          na.action = na.pass, ...) {
-  
+
+  # coerce first: replacing NA by "" on a factor would fail
+  x <- as.character(x)
+
   # --- handle NA ---
   na_idx <- which(is.na(x))
   omitted <- NULL
@@ -90,7 +93,7 @@ strSplitToDummy <- function(x, split = ",", trim = TRUE,
     return(data.frame(matrix(0L, nrow = 0L, ncol = 0L)))
   
   # --- split and trim ---
-  lst <- strsplit(as.character(x), split = split, ...)
+  lst <- strsplit(x, split = split, ...)
   
   if (trim)
     lst <- lapply(lst, trimws)

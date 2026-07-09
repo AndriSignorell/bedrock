@@ -29,7 +29,7 @@ permn(c("a", "b", "c", "a"))
 
 }
 \seealso{
-\code{\link[utils:combn]{utils::combn()}}, \code{\link[base:factorial]{base::factorial()}}, \link{combPairs}
+\code{\link[utils:combn]{utils::combn()}}, \code{\link[base:factorial]{base::factorial()}}, \code{\link[=combPairs]{combPairs()}}
 
 Other combinatorics:
 \code{\link[=combN]{combN()}},

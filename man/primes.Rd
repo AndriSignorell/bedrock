@@ -7,22 +7,20 @@
 primes(n)
 }
 \arguments{
-\item{n}{A numeric vector of positive integers.}
+\item{n}{A numeric vector of positive whole numbers.}
 }
 \value{
-A named list. Each element is an integer vector containing
-the prime numbers less than or equal to the corresponding value in \code{n}.
+An integer vector containing the prime numbers less than or equal
+to \code{n} if \code{n} is a single number, otherwise a named list of
+such vectors.
 }
 \description{
 Computes all prime numbers less than or equal to each value in \code{n}.
 }
 \details{
-The function is vectorized over \code{n} and returns a named list,
-where each element contains the prime numbers up to the corresponding value.
-
-For each element of \code{n}, the primes are calculated.
-The result is returned as a named list, with names corresponding
-to the input values.
+The function is vectorized over \code{n}. For a single value, the primes
+are returned as an integer vector; for several values, a named list is
+returned, with names corresponding to the input values.
 }
 \examples{
 primes(10)
@@ -30,6 +28,9 @@ primes(c(5, 10))
 
 }
 \seealso{
+\code{\link{isPrime}}, \code{\link{factorize}},
+\code{\link{divisors}}
+
 Other number.theory:
 \code{\link[=digitSum]{digitSum()}},
 \code{\link[=divisors]{divisors()}},

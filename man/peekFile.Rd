@@ -53,11 +53,16 @@ peekFile("data.csv", n = 10, guess_max = 1000)
 \seealso{
 \code{\link[readr]{read_delim}}, \code{\link{toBaseR}}
 
-Other io:
-\code{\link[=readDownload]{readDownload()}}
+Other file.utils:
+\code{\link[=buildPath]{buildPath()}},
+\code{\link[=fileExistURL]{fileExistURL()}},
+\code{\link[=findDownload]{findDownload()}},
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=pdfManual]{pdfManual()}},
+\code{\link[=splitPath]{splitPath()}}
 }
 \author{
 Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
 }
-\concept{data-import}
-\concept{io}
+\concept{file-io}
+\concept{file.utils}

@@ -50,5 +50,9 @@ asCDateFmt("yyyymmdd")
 asCDateFmt("mmm d, yyyy")
 
 }
+\seealso{
+Other format:
+\code{\link[=printCharMatrix]{printCharMatrix()}}
+}
 \concept{date-time}
 \concept{format}

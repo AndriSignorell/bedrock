@@ -4,62 +4,37 @@
 \alias{flags}
 \title{Extract Dichotomous (Binary) Variables}
 \usage{
-flags(x, strict = FALSE, na.rm = FALSE, output = "data")
+flags(
+  x,
+  strict = FALSE,
+  na.rm = FALSE,
+  output = c("data", "names", "index", "logical")
+)
 }
 \arguments{
 \item{x}{A data frame or matrix.}
 
-\item{strict}{Logical.
+\item{strict}{Logical. If \code{TRUE}, only variables with exactly two
+distinct values are considered dichotomous. If \code{FALSE} (default),
+variables with one or two distinct values are allowed.}
 
-If \code{TRUE}, only variables with exactly two
-distinct values are considered dichotomous.
-
-If \code{FALSE}, variables with one or two
-distinct values are allowed.
-
-Default is \code{FALSE}.}
-
-\item{na.rm}{Logical.
-
-Should missing values be ignored when checking
-for dichotomous variables?
-
-Default is \code{FALSE}.}
+\item{na.rm}{Logical. Should missing values be ignored when checking
+for dichotomous variables? Default is \code{FALSE}.}
 
 \item{output}{Character string specifying the output representation.
-
-One of:
-
-\describe{
-\item{\code{\"data\"}}{
-Subset of \code{x} containing only dichotomous variables.
-}
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{\\item\{\code{\"names\"}\}\{
-  Names of dichotomous variables.
-\}
-
-\\item\{\code{\"index\"}\}\{
-  Column indices of dichotomous variables.
-\}
-
-\\item\{\code{\"logical\"}\}\{
-  Logical vector indicating dichotomous variables.
-\}
-}\if{html}{\out{</div>}}
-
-}
-
-Default is \code{\"data\"}.}
+One of \code{"data"} (subset of \code{x} containing only dichotomous
+variables, the default), \code{"names"} (names of dichotomous
+variables), \code{"index"} (column indices) or \code{"logical"}
+(logical vector indicating dichotomous variables).}
 }
 \value{
 Depending on \code{output}:
 
 \itemize{
-\item \code{\"data\"}: data frame or matrix
-\item \code{\"names\"}: character vector
-\item \code{\"index\"}: integer vector
-\item \code{\"logical\"}: logical vector
+\item \code{"data"}: data frame or matrix
+\item \code{"names"}: character vector
+\item \code{"index"}: integer vector
+\item \code{"logical"}: logical vector
 }
 }
 \description{
@@ -109,6 +84,7 @@ Other data.inspection:
 \code{\link[=countCompCases]{countCompCases()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
 \code{\link[=isEuclid]{isEuclid()}},
+\code{\link[=isFilePath]{isFilePath()}},
 \code{\link[=isNumeric]{isNumeric()}},
 \code{\link[=isURL]{isURL()}},
 \code{\link[=isWholeLike]{isWholeLike()}},

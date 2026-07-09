@@ -2,7 +2,7 @@
 % Please edit documentation in R/extractArgs.R
 \name{extractArgs}
 \alias{extractArgs}
-\title{Extract named arguments from dots with defaults}
+\title{Extract Named Arguments from Dots with Defaults}
 \usage{
 extractArgs(dots, defaults, validate = NULL, returnRest = FALSE)
 }
@@ -11,16 +11,32 @@ extractArgs(dots, defaults, validate = NULL, returnRest = FALSE)
 
 \item{defaults}{Named list of default values}
 
-\item{validate}{Optional validation function}
+\item{validate}{Optional validation function, called with the merged
+argument list for its side effect. It should throw an error on
+invalid input; its return value is ignored.}
 
-\item{returnRest}{Logical; return unused arguments}
+\item{returnRest}{Logical; if \code{TRUE}, a list with components
+\code{args} (the merged arguments) and \code{rest} (all elements of
+\code{dots} not matching a default, including unnamed ones) is
+returned.}
 }
 \value{
-Named list of extracted arguments (and optionally remaining ones)
+Named list of extracted arguments, or a list with components
+\code{args} and \code{rest} if \code{returnRest = TRUE}.
 }
 \description{
-Utility to extract a subset of arguments from a list (typically \code{list(...)})
-and merge them with default values.
+Utility to extract a subset of arguments from a list (typically
+\code{list(...)}) and merge them with default values. Elements of
+\code{dots} override entries in \code{defaults} of the same name;
+explicit \code{NULL} values are preserved.
+}
+\examples{
+dots <- list(col = "red", lwd = 2, 99)
+extractArgs(dots, defaults = list(col = "black", lty = 1))
+
+extractArgs(dots, defaults = list(col = "black", lty = 1),
+            returnRest = TRUE)
+
 }
 \seealso{
 Other pkg.introspection:
@@ -30,7 +46,6 @@ Other pkg.introspection:
 \code{\link[=funList]{funList()}},
 \code{\link[=getDotsArg]{getDotsArg()}},
 \code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=quot]{quot()}},
 \code{\link[=rdLabels]{rdLabels()}},
 \code{\link[=rdTitle]{rdTitle()}},
 \code{\link[=strX]{strX()}}

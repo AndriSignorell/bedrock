@@ -17,8 +17,10 @@ and maxima of \code{x} are used.}
 Defaults to \code{0} and \code{1}.}
 }
 \value{
-A numeric matrix with the same dimensions as \code{x}, where each
-column is linearly rescaled to the interval \code{[newLow, newHigh]}.
+An object of the same shape as \code{x}: a numeric vector for
+vector input, otherwise a numeric matrix with the same dimensions,
+where each column is linearly rescaled to the interval
+\code{[newLow, newHigh]}.
 }
 \description{
 Performs a linear transformation of numeric data to a specified range.
@@ -31,6 +33,10 @@ x_{scaled} = \frac{x - low}{high - low} \cdot (new\_high - new\_low) + new\_low
 }
 
 Constant columns (where \code{high == low}) are mapped to \code{newLow}.
+
+If \code{low} and \code{high} are supplied, values of \code{x} outside
+\code{[low, high]} are extrapolated linearly and are not clipped to the
+target range.
 }
 \examples{
 x <- matrix(1:10, ncol = 2)
@@ -52,6 +58,7 @@ Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=logit]{logit()}},
 \code{\link[=nUnique]{nUnique()}},
 \code{\link[=percentRank]{percentRank()}},

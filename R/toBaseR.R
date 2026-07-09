@@ -43,9 +43,10 @@ toBaseR.tbl_df <- function(x, ...){
   res <- as.data.frame(
     lapply(res, 
            removeAttr, 
-           attr=c("format.spss", "display_width", "format.stata"))) 
+           attrNames = c("format.spss", "display_width", "format.stata")),
+    check.names = FALSE)
   
-  for(i in which(sapply(x, inherits, "haven_labelled") )){
+  for(i in which(vapply(x, inherits, logical(1L), what = "haven_labelled"))){
     res[[i]] <- toBaseR(x[[i]])
   }
   
@@ -69,14 +70,16 @@ toBaseR.haven_labelled <- function(x, ...) {
 #' @export
 toBaseR.default <- function(x, ...){
   
+  # return the object unchanged: destroying data in a pipeline by
+  # returning NULL would be worse than doing nothing
   warning(
     gettextf(
-      'Not implemented for class(es) "%s"',
+      'Not implemented for class(es) "%s", returning object unchanged',
       paste(class(x), collapse = ", ")
     )
   )
   
-  invisible(NULL)
+  invisible(x)
   
 }
 

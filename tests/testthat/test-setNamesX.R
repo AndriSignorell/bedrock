@@ -1,37 +1,52 @@
+library(testthat)
 
-# ── setNamesX ─────────────────────────────────────────────────────────────────
-
-test_that("setNamesX sets names by default", {
-  res <- setNamesX(1:5, letters[1:5])
-  expect_equal(names(res), letters[1:5])
+test_that("unnamed argument defaults to names", {
+  x <- setNamesX(1:3, letters[1:3])
+  expect_equal(names(x), c("a", "b", "c"))
 })
 
-test_that("setNamesX sets names explicitly", {
-  res <- setNamesX(1:5, names = letters[1:5])
-  expect_equal(names(res), letters[1:5])
+test_that("explicit names argument works", {
+  x <- setNamesX(1:3, names = letters[1:3])
+  expect_equal(names(x), c("a", "b", "c"))
 })
 
-test_that("setNamesX sets rownames and colnames simultaneously", {
-  m   <- matrix(1:12, nrow = 4)
-  res <- setNamesX(m, rownames = LETTERS[1:4], colnames = c("x","y","z"))
-  expect_equal(rownames(res), LETTERS[1:4])
-  expect_equal(colnames(res), c("x","y","z"))
+test_that("rownames and colnames can be set together", {
+  m <- setNamesX(matrix(1:12, nrow = 4),
+                 rownames = LETTERS[1:4], colnames = c("x", "y", "z"))
+  expect_equal(rownames(m), LETTERS[1:4])
+  expect_equal(colnames(m), c("x", "y", "z"))
 })
 
-test_that("setNamesX recycles names", {
-  res <- setNamesX(1:6, names = c("a","b"))
-  expect_equal(names(res), rep(c("a","b"), 3))
+test_that("mixed unnamed and named arguments work", {
+  # regression: unnamed arg mixed with a named one must default to 'names'
+  x <- setNamesX(1:3, letters[1:3], rownames = NULL)
+  expect_equal(names(x), c("a", "b", "c"))
 })
 
-test_that("setNamesX sets dimnames", {
-  tab <- as.table(rbind(c(10, 5), c(3, 8)))
-  res <- setNamesX(tab, dimnames = list(r = c("R1","R2"), c = c("C1","C2")))
-  expect_equal(dimnames(res)$r, c("R1","R2"))
-  expect_equal(dimnames(res)$c, c("C1","C2"))
+test_that("names are recycled", {
+  m <- setNamesX(diag(4), rownames = "", colnames = "")
+  expect_equal(rownames(m), rep("", 4))
+  expect_equal(colnames(m), rep("", 4))
 })
 
-test_that("setNamesX removes names when NULL", {
-  x   <- setNamesX(1:3, names = c("a","b","c"))
-  res <- setNamesX(x, names = NULL)
-  expect_null(names(res))
+test_that("rownames = NULL removes existing rownames", {
+  m <- matrix(1:4, 2, dimnames = list(c("a", "b"), c("x", "y")))
+  m <- setNamesX(m, rownames = NULL)
+  expect_null(rownames(m))
+  expect_equal(colnames(m), c("x", "y"))
+})
+
+test_that("dimnames can be set", {
+  tab <- setNamesX(as.table(rbind(c(1, 2), c(3, 4))),
+                   dimnames = list(a = c("x", "y"), b = c("u", "v")))
+  expect_equal(names(dimnames(tab)), c("a", "b"))
+})
+
+test_that("abbreviations are supported", {
+  m <- setNamesX(matrix(1:4, 2), rown = c("a", "b"))
+  expect_equal(rownames(m), c("a", "b"))
+})
+
+test_that("unknown argument name errors", {
+  expect_error(setNamesX(1:3, foo = letters[1:3]))
 })

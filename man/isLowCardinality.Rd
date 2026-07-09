@@ -9,7 +9,7 @@ isLowCardinality(x, maxUnique = 12)
 \arguments{
 \item{x}{A numeric or integer vector.}
 
-\item{maxUnique}{Integer. The threshold below which \code{x} is considered to
+\item{maxUnique}{Integer. The threshold up to which \code{x} is considered to
 have low cardinality. Defaults to \code{12}.}
 }
 \value{
@@ -17,7 +17,7 @@ A logical of length one: \code{TRUE} if \code{x} has \code{maxUnique} or fewer
 unique, non-\code{NA} values, \code{FALSE} otherwise.
 }
 \description{
-Checks whether \code{x} contains fewer than \code{maxUnique} unique, non-missing
+Checks whether \code{x} contains at most \code{maxUnique} unique, non-missing
 values. Unlike \code{\link[=nUnique]{nUnique()}}, this stops counting as soon as the threshold
 is exceeded, which makes it considerably faster for large,
 high-cardinality vectors.
@@ -30,4 +30,20 @@ isLowCardinality(1:100, maxUnique = 12)
 }
 \seealso{
 \code{\link[=nUnique]{nUnique()}} for the uncapped count.
+
+Other math.utils:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=dotProd]{dotProd()}},
+\code{\link[=linScale]{linScale()}},
+\code{\link[=logit]{logit()}},
+\code{\link[=nUnique]{nUnique()}},
+\code{\link[=percentRank]{percentRank()}},
+\code{\link{precision}},
+\code{\link[=rankX]{rankX()}},
+\code{\link[=roundTo]{roundTo()}},
+\code{\link[=unirootAll]{unirootAll()}},
+\code{\link[=untable]{untable()}}
 }
+\concept{math.utils}
+\concept{ordering}

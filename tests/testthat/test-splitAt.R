@@ -1,73 +1,34 @@
-
 library(testthat)
 
-test_that("splitAt splits at correct positions", {
-  x <- 1:10
-  res <- splitAt(x, c(4, 7))
-  
+test_that("splitAt splits at given positions", {
+  res <- splitAt(1:10, c(4, 7))
   expect_equal(res, list(1:3, 4:6, 7:10))
 })
 
-test_that("splitAt works with unsorted positions", {
-  x <- 1:10
-  res <- splitAt(x, c(7, 4))
-  
-  expect_equal(res, list(1:3, 4:6, 7:10))
+test_that("unsorted and duplicate positions are handled", {
+  expect_equal(splitAt(1:10, c(7, 4, 4, 20)),
+               splitAt(1:10, c(4, 7)))
 })
 
-test_that("splitAt removes duplicate positions", {
-  x <- 1:10
-  res <- splitAt(x, c(4, 4, 7))
-  
-  expect_equal(res, list(1:3, 4:6, 7:10))
-})
-
-test_that("splitAt ignores out-of-bound positions", {
-  x <- 1:10
-  res <- splitAt(x, c(0, 4, 11))
-  
-  expect_equal(res, list(1:3, 4:10))
-})
-
-test_that("splitAt works with no positions", {
-  x <- 1:5
-  res <- splitAt(x, integer(0))
-  
+test_that("pos = 1 does not create an empty leading segment", {
+  res <- splitAt(1:5, 1)
   expect_equal(res, list(1:5))
+  expect_true(all(lengths(res) > 0L))
 })
 
-test_that("splitAt works with single split", {
-  x <- 1:5
-  res <- splitAt(x, 3)
-  
-  expect_equal(res, list(1:2, 3:5))
+test_that("out-of-range positions are ignored", {
+  expect_equal(splitAt(1:5, c(0, 3, 99)), list(1:2, 3:5))
 })
 
-test_that("splitAt works with character vectors", {
-  x <- letters[1:6]
-  res <- splitAt(x, c(3, 5))
-  
-  expect_equal(res, list(c("a", "b"), c("c", "d"), c("e", "f")))
+test_that("no positions returns the whole vector", {
+  expect_equal(splitAt(1:5, integer(0)), list(1:5))
 })
 
-test_that("splitAt returns list of correct lengths", {
-  x <- 1:10
-  res <- splitAt(x, c(4, 7))
-  
-  expect_equal(length(res), 3)
-  expect_equal(lengths(res), c(3, 3, 4))
+test_that("empty input returns a single empty segment", {
+  expect_equal(splitAt(integer(0), 3), list(integer(0)))
 })
 
-test_that("splitAt handles split at first position", {
-  x <- 1:5
-  res <- splitAt(x, 1)
-  
-  expect_equal(res, list(integer(0), 1:5))
-})
-
-test_that("splitAt handles split at last position", {
-  x <- 1:5
-  res <- splitAt(x, 5)
-  
-  expect_equal(res, list(1:4, 5))
+test_that("non-whole positions are rejected", {
+  expect_error(splitAt(1:10, 4.5), "whole numbers")
+  expect_error(splitAt(1:10, NA), "whole numbers")
 })

@@ -15,6 +15,15 @@
 #' is required.
 #' @param integerCounts logical; if \code{TRUE} (default) a warning is
 #' issued when the table contains non-integer counts.
+#' @param data.name optional character string used as the \code{data.name}
+#' entry of the result. If \code{NULL} (default), it is derived from
+#' \code{deparse(substitute(x))} (and \code{y}). This only reflects the
+#' variable names as seen by \code{resolveContingency()} itself: functions
+#' that call \code{resolveContingency()} internally should build their own
+#' \code{data.name} via \code{deparse(substitute())} at their own call site
+#' and pass it through here, otherwise the reported name will be the formal
+#' argument names of the calling function (e.g. \code{"x and y"}) rather
+#' than the names the end user actually typed.
 #'
 #' @return A list containing:
 #' \describe{
@@ -26,20 +35,16 @@
 #'   \item{data.name}{name of the data}
 #' }
 #'
-
-
-
-#' @family data.utils  
-#' @concept formula  
+#' @family data.utils
+#' @concept formula
 #' @concept frequency-table
-#'
-#'
 #' @export
 resolveContingency <- function(
     x,
     y = NULL,
     square = FALSE,
-    integerCounts = TRUE
+    integerCounts = TRUE,
+    data.name = NULL
 ) {
   if (is.matrix(x)) {
     
@@ -53,7 +58,7 @@ resolveContingency <- function(
     if (integerCounts && any(x != round(x)))
       warning("'x' contains non-integer counts", call. = FALSE)
     
-    DNAME <- deparse1(substitute(x))
+    DNAME <- if (is.null(data.name)) deparse1(substitute(x)) else data.name
     tab <- x
     
   } else {
@@ -65,11 +70,13 @@ resolveContingency <- function(
     if (length(x) != length(y))
       stop("'x' and 'y' must have the same length")
     
-    DNAME <- paste(
-      deparse1(substitute(x)),
-      "and",
-      deparse1(substitute(y))
-    )
+    DNAME <- if (is.null(data.name)) {
+      paste(
+        deparse1(substitute(x)),
+        "and",
+        deparse1(substitute(y))
+      )
+    } else data.name
     
     ok <- complete.cases(x, y)
     x <- factor(x[ok])

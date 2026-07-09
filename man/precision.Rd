@@ -3,11 +3,10 @@
 \name{precision}
 \alias{precision}
 \alias{nDec}
+\alias{prec}
 \alias{frac}
 \alias{maxDigits}
-\alias{ndec}
-\alias{prec}
-\title{Fractional Part and Maximal Digits of a Numeric Value}
+\title{Precision, Decimal Places and Fractional Part of a Numeric Value}
 \usage{
 nDec(x)
 
@@ -25,12 +24,23 @@ is to be calculated.}
 multiplied with. The result will be returned rounded to integer. Defaults to
 \code{NA} and will then be ignored.}
 }
+\value{
+\itemize{
+\item \code{nDec()}: an integer vector of the same length as \code{x};
+\code{NA} elements yield \code{NA}.
+\item \code{prec()}: a single numeric value, the finest precision found
+across all (non-missing) elements of \code{x}. Returns 1 if all values
+are zero and \code{NA} if no non-missing values are left.
+\item \code{frac()}: a numeric vector of the same length as \code{x}.
+\item \code{maxDigits()}: a single integer value.
+}
+}
 \description{
 \code{nDec()} returns the number of decimals.\cr
 \code{prec()} returns the precision of a number x, i.e. the smallest positional
-value of its last significant digit (e.g. 0.001 for 3.142) \code{x}.
-\code{frac()} returns the fractional part of a numeric value.
-\code{maxDigits()} returns the number of digits in \code{x}. \cr
+value of its last significant digit (e.g. 0.001 for 3.142).\cr
+\code{frac()} returns the fractional part of a numeric value.\cr
+\code{maxDigits()} returns the maximal number of decimal digits in \code{x}.
 }
 \examples{
 
@@ -56,6 +66,7 @@ Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=linScale]{linScale()}},
 \code{\link[=logit]{logit()}},
 \code{\link[=nUnique]{nUnique()}},
@@ -65,7 +76,6 @@ Other math.utils:
 \code{\link[=unirootAll]{unirootAll()}},
 \code{\link[=untable]{untable()}}
 }
-\concept{data-inspection}
 \concept{math.utils}
-\concept{mathematics}
+\concept{number-formatting}
 \keyword{arith}

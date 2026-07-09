@@ -2,24 +2,39 @@
 % Please edit documentation in R/getDotsArg.R
 \name{getDotsArg}
 \alias{getDotsArg}
-\title{Get a single argument from dots with default}
+\title{Get a Single Argument from Dots with Default}
 \usage{
 getDotsArg(dots, name, default = NULL)
 }
 \arguments{
-\item{dots}{Named list (usually list(...))}
+\item{dots}{Named list (usually \code{list(...)})}
 
 \item{name}{Character string, argument name}
 
 \item{default}{Default value if argument not present}
 }
 \value{
-The value of the argument or default
+The value of the argument or \code{default}.
 }
 \description{
-Lightweight helper to extract a named argument from a list (typically list(...)).
+Lightweight helper to extract a named argument from a list (typically
+\code{list(...)}). If the argument is not present, a default value is
+returned.
+}
+\examples{
+f <- function(...) {
+  dots <- list(...)
+  getDotsArg(dots, "col", default = "black")
+}
+
+f(col = "red", lwd = 2)
+f(lwd = 2)
+
 }
 \seealso{
+\code{\link{extractArgs}} for extracting several arguments
+at once.
+
 Other pkg.introspection:
 \code{\link[=extractArgs]{extractArgs()}},
 \code{\link[=funArgs]{funArgs()}},
@@ -27,7 +42,6 @@ Other pkg.introspection:
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},
 \code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=quot]{quot()}},
 \code{\link[=rdLabels]{rdLabels()}},
 \code{\link[=rdTitle]{rdTitle()}},
 \code{\link[=strX]{strX()}}

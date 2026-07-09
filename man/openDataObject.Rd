@@ -10,7 +10,7 @@ openDataObject(name, url = NULL, doc = NULL, ...)
 \item{name}{Character string. File name including extension (e.g. \code{"data.xlsx"}).}
 
 \item{url}{Character string. Base URL where the file is located.
-Defaults to \url{http://www.signorell.net/hwz/datasets/}.}
+Defaults to \url{https://www.signorell.net/hwz/datasets/}.}
 
 \item{doc}{List or \code{NA}. Defines the structure of the documentation sheet.
 If \code{NULL}, the function tries to detect a sheet named \code{"Description"}.
@@ -43,7 +43,9 @@ If a documentation sheet is available, it is expected to contain columns such as
 \item Scale ("nominal", "ordinal", etc.)
 }
 
-Variables with scale \code{"nominal"} or \code{"ordinal"} are converted to factors.
+Variables with scale \code{"nominal"} or \code{"ordinal"} are converted to
+factors. Data values without a matching entry in the codes column become
+\code{NA}.
 }
 \examples{
 \dontrun{
@@ -53,6 +55,7 @@ openDataObject("example.xlsx")
 # Load dataset without metadata processing
 openDataObject("example.xlsx", doc = NA)
 }
+
 
 }
 \seealso{

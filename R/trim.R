@@ -5,8 +5,9 @@
 #' 
 #' A symmetrically trimmed vector \code{x} with a fraction of trim observations
 #' (resp. the given number) deleted from each end will be returned. If
-#' \code{trim} is set to a value >0.5 or to an integer value > n/2 then the
-#' result will be \code{NA}.
+#' \code{trim} is set to a value \eqn{\ge 0.5} or to an integer value
+#' \eqn{\ge n/2} then the result will be \code{NA}. The same applies if
+#' \code{x} contains \code{NA}s and \code{na.rm} is \code{FALSE}.
 #' 
 #' @param x a numeric vector to be trimmed. 
 #' @param trim the fraction (0 to 0.5) of observations to be trimmed from each
@@ -68,17 +69,19 @@ trim <- function(x, trim = 0.1, na.rm = FALSE){
     if(trim < 1)
       lo <- floor(n * trim) + 1
     else{
+      trim <- floor(trim)
       lo <- trim + 1
       if (trim >= (n/2))
         return(NA_real_)
     }
     hi <- n + 1 - lo
     
-    # x <- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
     res <- sort.int(x, index.return = TRUE)
-    trimi <- res[["ix"]][c(1:(lo-1), (hi+1):length(x))]
+    # seq_len()/seq.int() instead of 1:(lo-1), which would yield c(1, 0)
+    # for lo = 1 and corrupt the trim attribute
+    trimi <- res[["ix"]][c(seq_len(lo - 1L),
+                           seq.int(from = hi + 1L, length.out = n - hi))]
     
-    # x <- res[["x"]][order(res[["ix"]])[lo:hi]]
     x <- res[["x"]][lo:hi][order(res[["ix"]][lo:hi])]
     attr(x, "trim") <- trimi
     

@@ -39,7 +39,8 @@
 #' 
 #' roundTo(1.3, 0.2)  # Rounds 1.3 to a nearest multiple of 0.2 (1.2)
 #' roundTo(-1.3, 0.2) # Rounds -1.3 to a nearest multiple of 0.2 (-1.2)
-#' roundTo(5, -2)     # Returns an error, because -2 and 5 have different signs
+#' # Different signs of x and multiple raise an error
+#' try(roundTo(5, -2))
 #' 
 #' # Round down
 #' roundTo(c(1,-1) * 1.2335, 0.05, floor)
@@ -79,12 +80,20 @@
 #'
 #' @export
 roundTo <- function(x, multiple = 1, FUN = round) {
-  
+
   if (!is.function(FUN))
     stop("`FUN` must be a function.")
-  
+
+  if (any(multiple == 0))
+    stop("`multiple` must not be 0.")
+
+  # a negative multiple only makes sense for non-positive x
+  # (positive multiples accept any sign of x)
+  if (any(multiple < 0) && any(x > 0, na.rm = TRUE))
+    stop("a negative `multiple` cannot be combined with positive `x`.")
+
   FUN(x / multiple) * multiple
-  
+
 }
 
 

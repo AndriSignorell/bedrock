@@ -118,14 +118,20 @@ sortX.default <- function(x,
                           factorsAsCharacter = TRUE,
                           ...) {
   method <- match.arg(method)
-  
+
   # Optionally convert factor to character before sorting
   y <- if (is.factor(x) && factorsAsCharacter) as.character(x) else x
-  
+
   if (method == "mixed") {
     return(x[.orderMixed(y, decreasing = decreasing, na.last = na.last)])
   }
-  
+
+  # factor sorted by label: order on the converted key, index the original
+  # (order/na.last = NA removes NAs, matching sort()'s default behavior)
+  if (is.factor(x) && factorsAsCharacter) {
+    return(x[order(y, decreasing = decreasing, na.last = na.last)])
+  }
+
   sort(x = x, decreasing = decreasing, na.last = na.last, ...)
 }
 
@@ -144,6 +150,10 @@ sortX.table <- function(x,
                         factorsAsCharacter = TRUE,
                         ...) {
   method    <- match.arg(method)
+
+  if (length(dim(x)) != 2L)
+    stop("'x' must be a 2-dimensional table.")
+
   row_order <- .sortXEngine(x, ord, decreasing, na.last, method,
                            factorsAsCharacter = factorsAsCharacter,
                            allow_marginal     = TRUE)
@@ -207,56 +217,77 @@ sortX.data.frame <- function(x,
 .orderMixed <- function(x,
                         decreasing = FALSE,
                         na.last    = TRUE) {
-  
+
   n <- length(x)
   if (n <= 1L) return(seq_len(n))
-  
+
   # Non-character: delegate to base order()
   if (!is.character(x)) {
     return(order(x, decreasing = decreasing, na.last = na.last))
   }
-  
-  # Split each string into alternating text/digit tokens
-  split_fun <- function(s) {
-    parts <- regmatches(s, gregexpr("[0-9]+|[^0-9]+", s))[[1]]
-    lapply(parts, function(p) {
-      if (grepl("^[0-9]+$", p)) as.numeric(p) else tolower(p)
-    })
-  }
-  
-  parsed  <- lapply(x, split_fun)
-  max_len <- max(lengths(parsed))
-  
-  # Pad all token lists to the same length (missing slots become NULL)
-  parsed <- lapply(parsed, function(p) {
-    length(p) <- max_len
-    p
-  })
-  
-  # Build one sort key per token position
-  cols <- vector("list", max_len)
-  
-  for (j in seq_len(max_len)) {
-    # lapply keeps length n; NULL marks a padded (missing) slot
-    col <- lapply(parsed, function(p) p[[j]])
-    
-    if (all(vapply(col,
-                   function(v) is.null(v) || (length(v) == 1L && is.numeric(v)),
-                   logical(1)))) {
-      # All present values are numeric -> numeric key; NULL -> NA
-      cols[[j]] <- as.numeric(vapply(col,
-                                     function(v) if (is.null(v)) NA_real_ else v,
-                                     numeric(1)))
-    } else {
-      # Mixed or text column -> factor key; NULL -> NA
-      cols[[j]] <- as.factor(vapply(col,
-                                    function(v) if (is.null(v)) NA_character_
-                                    else as.character(v),
-                                    character(1)))
+
+  # Handle real NAs separately, so that the token padding below can
+  # never interact with the user's 'na.last' (padded slots are NOT
+  # missing values -- "A" is simply shorter than "A1")
+  na_idx <- which(is.na(x))
+  ok_idx <- which(!is.na(x))
+
+  ord_ok <- ok_idx
+
+  if (length(ok_idx) > 1L) {
+
+    xs <- x[ok_idx]
+
+    # Split each string into alternating text/digit tokens
+    split_fun <- function(s) {
+      parts <- regmatches(s, gregexpr("[0-9]+|[^0-9]+", s))[[1L]]
+      lapply(parts, function(p) {
+        if (grepl("^[0-9]+$", p)) as.numeric(p) else tolower(p)
+      })
     }
+
+    parsed  <- lapply(xs, split_fun)
+    max_len <- max(lengths(parsed))
+
+    # Pad all token lists to the same length (missing slots become NULL)
+    parsed <- lapply(parsed, function(p) {
+      length(p) <- max_len
+      p
+    })
+
+    # Build one sort key per token position
+    cols <- vector("list", max_len)
+
+    for (j in seq_len(max_len)) {
+      col <- lapply(parsed, function(p) p[[j]])
+
+      if (all(vapply(col,
+                     function(v) is.null(v) || (length(v) == 1L && is.numeric(v)),
+                     logical(1)))) {
+        # Numeric key; padded slots get -Inf so that shorter strings sort
+        # before longer ones with the same prefix ("A" < "A1")
+        cols[[j]] <- vapply(col,
+                            function(v) if (is.null(v)) -Inf else v,
+                            numeric(1))
+      } else {
+        # Text (or mixed) key; padded slots become "", which sorts first
+        cols[[j]] <- vapply(col,
+                            function(v) if (is.null(v)) ""
+                                        else as.character(v),
+                            character(1))
+      }
+    }
+
+    ord_ok <- ok_idx[do.call(order, c(cols, list(decreasing = decreasing)))]
   }
-  
-  do.call(order, c(cols, list(decreasing = decreasing, na.last = na.last)))
+
+  # Place real NAs according to na.last
+  if (is.na(na.last))
+    ord_ok
+  else if (isTRUE(na.last))
+    c(ord_ok, na_idx)
+  else
+    c(na_idx, ord_ok)
 }
 
 

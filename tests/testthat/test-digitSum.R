@@ -19,5 +19,4 @@ test_that("digitSum propagates NA", {
 
 test_that("digitSum errors on non-integers", {
   expect_error(digitSum(1.5))
-  expect_error(digitSum(1))
 })

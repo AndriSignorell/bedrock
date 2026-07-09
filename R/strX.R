@@ -80,8 +80,10 @@ strX <- function(
     (is.list(object) || is.data.frame(object))
   ) {
     
+    # str() marks nesting with dots: top level " $ ", nested " ..$ ",
+    # deeper "  .. ..$ " -- so the recursive pattern must allow dots
     idx <- if (recursive) {
-      grep("^\\s*\\$", out)
+      grep("^[ .]*\\$ ", out)
     } else {
       grep("^ \\$ ", out)
     }
@@ -99,7 +101,7 @@ strX <- function(
           )
           
           sub(
-            "^(\\s*)\\$",
+            "^([ .]*)\\$",
             paste0("\\1", num, " $"),
             line
           )

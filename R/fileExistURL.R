@@ -36,24 +36,21 @@
 #'
 #' @family file.utils
 #' @concept programming
+#' @importFrom httr HEAD GET status_code
 #' @export
 fileExistURL <- function(url, timeout = 5) {
-
-  if (!requireNamespace("httr", quietly = TRUE))
-    stop("Package 'httr' is required for this function. ",
-         "Please install it with install.packages(\"httr\").")
 
   HTTP_STATUS_OK <- 200
 
   res <- tryCatch({
-    r <- httr::HEAD(url, httr::timeout(timeout))
-    status <- httr::status_code(r)
+    r <- HEAD(url, httr::timeout(timeout))
+    status <- status_code(r)
 
     # fallback: some servers do not properly support HEAD (403 Forbidden,
     # 405 Method Not Allowed, 501 Not Implemented); a plain 404 is trusted
     if (status %in% c(403L, 405L, 501L)) {
-      r <- httr::GET(url, httr::timeout(timeout))
-      status <- httr::status_code(r)
+      r <- GET(url, httr::timeout(timeout))
+      status <- status_code(r)
     }
 
     out <- status == HTTP_STATUS_OK

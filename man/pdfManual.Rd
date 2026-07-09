@@ -2,12 +2,16 @@
 % Please edit documentation in R/pdfManual.R
 \name{pdfManual}
 \alias{pdfManual}
-\title{Open CRAN PDF manual of a package}
+\title{Open CRAN PDF Manual of a Package}
 \usage{
 pdfManual(package)
 }
 \arguments{
-\item{package}{Package name (symbol or character)}
+\item{package}{Package name (symbol or character).}
+}
+\value{
+The URL of the PDF manual, invisibly. Called for its side effect
+of opening the browser.
 }
 \description{
 PDF versions of the manual are usually not included as vignettes in R
@@ -15,12 +19,26 @@ packages. Still this format is convenient for reading and doing full text
 search. \cr This function creates the appropriate link to the pdf file on
 CRAN and opens the pdf manual in a browser window.
 }
+\details{
+A warning (not an error) is issued if the package is not installed
+locally, as the manual may well exist on CRAN anyway.
+}
+\examples{
+\dontrun{
+pdfManual(DescToolsX)
+pdfManual("bedrock")
+}
+
+}
 \seealso{
+\code{\link{browseURL}}
+
 Other file.utils:
 \code{\link[=buildPath]{buildPath()}},
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
 \code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=peekFile]{peekFile()}},
 \code{\link[=splitPath]{splitPath()}}
 }
 \concept{file.utils}

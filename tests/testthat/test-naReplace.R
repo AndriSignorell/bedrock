@@ -26,11 +26,12 @@ test_that("naReplace works for ordered factors", {
   expect_true(is.ordered(res))
 })
 
-test_that("naReplace warns for existing level", {
+test_that("naReplace fills with existing level without warning", {
 
   x <- factor(c("a", NA))
 
-  expect_warning(
-    naReplace(x, "a")
-  )
+  expect_no_warning(res <- naReplace(x, "a"))
+  expect_equal(as.character(res), c("a", "a"))
+  # no duplicate level introduced
+  expect_equal(levels(res), "a")
 })

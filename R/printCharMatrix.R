@@ -56,13 +56,8 @@
 #' # Force wrapping by reducing width
 #' printCharMatrix(m, width = 20)
 #'
-
-
-
-#' @family table.utils  
+#' @family format
 #' @concept table
-#'
-#'
 #' @export
 printCharMatrix <- function(
     m,
@@ -74,26 +69,32 @@ printCharMatrix <- function(
     width = getOption("width")
 ) {
   align <- match.arg(align)
-  
+
+  if (useCliStyle && !requireNamespace("cli", quietly = TRUE)) {
+    warning("Package 'cli' is not installed, falling back to plain output.",
+            call. = FALSE)
+    useCliStyle <- FALSE
+  }
+
   m <- as.matrix(m)
   m[] <- as.character(m)
   
   rn <- rownames(m)
   cn <- colnames(m)
   
-  # Fallback wenn keine Namen vorhanden
+  # fallback if no names present
   if (is.null(rn)) rn <- rep("", nrow(m))
   if (is.null(cn)) cn <- rep("", ncol(m))
   
-  # Breiten berechnen
-  col_widths <- apply(m, 2, function(col) max(nchar(col), na.rm = TRUE))
+  # compute widths
+  colWidths <- apply(m, 2, function(col) max(nchar(col), na.rm = TRUE))
   if (showColnames) {
-    col_widths <- pmax(col_widths, nchar(cn))
+    colWidths <- pmax(colWidths, nchar(cn))
   }
   
-  rowname_width <- if (showRownames) max(nchar(rn)) else 0
+  rownameWidth <- if (showRownames) max(nchar(rn)) else 0
   
-  pad_fun <- function(x, width) {
+  padFun <- function(x, width) {
     if (align == "right") {
       formatC(x, width = width, format = "s")
     } else {
@@ -101,26 +102,26 @@ printCharMatrix <- function(
     }
   }
   
-  # --- CLI Styling ---
-  style_header <- function(x) {
+  # --- cli styling ---
+  styleHeader <- function(x) {
     if (useCliStyle) cli::style_bold(x) else x
     # if (useCliStyle) cli::col_blue(x) else x
   }
   
-  style_rowname <- function(x) {
+  styleRowname <- function(x) {
   if (useCliStyle) cli::style_bold(x) else x
     #  if (useCliStyle) cli::col_blue(x) else x
   }
   
-  # --- Wie viele Spalten passen? ---
-  sep_str <- paste(rep(" ", sep), collapse = "")
+  # --- how many columns fit? ---
+  sepStr <- paste(rep(" ", sep), collapse = "")
   
-  calc_block <- function(start_col) {
-    total <- if (showRownames) rowname_width + sep else 0
+  calcBlock <- function(startCol) {
+    total <- if (showRownames) rownameWidth + sep else 0
     cols <- c()
     
-    for (j in start_col:ncol(m)) {
-      w <- col_widths[j]
+    for (j in startCol:ncol(m)) {
+      w <- colWidths[j]
       needed <- if (length(cols) == 0) w else w + sep
       
       if ((total + needed) > width) break
@@ -128,28 +129,34 @@ printCharMatrix <- function(
       cols <- c(cols, j)
       total <- total + needed
     }
+
+    # a single column wider than `width` would yield an empty block and
+    # send the outer loop into max(cols) = -Inf; print it overwide instead
+    if (length(cols) == 0L)
+      cols <- startCol
+
     cols
   }
   
-  # --- Ausgabe ---
-  col_start <- 1
+  # --- output ---
+  colStart <- 1
   
-  while (col_start <= ncol(m)) {
+  while (colStart <= ncol(m)) {
     
-    cols <- calc_block(col_start)
+    cols <- calcBlock(colStart)
     
     # Header
     if (showColnames) {
       header <- c()
       
       if (showRownames) {
-        header <- c(header, pad_fun("", rowname_width))
+        header <- c(header, padFun("", rownameWidth))
       }
       
-      header <- c(header, mapply(pad_fun, cn[cols], col_widths[cols]))
+      header <- c(header, mapply(padFun, cn[cols], colWidths[cols]))
       
-      header_line <- paste(header, collapse = sep_str)
-      cat(style_header(header_line), "\n")
+      headerLine <- paste(header, collapse = sepStr)
+      cat(styleHeader(headerLine), "\n")
     }
     
     # Rows
@@ -157,21 +164,21 @@ printCharMatrix <- function(
       row <- c()
       
       if (showRownames) {
-        row <- c(row, pad_fun(rn[i], rowname_width))
+        row <- c(row, padFun(rn[i], rownameWidth))
       }
       
-      row <- c(row, mapply(pad_fun, m[i, cols], col_widths[cols]))
+      row <- c(row, mapply(padFun, m[i, cols], colWidths[cols]))
       
-      line <- paste(row, collapse = sep_str)
+      line <- paste(row, collapse = sepStr)
       
       if (showRownames) {
-        # nur rowname fett machen
+        # style only the rowname
         if (useCliStyle) {
-          rn_part <- pad_fun(rn[i], rowname_width)
-          rn_part <- cli::style_bold(rn_part)
-          rest <- paste(mapply(pad_fun, m[i, cols], col_widths[cols]), 
-                        collapse = sep_str)
-          line <- paste(c(rn_part, rest), collapse = sep_str)
+          rnPart <- padFun(rn[i], rownameWidth)
+          rnPart <- cli::style_bold(rnPart)
+          rest <- paste(mapply(padFun, m[i, cols], colWidths[cols]), 
+                        collapse = sepStr)
+          line <- paste(c(rnPart, rest), collapse = sepStr)
         }
       }
       
@@ -180,8 +187,10 @@ printCharMatrix <- function(
     
     cat("\n")
     
-    col_start <- max(cols) + 1
+    colStart <- max(cols) + 1
   }
+
+  invisible(NULL)
 }
 
 

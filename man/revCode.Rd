@@ -34,6 +34,8 @@ Reverses the coding of a vector. Supports numeric, logical, and factor inputs:
 
 Throws an error if all values are \code{NA}, if only one of \code{min}/\code{max}
 is provided, if \code{min > max}, or if \code{x} is not numeric, logical, or factor.
+A warning is issued if values of \code{x} lie outside an explicitly
+provided \code{[min, max]} range.
 }
 
 \examples{
@@ -64,6 +66,8 @@ Other data.manipulation:
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
+\code{\link{long-wide-reshape}},
+\code{\link[=multMerge]{multMerge()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
 \code{\link[=recycle]{recycle()}},

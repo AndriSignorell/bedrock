@@ -64,11 +64,18 @@ test_that("permn handles empty input", {
 })
 
 
-test_that("permn preserves names", {
+test_that("permn does not carry element names into columns", {
   x <- c(a = 1, b = 2, c = 3)
   res <- permn(x)
-  
-  expect_equal(colnames(res), names(x))
+
+  # columns are permutation positions, not named elements
+  expect_null(colnames(res))
+  expect_equal(nrow(res), factorial(3))
+  # all six permutations of the underlying values are present
+  expect_setequal(
+    apply(res, 1, paste, collapse = ""),
+    c("123", "132", "213", "231", "312", "321")
+  )
 })
 
 

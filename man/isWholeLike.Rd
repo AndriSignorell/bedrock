@@ -41,7 +41,9 @@ Works for numeric, integer, and complex vectors.
 A value is considered whole-like if the absolute difference between
 the value and its nearest integer is smaller than \code{tol}.
 
-For complex numbers, both real and imaginary parts must be whole-like.
+For complex numbers, both real and imaginary parts must be whole-like;
+with \code{isNonNegative = TRUE}, both parts must additionally be
+non-negative.
 }
 \examples{
 isWholeLike(c(1, 2, 3))
@@ -62,6 +64,7 @@ Other data.inspection:
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
 \code{\link[=isEuclid]{isEuclid()}},
+\code{\link[=isFilePath]{isFilePath()}},
 \code{\link[=isNumeric]{isNumeric()}},
 \code{\link[=isURL]{isURL()}},
 \code{\link[=isZero]{isZero()}}

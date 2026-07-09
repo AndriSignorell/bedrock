@@ -36,7 +36,9 @@ effect-size calculations and plotting functions.
 \seealso{
 Other data.utils:
 \code{\link[=binaryTree]{binaryTree()}},
+\code{\link{intervals}},
 \code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link{range-operators}},
 \code{\link[=resolveContingency]{resolveContingency()}},
 \code{\link[=resolveFormula]{resolveFormula()}}
 }

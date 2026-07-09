@@ -4,7 +4,13 @@
 \alias{resolveContingency}
 \title{Resolve Contingency Table}
 \usage{
-resolveContingency(x, y = NULL, square = FALSE, integerCounts = TRUE)
+resolveContingency(
+  x,
+  y = NULL,
+  square = FALSE,
+  integerCounts = TRUE,
+  data.name = NULL
+)
 }
 \arguments{
 \item{x}{a contingency table, factor or vector.}
@@ -17,6 +23,16 @@ is required.}
 
 \item{integerCounts}{logical; if \code{TRUE} (default) a warning is
 issued when the table contains non-integer counts.}
+
+\item{data.name}{optional character string used as the \code{data.name}
+entry of the result. If \code{NULL} (default), it is derived from
+\code{deparse(substitute(x))} (and \code{y}). This only reflects the
+variable names as seen by \code{resolveContingency()} itself: functions
+that call \code{resolveContingency()} internally should build their own
+\code{data.name} via \code{deparse(substitute())} at their own call site
+and pass it through here, otherwise the reported name will be the formal
+argument names of the calling function (e.g. \code{"x and y"}) rather
+than the names the end user actually typed.}
 }
 \value{
 A list containing:
@@ -41,7 +57,9 @@ is constructed after removing incomplete observations.
 \seealso{
 Other data.utils:
 \code{\link[=binaryTree]{binaryTree()}},
+\code{\link{intervals}},
 \code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link{range-operators}},
 \code{\link[=resolveFormula]{resolveFormula()}},
 \code{\link[=resolveGroups]{resolveGroups()}}
 }

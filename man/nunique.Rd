@@ -27,13 +27,14 @@ nUnique(c(1, 1, 2, NA), na.rm = TRUE)
 
 }
 \seealso{
-\code{\link[=isLowCardinality]{isLowCardinality()}} to check whether \code{x} has fewer than a given
+\code{\link[=isLowCardinality]{isLowCardinality()}} to check whether \code{x} has at most a given
 number of unique values, without counting all of them first.
 
 Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=linScale]{linScale()}},
 \code{\link[=logit]{logit()}},
 \code{\link[=percentRank]{percentRank()}},

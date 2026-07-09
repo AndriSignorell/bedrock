@@ -3,16 +3,21 @@
 #'
 #' This function recycles all supplied elements to the maximal dimension.
 #'
+#' If \code{maxdim} is smaller than the length of an element, that element
+#' is truncated to the first \code{maxdim} values. Zero-length elements are
+#' recycled to \code{NA} vectors of length \code{maxdim}. Both situations
+#' are rejected when \code{strict = TRUE}.
 #'
 #' @param maxdim defines the maximal dimension, if set to \code{NULL} (default)
 #' the maximal dimension of the list.
-#' @param strict defines if number of arguments must be 1 or maxdim.
+#' @param strict logical, if \code{TRUE} each element must have length 1 or
+#' \code{maxdim}, so that no partial recycling (or truncation) can occur.
+#' Default is \code{FALSE}.
 #' @param \dots a number of vectors of elements.
 #'
 #' @return a list of the supplied elements\cr \code{attr(,"maxdim")} contains
 #' the maximal dimension of the recycled list
 #'
-
 #' @seealso \code{\link{rep}}, \code{\link{replicate}}
 #'
 #' @keywords utilities
@@ -24,12 +29,8 @@
 #' sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]),
 #'                                         collapse=z$sep[i]))
 #'
-
-
 #' @family data.manipulation
-#' @concept ordering
-#'
-#'
+#' @concept programming
 #' @export
 recycle <- function(..., maxdim = NULL, strict = FALSE) {
 
@@ -50,8 +51,9 @@ recycle <- function(..., maxdim = NULL, strict = FALSE) {
   if (is.null(maxdim)) {
     maxdim <- max(lens)
   } else {
-    if (!is.numeric(maxdim) || length(maxdim) != 1 || maxdim <= 0)
-      stop("maxdim must be a positive scalar")
+    if (!is.numeric(maxdim) || length(maxdim) != 1 ||
+        is.na(maxdim) || maxdim <= 0 || maxdim %% 1 != 0)
+      stop("'maxdim' must be a single positive whole number")
   }
 
   # --- strict check ------------------------------------------
@@ -60,9 +62,10 @@ recycle <- function(..., maxdim = NULL, strict = FALSE) {
     stop("Arguments must have length 1 or maxdim.")
   }
 
-  # --- Recycling ---------------------------------------------
+  # --- recycling ---------------------------------------------
 
-  # rep_len would not work for Dates
+  # rep(length.out =) instead of rep_len(), as it dispatches S3 methods
+  # and therefore keeps classes like Date intact also in older R versions
   res <- lapply(lst, function(x) rep(x, length.out = maxdim))
 
   attr(res, "maxdim") <- maxdim

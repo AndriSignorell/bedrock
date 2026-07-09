@@ -111,6 +111,7 @@ Other vector.ops:
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=nz]{nz()}},
 \code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
 \code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
 \code{\link[=vRot]{vRot()}},

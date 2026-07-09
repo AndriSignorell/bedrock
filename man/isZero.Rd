@@ -7,7 +7,7 @@
 isZero(x, tol = sqrt(.Machine$double.eps), na.rm = FALSE)
 }
 \arguments{
-\item{x}{a (non-empty) numeric vector of data values.}
+\item{x}{a (non-empty) numeric or complex vector of data values.}
 
 \item{tol}{tolerance to be used}
 
@@ -15,15 +15,16 @@ isZero(x, tol = sqrt(.Machine$double.eps), na.rm = FALSE)
 before the computation proceeds. Defaults to \code{FALSE}.}
 }
 \value{
-logical vector of the same dimension as x.
+logical vector of the same length as x (after optional
+\code{NA} removal). Non-numeric input yields all-\code{FALSE}.
 }
 \description{
 Test if x is zero. This is done by checking if the numeric value is
 below the machine tolerance.
 }
 \examples{
-# ... These are people who live in ignorance of the Floating Point Gods.
-# These pagans expect ... (Burns, 2011)" the following to be TRUE:
+# "... These are people who live in ignorance of the Floating Point Gods.
+# These pagans expect [...] the following to be TRUE" (Burns, 2011):
 (.1 - .3 / 3) == 0
 
 # they might be helped by
@@ -31,7 +32,7 @@ isZero(.1 - .3 / 3)
 
 }
 \seealso{
-\code{\link{is.integer}}
+\code{\link{all.equal}}, \code{\link{isWholeLike}}
 
 Other data.inspection:
 \code{\link[=allDuplicated]{allDuplicated()}},
@@ -43,6 +44,7 @@ Other data.inspection:
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
 \code{\link[=isEuclid]{isEuclid()}},
+\code{\link[=isFilePath]{isFilePath()}},
 \code{\link[=isNumeric]{isNumeric()}},
 \code{\link[=isURL]{isURL()}},
 \code{\link[=isWholeLike]{isWholeLike()}}

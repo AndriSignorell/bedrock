@@ -27,8 +27,9 @@ Clean data by means of trimming, i.e., by omitting outlying observations.
 \details{
 A symmetrically trimmed vector \code{x} with a fraction of trim observations
 (resp. the given number) deleted from each end will be returned. If
-\code{trim} is set to a value >0.5 or to an integer value > n/2 then the
-result will be \code{NA}.
+\code{trim} is set to a value \eqn{\ge 0.5} or to an integer value
+\eqn{\ge n/2} then the result will be \code{NA}. The same applies if
+\code{x} contains \code{NA}s and \code{na.rm} is \code{FALSE}.
 }
 \note{
 This function is basically an excerpt from the base function
@@ -66,6 +67,7 @@ Other vector.ops:
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=nz]{nz()}},
 \code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
 \code{\link[=setLength]{setLength()}},
 \code{\link[=vRot]{vRot()}},
 \code{\link[=vShift]{vShift()}},

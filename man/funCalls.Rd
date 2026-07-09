@@ -4,19 +4,30 @@
 \alias{funCalls}
 \title{List Calls Used in Function}
 \usage{
-funCalls(name, package = NULL, sort = FALSE)
+funCalls(name, package = NULL, sorted = FALSE)
 }
 \arguments{
 \item{name}{the name of the function}
 
-\item{package}{the name of the package}
+\item{package}{optional name of a package; if given, the result is
+filtered to source environments matching \code{package}}
 
-\item{sort}{logical (default \code{FALSE}) should the arguments be alphabetically sorted?}
+\item{sorted}{logical (default \code{FALSE}) should the calls be
+alphabetically sorted?}
+}
+\value{
+A list of character vectors with the function calls, grouped by
+the environment the called functions were found in.
 }
 \description{
 For screening purposes it can be useful to get a list of all function calls
 our function may depend on. \code{funCalls()} parses the function
-source and return all found function calls grouped by their package.
+source and returns all found function calls grouped by their package.
+}
+\details{
+The source packages are resolved via \code{\link[utils]{find}}, which only
+sees attached packages. Calls to functions from packages that are not on
+the search path are reported under \code{"<not found>"}.
 }
 \note{
 Based on code by Nicholas Cooper.
@@ -26,12 +37,9 @@ Based on code by Nicholas Cooper.
 funCalls("combN", package="bedrock")
 
 }
-\references{
-Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The
-New S Language}. Wadsworth & Brooks/Cole.
-}
 \seealso{
-\code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}}
+\code{\link{funList}}, \code{\link{funArgs}},
+\code{\link[utils]{getParseData}}
 
 Other pkg.introspection:
 \code{\link[=extractArgs]{extractArgs()}},
@@ -40,7 +48,6 @@ Other pkg.introspection:
 \code{\link[=funList]{funList()}},
 \code{\link[=getDotsArg]{getDotsArg()}},
 \code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=quot]{quot()}},
 \code{\link[=rdLabels]{rdLabels()}},
 \code{\link[=rdTitle]{rdTitle()}},
 \code{\link[=strX]{strX()}}

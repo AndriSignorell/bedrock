@@ -47,17 +47,17 @@ When given, output strings are left-padded with zeros to at least
 A vector of the same length as \code{x}:
 \itemize{
 \item \code{binToDec()}, \code{octToDec()}, \code{hexToDec()},
-\code{romanToInt()} — integer or numeric vector.
-\item \code{decToHex()} — object of class \code{\link{hexmode}}.
-\item \code{decToOct()} — numeric vector (octal digit string coerced to
+\code{romanToInt()} - integer or numeric vector.
+\item \code{decToHex()} - object of class \code{\link{hexmode}}.
+\item \code{decToOct()} - numeric vector (octal digit string coerced to
 numeric).
-\item \code{decToBin()}, \code{baseToBase()} — character vector
+\item \code{decToBin()}, \code{baseToBase()} - character vector
 (uppercase digits).
 }
 \code{NA} input always produces \code{NA} output.
 }
 \description{
-Vectorized conversion between positional numeral systems (bases 2–36),
+Vectorized conversion between positional numeral systems (bases 2-36),
 plus Roman-numeral parsing.  The convenience wrappers cover the most
 common cases; \code{baseToBase()} handles any combination of bases.
 }
@@ -65,7 +65,7 @@ common cases; \code{baseToBase()} handles any combination of bases.
 
 All specialist functions are thin wrappers around \code{baseToBase()}:
 \tabular{lll}{
-\bold{Function}    \tab \bold{Equivalent call}              \tab \bold{Returns}         \cr
+\strong{Function}    \tab \strong{Equivalent call}              \tab \strong{Returns}         \cr
 \code{binToDec(x)} \tab \code{baseToBase(x,  2, 10)}       \tab integer                \cr
 \code{decToBin(x)} \tab \code{baseToBase(x, 10,  2)}       \tab character              \cr
 \code{octToDec(x)} \tab \code{baseToBase(x,  8, 10)}       \tab integer                \cr
@@ -138,7 +138,6 @@ Other number.theory:
 \code{\link[=isPrime]{isPrime()}},
 \code{\link[=primes]{primes()}}
 }
-\concept{data-manipulation}
 \concept{number-theory}
 \concept{number.theory}
-\concept{string-manipulation}
+\concept{numeric-conversion}

@@ -7,8 +7,8 @@
 #'
 #' The "BETWEEN" operators basically combine two conditional statements into
 #' one and simplify the query process.\cr They are merely a wrapper for:
-#' \code{\verb{x >= rng[1] & x <= rng[2]}}, where the round bracket \code{(} means
-#' \emph{strictly greater (>)} and the square bracket \code{\verb{[}} means
+#' \verb{\code{x >= rng[1] & x <= rng[2]}}, where the round bracket \code{(} means
+#' \emph{strictly greater (>)} and the square bracket \verb{\code{[}} means
 #' \emph{greater or equal (>=)}.  Numerical values of x will be handled by
 #' C-code, which is significantly faster than two comparisons in R (especially
 #' when x is huge).\cr

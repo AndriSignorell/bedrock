@@ -18,7 +18,9 @@ Ignored if \code{x} and \code{y} are vectors.}
 \value{
 \itemize{
 \item A vector of length 3 if inputs are vectors.
-\item A matrix with propagated dimension names if matrices are supplied.
+\item A matrix if matrices are supplied. Dimension names along the
+vector axis are propagated from \code{x}, the component axis is
+labelled \code{x}, \code{y}, \code{z}.
 }
 }
 \description{
@@ -60,6 +62,7 @@ crossProd(x, y, "cols")
 Other math.utils:
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=linScale]{linScale()}},
 \code{\link[=logit]{logit()}},
 \code{\link[=nUnique]{nUnique()}},

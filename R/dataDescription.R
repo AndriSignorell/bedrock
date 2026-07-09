@@ -42,20 +42,17 @@
 #' @family label.utils
 #' @concept label
 #' @concept attribute
+#' @importFrom readxl excel_sheets read_excel
 #' @export
 dataDescription <- function(fn, sheet = "Description") {
 
-  if (!requireNamespace("readxl", quietly = TRUE))
-    stop("Package 'readxl' is required for this function. ",
-         "Please install it with install.packages(\"readxl\").")
-
-  sheets <- readxl::excel_sheets(fn)
+  sheets <- excel_sheets(fn)
 
   if (!(sheet %in% sheets) || length(sheets) <= 1) {
     return(NULL)
   }
 
-  d.desc <- as.data.frame(readxl::read_excel(fn, sheet = sheet))
+  d.desc <- as.data.frame(read_excel(fn, sheet = sheet))
 
   emptyRows <- which(apply(d.desc, 1, function(x) all(is.na(x))))
   if (length(emptyRows) > 0) {

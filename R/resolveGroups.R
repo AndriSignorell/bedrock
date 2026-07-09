@@ -43,16 +43,11 @@ resolveGroups <- function(x, groups) {
       warning("'x' is a list, so ignoring argument 'groups'")
     
     dname <- deparse1(substitute(x))
-    
-    x <- lapply(
-      x,
-      function(z) z[complete.cases(z)]
-    )
-    
+
     if (!all(vapply(x, is.numeric, logical(1L))))
-      warning(
-        "some elements of 'x' are not numeric and will be coerced to numeric"
-      )
+      stop("all elements of 'x' must be numeric vectors")
+
+    x <- lapply(x, function(z) z[!is.na(z)])
     
     group.sizes <- lengths(x)
     
@@ -83,18 +78,13 @@ resolveGroups <- function(x, groups) {
     )
     
     ok <- complete.cases(x, groups)
-    
+
     x <- x[ok]
     groups <- factor(groups[ok])
-    
-    n <- length(x)
-    
-    if (n < 2L)
-      stop("not enough observations")
-    
+
     if (nlevels(groups) < 2L)
       stop("all observations are in the same group")
-    
+
     group.sizes <- table(groups)
   }
   

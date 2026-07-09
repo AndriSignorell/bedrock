@@ -3,7 +3,7 @@
 \name{label}
 \alias{label}
 \alias{label<-}
-\title{Get or set object and variable labels}
+\title{Get or Set Object and Variable Labels}
 \usage{
 label(x, vars = NULL)
 
@@ -20,8 +20,9 @@ Can be:
 \item numeric indices or character names of columns
 }}
 
-\item{value}{A character vector of labels. For object labels, must be of length 1.
-For variable labels, must have length 1 or the same length as \code{vars}.}
+\item{value}{A character vector of labels, or \code{NULL} to remove them.
+For object labels, must be of length 1. For variable labels, must have
+length 1 or the same length as \code{vars}.}
 }
 \value{
 \itemize{
@@ -47,6 +48,7 @@ The function provides a unified interface for working with labels:
 }
 
 Variable labels are stored as attribute \code{"label"} on each column.
+Assigning \code{NULL} removes the label(s).
 }
 \examples{
 df <- data.frame(age = 1:3, sex = c("m", "f", "m"))
@@ -62,6 +64,9 @@ label(df, vars = TRUE)
 # Set single variable label
 label(df, vars = "age") <- "Age"
 label(df, vars = "age")
+
+# Remove variable labels
+label(df, vars = TRUE) <- NULL
 
 # Atomic vector
 x <- 1:5

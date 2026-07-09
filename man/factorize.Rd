@@ -7,26 +7,28 @@
 factorize(n)
 }
 \arguments{
-\item{n}{vector of integers to factorize.}
+\item{n}{vector of positive whole numbers to factorize.}
 }
 \value{
 A named \code{\link{list}} of the same length as \code{n}, each
 element a 2-column matrix with column \code{"p"} the prime factors and
-column~\code{"m"} their respective exponents (or multiplities), i.e., for a
+column \code{"m"} their respective exponents (or multiplicities), i.e., for a
 prime number \code{n}, the resulting matrix is \code{cbind(p = n, m = 1)}.
-
-For factorization of moderately or really large numbers, see the \pkg{gmp}
-package, and its \code{\link[gmp]{factorize}()} (which is ~20x faster!).
 }
 \description{
 Compute the prime factorization(s) of integer(s) \code{n}.
 Prime factorization of integer(s) works via \code{\link{primes}},
 currently in a cheap way, sub-optimal for large composite \code{n}.
 }
+\details{
+For factorization of moderately or really large numbers, see the \pkg{gmp}
+package, and its \code{gmp::factorize()} (which is ~20x faster!).
+}
 \examples{
 
 factorize(47)
 factorize(seq(101, 120, by=2))
+
 }
 \seealso{
 Other number.theory:

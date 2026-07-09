@@ -5,6 +5,7 @@
 #'
 #' The function first checks whether values are finite integers. Non-integer
 #' values (e.g. 3.5), \code{NA}, \code{NaN}, or \code{Inf} return \code{NA}.
+#' A bare logical \code{NA} is accepted and treated as a missing numeric value.
 #'
 #' @param x A numeric vector.
 #'
@@ -20,6 +21,11 @@
 #' @concept number-theory
 #' @export
 isOdd <- function(x) {
+
+  # bare NA (and all-NA logicals) are logical, not numeric; accept them
+  # since every element maps to NA anyway
+  if (is.logical(x) && all(is.na(x)))
+    x <- as.numeric(x)
 
   if (!is.numeric(x))
     stop("'x' must be a numeric vector.")

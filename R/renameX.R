@@ -37,7 +37,7 @@
 #' @param ...   Name mappings of the form \code{old = "new"}, a single
 #'   function to apply to all names (e.g. \code{toupper}), or unnamed
 #'   character strings applied positionally (see Details).
-#' @param which Character scalar specifying which names to operate on.
+#' @param on Character scalar specifying which names to operate on.
 #'   One of \code{"names"} (default), \code{"rownames"}, or \code{"colnames"}.
 #'   Partial matching is supported.
 #' @param useGsub Logical scalar.  If \code{TRUE}, each mapping is applied as
@@ -83,34 +83,31 @@
 #' # Matrix: rename colnames selectively
 #' m <- matrix(1:6, nrow = 2,
 #'             dimnames = list(c("row_a", "row_b"), c("col_x", "col_y", "col_z")))
-#' renameX(m, col_x = "alpha", which = "colnames")
+#' renameX(m, col_x = "alpha", on = "colnames")
 #'
 #' # Matrix: uppercase all rownames via function mode
-#' renameX(m, toupper, which = "rownames")
+#' renameX(m, toupper, on = "rownames")
 #'
 #' # Matrix: rename rownames via gsub
-#' renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, which = "rownames")
+#' renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, on = "rownames")
 #'
-
-#' @family data.manipulation  
+#' @family data.manipulation
 #' @concept attribute
-#'
-#'
 #' @export
-renameX <- function(x, ..., which = "names",
+renameX <- function(x, ..., on = "names",
                     useGsub = FALSE, fixed = TRUE, warn = TRUE) {
   
-  which <- match.arg(which, c("names", "rownames", "colnames"))
+  on <- match.arg(on, c("names", "rownames", "colnames"))
   
   # --- extract the targeted names -------------------------------------------
-  nms <- switch(which,
+  nms <- switch(on,
                 names    = names(x),
                 rownames = rownames(x),
                 colnames = colnames(x)
   )
   
   if (is.null(nms))
-    stop(sprintf("Argument 'x' has no %s.", which))
+    stop(sprintf("Argument 'x' has no %s.", on))
   
   # --- early exit if nothing to do ------------------------------------------
   dots <- list(...)
@@ -120,31 +117,34 @@ renameX <- function(x, ..., which = "names",
   # --- function mode: single function in ... --------------------------------
   if (length(dots) == 1L && is.function(dots[[1L]])) {
     nms <- dots[[1L]](nms)
-    return(.assignNames(x, nms, which))
+    return(.assignNames(x, nms, on))
   }
   
+  if (any(vapply(dots, is.function, logical(1))))
+    stop("A function must be the only argument in '...'.")
+
   subst <- c(...)
-  
+
   # --- guard: mixed named/unnamed arguments are ambiguous ------------------
-  arg_nms    <- names(subst)
-  all_named  <- all(nzchar(arg_nms))
-  none_named <- all(!nzchar(arg_nms))
-  if (!(all_named || none_named))
+  argNms    <- names(subst)
+  allNamed  <- all(nzchar(argNms))
+  noneNamed <- all(!nzchar(argNms))
+  if (!(allNamed || noneNamed))
     stop("Either all or none of the replacement arguments in '...' must be named.")
   
   # --- positional mode: replaces names(x)[1:length(subst)] -----------------
-  if (none_named) {
+  if (noneNamed) {
     if (length(subst) > length(nms))
       stop("More replacement names supplied than names exist in 'x'.")
     nms[seq_along(subst)] <- subst
-    return(.assignNames(x, nms, which))
+    return(.assignNames(x, nms, on))
   }
   
   # --- pattern mode (gsub over all names) -----------------------------------
   if (useGsub) {
     for (i in seq_along(subst))
       nms <- gsub(names(subst)[i], subst[i], nms, fixed = fixed)
-    return(.assignNames(x, nms, which))
+    return(.assignNames(x, nms, on))
   }
   
   # --- exact mode (match old names, replace with new) ----------------------
@@ -161,13 +161,13 @@ renameX <- function(x, ..., which = "names",
   if (length(i))
     nms[i] <- subst
   
-  .assignNames(x, nms, which)
+  .assignNames(x, nms, on)
 }
 
 
 # internal helper: write nms back to the correct slot of x
-.assignNames <- function(x, nms, which) {
-  switch(which,
+.assignNames <- function(x, nms, on) {
+  switch(on,
          names    = { names(x)    <- nms },
          rownames = { rownames(x) <- nms },
          colnames = { colnames(x) <- nms }

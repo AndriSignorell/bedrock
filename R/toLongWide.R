@@ -42,15 +42,20 @@
 #' PlantGrowth$nr <- c(sample(12, 10), sample(12, 10), sample(12, 10))
 #' toWide(PlantGrowth$weight, PlantGrowth$group, by = PlantGrowth$nr)
 #'
-#' @family topic.dataManipulation
-#' @concept data-manipulation
-#' @concept data-structures
+#' @family data.manipulation
+#' @concept reshape
 
 
 #' @export
 toLong <- function(x, varNames = NULL, includeRowNames = FALSE) {
   if (!is.list(x)) {
-    if (is.matrix(x) || is.table(x)) {
+    if (is.table(x)) {
+      # as.data.frame() would return the long frequency form (Var1,
+      # Var2, Freq) -- we need the rectangular structure
+      if (length(dim(x)) != 2L)
+        stop("only 2-dimensional tables are supported")
+      x <- as.data.frame.matrix(x)
+    } else if (is.matrix(x)) {
       x <- as.data.frame(x)
     }
     lst <- as.list(x)
@@ -78,10 +83,10 @@ toLong <- function(x, varNames = NULL, includeRowNames = FALSE) {
     )
   }
   
-  if (includeRowNames) {
+  if (includeRowNames && !is.null(rownames(x))) {
     res <- appendX(
       res,
-      rep(rownames(x), times = ncol(x)),
+      rep(rownames(x), times = length(lst)),
       after = 2
     )
   }
@@ -127,16 +132,23 @@ toWide <- function(x, groups, by = NULL, varNames = NULL) {
         colnames(x)[ncol(x)] <- paste0(colnames(x)[ncol(x) - 1L], "y")
       }
     }
-    
+
     z <- merge(x, y, by = by, all.x = TRUE, all.y = TRUE)
-    
+
     if (by == "row.names") {
+      # keep the keys as rownames: merge() sorts them as character
+      # ("1", "10", "2", ...) and dropping them would re-key the rows
+      # 1:n in that order, misaligning every subsequent merge
+      rownames(z) <- z[["Row.names"]]
       z <- z[, -grep("Row.names", names(z)), drop = FALSE]
     }
-    
+
     z
   }, s)
-  
+
+  if (by == "row.names")
+    res <- res[order(as.integer(rownames(res))), , drop = FALSE]
+
   colnames(res) <- varNames
   res
 }

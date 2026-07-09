@@ -41,3 +41,18 @@ test_that("splitX formula attaches data.name attribute", {
   res <- splitX(y ~ g, data = df)
   expect_false(is.null(attr(res, "data.name")))
 })
+
+test_that("splitX formula supports subset", {
+  df <- data.frame(y = 1:4, g = c("a","a","b","b"))
+  res <- splitX(y ~ g, data = df, subset = y > 1)
+  expect_equal(res$a, 2L)
+  expect_equal(res$b, c(3L, 4L))
+})
+
+test_that("splitX formula handles NAs via na.action", {
+  df <- data.frame(y = c(1, NA, 3, 4), g = c("a","a","b","b"))
+  res <- splitX(y ~ g, data = df, na.action = na.omit)
+  expect_equal(res$a, 1)
+  expect_equal(res$b, c(3, 4))
+})
+

@@ -10,14 +10,15 @@ pairApply(x, FUN = NULL, ..., symmetric = FALSE)
 \item{x}{a list, a data.frame or a matrix with columns to be processed
 pairwise.}
 
-\item{FUN}{a function to be calculated. It is assumed, that the first 2
-arguments denominate x and y.}
+\item{FUN}{a function (or the name of a function) to be calculated. It is
+assumed, that the first 2 arguments denominate x and y, and that it
+returns a single numeric value.}
 
 \item{\dots}{the dots are passed to FUN.}
 
 \item{symmetric}{logical. Does the function yield the same result for FUN(x,
 y) and FUN(y, x)? \cr If \code{TRUE} just the lower triangular matrix is
-calculated and transposed. Default is FALSE.}
+calculated and mirrored. Default is FALSE.}
 }
 \value{
 a matrix with the results of FUN.
@@ -28,7 +29,9 @@ data.frame or a matrix.
 }
 \details{
 This code is based on the logic of \code{cor()} and extended for asymmetric
-functions.
+functions. Cell \code{[i, j]} of the result contains
+\code{FUN(x[[i]], x[[j]], ...)}, so the first argument of \code{FUN}
+corresponds to the row variable and the second to the column variable.
 }
 \examples{
 
@@ -36,7 +39,7 @@ functions.
 set.seed(1)
 d.sub <- transform(
   data.frame(
-    X1 = rnorm(n <- 300), 
+    X1 = rnorm(n <- 300),
     X3 = rnorm(n)),
   X2 = 0.8*X1 + rnorm(n),
   X4 = 0.5*X3 + rnorm(n)
@@ -45,8 +48,8 @@ d.sub <- transform(
 pairApply(d.sub, FUN = cor, method="spearman")
 
 # user defined functions are ok as well
-pairApply(d.sub, 
-  FUN = function(x,y) 
+pairApply(d.sub,
+  FUN = function(x,y)
     wilcox.test(as.numeric(x), as.numeric(y))$p.value, symmetric=TRUE)
 
 }
@@ -63,6 +66,7 @@ Other vector.ops:
 \code{\link[=naIf]{naIf()}},
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=nz]{nz()}},
+\code{\link[=quot]{quot()}},
 \code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
 \code{\link[=vRot]{vRot()}},

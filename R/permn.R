@@ -1,5 +1,5 @@
 
-##' Set of Permutations
+#' Set of Permutations
 #'
 #' Returns all distinct permutations of a vector. Repeated values in `x`
 #' are treated as indistinguishable, so duplicated permutations are not returned.
@@ -11,7 +11,7 @@
 #' @return A matrix containing all distinct permutations of `x`, one
 #'   permutation per row.
 #'
-#' @seealso [utils::combn()], [base::factorial()], [bedrock::combPairs]
+#' @seealso [utils::combn()], [base::factorial()], [combPairs()]
 #'
 #' @examples
 #' permn(letters[2:5])
@@ -20,14 +20,9 @@
 #' # repeated elements are handled as indistinguishable
 #' permn(c("a", "b", "c", "a"))
 #'
-
-
-
-#' @family combinatorics  
-#' @concept combinatorics  
+#' @family combinatorics
+#' @concept combinatorics
 #' @concept sampling
-#'
-#'
 #' @export
 permn <- function(x, sortResults = FALSE) {
   
@@ -57,15 +52,12 @@ permn <- function(x, sortResults = FALSE) {
   
   vals <- names(tbl)
 
-  res <- .permn_inner(vals, cnts)
+  res <- .permnInner(vals, cnts)
   
   # map character keys back to original type via first occurrence in x
   lookup <- x[match(vals, as.character(x))]
   res    <- matrix(lookup[match(res, vals)], nrow = nrow(res))
-  
-  if (!is.null(names(x)))
-    colnames(res) <- names(x)
-  
+
   if (sortResults) res <- sortX(res)
   
   res
@@ -75,7 +67,7 @@ permn <- function(x, sortResults = FALSE) {
 
 # == internal helper functions =================================================
 
-.permn_inner <- function(vals, cnts) {
+.permnInner <- function(vals, cnts) {
   n <- sum(cnts)
   k <- length(vals)
   
@@ -93,8 +85,8 @@ permn <- function(x, sortResults = FALSE) {
     return(result)
   }
   
-  fvr_perms  <- .permn_inner(c("1", "0"), c(cnts[1L], n - cnts[1L]))
-  rest_perms <- .permn_inner(vals[-1L], cnts[-1L])
+  fvr_perms  <- .permnInner(c("1", "0"), c(cnts[1L], n - cnts[1L]))
+  rest_perms <- .permnInner(vals[-1L], cnts[-1L])
   
   nr_fvr  <- nrow(fvr_perms)
   nr_rest <- nrow(rest_perms)

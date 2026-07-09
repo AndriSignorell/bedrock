@@ -10,7 +10,8 @@ randGroupSplit(x, groupSizes)
 \item{x}{A vector containing the elements to be split into groups.}
 
 \item{groupSizes}{An integer vector specifying the sizes of the groups.
-The sum of \code{groupSizes} must equal \code{length(x)}.}
+The sum of \code{groupSizes} must equal \code{length(x)}. If the vector
+is named, the names are used as group names in the result.}
 }
 \value{
 A list of vectors, where each element corresponds to one group.
@@ -24,12 +25,16 @@ without replacement and each element is assigned to exactly one group.
 \details{
 This function is useful for random group assignments, for example in
 teaching settings, simulations, or experimental designs where groups
-of unequal sizes are required.
+of unequal sizes are required. It uses \code{\link{sample}}, so results
+can be made reproducible with \code{\link{set.seed}}.
 }
 \examples{
 # Split letters into 3 groups of sizes 4, 3, and 5
 set.seed(123)
 randGroupSplit(LETTERS[1:12], groupSizes = c(4, 3, 5))
+
+# named groups
+randGroupSplit(LETTERS[1:7], groupSizes = c(treat = 4, ctrl = 3))
 
 }
 \seealso{

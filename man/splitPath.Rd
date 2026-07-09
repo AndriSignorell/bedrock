@@ -2,7 +2,7 @@
 % Please edit documentation in R/splitPath.R
 \name{splitPath}
 \alias{splitPath}
-\title{Split a File Path into Components}
+\title{Split a File Path into Its Components}
 \usage{
 splitPath(path, lastIsFile = NULL)
 }
@@ -16,14 +16,17 @@ determines this automatically based on whether the path ends with a
 path separator.}
 }
 \value{
-A list with the following components:
+A list with the following components (each a vector of the same
+length as \code{path}):
 \describe{
 \item{normpath}{Normalized path as returned by \code{\link{normalizePath}}.}
 \item{drive}{Drive letter on Windows systems (e.g., \code{"C:"}),
 otherwise \code{NA}.}
-\item{dirname}{Directory path including trailing separator.}
+\item{dirname}{Directory path without drive letter, including trailing
+separator.}
 \item{fullfilename}{Full file name including extension (if applicable).}
-\item{fullpath}{Full directory path (same as \code{dirname}).}
+\item{fullpath}{Full directory path including drive letter and trailing
+separator.}
 \item{filename}{File name without extension.}
 \item{extension}{File extension without leading dot.}
 }
@@ -60,7 +63,8 @@ Other file.utils:
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
 \code{\link[=parseSASDatalines]{parseSASDatalines()}},
-\code{\link[=pdfManual]{pdfManual()}}
+\code{\link[=pdfManual]{pdfManual()}},
+\code{\link[=peekFile]{peekFile()}}
 }
 \concept{file.utils}
 \concept{programming}

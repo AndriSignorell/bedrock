@@ -4,7 +4,7 @@
 \alias{renameX}
 \title{Rename Elements of a Named Object}
 \usage{
-renameX(x, ..., which = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
+renameX(x, ..., on = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
 }
 \arguments{
 \item{x}{A named object.  Any type that supports \code{names()},
@@ -15,7 +15,7 @@ or matrix.}
 function to apply to all names (e.g. \code{toupper}), or unnamed
 character strings applied positionally (see Details).}
 
-\item{which}{Character scalar specifying which names to operate on.
+\item{on}{Character scalar specifying which names to operate on.
 One of \code{"names"} (default), \code{"rownames"}, or \code{"colnames"}.
 Partial matching is supported.}
 
@@ -94,13 +94,13 @@ renameX(y, `^v_` = "", useGsub = TRUE, fixed = FALSE)
 # Matrix: rename colnames selectively
 m <- matrix(1:6, nrow = 2,
             dimnames = list(c("row_a", "row_b"), c("col_x", "col_y", "col_z")))
-renameX(m, col_x = "alpha", which = "colnames")
+renameX(m, col_x = "alpha", on = "colnames")
 
 # Matrix: uppercase all rownames via function mode
-renameX(m, toupper, which = "rownames")
+renameX(m, toupper, on = "rownames")
 
 # Matrix: rename rownames via gsub
-renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, which = "rownames")
+renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, on = "rownames")
 
 }
 \seealso{
@@ -115,6 +115,8 @@ Other data.manipulation:
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
+\code{\link{long-wide-reshape}},
+\code{\link[=multMerge]{multMerge()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
 \code{\link[=recycle]{recycle()}},

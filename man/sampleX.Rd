@@ -8,31 +8,42 @@
 \usage{
 sampleX(x, size, replace = FALSE, prob = NULL)
 
-\method{sampleX}{data.frame}(x, size, replace = FALSE, prob = NULL)
+\method{sampleX}{data.frame}(x, size = nrow(x), replace = FALSE, prob = NULL)
 
 \method{sampleX}{default}(x, size, replace = FALSE, prob = NULL)
 }
 \arguments{
-\item{x}{either a vector of one or more elements from which to choose, or a
-positive integer.}
+\item{x}{either a vector of one or more elements from which to choose,
+or a positive integer, or a data frame whose rows are to be sampled.}
 
-\item{size}{a positive number, the number of items to choose from.}
+\item{size}{a non-negative integer giving the number of items (or rows)
+to choose. If missing, it defaults to the number of elements of \code{x}
+(resp. \code{nrow(x)} for data frames), yielding a random permutation.}
 
-\item{replace}{a non-negative integer giving the number of items to choose.}
+\item{replace}{logical. Should sampling be with replacement?}
 
-\item{prob}{should sampling be with replacement?}
+\item{prob}{a vector of probability weights for obtaining the elements
+(or rows) being sampled.}
 }
 \value{
-sampled elements in the same structure as x
+sampled elements in the same structure as \code{x}; for data
+frames, a data frame containing the sampled rows.
 }
 \description{
-\code{Sample} takes a sample of the specified size from the elements of x
-using either with or without replacement. The function does the same as the
-base::sample() and offers additionally an interface for data frames.
+\code{sampleX} takes a sample of the specified size from the elements
+of \code{x}, with or without replacement. It does the same as
+\code{base::sample()} and additionally offers an interface for data
+frames, where rows are sampled.
 }
 \examples{
 
-sampleX(Pizza, size=5)
+sampleX(1:10, size = 5)
+
+# random permutation, like sample(x)
+sampleX(1:10)
+
+# sample rows of a data frame
+sampleX(mtcars, size = 5)
 
 }
 \seealso{
@@ -48,5 +59,4 @@ Other combinatorics:
 }
 \concept{combinatorics}
 \concept{sampling}
-\keyword{IO}
 \keyword{distribution}

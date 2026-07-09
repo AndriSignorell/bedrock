@@ -44,7 +44,7 @@ tab <- matrix(c(401,216,221,254,259,169), nrow = 2, byrow = TRUE)
 b <- barplot(tab, beside = FALSE, horiz = TRUE)
 
 xpos <- t(apply(tab, 2, midx, inclZero = TRUE, cumulate = TRUE))
-text(tab, x = xpos, y = b, col = "red")
+text(x = xpos, y = b, labels = t(tab), col = "red")
 
 }
 \seealso{
@@ -59,6 +59,7 @@ Other vector.ops:
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=nz]{nz()}},
 \code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
 \code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
 \code{\link[=vRot]{vRot()}},

@@ -3,9 +3,14 @@
 #'
 #' Replaces \code{NA} values in a vector or factor with a specified value.
 #'
+#' For factors (including ordered factors), \code{value} is appended as a
+#' new level at the last position if it is not already present. If
+#' \code{value} is an existing level, the missing values are simply filled
+#' with it.
+#'
 #' @param x A vector or factor.
-#' @param value The replacement value. For factors, a character string that
-#'   will be added as a new level if not already present.
+#' @param value The replacement value. For factors, a single character
+#'   string.
 #'
 #' @return An object of the same class as \code{x} with \code{NA} values
 #'   replaced by \code{value}.
@@ -20,17 +25,12 @@
 #' # unordered factor
 #' naReplace(factor(c("a", "b", NA)), "missing")
 #'
-#' # ordered factor
+#' # ordered factor: the new level is appended at the end
 #' naReplace(factor(c("low", "high", NA), levels = c("low", "high"),
-#'                  ordered = TRUE), "medium")
+#'                  ordered = TRUE), "unknown")
 #'
-
-
-
-#' @family vector.ops  
+#' @family vector.ops
 #' @concept missing-value
-#'
-#'
 #' @export
 naReplace <- function(x, value) {
   UseMethod("naReplace")
@@ -47,26 +47,16 @@ naReplace.default <- function(x, value) {
 #' @rdname naReplace
 #' @export
 naReplace.factor <- function(x, value) {
-  if (value %in% levels(x))
-    warning(sprintf("'%s' already exists as a level.", value), call. = FALSE)
-  
-  x <- factor(x, exclude = NULL)
-  levels(x)[is.na(levels(x))] <- value
-  return(x)
+
+  # also handles ordered factors: levels<- preserves class and order,
+  # the new level is appended at the last position
+  if (length(value) != 1L)
+    stop("'value' must be a single value for factors.")
+
+  if (!value %in% levels(x))
+    levels(x) <- c(levels(x), value)
+
+  x[is.na(x)] <- value
+
+  x
 }
-
-
-#' @rdname naReplace
-#' @export
-naReplace.ordered <- function(x, value) {
-  if (value %in% levels(x))
-    warning(sprintf("'%s' already exists as a level.", value), call. = FALSE)
-  
-  x <- factor(x, levels = c(levels(x), value), ordered = TRUE, exclude = NULL)
-  levels(x)[is.na(levels(x))] <- value
-  return(x)
-}
-
-
-
-

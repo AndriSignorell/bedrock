@@ -28,7 +28,7 @@
 #' rdLabels("Pizza", "bedrock")
 #' }
 #'
-#' @seealso \code{\link[bedrock:label]{bedrock::label}}
+#' @seealso \code{\link{label}}
 #'
 
 
@@ -37,17 +37,14 @@
 #' @concept variable-labels
 #'
 #'
+#' @importFrom tools Rd_db
 #' @export
 rdLabels <- function(dataName, package) {
-  
-  if (!requireNamespace("bedrock", quietly = TRUE)) {
-    stop("Package 'bedrock' is required.")
-  }
-  
+
   if (missing(package)) {
     stop("Please provide a package name.")
   }
-  
+
   # --- 1. Rd database laden ---
   rd_db <- Rd_db(package)
   

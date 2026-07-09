@@ -9,7 +9,9 @@
 #'   provided, they are ranked lexicographically (like \code{order}).
 #'   All inputs must have the same length.
 #' @param decreasing Logical; if \code{TRUE}, larger values receive smaller
-#'   ranks (i.e., ranking in descending order).
+#'   ranks (i.e., ranking in descending order). When ranking multiple
+#'   inputs, a logical vector may be given to control the direction per
+#'   input.
 #' @param na.last Logical or \code{"keep"}; determines the placement of
 #'   \code{NA} values. Passed to \code{data.table::frankv}.
 #' @param ties.method Character string specifying how ties are handled.
@@ -66,23 +68,27 @@
 #' b <- c(2, 1, 2, 1)
 #' rankX(a, b)
 #'
-
-
-
-#' @family math.utils  
-#' @concept ordering  
-#' @concept rank-correlation
-#'
-#'
+#' @family math.utils
+#' @concept ordering
 #' @export
 rankX <- function(..., decreasing = FALSE, na.last = TRUE, 
                  ties.method = c("average", "first", "last", 
                                  "random", "max", "min", "dense")) {
-  
+
+  if (!requireNamespace("data.table", quietly = TRUE))
+    stop("Package 'data.table' is required for rankX(), please install it",
+         call. = FALSE)
+
   ties.method <- match.arg(ties.method)
-  
+
+  if (...length() == 0L)
+    stop("no input vectors supplied")
+
+  if (!is.logical(decreasing) || anyNA(decreasing))
+    stop("'decreasing' must be TRUE or FALSE")
+
   x <- list(...)
-  
+
   if (length(x) == 1L) {
     x <- x[[1]]
   } else {

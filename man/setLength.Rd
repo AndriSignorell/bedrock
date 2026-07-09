@@ -9,10 +9,10 @@ setLength(x, n, fill = NA)
 \arguments{
 \item{x}{a vector}
 
-\item{n}{target length}
+\item{n}{target length, a single non-negative whole number}
 
 \item{fill}{value used for newly added elements when \code{x} is
-extended (default \code{""})}
+extended (default \code{NA})}
 }
 \value{
 \code{x}, of length \code{n}
@@ -40,6 +40,7 @@ Other vector.ops:
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=nz]{nz()}},
 \code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
 \code{\link[=trim]{trim()}},
 \code{\link[=vRot]{vRot()}},
 \code{\link[=vShift]{vShift()}},

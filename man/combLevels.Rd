@@ -47,6 +47,8 @@ x <- c("A", NA)
 y <- c("B", NA)
 combLevels(x, y, na = TRUE)
 
+
+
 }
 \seealso{
 Other data.manipulation:
@@ -57,6 +59,8 @@ Other data.manipulation:
 \code{\link[=asBinary]{asBinary()}},
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=dummy]{dummy()}},
+\code{\link{long-wide-reshape}},
+\code{\link[=multMerge]{multMerge()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
 \code{\link[=recycle]{recycle()}},

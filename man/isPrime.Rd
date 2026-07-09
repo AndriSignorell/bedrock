@@ -21,16 +21,16 @@ Determines whether integer values are prime numbers.
 This function is vectorized and returns a logical vector of the
 same length as the input.
 
-Internally, this function uses a fast deterministic primality test
-for 64-bit integers.
+Internally, a fast deterministic primality test for 64-bit integers
+is used.
 
-Non-integer or non-finite values will result in \code{FALSE}.
+Non-integer, negative, missing, or non-finite values result in
+\code{FALSE}.
 }
 \examples{
 isPrime(2)
 isPrime(1:10)
 isPrime(c(17, 18, 19))
-
 
 }
 \seealso{

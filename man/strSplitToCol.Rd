@@ -71,7 +71,6 @@ strSplitToCol(df)
 }
 \seealso{
 Other string.utilities:
-\code{\link[=mReplace]{mReplace()}},
 \code{\link[=strSplitToDummy]{strSplitToDummy()}}
 }
 \concept{reshape}

@@ -24,8 +24,10 @@ of all the values present in its arguments.
 }
 \details{
 The computation is based on the Euclidean algorithm without using the
-extended version.The greatest common divisor for all numbers in the integer
-vector \code{x} will be computed (the multiple GCD).
+extended version. The greatest common divisor for all numbers in the integer
+vector \code{x} will be computed (the multiple GCD). Negative values are
+allowed and enter via their absolute value; logical vectors are coerced
+to integer.
 }
 \note{
 The following relation is always true:

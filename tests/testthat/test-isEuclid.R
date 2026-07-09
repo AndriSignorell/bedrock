@@ -13,7 +13,7 @@ test_that("isEuclid returns attributes", {
   res <- isEuclid(d)
 
   expect_true(!is.null(attr(res, "eigenvalues")))
-  expect_true(!is.null(attr(res, "min_eigenvalue")))
+  expect_true(!is.null(attr(res, "minEigenvalue")))
 })
 
 test_that("isEuclid errors on invalid input", {

@@ -4,22 +4,32 @@
 \alias{nz}
 \title{Extract Non-Zero Values}
 \usage{
-nz(x)
+nz(x, tol = sqrt(.Machine$double.eps))
 }
 \arguments{
 \item{x}{A numeric vector.}
+
+\item{tol}{Tolerance passed to \code{\link{isZero}}.}
 }
 \value{
 A vector containing only the non-zero elements of \code{x}.
 }
 \description{
-Returns all non-zero elements of a vector.
+Returns all non-zero elements of a vector. Zeroness is determined by
+\code{\link{isZero}}, i.e. within a numerical tolerance.
 }
 \details{
-This is a convenience function primarily intended for use in
-model formulas or quick vector filtering.
+\code{NA} elements are not considered zero and are retained in the
+result.
+}
+\examples{
+nz(c(0, 1, 2, 0, 3))
+nz(c(1e-20, 1, NA))
+
 }
 \seealso{
+\code{\link{isZero}}
+
 Other vector.ops:
 \code{\link[=closest]{closest()}},
 \code{\link[=coalesceX]{coalesceX()}},
@@ -29,6 +39,7 @@ Other vector.ops:
 \code{\link[=naIf]{naIf()}},
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
 \code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
 \code{\link[=vRot]{vRot()}},

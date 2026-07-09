@@ -63,7 +63,7 @@ where the summation range depends on \code{align}.
 
 For even \code{order}, centering is ambiguous.  This implementation
 averages the two adjacent right-aligned windows of width \code{order},
-which is the convention used by \code{\link[forecast]{ma}}.
+which is the convention used by \code{forecast::ma()}.
 
 \strong{Boundary handling (\code{endrule = "trim"})}
 
@@ -86,8 +86,8 @@ moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 
 }
 \seealso{
-\code{\link[caTools]{runmean}},
-\code{\link[forecast]{ma}}
+\code{caTools::runmean()},
+\code{forecast::ma()}
 
 Other vector.ops:
 \code{\link[=closest]{closest()}},
@@ -98,6 +98,7 @@ Other vector.ops:
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=nz]{nz()}},
 \code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
 \code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
 \code{\link[=vRot]{vRot()}},

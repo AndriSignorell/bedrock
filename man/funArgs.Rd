@@ -2,12 +2,12 @@
 % Please edit documentation in R/funArgs.R
 \name{funArgs}
 \alias{funArgs}
-\title{List all arguments of a function}
+\title{List All Arguments of a Function}
 \usage{
 funArgs(
   fun,
   package = NULL,
-  sort = FALSE,
+  sorted = FALSE,
   output = c("data.frame", "list", "string")
 )
 }
@@ -16,8 +16,8 @@ funArgs(
 
 \item{package}{Optional package name used to resolve \code{fun}.}
 
-\item{sort}{Logical; should arguments be sorted alphabetically?
-Ignored when \code{output = "list"}.}
+\item{sorted}{Logical; should arguments be sorted alphabetically?
+\code{...} is always kept last. Ignored when \code{output = "list"}.}
 
 \item{output}{Character string specifying the output format:
 \itemize{
@@ -60,7 +60,6 @@ Other pkg.introspection:
 \code{\link[=funList]{funList()}},
 \code{\link[=getDotsArg]{getDotsArg()}},
 \code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=quot]{quot()}},
 \code{\link[=rdLabels]{rdLabels()}},
 \code{\link[=rdTitle]{rdTitle()}},
 \code{\link[=strX]{strX()}}

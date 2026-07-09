@@ -8,7 +8,7 @@ crossProdN(A)
 }
 \arguments{
 \item{A}{A numeric or complex vector of length 2, or a matrix of dimension
-\eqn{n \times (n+1)}.}
+\eqn{n x (n+1)}.}
 }
 \value{
 A numeric or complex vector of length \eqn{n+1}.
@@ -18,19 +18,26 @@ Computes a vector orthogonal to all rows of a matrix using a determinant-based
 construction. This generalizes the cross product to higher dimensions.
 }
 \details{
-For a matrix \eqn{A} with dimensions \eqn{n \times (n+1)}, the result is a vector
-in \eqn{\mathbb{R}^{n+1}} orthogonal to all rows of \eqn{A}. The components are
+For a matrix \eqn{A} with dimensions \eqn{n x (n+1)}, the result is a vector
+in \eqn{R^{n+1}} orthogonal to all rows of \eqn{A}. The components are
 given by:
 \deqn{
 v_i = (-1)^{i+1} \det(A_{-i})
 }
 where \eqn{A_{-i}} is the matrix obtained by removing the \eqn{i}-th column.
 
-For a vector of length 2, the function returns a perpendicular vector.
+For a vector of length 2, the function returns the perpendicular vector
+\eqn{(a_2, -a_1)}, consistent with the formula above.
 
-This function computes a nullspace vector using SVD and rescales it to match
-the magnitude of the determinant-based generalized cross product.
-The sign is fixed by enforcing the first non-zero component to be positive.
+Internally, the function computes a nullspace vector using SVD (which is
+numerically stable also for ill-conditioned input) and rescales it to match
+the magnitude of the determinant-based generalized cross product. For
+numeric input, the sign is chosen to reproduce the orientation of the
+determinant formula (and hence
+anticommutativity: swapping two rows of \eqn{A} flips the sign of the
+result). For complex input, where \code{det()} is not available, the sign
+is fixed by the convention that the first component with non-zero modulus
+has a positive real part.
 }
 \examples{
 # 2D case
@@ -41,11 +48,15 @@ A <- matrix(c(1,0,0,
               0,1,0), nrow = 2, byrow = TRUE)
 crossProdN(A)
 
+# swapping rows flips the sign (anticommutativity)
+crossProdN(A[2:1, ])
+
 }
 \seealso{
 Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=linScale]{linScale()}},
 \code{\link[=logit]{logit()}},
 \code{\link[=nUnique]{nUnique()}},

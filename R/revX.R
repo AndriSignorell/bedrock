@@ -37,8 +37,8 @@
 #' t(tab)
 #' 
 #' # reverse 3dimensional array
-#' aa <- abind(tab, 2 * tab, along=3)
-#' dimnames(aa)[[3]] <- c("A","Z")
+#' aa <- array(c(tab, 2 * tab), dim = c(3, 3, 2),
+#'             dimnames = c(dimnames(tab), list(mar3 = c("A", "Z"))))
 #' 
 #' # reverse rows
 #' revX(aa, 1)
@@ -71,26 +71,28 @@ revX <- function(x, ...) {
 #' @rdname revX
 #' @export
 revX.default <- function(x, ...){
-  # refuse accepting margins here
-  if(length(list(...)) > 0 && length(dim(x)) == 1 && !identical(list(...), 1))
-    warning("margin has been supplied and will be discarded.")
+  # margins make no sense for plain vectors
+  if (...length() > 0L)
+    warning("'margin' has been supplied and will be discarded.")
   rev(x)
 }
 
 
 #' @rdname revX
 #' @export
-revX.array <- function(x, margin, ...) {
-  
+revX.array <- function(x, margin = seq_along(dim(x)), ...) {
+
   if (!is.array(x))
     stop("'x' is not an array")
-  
-  newdim <- rep("", length(dim(x)))
-  newdim[margin] <- paste(dim(x), ":1", sep="")[margin]
-  z <- eval(parse(text=gettextf("x[%s, drop = FALSE]", paste(newdim, sep="", collapse=","))))
+
+  # build an index list: empty index for untouched dims, d:1 for reversed
+  idx <- rep(list(quote(expr = )), length(dim(x)))
+  idx[margin] <- lapply(dim(x)[margin], function(d) d:1L)
+
+  z <- do.call(`[`, c(list(x), idx, list(drop = FALSE)))
   class(z) <- oldClass(x)
   return(z)
-  
+
 }
 
 
@@ -106,11 +108,11 @@ revX.table <- revX.array
 
 #' @rdname revX
 #' @export
-revX.data.frame <- function(x, margin, ...) {
-  
+revX.data.frame <- function(x, margin = 1:2, ...) {
+
   if(1 %in% margin) x <- x[nrow(x):1L,]
   if(2 %in% margin) x <- x[, ncol(x):1L]
-  
+
   return(x)
 }
 

@@ -187,7 +187,9 @@ is.numeric(r5$predictor)
 
 Other data.utils:
 \code{\link[=binaryTree]{binaryTree()}},
+\code{\link{intervals}},
 \code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link{range-operators}},
 \code{\link[=resolveContingency]{resolveContingency()}},
 \code{\link[=resolveGroups]{resolveGroups()}}
 }

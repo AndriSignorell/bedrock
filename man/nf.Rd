@@ -24,11 +24,17 @@ It is useful for converting categorical or character variables into
 integer codes representing factor levels.
 
 Note that the resulting numeric values correspond to the internal
-factor levels, not the original numeric values.
+factor levels, not the original numeric values. In particular, for
+character vectors holding numbers the codes follow the alphabetical
+level order (see the last example) -- use
+\code{as.numeric(as.character(x))} to recover the values themselves.
 }
 \examples{
 nf(c("a", "b", "a"))
 nf(c("low", "medium", "high"), levels = c("low", "medium", "high"))
+
+# caution: codes, not values
+nf(c("10", "2"))    # 1 2, not 10 2
 
 }
 \seealso{
@@ -43,6 +49,8 @@ Other data.manipulation:
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
+\code{\link{long-wide-reshape}},
+\code{\link[=multMerge]{multMerge()}},
 \code{\link[=recodeX]{recodeX()}},
 \code{\link[=recycle]{recycle()}},
 \code{\link[=renameX]{renameX()}},

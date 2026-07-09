@@ -11,8 +11,9 @@
 #'
 #' @details
 #' The function splits \code{x} into consecutive chunks defined by \code{pos}.
-#' Internally, positions are sorted, duplicates are removed, and values outside
-#' the valid index range \code{[1, length(x)]} are ignored.
+#' Internally, positions are sorted, duplicates are removed, and values that
+#' would not produce a non-empty segment (\code{pos < 2} or
+#' \code{pos > length(x)}) are ignored. Empty segments are never returned.
 #'
 #' Each element of the returned list corresponds to a contiguous subset of
 #' \code{x}. The first segment always starts at position 1.
@@ -38,17 +39,24 @@
 #'
 #' @export
 splitAt <- function(x, pos) {
-  
+
+  if (!is.numeric(pos) || anyNA(pos) || any(pos %% 1 != 0))
+    stop("'pos' must contain whole numbers only.")
+
   n <- length(x)
-  
-  pos <- sort(unique(pos))
-  pos <- pos[pos >= 1L & pos <= n]
-  
+
+  if (n == 0L)
+    return(list(x))
+
+  pos <- sort(unique(as.integer(pos)))
+  # pos = 1 would create an empty leading segment; suppress it, like
+  # positions outside the valid range
+  pos <- pos[pos >= 2L & pos <= n]
+
   idx <- c(1L, pos, n + 1L)
-  
-  Map(function(i, j) {
-    if(i > (j - 1L)) x[0] else x[i:(j - 1L)]
-  }, head(idx, -1L), tail(idx, -1L))
-  
+
+  Map(function(i, j) x[i:(j - 1L)],
+      head(idx, -1L), tail(idx, -1L))
+
 }
 

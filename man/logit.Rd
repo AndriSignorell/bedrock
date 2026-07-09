@@ -23,8 +23,8 @@ real number.}
 Default: \code{.Machine$double.eps}.}
 
 \item{warn}{Logical; if \code{TRUE}, a warning is issued when values are
-effectively clamped because they fall outside the open interval
-\eqn{(min, max)}. Default: \code{FALSE}.}
+effectively clamped because they fall outside \eqn{(eps, 1 - eps)} after
+rescaling. Default: \code{FALSE}.}
 }
 \value{
 A numeric vector of the same length as \code{x}.
@@ -88,6 +88,7 @@ logit(c(-0.1, 0.5, 1.1), warn = TRUE)
 x <- seq(10, 20, length.out = 5)
 z <- logit(x, min = 10, max = 20)
 logitInv(z, min = 10, max = 20)
+
 }
 \seealso{
 \code{\link[stats]{qlogis}}, \code{\link[stats]{plogis}}
@@ -96,6 +97,7 @@ Other math.utils:
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=linScale]{linScale()}},
 \code{\link[=nUnique]{nUnique()}},
 \code{\link[=percentRank]{percentRank()}},

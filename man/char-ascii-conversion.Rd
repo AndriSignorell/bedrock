@@ -88,7 +88,8 @@ charToRaw("Silvia")
 \code{\link{rawToChar}}
 
 Other string:
-\code{\link[=mGsub]{mGsub()}}
+\code{\link[=mGsub]{mGsub()}},
+\code{\link[=mReplace]{mReplace()}}
 }
 \concept{character-conversion}
 \concept{string}

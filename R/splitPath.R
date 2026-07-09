@@ -1,6 +1,6 @@
 
 
-#' Split a File Path into Components
+#' Split a File Path into Its Components
 #'
 #' Splits a file path into its components such as directory, file name,
 #' and extension. The function is OS-aware and works on both Windows
@@ -13,14 +13,17 @@
 #'   determines this automatically based on whether the path ends with a
 #'   path separator.
 #'
-#' @return A list with the following components:
+#' @return A list with the following components (each a vector of the same
+#' length as \code{path}):
 #' \describe{
 #'   \item{normpath}{Normalized path as returned by \code{\link{normalizePath}}.}
 #'   \item{drive}{Drive letter on Windows systems (e.g., \code{"C:"}),
 #'     otherwise \code{NA}.}
-#'   \item{dirname}{Directory path including trailing separator.}
+#'   \item{dirname}{Directory path without drive letter, including trailing
+#'     separator.}
 #'   \item{fullfilename}{Full file name including extension (if applicable).}
-#'   \item{fullpath}{Full directory path (same as \code{dirname}).}
+#'   \item{fullpath}{Full directory path including drive letter and trailing
+#'     separator.}
 #'   \item{filename}{File name without extension.}
 #'   \item{extension}{File extension without leading dot.}
 #' }
@@ -54,32 +57,43 @@
 #'
 #' @export
 splitPath <- function(path, lastIsFile = NULL) {
-  
-  path <- normalizePath(path, mustWork = FALSE)
-  drive <- if (.Platform$OS.type == "windows") substr(path, 1, 2) else NA_character_
-  
+
+  if (!is.character(path))
+    stop("'path' must be a character vector.")
+
+  # detect trailing separator BEFORE normalizePath(), which strips it
   if (is.null(lastIsFile)) {
     lastIsFile <- !grepl("[/\\\\]$", path)
+  } else {
+    lastIsFile <- rep_len(as.logical(lastIsFile), length(path))
   }
-  
-  fullfilename <- if (lastIsFile) basename(path) else NA_character_
-  dirname_ <- dirname(path)
-  
-  if (!lastIsFile) {
-    dirname_ <- file.path(dirname_, basename(path))
-  }
-  
-  filename <- if (lastIsFile) tools::file_path_sans_ext(fullfilename) else NA_character_
-  extension <- if (lastIsFile) tools::file_ext(fullfilename) else NA_character_
+
+  path <- normalizePath(path, winslash = "/", mustWork = FALSE)
+
+  hasDrive <- .Platform$OS.type == "windows" & grepl("^[A-Za-z]:", path)
+  drive    <- ifelse(hasDrive, substr(path, 1L, 2L), NA_character_)
+
+  fullfilename <- ifelse(lastIsFile, basename(path), NA_character_)
+  dirn         <- ifelse(lastIsFile, dirname(path), path)
+
+  filename  <- ifelse(lastIsFile,
+                      tools::file_path_sans_ext(fullfilename),
+                      NA_character_)
+  extension <- ifelse(lastIsFile,
+                      tools::file_ext(fullfilename),
+                      NA_character_)
+
+  # dirname without the drive letter (fixed-prefix strip, no regex)
+  dirnNoDrive <- ifelse(hasDrive, substring(dirn, 3L), dirn)
 
   list(
-    normpath = path,
-    drive = drive,
-    dirname = paste0(gsub(drive, "", dirname_), "/"),
+    normpath     = path,
+    drive        = drive,
+    dirname      = paste0(dirnNoDrive, "/"),
     fullfilename = fullfilename,
-    fullpath = paste0(dirname_, "/"),
-    filename = filename,
-    extension = extension
+    fullpath     = paste0(dirn, "/"),
+    filename     = filename,
+    extension    = extension
   )
 }
 

@@ -19,7 +19,7 @@ calculating the quotients.}
 \value{
 If \code{x} is a vector of length \code{n} and \code{quotients = 1},
 then the computed result is equal to the successive quotients
-\code{x[(1+lag):n] - x[1:(n-lag)]}.
+\code{x[(1+lag):n] / x[1:(n-lag)]}.
 
 If \code{quotients} is larger than one this algorithm is applied recursively
 to \code{x}.  Note that the returned value is a vector which is shorter than
@@ -29,7 +29,7 @@ If \code{x} is a matrix then the division operations are carried out on each
 column separately.
 }
 \description{
-Returns suitably lagged and iterated quotients
+Returns suitably lagged and iterated quotients.
 }
 \details{
 \code{\link{NA}}'s propagate.
@@ -50,18 +50,22 @@ New S Language}.  Wadsworth & Brooks/Cole.
 \seealso{
 \code{\link{diff}}
 
-Other pkg.introspection:
-\code{\link[=extractArgs]{extractArgs()}},
-\code{\link[=funArgs]{funArgs()}},
-\code{\link[=funCalls]{funCalls()}},
-\code{\link[=funKeywords]{funKeywords()}},
-\code{\link[=funList]{funList()}},
-\code{\link[=getDotsArg]{getDotsArg()}},
-\code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=rdLabels]{rdLabels()}},
-\code{\link[=rdTitle]{rdTitle()}},
-\code{\link[=strX]{strX()}}
+Other vector.ops:
+\code{\link[=closest]{closest()}},
+\code{\link[=coalesceX]{coalesceX()}},
+\code{\link[=locf]{locf()}},
+\code{\link[=midx]{midx()}},
+\code{\link[=moveAvg]{moveAvg()}},
+\code{\link[=naIf]{naIf()}},
+\code{\link[=naReplace]{naReplace()}},
+\code{\link[=nz]{nz()}},
+\code{\link[=pairApply]{pairApply()}},
+\code{\link[=setLength]{setLength()}},
+\code{\link[=trim]{trim()}},
+\code{\link[=vRot]{vRot()}},
+\code{\link[=vShift]{vShift()}},
+\code{\link[=winsorize]{winsorize()}}
 }
-\concept{pkg.introspection}
-\concept{programming}
+\concept{time-series}
+\concept{vector.ops}
 \keyword{arith}

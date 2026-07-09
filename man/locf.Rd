@@ -10,7 +10,7 @@ locf(x)
 \item{x}{a vector, a data.frame or a matrix containing NAs.}
 }
 \value{
-a vector with the same dimension as x.
+an object of the same type and dimension as \code{x}.
 }
 \description{
 In longitudinal studies it's common that individuals drop out before all
@@ -25,7 +25,9 @@ variable for each individual regardless of when it occurred.
 \code{locf()} replaces \code{NA}s with the most recent non-NA prior to it.
 
 The function will replace all NAs found in a vector with the last earlier
-value not being NA. In data.frames each column will be treated as described.
+value not being NA. In data frames and matrices each column is treated
+separately, so that values are never carried across column boundaries.
+Factors are supported and keep their levels and ordering.
 
 It should be noted, that the last observation carried forward approach may
 result in biased estimates and may underestimate the variability.
@@ -38,6 +40,7 @@ d.frm <- data.frame(
 
 d.frm$locf <- locf( d.frm$val )
 d.frm
+
 }
 \seealso{
 See also the package \pkg{Hmisc} for less coarse imputation
@@ -52,6 +55,7 @@ Other vector.ops:
 \code{\link[=naReplace]{naReplace()}},
 \code{\link[=nz]{nz()}},
 \code{\link[=pairApply]{pairApply()}},
+\code{\link[=quot]{quot()}},
 \code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
 \code{\link[=vRot]{vRot()}},

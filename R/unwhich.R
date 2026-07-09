@@ -106,8 +106,8 @@ unwhich <- function(idx,
         names(res) <- nm
       }
     } else {
-      # negative: all FALSE by default; set all except excluded to TRUE
-      res[-idx] <- TRUE
+      # negative: R's negative indexing selects "all except" directly
+      res[idx] <- TRUE
     }
   }
   

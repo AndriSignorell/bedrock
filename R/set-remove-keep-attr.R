@@ -8,7 +8,10 @@
 #'
 #' @param x Object to modify
 #' @param attrNames Character vector of attribute names
-#' @param attrValues Values for the attributes (only for setting)
+#' @param attrValues Values for the attributes (only for setting). For a
+#'   single attribute name, \code{attrValues} is taken as the value itself
+#'   (which may be a vector). For several names, supply one value per name;
+#'   use a list for non-scalar or mixed-type values.
 #'
 #' @return Modified object
 #'
@@ -22,6 +25,12 @@
 #'   attrNames = c("some_attr", "other_attr"),
 #'   attrValues = c("First attribute", "Second attribute")
 #' )
+#'
+#' # a single attribute can take a vector value
+#' setAttr(1:10, "dim", c(2, 5))
+#'
+#' # several non-scalar values via list
+#' setAttr(1:10, c("dim", "myattr"), list(c(2, 5), "abc"))
 #'
 #' # remove single attribute
 #' removeAttr(x, "other_attr")
@@ -37,24 +46,32 @@ NULL
 
 #' @rdname setAttr-removeAttr-keepAttr
 #' @family data.manipulation
-#' @concept data-manipulation
-#' @concept data-structures
+#' @concept attribute
 
 #' @export
 setAttr <- function(x, attrNames, attrValues) {
-  
+
   if (!is.character(attrNames)) {
     stop("attrNames must be a character vector.")
   }
-  
+
+  if (!is.list(attrValues)) {
+    # a single attribute may take a whole vector as its value,
+    # e.g. setAttr(x, "dim", c(2, 5))
+    attrValues <- if (length(attrNames) == 1L)
+      list(attrValues)
+    else
+      as.list(attrValues)
+  }
+
   if (length(attrNames) != length(attrValues)) {
     stop("attrNames and attrValues must have the same length.")
   }
-  
+
   for (i in seq_along(attrNames)) {
-    attr(x, which = attrNames[i]) <- attrValues[i]
+    attr(x, which = attrNames[i]) <- attrValues[[i]]
   }
-  
+
   x
 }
 

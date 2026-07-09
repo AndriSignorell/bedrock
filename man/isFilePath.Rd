@@ -2,15 +2,15 @@
 % Please edit documentation in R/isURL.R
 \name{isFilePath}
 \alias{isFilePath}
-\title{Check whether a string is a file path}
+\title{Check Whether a String Is a File Path}
 \usage{
 isFilePath(x)
 }
 \arguments{
-\item{x}{\code{character(1)} – the string to test.}
+\item{x}{\code{character(1)} - the string to test.}
 }
 \value{
-\code{logical(1)} – \code{TRUE} if \code{x} is a file path, \code{FALSE} otherwise.
+\code{logical(1)} - \code{TRUE} if \code{x} is a file path, \code{FALSE} otherwise.
 }
 \description{
 Returns \code{TRUE} if the given string looks like a local file path (absolute
@@ -28,4 +28,21 @@ isFilePath("https://example.com/f.csv")  # FALSE
 }
 \seealso{
 \code{\link[=isURL]{isURL()}} for the complementary URL check.
+
+Other data.inspection:
+\code{\link[=allDuplicated]{allDuplicated()}},
+\code{\link[=allIdentical]{allIdentical()}},
+\code{\link{between}},
+\code{\link[=compareDataFrames]{compareDataFrames()}},
+\code{\link[=completeColumns]{completeColumns()}},
+\code{\link[=countCompCases]{countCompCases()}},
+\code{\link[=flags]{flags()}},
+\code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isEuclid]{isEuclid()}},
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isURL]{isURL()}},
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=isZero]{isZero()}}
 }
+\concept{data.inspection}
+\concept{ordering}

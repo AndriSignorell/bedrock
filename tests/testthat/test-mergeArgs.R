@@ -118,25 +118,27 @@ test_that("multiple forbidden arguments are removed", {
 })
 
 
-test_that("nested lists are merged recursively", {
-  
+test_that("nested lists are replaced wholesale (flat override)", {
+
   defaults <- list(
     a = 1,
     opts = list(x = 10, y = 20)
   )
-  
+
   user <- list(
     opts = list(y = 99)
   )
-  
+
+  # mergeArgs overrides per top-level key; opts is replaced entirely,
+  # so x = 10 does not survive
   expect_equal(
     mergeArgs(defaults, user),
     list(
       a = 1,
-      opts = list(x = 10, y = 99)
+      opts = list(y = 99)
     )
   )
-  
+
 })
 
 
@@ -178,13 +180,14 @@ test_that("works with empty forbidden vector", {
 })
 
 
-test_that("unnamed user list is accepted", {
-  
+test_that("unnamed user list is rejected", {
+
   defaults <- list(a = 1)
-  
-  res <- mergeArgs(defaults, list(1, 2))
-  
-  expect_true(is.list(res))
-  
+
+  expect_error(
+    mergeArgs(defaults, list(1, 2)),
+    "fully named list"
+  )
+
 })
 

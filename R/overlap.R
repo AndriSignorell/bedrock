@@ -53,9 +53,8 @@
 #' overlap(m, c(4, 7))
 #'
 #' @name intervals
-#' @family interval.ops
-#' @concept interval-arithmetic
-#' @concept mathematics
+#' @family data.utils
+#' @concept range
 NULL
 
 #' @rdname intervals
@@ -116,9 +115,21 @@ distance <- function(x, y) {
 #'
 #' @return A list with normalized and recycled matrices `x` and `y`
 #' @keywords internal
+#' @noRd
 .intervalEngine <- function(x, y) {
-  if (is.vector(x)) x <- matrix(x, ncol = 2, byrow = TRUE)
-  if (is.vector(y)) y <- matrix(y, ncol = 2, byrow = TRUE)
+
+  toMat <- function(z, name) {
+    if (is.null(dim(z))) {
+      # is.null(dim()) instead of is.vector(): the latter fails for
+      # vectors carrying attributes (e.g. a label)
+      if (length(z) != 2L)
+        stop(sprintf("'%s' must be a vector of length 2 or a matrix with 2 columns.", name))
+      z <- matrix(z, ncol = 2, byrow = TRUE)
+    }
+    z
+  }
+  x <- toMat(x, "x")
+  y <- toMat(y, "y")
   
   if (ncol(x) != 2L || ncol(y) != 2L) {
     stop("x and y must have exactly 2 columns (interval bounds).")

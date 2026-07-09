@@ -2,7 +2,7 @@
 % Please edit documentation in R/isOdd.R
 \name{isOdd}
 \alias{isOdd}
-\title{Test if numbers are odd}
+\title{Test if Numbers Are Odd}
 \usage{
 isOdd(x)
 }
@@ -20,6 +20,7 @@ Checks whether elements of a numeric vector are odd integers.
 \details{
 The function first checks whether values are finite integers. Non-integer
 values (e.g. 3.5), \code{NA}, \code{NaN}, or \code{Inf} return \code{NA}.
+A bare logical \code{NA} is accepted and treated as a missing numeric value.
 }
 \examples{
 isOdd(1:5)

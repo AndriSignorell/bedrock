@@ -52,15 +52,18 @@
 setNamesX <- function (x, ...) {
   
   # see also setNames()
-  # args <- match.call(expand.dots = FALSE)$...
   args <- list(...)
-  
-  # the default when no information is provided
-  if (is.null(names(args)))
-    names(args) <- "names"
-  
-  names(args) <- lapply(names(args), match.arg, 
-                        c("names", "rownames", "colnames", "dimnames"))
+
+  # unnamed arguments default to "names" -- also when mixed with
+  # named ones, e.g. setNamesX(m, letters, colnames = cn)
+  nm <- names(args)
+  if (is.null(nm))
+    nm <- rep("", length(args))
+  nm[!nzchar(nm)] <- "names"
+
+  names(args) <- vapply(nm, match.arg, character(1L),
+                        choices = c("names", "rownames",
+                                    "colnames", "dimnames"))
   
   if ("dimnames" %in% names(args)) {
     if(is.null(args[["dimnames"]]))

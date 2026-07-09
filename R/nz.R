@@ -1,24 +1,26 @@
 
 #' Extract Non-Zero Values
 #'
-#' Returns all non-zero elements of a vector.
+#' Returns all non-zero elements of a vector. Zeroness is determined by
+#' \code{\link{isZero}}, i.e. within a numerical tolerance.
+#'
+#' \code{NA} elements are not considered zero and are retained in the
+#' result.
 #'
 #' @param x A numeric vector.
-#'
-#' @details
-#' This is a convenience function primarily intended for use in
-#' model formulas or quick vector filtering.
+#' @param tol Tolerance passed to \code{\link{isZero}}.
 #'
 #' @return A vector containing only the non-zero elements of \code{x}.
-
-
- 
-
-#' @family vector.ops  
+#'
+#' @seealso \code{\link{isZero}}
+#'
+#' @examples
+#' nz(c(0, 1, 2, 0, 3))
+#' nz(c(1e-20, 1, NA))
+#'
+#' @family vector.ops
 #' @concept missing-value
-#'
-#'
 #' @export
-nz <- function(x) {
-  x[!isZero(x)]
+nz <- function(x, tol = sqrt(.Machine$double.eps)) {
+  x[!isZero(x, tol = tol) | is.na(x)]
 }

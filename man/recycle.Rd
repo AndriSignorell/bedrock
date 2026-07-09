@@ -12,7 +12,9 @@ recycle(..., maxdim = NULL, strict = FALSE)
 \item{maxdim}{defines the maximal dimension, if set to \code{NULL} (default)
 the maximal dimension of the list.}
 
-\item{strict}{defines if number of arguments must be 1 or maxdim.}
+\item{strict}{logical, if \code{TRUE} each element must have length 1 or
+\code{maxdim}, so that no partial recycling (or truncation) can occur.
+Default is \code{FALSE}.}
 }
 \value{
 a list of the supplied elements\cr \code{attr(,"maxdim")} contains
@@ -20,6 +22,12 @@ the maximal dimension of the recycled list
 }
 \description{
 This function recycles all supplied elements to the maximal dimension.
+}
+\details{
+If \code{maxdim} is smaller than the length of an element, that element
+is truncated to the first \code{maxdim} values. Zero-length elements are
+recycled to \code{NA} vectors of length \code{maxdim}. Both situations
+are rejected when \code{strict = TRUE}.
 }
 \examples{
 
@@ -42,6 +50,8 @@ Other data.manipulation:
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
+\code{\link{long-wide-reshape}},
+\code{\link[=multMerge]{multMerge()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
 \code{\link[=renameX]{renameX()}},
@@ -56,5 +66,5 @@ Other data.manipulation:
 \code{\link[=toBaseR]{toBaseR()}}
 }
 \concept{data.manipulation}
-\concept{ordering}
+\concept{programming}
 \keyword{utilities}

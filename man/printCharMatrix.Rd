@@ -79,8 +79,8 @@ printCharMatrix(m, width = 20)
 
 }
 \seealso{
-Other table.utils:
-\code{\link[=multMerge]{multMerge()}}
+Other format:
+\code{\link[=asCDateFmt]{asCDateFmt()}}
 }
+\concept{format}
 \concept{table}
-\concept{table.utils}

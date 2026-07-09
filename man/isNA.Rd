@@ -40,5 +40,9 @@ isNA(1)              # FALSE
 isNA(c(1, NA))       # FALSE
 
 }
+\seealso{
+Other utils:
+\code{\link[=callIf]{callIf()}}
+}
 \concept{missing-value}
-\concept{utilities}
+\concept{utils}

@@ -18,8 +18,8 @@ dummy(
 \code{"treatment"}, \code{"sum"}, \code{"helmert"}, \code{"poly"}, or \code{"full"}.
 Abbreviations are accepted.}
 
-\item{base}{Integer or character string specifying the baseline group for
-treatment contrasts.}
+\item{base}{Integer or character string specifying the baseline group.
+Only used for \code{method = "treatment"} (see Details).}
 
 \item{levels}{Optional character vector specifying the possible levels of
 \code{x}. If \code{NULL}, levels are inferred by \code{factor(x)}.}
@@ -30,7 +30,7 @@ For \code{method = "full"}, the number of columns equals the number of levels.
 Otherwise, the number of columns equals the number of levels minus one.
 
 The returned matrix has an attribute \code{"base"} containing the baseline level
-for non-full coding, and \code{NA} for full coding.
+for treatment coding, and \code{NA} otherwise.
 }
 \description{
 Generate a matrix of dummy codes, also known as class indicators, for a
@@ -40,6 +40,16 @@ factor or class vector.
 The argument \code{method} controls the contrast coding. The option \code{"full"}
 returns one indicator column for each level of \code{x}. This full-rank coding is
 usually redundant for \code{lm()} and related modelling functions.
+
+The \code{base} argument is only used by \code{method = "treatment"}. The other
+contrast types have no freely choosable baseline: \code{"sum"} implicitly uses
+the last level as reference, \code{"helmert"} contrasts each level against the
+preceding ones, and \code{"poly"} uses orthogonal polynomials.
+
+Column names reflect the semantics of the coding: level names for
+\code{"treatment"} (without the baseline), \code{"full"} (all levels), \code{"sum"}
+(without the last level) and \code{"helmert"} (without the first level);
+\code{"poly"} keeps the standard degree labels (\code{.L}, \code{.Q}, ...).
 }
 \examples{
 x <- c("red", "blue", "green", "blue", "green", "red", "red", "blue")
@@ -66,8 +76,8 @@ apply(
 
 }
 \seealso{
-\code{model.frame}, \code{contrasts}, \code{stats::contr.treatment},
-\code{stats::contr.sum}, \code{stats::contr.helmert}, \code{stats::contr.poly}
+\code{\link[=model.frame]{model.frame()}}, \code{\link[=contrasts]{contrasts()}}, \code{\link[stats:contr.treatment]{stats::contr.treatment()}},
+\code{\link[stats:contr.sum]{stats::contr.sum()}}, \code{\link[stats:contr.helmert]{stats::contr.helmert()}}, \code{\link[stats:contr.poly]{stats::contr.poly()}}
 
 Other data.manipulation:
 \code{\link[=appendEnum]{appendEnum()}},
@@ -77,6 +87,8 @@ Other data.manipulation:
 \code{\link[=asBinary]{asBinary()}},
 \code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
+\code{\link{long-wide-reshape}},
+\code{\link[=multMerge]{multMerge()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
 \code{\link[=recycle]{recycle()}},

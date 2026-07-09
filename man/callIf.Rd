@@ -81,5 +81,9 @@ y <- x^2
 callIf(plot, TRUE, defaults = list(x, y))
 
 }
+\seealso{
+Other utils:
+\code{\link[=isNA]{isNA()}}
+}
 \concept{programming}
 \concept{utils}

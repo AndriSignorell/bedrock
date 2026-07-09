@@ -31,8 +31,8 @@
 #' @author Andri Signorell <andri@@signorell.net>
 #' @seealso \code{\link[readr]{read_delim}}, \code{\link{toBaseR}}
 #'
-#' @family io
-#' @concept data-import
+#' @family file.utils
+#' @concept file-io
 #'
 #' @examples
 #' \dontrun{

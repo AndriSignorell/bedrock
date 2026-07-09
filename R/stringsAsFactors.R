@@ -34,8 +34,11 @@
 #'
 #' @export
 stringsAsFactors <- function(x, columns = NULL) {
-  
-  char_cols <- which(sapply(x, is.character))
+
+  if (!is.data.frame(x))
+    stop("'x' must be a data.frame.")
+
+  char_cols <- which(vapply(x, is.character, logical(1L)))
   
   if (is.null(columns)) {
     # convert all character columns

@@ -4,7 +4,7 @@
 \alias{range-operators}
 \alias{\%:\%}
 \alias{\%::\%}
-\title{Select a Range Between Two Elements (Lazy)}
+\title{Select a Range Between Two Elements}
 \usage{
 x \%:\% rng
 
@@ -18,38 +18,39 @@ missing values in \code{x}.}
 }
 \value{
 a subset of \code{x}, from the first occurrence of \code{rng[1]} to the
-first occurrence of \code{rng[2]}.
-
-a subset of \code{x}, from the first occurrence of \code{rng[1]} to the
-last occurrence of \code{rng[2]}.
+first (\verb{\\\%:\\\%}) or last (\verb{\\\%::\\\%}) occurrence of \code{rng[2]}.
 }
 \description{
-Returns the elements of \code{x} from the first occurrence of \code{rng[1]} to the
-first occurrence of \code{rng[2]}. Equivalent to a non-greedy ("lazy") match,
-analogous to lazy quantifiers in regular expressions.
-
-Returns the elements of \code{x} from the first occurrence of \code{rng[1]} to the
-\emph{last} occurrence of \code{rng[2]}. Equivalent to a greedy match, analogous to
-greedy quantifiers in regular expressions.
+Returns the elements of \code{x} from the first occurrence of \code{rng[1]} up to an
+occurrence of \code{rng[2]}. The two operators differ in which occurrence of
+the end value terminates the range, analogous to lazy and greedy
+quantifiers in regular expressions:
+}
+\details{
+\itemize{
+\item \verb{\\\%:\\\%} (lazy): up to the \emph{first} occurrence of \code{rng[2]}.
+\item \verb{\\\%::\\\%} (greedy): up to the \emph{last} occurrence of \code{rng[2]}.
+}
 }
 \examples{
 letters \%:\% c("c", "g")
 
 x <- c("a", "b", "c", "d", "c", "e", "f", "c")
-x \%:\% c("c", "e")
+x \%:\%  c("c", "e")
+x \%::\% c("c", "c")     # greedy: up to the last "c"
 
-colnames(Pizza) \%:\% c("price", "nps")
-
-letters \%::\% c("c", "g")
-
-x <- c("a", "b", "c", "d", "c", "e", "f", "c")
-x \%::\% c("c", "e")
+# select a column range by name
+colnames(mtcars) \%:\% c("hp", "vs")
 
 }
 \seealso{
-the \verb{\%::\%} operator for the greedy variant, which uses the
-\emph{last} occurrence of \code{rng[2]}.
-
-the \verb{\%::\%}. operator for the lazy variant, which uses the
-\emph{first} occurrence of \code{rng[2]}.
+Other data.utils:
+\code{\link[=binaryTree]{binaryTree()}},
+\code{\link{intervals}},
+\code{\link[=ptInPoly]{ptInPoly()}},
+\code{\link[=resolveContingency]{resolveContingency()}},
+\code{\link[=resolveFormula]{resolveFormula()}},
+\code{\link[=resolveGroups]{resolveGroups()}}
 }
+\concept{data.utils}
+\concept{range}

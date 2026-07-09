@@ -19,8 +19,9 @@ A character vector of the same length as \code{x}, with matching
 elements replaced. Non-matching elements are returned unchanged.
 }
 \description{
-Replaces elements of a character vector based on a named lookup table.
-Each element matching a pattern is replaced with the corresponding replacement.
+Replaces elements of a character vector based on a lookup defined by two
+parallel vectors. Each element exactly matching a pattern is replaced
+with the corresponding replacement.
 }
 \examples{
 mReplace(c("a", "b", "c", "d"), c("a", "c"), c("A", "C"))
@@ -28,9 +29,11 @@ mReplace(c("a", "b", "c", "d"), c("a", "c"), c("A", "C"))
 
 }
 \seealso{
-Other string.utilities:
-\code{\link[=strSplitToCol]{strSplitToCol()}},
-\code{\link[=strSplitToDummy]{strSplitToDummy()}}
+\code{\link{mGsub}} for substring replacement.
+
+Other string:
+\code{\link{char-ascii-conversion}},
+\code{\link[=mGsub]{mGsub()}}
 }
+\concept{string}
 \concept{string-manipulation}
-\concept{string.utilities}
