@@ -9,6 +9,7 @@ devtools::build_manual(pkg = "C:/temp/lumen")
 devtools::build_manual(pkg = "C:/temp/aurora")
 devtools::build_manual(pkg = "C:/temp/bedrock")
 devtools::build_manual(pkg = "C:/temp/alloy")
+devtools::build_manual(pkg = "C:/temp/hermes")
 
 devtools::build_manual(pkg = "C:/temp/swissValet")
 
@@ -53,25 +54,11 @@ rename_rda("cards.rda",    "cards",    "Cards")
 rename_rda("roulette.rda", "roulette", "Roulette")
 rename_rda("tarot.rda",    "tarot",    "Tarot")
 
-splitPath
 
-
-
-x <- sample(letters[1:2],10,r=T)
-
-!bin(x)
-callIf
 
 sortX(funList("bedrock", ex=T))
 
 grep(sortX(funList("bedrock", ex=T)), v=T)
-
-cut()
-
-renameX
-
-bedrock::courseData()
-
 
 
 
@@ -81,7 +68,7 @@ files <- list.files("c:/temp/aurora/R", full.names = TRUE, pattern = "\\.R$")
 files <- list.files("c:/temp/lumen/R", full.names = TRUE, pattern = "\\.R$")
 files <- list.files("c:/temp/alloy/R", full.names = TRUE, pattern = "\\.R$")
 
-tax <- bedrock::toBaseR(readxl::read_excel("c:/temp/DescToolsX_doku/FamilyConcepts.xlsx"))
+tax <- bedrock::toBaseR(readxl::read_excel("c:/temp/DescToolsX_doku/bedrockFamiliesConcepts.xlsx"))
 
 for (f in files[19:25]) {
   cat("Updating:", f, "\n")
@@ -186,13 +173,4 @@ update_roxy_safe <- function(file, tax) {
 }
 
 
-
-
-
-
-nchr()
-nf()
-
-bedrock::recodeX()
-revCode()
 

@@ -45,7 +45,7 @@
 #' of outliers. In some cases, it can be beneficial to standardize the data
 #' (e.g., using \code{\link{scale}}) before applying winsorization.
 #'
-#' @seealso \code{\link[DescToolsX]{scaleX}()}, \code{\link[robustHD]{winsorize}()} (in package \pkg{robustHD})
+#' @seealso \code{scaleX()}, \code{winsorize()} in package \pkg{robustHD}
 #'
 #' @examples
 #' set.seed(9128)
@@ -76,6 +76,13 @@ winsorize <- function(
     x,
     val = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE)
 ) {
+
+  if (!is.numeric(val) || length(val) != 2L || anyNA(val))
+    stop("'val' must be a numeric vector of length 2 without NAs.")
+
+  if (val[1L] > val[2L])
+    stop("'val[1]' must not exceed 'val[2]'.")
+
   x[x < val[1L]] <- val[1L]
   x[x > val[2L]] <- val[2L]
   x

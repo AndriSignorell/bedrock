@@ -20,7 +20,7 @@ Shifts a vector to the left or right by \code{k} positions.
 Vacated positions are filled with \code{NA}.
 }
 \details{
-Unlike \code{VecRot()}, this function does not wrap elements around.
+Unlike \code{\link{vRot}()}, this function does not wrap elements around.
 Elements shifted beyond the vector bounds are discarded.
 }
 \examples{

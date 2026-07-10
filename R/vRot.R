@@ -26,10 +26,13 @@
 #'
 #' @export
 vRot <- function(x, k = 1L) {
-  
+
   n <- length(x)
   if (n == 0L) return(x)
-  
+
+  if (!is.numeric(k) || length(k) != 1L || is.na(k))
+    stop("'k' must be a single number.")
+
   if (k != round(k)) {
     k <- round(k)
     warning("'k' is not an integer")

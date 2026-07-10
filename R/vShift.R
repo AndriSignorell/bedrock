@@ -11,7 +11,7 @@
 #' @return A vector of the same length as \code{x}, shifted with \code{NA} padding.
 #'
 #' @details
-#' Unlike \code{VecRot()}, this function does not wrap elements around.
+#' Unlike \code{\link{vRot}()}, this function does not wrap elements around.
 #' Elements shifted beyond the vector bounds are discarded.
 #'
 #' @examples
@@ -33,23 +33,29 @@
 #'
 #' @export
 vShift <- function(x, k = 1L){
-  
+
   n <- length(x)
   if (n == 0L) return(x)
-  
+
+  if (!is.numeric(k) || length(k) != 1L || is.na(k))
+    stop("'k' must be a single number.")
+
   if (k != round(k)) {
     k <- round(k)
     warning("'k' is not an integer")
   }
-  
+
   if (k == 0L) return(x)
-  
+
+  # NA padding via NA subsetting: x[NA_integer_] keeps the class of x
+  # (factor levels, Date, ...), whereas c(NA, x) would dispatch on the
+  # logical NA and strip it
   if (k > 0L) {
     k <- min(k, n)
-    c(rep(NA, k), head(x, n - k))
+    c(x[rep(NA_integer_, k)], head(x, n - k))
   } else {
     k <- min(abs(k), n)
-    c(tail(x, n - k), rep(NA, k))
+    c(tail(x, n - k), x[rep(NA_integer_, k)])
   }
 }
 

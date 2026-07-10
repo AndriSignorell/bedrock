@@ -81,7 +81,8 @@ unwhich <- function(idx,
     if (!is.numeric(idx) || anyNA(idx) || any(idx == 0L) ||
         any(idx != as.integer(idx)))
       stop("Argument 'idx' must contain non-zero whole numbers only.")
-    idx <- as.integer(idx)
+    # as.integer() would strip names, which useNames relies on
+    storage.mode(idx) <- "integer"
     
     if (any(idx > 0L) && any(idx < 0L))
       stop("Argument 'idx' must not mix positive and negative indices.")
