@@ -7,17 +7,17 @@
 strX(object, ..., enumerate = TRUE, recursive = FALSE, strict.width = "cut")
 }
 \arguments{
-\item{object}{Any R object.}
+\item{object}{any R object}
 
-\item{...}{Additional arguments passed to \code{\link[utils:str]{utils::str()}}.}
+\item{...}{additional arguments passed to \code{\link[utils:str]{utils::str()}}}
 
-\item{enumerate}{Logical. Should variables/elements be numbered?
+\item{enumerate}{logical. Should variables/elements be numbered?
 Default is \code{TRUE}.}
 
-\item{recursive}{Logical. Should nested list elements also be numbered?
+\item{recursive}{logical. Should nested list elements also be numbered?
 Default is \code{FALSE}.}
 
-\item{strict.width}{Character string passed to \code{\link[utils:str]{utils::str()}}.
+\item{strict.width}{character string passed to \code{\link[utils:str]{utils::str()}}.
 Default is \code{"cut"}.}
 }
 \value{
@@ -51,17 +51,6 @@ strX(x)
 strX(x, recursive = TRUE)
 
 }
-\seealso{
-Other pkg.introspection:
-\code{\link[=extractArgs]{extractArgs()}},
-\code{\link[=funArgs]{funArgs()}},
-\code{\link[=funCalls]{funCalls()}},
-\code{\link[=funKeywords]{funKeywords()}},
-\code{\link[=funList]{funList()}},
-\code{\link[=getDotsArg]{getDotsArg()}},
-\code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=rdLabels]{rdLabels()}},
-\code{\link[=rdTitle]{rdTitle()}}
-}
+\concept{data-inspection}
+\concept{data.inspect}
 \concept{introspection}
-\concept{pkg.introspection}

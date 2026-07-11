@@ -7,36 +7,33 @@ observed, i.e., contain no missing entries.
 ## Usage
 
 ``` r
-completeColumns(x, which = TRUE)
+completeColumns(x, output = c("names", "logical"))
 ```
 
 ## Arguments
 
 - x:
 
-  A data.frame or list-like object whose elements are checked for
-  missing values.
+  a data.frame or list-like object whose elements are checked for
+  missing values
 
-- which:
+- output:
 
-  Logical. If `TRUE` (default), the function returns the names of
-  elements without missing values. If `FALSE`, a logical vector is
-  returned, where each element corresponds to an element in `x` and
-  indicates whether it is complete.
+  character string specifying the output representation. One of
+  `"names"` (return the names of the complete elements, the default) or
+  `"logical"` (return a logical vector indicating completeness for each
+  element).
 
 ## Value
 
-If `which = TRUE`, a character vector with the names of all complete
+If `output = "names"`, a character vector with the names of all complete
 elements.
 
-If `which = FALSE`, a logical vector of length `length(x)`, where `TRUE`
-indicates that the corresponding element contains no missing values.
+If `output = "logical"`, a logical vector of length `length(x)`, where
+`TRUE` indicates that the corresponding element contains no missing
+values.
 
 ## Details
-
-Depending on the argument `which`, the function either returns the names
-of such elements or a logical vector indicating completeness for each
-element.
 
 An element is considered *complete* if it contains zero missing values.
 Internally, the function uses [`anyNA`](https://rdrr.io/r/base/NA.html)
@@ -49,30 +46,17 @@ to detect missing values.
 [`na.omit`](https://rdrr.io/r/stats/na.fail.html),
 [`complete.cases`](https://rdrr.io/r/stats/complete.cases.html)
 
-Other data.inspection: [`allDuplicated()`](allDuplicated.md),
-[`allIdentical()`](allIdentical.md),
-[`countCompCases()`](countCompCases.md), [`flags()`](flags.md),
-[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
-[`isNumeric()`](isNumeric.md), [`isURL()`](isURL.md),
-[`isWholeLike()`](isWholeLike.md), [`isZero()`](isZero.md)
+Other data.missing: [`countCompCases()`](countCompCases.md)
 
 ## Examples
 
 ``` r
 # Names of columns without missing values
-completeColumns(Pizza)
-#> [1] "index"        "delivery_min"
+completeColumns(airquality)
+#> [1] "Wind"  "Temp"  "Month" "Day"  
 
 # Logical vector indicating completeness
-completeColumns(Pizza, which = FALSE)
-#>          index           date           week        weekday           area 
-#>           TRUE          FALSE          FALSE          FALSE          FALSE 
-#>          count         rabate          price       operator         driver 
-#>          FALSE          FALSE          FALSE          FALSE          FALSE 
-#>   delivery_min    temperature   wine_ordered wine_delivered     wrongpizza 
-#>           TRUE          FALSE          FALSE          FALSE          FALSE 
-#>        quality     vegetarian            nps      complaint          style 
-#>          FALSE          FALSE          FALSE          FALSE          FALSE 
-#>        channel            tip 
-#>          FALSE          FALSE 
+completeColumns(airquality, output = "logical")
+#>   Ozone Solar.R    Wind    Temp   Month     Day 
+#>   FALSE   FALSE    TRUE    TRUE    TRUE    TRUE 
 ```

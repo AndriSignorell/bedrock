@@ -19,10 +19,10 @@
 #' suppressed by default; supply \code{show_col_types = TRUE} to restore
 #' it. By default, the result is converted to a base R \code{data.frame}.
 #'
-#' @param file character string specifying the name of the file.
+#' @param file character string specifying the name of the file
 #' @param \dots additional arguments passed to the underlying read
 #'   function, e.g. \code{sheet} for Excel files or \code{delim}
-#'   for text files.
+#'   for text files
 #' @param output character, either \code{"data.frame"} (default) or
 #'   \code{"tibble"}, determining the class of the returned object.
 #'   Conversion to \code{data.frame} is done by \code{\link{toBaseR}}.
@@ -31,13 +31,9 @@
 #'
 #' @return a \code{data.frame} or a tibble, according to \code{output}.
 #'
-#' @author Andri Signorell <andri@@signorell.net>
-#' @seealso \code{\link{findDownload}}, \code{\link{peekFile}},
+#' @seealso \code{\link{findDownload}},
 #'   \code{\link{toBaseR}}, \code{\link[readxl]{read_excel}},
 #'   \code{\link[readr]{read_csv}}
-#'
-#' @family io
-#' @concept data-import
 #'
 #' @examples
 #' \dontrun{
@@ -51,6 +47,9 @@
 #' readDownload("data.csv", output = "tibble")
 #' }
 #'
+#' @family file.io
+#' @concept file-io
+#' @concept table
 #' @export
 readDownload <- function(file, ..., output = c("data.frame", "tibble")) {
 

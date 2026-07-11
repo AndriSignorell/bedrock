@@ -38,8 +38,7 @@
 
 #' @family combinatorics
 #' @concept sampling
-#'
-#'
+#' @concept combinatorics
 #' @export
 sampleX <-  function (x, size, replace = FALSE, prob = NULL) {
   UseMethod("sampleX")

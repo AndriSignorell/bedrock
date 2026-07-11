@@ -39,15 +39,15 @@
 #' intentional: \code{\link[stats]{plogis}} is well-defined for all real inputs,
 #' so no stabilization is required.
 #'
-#' @param x Numeric vector. For \code{logit()}, values are interpreted relative
+#' @param x numeric vector. For \code{logit()}, values are interpreted relative
 #'   to the interval \eqn{[min, max]}. For \code{logitInv()}, \code{x} can be any
 #'   real number.
-#' @param min Lower bound of the interval. Must be finite.
-#' @param max Upper bound of the interval. Must be finite and greater than \code{min}.
-#' @param eps Small positive value used to clamp probabilities away from
+#' @param min lower bound of the interval. Must be finite.
+#' @param max upper bound of the interval. Must be finite and greater than \code{min}.
+#' @param eps small positive value used to clamp probabilities away from
 #'   \eqn{0} and \eqn{1} for numerical stability in \code{logit()}.
 #'   Default: \code{.Machine$double.eps}.
-#' @param warn Logical; if \code{TRUE}, a warning is issued when values are
+#' @param warn logical; if \code{TRUE}, a warning is issued when values are
 #'   effectively clamped because they fall outside \eqn{(eps, 1 - eps)} after
 #'   rescaling. Default: \code{FALSE}.
 #'
@@ -75,8 +75,9 @@
 #' z <- logit(x, min = 10, max = 20)
 #' logitInv(z, min = 10, max = 20)
 #'
-#' @family math.utils
+#' @family math.transform
 #' @concept transformation
+#' @concept numerical-methods
 #' @export
 logit <- function(x, min = 0, max = 1,
                   eps = .Machine$double.eps,
@@ -102,6 +103,9 @@ logit <- function(x, min = 0, max = 1,
 
 
 #' @rdname logit
+#' @family math.transform
+#' @concept transformation
+#' @concept numerical-methods
 #' @export
 logitInv <- function(x, min = 0, max = 1) {
 

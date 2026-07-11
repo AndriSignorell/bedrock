@@ -7,27 +7,27 @@
 renameX(x, ..., on = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
 }
 \arguments{
-\item{x}{A named object.  Any type that supports \code{names()},
+\item{x}{a named object.  Any type that supports \code{names()},
 \code{rownames()}, or \code{colnames()}, e.g. a vector, list, data frame,
 or matrix.}
 
-\item{...}{Name mappings of the form \code{old = "new"}, a single
+\item{...}{name mappings of the form \code{old = "new"}, a single
 function to apply to all names (e.g. \code{toupper}), or unnamed
-character strings applied positionally (see Details).}
+character strings applied positionally (see Details)}
 
-\item{on}{Character scalar specifying which names to operate on.
+\item{on}{character scalar specifying which names to operate on.
 One of \code{"names"} (default), \code{"rownames"}, or \code{"colnames"}.
 Partial matching is supported.}
 
-\item{useGsub}{Logical scalar.  If \code{TRUE}, each mapping is applied as
+\item{useGsub}{logical scalar.  If \code{TRUE}, each mapping is applied as
 a \code{gsub()} pattern substitution across all current names rather than
 an exact replacement.  Default is \code{FALSE}.}
 
-\item{fixed}{Logical scalar.  Passed to \code{\link{gsub}()} when
+\item{fixed}{logical scalar.  Passed to \code{\link{gsub}()} when
 \code{useGsub = TRUE}.  If \code{TRUE} (default), patterns are treated as
 fixed strings rather than regular expressions.}
 
-\item{warn}{Logical scalar.  If \code{TRUE} (default), a warning is
+\item{warn}{logical scalar.  If \code{TRUE} (default), a warning is
 issued when one or more old names supplied in \code{...} are not found in
 the targeted names of \code{x}.  Only relevant in exact mode
 (\code{useGsub = FALSE}).}
@@ -104,31 +104,13 @@ renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, on = "rownames")
 
 }
 \seealso{
-\code{\link{names}}, \code{\link{setNamesX}}
+\code{\link{names}}, \code{\link[stats]{setNames}}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
+Other label.attrs:
+\code{\link[=label]{label()}},
 \code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=setNamesX]{setNamesX()}}
 }
 \concept{attribute}
-\concept{data.manipulation}
+\concept{label}
+\concept{label.attrs}

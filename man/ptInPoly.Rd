@@ -7,13 +7,13 @@
 ptInPoly(x, y, polyX, polyY)
 }
 \arguments{
-\item{x}{Numeric vector of x-coordinates of the query points.}
+\item{x}{numeric vector of x-coordinates of the query points}
 
-\item{y}{Numeric vector of y-coordinates of the query points.}
+\item{y}{numeric vector of y-coordinates of the query points}
 
-\item{polyX}{Numeric vector of x-coordinates of the polygon vertices.}
+\item{polyX}{numeric vector of x-coordinates of the polygon vertices}
 
-\item{polyY}{Numeric vector of y-coordinates of the polygon vertices.}
+\item{polyY}{numeric vector of y-coordinates of the polygon vertices}
 }
 \value{
 An integer vector of length \code{length(x)}:
@@ -47,14 +47,6 @@ y <- c(0.5, 0.5, 0, 1)
 ptInPoly(x, y, px, py)
 
 }
-\seealso{
-Other data.utils:
-\code{\link[=binaryTree]{binaryTree()}},
-\code{\link{intervals}},
-\code{\link{range-operators}},
-\code{\link[=resolveContingency]{resolveContingency()}},
-\code{\link[=resolveFormula]{resolveFormula()}},
-\code{\link[=resolveGroups]{resolveGroups()}}
-}
-\concept{data.utils}
 \concept{geometry}
+\concept{math.geometry}
+\concept{type-test}

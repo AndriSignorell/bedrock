@@ -18,12 +18,12 @@ setLength(x, n, fill = NA)
 
 - n:
 
-  target length
+  target length, a single non-negative whole number
 
 - fill:
 
   value used for newly added elements when `x` is extended (default
-  `""`)
+  `NA`)
 
 ## Value
 
@@ -31,12 +31,8 @@ setLength(x, n, fill = NA)
 
 ## See also
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`trim()`](trim.md), [`vRot()`](vRot.md),
-[`vShift()`](vShift.md), [`winsorize()`](winsorize.md)
+Other vector.reshape: [`trim()`](trim.md), [`vRot()`](vRot.md),
+[`vShift()`](vShift.md)
 
 ## Examples
 

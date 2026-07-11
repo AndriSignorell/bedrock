@@ -7,9 +7,9 @@
 splitPath(path, lastIsFile = NULL)
 }
 \arguments{
-\item{path}{A character vector of file paths.}
+\item{path}{a character vector of file paths}
 
-\item{lastIsFile}{Logical; if \code{TRUE}, the last component of
+\item{lastIsFile}{logical; if \code{TRUE}, the last component of
 \code{path} is treated as a file name. If \code{FALSE}, it is treated
 as part of the directory path. If \code{NULL} (default), the function
 determines this automatically based on whether the path ends with a
@@ -58,13 +58,13 @@ splitPath("/home/user/folder/", lastIsFile = FALSE)
 \code{\link{basename}}, \code{\link{dirname}},
 \code{\link[tools]{file_ext}}, \code{\link[tools]{file_path_sans_ext}}
 
-Other file.utils:
+Other file.path:
 \code{\link[=buildPath]{buildPath()}},
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
-\code{\link[=parseSASDatalines]{parseSASDatalines()}},
-\code{\link[=pdfManual]{pdfManual()}},
-\code{\link[=peekFile]{peekFile()}}
+\code{\link[=isFilePath]{isFilePath()}},
+\code{\link[=isURL]{isURL()}}
 }
-\concept{file.utils}
-\concept{programming}
+\concept{file.path}
+\concept{path-handling}
+\concept{string-manipulation}

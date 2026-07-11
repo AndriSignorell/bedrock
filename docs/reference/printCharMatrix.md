@@ -22,35 +22,35 @@ printCharMatrix(
 
 - m:
 
-  A matrix (or object coercible to a matrix) containing values that will
-  be converted to character for display.
+  a matrix (or object coercible to a matrix) containing values that will
+  be converted to character for display
 
 - align:
 
-  Character string specifying alignment of cell contents. Either
+  character string specifying alignment of cell contents. Either
   `"right"` (default) or `"left"`.
 
 - sep:
 
-  Integer. Number of spaces between columns. Default is `2`.
+  integer. Number of spaces between columns. Default is `2`.
 
 - showRownames:
 
-  Logical. Should row names be printed? Default is `TRUE`.
+  logical. Should row names be printed? Default is `TRUE`.
 
 - showColnames:
 
-  Logical. Should column names be printed? Default is `TRUE`.
+  logical. Should column names be printed? Default is `TRUE`.
 
 - useCliStyle:
 
-  Logical. If `TRUE`, column names and row names are styled using
+  logical. If `TRUE`, column names and row names are styled using
   [`cli::style_bold()`](https://cli.r-lib.org/reference/ansi-styles.html).
   Default is `FALSE`.
 
 - width:
 
-  Integer. Maximum output width (in characters). Defaults to
+  integer. Maximum output width (in characters). Defaults to
   `getOption("width")`. If the table exceeds this width, it is split
   into column blocks and printed in multiple sections.
 
@@ -74,8 +74,7 @@ in packages.
 
 ## See also
 
-Other table.utils: [`collapseTable()`](collapseTable.md),
-[`multMerge()`](multMerge.md)
+Other data.print: [`columnWrap()`](columnWrap.md)
 
 ## Examples
 

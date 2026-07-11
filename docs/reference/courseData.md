@@ -13,27 +13,27 @@ courseData(name, url = NULL, header = TRUE, sep = ";", ...)
 
 - name:
 
-  Character string. File name including extension (e.g. `"data.csv"`).
+  character string. File name including extension (e.g. `"data.csv"`).
 
 - url:
 
-  Optional character string. Base URL where the file is located. If
+  optional character string. Base URL where the file is located. If
   `NULL`, default course repositories are searched.
 
 - header:
 
-  Logical. Whether the file contains a header row. Passed to
+  logical. Whether the file contains a header row. Passed to
   [`read.table()`](https://rdrr.io/r/utils/read.table.html).
 
 - sep:
 
-  Character. Field separator used in the file. Default is `";"`.
+  character. Field separator used in the file. Default is `";"`.
 
 - ...:
 
-  Additional arguments passed to the underlying import functions such as
+  additional arguments passed to the underlying import functions such as
   [`read.table()`](https://rdrr.io/r/utils/read.table.html) or
-  [`openDataObject()`](openDataObject.md).
+  [`openDataObject()`](openDataObject.md)
 
 ## Value
 
@@ -49,9 +49,9 @@ A data frame or object returned by the respective import function:
 If no `url` is provided, the function searches for the file in the
 following locations:
 
-- <http://www.signorell.net/hwz/datasets/>
+- <https://www.signorell.net/hwz/datasets/>
 
-- <http://www.signorell.net/buch/>
+- <https://www.signorell.net/buch/>
 
 The first location where the file exists is used.
 
@@ -64,10 +64,8 @@ File type handling:
 
 ## See also
 
-[`fileExistURL`](fileExistURL.md)
-
-Other datasets: [`Cards`](Cards.md), [`Roulette`](Roulette.md),
-[`Tarot`](Tarot.md)
+Other datasets: [`Cards`](Cards.md), [`Pizza`](Pizza.md),
+[`Roulette`](Roulette.md), [`Tarot`](Tarot.md)
 
 ## Examples
 
@@ -77,6 +75,6 @@ if (FALSE) { # \dontrun{
 courseData("mydata.csv")
 
 # Load from custom URL
-courseData("mydata.csv", url = "http://example.com/data/")
+courseData("mydata.csv", url = "https://example.com/data/")
 } # }
 ```

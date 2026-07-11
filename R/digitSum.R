@@ -8,7 +8,7 @@
 #' numbers (e.g. \code{124} and \code{124L} are both valid). Fractional
 #' values raise an error. Missing values (\code{NA}) are propagated.
 #'
-#' @param x An integer vector, or a numeric vector of whole numbers.
+#' @param x an integer vector, or a numeric vector of whole numbers
 #'
 #' @return An integer vector containing the digit sums.
 #'
@@ -18,6 +18,7 @@
 #'
 #' @family number.theory
 #' @concept number-theory
+#' @concept numerical-methods
 #' @export
 digitSum <- function(x) {
 

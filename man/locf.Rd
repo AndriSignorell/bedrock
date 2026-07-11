@@ -7,7 +7,7 @@
 locf(x)
 }
 \arguments{
-\item{x}{a vector, a data.frame or a matrix containing NAs.}
+\item{x}{a vector, a data.frame or a matrix containing NAs}
 }
 \value{
 an object of the same type and dimension as \code{x}.
@@ -32,6 +32,11 @@ Factors are supported and keep their levels and ordering.
 It should be noted, that the last observation carried forward approach may
 result in biased estimates and may underestimate the variability.
 }
+\note{
+Based on code by Daniel Wollschlaeger, adapted to conform to package
+standards; multi-column, data-frame, and factor support added by the
+package author.
+}
 \examples{
 
 d.frm <- data.frame(
@@ -46,25 +51,12 @@ d.frm
 See also the package \pkg{Hmisc} for less coarse imputation
 functions.
 
-Other vector.ops:
-\code{\link[=closest]{closest()}},
+Other vector.na:
 \code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
+\code{\link[=isNA]{isNA()}},
 \code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+\code{\link[=naReplace]{naReplace()}}
 }
-\author{
-Daniel Wollschlaeger \href{mailto:dwoll@psychologie.uni-kiel.de}{dwoll@psychologie.uni-kiel.de}
-}
-\concept{missing-value}
+\concept{imputation}
 \concept{time-series}
-\concept{vector.ops}
+\concept{vector.na}

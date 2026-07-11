@@ -13,7 +13,7 @@ trim(x, trim = 0.1, na.rm = FALSE)
 
 - x:
 
-  a numeric vector to be trimmed.
+  a numeric vector to be trimmed
 
 - trim:
 
@@ -36,8 +36,9 @@ attached as attribute named `"trim"`.
 
 A symmetrically trimmed vector `x` with a fraction of trim observations
 (resp. the given number) deleted from each end will be returned. If
-`trim` is set to a value \>0.5 or to an integer value \> n/2 then the
-result will be `NA`.
+`trim` is set to a value \\\ge 0.5\\ or to an integer value \\\ge n/2\\
+then the result will be `NA`. The same applies if `x` contains `NA`s and
+`na.rm` is `FALSE`.
 
 ## Note
 
@@ -48,13 +49,8 @@ standard deviation is needed?
 
 ## See also
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
-[`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+Other vector.reshape: [`setLength()`](setLength.md),
+[`vRot()`](vRot.md), [`vShift()`](vShift.md)
 
 ## Examples
 
@@ -86,4 +82,5 @@ s <- sample(10:20)
 s.tr <- trim(s, trim = 2)
 setequal(c(s[attr(s.tr, "trim")], s.tr), s)
 #> [1] TRUE
+
 ```

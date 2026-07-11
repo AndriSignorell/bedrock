@@ -20,10 +20,9 @@
 #'
 
 
-#' @family vector.ops  
-#' @concept ordering
-#'
-#'
+#' @family vector.reshape
+#' @concept reshape
+#' @concept data-inspection
 #' @export
 setLength <- function(x, n, fill = NA) {
 

@@ -7,7 +7,7 @@
 trim(x, trim = 0.1, na.rm = FALSE)
 }
 \arguments{
-\item{x}{a numeric vector to be trimmed.}
+\item{x}{a numeric vector to be trimmed}
 
 \item{trim}{the fraction (0 to 0.5) of observations to be trimmed from each
 end of x. Values of trim outside that range (and < 1) are taken as the
@@ -55,23 +55,14 @@ s <- sample(10:20)
 s.tr <- trim(s, trim = 2)
 setequal(c(s[attr(s.tr, "trim")], s.tr), s)
 
+
 }
 \seealso{
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=locf]{locf()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
+Other vector.reshape:
 \code{\link[=setLength]{setLength()}},
 \code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+\code{\link[=vShift]{vShift()}}
 }
-\concept{ordering}
-\concept{vector.ops}
+\concept{outlier-detection}
+\concept{reshape}
+\concept{vector.reshape}

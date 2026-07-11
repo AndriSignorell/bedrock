@@ -7,12 +7,12 @@
 combLevels(..., sorted = FALSE, na = FALSE)
 }
 \arguments{
-\item{...}{One or more vectors or factors.}
+\item{...}{one or more vectors or factors}
 
-\item{sorted}{Logical; if \code{TRUE}, the resulting levels are sorted.}
+\item{sorted}{logical; if \code{TRUE}, the resulting levels are sorted}
 
-\item{na}{Logical; if \code{TRUE}, \code{NA} is treated as a valid level
-(i.e., included in the result).}
+\item{na}{logical; if \code{TRUE}, \code{NA} is treated as a valid level
+(i.e., included in the result)}
 }
 \value{
 A character vector containing the unique levels across all inputs.
@@ -51,30 +51,15 @@ combLevels(x, y, na = TRUE)
 
 }
 \seealso{
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+Other data.recode:
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
+\code{\link[=mReplace]{mReplace()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
 \code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=stringsAsFactors]{stringsAsFactors()}}
 }
 \concept{categorization}
-\concept{data.manipulation}
+\concept{data.recode}
 \concept{recoding}

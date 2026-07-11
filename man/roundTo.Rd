@@ -83,20 +83,14 @@ cbind(x =       x,
 \code{\link{round}}, \code{\link{trunc}}, \code{\link{ceiling}},
 \code{\link{floor}}
 
-Other math.utils:
+Other math.basic:
+\code{\link[=closest]{closest()}},
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
-\code{\link[=isLowCardinality]{isLowCardinality()}},
-\code{\link[=linScale]{linScale()}},
-\code{\link[=logit]{logit()}},
-\code{\link[=nUnique]{nUnique()}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=rankX]{rankX()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
+\code{\link[=unirootAll]{unirootAll()}}
 }
-\concept{math.utils}
-\concept{number-formatting}
+\concept{math.basic}
+\concept{numerical-methods}
+\concept{rounding}
 \keyword{manip}

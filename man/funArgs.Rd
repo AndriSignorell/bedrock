@@ -12,14 +12,14 @@ funArgs(
 )
 }
 \arguments{
-\item{fun}{Function object or function name.}
+\item{fun}{function object or function name}
 
-\item{package}{Optional package name used to resolve \code{fun}.}
+\item{package}{optional package name used to resolve \code{fun}}
 
-\item{sorted}{Logical; should arguments be sorted alphabetically?
+\item{sorted}{logical; should arguments be sorted alphabetically?
 \code{...} is always kept last. Ignored when \code{output = "list"}.}
 
-\item{output}{Character string specifying the output format:
+\item{output}{character string specifying the output format:
 \itemize{
 \item \code{"data.frame"} (default): return a data frame.
 \item \code{"list"}: return a named list of formal arguments.
@@ -53,16 +53,13 @@ cat(funArgs("combN", output = "string"))
 \seealso{
 \code{\link{formals}}, \code{\link{args}}
 
-Other pkg.introspection:
-\code{\link[=extractArgs]{extractArgs()}},
+Other pkg.funinfo:
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},
-\code{\link[=getDotsArg]{getDotsArg()}},
-\code{\link[=mergeArgs]{mergeArgs()}},
 \code{\link[=rdLabels]{rdLabels()}},
-\code{\link[=rdTitle]{rdTitle()}},
-\code{\link[=strX]{strX()}}
+\code{\link[=rdTitle]{rdTitle()}}
 }
 \concept{introspection}
-\concept{pkg.introspection}
+\concept{pkg.funinfo}
+\concept{programming}

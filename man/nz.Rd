@@ -7,9 +7,9 @@
 nz(x, tol = sqrt(.Machine$double.eps))
 }
 \arguments{
-\item{x}{A numeric vector.}
+\item{x}{a numeric vector}
 
-\item{tol}{Tolerance passed to \code{\link{isZero}}.}
+\item{tol}{tolerance passed to \code{\link{isZero}}}
 }
 \value{
 A vector containing only the non-zero elements of \code{x}.
@@ -30,21 +30,9 @@ nz(c(1e-20, 1, NA))
 \seealso{
 \code{\link{isZero}}
 
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=locf]{locf()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+Other vector.utils:
+\code{\link[=unwhich]{unwhich()}}
 }
-\concept{missing-value}
-\concept{vector.ops}
+\concept{data-inspection}
+\concept{filtering}
+\concept{vector.utils}

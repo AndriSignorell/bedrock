@@ -36,17 +36,14 @@ divisors(c(145, 786))
 }
 \seealso{
 Other number.theory:
+\code{\link{GCD-LCM}},
 \code{\link[=digitSum]{digitSum()}},
 \code{\link[=factorize]{factorize()}},
 \code{\link[=fibonacci]{fibonacci()}},
-\code{\link{gcd_lcm}},
 \code{\link[=isOdd]{isOdd()}},
 \code{\link[=isPrime]{isPrime()}},
-\code{\link{numeric-conversions}},
 \code{\link[=primes]{primes()}}
-}
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
 }
 \concept{number-theory}
 \concept{number.theory}
+\concept{numerical-methods}

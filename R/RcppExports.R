@@ -41,9 +41,6 @@ divs <- function(x) {
     .Call(`_bedrock_divs`, x)
 }
 
-
-#' @family data.inspection  
-#' @concept categorization
 isLowCardinality <- function(x, maxUnique = 12L) {
     .Call(`_bedrock_isLowCardinality`, x, maxUnique)
 }

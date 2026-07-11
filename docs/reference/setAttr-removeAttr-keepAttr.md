@@ -17,15 +17,18 @@ keepAttr(x, attrNames)
 
 - x:
 
-  Object to modify
+  object to modify
 
 - attrNames:
 
-  Character vector of attribute names
+  character vector of attribute names
 
 - attrValues:
 
-  Values for the attributes (only for setting)
+  values for the attributes (only for setting). For a single attribute
+  name, `attrValues` is taken as the value itself (which may be a
+  vector). For several names, supply one value per name; use a list for
+  non-scalar or mixed-type values.
 
 ## Value
 
@@ -33,21 +36,11 @@ Modified object
 
 ## See also
 
-[`setNamesX`](setNamesX.md),
-[`unname`](https://rdrr.io/r/base/unname.html)
+[stats::setNames](https://rdrr.io/r/stats/setNames.html),
+[base::unname](https://rdrr.io/r/base/unname.html)
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md), [`setNamesX()`](setNamesX.md),
-[`sortX()`](sortX.md), [`splitAt()`](splitAt.md),
-[`splitX()`](splitX.md), [`stringsAsFactors()`](stringsAsFactors.md),
-[`toBaseR()`](toBaseR.md)
+Other label.attrs: [`label()`](label.md), [`renameX()`](renameX.md),
+[`setNamesX()`](setNamesX.md)
 
 ## Examples
 
@@ -60,17 +53,31 @@ x <- setAttr(
   attrValues = c("First attribute", "Second attribute")
 )
 
+# a single attribute can take a vector value
+setAttr(1:10, "dim", c(2, 5))
+#>      [,1] [,2] [,3] [,4] [,5]
+#> [1,]    1    3    5    7    9
+#> [2,]    2    4    6    8   10
+
+# several non-scalar values via list
+setAttr(1:10, c("dim", "myattr"), list(c(2, 5), "abc"))
+#>      [,1] [,2] [,3] [,4] [,5]
+#> [1,]    1    3    5    7    9
+#> [2,]    2    4    6    8   10
+#> attr(,"myattr")
+#> [1] "abc"
+
 # remove single attribute
 removeAttr(x, "other_attr")
-#>  [1] 0.7179353 0.9614099 0.1001408 0.7632227 0.9479664 0.8186347 0.3082923
-#>  [8] 0.6495795 0.9533555 0.9537327
+#>  [1] 0.27775593 0.21269952 0.28479048 0.89509410 0.44623532 0.77998489
+#>  [7] 0.88061903 0.41312421 0.06380848 0.33548749
 #> attr(,"some_attr")
 #> [1] "First attribute"
 
 # remove all attributes
 removeAttr(x)
-#>  [1] 0.7179353 0.9614099 0.1001408 0.7632227 0.9479664 0.8186347 0.3082923
-#>  [8] 0.6495795 0.9533555 0.9537327
+#>  [1] 0.27775593 0.21269952 0.28479048 0.89509410 0.44623532 0.77998489
+#>  [7] 0.88061903 0.41312421 0.06380848 0.33548749
 
 # keep only selected attributes, remove all others
 r.lm <- lm(Fertility ~ ., swiss)

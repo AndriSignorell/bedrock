@@ -38,13 +38,10 @@ binaryTree(12)
 \seealso{
 \code{\link[aurora]{plotBinaryTree}}
 
-Other data.utils:
-\code{\link{intervals}},
-\code{\link[=ptInPoly]{ptInPoly()}},
-\code{\link{range-operators}},
-\code{\link[=resolveContingency]{resolveContingency()}},
-\code{\link[=resolveFormula]{resolveFormula()}},
-\code{\link[=resolveGroups]{resolveGroups()}}
+Other data.order:
+\code{\link[=revX]{revX()}},
+\code{\link[=sortX]{sortX()}}
 }
-\concept{data.utils}
+\concept{data.order}
+\concept{ordering}
 \concept{tree}

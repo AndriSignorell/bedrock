@@ -31,11 +31,11 @@
 #' that observation.  There is no \code{na.rm} option; pre-filter with
 #' \code{x[!is.na(x)]} if needed (note this changes index positions).
 #'
-#' @param x       A univariate numeric vector or \code{ts} object.
+#' @param x       a univariate numeric vector or \code{ts} object.
 #'   Matrices and multi-column objects are not supported.
-#' @param order   A single positive integer giving the window width.
+#' @param order   a single positive integer giving the window width.
 #'   Must satisfy \code{1 <= order <= length(x)}.
-#' @param align   A character string controlling how the window is
+#' @param align   a character string controlling how the window is
 #'   positioned relative to each output value:
 #'   \describe{
 #'     \item{\code{"center"}}{Default.  The window is centred on the
@@ -46,7 +46,7 @@
 #'     \item{\code{"right"}}{The window ends at the current observation
 #'       and extends to the left.}
 #'   }
-#' @param endrule A character string indicating how boundary values
+#' @param endrule a character string indicating how boundary values
 #'   (where a full window is unavailable) are handled:
 #'   \describe{
 #'     \item{\code{"NA"}}{Default.  Boundary values are left as
@@ -63,17 +63,16 @@
 #'   \code{NA} at boundary positions unless \code{endrule} specifies
 #'   otherwise.
 #'
-#' @seealso
-#' \code{caTools::runmean()},
-#' \code{forecast::ma()}
-#'
 #' @examples
 #' moveAvg(AirPassengers, order = 5)
 #' moveAvg(AirPassengers, order = 5, endrule = "trim")
 #' moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 #'
-#' @family vector.ops
-#' @concept time-series
+#' @seealso [zoo::rollmean()], [forecast::ma()], [stats::runmed()]
+#'
+#' @family vector.window
+#' @concept moving-window
+#' @concept smoother
 #' @export
 moveAvg <- function(x,
                     order,

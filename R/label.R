@@ -19,15 +19,15 @@
 #' Variable labels are stored as attribute \code{"label"} on each column.
 #' Assigning \code{NULL} removes the label(s).
 #'
-#' @param x An object. Typically an atomic vector or a data.frame.
-#' @param vars Optional specification of variables (columns) in a data.frame.
+#' @param x an object. Typically an atomic vector or a data.frame.
+#' @param vars optional specification of variables (columns) in a data.frame.
 #'   Can be:
 #'   \itemize{
 #'     \item \code{NULL}: operate on the object label (default)
 #'     \item \code{TRUE}: all columns
 #'     \item numeric indices or character names of columns
 #'   }
-#' @param value A character vector of labels, or \code{NULL} to remove them.
+#' @param value a character vector of labels, or \code{NULL} to remove them.
 #'   For object labels, must be of length 1. For variable labels, must have
 #'   length 1 or the same length as \code{vars}.
 #'
@@ -60,7 +60,7 @@
 #' label(x) <- "Simple vector"
 #' label(x)
 #'
-#' @family label.utils
+#' @family label.attrs
 #' @concept label
 #' @concept attribute
 #' @export

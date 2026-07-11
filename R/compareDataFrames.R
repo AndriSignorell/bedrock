@@ -11,9 +11,9 @@
 #'
 #' The values of the \code{key} column must be unique in both data frames.
 #'
-#' @param x A data frame.
-#' @param y A data frame to compare against \code{x}.
-#' @param key Character string. Name of the column used as row identifier.
+#' @param x a data frame
+#' @param y a data frame to compare against \code{x}
+#' @param key character string. Name of the column used as row identifier.
 #'   Must be present in both \code{x} and \code{y}, with unique values.
 #'
 #' @return A named list with four elements:
@@ -34,8 +34,9 @@
 #' y <- data.frame(id = c("A", "B", "D"), v1 = c(1L, 9L, 4L), v2 = c(10, 20, 40))
 #' compareDataFrames(x, y, key = "id")
 #'
-#' @family data.inspection
-#' @concept table
+#' @family data.equal
+#' @concept comparison
+#' @concept data-inspection
 #' @export
 compareDataFrames <- function(x, y, key) {
 

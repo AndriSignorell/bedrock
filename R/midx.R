@@ -10,18 +10,16 @@
 #' When \code{inclZero = TRUE}, the computation is performed on
 #' \code{c(0, x)}.
 #'
-#' @param x A numeric vector.
-#' @param inclZero Logical. If \code{TRUE}, a zero is prepended to \code{x}
+#' @param x a numeric vector
+#' @param inclZero logical. If \code{TRUE}, a zero is prepended to \code{x}
 #'   before computing midpoints. In this case, the first midpoint equals
 #'   \code{x[1] / 2}. Default is \code{FALSE}.
-#' @param cumulate Logical. If \code{TRUE}, returns the cumulative sum of the
+#' @param cumulate logical. If \code{TRUE}, returns the cumulative sum of the
 #'   midpoints. Default is \code{FALSE}.
 #'
 #' @return A numeric vector of length \code{length(x) - 1} (or \code{length(x)}
 #'   if \code{inclZero = TRUE}) containing the midpoints. Returns an empty
 #'   numeric vector if fewer than two values are available.
-#'
-#' @seealso \code{\link{moveAvg}}
 #'
 #' @examples
 #' x <- c(1, 3, 6, 7)
@@ -37,8 +35,9 @@
 #' xpos <- t(apply(tab, 2, midx, inclZero = TRUE, cumulate = TRUE))
 #' text(x = xpos, y = b, labels = t(tab), col = "red")
 #'
-#' @family vector.ops
-#' @concept ordering
+#' @family vector.window
+#' @concept moving-window
+#' @concept numerical-methods
 #' @export
 midx <- function(x, inclZero = FALSE, cumulate = FALSE) {
 

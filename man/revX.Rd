@@ -22,12 +22,16 @@ revX(x, ...)
 \method{revX}{data.frame}(x, margin = 1:2, ...)
 }
 \arguments{
-\item{x}{a vector, a matrix or a higher dimensional table to be reversed.}
+\item{x}{a vector, a matrix or a higher dimensional table to be reversed}
 
-\item{\dots}{the dots are passed to the array interface.}
+\item{\dots}{the dots are passed to the array interface}
 
 \item{margin}{vector of dimensions which to be reversed (1 for rows, 2 for
 columns, etc.). If not defined, all dimensions will be reverted.}
+}
+\value{
+an object of the same class and dimensions as \code{x}, with the
+order of elements along \code{margin} reversed.
 }
 \description{
 \code{revX} provides a reversed version of its argument. Unlike the basic
@@ -72,30 +76,11 @@ revX(aa, margin=(1:3))
 \code{\link{rev}}, \code{\link{order}}, \code{\link{sort}},
 \code{\link{seq}}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+Other data.order:
+\code{\link[=binaryTree]{binaryTree()}},
+\code{\link[=sortX]{sortX()}}
 }
-\concept{data.manipulation}
+\concept{data.order}
 \concept{ordering}
+\concept{reshape}
 \keyword{manip}

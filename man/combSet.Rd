@@ -7,19 +7,19 @@
 combSet(x, m, replace = FALSE, ordered = FALSE, output = c("matrix", "list"))
 }
 \arguments{
-\item{x}{A vector of numeric values or characters.
+\item{x}{a vector of numeric values or characters.
 Character values need not be unique.}
 
-\item{m}{Number of elements to choose.
+\item{m}{number of elements to choose.
 May be a vector.}
 
-\item{replace}{Logical. Should repetition of the same element
+\item{replace}{logical. Should repetition of the same element
 be allowed? Default is \code{FALSE}.}
 
-\item{ordered}{Logical. Does the order matter?
+\item{ordered}{logical. Does the order matter?
 Default is \code{FALSE}.}
 
-\item{output}{Character string specifying the output representation.
+\item{output}{character string specifying the output representation.
 One of \code{"matrix"} (return combinations as a matrix, the default)
 or \code{"list"} (return combinations as a flat list).}
 }
@@ -87,10 +87,10 @@ combSet(
 Other combinatorics:
 \code{\link[=combN]{combN()}},
 \code{\link[=combPairs]{combPairs()}},
+\code{\link[=pairApply]{pairApply()}},
 \code{\link[=permn]{permn()}},
 \code{\link[=randGroupSplit]{randGroupSplit()}},
-\code{\link[=sampleX]{sampleX()}},
-\code{\link[=unwhich]{unwhich()}}
+\code{\link[=sampleX]{sampleX()}}
 }
 \concept{combinatorics}
 \concept{sampling}

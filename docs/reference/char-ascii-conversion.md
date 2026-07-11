@@ -1,6 +1,6 @@
 # Character \<-\> ASCII Conversion
 
-Convert characters to ASCII codes and vice versa.
+Convert characters to their numeric character codes and vice versa.
 
 ## Usage
 
@@ -14,71 +14,64 @@ asciiToChar(i)
 
 - x:
 
-  Character vector.
+  a character vector
 
 - output:
 
-  Character string specifying the output representation. One of:
-
-  `\"vector\"`
-
-  :   Return a simplified integer vector when possible.
-
-  `\"list\"`
-
-  :   Always return a list of integer vectors.
-
-  Default is `\"vector\"`.
+  character string specifying the output representation. One of
+  `"vector"` (simplify the result whenever possible, the default) or
+  `"list"` (always return a list). See Details.
 
 - i:
 
-  Integer vector of ASCII codes (1–255).
+  an integer vector of character codes (1–255)
 
 ## Value
 
 - `charToAscii()` returns either an integer vector or a list of integer
-  vectors depending on `output`.
+  vectors, depending on `output`.
 
 - `asciiToChar()` returns a character vector.
 
 ## Details
 
-`charToAscii()` converts each character in a string to its ASCII code.
+`charToAscii()` converts each character in a string to its corresponding
+numeric code.
 
-`asciiToChar()` converts ASCII codes back to characters.
+`asciiToChar()` converts numeric codes back to characters.
 
-Only codes in `1:127` are standard ASCII and consistent across systems.
+Only values in the range `1:127` belong to the ASCII standard and
+therefore have the same meaning across all systems. Values `128:255`
+depend on the current character encoding (for example ISO-8859-1 or
+Windows-1252) and may produce different characters on different
+platforms.
 
-Codes above 127 depend on the current locale and encoding (e.g.
-ISO-8859-1).
-
-Note that `0` (NUL) is not supported in R character strings.
+Note that `0` (NUL) cannot be represented in R character strings and is
+therefore not supported.
 
 The `output` argument controls the representation returned by
 `charToAscii()`:
 
-- `\"vector\"`:
+- `"vector"`:
 
-  Simplify the result when possible:
+  Simplifies the result whenever possible.
 
-      \itemize{
-        \item single string -> integer vector
-        \item all strings length 1 -> integer vector
-        \item otherwise -> list
-      }
+  Returns an integer vector if:
 
-- `\"list\"`:
+  - the input consists of a single string, or
 
-  Always return a list of integer vectors.
+  - all input strings have length one.
+
+  Otherwise, a list of integer vectors is returned.
+
+- `"list"`:
+
+  Always returns a list of integer vectors.
 
 ## See also
 
 [`charToRaw`](https://rdrr.io/r/base/rawConversion.html),
 [`rawToChar`](https://rdrr.io/r/base/rawConversion.html)
-
-Other string.utilities: [`mGsub()`](mGsub.md),
-[`mReplace()`](mReplace.md), [`strSplitToCol()`](strSplitToCol.md),
-[`strSplitToDummy()`](strSplitToDummy.md)
 
 ## Examples
 

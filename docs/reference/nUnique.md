@@ -12,11 +12,11 @@ nUnique(x, na.rm = FALSE)
 
 - x:
 
-  A vector.
+  a vector
 
 - na.rm:
 
-  Logical. Should missing values (`NA`) be removed before counting
+  logical. Should missing values (`NA`) be removed before counting
   unique values? Defaults to `FALSE`.
 
 ## Value
@@ -25,16 +25,16 @@ An integer of length one.
 
 ## See also
 
-[`isLowCardinality()`](isLowCardinality.md) to check whether `x` has
-fewer than a given number of unique values, without counting all of them
+[`base::nlevels()`](https://rdrr.io/r/base/nlevels.html),
+[`isLowCardinality()`](isLowCardinality.md) to check whether `x` has at
+most a given number of unique values, without counting all of them
 first.
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`linScale()`](linScale.md), [`logit()`](logit.md),
-[`percentRank()`](percentRank.md), [`precision`](precision.md),
-[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
-[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
+Other data.predicate: [`flags()`](flags.md),
+[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
+[`isLowCardinality()`](isLowCardinality.md),
+[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
+[`isZero()`](isZero.md)
 
 ## Examples
 

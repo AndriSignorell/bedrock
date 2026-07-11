@@ -30,6 +30,7 @@
 #'
 #' @family combinatorics
 #' @concept combinatorics
+#' @concept number-theory
 #' @export
 combPairs <- function(x, y = NULL) {
 

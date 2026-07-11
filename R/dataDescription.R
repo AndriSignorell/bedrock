@@ -20,8 +20,8 @@
 #' If the sheet does not exist or no additional sheets are present,
 #' the function returns \code{NULL}.
 #'
-#' @param fn Character string. Path to the Excel file.
-#' @param sheet Character string. Name of the documentation sheet.
+#' @param fn character string. Path to the Excel file.
+#' @param sheet character string. Name of the documentation sheet.
 #'   Default is \code{"Description"}.
 #'
 #' @return
@@ -39,10 +39,9 @@
 #' desc$codes[["gender"]]
 #' }
 #'
-#' @family label.utils
+#' @family label.import
 #' @concept label
-#' @concept attribute
-#' @importFrom readxl excel_sheets read_excel
+#' @concept file-io
 #' @export
 dataDescription <- function(fn, sheet = "Description") {
 

@@ -7,7 +7,7 @@
 allDuplicated(x)
 }
 \arguments{
-\item{x}{A vector of any type.}
+\item{x}{a vector of any type}
 }
 \value{
 A logical vector of the same length as \code{x}.
@@ -66,20 +66,10 @@ occurrences). \cr
 \code{\link{split}} for grouping tied values. \cr
 \code{\link{table}} for counting frequencies.
 
-Other data.inspection:
+Other data.equal:
 \code{\link[=allIdentical]{allIdentical()}},
-\code{\link{between}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=completeColumns]{completeColumns()}},
-\code{\link[=countCompCases]{countCompCases()}},
-\code{\link[=flags]{flags()}},
-\code{\link[=isDichotomous]{isDichotomous()}},
-\code{\link[=isEuclid]{isEuclid()}},
-\code{\link[=isFilePath]{isFilePath()}},
-\code{\link[=isNumeric]{isNumeric()}},
-\code{\link[=isURL]{isURL()}},
-\code{\link[=isWholeLike]{isWholeLike()}},
-\code{\link[=isZero]{isZero()}}
+\code{\link[=compareDataFrames]{compareDataFrames()}}
 }
-\concept{data.inspection}
+\concept{comparison}
+\concept{data.equal}
 \concept{ties}

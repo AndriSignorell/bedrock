@@ -7,11 +7,11 @@
 getDotsArg(dots, name, default = NULL)
 }
 \arguments{
-\item{dots}{Named list (usually \code{list(...)})}
+\item{dots}{named list (usually \code{list(...)})}
 
-\item{name}{Character string, argument name}
+\item{name}{character string, argument name}
 
-\item{default}{Default value if argument not present}
+\item{default}{default value if argument not present}
 }
 \value{
 The value of the argument or \code{default}.
@@ -35,16 +35,12 @@ f(lwd = 2)
 \code{\link{extractArgs}} for extracting several arguments
 at once.
 
-Other pkg.introspection:
+Other pkg.args:
+\code{\link[=callIf]{callIf()}},
 \code{\link[=extractArgs]{extractArgs()}},
-\code{\link[=funArgs]{funArgs()}},
-\code{\link[=funCalls]{funCalls()}},
-\code{\link[=funKeywords]{funKeywords()}},
-\code{\link[=funList]{funList()}},
 \code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=rdLabels]{rdLabels()}},
-\code{\link[=rdTitle]{rdTitle()}},
-\code{\link[=strX]{strX()}}
+\code{\link[=recycle]{recycle()}}
 }
-\concept{pkg.introspection}
+\concept{introspection}
+\concept{pkg.args}
 \concept{programming}

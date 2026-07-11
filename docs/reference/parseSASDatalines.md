@@ -13,12 +13,12 @@ parseSASDatalines(x, validateNames = FALSE)
 
 - x:
 
-  A single character string containing a SAS DATA step with a DATALINES,
-  CARDS, or CARDS4 block.
+  a single character string containing a SAS DATA step with a DATALINES,
+  CARDS, or CARDS4 block
 
 - validateNames:
 
-  Logical. If `TRUE` (default `FALSE`), emits a warning when the dataset
+  logical. If `TRUE` (default `FALSE`), emits a warning when the dataset
   name violates SAS naming rules.
 
 ## Value
@@ -62,10 +62,8 @@ splits on whitespace and does not handle quoted strings.
 
 ## See also
 
-Other file.utils: [`buildPath()`](buildPath.md),
-[`fileExistURL()`](fileExistURL.md),
-[`findDownload()`](findDownload.md), [`pdfManual()`](pdfManual.md),
-[`splitPath()`](splitPath.md)
+Other file.io: [`pdfManual()`](pdfManual.md),
+[`peekFile()`](peekFile.md), [`readDownload()`](readDownload.md)
 
 ## Examples
 

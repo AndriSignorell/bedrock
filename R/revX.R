@@ -9,10 +9,13 @@
 #' @name revX
 #' @aliases revX revX.default revX.matrix revX.table revX.array revX.data.frame
 
-#' @param x a vector, a matrix or a higher dimensional table to be reversed.
+#' @param x a vector, a matrix or a higher dimensional table to be reversed
 #' @param margin vector of dimensions which to be reversed (1 for rows, 2 for
 #' columns, etc.). If not defined, all dimensions will be reverted.
-#' @param \dots the dots are passed to the array interface.
+#' @param \dots the dots are passed to the array interface
+#'
+#' @return an object of the same class and dimensions as \code{x}, with the
+#'   order of elements along \code{margin} reversed.
 
 
 
@@ -56,10 +59,9 @@
 
 #' @rdname revX
 
-#' @family data.manipulation  
+#' @family data.order
 #' @concept ordering
-#'
-#'
+#' @concept reshape
 #' @export
 revX <- function(x, ...) {
   # additional interface for rev...

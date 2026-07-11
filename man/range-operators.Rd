@@ -11,14 +11,14 @@ x \%:\% rng
 x \%::\% rng
 }
 \arguments{
-\item{x}{a vector.}
+\item{x}{a vector}
 
 \item{rng}{a vector of length 2: \code{c(from, to)}. May contain \code{NA} to match
 missing values in \code{x}.}
 }
 \value{
 a subset of \code{x}, from the first occurrence of \code{rng[1]} to the
-first (\verb{\\\%:\\\%}) or last (\verb{\\\%::\\\%}) occurrence of \code{rng[2]}.
+first (\verb{\%:\%}) or last (\verb{\%::\%}) occurrence of \code{rng[2]}.
 }
 \description{
 Returns the elements of \code{x} from the first occurrence of \code{rng[1]} up to an
@@ -28,8 +28,8 @@ quantifiers in regular expressions:
 }
 \details{
 \itemize{
-\item \verb{\\\%:\\\%} (lazy): up to the \emph{first} occurrence of \code{rng[2]}.
-\item \verb{\\\%::\\\%} (greedy): up to the \emph{last} occurrence of \code{rng[2]}.
+\item \verb{\%:\%} (lazy): up to the \emph{first} occurrence of \code{rng[2]}.
+\item \verb{\%::\%} (greedy): up to the \emph{last} occurrence of \code{rng[2]}.
 }
 }
 \examples{
@@ -44,13 +44,10 @@ colnames(mtcars) \%:\% c("hp", "vs")
 
 }
 \seealso{
-Other data.utils:
-\code{\link[=binaryTree]{binaryTree()}},
-\code{\link{intervals}},
-\code{\link[=ptInPoly]{ptInPoly()}},
-\code{\link[=resolveContingency]{resolveContingency()}},
-\code{\link[=resolveFormula]{resolveFormula()}},
-\code{\link[=resolveGroups]{resolveGroups()}}
+Other data.interval:
+\code{\link{between-operators}},
+\code{\link{intervals}}
 }
-\concept{data.utils}
+\concept{data.interval}
 \concept{range}
+\concept{range-selection}

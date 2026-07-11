@@ -7,7 +7,7 @@
 isZero(x, tol = sqrt(.Machine$double.eps), na.rm = FALSE)
 }
 \arguments{
-\item{x}{a (non-empty) numeric or complex vector of data values.}
+\item{x}{a (non-empty) numeric or complex vector of data values}
 
 \item{tol}{tolerance to be used}
 
@@ -34,20 +34,15 @@ isZero(.1 - .3 / 3)
 \seealso{
 \code{\link{all.equal}}, \code{\link{isWholeLike}}
 
-Other data.inspection:
-\code{\link[=allDuplicated]{allDuplicated()}},
-\code{\link[=allIdentical]{allIdentical()}},
-\code{\link{between}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=completeColumns]{completeColumns()}},
-\code{\link[=countCompCases]{countCompCases()}},
+Other data.predicate:
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
 \code{\link[=isEuclid]{isEuclid()}},
-\code{\link[=isFilePath]{isFilePath()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=isNumeric]{isNumeric()}},
-\code{\link[=isURL]{isURL()}},
-\code{\link[=isWholeLike]{isWholeLike()}}
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=nUnique]{nUnique()}}
 }
-\concept{data.inspection}
-\concept{ordering}
+\concept{data-inspection}
+\concept{data.predicate}
+\concept{type-test}

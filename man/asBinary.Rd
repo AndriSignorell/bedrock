@@ -7,7 +7,7 @@
 asBinary(x, pos = NULL, warn = TRUE)
 }
 \arguments{
-\item{x}{a logical, numeric, integer, factor, or character vector.}
+\item{x}{a logical, numeric, integer, factor, or character vector}
 
 \item{pos}{optional positive value. If supplied, observations equal to
 \code{pos} are coded as 1 and all others as 0. Must be one of the
@@ -64,30 +64,15 @@ asBinary(c("F", "U", "F", "U"), pos = "F")
 
 }
 \seealso{
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=columnWrap]{columnWrap()}},
+Other data.recode:
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
+\code{\link[=mReplace]{mReplace()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
 \code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=stringsAsFactors]{stringsAsFactors()}}
 }
 \concept{binary}
-\concept{data.manipulation}
-\concept{dummy-coding}
+\concept{data.recode}
+\concept{type-coercion}

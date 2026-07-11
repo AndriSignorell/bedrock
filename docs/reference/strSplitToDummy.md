@@ -13,20 +13,20 @@ strSplitToDummy(x, split = ",", trim = TRUE, na.action = na.pass, ...)
 
 - x:
 
-  A character vector with delimited tokens.
+  a character vector with delimited tokens
 
 - split:
 
-  A character string to use as delimiter. Default is `","`.
+  a character string to use as delimiter. Default is `","`.
 
 - trim:
 
-  Logical. If `TRUE` (default), whitespace is trimmed from each token
+  logical. If `TRUE` (default), whitespace is trimmed from each token
   after splitting.
 
 - na.action:
 
-  A function to handle `NA` values. Accepted values are
+  a function to handle `NA` values. Accepted values are
   [`na.pass`](https://rdrr.io/r/stats/na.fail.html) (default),
   [`na.omit`](https://rdrr.io/r/stats/na.fail.html),
   [`na.exclude`](https://rdrr.io/r/stats/na.fail.html), and
@@ -51,8 +51,8 @@ strSplitToDummy(x, split = ",", trim = TRUE, na.action = na.pass, ...)
 
 - ...:
 
-  Additional arguments passed to
-  [`strsplit`](https://rdrr.io/r/base/strsplit.html).
+  additional arguments passed to
+  [`strsplit`](https://rdrr.io/r/base/strsplit.html)
 
 ## Value
 
@@ -66,9 +66,7 @@ and may not be syntactically valid R identifiers. The attribute
 [`strsplit`](https://rdrr.io/r/base/strsplit.html),
 [`na.omit`](https://rdrr.io/r/stats/na.fail.html)
 
-Other string.utilities:
-[`char-ascii-conversion`](char-ascii-conversion.md),
-[`mGsub()`](mGsub.md), [`mReplace()`](mReplace.md),
+Other string.transform: [`mGsub()`](mGsub.md),
 [`strSplitToCol()`](strSplitToCol.md)
 
 ## Examples

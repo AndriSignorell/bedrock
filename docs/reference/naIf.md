@@ -1,6 +1,8 @@
 # Replace Values with NA
 
-Replaces specified values in a vector with `NA`.
+Replaces specified values in a vector with `NA`, in the manner of SQL's
+`NULLIF`. This is the complementary operation to
+[`coalesceX`](coalesceX.md).
 
 ## Usage
 
@@ -12,11 +14,11 @@ naIf(x, values)
 
 - x:
 
-  A vector.
+  a vector
 
 - values:
 
-  Values to be replaced by `NA`.
+  values to be replaced by `NA`
 
 ## Value
 
@@ -24,9 +26,14 @@ A vector of the same type as `x`.
 
 ## See also
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naReplace()`](naReplace.md),
-[`nz()`](nz.md), [`pairApply()`](pairApply.md),
-[`setLength()`](setLength.md), [`trim()`](trim.md), [`vRot()`](vRot.md),
-[`vShift()`](vShift.md), [`winsorize()`](winsorize.md)
+Other vector.na: [`coalesceX()`](coalesceX.md), [`isNA()`](isNA.md),
+[`locf()`](locf.md), [`naReplace()`](naReplace.md)
+
+## Examples
+
+``` r
+naIf(c(1, 2, 99, 3, 99), 99)
+#> [1]  1  2 NA  3 NA
+naIf(c("a", "b", "n/a", ""), c("n/a", ""))
+#> [1] "a" "b" NA  NA 
+```

@@ -4,9 +4,9 @@
 #' given topic (matched against \code{\\alias} entries) and returns its
 #' \code{\\title} string.
 #'
-#' @param topic A single character string giving the topic (function name or
-#'   alias) to look up.
-#' @param man A single character string giving the path to the directory
+#' @param topic a single character string giving the topic (function name or
+#'   alias) to look up
+#' @param man a single character string giving the path to the directory
 #'   containing \file{.Rd} files.  Defaults to \code{"man"}, i.e. the
 #'   \file{man/} subdirectory of the current working directory.
 #'
@@ -22,10 +22,9 @@
 #' }
 #'
 
-#' @family pkg.introspection  
+#' @family pkg.funinfo
 #' @concept introspection
-#'
-#'
+#' @concept programming
 #' @export
 rdTitle <- function(topic, man = "man") {
 

@@ -6,58 +6,49 @@ matrix using [`isDichotomous()`](isDichotomous.md).
 ## Usage
 
 ``` r
-flags(x, strict = FALSE, na.rm = FALSE, output = "data")
+flags(
+  x,
+  strict = FALSE,
+  na.rm = FALSE,
+  output = c("data", "names", "index", "logical")
+)
 ```
 
 ## Arguments
 
 - x:
 
-  A data frame or matrix.
+  a data frame or matrix
 
 - strict:
 
-  Logical.
-
-  If `TRUE`, only variables with exactly two distinct values are
-  considered dichotomous.
-
-  If `FALSE`, variables with one or two distinct values are allowed.
-
-  Default is `FALSE`.
+  logical. If `TRUE`, only variables with exactly two distinct values
+  are considered dichotomous. If `FALSE` (default), variables with one
+  or two distinct values are allowed.
 
 - na.rm:
 
-  Logical.
-
-  Should missing values be ignored when checking for dichotomous
-  variables?
-
-  Default is `FALSE`.
+  logical. Should missing values be ignored when checking for
+  dichotomous variables? Default is `FALSE`.
 
 - output:
 
-  Character string specifying the output representation.
-
-  One of:
-
-  `\"data\"`
-
-  :   Subset of `x` containing only dichotomous variables.
-
-  Default is `\"data\"`.
+  character string specifying the output representation. One of `"data"`
+  (subset of `x` containing only dichotomous variables, the default),
+  `"names"` (names of dichotomous variables), `"index"` (column indices)
+  or `"logical"` (logical vector indicating dichotomous variables).
 
 ## Value
 
 Depending on `output`:
 
-- `\"data\"`: data frame or matrix
+- `"data"`: data frame or matrix
 
-- `\"names\"`: character vector
+- `"names"`: character vector
 
-- `\"index\"`: integer vector
+- `"index"`: integer vector
 
-- `\"logical\"`: logical vector
+- `"logical"`: logical vector
 
 ## Details
 
@@ -75,13 +66,11 @@ non-dichotomous for filtering purposes.
 
 [`isDichotomous`](isDichotomous.md)
 
-Other data.inspection: [`allDuplicated()`](allDuplicated.md),
-[`allIdentical()`](allIdentical.md),
-[`completeColumns()`](completeColumns.md),
-[`countCompCases()`](countCompCases.md),
-[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
-[`isNumeric()`](isNumeric.md), [`isURL()`](isURL.md),
-[`isWholeLike()`](isWholeLike.md), [`isZero()`](isZero.md)
+Other data.predicate: [`isDichotomous()`](isDichotomous.md),
+[`isEuclid()`](isEuclid.md),
+[`isLowCardinality()`](isLowCardinality.md),
+[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
+[`isZero()`](isZero.md), [`nUnique()`](nUnique.md)
 
 ## Examples
 

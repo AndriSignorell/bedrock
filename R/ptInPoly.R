@@ -8,10 +8,10 @@
 #' The function uses a numerically stable angle summation algorithm
 #' implemented in C++ via Rcpp.
 #'
-#' @param x Numeric vector of x-coordinates of the query points.
-#' @param y Numeric vector of y-coordinates of the query points.
-#' @param polyX Numeric vector of x-coordinates of the polygon vertices.
-#' @param polyY Numeric vector of y-coordinates of the polygon vertices.
+#' @param x numeric vector of x-coordinates of the query points
+#' @param y numeric vector of y-coordinates of the query points
+#' @param polyX numeric vector of x-coordinates of the polygon vertices
+#' @param polyY numeric vector of y-coordinates of the polygon vertices
 #'
 #' @return An integer vector of length `length(x)`:
 #' \describe{
@@ -37,10 +37,9 @@
 #'
 
 
-#' @family data.utils  
+#' @family math.geometry
 #' @concept geometry
-#'
-#'
+#' @concept type-test
 #' @export
 ptInPoly <- function(x, y, polyX, polyY) {
   

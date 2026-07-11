@@ -17,13 +17,13 @@
 #'   \item other files: loaded via \code{read.table()}
 #' }
 #'
-#' @param name Character string. File name including extension (e.g. \code{"data.csv"}).
-#' @param url Optional character string. Base URL where the file is located.
+#' @param name character string. File name including extension (e.g. \code{"data.csv"}).
+#' @param url optional character string. Base URL where the file is located.
 #'   If \code{NULL}, default course repositories are searched.
-#' @param header Logical. Whether the file contains a header row. Passed to \code{read.table()}.
-#' @param sep Character. Field separator used in the file. Default is \code{";"}.
-#' @param ... Additional arguments passed to the underlying import functions
-#'   such as \code{read.table()} or \code{openDataObject()}.
+#' @param header logical. Whether the file contains a header row. Passed to \code{read.table()}.
+#' @param sep character. Field separator used in the file. Default is \code{";"}.
+#' @param ... additional arguments passed to the underlying import functions
+#'   such as \code{read.table()} or \code{openDataObject()}
 #'
 #' @return
 #' A data frame or object returned by the respective import function:
@@ -41,11 +41,9 @@
 #' courseData("mydata.csv", url = "https://example.com/data/")
 #' }
 #'
-#' @importFrom utils read.table
-#' @seealso \code{\link{fileExistURL}}
-#'
 #' @family datasets
 #' @concept dataset
+#' @concept file-io
 #' @export
 courseData <- function(name,
                        url    = NULL,

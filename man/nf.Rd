@@ -7,21 +7,24 @@
 nf(x, ...)
 }
 \arguments{
-\item{x}{A vector to be converted.}
+\item{x}{a vector to be converted}
 
-\item{...}{Additional arguments passed to \code{\link{factor}}.}
+\item{...}{additional arguments passed to \code{\link{factor}}}
 }
 \value{
 A numeric vector corresponding to the integer codes of the factor levels.
 }
 \description{
 Converts an object to numeric by first coercing it to a factor and then
-to numeric.
+to numeric. This is useful whenever a categorical or character variable
+needs a purely numeric stand-in -- for example, as input to functions
+that require numeric data (distance calculations, correlation matrices,
+some modelling routines), or to obtain a compact, deterministic
+small-integer code for an ordinal variable by passing an explicit
+\code{levels} order.
 }
 \details{
 This function is a shorthand for \code{as.numeric(factor(x, ...))}.
-It is useful for converting categorical or character variables into
-integer codes representing factor levels.
 
 Note that the resulting numeric values correspond to the internal
 factor levels, not the original numeric values. In particular, for
@@ -40,30 +43,15 @@ nf(c("10", "2"))    # 1 2, not 10 2
 \seealso{
 \code{\link{factor}}, \code{\link{as.numeric}}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+Other data.recode:
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
+\code{\link[=mReplace]{mReplace()}},
 \code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
 \code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=stringsAsFactors]{stringsAsFactors()}}
 }
 \concept{categorization}
-\concept{data.manipulation}
-\concept{factor-handling}
+\concept{data.recode}
+\concept{type-coercion}

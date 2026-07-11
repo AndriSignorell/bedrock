@@ -13,19 +13,19 @@ isWholeLike(
 )
 }
 \arguments{
-\item{x}{A numeric, integer, or complex vector.}
+\item{x}{a numeric, integer, or complex vector}
 
-\item{all}{Logical. If \code{TRUE} (default), returns a single logical
+\item{all}{logical. If \code{TRUE} (default), returns a single logical
 indicating whether all elements are whole-like. If \code{FALSE},
 returns a logical vector of the same length as \code{x}.}
 
-\item{isNonNegative}{Logical. If \code{TRUE}, additionally requires values
+\item{isNonNegative}{logical. If \code{TRUE}, additionally requires values
 to be non-negative.}
 
-\item{tol}{Numerical tolerance for comparing to the nearest integer.
+\item{tol}{numerical tolerance for comparing to the nearest integer.
 Default is \code{sqrt(.Machine$double.eps)}.}
 
-\item{na.rm}{Logical. If \code{TRUE}, missing values are removed before
+\item{na.rm}{logical. If \code{TRUE}, missing values are removed before
 testing. If \code{FALSE} (default) and \code{x} contains \code{NA},
 the result is \code{FALSE}.}
 }
@@ -54,20 +54,15 @@ isWholeLike(1:5 + 0i)
 
 }
 \seealso{
-Other data.inspection:
-\code{\link[=allDuplicated]{allDuplicated()}},
-\code{\link[=allIdentical]{allIdentical()}},
-\code{\link{between}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=completeColumns]{completeColumns()}},
-\code{\link[=countCompCases]{countCompCases()}},
+Other data.predicate:
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
 \code{\link[=isEuclid]{isEuclid()}},
-\code{\link[=isFilePath]{isFilePath()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=isNumeric]{isNumeric()}},
-\code{\link[=isURL]{isURL()}},
-\code{\link[=isZero]{isZero()}}
+\code{\link[=isZero]{isZero()}},
+\code{\link[=nUnique]{nUnique()}}
 }
-\concept{data.inspection}
-\concept{ordering}
+\concept{data-inspection}
+\concept{data.predicate}
+\concept{type-test}

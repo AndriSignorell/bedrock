@@ -14,11 +14,11 @@ winsorize(x, val = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE))
 
 - x:
 
-  A numeric vector to be winsorized.
+  a numeric vector to be winsorized
 
 - val:
 
-  A numeric vector of length two specifying the lower and upper
+  a numeric vector of length two specifying the lower and upper
   winsorization limits. Defaults to the 5% and 95% quantiles of `x` with
   `na.rm = TRUE`.
 
@@ -59,15 +59,11 @@ winsorization.
 
 ## See also
 
-[`scaleX`](https://rdrr.io/pkg/DescToolsX/man/scaleX.html),
-[`winsorize`](https://rdrr.io/pkg/robustHD/man/winsorize.html)
+`scaleX()`, `winsorize()` in package robustHD
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
-[`trim()`](trim.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md)
+Other math.transform: [`linScale()`](linScale.md),
+[`logit()`](logit.md), [`percentRank()`](percentRank.md),
+[`rankX()`](rankX.md)
 
 ## Examples
 

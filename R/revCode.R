@@ -8,12 +8,12 @@
 #'   \item \strong{Factor}: Reverses the order of levels
 #' }
 #'
-#' @param x A vector (numeric, logical, or factor).
-#' @param min Optional numeric minimum. Must be provided together with \code{max}.
+#' @param x a vector (numeric, logical, or factor)
+#' @param min optional numeric minimum. Must be provided together with \code{max}.
 #'   If \code{NULL} (default), the observed minimum of \code{x} is used.
-#' @param max Optional numeric maximum. Must be provided together with \code{min}.
+#' @param max optional numeric maximum. Must be provided together with \code{min}.
 #'   If \code{NULL} (default), the observed maximum of \code{x} is used.
-#' @param na.rm Logical; whether to ignore \code{NA}s when computing the range
+#' @param na.rm logical; whether to ignore \code{NA}s when computing the range
 #'   (numeric only). If \code{FALSE} and \code{NA}s are present, a warning is
 #'   issued and \code{NA} is returned for all values. Default is \code{FALSE}.
 #'
@@ -46,10 +46,9 @@
 
 
 
-#' @family data.manipulation  
+#' @family data.recode
+#' @concept recoding
 #' @concept categorization
-#'
-#'
 #' @export
 revCode <- function(x, min = NULL, max = NULL, na.rm = FALSE) {
   

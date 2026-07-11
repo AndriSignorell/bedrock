@@ -7,14 +7,11 @@
 #' are returned as an integer vector; for several values, a named list is
 #' returned, with names corresponding to the input values.
 #'
-#' @param n A numeric vector of positive whole numbers.
+#' @param n a numeric vector of positive whole numbers
 #'
 #' @return An integer vector containing the prime numbers less than or equal
 #'   to \code{n} if \code{n} is a single number, otherwise a named list of
 #'   such vectors.
-#'
-#' @seealso \code{\link{isPrime}}, \code{\link{factorize}},
-#'   \code{\link{divisors}}
 #'
 #' @examples
 #' primes(10)
@@ -22,6 +19,7 @@
 #'
 #' @family number.theory
 #' @concept number-theory
+#' @concept numerical-methods
 #' @export
 primes <- function(n) {
 

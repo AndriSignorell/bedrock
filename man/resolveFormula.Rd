@@ -185,14 +185,10 @@ is.numeric(r5$predictor)
 \code{\link[stats]{Pair}},
 \code{\link[DescToolsX]{desc}}
 
-Other data.utils:
-\code{\link[=binaryTree]{binaryTree()}},
-\code{\link{intervals}},
-\code{\link[=ptInPoly]{ptInPoly()}},
-\code{\link{range-operators}},
+Other data.resolve:
 \code{\link[=resolveContingency]{resolveContingency()}},
 \code{\link[=resolveGroups]{resolveGroups()}}
 }
-\concept{data.utils}
+\concept{data-resolution}
+\concept{data.resolve}
 \concept{formula}
-\concept{modelling}

@@ -7,7 +7,7 @@
 isPrime(n)
 }
 \arguments{
-\item{n}{A numeric vector. Values must be finite integers in the
+\item{n}{a numeric vector. Values must be finite integers in the
 unsigned 64-bit integer range.}
 }
 \value{
@@ -35,14 +35,14 @@ isPrime(c(17, 18, 19))
 }
 \seealso{
 Other number.theory:
+\code{\link{GCD-LCM}},
 \code{\link[=digitSum]{digitSum()}},
 \code{\link[=divisors]{divisors()}},
 \code{\link[=factorize]{factorize()}},
 \code{\link[=fibonacci]{fibonacci()}},
-\code{\link{gcd_lcm}},
 \code{\link[=isOdd]{isOdd()}},
-\code{\link{numeric-conversions}},
 \code{\link[=primes]{primes()}}
 }
 \concept{number-theory}
 \concept{number.theory}
+\concept{type-test}

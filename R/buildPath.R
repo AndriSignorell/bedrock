@@ -19,8 +19,8 @@
 #' Both arguments are vectorized in the usual
 #' \code{\link[base:file.path]{file.path}} manner.
 #'
-#' @param dir Character string. Directory path.
-#' @param filename Character string. File name to append to \code{dir}.
+#' @param dir character string. Directory path.
+#' @param filename character string. File name to append to \code{dir}.
 #'
 #' @return A character string representing the file path.
 #'
@@ -33,8 +33,9 @@
 #' buildPath("data", "file.csv")
 #' buildPath("data/", "file.csv")
 #'
-#' @family file.utils
-#' @concept programming
+#' @family file.path
+#' @concept path-handling
+#' @concept string-manipulation
 #' @export
 buildPath <- function(dir, filename) {
 

@@ -8,8 +8,8 @@
 #' \code{value} is an existing level, the missing values are simply filled
 #' with it.
 #'
-#' @param x A vector or factor.
-#' @param value The replacement value. For factors, a single character
+#' @param x a vector or factor
+#' @param value the replacement value. For factors, a single character
 #'   string.
 #'
 #' @return An object of the same class as \code{x} with \code{NA} values
@@ -29,7 +29,8 @@
 #' naReplace(factor(c("low", "high", NA), levels = c("low", "high"),
 #'                  ordered = TRUE), "unknown")
 #'
-#' @family vector.ops
+#' @family vector.na
+#' @concept imputation
 #' @concept missing-value
 #' @export
 naReplace <- function(x, value) {

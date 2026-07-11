@@ -12,19 +12,19 @@ rankX(
 )
 }
 \arguments{
-\item{...}{One or more vectors to be ranked. If multiple vectors are
+\item{...}{one or more vectors to be ranked. If multiple vectors are
 provided, they are ranked lexicographically (like \code{order}).
 All inputs must have the same length.}
 
-\item{decreasing}{Logical; if \code{TRUE}, larger values receive smaller
+\item{decreasing}{logical; if \code{TRUE}, larger values receive smaller
 ranks (i.e., ranking in descending order). When ranking multiple
 inputs, a logical vector may be given to control the direction per
 input.}
 
-\item{na.last}{Logical or \code{"keep"}; determines the placement of
+\item{na.last}{logical or \code{"keep"}; determines the placement of
 \code{NA} values. Passed to \code{data.table::frankv}.}
 
-\item{ties.method}{Character string specifying how ties are handled.
+\item{ties.method}{character string specifying how ties are handled.
 One of:
 \describe{
 \item{\code{"average"}}{Average of the ranks for tied values (default).}
@@ -84,19 +84,12 @@ rankX(a, b)
 \seealso{
 \code{\link[base]{rank}}, \code{\link[data.table]{frankv}}
 
-Other math.utils:
-\code{\link[=crossProd]{crossProd()}},
-\code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=dotProd]{dotProd()}},
-\code{\link[=isLowCardinality]{isLowCardinality()}},
+Other math.transform:
 \code{\link[=linScale]{linScale()}},
 \code{\link[=logit]{logit()}},
-\code{\link[=nUnique]{nUnique()}},
 \code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
+\code{\link[=winsorize]{winsorize()}}
 }
-\concept{math.utils}
-\concept{ordering}
+\concept{math.transform}
+\concept{ties}
+\concept{transformation}

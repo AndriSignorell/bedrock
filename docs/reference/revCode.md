@@ -19,21 +19,21 @@ revCode(x, min = NULL, max = NULL, na.rm = FALSE)
 
 - x:
 
-  A vector (numeric, logical, or factor).
+  a vector (numeric, logical, or factor)
 
 - min:
 
-  Optional numeric minimum. Must be provided together with `max`. If
+  optional numeric minimum. Must be provided together with `max`. If
   `NULL` (default), the observed minimum of `x` is used.
 
 - max:
 
-  Optional numeric maximum. Must be provided together with `min`. If
+  optional numeric maximum. Must be provided together with `min`. If
   `NULL` (default), the observed maximum of `x` is used.
 
 - na.rm:
 
-  Logical; whether to ignore `NA`s when computing the range (numeric
+  logical; whether to ignore `NA`s when computing the range (numeric
   only). If `FALSE` and `NA`s are present, a warning is issued and `NA`
   is returned for all values. Default is `FALSE`.
 
@@ -45,21 +45,15 @@ A vector of the same type and length as `x`, with reversed coding.
 
 Throws an error if all values are `NA`, if only one of `min`/`max` is
 provided, if `min > max`, or if `x` is not numeric, logical, or factor.
+A warning is issued if values of `x` lie outside an explicitly provided
+`[min, max]` range.
 
 ## See also
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+Other data.recode: [`asBinary()`](asBinary.md),
+[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
+[`mReplace()`](mReplace.md), [`nf()`](nf.md), [`recodeX()`](recodeX.md),
+[`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 

@@ -7,7 +7,7 @@
 digitSum(x)
 }
 \arguments{
-\item{x}{An integer vector, or a numeric vector of whole numbers.}
+\item{x}{an integer vector, or a numeric vector of whole numbers}
 }
 \value{
 An integer vector containing the digit sums.
@@ -28,14 +28,14 @@ digitSum(c(10L, 99L, -1234L))
 }
 \seealso{
 Other number.theory:
+\code{\link{GCD-LCM}},
 \code{\link[=divisors]{divisors()}},
 \code{\link[=factorize]{factorize()}},
 \code{\link[=fibonacci]{fibonacci()}},
-\code{\link{gcd_lcm}},
 \code{\link[=isOdd]{isOdd()}},
 \code{\link[=isPrime]{isPrime()}},
-\code{\link{numeric-conversions}},
 \code{\link[=primes]{primes()}}
 }
 \concept{number-theory}
 \concept{number.theory}
+\concept{numerical-methods}

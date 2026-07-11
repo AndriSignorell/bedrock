@@ -7,16 +7,16 @@
 openDataObject(name, url = NULL, doc = NULL, ...)
 }
 \arguments{
-\item{name}{Character string. File name including extension (e.g. \code{"data.xlsx"}).}
+\item{name}{character string. File name including extension (e.g. \code{"data.xlsx"}).}
 
-\item{url}{Character string. Base URL where the file is located.
+\item{url}{character string. Base URL where the file is located.
 Defaults to \url{https://www.signorell.net/hwz/datasets/}.}
 
-\item{doc}{List or \code{NA}. Defines the structure of the documentation sheet.
+\item{doc}{list or \code{NA}. Defines the structure of the documentation sheet.
 If \code{NULL}, the function tries to detect a sheet named \code{"Description"}.
 If \code{NA}, no metadata processing is performed.}
 
-\item{...}{Additional arguments passed to \code{readxl::read_excel()}.}
+\item{...}{additional arguments passed to \code{readxl::read_excel()}}
 }
 \value{
 A \code{data.frame} containing the imported data. If metadata is available:
@@ -59,10 +59,9 @@ openDataObject("example.xlsx", doc = NA)
 
 }
 \seealso{
-Other label.utils:
-\code{\link[=dataDescription]{dataDescription()}},
-\code{\link[=label]{label()}}
+Other label.import:
+\code{\link[=dataDescription]{dataDescription()}}
 }
-\concept{attribute}
+\concept{file-io}
 \concept{label}
-\concept{label.utils}
+\concept{label.import}

@@ -14,13 +14,13 @@
 #' (i.e. \code{NA} returned by \code{isDichotomous()})
 #' are treated as non-dichotomous for filtering purposes.
 #'
-#' @param x A data frame or matrix.
-#' @param strict Logical. If \code{TRUE}, only variables with exactly two
+#' @param x a data frame or matrix
+#' @param strict logical. If \code{TRUE}, only variables with exactly two
 #'   distinct values are considered dichotomous. If \code{FALSE} (default),
 #'   variables with one or two distinct values are allowed.
-#' @param na.rm Logical. Should missing values be ignored when checking
+#' @param na.rm logical. Should missing values be ignored when checking
 #'   for dichotomous variables? Default is \code{FALSE}.
-#' @param output Character string specifying the output representation.
+#' @param output character string specifying the output representation.
 #'   One of \code{"data"} (subset of \code{x} containing only dichotomous
 #'   variables, the default), \code{"names"} (names of dichotomous
 #'   variables), \code{"index"} (column indices) or \code{"logical"}
@@ -57,9 +57,9 @@
 #' # return column indices
 #' flags(dat, output = "index")
 #'
-#' @family data.inspection
+#' @family data.predicate
 #' @concept binary
-#' @concept categorization
+#' @concept data-inspection
 #' @export
 flags <- function(x, strict = FALSE, na.rm = FALSE,
                   output = c("data", "names", "index", "logical")) {

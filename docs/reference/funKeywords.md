@@ -15,26 +15,31 @@ funKeywords(topic)
 
   optional, object or man page topic
 
+## Value
+
+If `topic` is missing, the R keywords documentation file is opened for
+display via [`file.show`](https://rdrr.io/r/base/file.show.html),
+invisibly returning `NULL`. Otherwise, a character vector of topic names
+whose keywords match `topic`.
+
 ## Details
 
 If `topic` is provided, return a list of the Keywords associated with
 `topic`. Otherwise, display the list of valid R Keywords from the R
 doc/Keywords file.
 
+## Note
+
+Substantially based on the `keywords()` function from the gtools package
+by Gregory R. Warnes, with minor adaptations by the package author.
+
 ## See also
 
 [`help`](https://rdrr.io/r/utils/help.html)
 
-Other pkg.introspection: [`extractArgs()`](extractArgs.md),
-[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
-[`funList()`](funList.md), [`getDotsArg()`](getDotsArg.md),
-[`mergeArgs()`](mergeArgs.md), [`quot()`](quot.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
-[`strX()`](strX.md)
-
-## Author
-
-Gregory R. Warnes <greg@warnes.net>
+Other pkg.funinfo: [`funArgs()`](funArgs.md),
+[`funCalls()`](funCalls.md), [`funList()`](funList.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
 
 ## Examples
 
@@ -49,5 +54,4 @@ funKeywords(merge)
 funKeywords("merge")
 #> [1] "data"  "manip" "array"
 # }
-
 ```

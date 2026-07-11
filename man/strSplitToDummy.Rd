@@ -7,14 +7,14 @@
 strSplitToDummy(x, split = ",", trim = TRUE, na.action = na.pass, ...)
 }
 \arguments{
-\item{x}{A character vector with delimited tokens.}
+\item{x}{a character vector with delimited tokens}
 
-\item{split}{A character string to use as delimiter. Default is \code{","}.}
+\item{split}{a character string to use as delimiter. Default is \code{","}.}
 
-\item{trim}{Logical. If \code{TRUE} (default), whitespace is trimmed from
+\item{trim}{logical. If \code{TRUE} (default), whitespace is trimmed from
 each token after splitting.}
 
-\item{na.action}{A function to handle \code{NA} values. Accepted values are
+\item{na.action}{a function to handle \code{NA} values. Accepted values are
 \code{\link[stats]{na.pass}} (default), \code{\link[stats]{na.omit}},
 \code{\link[stats]{na.exclude}}, and \code{\link[stats]{na.fail}}.
 \describe{
@@ -25,7 +25,7 @@ rows are stored in a \code{"na.action"} attribute.}
 \item{\code{na.fail}}{An error is raised if any \code{NA} is present.}
 }}
 
-\item{\dots}{Additional arguments passed to \code{\link[base]{strsplit}}.}
+\item{\dots}{additional arguments passed to \code{\link[base]{strsplit}}}
 }
 \value{
 A \code{data.frame} with one row per element of \code{x} and one
@@ -68,9 +68,10 @@ tryCatch(
 \seealso{
 \code{\link[base]{strsplit}}, \code{\link[stats]{na.omit}}
 
-Other string.utilities:
+Other string.transform:
+\code{\link[=mGsub]{mGsub()}},
 \code{\link[=strSplitToCol]{strSplitToCol()}}
 }
 \concept{dummy-coding}
 \concept{string-manipulation}
-\concept{string.utilities}
+\concept{string.transform}

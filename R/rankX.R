@@ -5,16 +5,16 @@
 #' based on \code{data.table::frankv}. Supports additional tie-handling
 #' methods such as \code{"dense"} and multi-column ranking via \code{...}.
 #'
-#' @param ... One or more vectors to be ranked. If multiple vectors are
+#' @param ... one or more vectors to be ranked. If multiple vectors are
 #'   provided, they are ranked lexicographically (like \code{order}).
 #'   All inputs must have the same length.
-#' @param decreasing Logical; if \code{TRUE}, larger values receive smaller
+#' @param decreasing logical; if \code{TRUE}, larger values receive smaller
 #'   ranks (i.e., ranking in descending order). When ranking multiple
 #'   inputs, a logical vector may be given to control the direction per
 #'   input.
-#' @param na.last Logical or \code{"keep"}; determines the placement of
+#' @param na.last logical or \code{"keep"}; determines the placement of
 #'   \code{NA} values. Passed to \code{data.table::frankv}.
-#' @param ties.method Character string specifying how ties are handled.
+#' @param ties.method character string specifying how ties are handled.
 #'   One of:
 #'   \describe{
 #'     \item{\code{"average"}}{Average of the ranks for tied values (default).}
@@ -68,8 +68,9 @@
 #' b <- c(2, 1, 2, 1)
 #' rankX(a, b)
 #'
-#' @family math.utils
-#' @concept ordering
+#' @family math.transform
+#' @concept transformation
+#' @concept ties
 #' @export
 rankX <- function(..., decreasing = FALSE, na.last = TRUE, 
                  ties.method = c("average", "first", "last", 

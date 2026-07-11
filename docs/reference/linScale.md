@@ -13,22 +13,23 @@ linScale(x, low = NULL, high = NULL, newLow = 0, newHigh = 1)
 
 - x:
 
-  A numeric vector, matrix or data frame.
+  a numeric vector, matrix or data frame
 
 - low, high:
 
-  Optional numeric vectors specifying the lower and upper bounds of the
+  optional numeric vectors specifying the lower and upper bounds of the
   original scale. If `NULL`, the column-wise minima and maxima of `x`
   are used.
 
 - newLow, newHigh:
 
-  Numeric vectors specifying the target range. Defaults to `0` and `1`.
+  numeric vectors specifying the target range. Defaults to `0` and `1`.
 
 ## Value
 
-A numeric matrix with the same dimensions as `x`, where each column is
-linearly rescaled to the interval `[newLow, newHigh]`.
+An object of the same shape as `x`: a numeric vector for vector input,
+otherwise a numeric matrix with the same dimensions, where each column
+is linearly rescaled to the interval `[newLow, newHigh]`.
 
 ## Details
 
@@ -37,16 +38,16 @@ low}{high - low} \cdot (new\\high - new\\low) + new\\low \$\$
 
 Constant columns (where `high == low`) are mapped to `newLow`.
 
+If `low` and `high` are supplied, values of `x` outside `[low, high]`
+are extrapolated linearly and are not clipped to the target range.
+
 ## See also
 
 [`scale`](https://rdrr.io/r/base/scale.html)
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`logit()`](logit.md), [`nUnique()`](nUnique.md),
-[`percentRank()`](percentRank.md), [`precision`](precision.md),
-[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
-[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
+Other math.transform: [`logit()`](logit.md),
+[`percentRank()`](percentRank.md), [`rankX()`](rankX.md),
+[`winsorize()`](winsorize.md)
 
 ## Examples
 

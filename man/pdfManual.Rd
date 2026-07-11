@@ -7,7 +7,7 @@
 pdfManual(package)
 }
 \arguments{
-\item{package}{Package name (symbol or character).}
+\item{package}{package name (symbol or character)}
 }
 \value{
 The URL of the PDF manual, invisibly. Called for its side effect
@@ -33,13 +33,11 @@ pdfManual("bedrock")
 \seealso{
 \code{\link{browseURL}}
 
-Other file.utils:
-\code{\link[=buildPath]{buildPath()}},
-\code{\link[=fileExistURL]{fileExistURL()}},
-\code{\link[=findDownload]{findDownload()}},
+Other file.io:
 \code{\link[=parseSASDatalines]{parseSASDatalines()}},
 \code{\link[=peekFile]{peekFile()}},
-\code{\link[=splitPath]{splitPath()}}
+\code{\link[=readDownload]{readDownload()}}
 }
-\concept{file.utils}
-\concept{programming}
+\concept{file-io}
+\concept{file.io}
+\concept{introspection}

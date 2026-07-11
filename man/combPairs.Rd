@@ -43,9 +43,10 @@ combPairs(which(sapply(CO2, is.numeric)), which(sapply(CO2, is.factor)))
 Other combinatorics:
 \code{\link[=combN]{combN()}},
 \code{\link[=combSet]{combSet()}},
+\code{\link[=pairApply]{pairApply()}},
 \code{\link[=permn]{permn()}},
 \code{\link[=randGroupSplit]{randGroupSplit()}},
-\code{\link[=sampleX]{sampleX()}},
-\code{\link[=unwhich]{unwhich()}}
+\code{\link[=sampleX]{sampleX()}}
 }
 \concept{combinatorics}
+\concept{number-theory}

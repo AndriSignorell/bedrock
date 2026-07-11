@@ -7,11 +7,11 @@
 compareDataFrames(x, y, key)
 }
 \arguments{
-\item{x}{A data frame.}
+\item{x}{a data frame}
 
-\item{y}{A data frame to compare against \code{x}.}
+\item{y}{a data frame to compare against \code{x}}
 
-\item{key}{Character string. Name of the column used as row identifier.
+\item{key}{character string. Name of the column used as row identifier.
 Must be present in both \code{x} and \code{y}, with unique values.}
 }
 \value{
@@ -47,20 +47,10 @@ compareDataFrames(x, y, key = "id")
 
 }
 \seealso{
-Other data.inspection:
+Other data.equal:
 \code{\link[=allDuplicated]{allDuplicated()}},
-\code{\link[=allIdentical]{allIdentical()}},
-\code{\link{between}},
-\code{\link[=completeColumns]{completeColumns()}},
-\code{\link[=countCompCases]{countCompCases()}},
-\code{\link[=flags]{flags()}},
-\code{\link[=isDichotomous]{isDichotomous()}},
-\code{\link[=isEuclid]{isEuclid()}},
-\code{\link[=isFilePath]{isFilePath()}},
-\code{\link[=isNumeric]{isNumeric()}},
-\code{\link[=isURL]{isURL()}},
-\code{\link[=isWholeLike]{isWholeLike()}},
-\code{\link[=isZero]{isZero()}}
+\code{\link[=allIdentical]{allIdentical()}}
 }
-\concept{data.inspection}
-\concept{table}
+\concept{comparison}
+\concept{data-inspection}
+\concept{data.equal}

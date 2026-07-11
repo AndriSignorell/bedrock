@@ -3,8 +3,8 @@
 #'
 #' Splits a vector into consecutive segments at specified positions.
 #'
-#' @param x A vector to be split.
-#' @param pos An integer vector of positions at which to split \code{x}.
+#' @param x a vector to be split
+#' @param pos an integer vector of positions at which to split \code{x}.
 #'   Positions refer to indices in \code{x} where a new segment should start.
 #'
 #' @return A list of vectors, each representing a segment of \code{x}.
@@ -33,10 +33,9 @@
 
 
 
-#' @family data.manipulation  
+#' @family data.reshape
 #' @concept reshape
-#'
-#'
+#' @concept data-inspection
 #' @export
 splitAt <- function(x, pos) {
 

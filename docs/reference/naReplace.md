@@ -12,34 +12,32 @@ naReplace(x, value)
 
 # S3 method for class 'factor'
 naReplace(x, value)
-
-# S3 method for class 'ordered'
-naReplace(x, value)
 ```
 
 ## Arguments
 
 - x:
 
-  A vector or factor.
+  a vector or factor
 
 - value:
 
-  The replacement value. For factors, a character string that will be
-  added as a new level if not already present.
+  the replacement value. For factors, a single character string.
 
 ## Value
 
 An object of the same class as `x` with `NA` values replaced by `value`.
 
+## Details
+
+For factors (including ordered factors), `value` is appended as a new
+level at the last position if it is not already present. If `value` is
+an existing level, the missing values are simply filled with it.
+
 ## See also
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
-[`trim()`](trim.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+Other vector.na: [`coalesceX()`](coalesceX.md), [`isNA()`](isNA.md),
+[`locf()`](locf.md), [`naIf()`](naIf.md)
 
 ## Examples
 
@@ -57,9 +55,9 @@ naReplace(factor(c("a", "b", NA)), "missing")
 #> [1] a       b       missing
 #> Levels: a b missing
 
-# ordered factor
+# ordered factor: the new level is appended at the end
 naReplace(factor(c("low", "high", NA), levels = c("low", "high"),
-                 ordered = TRUE), "medium")
-#> [1] low  high <NA>
-#> Levels: low < high < medium
+                 ordered = TRUE), "unknown")
+#> [1] low     high    unknown
+#> Levels: low < high < unknown
 ```

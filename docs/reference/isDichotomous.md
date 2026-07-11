@@ -12,31 +12,31 @@ isDichotomous(x, strict = FALSE, na.rm = FALSE)
 
 - x:
 
-  A vector.
+  a vector
 
 - strict:
 
-  Logical. If `TRUE`, exactly two distinct values must be present. If
+  logical. If `TRUE`, exactly two distinct values must be present. If
   `FALSE` (default), at most two distinct values are allowed.
 
 - na.rm:
 
-  Logical. If `TRUE`, missing values are removed before evaluation. If
-  `FALSE` (default), the presence of `NA` results in `FALSE`.
+  logical. If `TRUE`, missing values are removed before evaluation. If
+  `FALSE` (default), the presence of `NA` results in `NA` (indeterminate
+  status).
 
 ## Value
 
-A single logical value.
+`TRUE`, `FALSE`, or `NA` if the status cannot be determined because of
+missing values (see `na.rm`).
 
 ## See also
 
-Other data.inspection: [`allDuplicated()`](allDuplicated.md),
-[`allIdentical()`](allIdentical.md),
-[`completeColumns()`](completeColumns.md),
-[`countCompCases()`](countCompCases.md), [`flags()`](flags.md),
-[`isEuclid()`](isEuclid.md), [`isNumeric()`](isNumeric.md),
-[`isURL()`](isURL.md), [`isWholeLike()`](isWholeLike.md),
-[`isZero()`](isZero.md)
+Other data.predicate: [`flags()`](flags.md),
+[`isEuclid()`](isEuclid.md),
+[`isLowCardinality()`](isLowCardinality.md),
+[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
+[`isZero()`](isZero.md), [`nUnique()`](nUnique.md)
 
 ## Examples
 
@@ -47,6 +47,8 @@ isDichotomous(c(1, 1, 1))
 #> [1] TRUE
 isDichotomous(c(1, 1, 1), strict = TRUE)
 #> [1] FALSE
+isDichotomous(c(0, 1, NA))               # NA
+#> [1] NA
 isDichotomous(c(0, 1, NA), na.rm = TRUE)
 #> [1] TRUE
 isDichotomous(c("A", "A", "B"))

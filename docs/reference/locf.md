@@ -18,38 +18,36 @@ locf(x)
 
 - x:
 
-  a vector, a data.frame or a matrix containing NAs.
+  a vector, a data.frame or a matrix containing NAs
 
 ## Value
 
-a vector with the same dimension as x.
+an object of the same type and dimension as `x`.
 
 ## Details
 
 `locf()` replaces `NA`s with the most recent non-NA prior to it.
 
 The function will replace all NAs found in a vector with the last
-earlier value not being NA. In data.frames each column will be treated
-as described.
+earlier value not being NA. In data frames and matrices each column is
+treated separately, so that values are never carried across column
+boundaries. Factors are supported and keep their levels and ordering.
 
 It should be noted, that the last observation carried forward approach
 may result in biased estimates and may underestimate the variability.
+
+## Note
+
+Based on code by Daniel Wollschlaeger, adapted to conform to package
+standards; multi-column, data-frame, and factor support added by the
+package author.
 
 ## See also
 
 See also the package Hmisc for less coarse imputation functions.
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
-[`trim()`](trim.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
-
-## Author
-
-Daniel Wollschlaeger <dwoll@psychologie.uni-kiel.de>
+Other vector.na: [`coalesceX()`](coalesceX.md), [`isNA()`](isNA.md),
+[`naIf()`](naIf.md), [`naReplace()`](naReplace.md)
 
 ## Examples
 

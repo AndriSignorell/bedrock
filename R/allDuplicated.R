@@ -18,7 +18,7 @@
 #' are flagged as ties. As the function builds on \code{\link{duplicated}},
 #' it also works for data frames (row-wise) and matrices.
 #'
-#' @param x A vector of any type.
+#' @param x a vector of any type
 #'
 #' @return A logical vector of the same length as \code{x}.
 #'
@@ -56,8 +56,9 @@
 #' tab[tab > 1]
 #'
 #'
-#' @family data.inspection
+#' @family data.equal
 #' @concept ties
+#' @concept comparison
 #' @export
 allDuplicated <- function(x) {
   # returns an index vector of all values involved in ties

@@ -5,7 +5,7 @@
 #' `FALSE` otherwise. Convenience wrapper around the internal
 #' \code{.detectInputType()} helper.
 #'
-#' @param x `character(1)` - the string to test.
+#' @param x `character(1)` - the string to test
 #'
 #' @return `logical(1)` - `TRUE` if `x` is a URL, `FALSE` otherwise.
 #'
@@ -18,8 +18,9 @@
 #' isURL("/home/user/file.csv")            # FALSE
 #' isURL("./script.R")                     # FALSE
 #'
-#' @family data.inspection
-#' @concept ordering
+#' @family file.path
+#' @concept path-handling
+#' @concept type-test
 #' @export
 isURL <- function(x) {
   .detectInputType(x) == "url"
@@ -32,7 +33,7 @@ isURL <- function(x) {
 #' or relative, Unix/Windows style), `FALSE` otherwise. Convenience wrapper
 #' around the internal \code{.detectInputType()} helper.
 #'
-#' @param x `character(1)` - the string to test.
+#' @param x `character(1)` - the string to test
 #'
 #' @return `logical(1)` - `TRUE` if `x` is a file path, `FALSE` otherwise.
 #'
@@ -46,8 +47,9 @@ isURL <- function(x) {
 #' isFilePath("C:/Users/Hans/file.xlsx")    # TRUE
 #' isFilePath("https://example.com/f.csv")  # FALSE
 #'
-#' @family data.inspection
-#' @concept ordering
+#' @family file.path
+#' @concept path-handling
+#' @concept type-test
 #' @export
 isFilePath <- function(x) {
   .detectInputType(x) == "filepath"

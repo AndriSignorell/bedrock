@@ -1,7 +1,7 @@
 
 #' Merge Default Arguments with User Overrides
 #'
-#' Internal helper used to merge defaults with user arguments, remove
+#' Helper used to merge defaults with user arguments, remove
 #' forbidden argument names, and optionally warn if forbidden arguments
 #' were supplied.
 #'
@@ -10,15 +10,12 @@
 #' preserved (so that an explicit \code{NULL} can be passed on as an
 #' argument value instead of silently deleting the entry).
 #'
-#' @param defaults Named list of default arguments.
-#' @param user Named list of user-supplied arguments, or \code{NULL}.
-#' @param forbidden Character vector of argument names that are not allowed.
-#' @param warn Logical; whether to issue a warning if forbidden arguments are removed.
+#' @param defaults named list of default arguments
+#' @param user named list of user-supplied arguments, or \code{NULL}
+#' @param forbidden character vector of argument names that are not allowed
+#' @param warn logical; whether to issue a warning if forbidden arguments are removed
 #'
 #' @return A named list of merged arguments.
-#'
-#' @seealso \code{\link{extractArgs}}, \code{\link{getDotsArg}},
-#' \code{\link{callIf}}
 #'
 #' @examples
 #' mergeArgs(list(col = "black", lty = 1), list(col = "red"))
@@ -26,8 +23,11 @@
 #' # explicit NULL survives the merge
 #' mergeArgs(list(col = "black"), list(col = NULL))
 #'
-#' @family pkg.introspection
+#' @seealso [utils::modifyList()]
+#' 
+#' @family pkg.args
 #' @concept programming
+#' @concept introspection
 #' @export
 mergeArgs <- function(defaults,
                       user,

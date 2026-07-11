@@ -14,11 +14,11 @@ removeAttr(x, attrNames = NULL)
 keepAttr(x, attrNames)
 }
 \arguments{
-\item{x}{Object to modify}
+\item{x}{object to modify}
 
-\item{attrNames}{Character vector of attribute names}
+\item{attrNames}{character vector of attribute names}
 
-\item{attrValues}{Values for the attributes (only for setting). For a
+\item{attrValues}{values for the attributes (only for setting). For a
 single attribute name, \code{attrValues} is taken as the value itself
 (which may be a vector). For several names, supply one value per name;
 use a list for non-scalar or mixed-type values.}
@@ -56,31 +56,13 @@ r.lm <- lm(Fertility ~ ., swiss)
 keepAttr(r.lm$terms, "class")
 }
 \seealso{
-\code{\link{setNamesX}}, \code{\link{unname}}
+\link[stats:setNames]{stats::setNames}, \link[base:unname]{base::unname}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
+Other label.attrs:
+\code{\link[=label]{label()}},
 \code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=setNamesX]{setNamesX()}}
 }
 \concept{attribute}
-\concept{data.manipulation}
+\concept{label.attrs}
+\concept{programming}

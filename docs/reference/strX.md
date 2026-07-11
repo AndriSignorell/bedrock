@@ -14,25 +14,25 @@ strX(object, ..., enumerate = TRUE, recursive = FALSE, strict.width = "cut")
 
 - object:
 
-  Any R object.
+  any R object
 
 - ...:
 
-  Additional arguments passed to
-  [`utils::str()`](https://rdrr.io/r/utils/str.html).
+  additional arguments passed to
+  [`utils::str()`](https://rdrr.io/r/utils/str.html)
 
 - enumerate:
 
-  Logical. Should variables/elements be numbered? Default is `TRUE`.
+  logical. Should variables/elements be numbered? Default is `TRUE`.
 
 - recursive:
 
-  Logical. Should nested list elements also be numbered? Default is
+  logical. Should nested list elements also be numbered? Default is
   `FALSE`.
 
 - strict.width:
 
-  Character string passed to
+  character string passed to
   [`utils::str()`](https://rdrr.io/r/utils/str.html). Default is
   `"cut"`.
 
@@ -45,15 +45,6 @@ Invisibly returns the character vector produced by
 
 By default, only top-level elements are numbered. Recursive numbering of
 nested list elements can be enabled with `recursive = TRUE`.
-
-## See also
-
-Other pkg.introspection: [`extractArgs()`](extractArgs.md),
-[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
-[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`getDotsArg()`](getDotsArg.md), [`mergeArgs()`](mergeArgs.md),
-[`quot()`](quot.md), [`rdLabels()`](rdLabels.md),
-[`rdTitle()`](rdTitle.md)
 
 ## Examples
 
@@ -94,6 +85,6 @@ strX(x, recursive = TRUE)
 #> List of 2
 #>  1 $ a: num 1
 #>  2 $ b:List of 2
-#>   ..$ c: num 2
-#>   ..$ d: num 3
+#>   ..3 $ c: num 2
+#>   ..4 $ d: num 3
 ```

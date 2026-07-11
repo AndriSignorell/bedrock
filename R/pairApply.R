@@ -14,15 +14,14 @@
 #' @param FUN a function (or the name of a function) to be calculated. It is
 #' assumed, that the first 2 arguments denominate x and y, and that it
 #' returns a single numeric value.
-#' @param \dots the dots are passed to FUN.
+#' @param \dots the dots are passed to FUN
 #' @param symmetric logical. Does the function yield the same result for FUN(x,
 #' y) and FUN(y, x)? \cr If \code{TRUE} just the lower triangular matrix is
 #' calculated and mirrored. Default is FALSE.
 #'
 #' @return a matrix with the results of FUN.
 #'
-#' @seealso \code{\link{outer}}, \code{\link{combPairs}},
-#' \code{\link{pairwise.table}}
+#' @seealso [base::outer()], [stats::pairwise.table]
 #' @keywords manip
 #' @examples
 #'
@@ -43,8 +42,9 @@
 #'   FUN = function(x,y)
 #'     wilcox.test(as.numeric(x), as.numeric(y))$p.value, symmetric=TRUE)
 #'
-#' @family vector.ops
-#' @concept ordering
+#' @family combinatorics
+#' @concept combinatorics
+#' @concept programming
 #' @export
 pairApply <- function(x, FUN = NULL, ..., symmetric = FALSE) {
 

@@ -13,9 +13,9 @@ naReplace(x, value)
 \method{naReplace}{factor}(x, value)
 }
 \arguments{
-\item{x}{A vector or factor.}
+\item{x}{a vector or factor}
 
-\item{value}{The replacement value. For factors, a single character
+\item{value}{the replacement value. For factors, a single character
 string.}
 }
 \value{
@@ -47,21 +47,12 @@ naReplace(factor(c("low", "high", NA), levels = c("low", "high"),
 
 }
 \seealso{
-Other vector.ops:
-\code{\link[=closest]{closest()}},
+Other vector.na:
 \code{\link[=coalesceX]{coalesceX()}},
+\code{\link[=isNA]{isNA()}},
 \code{\link[=locf]{locf()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+\code{\link[=naIf]{naIf()}}
 }
+\concept{imputation}
 \concept{missing-value}
-\concept{vector.ops}
+\concept{vector.na}

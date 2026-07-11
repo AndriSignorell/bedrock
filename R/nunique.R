@@ -3,13 +3,13 @@
 #'
 #' Returns the number of unique elements in a vector.
 #'
-#' @param x A vector.
-#' @param na.rm Logical. Should missing values (`NA`) be removed before
+#' @param x a vector
+#' @param na.rm logical. Should missing values (`NA`) be removed before
 #'   counting unique values? Defaults to `FALSE`.
 #'
 #' @return An integer of length one.
 #'
-#' @seealso [isLowCardinality()] to check whether `x` has at most a given
+#' @seealso [base::nlevels()], [isLowCardinality()] to check whether `x` has at most a given
 #'   number of unique values, without counting all of them first.
 #'
 #' @examples
@@ -19,8 +19,9 @@
 #'
 #' nUnique(c(1, 1, 2, NA), na.rm = TRUE)
 #'
-#' @family math.utils
-#' @concept ordering
+#' @family data.predicate
+#' @concept cardinality
+#' @concept data-inspection
 #' @export
 nUnique <- function(x, na.rm = FALSE) {
   if (na.rm) {
@@ -38,8 +39,8 @@ nUnique <- function(x, na.rm = FALSE) {
 #' is exceeded, which makes it considerably faster for large,
 #' high-cardinality vectors.
 #'
-#' @param x A numeric or integer vector.
-#' @param maxUnique Integer. The threshold up to which `x` is considered to
+#' @param x a numeric or integer vector
+#' @param maxUnique integer. The threshold up to which `x` is considered to
 #'   have low cardinality. Defaults to `12`.
 #'
 #' @return A logical of length one: `TRUE` if `x` has `maxUnique` or fewer
@@ -52,8 +53,9 @@ nUnique <- function(x, na.rm = FALSE) {
 #'
 #' isLowCardinality(1:100, maxUnique = 12)
 #'
-#' @family math.utils
-#' @concept ordering
+#' @family data.predicate
+#' @concept type-test
+#' @concept cardinality
 #' @export
 isLowCardinality <- function(x, maxUnique = 12) {
   .Call(`_bedrock_isLowCardinality`, x, maxUnique)

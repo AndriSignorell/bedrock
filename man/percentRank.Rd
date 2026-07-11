@@ -7,7 +7,7 @@
 percentRank(x)
 }
 \arguments{
-\item{x}{A numeric (or comparable) vector.}
+\item{x}{a numeric (or comparable) vector}
 }
 \value{
 A numeric vector of the same length as \code{x}, containing values
@@ -52,22 +52,14 @@ percentRank(c(5, NA, NA))
 
 }
 \seealso{
-\code{\link{rankX}}, \code{\link[base]{rank}}
+\code{\link[base:rank]{base::rank()}}
 
-Other math.utils:
-\code{\link[=crossProd]{crossProd()}},
-\code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=dotProd]{dotProd()}},
-\code{\link[=isLowCardinality]{isLowCardinality()}},
+Other math.transform:
 \code{\link[=linScale]{linScale()}},
 \code{\link[=logit]{logit()}},
-\code{\link[=nUnique]{nUnique()}},
-\code{\link{precision}},
 \code{\link[=rankX]{rankX()}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
+\code{\link[=winsorize]{winsorize()}}
 }
-\concept{math.utils}
-\concept{ordering}
+\concept{math.transform}
+\concept{order-statistic}
 \concept{transformation}

@@ -7,23 +7,23 @@ matched rows.
 ## Usage
 
 ``` r
-compareDataFrames(x, y, key = "strat_x")
+compareDataFrames(x, y, key)
 ```
 
 ## Arguments
 
 - x:
 
-  A data frame.
+  a data frame
 
 - y:
 
-  A data frame to compare against `x`.
+  a data frame to compare against `x`
 
 - key:
 
-  Character string. Name of the column used as row identifier. Must be
-  present in both `x` and `y`. Default is `"strat_x"`.
+  character string. Name of the column used as row identifier. Must be
+  present in both `x` and `y`, with unique values.
 
 ## Value
 
@@ -56,40 +56,32 @@ by the `key` column using
 comparison, so type differences (e.g., `integer` vs. `double`) will be
 flagged as differences.
 
+The values of the `key` column must be unique in both data frames.
+
 ## See also
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md), [`dummy()`](dummy.md), [`nf()`](nf.md),
-[`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+Other data.equal: [`allDuplicated()`](allDuplicated.md),
+[`allIdentical()`](allIdentical.md)
 
 ## Examples
 
 ``` r
-x <- data.frame(strat_x = c("A", "B", "C"), v1 = 1:3, v2 = c(10, 20, 30))
-y <- data.frame(strat_x = c("A", "B", "D"), v1 = c(1L, 9L, 4L), v2 = c(10, 20, 40))
-compareDataFrames(x, y)
+x <- data.frame(id = c("A", "B", "C"), v1 = 1:3, v2 = c(10, 20, 30))
+y <- data.frame(id = c("A", "B", "D"), v1 = c(1L, 9L, 4L), v2 = c(10, 20, 40))
+compareDataFrames(x, y, key = "id")
 #> $identical
 #> [1] FALSE
 #> 
 #> $onlyInX
-#>   strat_x v1 v2
-#> 3       C  3 30
+#>   id v1 v2
+#> 3  C  3 30
 #> 
 #> $onlyInY
-#>   strat_x v1 v2
-#> 3       D  4 40
+#>   id v1 v2
+#> 3  D  4 40
 #> 
 #> $diffs
-#>   strat_x diffCols
-#> 1       B       v1
+#>   id diffCols
+#> 1  B       v1
 #> 
 ```

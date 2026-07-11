@@ -19,15 +19,15 @@
 #' (default) the dimnames of x will be used.
 #' @param type defines the data type generated. This allows to directly define
 #' factors or ordered factors, but also numeric values. See examples.
-#' @param rownames A names vector for the rownames of the resulting data.frame.
+#' @param rownames a names vector for the rownames of the resulting data.frame
 #' If set to \code{NULL} (default) the names will be defined according to the
 #' table's dimnames.
-#' @param colnames A names vector for the colnames of the resulting data.frame.
+#' @param colnames a names vector for the colnames of the resulting data.frame
 #' If set to \code{NULL} (default) the names will be defined according to the
 #' table's dimnames.
 #' @param freq character, the name of the frequency variable in case x is a
 #' data.frame.
-#' @param \dots further arguments passed to or from functions (not used here).
+#' @param \dots further arguments passed to or from functions (not used here)
 #' 
 #' @return a data.frame with the detailed data (even if x was a 1-dimensional
 #' table)
@@ -77,11 +77,9 @@
 
 #' @rdname untable
 
-#' @family math.utils  
-#' @concept frequency-table  
+#' @family data.reshape
 #' @concept reshape
-#'
-#'
+#' @concept frequency-table
 #' @export
 untable <- function(x, ...){
   UseMethod("untable")

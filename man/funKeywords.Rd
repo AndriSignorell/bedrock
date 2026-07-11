@@ -9,6 +9,12 @@ funKeywords(topic)
 \arguments{
 \item{topic}{optional, object or man page topic}
 }
+\value{
+If \code{topic} is missing, the R keywords documentation file is
+opened for display via \code{\link[base]{file.show}}, invisibly
+returning \code{NULL}. Otherwise, a character vector of topic names
+whose keywords match \code{topic}.
+}
 \description{
 List the keywords for specific R man pages or return a list of valid R
 keywords.
@@ -17,6 +23,11 @@ keywords.
 If \code{topic} is provided, return a list of the Keywords associated with
 \code{topic}.  Otherwise, display the list of valid R Keywords from the R
 doc/Keywords file.
+}
+\note{
+Substantially based on the \code{keywords()} function from the
+\pkg{gtools} package by Gregory R. Warnes, with minor adaptations by the
+package author.
 }
 \examples{
 \donttest{
@@ -32,20 +43,14 @@ funKeywords("merge")
 \seealso{
 \code{\link[utils]{help}}
 
-Other pkg.introspection:
-\code{\link[=extractArgs]{extractArgs()}},
+Other pkg.funinfo:
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funList]{funList()}},
-\code{\link[=getDotsArg]{getDotsArg()}},
-\code{\link[=mergeArgs]{mergeArgs()}},
 \code{\link[=rdLabels]{rdLabels()}},
-\code{\link[=rdTitle]{rdTitle()}},
-\code{\link[=strX]{strX()}}
-}
-\author{
-Gregory R. Warnes \email{greg@warnes.net}
+\code{\link[=rdTitle]{rdTitle()}}
 }
 \concept{introspection}
-\concept{pkg.introspection}
+\concept{pkg.funinfo}
+\concept{programming}
 \keyword{documentation}

@@ -15,11 +15,11 @@
 #' \code{[low, high]} are extrapolated linearly and are not clipped to the
 #' target range.
 #'
-#' @param x A numeric vector, matrix or data frame.
-#' @param low,high Optional numeric vectors specifying the lower and upper
+#' @param x a numeric vector, matrix or data frame
+#' @param low,high optional numeric vectors specifying the lower and upper
 #'   bounds of the original scale. If \code{NULL}, the column-wise minima
 #'   and maxima of \code{x} are used.
-#' @param newLow,newHigh Numeric vectors specifying the target range.
+#' @param newLow,newHigh numeric vectors specifying the target range.
 #'   Defaults to \code{0} and \code{1}.
 #'
 #' @return An object of the same shape as \code{x}: a numeric vector for
@@ -41,7 +41,7 @@
 #'
 #' @seealso \code{\link{scale}}
 #'
-#' @family math.utils
+#' @family math.transform
 #' @concept transformation
 #' @concept standardization
 #' @export

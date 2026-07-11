@@ -4,9 +4,10 @@
 #' Converts an object of class \code{"xtabs"} to a plain array or matrix by
 #' dropping all additional classes such as \code{"xtabs"} and \code{"table"},
 #' along with the \code{call} attribute.
-#'
-#' @param x An object of class \code{"xtabs"}.
-#' @param ... Ignored.
+#' 
+#' @name as.array.xtabs
+#' @param x an object of class \code{"xtabs"}
+#' @param ... ignored
 #'
 #' @return An array (or matrix in the two-dimensional case) with no
 #'   additional classes.
@@ -16,8 +17,9 @@
 #' class(as.matrix(xt))
 #' # "matrix" "array"
 #'
-#' @family data.manipulation
+#' @family data.coerce
 #' @concept table
+#' @concept type-coercion
 #' @export
 #' @method as.array xtabs
 as.array.xtabs <- function(x, ...) {

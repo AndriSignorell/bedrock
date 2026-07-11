@@ -28,6 +28,15 @@ test_that("mixed signs are rejected", {
   expect_error(unwhich(c(1, -2), 5), "mix")
 })
 
+test_that("NA in idx gives the validation message, not a cryptic if(NA) error", {
+  # regression: the n-default (if (... && all(idx > 0L)) ...) used to force
+  # its promise via all(c(TRUE, NA)) -> NA -> if(NA) crash, masking the
+  # intended "non-zero whole numbers only" message
+  expect_error(unwhich(NA), "whole numbers")
+  expect_error(unwhich(c(1, NA)), "whole numbers")
+  expect_error(unwhich(c(1, NA), n = 5), "whole numbers")
+})
+
 # ── toLong / toWide ───────────────────────────────────────────────────────────
 
 test_that("toLong stacks data frame columns", {

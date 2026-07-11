@@ -21,37 +21,38 @@ splitX(formula, data, subset, na.action, drop = FALSE, ...)
 
 - x:
 
-  Object to be split (typically a vector).
+  object to be split (typically a vector)
 
 - ...:
 
-  Further arguments passed to
-  [`split`](https://rdrr.io/r/base/split.html).
+  further arguments passed to
+  [`split`](https://rdrr.io/r/base/split.html)
 
 - f:
 
-  A factor or list of factors defining the groups (default method).
+  a factor or list of factors defining the groups (default method)
 
 - drop:
 
-  Logical; if `TRUE`, unused factor levels are dropped.
+  logical; if `TRUE`, unused factor levels are dropped
 
 - formula:
 
-  A formula of the form `y ~ group` or `y ~ g1 + g2` specifying the
+  a formula of the form `y ~ group` or `y ~ g1 + g2` specifying the
   variable to split (`y`) and the grouping variables.
 
 - data:
 
-  A data frame containing the variables in the formula.
+  a data frame containing the variables in the formula
 
 - subset:
 
-  Optional logical expression indicating rows to include.
+  optional logical expression indicating rows to include
 
 - na.action:
 
-  A function specifying how to handle missing values (e.g.,
+  a function specifying how missing values are handled, passed to
+  [`model.frame`](https://rdrr.io/r/stats/model.frame.html) (e.g.,
   [`na.omit`](https://rdrr.io/r/stats/na.fail.html)).
 
 ## Value
@@ -79,19 +80,9 @@ interaction (similar to `split(..., interaction(...))`).
 
 ## See also
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`stringsAsFactors()`](stringsAsFactors.md),
-[`toBaseR()`](toBaseR.md)
+Other data.reshape: [`collapseTable()`](collapseTable.md),
+[`long-wide-reshape`](long-wide-reshape.md), [`splitAt()`](splitAt.md),
+[`untable()`](untable.md)
 
 ## Examples
 

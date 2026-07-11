@@ -30,7 +30,7 @@
 #'   \item \code{dddd} -> \code{\%A}
 #' }
 #'
-#' @param fmt Character string. Custom date format.
+#' @param fmt character string. Custom date format.
 #'
 #' @return Character string. A valid \code{strftime} format.
 #'
@@ -40,8 +40,9 @@
 #' asCDateFmt("yyyymmdd")
 #' asCDateFmt("mmm d, yyyy")
 #'
-#' @family format
+#' @family date.format
 #' @concept date-time
+#' @concept formatting
 #' @export
 asCDateFmt <- function(fmt) {
   as_cdate_fmt_cpp(fmt)

@@ -5,66 +5,52 @@ Adds the row names of a data.frame or matrix as a column.
 ## Usage
 
 ``` r
-appendRowNames(x, colName = "rowname", after = 0L, removeRownames = TRUE)
+appendRowNames(x, colName = "rowname", after = 0L, removeRowNames = TRUE)
 ```
 
 ## Arguments
 
 - x:
 
-  A data.frame or matrix.
+  a data.frame or matrix
 
 - colName:
 
-  Name of the new column containing the row names.
+  name of the new column containing the row names
 
 - after:
 
-  Position after which the column is inserted. Default is 0 (first
+  position after which the column is inserted. Default is 0 (first
   column).
 
-- removeRownames:
+- removeRowNames:
 
-  Logical; if TRUE, existing row names are removed.
+  logical; if TRUE, existing row names are removed
 
 ## Value
 
-A data.frame (or matrix coerced to data.frame) with row names added as a
-column.
+An object of the same class as `x` with the row names added as a column.
+Note that for matrices the result is coerced to the common mode, so
+appending (character) row names to a numeric matrix yields a character
+matrix.
 
 ## See also
 
 [`append`](https://rdrr.io/r/base/append.html)
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendX()`](appendX.md), [`as.array.xtabs()`](as.array.xtabs.md),
-[`asBinary()`](asBinary.md), [`asCDateFmt()`](asCDateFmt.md),
-[`columnWrap()`](columnWrap.md), [`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+Other data.append: [`appendEnum()`](appendEnum.md),
+[`appendX()`](appendX.md), [`multMerge()`](multMerge.md)
 
 ## Examples
 
 ``` r
-dd <- data.frame(x=1:5, y=6:10, z=LETTERS[1:5],
+dd <- data.frame(x = 1:5, y = 6:10, z = LETTERS[1:5],
                  row.names = letters[1:5])
 appendRowNames(dd)
-#> $rowname
-#> [1] "a" "b" "c" "d" "e"
-#> 
-#> $x
-#> [1] 1 2 3 4 5
-#> 
-#> $y
-#> [1]  6  7  8  9 10
-#> 
-#> $z
-#> [1] "A" "B" "C" "D" "E"
-#> 
+#>   rowname x  y z
+#> 1       a 1  6 A
+#> 2       b 2  7 B
+#> 3       c 3  8 C
+#> 4       d 4  9 D
+#> 5       e 5 10 E
 ```

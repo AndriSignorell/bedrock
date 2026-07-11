@@ -4,14 +4,12 @@
 #' Returns all distinct permutations of a vector. Repeated values in `x`
 #' are treated as indistinguishable, so duplicated permutations are not returned.
 #'
-#' @param x Atomic vector. Missing values are not supported.
-#' @param sortResults Logical scalar. If `TRUE`, the result matrix is sorted
+#' @param x atomic vector. Missing values are not supported.
+#' @param sortResults logical scalar. If `TRUE`, the result matrix is sorted
 #'   using [sortX()]. Default is `FALSE`.
 #'
 #' @return A matrix containing all distinct permutations of `x`, one
 #'   permutation per row.
-#'
-#' @seealso [utils::combn()], [base::factorial()], [combPairs()]
 #'
 #' @examples
 #' permn(letters[2:5])
@@ -20,9 +18,11 @@
 #' # repeated elements are handled as indistinguishable
 #' permn(c("a", "b", "c", "a"))
 #'
+#' @seealso [utils::combn()], [base::factorial()]
+#'
 #' @family combinatorics
 #' @concept combinatorics
-#' @concept sampling
+#' @concept number-theory
 #' @export
 permn <- function(x, sortResults = FALSE) {
   

@@ -35,30 +35,10 @@ print(columnWrap("This is a very long text for a table", 12))
 \seealso{
 \code{\link[=strwrap]{strwrap()}}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+Other data.print:
+\code{\link[=printCharMatrix]{printCharMatrix()}}
 }
-\concept{data.manipulation}
-\concept{reshape}
+\concept{data.print}
+\concept{formatting}
+\concept{string-manipulation}
 \keyword{print}

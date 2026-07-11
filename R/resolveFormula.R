@@ -166,11 +166,9 @@
 #' #> [1] TRUE
 #'
 
-#' @family data.utils  
-#' @concept formula  
-#' @concept modelling
-#'
-#'
+#' @family data.resolve
+#' @concept formula
+#' @concept data-resolution
 #' @export
 resolveFormula <- function(
     formula,

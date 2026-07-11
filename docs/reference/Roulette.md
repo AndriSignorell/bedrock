@@ -64,8 +64,8 @@ used in Roulette betting systems.
 
 ## See also
 
-Other datasets: [`Cards`](Cards.md), [`Tarot`](Tarot.md),
-[`courseData()`](courseData.md)
+Other datasets: [`Cards`](Cards.md), [`Pizza`](Pizza.md),
+[`Tarot`](Tarot.md), [`courseData()`](courseData.md)
 
 ## Examples
 

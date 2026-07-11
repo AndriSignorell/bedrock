@@ -13,18 +13,18 @@ isNumeric(
 )
 }
 \arguments{
-\item{x}{An object to be tested.}
+\item{x}{an object to be tested}
 
-\item{isIntegerValued}{Logical. If \code{TRUE}, values must be whole-like
+\item{isIntegerValued}{logical. If \code{TRUE}, values must be whole-like
 (within tolerance). Uses \code{\link{isWholeLike}} internally.}
 
-\item{isPositive}{Logical. If \code{TRUE}, all values must be strictly
+\item{isPositive}{logical. If \code{TRUE}, all values must be strictly
 greater than zero.}
 
-\item{tol}{Numerical tolerance used when \code{isIntegerValued = TRUE}.
+\item{tol}{numerical tolerance used when \code{isIntegerValued = TRUE}.
 Default is \code{sqrt(.Machine$double.eps)}.}
 
-\item{na.rm}{Logical. If \code{TRUE}, missing values are removed before
+\item{na.rm}{logical. If \code{TRUE}, missing values are removed before
 validation. If \code{FALSE} (default) and \code{x} contains \code{NA},
 the function returns \code{FALSE}.}
 }
@@ -58,20 +58,15 @@ isNumeric(c(1, NA), na.rm = TRUE)
 \seealso{
 \code{\link{isWholeLike}}
 
-Other data.inspection:
-\code{\link[=allDuplicated]{allDuplicated()}},
-\code{\link[=allIdentical]{allIdentical()}},
-\code{\link{between}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=completeColumns]{completeColumns()}},
-\code{\link[=countCompCases]{countCompCases()}},
+Other data.predicate:
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
 \code{\link[=isEuclid]{isEuclid()}},
-\code{\link[=isFilePath]{isFilePath()}},
-\code{\link[=isURL]{isURL()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=isWholeLike]{isWholeLike()}},
-\code{\link[=isZero]{isZero()}}
+\code{\link[=isZero]{isZero()}},
+\code{\link[=nUnique]{nUnique()}}
 }
-\concept{data.inspection}
-\concept{ordering}
+\concept{data-inspection}
+\concept{data.predicate}
+\concept{type-test}

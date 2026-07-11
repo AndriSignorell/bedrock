@@ -18,9 +18,9 @@
 #' first argument for complex input, so it computes \eqn{t(X) Y} rather
 #' than the Hermitian inner product; this function does conjugate.
 #'
-#' @param x A numeric or complex vector, or a numeric/complex matrix.
-#' @param y A numeric or complex vector, or a numeric/complex matrix with the
-#'   same dimensions as \code{x}.
+#' @param x a numeric or complex vector, or a numeric/complex matrix
+#' @param y a numeric or complex vector, or a numeric/complex matrix with the
+#'   same dimensions as \code{x}
 #'
 #' @return
 #' \itemize{
@@ -43,8 +43,9 @@
 #'
 #' @seealso \code{\link[base]{crossprod}}
 #'
-#' @family math.utils
+#' @family math.basic
 #' @concept linear-algebra
+#' @concept numerical-methods
 #' @export
 dotProd <- function(x, y) {
   if (!(is.numeric(x) || is.complex(x)) ||

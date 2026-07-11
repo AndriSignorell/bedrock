@@ -7,16 +7,16 @@
 closest(x, a, output = "value", na.rm = FALSE)
 }
 \arguments{
-\item{x}{A numeric vector to search in.}
+\item{x}{a numeric vector to search in}
 
-\item{a}{The reference value. May be a vector; see Details.}
+\item{a}{the reference value. May be a vector; see Details.}
 
-\item{output}{Character string specifying the output representation.
+\item{output}{character string specifying the output representation.
 One of \code{"value"} (return the closest value(s), the default) or
 \code{"index"} (return the index position(s) in \code{x}).
 May be a vector; recycled to the length of \code{a}.}
 
-\item{na.rm}{Logical. If \code{TRUE}, \code{NA} values in \code{x}
+\item{na.rm}{logical. If \code{TRUE}, \code{NA} values in \code{x}
 are ignored before searching. Default is \code{FALSE}.}
 }
 \value{
@@ -102,21 +102,13 @@ closest(
 \seealso{
 \code{\link{which}}
 
-Other vector.ops:
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=locf]{locf()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+Other math.basic:
+\code{\link[=crossProd]{crossProd()}},
+\code{\link[=crossProdN]{crossProdN()}},
+\code{\link[=dotProd]{dotProd()}},
+\code{\link[=roundTo]{roundTo()}},
+\code{\link[=unirootAll]{unirootAll()}}
 }
-\concept{ordering}
-\concept{vector.ops}
+\concept{math.basic}
+\concept{nearest-value}
+\concept{numerical-methods}

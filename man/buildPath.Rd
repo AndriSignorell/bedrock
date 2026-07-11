@@ -7,9 +7,9 @@
 buildPath(dir, filename)
 }
 \arguments{
-\item{dir}{Character string. Directory path.}
+\item{dir}{character string. Directory path.}
 
-\item{filename}{Character string. File name to append to \code{dir}.}
+\item{filename}{character string. File name to append to \code{dir}.}
 }
 \value{
 A character string representing the file path.
@@ -46,13 +46,13 @@ buildPath("data/", "file.csv")
 
 }
 \seealso{
-Other file.utils:
+Other file.path:
 \code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
-\code{\link[=parseSASDatalines]{parseSASDatalines()}},
-\code{\link[=pdfManual]{pdfManual()}},
-\code{\link[=peekFile]{peekFile()}},
+\code{\link[=isFilePath]{isFilePath()}},
+\code{\link[=isURL]{isURL()}},
 \code{\link[=splitPath]{splitPath()}}
 }
-\concept{file.utils}
-\concept{programming}
+\concept{file.path}
+\concept{path-handling}
+\concept{string-manipulation}

@@ -19,7 +19,7 @@
 #' non-missing values. By default the alphabetically second value is coded
 #' as 1. The same \code{pos} logic applies.
 #'
-#' @param x a logical, numeric, integer, factor, or character vector.
+#' @param x a logical, numeric, integer, factor, or character vector
 #' @param pos optional positive value. If supplied, observations equal to
 #'   \code{pos} are coded as 1 and all others as 0. Must be one of the
 #'   observed values or factor levels.
@@ -51,9 +51,9 @@
 #' # character with explicit positive value
 #' asBinary(c("F", "U", "F", "U"), pos = "F")
 #'
-#' @family data.manipulation
+#' @family data.recode
 #' @concept binary
-#' @concept dummy-coding
+#' @concept type-coercion
 #' @export
 asBinary <- function(x, pos = NULL, warn = TRUE) {
 

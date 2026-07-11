@@ -13,7 +13,7 @@ findDownload(file)
 
 - file:
 
-  Character string. Name of the file.
+  character string. Name of the file.
 
 ## Value
 
@@ -29,10 +29,9 @@ If the file does not exist, an error is thrown.
 
 ## See also
 
-Other file.utils: [`buildPath()`](buildPath.md),
-[`fileExistURL()`](fileExistURL.md),
-[`parseSASDatalines()`](parseSASDatalines.md),
-[`pdfManual()`](pdfManual.md), [`splitPath()`](splitPath.md)
+Other file.path: [`buildPath()`](buildPath.md),
+[`fileExistURL()`](fileExistURL.md), [`isFilePath()`](isFilePath.md),
+[`isURL()`](isURL.md), [`splitPath()`](splitPath.md)
 
 ## Examples
 

@@ -7,7 +7,7 @@
 isNA(x)
 }
 \arguments{
-\item{x}{An object to be tested.}
+\item{x}{an object to be tested}
 }
 \value{
 Logical scalar. Returns \code{TRUE} if \code{x} is a single
@@ -41,8 +41,12 @@ isNA(c(1, NA))       # FALSE
 
 }
 \seealso{
-Other utils:
-\code{\link[=callIf]{callIf()}}
+Other vector.na:
+\code{\link[=coalesceX]{coalesceX()}},
+\code{\link[=locf]{locf()}},
+\code{\link[=naIf]{naIf()}},
+\code{\link[=naReplace]{naReplace()}}
 }
 \concept{missing-value}
-\concept{utils}
+\concept{type-test}
+\concept{vector.na}

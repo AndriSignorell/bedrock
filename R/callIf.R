@@ -19,8 +19,8 @@
 #' \code{NULL} are preserved and passed on to \code{fun} (so that an explicit
 #' \code{NULL} can be used to reset an argument).
 #'
-#' @param fun A function to be called.
-#' @param arg Controls whether and how \code{fun} is called:
+#' @param fun a function to be called
+#' @param arg controls whether and how \code{fun} is called:
 #'   \itemize{
 #'     \item \code{FALSE}, \code{NULL}, or \code{NA}: \code{fun} is not called
 #'       and \code{NULL} is returned invisibly.
@@ -31,13 +31,13 @@
 #'       \code{arg}, where elements of \code{arg} override those in
 #'       \code{defaults}.
 #'   }
-#' @param defaults A named list of default arguments passed to \code{fun} when
+#' @param defaults a named list of default arguments passed to \code{fun} when
 #'   \code{arg = TRUE}, or used as a base when \code{arg} is a list.
 #'   Default is \code{NULL}.
-#' @param forbidden Optional character vector of argument names that are not
+#' @param forbidden optional character vector of argument names that are not
 #'   allowed. If any of these appear in \code{arg}, they are removed before
 #'   calling \code{fun}. A warning is issued unless \code{warn = FALSE}.
-#' @param warn Logical. If \code{TRUE} (default), a warning is issued when
+#' @param warn logical. If \code{TRUE} (default), a warning is issued when
 #'   forbidden arguments are removed.
 #'
 #' @return Returns the result of \code{fun(...)} if called. If \code{arg} is
@@ -67,8 +67,9 @@
 #' y <- x^2
 #' callIf(plot, TRUE, defaults = list(x, y))
 #'
-#' @family utils
+#' @family pkg.args
 #' @concept programming
+#' @concept conditional-execution
 #' @export
 callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
 

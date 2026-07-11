@@ -7,7 +7,7 @@
 findDownload(file)
 }
 \arguments{
-\item{file}{Character string. Name of the file.}
+\item{file}{character string. Name of the file.}
 }
 \value{
 A character string giving the full path to the file.
@@ -30,13 +30,13 @@ findDownload("data.csv")
 
 }
 \seealso{
-Other file.utils:
+Other file.path:
 \code{\link[=buildPath]{buildPath()}},
 \code{\link[=fileExistURL]{fileExistURL()}},
-\code{\link[=parseSASDatalines]{parseSASDatalines()}},
-\code{\link[=pdfManual]{pdfManual()}},
-\code{\link[=peekFile]{peekFile()}},
+\code{\link[=isFilePath]{isFilePath()}},
+\code{\link[=isURL]{isURL()}},
 \code{\link[=splitPath]{splitPath()}}
 }
-\concept{file.utils}
-\concept{programming}
+\concept{file-io}
+\concept{file.path}
+\concept{path-handling}

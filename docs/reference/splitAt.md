@@ -12,11 +12,11 @@ splitAt(x, pos)
 
 - x:
 
-  A vector to be split.
+  a vector to be split
 
 - pos:
 
-  An integer vector of positions at which to split `x`. Positions refer
+  an integer vector of positions at which to split `x`. Positions refer
   to indices in `x` where a new segment should start.
 
 ## Value
@@ -27,7 +27,8 @@ A list of vectors, each representing a segment of `x`.
 
 The function splits `x` into consecutive chunks defined by `pos`.
 Internally, positions are sorted, duplicates are removed, and values
-outside the valid index range `[1, length(x)]` are ignored.
+that would not produce a non-empty segment (`pos < 2` or
+`pos > length(x)`) are ignored. Empty segments are never returned.
 
 Each element of the returned list corresponds to a contiguous subset of
 `x`. The first segment always starts at position 1.
@@ -36,19 +37,9 @@ Each element of the returned list corresponds to a contiguous subset of
 
 [`split`](https://rdrr.io/r/base/split.html)
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitX()`](splitX.md), [`stringsAsFactors()`](stringsAsFactors.md),
-[`toBaseR()`](toBaseR.md)
+Other data.reshape: [`collapseTable()`](collapseTable.md),
+[`long-wide-reshape`](long-wide-reshape.md), [`splitX()`](splitX.md),
+[`untable()`](untable.md)
 
 ## Examples
 

@@ -19,11 +19,14 @@
 #' It should be noted, that the last observation carried forward approach may
 #' result in biased estimates and may underestimate the variability.
 #'
-#' @param x a vector, a data.frame or a matrix containing NAs.
+#' @param x a vector, a data.frame or a matrix containing NAs
 #'
 #' @return an object of the same type and dimension as \code{x}.
 #'
-#' @author Daniel Wollschlaeger <dwoll@@psychologie.uni-kiel.de>
+#' @note
+#' Based on code by Daniel Wollschlaeger, adapted to conform to package
+#' standards; multi-column, data-frame, and factor support added by the
+#' package author.
 #'
 #' @seealso See also the package \pkg{Hmisc} for less coarse imputation
 #' functions.
@@ -37,8 +40,8 @@
 #' d.frm$locf <- locf( d.frm$val )
 #' d.frm
 #'
-#' @family vector.ops
-#' @concept missing-value
+#' @family vector.na
+#' @concept imputation
 #' @concept time-series
 #' @export
 locf <- function(x) {

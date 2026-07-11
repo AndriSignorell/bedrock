@@ -15,27 +15,27 @@ strSplitToCol(x, split = " ", fixed = TRUE, naForm = "", colNames = NULL)
 
 - x:
 
-  A character vector or a data frame of character columns to be split.
+  a character vector or a data frame of character columns to be split.
   Each element (or column) is processed separately.
 
 - split:
 
-  Character string specifying the delimiter for splitting. Passed to
+  character string specifying the delimiter for splitting. Passed to
   [`strsplit`](https://rdrr.io/r/base/strsplit.html).
 
 - fixed:
 
-  Logical; if `TRUE`, `split` is used as a fixed string. Otherwise, it
+  logical; if `TRUE`, `split` is used as a fixed string. Otherwise, it
   is treated as a regular expression.
 
 - naForm:
 
-  Character value used to replace missing elements created by unequal
-  split lengths.
+  character value used to replace missing elements created by unequal
+  split lengths
 
 - colNames:
 
-  Optional character vector specifying column names for the resulting
+  optional character vector specifying column names for the resulting
   data frame. Recycled if necessary.
 
 ## Value
@@ -70,9 +70,7 @@ generated for each element of `x`.
 
 ## See also
 
-Other string.utilities:
-[`char-ascii-conversion`](char-ascii-conversion.md),
-[`mGsub()`](mGsub.md), [`mReplace()`](mReplace.md),
+Other string.transform: [`mGsub()`](mGsub.md),
 [`strSplitToDummy()`](strSplitToDummy.md)
 
 ## Examples

@@ -26,7 +26,8 @@
 #'
 #' binaryTree(12)
 #'
-#' @family data.utils
+#' @family data.order
+#' @concept ordering
 #' @concept tree
 #' @export
 binaryTree <- function(n) {

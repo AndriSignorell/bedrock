@@ -7,7 +7,7 @@
 using namespace Rcpp;
 
 /* ============================================================
- 64-bit sichere Arithmetik
+ 64-bit safe arithmetic
  ============================================================ */
 
 uint64_t mul_mod(uint64_t a, uint64_t b, uint64_t mod) {
@@ -36,7 +36,7 @@ uint64_t gcd_u64(uint64_t a, uint64_t b) {
 }
 
 /* ============================================================
- Deterministischer Miller–Rabin (64 Bit)
+ Deterministic Miller-Rabin (64-bit)
  ============================================================ */
 
 bool miller_rabin_u64(uint64_t n) {
@@ -72,7 +72,7 @@ bool miller_rabin_u64(uint64_t n) {
 }
 
 /* ============================================================
- Pollard–Rho (64 Bit)
+ Pollard's rho (64-bit)
  ============================================================ */
 
 uint64_t pollard_rho(uint64_t n) {
@@ -98,7 +98,7 @@ uint64_t pollard_rho(uint64_t n) {
 }
 
 /* ============================================================
- Rekursive Faktorisierung
+ Recursive factorization
  ============================================================ */
 
 void factor_rec(uint64_t n, std::vector<uint64_t>& factors) {
@@ -114,7 +114,7 @@ void factor_rec(uint64_t n, std::vector<uint64_t>& factors) {
 }
 
 /* ============================================================
- R-Interfaces
+ R interfaces
  ============================================================ */
 
 // [[Rcpp::export]]
@@ -146,22 +146,6 @@ IntegerVector primes_upto_cpp(int n) {
   
 }
 
-// // [[Rcpp::export]]
-// NumericVector factor_u64_cpp(double x) {
-//   if (x < 2 || x != std::floor(x) || x > 9.22e18)
-//     stop("x must be an integer in [2, 2^63)");
-//   
-//   uint64_t n = (uint64_t)x;
-//   std::vector<uint64_t> factors;
-//   factor_rec(n, factors);
-//   
-//   NumericVector out(factors.size());
-//   for (size_t i = 0; i < factors.size(); ++i)
-//     out[i] = (double)factors[i];
-//   
-//   return out;
-// }
-
 
 // [[Rcpp::export]]
 NumericMatrix factor_u64_cpp(double x) {
@@ -170,9 +154,9 @@ NumericMatrix factor_u64_cpp(double x) {
   
   uint64_t n = (uint64_t)x;
   std::vector<uint64_t> f;
-  factor_rec(n, f);          // liefert sortierte Faktoren
+  factor_rec(n, f);          // yields sorted factors
   
-  // Faktoren zaehlen (linear, kein table/unique)
+  // count factors (linear, no table/unique)
   std::vector<uint64_t> p, m;
   for (size_t i = 0; i < f.size();) {
     uint64_t val = f[i];
@@ -192,5 +176,3 @@ NumericMatrix factor_u64_cpp(double x) {
   colnames(out) = CharacterVector::create("p", "m");
   return out;
 }
-
-

@@ -13,7 +13,7 @@ isZero(x, tol = sqrt(.Machine$double.eps), na.rm = FALSE)
 
 - x:
 
-  a (non-empty) numeric vector of data values.
+  a (non-empty) numeric or complex vector of data values
 
 - tol:
 
@@ -26,25 +26,25 @@ isZero(x, tol = sqrt(.Machine$double.eps), na.rm = FALSE)
 
 ## Value
 
-logical vector of the same dimension as x.
+logical vector of the same length as x (after optional `NA` removal).
+Non-numeric input yields all-`FALSE`.
 
 ## See also
 
-[`is.integer`](https://rdrr.io/r/base/integer.html)
+[`all.equal`](https://rdrr.io/r/base/all.equal.html),
+[`isWholeLike`](isWholeLike.md)
 
-Other data.inspection: [`allDuplicated()`](allDuplicated.md),
-[`allIdentical()`](allIdentical.md),
-[`completeColumns()`](completeColumns.md),
-[`countCompCases()`](countCompCases.md), [`flags()`](flags.md),
+Other data.predicate: [`flags()`](flags.md),
 [`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
-[`isNumeric()`](isNumeric.md), [`isURL()`](isURL.md),
-[`isWholeLike()`](isWholeLike.md)
+[`isLowCardinality()`](isLowCardinality.md),
+[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
+[`nUnique()`](nUnique.md)
 
 ## Examples
 
 ``` r
-# ... These are people who live in ignorance of the Floating Point Gods.
-# These pagans expect ... (Burns, 2011)" the following to be TRUE:
+# "... These are people who live in ignorance of the Floating Point Gods.
+# These pagans expect [...] the following to be TRUE" (Burns, 2011):
 (.1 - .3 / 3) == 0
 #> [1] FALSE
 

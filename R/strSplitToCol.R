@@ -8,15 +8,15 @@
 #' All rows are padded to the same number of columns per input element.
 #' Missing values are filled with \code{naForm}.
 #'
-#' @param x A character vector or a data frame of character columns to be split.
+#' @param x a character vector or a data frame of character columns to be split.
 #'   Each element (or column) is processed separately.
-#' @param split Character string specifying the delimiter for splitting.
+#' @param split character string specifying the delimiter for splitting.
 #'   Passed to \code{\link[base]{strsplit}}.
-#' @param fixed Logical; if \code{TRUE}, \code{split} is used as a fixed string.
+#' @param fixed logical; if \code{TRUE}, \code{split} is used as a fixed string.
 #'   Otherwise, it is treated as a regular expression.
-#' @param naForm Character value used to replace missing elements created
-#'   by unequal split lengths.
-#' @param colNames Optional character vector specifying column names for the
+#' @param naForm character value used to replace missing elements created
+#'   by unequal split lengths
+#' @param colNames optional character vector specifying column names for the
 #'   resulting data frame. Recycled if necessary.
 #'
 #' @details
@@ -60,11 +60,9 @@
 
 
 
-#' @family string.utilities  
-#' @concept string-manipulation  
+#' @family string.transform
+#' @concept string-manipulation
 #' @concept reshape
-#'
-#'
 #' @export
 strSplitToCol <- function(x, split = " ", fixed = TRUE, 
                           naForm = "", colNames = NULL) {

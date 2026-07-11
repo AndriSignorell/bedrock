@@ -13,25 +13,26 @@ multMerge(..., all.x = TRUE, all.y = TRUE, by = NULL)
 
 - ...:
 
-  data frames to be coerced to one.
+  data frames to be coerced to one
 
 - all.x:
 
   logical; if `TRUE`, then extra rows will be added to the output, one
   for each row in x that has no matching row in y. These rows will have
   `NA`s in those columns that are usually filled with values from y. The
-  default is `FALSE`, so that only rows with data from both x and y are
-  included in the output.
+  default is `TRUE`, so that non-matching rows are kept and padded with
+  `NA`s (full outer join).
 
 - all.y:
 
-  logical; analogous to `all.x`.
+  logical; analogous to `all.x`
 
 - by:
 
   column used for merging, if this is not defined rownames will be used
   by default. The column must be included in all the provided data
-  frames.
+  frames and its values must be unique within each data frame. Note that
+  the restored key column is of type character.
 
 ## Value
 
@@ -46,8 +47,8 @@ The result has the row names resulting from the merge.
 
 [`merge`](https://rdrr.io/r/base/merge.html)
 
-Other table.utils: [`collapseTable()`](collapseTable.md),
-[`printCharMatrix()`](printCharMatrix.md)
+Other data.append: [`appendEnum()`](appendEnum.md),
+[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md)
 
 ## Examples
 

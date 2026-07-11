@@ -7,7 +7,7 @@
 asCDateFmt(fmt)
 }
 \arguments{
-\item{fmt}{Character string. Custom date format.}
+\item{fmt}{character string. Custom date format.}
 }
 \value{
 Character string. A valid \code{strftime} format.
@@ -50,9 +50,6 @@ asCDateFmt("yyyymmdd")
 asCDateFmt("mmm d, yyyy")
 
 }
-\seealso{
-Other format:
-\code{\link[=printCharMatrix]{printCharMatrix()}}
-}
 \concept{date-time}
-\concept{format}
+\concept{date.format}
+\concept{formatting}

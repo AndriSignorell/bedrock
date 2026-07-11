@@ -79,22 +79,13 @@ coalesceX(as.list(d.frm))
 \seealso{
 \code{\link{is.na}}, \code{\link{is.finite}}
 
-Other vector.ops:
-\code{\link[=closest]{closest()}},
+Other vector.na:
+\code{\link[=isNA]{isNA()}},
 \code{\link[=locf]{locf()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
 \code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+\code{\link[=naReplace]{naReplace()}}
 }
+\concept{imputation}
 \concept{missing-value}
-\concept{vector.ops}
+\concept{vector.na}
 \keyword{manip}

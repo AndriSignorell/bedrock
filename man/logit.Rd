@@ -10,19 +10,19 @@ logit(x, min = 0, max = 1, eps = .Machine$double.eps, warn = FALSE)
 logitInv(x, min = 0, max = 1)
 }
 \arguments{
-\item{x}{Numeric vector. For \code{logit()}, values are interpreted relative
+\item{x}{numeric vector. For \code{logit()}, values are interpreted relative
 to the interval \eqn{[min, max]}. For \code{logitInv()}, \code{x} can be any
 real number.}
 
-\item{min}{Lower bound of the interval. Must be finite.}
+\item{min}{lower bound of the interval. Must be finite.}
 
-\item{max}{Upper bound of the interval. Must be finite and greater than \code{min}.}
+\item{max}{upper bound of the interval. Must be finite and greater than \code{min}.}
 
-\item{eps}{Small positive value used to clamp probabilities away from
+\item{eps}{small positive value used to clamp probabilities away from
 \eqn{0} and \eqn{1} for numerical stability in \code{logit()}.
 Default: \code{.Machine$double.eps}.}
 
-\item{warn}{Logical; if \code{TRUE}, a warning is issued when values are
+\item{warn}{logical; if \code{TRUE}, a warning is issued when values are
 effectively clamped because they fall outside \eqn{(eps, 1 - eps)} after
 rescaling. Default: \code{FALSE}.}
 }
@@ -93,19 +93,12 @@ logitInv(z, min = 10, max = 20)
 \seealso{
 \code{\link[stats]{qlogis}}, \code{\link[stats]{plogis}}
 
-Other math.utils:
-\code{\link[=crossProd]{crossProd()}},
-\code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=dotProd]{dotProd()}},
-\code{\link[=isLowCardinality]{isLowCardinality()}},
+Other math.transform:
 \code{\link[=linScale]{linScale()}},
-\code{\link[=nUnique]{nUnique()}},
 \code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
 \code{\link[=rankX]{rankX()}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
+\code{\link[=winsorize]{winsorize()}}
 }
-\concept{math.utils}
+\concept{math.transform}
+\concept{numerical-methods}
 \concept{transformation}

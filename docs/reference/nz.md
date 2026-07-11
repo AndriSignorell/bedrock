@@ -1,18 +1,23 @@
 # Extract Non-Zero Values
 
-Returns all non-zero elements of a vector.
+Returns all non-zero elements of a vector. Zeroness is determined by
+[`isZero`](isZero.md), i.e. within a numerical tolerance.
 
 ## Usage
 
 ``` r
-nz(x)
+nz(x, tol = sqrt(.Machine$double.eps))
 ```
 
 ## Arguments
 
 - x:
 
-  A numeric vector.
+  a numeric vector
+
+- tol:
+
+  tolerance passed to [`isZero`](isZero.md)
 
 ## Value
 
@@ -20,14 +25,19 @@ A vector containing only the non-zero elements of `x`.
 
 ## Details
 
-This is a convenience function primarily intended for use in model
-formulas or quick vector filtering.
+`NA` elements are not considered zero and are retained in the result.
 
 ## See also
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`pairApply()`](pairApply.md),
-[`setLength()`](setLength.md), [`trim()`](trim.md), [`vRot()`](vRot.md),
-[`vShift()`](vShift.md), [`winsorize()`](winsorize.md)
+[`isZero`](isZero.md)
+
+Other vector.utils: [`unwhich()`](unwhich.md)
+
+## Examples
+
+``` r
+nz(c(0, 1, 2, 0, 3))
+#> [1] 1 2 3
+nz(c(1e-20, 1, NA))
+#> [1]  1 NA
+```

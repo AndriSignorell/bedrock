@@ -1,6 +1,6 @@
 # Column Wrap
 
-Wraps text in a character matrix so, that it's displayed over more than
+Wraps text in a character matrix so that it's displayed over more than
 one line.
 
 ## Usage
@@ -13,15 +13,19 @@ columnWrap(x, width = NULL)
 
 - x:
 
-  the matrix with one row
+  a character vector, typically one row of a matrix (e.g. via
+  `apply(m, 1, columnWrap)`)
 
 - width:
 
-  integer, the width of the columns in characters
+  integer, the width of the columns in characters, recycled to the
+  length of `x`. Defaults to an equal share of `getOption("width")` per
+  column.
 
 ## Value
 
-a character matrix
+a character matrix with one column per element of `x` and one row per
+wrapped line
 
 ## Details
 
@@ -33,18 +37,7 @@ wraps the lines within the columns.
 
 [`strwrap()`](https://rdrr.io/r/base/strwrap.html)
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+Other data.print: [`printCharMatrix()`](printCharMatrix.md)
 
 ## Examples
 

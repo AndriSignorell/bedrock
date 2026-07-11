@@ -7,13 +7,13 @@
 midx(x, inclZero = FALSE, cumulate = FALSE)
 }
 \arguments{
-\item{x}{A numeric vector.}
+\item{x}{a numeric vector}
 
-\item{inclZero}{Logical. If \code{TRUE}, a zero is prepended to \code{x}
+\item{inclZero}{logical. If \code{TRUE}, a zero is prepended to \code{x}
 before computing midpoints. In this case, the first midpoint equals
 \code{x[1] / 2}. Default is \code{FALSE}.}
 
-\item{cumulate}{Logical. If \code{TRUE}, returns the cumulative sum of the
+\item{cumulate}{logical. If \code{TRUE}, returns the cumulative sum of the
 midpoints. Default is \code{FALSE}.}
 }
 \value{
@@ -48,23 +48,10 @@ text(x = xpos, y = b, labels = t(tab), col = "red")
 
 }
 \seealso{
-\code{\link{moveAvg}}
-
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=locf]{locf()}},
+Other vector.window:
 \code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+\code{\link[=quot]{quot()}}
 }
-\concept{ordering}
-\concept{vector.ops}
+\concept{moving-window}
+\concept{numerical-methods}
+\concept{vector.window}

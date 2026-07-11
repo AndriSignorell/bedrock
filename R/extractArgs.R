@@ -6,15 +6,15 @@
 #' \code{dots} override entries in \code{defaults} of the same name;
 #' explicit \code{NULL} values are preserved.
 #'
-#' @param dots Named list of arguments (usually \code{list(...)})
-#' @param defaults Named list of default values
-#' @param validate Optional validation function, called with the merged
+#' @param dots named list of arguments (usually \code{list(...)})
+#' @param defaults named list of default values
+#' @param validate optional validation function, called with the merged
 #'   argument list for its side effect. It should throw an error on
 #'   invalid input; its return value is ignored.
-#' @param returnRest Logical; if \code{TRUE}, a list with components
+#' @param returnRest logical; if \code{TRUE}, a list with components
 #'   \code{args} (the merged arguments) and \code{rest} (all elements of
 #'   \code{dots} not matching a default, including unnamed ones) is
-#'   returned.
+#'   returned
 #'
 #' @return Named list of extracted arguments, or a list with components
 #'   \code{args} and \code{rest} if \code{returnRest = TRUE}.
@@ -26,8 +26,9 @@
 #' extractArgs(dots, defaults = list(col = "black", lty = 1),
 #'             returnRest = TRUE)
 #'
-#' @family pkg.introspection
+#' @family pkg.args
 #' @concept programming
+#' @concept introspection
 #' @export
 extractArgs <- function(dots, defaults, validate = NULL, returnRest = FALSE) {
 

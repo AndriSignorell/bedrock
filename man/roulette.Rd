@@ -49,6 +49,7 @@ table(Roulette$parity, useNA = "ifany")
 \seealso{
 Other datasets:
 \code{\link{Cards}},
+\code{\link{Pizza}},
 \code{\link{Tarot}},
 \code{\link[=courseData]{courseData()}}
 }

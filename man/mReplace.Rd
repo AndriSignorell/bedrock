@@ -7,12 +7,12 @@
 mReplace(x, patterns, replacements)
 }
 \arguments{
-\item{x}{A character vector whose elements are to be replaced.}
+\item{x}{a character vector whose elements are to be replaced}
 
-\item{patterns}{A character vector of values to search for.}
+\item{patterns}{a character vector of values to search for}
 
-\item{replacements}{A character vector of replacement values,
-in the same order as \code{patterns}.}
+\item{replacements}{a character vector of replacement values,
+in the same order as \code{patterns}}
 }
 \value{
 A character vector of the same length as \code{x}, with matching
@@ -31,9 +31,15 @@ mReplace(c("a", "b", "c", "d"), c("a", "c"), c("A", "C"))
 \seealso{
 \code{\link{mGsub}} for substring replacement.
 
-Other string:
-\code{\link{char-ascii-conversion}},
-\code{\link[=mGsub]{mGsub()}}
+Other data.recode:
+\code{\link[=asBinary]{asBinary()}},
+\code{\link[=combLevels]{combLevels()}},
+\code{\link[=dummy]{dummy()}},
+\code{\link[=nf]{nf()}},
+\code{\link[=recodeX]{recodeX()}},
+\code{\link[=revCode]{revCode()}},
+\code{\link[=stringsAsFactors]{stringsAsFactors()}}
 }
-\concept{string}
+\concept{data.recode}
+\concept{recoding}
 \concept{string-manipulation}

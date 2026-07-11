@@ -14,12 +14,13 @@ randGroupSplit(x, groupSizes)
 
 - x:
 
-  A vector containing the elements to be split into groups.
+  a vector containing the elements to be split into groups
 
 - groupSizes:
 
-  An integer vector specifying the sizes of the groups. The sum of
-  `groupSizes` must equal `length(x)`.
+  an integer vector specifying the sizes of the groups. The sum of
+  `groupSizes` must equal `length(x)`. If the vector is named, the names
+  are used as group names in the result.
 
 ## Value
 
@@ -30,14 +31,16 @@ length of the list equals `length(groupSizes)`.
 
 This function is useful for random group assignments, for example in
 teaching settings, simulations, or experimental designs where groups of
-unequal sizes are required.
+unequal sizes are required. It uses
+[`sample`](https://rdrr.io/r/base/sample.html), so results can be made
+reproducible with [`set.seed`](https://rdrr.io/r/base/Random.html).
 
 ## See also
 
 Other combinatorics: [`combN()`](combN.md),
-[`combPairs()`](combPairs.md), [`combSet()`](combinatoric.md),
-[`permn()`](permn.md), [`sampleX()`](sampleX.md),
-[`unwhich()`](unwhich.md)
+[`combPairs()`](combPairs.md), [`combSet()`](combSet.md),
+[`pairApply()`](pairApply.md), [`permn()`](permn.md),
+[`sampleX()`](sampleX.md)
 
 ## Examples
 
@@ -53,5 +56,14 @@ randGroupSplit(LETTERS[1:12], groupSizes = c(4, 3, 5))
 #> 
 #> $`3`
 #> [1] "B" "C" "F" "I" "J"
+#> 
+
+# named groups
+randGroupSplit(LETTERS[1:7], groupSizes = c(treat = 4, ctrl = 3))
+#> $treat
+#> [1] "A" "E" "F" "G"
+#> 
+#> $ctrl
+#> [1] "B" "C" "D"
 #> 
 ```

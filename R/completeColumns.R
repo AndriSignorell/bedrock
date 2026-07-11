@@ -9,9 +9,9 @@
 #' values. Internally, the function uses \code{\link{anyNA}} to detect
 #' missing values.
 #'
-#' @param x A data.frame or list-like object whose elements are checked
-#'   for missing values.
-#' @param output Character string specifying the output representation.
+#' @param x a data.frame or list-like object whose elements are checked
+#'   for missing values
+#' @param output character string specifying the output representation.
 #'   One of \code{"names"} (return the names of the complete elements,
 #'   the default) or \code{"logical"} (return a logical vector indicating
 #'   completeness for each element).
@@ -34,8 +34,9 @@
 #' # Logical vector indicating completeness
 #' completeColumns(airquality, output = "logical")
 #'
-#' @family data.inspection
+#' @family data.missing
 #' @concept missing-value
+#' @concept data-inspection
 #' @export
 completeColumns <- function(x, output = c("names", "logical")) {
 

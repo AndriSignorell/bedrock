@@ -1,4 +1,4 @@
-# Add an enumeration column
+# Add an Enumeration Column
 
 Prepends (or inserts) a column of enumeration labels – lowercase or
 uppercase Roman numerals, or Arabic numbers.
@@ -43,6 +43,7 @@ appendEnum(
 - colName:
 
   optional name for the new column; `NULL` (default) leaves it unnamed
+  for matrices, while for data frames a default name (`"V1"`) is used
 
 ## Value
 
@@ -50,15 +51,31 @@ appendEnum(
 
 ## See also
 
-Other data.manipulation: [`appendRowNames()`](appendRowNames.md),
-[`appendX()`](appendX.md), [`as.array.xtabs()`](as.array.xtabs.md),
-[`asBinary()`](asBinary.md), [`asCDateFmt()`](asCDateFmt.md),
-[`columnWrap()`](columnWrap.md), [`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+[`append`](https://rdrr.io/r/base/append.html)
+
+Other data.append: [`appendRowNames()`](appendRowNames.md),
+[`appendX()`](appendX.md), [`multMerge()`](multMerge.md)
+
+## Examples
+
+``` r
+d <- data.frame(x = 1:3, y = c("a", "b", "c"))
+appendEnum(d)
+#>      V1 x y
+#> 1   i.  1 a
+#> 2  ii.  2 b
+#> 3 iii.  3 c
+
+appendEnum(d, type = "arabic", suffix = ") ")
+#>    V1 x y
+#> 1 1)  1 a
+#> 2 2)  2 b
+#> 3 3)  3 c
+
+# insert after the first column instead of prepending
+appendEnum(d, after = 1L, colName = "no")
+#>   x    no y
+#> 1 1   i.  a
+#> 2 2  ii.  b
+#> 3 3 iii.  c
+```

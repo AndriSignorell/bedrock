@@ -7,10 +7,10 @@
 dotProd(x, y)
 }
 \arguments{
-\item{x}{A numeric or complex vector, or a numeric/complex matrix.}
+\item{x}{a numeric or complex vector, or a numeric/complex matrix}
 
-\item{y}{A numeric or complex vector, or a numeric/complex matrix with the
-same dimensions as \code{x}.}
+\item{y}{a numeric or complex vector, or a numeric/complex matrix with the
+same dimensions as \code{x}}
 }
 \value{
 \itemize{
@@ -54,19 +54,13 @@ dotProd(x, y)
 \seealso{
 \code{\link[base]{crossprod}}
 
-Other math.utils:
+Other math.basic:
+\code{\link[=closest]{closest()}},
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=isLowCardinality]{isLowCardinality()}},
-\code{\link[=linScale]{linScale()}},
-\code{\link[=logit]{logit()}},
-\code{\link[=nUnique]{nUnique()}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=rankX]{rankX()}},
 \code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
+\code{\link[=unirootAll]{unirootAll()}}
 }
 \concept{linear-algebra}
-\concept{math.utils}
+\concept{math.basic}
+\concept{numerical-methods}

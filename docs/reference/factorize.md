@@ -1,8 +1,8 @@
 # Prime Factorization of Integers
 
-Compute the prime factorization(s) of integer(s) `n`. Prime
-factorization of integer(s) works via [`primes`](primes.md), currently
-in a cheap way, sub-optimal for large composite `n`.
+Compute the prime factorization(s) of integer(s) `n`, using Pollard's
+rho algorithm with deterministic Miller-Rabin primality testing (64-bit,
+implemented in C++).
 
 ## Usage
 
@@ -14,27 +14,33 @@ factorize(n)
 
 - n:
 
-  vector of integers to factorize.
+  vector of positive whole numbers to factorize, not exceeding `2^53`
 
 ## Value
 
 A named [`list`](https://rdrr.io/r/base/list.html) of the same length as
 `n`, each element a 2-column matrix with column `"p"` the prime factors
-and column~`"m"` their respective exponents (or multiplities), i.e., for
-a prime number `n`, the resulting matrix is `cbind(p = n, m = 1)`.
+and column `"m"` their respective exponents (or multiplicities), i.e.,
+for a prime number `n`, the resulting matrix is `cbind(p = n, m = 1)`.
 
-For factorization of moderately or really large numbers, see the gmp
-package, and its
-[`factorize()`](https://rdrr.io/pkg/gmp/man/factor.html) (which is ~20x
-faster!).
+## Details
+
+`n` must not exceed `2^53` (`.Machine$integer.max` squared, roughly
+`9.007e15`). Above this bound, R's double representation can no longer
+store integers exactly, so a factorized result could silently correspond
+to a different number than the one entered – for such inputs, use the
+gmp package's
+[`gmp::factorize()`](https://rdrr.io/pkg/gmp/man/factor.html), which
+represents arbitrarily large integers exactly (e.g. via
+[`gmp::as.bigz()`](https://rdrr.io/pkg/gmp/man/biginteger.html) or a
+string).
 
 ## See also
 
-Other number.theory: [`digitSum()`](digitSum.md),
-[`divisors()`](divisors.md), [`fibonacci()`](fibonacci.md),
-[`gcd_lcm`](gcd_lcm.md), [`isOdd()`](isOdd.md),
-[`isPrime()`](isPrime.md),
-[`numeric-conversions`](numeric-conversions.md), [`primes()`](primes.md)
+Other number.theory: [`GCD-LCM`](GCD-LCM.md),
+[`digitSum()`](digitSum.md), [`divisors()`](divisors.md),
+[`fibonacci()`](fibonacci.md), [`isOdd()`](isOdd.md),
+[`isPrime()`](isPrime.md), [`primes()`](primes.md)
 
 ## Examples
 

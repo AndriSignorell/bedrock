@@ -7,9 +7,9 @@
 randGroupSplit(x, groupSizes)
 }
 \arguments{
-\item{x}{A vector containing the elements to be split into groups.}
+\item{x}{a vector containing the elements to be split into groups}
 
-\item{groupSizes}{An integer vector specifying the sizes of the groups.
+\item{groupSizes}{an integer vector specifying the sizes of the groups.
 The sum of \code{groupSizes} must equal \code{length(x)}. If the vector
 is named, the names are used as group names in the result.}
 }
@@ -42,9 +42,10 @@ Other combinatorics:
 \code{\link[=combN]{combN()}},
 \code{\link[=combPairs]{combPairs()}},
 \code{\link[=combSet]{combSet()}},
+\code{\link[=pairApply]{pairApply()}},
 \code{\link[=permn]{permn()}},
-\code{\link[=sampleX]{sampleX()}},
-\code{\link[=unwhich]{unwhich()}}
+\code{\link[=sampleX]{sampleX()}}
 }
+\concept{categorization}
 \concept{combinatorics}
 \concept{sampling}

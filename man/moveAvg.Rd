@@ -12,13 +12,13 @@ moveAvg(
 )
 }
 \arguments{
-\item{x}{A univariate numeric vector or \code{ts} object.
+\item{x}{a univariate numeric vector or \code{ts} object.
 Matrices and multi-column objects are not supported.}
 
-\item{order}{A single positive integer giving the window width.
+\item{order}{a single positive integer giving the window width.
 Must satisfy \code{1 <= order <= length(x)}.}
 
-\item{align}{A character string controlling how the window is
+\item{align}{a character string controlling how the window is
 positioned relative to each output value:
 \describe{
 \item{\code{"center"}}{Default.  The window is centred on the
@@ -30,7 +30,7 @@ and extends to the right.}
 and extends to the left.}
 }}
 
-\item{endrule}{A character string indicating how boundary values
+\item{endrule}{a character string indicating how boundary values
 (where a full window is unavailable) are handled:
 \describe{
 \item{\code{"NA"}}{Default.  Boundary values are left as
@@ -86,24 +86,12 @@ moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 
 }
 \seealso{
-\code{caTools::runmean()},
-\code{forecast::ma()}
+\code{\link[zoo:rollmean]{zoo::rollmean()}}, \code{\link[forecast:ma]{forecast::ma()}}, \code{\link[stats:runmed]{stats::runmed()}}
 
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=locf]{locf()}},
+Other vector.window:
 \code{\link[=midx]{midx()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+\code{\link[=quot]{quot()}}
 }
-\concept{time-series}
-\concept{vector.ops}
+\concept{moving-window}
+\concept{smoother}
+\concept{vector.window}

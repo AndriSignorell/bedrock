@@ -1,43 +1,38 @@
 # Coerce `xtabs` Object to Array or Matrix
 
-Converts an object of class `"xtabs"` to a plain matrix by dropping all
-additional classes such as `"xtabs"` and `"table"`.
+Converts an object of class `"xtabs"` to a plain array or matrix by
+dropping all additional classes such as `"xtabs"` and `"table"`, along
+with the `call` attribute.
 
 ## Usage
 
 ``` r
 # S3 method for class 'xtabs'
 as.array(x, ...)
+
+# S3 method for class 'xtabs'
+as.matrix(x, ...)
 ```
 
 ## Arguments
 
 - x:
 
-  An object of class `"xtabs"`.
+  an object of class `"xtabs"`
 
 - ...:
 
-  Ignored.
+  ignored
 
 ## Value
 
-A matrix with no additional classes.
+An array (or matrix in the two-dimensional case) with no additional
+classes.
 
 ## See also
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`asBinary()`](asBinary.md), [`asCDateFmt()`](asCDateFmt.md),
-[`columnWrap()`](columnWrap.md), [`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+Other data.coerce: [`toBaseR()`](toBaseR.md),
+[`type-aliases`](type-aliases.md)
 
 ## Examples
 
@@ -45,5 +40,5 @@ Other data.manipulation: [`appendEnum()`](appendEnum.md),
 xt <- xtabs(~ cyl + gear, data = mtcars)
 class(as.matrix(xt))
 #> [1] "matrix" "array" 
-# "matrix"
+# "matrix" "array"
 ```

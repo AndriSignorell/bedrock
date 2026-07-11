@@ -14,45 +14,31 @@ closest(x, a, output = "value", na.rm = FALSE)
 
 - x:
 
-  A numeric vector to search in.
+  a numeric vector to search in
 
 - a:
 
-  The reference value. May be a vector; see Details.
+  the reference value. May be a vector; see Details.
 
 - output:
 
-  Character string specifying the output representation.
-
-  One of:
-
-  `\"value\"`
-
-  :   Return the closest value(s).
-
-  `\"index\"`
-
-  :   Return the index position(s) in `x`.
-
-  Default is `\"value\"`.
-
-  May be a vector; recycled to the length of `a`.
+  character string specifying the output representation. One of
+  `"value"` (return the closest value(s), the default) or `"index"`
+  (return the index position(s) in `x`). May be a vector; recycled to
+  the length of `a`.
 
 - na.rm:
 
-  Logical.
-
-  If `TRUE`, `NA` values in `x` are ignored before searching.
-
+  logical. If `TRUE`, `NA` values in `x` are ignored before searching.
   Default is `FALSE`.
 
 ## Value
 
 If `a` and `output` are scalar:
 
-- numeric vector if `output = \"value\"`
+- numeric vector if `output = "value"`
 
-- integer vector if `output = \"index\"`
+- integer vector if `output = "index"`
 
 If `a` or `output` are vectors: a list with one element per value of
 `a`.
@@ -79,12 +65,9 @@ Recycling follows standard R rules.
 
 [`which`](https://rdrr.io/r/base/which.html)
 
-Other vector.ops: [`coalesceX()`](coalesceX.md), [`locf()`](locf.md),
-[`midx()`](midx.md), [`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
-[`trim()`](trim.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+Other math.basic: [`crossProd()`](crossProd.md),
+[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
+[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
 
 ## Examples
 

@@ -12,17 +12,17 @@
 #' returns a vector with \code{TRUE} everywhere \emph{except} position 2.
 #' Positive and negative indices must not be mixed.
 #'
-#' @param idx     A vector of non-zero whole-number indices.  Positive
+#' @param idx     a vector of non-zero whole-number indices.  Positive
 #'   values mark \code{TRUE} positions; negative values mark
 #'   \code{FALSE} positions (all others become \code{TRUE}).  As in base
 #'   R, positive and negative indices must not be mixed.  Duplicate
 #'   indices are allowed and result in a single \code{TRUE} (or
 #'   \code{FALSE}) at that position.
-#' @param n       A single non-negative whole number giving the length of
+#' @param n       a single non-negative whole number giving the length of
 #'   the result.  For positive \code{idx}, defaults to \code{max(idx)};
 #'   for negative or empty \code{idx}, defaults to \code{0L}.  Must not
 #'   be less than \code{max(abs(idx))}.
-#' @param useNames Logical.  If \code{TRUE} (default) \emph{and}
+#' @param useNames logical.  If \code{TRUE} (default) \emph{and}
 #'   \code{idx} has names, those names are attached to the corresponding
 #'   \code{TRUE} positions of the result; all other positions receive an
 #'   empty string.  If \code{FALSE} or \code{idx} is unnamed, the result
@@ -31,7 +31,9 @@
 #' @return A logical vector of length \code{n}.
 #'
 #' @note
-#' Based on code by Nick Sabbe.
+#' The positive-index construction (\code{rv[indices] <- TRUE} with name
+#' propagation) is based on code by Nick Sabbe; negative-index handling
+#' and input validation are original additions.
 #'
 #' @references
 #' Sabbe, N. (2012). Inverse of \code{which}.
@@ -59,13 +61,14 @@
 
 
 
-#' @family combinatorics  
-#' @concept ordering
+#' @family vector.utils  
+#' @concept indexing
+#' @concept data-inspection
 #'
 #'
 #' @export
 unwhich <- function(idx,
-                    n = if (length(idx) > 0L && all(idx > 0L)) max(idx) else 0L,
+                    n = if (length(idx) > 0L && !anyNA(idx) && all(idx > 0L)) max(idx) else 0L,
                     useNames = TRUE) {
   
   has_idx <- length(idx) > 0L

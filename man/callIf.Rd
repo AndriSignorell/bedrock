@@ -7,9 +7,9 @@
 callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
 }
 \arguments{
-\item{fun}{A function to be called.}
+\item{fun}{a function to be called}
 
-\item{arg}{Controls whether and how \code{fun} is called:
+\item{arg}{controls whether and how \code{fun} is called:
 \itemize{
 \item \code{FALSE}, \code{NULL}, or \code{NA}: \code{fun} is not called
 and \code{NULL} is returned invisibly.
@@ -21,15 +21,15 @@ arguments. If \code{defaults} is provided, it is merged with
 \code{defaults}.
 }}
 
-\item{defaults}{A named list of default arguments passed to \code{fun} when
+\item{defaults}{a named list of default arguments passed to \code{fun} when
 \code{arg = TRUE}, or used as a base when \code{arg} is a list.
 Default is \code{NULL}.}
 
-\item{forbidden}{Optional character vector of argument names that are not
+\item{forbidden}{optional character vector of argument names that are not
 allowed. If any of these appear in \code{arg}, they are removed before
 calling \code{fun}. A warning is issued unless \code{warn = FALSE}.}
 
-\item{warn}{Logical. If \code{TRUE} (default), a warning is issued when
+\item{warn}{logical. If \code{TRUE} (default), a warning is issued when
 forbidden arguments are removed.}
 }
 \value{
@@ -82,8 +82,12 @@ callIf(plot, TRUE, defaults = list(x, y))
 
 }
 \seealso{
-Other utils:
-\code{\link[=isNA]{isNA()}}
+Other pkg.args:
+\code{\link[=extractArgs]{extractArgs()}},
+\code{\link[=getDotsArg]{getDotsArg()}},
+\code{\link[=mergeArgs]{mergeArgs()}},
+\code{\link[=recycle]{recycle()}}
 }
+\concept{conditional-execution}
+\concept{pkg.args}
 \concept{programming}
-\concept{utils}

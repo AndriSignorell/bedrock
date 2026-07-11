@@ -13,22 +13,22 @@ splitX(x, ...)
 \method{splitX}{formula}(formula, data, subset, na.action, drop = FALSE, ...)
 }
 \arguments{
-\item{x}{Object to be split (typically a vector).}
+\item{x}{object to be split (typically a vector)}
 
-\item{...}{Further arguments passed to \code{\link[base]{split}}.}
+\item{...}{further arguments passed to \code{\link[base]{split}}}
 
-\item{f}{A factor or list of factors defining the groups (default method).}
+\item{f}{a factor or list of factors defining the groups (default method)}
 
-\item{drop}{Logical; if \code{TRUE}, unused factor levels are dropped.}
+\item{drop}{logical; if \code{TRUE}, unused factor levels are dropped}
 
-\item{formula}{A formula of the form \code{y ~ group} or \code{y ~ g1 + g2}
+\item{formula}{a formula of the form \code{y ~ group} or \code{y ~ g1 + g2}
 specifying the variable to split (\code{y}) and the grouping variables.}
 
-\item{data}{A data frame containing the variables in the formula.}
+\item{data}{a data frame containing the variables in the formula}
 
-\item{subset}{Optional logical expression indicating rows to include.}
+\item{subset}{optional logical expression indicating rows to include}
 
-\item{na.action}{A function specifying how missing values are handled,
+\item{na.action}{a function specifying how missing values are handled,
 passed to \code{\link[stats]{model.frame}}
 (e.g., \code{\link[stats]{na.omit}}).}
 }
@@ -73,29 +73,12 @@ splitX(y ~ g1 + g2, data = df)
 
 }
 \seealso{
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
+Other data.reshape:
+\code{\link[=collapseTable]{collapseTable()}},
 \code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
 \code{\link[=splitAt]{splitAt()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=untable]{untable()}}
 }
-\concept{data.manipulation}
+\concept{categorization}
+\concept{data.reshape}
 \concept{reshape}

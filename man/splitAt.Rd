@@ -7,9 +7,9 @@
 splitAt(x, pos)
 }
 \arguments{
-\item{x}{A vector to be split.}
+\item{x}{a vector to be split}
 
-\item{pos}{An integer vector of positions at which to split \code{x}.
+\item{pos}{an integer vector of positions at which to split \code{x}.
 Positions refer to indices in \code{x} where a new segment should start.}
 }
 \value{
@@ -40,29 +40,12 @@ splitAt(x, c(7, 4, 4, 20))
 \seealso{
 \code{\link{split}}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
+Other data.reshape:
+\code{\link[=collapseTable]{collapseTable()}},
 \code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
 \code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=untable]{untable()}}
 }
-\concept{data.manipulation}
+\concept{data-inspection}
+\concept{data.reshape}
 \concept{reshape}

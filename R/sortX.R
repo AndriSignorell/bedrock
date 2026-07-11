@@ -24,31 +24,31 @@
 #' @name sortX
 #' @aliases sortX sortX.default sortX.data.frame sortX.matrix sortX.table
 #'
-#' @param x A numeric, complex, character or logical vector, factor,
-#'   matrix, table, or data frame to be sorted.
-#' @param decreasing Logical scalar or vector. Should the sort be in
+#' @param x a numeric, complex, character or logical vector, factor,
+#'   matrix, table, or data frame to be sorted
+#' @param decreasing logical scalar or vector. Should the sort be in
 #'   decreasing order? For 2-dimensional objects a vector of the same length
 #'   as \code{ord} may be supplied to control the direction per column;
 #'   a scalar is recycled.
-#' @param na.last Logical or \code{NA}. Should missing values be placed last
+#' @param na.last logical or \code{NA}. Should missing values be placed last
 #'   (\code{TRUE}), first (\code{FALSE}), or removed (\code{NA})?
 #'   See \code{\link{order}}.
-#' @param method Sorting method. Either \code{"default"} (base R behavior)
+#' @param method sorting method. Either \code{"default"} (base R behavior)
 #'   or \code{"mixed"} for natural sorting of character data
 #'   (e.g. \code{"A2"} < \code{"A10"}).
-#' @param factorsAsCharacter Logical. If \code{TRUE} (default), factors are
+#' @param factorsAsCharacter logical. If \code{TRUE} (default), factors are
 #'   converted to character before sorting so that labels are used instead of
 #'   level codes. Set to \code{FALSE} to sort by level order (useful for
 #'   ordered factors).
-#' @param ord Integer or character vector specifying the columns to sort by,
+#' @param ord integer or character vector specifying the columns to sort by,
 #'   and their priority (first element = primary key). Column names and
 #'   positive integer indices (\code{1:ncol(x)}) refer to columns.
 #'   The special value \code{0L} (integer zero, always numeric) sorts by row
 #'   names. For \code{table} and \code{matrix} objects, \code{ncol(x) + 1L}
 #'   sorts by row marginal sums. This argument is not available for
 #'   \code{sortX.default}. Default: \code{NULL} (all columns, left to right).
-#' @param \dots Further arguments passed to \code{\link{sort}} in
-#'   \code{sortX.default}.
+#' @param \dots further arguments passed to \code{\link{sort}} in
+#'   \code{sortX.default}
 #'
 #' @return The sorted object, of the same class as \code{x}.
 #'
@@ -95,10 +95,9 @@
 
 #' @rdname sortX
 
-#' @family data.manipulation  
+#' @family data.order
 #' @concept ordering
-#'
-#'
+#' @concept reshape
 #' @export
 sortX <- function(x, ...) {
   UseMethod("sortX")

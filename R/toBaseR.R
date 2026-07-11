@@ -6,8 +6,8 @@
 #' \code{data.frames} as smoothly as possible.
 #' 
 #' 
-#' @param x the object to be converted.
-#' @param \dots arguments passed on.
+#' @param x the object to be converted
+#' @param \dots arguments passed on
 #' @return converted object
 
 #' @examples
@@ -24,16 +24,16 @@
 
 
 
-#' @family data.manipulation  
-#' @concept reshape
-#'
-#'
+#' @family data.coerce
+#' @concept type-coercion
+#' @concept tibble
 #' @export
 toBaseR <- function(x, ...){
   UseMethod("toBaseR")
 }
 
 
+#' @rdname toBaseR
 #' @export
 toBaseR.tbl_df <- function(x, ...){
   # rollback a tibble to data.frame, with usual factors etc.
@@ -54,6 +54,7 @@ toBaseR.tbl_df <- function(x, ...){
 }
 
 
+#' @rdname toBaseR
 #' @export
 toBaseR.haven_labelled <- function(x, ...) {
   
@@ -67,6 +68,7 @@ toBaseR.haven_labelled <- function(x, ...) {
 }
 
 
+#' @rdname toBaseR
 #' @export
 toBaseR.default <- function(x, ...){
   

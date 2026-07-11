@@ -10,7 +10,7 @@
 #' This corresponds to the definition used in SQL and
 #' \code{dplyr::percent_rank()}.
 #'
-#' @param x A numeric (or comparable) vector.
+#' @param x a numeric (or comparable) vector
 #'
 #' @details
 #' The smallest value in \code{x} receives a percent rank of 0, and the
@@ -29,8 +29,7 @@
 #' A numeric vector of the same length as \code{x}, containing values
 #' between 0 and 1.
 #'
-#' @seealso
-#' \code{\link{rankX}}, \code{\link[base]{rank}}
+#' @seealso [base::rank()]
 #'
 #' @examples
 #' x <- c(10, 20, 20, 30)
@@ -47,9 +46,9 @@
 #' # Single non-missing value
 #' percentRank(c(5, NA, NA))
 #'
-#' @family math.utils
-#' @concept ordering
+#' @family math.transform
 #' @concept transformation
+#' @concept order-statistic
 #' @export
 percentRank <- function(x) {
   n <- sum(!is.na(x))

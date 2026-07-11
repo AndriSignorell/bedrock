@@ -38,7 +38,7 @@ recodeX(
 
 - keep:
 
-  vector of levels that should be left untouched.
+  vector of levels that should be left untouched
 
 - elseLevel:
 
@@ -48,7 +48,7 @@ recodeX(
 
 - ref:
 
-  the reference level, typically a string.
+  the reference level, typically a string
 
 - useEmpty:
 
@@ -74,18 +74,10 @@ if `x` was a `character` vector, the result will also be `character`
 [`reorder`](https://rdrr.io/r/stats/reorder.factor.html)  
 There's another solution for this problem in the package **car**.
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recycle()`](recycle.md), [`renameX()`](renameX.md),
-[`revCode()`](revCode.md), [`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+Other data.recode: [`asBinary()`](asBinary.md),
+[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
+[`mReplace()`](mReplace.md), [`nf()`](nf.md), [`revCode()`](revCode.md),
+[`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 

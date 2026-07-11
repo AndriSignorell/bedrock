@@ -123,8 +123,7 @@ Predicates and checks for data quality and structure.
   [`fibonacci()`](reference/fibonacci.md),
   [`digitSum()`](reference/digitSum.md), [`isOdd()`](reference/isOdd.md)
 - Base conversions: `numericConversions`
-- [`combN()`](reference/combN.md),
-  [`combSet()`](reference/combinatoric.md),
+- [`combN()`](reference/combN.md), [`combSet()`](reference/combSet.md),
   [`combPairs()`](reference/combPairs.md),
   [`permn()`](reference/permn.md)
 - [`sampleX()`](reference/sampleX.md),

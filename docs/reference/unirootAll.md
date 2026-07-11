@@ -24,25 +24,25 @@ unirootAll(
 
 - f:
 
-  A function for which roots are sought. Must accept a numeric first
+  a function for which roots are sought. Must accept a numeric first
   argument; additional arguments are passed via `...`.
 
 - interval:
 
-  A numeric vector of length 2 specifying the search interval. Either
+  a numeric vector of length 2 specifying the search interval. Either
   `interval` or both `lower` and `upper` must be supplied.
 
 - lower:
 
-  Lower bound of the search interval. Default: `min(interval)`.
+  lower bound of the search interval. Default: `min(interval)`.
 
 - upper:
 
-  Upper bound of the search interval. Default: `max(interval)`.
+  upper bound of the search interval. Default: `max(interval)`.
 
 - tol:
 
-  Convergence tolerance passed to
+  convergence tolerance passed to
   [`uniroot`](https://rdrr.io/r/stats/uniroot.html), and also used as
   the threshold for (i) treating grid-point values as exact zeros
   and (ii) collapsing near-duplicate roots. Default:
@@ -50,18 +50,18 @@ unirootAll(
 
 - maxiter:
 
-  Maximum number of iterations for
+  maximum number of iterations for
   [`uniroot`](https://rdrr.io/r/stats/uniroot.html). Default: `1000`.
 
 - n:
 
-  Number of sub-intervals used for the initial grid search. Increase `n`
+  number of sub-intervals used for the initial grid search. Increase `n`
   if roots may be close together or the function oscillates rapidly.
   Default: `100`.
 
 - ...:
 
-  Additional arguments passed to `f`.
+  additional arguments passed to `f`
 
 ## Value
 
@@ -93,12 +93,9 @@ despite finite function values being present.
 [`uniroot`](https://rdrr.io/r/stats/uniroot.html) for the underlying
 single-root solver.
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`linScale()`](linScale.md), [`logit()`](logit.md),
-[`nUnique()`](nUnique.md), [`percentRank()`](percentRank.md),
-[`precision`](precision.md), [`rankX()`](rankX.md),
-[`roundTo()`](roundTo.md), [`untable()`](untable.md)
+Other math.basic: [`closest()`](closest.md),
+[`crossProd()`](crossProd.md), [`crossProdN()`](crossProdN.md),
+[`dotProd()`](dotProd.md), [`roundTo()`](roundTo.md)
 
 ## Examples
 

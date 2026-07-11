@@ -14,25 +14,25 @@ toWide(x, groups, by = NULL, varNames = NULL)
 
 - x:
 
-  Object to reshape. For `toLong()`, a matrix, table, data frame, or
+  object to reshape. For `toLong()`, a matrix, table, data frame, or
   list. For `toWide()`, a vector.
 
 - varNames:
 
-  Optional character vector of column names for the result.
+  optional character vector of column names for the result
 
 - includeRowNames:
 
-  Logical. If `TRUE`, append a column containing the row names of `x`
+  logical. If `TRUE`, append a column containing the row names of `x`
   when reshaping to long format.
 
 - groups:
 
-  Grouping vector used to define the columns in the wide result.
+  grouping vector used to define the columns in the wide result
 
 - by:
 
-  Optional vector used to align values row-wise when reshaping to wide
+  optional vector used to align values row-wise when reshaping to wide
   format. If `NULL`, values are aligned by their order within each
   group.
 
@@ -50,6 +50,10 @@ one column per group.
 ## See also
 
 `reshape`, `stack`, `unstack`
+
+Other data.reshape: [`collapseTable()`](collapseTable.md),
+[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
+[`untable()`](untable.md)
 
 ## Examples
 
@@ -89,15 +93,15 @@ toLong(d.x)
 toWide(PlantGrowth$weight, PlantGrowth$group)
 #>    ctrl trt1 trt2
 #> 1  4.17 4.81 6.31
-#> 2  5.33 4.32 5.26
-#> 3  5.14 4.69 5.12
-#> 4  5.58 4.17 5.54
-#> 5  5.18 4.41 5.50
-#> 6  6.11 3.59 5.37
-#> 7  4.50 5.87 5.29
-#> 8  4.61 3.83 4.92
-#> 9  5.17 6.03 6.15
-#> 10 4.53 4.89 5.80
+#> 2  5.58 4.17 5.12
+#> 3  5.18 4.41 5.54
+#> 4  6.11 3.59 5.50
+#> 5  4.50 5.87 5.37
+#> 6  4.61 3.83 5.29
+#> 7  5.17 6.03 4.92
+#> 8  4.53 4.89 6.15
+#> 9  5.33 4.32 5.80
+#> 10 5.14 4.69 5.26
 
 # to wide aligned by key
 set.seed(41)

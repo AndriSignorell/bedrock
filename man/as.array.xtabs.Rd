@@ -10,9 +10,9 @@
 \method{as.matrix}{xtabs}(x, ...)
 }
 \arguments{
-\item{x}{An object of class \code{"xtabs"}.}
+\item{x}{an object of class \code{"xtabs"}}
 
-\item{...}{Ignored.}
+\item{...}{ignored}
 }
 \value{
 An array (or matrix in the two-dimensional case) with no
@@ -30,29 +30,10 @@ class(as.matrix(xt))
 
 }
 \seealso{
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+Other data.coerce:
+\code{\link[=toBaseR]{toBaseR()}},
+\code{\link{type-aliases}}
 }
-\concept{data.manipulation}
+\concept{data.coerce}
 \concept{table}
+\concept{type-coercion}

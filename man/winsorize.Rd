@@ -7,9 +7,9 @@
 winsorize(x, val = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE))
 }
 \arguments{
-\item{x}{A numeric vector to be winsorized.}
+\item{x}{a numeric vector to be winsorized}
 
-\item{val}{A numeric vector of length two specifying the lower and upper
+\item{val}{a numeric vector of length two specifying the lower and upper
 winsorization limits. Defaults to the 5\% and 95\% quantiles of \code{x}
 with \code{na.rm = TRUE}.}
 }
@@ -75,21 +75,12 @@ winsorize(x, val = c(-2, Inf)) # lower bound only
 \seealso{
 \code{scaleX()}, \code{winsorize()} in package \pkg{robustHD}
 
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=locf]{locf()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}}
+Other math.transform:
+\code{\link[=linScale]{linScale()}},
+\code{\link[=logit]{logit()}},
+\code{\link[=percentRank]{percentRank()}},
+\code{\link[=rankX]{rankX()}}
 }
-\concept{robust-statistics}
-\concept{vector.ops}
+\concept{math.transform}
+\concept{outlier-detection}
+\concept{transformation}

@@ -1,6 +1,6 @@
 # Lagged Quotients
 
-Returns suitably lagged and iterated quotients
+Returns suitably lagged and iterated quotients.
 
 ## Usage
 
@@ -17,21 +17,21 @@ quot(x, lag = 1L, quotients = 1L, ...)
 
 - lag:
 
-  an integer indicating which lag to use.
+  an integer indicating which lag to use
 
 - quotients:
 
-  an integer indicating the order of the quotient.
+  an integer indicating the order of the quotient
 
 - ...:
 
-  further arguments to be passed to or from methods.
+  further arguments to be passed to or from methods
 
 ## Value
 
 If `x` is a vector of length `n` and `quotients = 1`, then the computed
 result is equal to the successive quotients
-`x[(1+lag):n] - x[1:(n-lag)]`.
+`x[(1+lag):n] / x[1:(n-lag)]`.
 
 If `quotients` is larger than one this algorithm is applied recursively
 to `x`. Note that the returned value is a vector which is shorter than
@@ -53,12 +53,7 @@ Language*. Wadsworth & Brooks/Cole.
 
 [`diff`](https://rdrr.io/r/base/diff.html)
 
-Other pkg.introspection: [`extractArgs()`](extractArgs.md),
-[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
-[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`getDotsArg()`](getDotsArg.md), [`mergeArgs()`](mergeArgs.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
-[`strX()`](strX.md)
+Other vector.window: [`midx()`](midx.md), [`moveAvg()`](moveAvg.md)
 
 ## Examples
 

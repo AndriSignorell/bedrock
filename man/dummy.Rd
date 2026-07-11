@@ -12,16 +12,16 @@ dummy(
 )
 }
 \arguments{
-\item{x}{Factor or vector of classes.}
+\item{x}{factor or vector of classes}
 
-\item{method}{Character string specifying the contrast method. One of
+\item{method}{character string specifying the contrast method. One of
 \code{"treatment"}, \code{"sum"}, \code{"helmert"}, \code{"poly"}, or \code{"full"}.
 Abbreviations are accepted.}
 
-\item{base}{Integer or character string specifying the baseline group.
+\item{base}{integer or character string specifying the baseline group.
 Only used for \code{method = "treatment"} (see Details).}
 
-\item{levels}{Optional character vector specifying the possible levels of
+\item{levels}{optional character vector specifying the possible levels of
 \code{x}. If \code{NULL}, levels are inferred by \code{factor(x)}.}
 }
 \value{
@@ -79,30 +79,15 @@ apply(
 \code{\link[=model.frame]{model.frame()}}, \code{\link[=contrasts]{contrasts()}}, \code{\link[stats:contr.treatment]{stats::contr.treatment()}},
 \code{\link[stats:contr.sum]{stats::contr.sum()}}, \code{\link[stats:contr.helmert]{stats::contr.helmert()}}, \code{\link[stats:contr.poly]{stats::contr.poly()}}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+Other data.recode:
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
+\code{\link[=mReplace]{mReplace()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
 \code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=stringsAsFactors]{stringsAsFactors()}}
 }
 \concept{categorization}
-\concept{data.manipulation}
+\concept{data.recode}
 \concept{dummy-coding}

@@ -13,9 +13,9 @@ resolveContingency(
 )
 }
 \arguments{
-\item{x}{a contingency table, factor or vector.}
+\item{x}{a contingency table, factor or vector}
 
-\item{y}{an optional factor or vector.
+\item{y}{an optional factor or vector
 Ignored when \code{x} is a matrix.}
 
 \item{square}{logical indicating whether a square contingency table
@@ -54,15 +54,24 @@ If \code{x} is a matrix, it is interpreted as a contingency table.
 Otherwise \code{x} and \code{y} are converted to factors and a table
 is constructed after removing incomplete observations.
 }
+\examples{
+# from an existing contingency table
+tab <- matrix(c(10, 5, 3, 12), nrow = 2,
+              dimnames = list(c("A", "B"), c("yes", "no")))
+resolveContingency(tab)
+
+# from two classification variables
+set.seed(1)
+x <- sample(c("low", "high"), 100, replace = TRUE)
+y <- sample(c("yes", "no"), 100, replace = TRUE)
+resolveContingency(x, y)
+
+}
 \seealso{
-Other data.utils:
-\code{\link[=binaryTree]{binaryTree()}},
-\code{\link{intervals}},
-\code{\link[=ptInPoly]{ptInPoly()}},
-\code{\link{range-operators}},
+Other data.resolve:
 \code{\link[=resolveFormula]{resolveFormula()}},
 \code{\link[=resolveGroups]{resolveGroups()}}
 }
-\concept{data.utils}
-\concept{formula}
-\concept{frequency-table}
+\concept{data-resolution}
+\concept{data.resolve}
+\concept{table}

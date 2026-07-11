@@ -7,11 +7,11 @@
 readDownload(file, ..., output = c("data.frame", "tibble"))
 }
 \arguments{
-\item{file}{character string specifying the name of the file.}
+\item{file}{character string specifying the name of the file}
 
 \item{\dots}{additional arguments passed to the underlying read
 function, e.g. \code{sheet} for Excel files or \code{delim}
-for text files.}
+for text files}
 
 \item{output}{character, either \code{"data.frame"} (default) or
 \code{"tibble"}, determining the class of the returned object.
@@ -56,12 +56,15 @@ readDownload("data.csv", output = "tibble")
 
 }
 \seealso{
-\code{\link{findDownload}}, \code{\link{peekFile}},
+\code{\link{findDownload}},
 \code{\link{toBaseR}}, \code{\link[readxl]{read_excel}},
 \code{\link[readr]{read_csv}}
+
+Other file.io:
+\code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=pdfManual]{pdfManual()}},
+\code{\link[=peekFile]{peekFile()}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
-\concept{data-import}
-\concept{io}
+\concept{file-io}
+\concept{file.io}
+\concept{table}

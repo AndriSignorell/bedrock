@@ -13,11 +13,11 @@ vRot(x, k = 1L)
 
 - x:
 
-  A vector.
+  a vector
 
 - k:
 
-  Integer. Number of positions to rotate (default = 1).
+  integer. Number of positions to rotate (default = 1).
 
 ## Value
 
@@ -30,13 +30,8 @@ the other.
 
 ## See also
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
-[`trim()`](trim.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+Other vector.reshape: [`setLength()`](setLength.md),
+[`trim()`](trim.md), [`vShift()`](vShift.md)
 
 ## Examples
 

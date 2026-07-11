@@ -1,4 +1,4 @@
-# Open CRAN PDF manual of a package
+# Open CRAN PDF Manual of a Package
 
 PDF versions of the manual are usually not included as vignettes in R
 packages. Still this format is convenient for reading and doing full
@@ -16,12 +16,30 @@ pdfManual(package)
 
 - package:
 
-  Package name (symbol or character)
+  package name (symbol or character)
+
+## Value
+
+The URL of the PDF manual, invisibly. Called for its side effect of
+opening the browser.
+
+## Details
+
+A warning (not an error) is issued if the package is not installed
+locally, as the manual may well exist on CRAN anyway.
 
 ## See also
 
-Other file.utils: [`buildPath()`](buildPath.md),
-[`fileExistURL()`](fileExistURL.md),
-[`findDownload()`](findDownload.md),
-[`parseSASDatalines()`](parseSASDatalines.md),
-[`splitPath()`](splitPath.md)
+[`browseURL`](https://rdrr.io/r/utils/browseURL.html)
+
+Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
+[`peekFile()`](peekFile.md), [`readDownload()`](readDownload.md)
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+pdfManual(DescToolsX)
+pdfManual("bedrock")
+} # }
+```

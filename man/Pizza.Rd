@@ -5,7 +5,7 @@
 \alias{Pizza}
 \title{Pizza delivery data (extended)}
 \format{
-A data frame with 1209 observations and XX variables.
+A data frame with 1209 observations and 22 variables.
 }
 \source{
 Simulated data.
@@ -31,7 +31,7 @@ The dataset is designed to be realistically complex. It contains commonly used
 data types such as numerics, factors, ordered factors, integers, logicals and
 dates. Missing values occur both systematically and randomly (except for the index).
 
-A data frame with 1209 observations on XX variables:
+A data frame with 1209 observations on 22 variables:
 \describe{
 \item{index}{Numeric index of the record.}
 \item{date}{Date of delivery.}
@@ -39,7 +39,7 @@ A data frame with 1209 observations on XX variables:
 \item{weekday}{Weekday (integer).}
 \item{area}{Factor with levels Brent, Camden, Westminster.}
 \item{count}{Number of pizzas delivered.}
-\item{rabate}{Logical, TRUE if a rebate was given.}
+\item{rebate}{Logical, TRUE if a rebate was given.}
 \item{price}{Total price of delivered pizzas.}
 \item{operator}{Factor indicating the operator.}
 \item{driver}{Factor indicating the driver.}
@@ -81,4 +81,13 @@ Toutenburg H, Schomaker M, Wissmann M, Heumann C (2009):
 \emph{Arbeitsbuch zur deskriptiven und induktiven Statistik}
 Springer, Berlin Heidelberg.
 }
+\seealso{
+Other datasets:
+\code{\link{Cards}},
+\code{\link{Roulette}},
+\code{\link{Tarot}},
+\code{\link[=courseData]{courseData()}}
+}
+\concept{datasets}
+\concept{simulation}
 \keyword{datasets}

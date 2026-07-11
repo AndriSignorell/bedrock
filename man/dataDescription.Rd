@@ -7,9 +7,9 @@
 dataDescription(fn, sheet = "Description")
 }
 \arguments{
-\item{fn}{Character string. Path to the Excel file.}
+\item{fn}{character string. Path to the Excel file.}
 
-\item{sheet}{Character string. Name of the documentation sheet.
+\item{sheet}{character string. Name of the documentation sheet.
 Default is \code{"Description"}.}
 }
 \value{
@@ -50,10 +50,9 @@ desc$codes[["gender"]]
 
 }
 \seealso{
-Other label.utils:
-\code{\link[=label]{label()}},
+Other label.import:
 \code{\link[=openDataObject]{openDataObject()}}
 }
-\concept{attribute}
+\concept{file-io}
 \concept{label}
-\concept{label.utils}
+\concept{label.import}

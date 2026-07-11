@@ -160,9 +160,7 @@ components depend on the design:
 [`Pair`](https://rdrr.io/r/stats/Pair.html),
 [`desc`](https://rdrr.io/pkg/DescToolsX/man/desc.html)
 
-Other data.utils: [`binaryTree()`](binaryTree.md),
-[`ptInPoly()`](ptInPoly.md),
-[`resolveContingency()`](resolveContingency.md),
+Other data.resolve: [`resolveContingency()`](resolveContingency.md),
 [`resolveGroups()`](resolveGroups.md)
 
 ## Examples

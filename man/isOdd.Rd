@@ -7,7 +7,7 @@
 isOdd(x)
 }
 \arguments{
-\item{x}{A numeric vector.}
+\item{x}{a numeric vector}
 }
 \value{
 A logical vector of the same length as \code{x}. Returns \code{TRUE}
@@ -29,14 +29,14 @@ isOdd(c(2, 3, 4.5, NA, Inf))
 }
 \seealso{
 Other number.theory:
+\code{\link{GCD-LCM}},
 \code{\link[=digitSum]{digitSum()}},
 \code{\link[=divisors]{divisors()}},
 \code{\link[=factorize]{factorize()}},
 \code{\link[=fibonacci]{fibonacci()}},
-\code{\link{gcd_lcm}},
 \code{\link[=isPrime]{isPrime()}},
-\code{\link{numeric-conversions}},
 \code{\link[=primes]{primes()}}
 }
 \concept{number-theory}
 \concept{number.theory}
+\concept{type-test}

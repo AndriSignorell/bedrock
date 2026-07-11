@@ -58,40 +58,40 @@ sortX(
 
 - x:
 
-  A numeric, complex, character or logical vector, factor, matrix,
-  table, or data frame to be sorted.
+  a numeric, complex, character or logical vector, factor, matrix,
+  table, or data frame to be sorted
 
 - ...:
 
-  Further arguments passed to [`sort`](https://rdrr.io/r/base/sort.html)
-  in `sortX.default`.
+  further arguments passed to [`sort`](https://rdrr.io/r/base/sort.html)
+  in `sortX.default`
 
 - decreasing:
 
-  Logical scalar or vector. Should the sort be in decreasing order? For
+  logical scalar or vector. Should the sort be in decreasing order? For
   2-dimensional objects a vector of the same length as `ord` may be
   supplied to control the direction per column; a scalar is recycled.
 
 - na.last:
 
-  Logical or `NA`. Should missing values be placed last (`TRUE`), first
+  logical or `NA`. Should missing values be placed last (`TRUE`), first
   (`FALSE`), or removed (`NA`)? See
   [`order`](https://rdrr.io/r/base/order.html).
 
 - method:
 
-  Sorting method. Either `"default"` (base R behavior) or `"mixed"` for
+  sorting method. Either `"default"` (base R behavior) or `"mixed"` for
   natural sorting of character data (e.g. `"A2"` \< `"A10"`).
 
 - factorsAsCharacter:
 
-  Logical. If `TRUE` (default), factors are converted to character
+  logical. If `TRUE` (default), factors are converted to character
   before sorting so that labels are used instead of level codes. Set to
   `FALSE` to sort by level order (useful for ordered factors).
 
 - ord:
 
-  Integer or character vector specifying the columns to sort by, and
+  integer or character vector specifying the columns to sort by, and
   their priority (first element = primary key). Column names and
   positive integer indices (`1:ncol(x)`) refer to columns. The special
   value `0L` (integer zero, always numeric) sorts by row names. For
@@ -125,19 +125,7 @@ unintuitive for unordered ones.
 [`sort`](https://rdrr.io/r/base/sort.html),
 [`order`](https://rdrr.io/r/base/order.html)
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`splitAt()`](splitAt.md),
-[`splitX()`](splitX.md), [`stringsAsFactors()`](stringsAsFactors.md),
-[`toBaseR()`](toBaseR.md)
+Other data.order: [`binaryTree()`](binaryTree.md), [`revX()`](revX.md)
 
 ## Examples
 

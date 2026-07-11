@@ -14,11 +14,11 @@ fileExistURL(url, timeout = 5)
 
 - url:
 
-  Character string. The full URL to check.
+  character string. The full URL to check.
 
 - timeout:
 
-  Numeric. Timeout in seconds for the HTTP request. Default is 5.
+  numeric. Timeout in seconds for the HTTP request. Default is 5.
 
 ## Value
 
@@ -34,27 +34,27 @@ The returned value has additional attributes:
 ## Details
 
 The function first sends an HTTP `HEAD` request to minimize data
-transfer. If the server responds with an error status (\>= 400), a `GET`
-request is attempted as a fallback because some servers do not properly
-support `HEAD`.
+transfer. If the server responds with a status indicating that `HEAD`
+itself is not supported (403, 405, 501), a `GET` request is attempted as
+a fallback. A plain 404 is taken at face value, so that non-existing
+files do not trigger a second request.
 
 If the request fails (e.g., due to network issues or invalid URLs), the
 function returns `FALSE` and stores the error message as an attribute.
 
 ## See also
 
-Other file.utils: [`buildPath()`](buildPath.md),
-[`findDownload()`](findDownload.md),
-[`parseSASDatalines()`](parseSASDatalines.md),
-[`pdfManual()`](pdfManual.md), [`splitPath()`](splitPath.md)
+Other file.path: [`buildPath()`](buildPath.md),
+[`findDownload()`](findDownload.md), [`isFilePath()`](isFilePath.md),
+[`isURL()`](isURL.md), [`splitPath()`](splitPath.md)
 
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-fileExistURL("http://www.example.com/data.csv")
+fileExistURL("https://www.example.com/data.csv")
 
-res <- fileExistURL("http://invalid-url.test/file.csv")
+res <- fileExistURL("https://invalid-url.test/file.csv")
 attr(res, "status")
 attr(res, "error")
 } # }

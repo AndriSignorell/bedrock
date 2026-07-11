@@ -50,31 +50,31 @@ sortX(x, ...)
 )
 }
 \arguments{
-\item{x}{A numeric, complex, character or logical vector, factor,
-matrix, table, or data frame to be sorted.}
+\item{x}{a numeric, complex, character or logical vector, factor,
+matrix, table, or data frame to be sorted}
 
-\item{\dots}{Further arguments passed to \code{\link{sort}} in
-\code{sortX.default}.}
+\item{\dots}{further arguments passed to \code{\link{sort}} in
+\code{sortX.default}}
 
-\item{decreasing}{Logical scalar or vector. Should the sort be in
+\item{decreasing}{logical scalar or vector. Should the sort be in
 decreasing order? For 2-dimensional objects a vector of the same length
 as \code{ord} may be supplied to control the direction per column;
 a scalar is recycled.}
 
-\item{na.last}{Logical or \code{NA}. Should missing values be placed last
+\item{na.last}{logical or \code{NA}. Should missing values be placed last
 (\code{TRUE}), first (\code{FALSE}), or removed (\code{NA})?
 See \code{\link{order}}.}
 
-\item{method}{Sorting method. Either \code{"default"} (base R behavior)
+\item{method}{sorting method. Either \code{"default"} (base R behavior)
 or \code{"mixed"} for natural sorting of character data
 (e.g. \code{"A2"} < \code{"A10"}).}
 
-\item{factorsAsCharacter}{Logical. If \code{TRUE} (default), factors are
+\item{factorsAsCharacter}{logical. If \code{TRUE} (default), factors are
 converted to character before sorting so that labels are used instead of
 level codes. Set to \code{FALSE} to sort by level order (useful for
 ordered factors).}
 
-\item{ord}{Integer or character vector specifying the columns to sort by,
+\item{ord}{integer or character vector specifying the columns to sort by,
 and their priority (first element = primary key). Column names and
 positive integer indices (\code{1:ncol(x)}) refer to columns.
 The special value \code{0L} (integer zero, always numeric) sorts by row
@@ -148,29 +148,10 @@ sortX(tab, ord = 0L)
 \seealso{
 \code{\link{sort}}, \code{\link{order}}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+Other data.order:
+\code{\link[=binaryTree]{binaryTree()}},
+\code{\link[=revX]{revX()}}
 }
-\concept{data.manipulation}
+\concept{data.order}
 \concept{ordering}
+\concept{reshape}

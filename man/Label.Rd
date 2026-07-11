@@ -10,9 +10,9 @@ label(x, vars = NULL)
 label(x, vars = NULL) <- value
 }
 \arguments{
-\item{x}{An object. Typically an atomic vector or a data.frame.}
+\item{x}{an object. Typically an atomic vector or a data.frame.}
 
-\item{vars}{Optional specification of variables (columns) in a data.frame.
+\item{vars}{optional specification of variables (columns) in a data.frame.
 Can be:
 \itemize{
 \item \code{NULL}: operate on the object label (default)
@@ -20,7 +20,7 @@ Can be:
 \item numeric indices or character names of columns
 }}
 
-\item{value}{A character vector of labels, or \code{NULL} to remove them.
+\item{value}{a character vector of labels, or \code{NULL} to remove them.
 For object labels, must be of length 1. For variable labels, must have
 length 1 or the same length as \code{vars}.}
 }
@@ -75,10 +75,11 @@ label(x)
 
 }
 \seealso{
-Other label.utils:
-\code{\link[=dataDescription]{dataDescription()}},
-\code{\link[=openDataObject]{openDataObject()}}
+Other label.attrs:
+\code{\link[=renameX]{renameX()}},
+\code{\link{setAttr-removeAttr-keepAttr}},
+\code{\link[=setNamesX]{setNamesX()}}
 }
 \concept{attribute}
 \concept{label}
-\concept{label.utils}
+\concept{label.attrs}

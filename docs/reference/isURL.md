@@ -1,4 +1,4 @@
-# Check whether a string is a URL
+# Check Whether a String Is a URL
 
 Returns `TRUE` if the given string starts with a recognised URL scheme,
 `FALSE` otherwise. Convenience wrapper around the internal
@@ -14,23 +14,20 @@ isURL(x)
 
 - x:
 
-  `character(1)` – the string to test.
+  `character(1)` - the string to test
 
 ## Value
 
-`logical(1)` – `TRUE` if `x` is a URL, `FALSE` otherwise.
+`logical(1)` - `TRUE` if `x` is a URL, `FALSE` otherwise.
 
 ## See also
 
 [`isFilePath()`](isFilePath.md) for the complementary file-path check.
 
-Other data.inspection: [`allDuplicated()`](allDuplicated.md),
-[`allIdentical()`](allIdentical.md),
-[`completeColumns()`](completeColumns.md),
-[`countCompCases()`](countCompCases.md), [`flags()`](flags.md),
-[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
-[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
-[`isZero()`](isZero.md)
+Other file.path: [`buildPath()`](buildPath.md),
+[`fileExistURL()`](fileExistURL.md),
+[`findDownload()`](findDownload.md), [`isFilePath()`](isFilePath.md),
+[`splitPath()`](splitPath.md)
 
 ## Examples
 

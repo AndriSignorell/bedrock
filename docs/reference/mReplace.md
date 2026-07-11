@@ -1,8 +1,8 @@
 # Replace Multiple Values in a Vector
 
-Replaces elements of a character vector based on a named lookup table.
-Each element matching a pattern is replaced with the corresponding
-replacement.
+Replaces elements of a character vector based on a lookup defined by two
+parallel vectors. Each element exactly matching a pattern is replaced
+with the corresponding replacement.
 
 ## Usage
 
@@ -14,16 +14,16 @@ mReplace(x, patterns, replacements)
 
 - x:
 
-  A character vector whose elements are to be replaced.
+  a character vector whose elements are to be replaced
 
 - patterns:
 
-  A character vector of values to search for.
+  a character vector of values to search for
 
 - replacements:
 
-  A character vector of replacement values, in the same order as
-  `patterns`.
+  a character vector of replacement values, in the same order as
+  `patterns`
 
 ## Value
 
@@ -32,10 +32,12 @@ replaced. Non-matching elements are returned unchanged.
 
 ## See also
 
-Other string.utilities:
-[`char-ascii-conversion`](char-ascii-conversion.md),
-[`mGsub()`](mGsub.md), [`strSplitToCol()`](strSplitToCol.md),
-[`strSplitToDummy()`](strSplitToDummy.md)
+[`mGsub`](mGsub.md) for substring replacement.
+
+Other data.recode: [`asBinary()`](asBinary.md),
+[`combLevels()`](combLevels.md), [`dummy()`](dummy.md), [`nf()`](nf.md),
+[`recodeX()`](recodeX.md), [`revCode()`](revCode.md),
+[`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 

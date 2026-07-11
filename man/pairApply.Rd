@@ -14,7 +14,7 @@ pairwise.}
 assumed, that the first 2 arguments denominate x and y, and that it
 returns a single numeric value.}
 
-\item{\dots}{the dots are passed to FUN.}
+\item{\dots}{the dots are passed to FUN}
 
 \item{symmetric}{logical. Does the function yield the same result for FUN(x,
 y) and FUN(y, x)? \cr If \code{TRUE} just the lower triangular matrix is
@@ -54,25 +54,16 @@ pairApply(d.sub,
 
 }
 \seealso{
-\code{\link{outer}}, \code{\link{combPairs}},
-\code{\link{pairwise.table}}
+\code{\link[base:outer]{base::outer()}}, \link[stats:pairwise.table]{stats::pairwise.table}
 
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=locf]{locf()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+Other combinatorics:
+\code{\link[=combN]{combN()}},
+\code{\link[=combPairs]{combPairs()}},
+\code{\link[=combSet]{combSet()}},
+\code{\link[=permn]{permn()}},
+\code{\link[=randGroupSplit]{randGroupSplit()}},
+\code{\link[=sampleX]{sampleX()}}
 }
-\concept{ordering}
-\concept{vector.ops}
+\concept{combinatorics}
+\concept{programming}
 \keyword{manip}

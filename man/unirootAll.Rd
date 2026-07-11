@@ -16,32 +16,32 @@ unirootAll(
 )
 }
 \arguments{
-\item{f}{A function for which roots are sought. Must accept a numeric
+\item{f}{a function for which roots are sought. Must accept a numeric
 first argument; additional arguments are passed via \code{...}.}
 
-\item{interval}{A numeric vector of length 2 specifying the search interval.
+\item{interval}{a numeric vector of length 2 specifying the search interval.
 Either \code{interval} or both \code{lower} and \code{upper} must be
 supplied.}
 
-\item{lower}{Lower bound of the search interval.
+\item{lower}{lower bound of the search interval.
 Default: \code{min(interval)}.}
 
-\item{upper}{Upper bound of the search interval.
+\item{upper}{upper bound of the search interval.
 Default: \code{max(interval)}.}
 
-\item{tol}{Convergence tolerance passed to \code{\link[stats]{uniroot}},
+\item{tol}{convergence tolerance passed to \code{\link[stats]{uniroot}},
 and also used as the threshold for (i) treating grid-point values as
 exact zeros and (ii) collapsing near-duplicate roots.
 Default: \code{.Machine$double.eps^0.5}.}
 
-\item{maxiter}{Maximum number of iterations for \code{\link[stats]{uniroot}}.
+\item{maxiter}{maximum number of iterations for \code{\link[stats]{uniroot}}.
 Default: \code{1000}.}
 
-\item{n}{Number of sub-intervals used for the initial grid search.
+\item{n}{number of sub-intervals used for the initial grid search.
 Increase \code{n} if roots may be close together or the function
 oscillates rapidly. Default: \code{100}.}
 
-\item{...}{Additional arguments passed to \code{f}.}
+\item{...}{additional arguments passed to \code{f}}
 }
 \value{
 A numeric vector of roots found in \code{[lower, upper]}, sorted in
@@ -83,19 +83,13 @@ unirootAll(g, c(0.1, 5))
 \seealso{
 \code{\link[stats]{uniroot}} for the underlying single-root solver.
 
-Other math.utils:
+Other math.basic:
+\code{\link[=closest]{closest()}},
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
-\code{\link[=isLowCardinality]{isLowCardinality()}},
-\code{\link[=linScale]{linScale()}},
-\code{\link[=logit]{logit()}},
-\code{\link[=nUnique]{nUnique()}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=rankX]{rankX()}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=untable]{untable()}}
+\code{\link[=roundTo]{roundTo()}}
 }
-\concept{math.utils}
+\concept{math.basic}
 \concept{numerical-methods}
+\concept{range}

@@ -33,282 +33,245 @@ navbar:
       menu:
         - text: "PDF:"
         - text: 'Combinatorics'
-          href:  https://github.com/AndriSignorell/bedrock/raw/master/vignettes/Combinatorics.pdf
+          href:  https://github.com/AndriSignorell/bedrock/blob/main/vignettes/Combinatorics.pdf
 
 # About package ==============================================================
 reference:
+- title: Data Manipulation
+  desc: >
+    Reshaping, recoding, ordering, and inspecting data structures.
+  contents:
+  # data.coerce -- Type coercion shortcuts
+  - bin
+  - chr
+  - int
+  - nchr
+  - num
+  - toBaseR
+  - as.array.xtabs
+  - "`type-aliases`"
+  # data.recode -- Recoding and factor-level manipulation
+  - asBinary
+  - combLevels
+  - dummy
+  - mReplace
+  - nf
+  - recodeX
+  - revCode
+  - stringsAsFactors
+  # data.reshape -- Long/wide reshaping, splitting, table expansion
+  - collapseTable
+  - "`long-wide-reshape`"
+  - splitAt
+  - splitX
+  - toLong
+  - toWide
+  - untable
+  # data.order -- Sorting and reversing
+  - binaryTree
+  - revX
+  - sortX
+  # data.append -- Appending columns and merging objects
+  - appendEnum
+  - appendRowNames
+  - appendX
+  - multMerge
+  # data.interval -- Range containment and interval arithmetic
+  - between-operators
+  - range-operators
+  - distance
+  - intervals
+  - overlap
+  - overlaps
+  # data.equal -- Comparison and identity checks
+  - allDuplicated
+  - allIdentical
+  - compareDataFrames
+  # data.predicate -- Type and property tests
+  - flags
+  - isDichotomous
+  - isEuclid
+  - isLowCardinality
+  - isNumeric
+  - isWholeLike
+  - isZero
+  - nUnique
+  # data.missing -- Missing-value inspection
+  - completeColumns
+  - countCompCases
+  # data.inspect -- Structural object preview
+  - strX
+  # data.print -- Text and table formatting
+  - columnWrap
+  - printCharMatrix
+  # data.resolve -- Formula, group, and contingency resolution
+  - resolveContingency
+  - resolveFormula
+  - resolveGroups
 
-# Operators ==================================================================
-  - title: "Operators"
-    contents:
-      - between
-      - range-operators
-      - intervals
+- title: Vectors
+  desc: >
+    Vector-level utilities: NA handling, moving windows, resizing.
+  contents:
+  # vector.na -- Missing-value handling in vectors
+  - coalesceX
+  - isNA
+  - locf
+  - naIf
+  - naReplace
+  # vector.window -- Moving/lagged calculations
+  - midx
+  - moveAvg
+  - quot
+  # vector.reshape -- Rotating, shifting, and trimming vectors
+  - setLength
+  - trim
+  - vRot
+  - vShift
+  # vector.utils -- Filtering, indexing, nearest-value lookup
+  - closest
+  - nz
+  - unwhich
 
-# Data Manipulation ==========================================================
-  - title: "Data Manipulation"
+- title: Numbers & Mathematics
+  desc: >
+    Number theory, base conversion, and numerical utilities.
+  contents:
+  # number.theory -- Prime numbers and factorization
+  - digitSum
+  - divisors
+  - factorize
+  - fibonacci
+  - GCD
+  - LCM
+  - isOdd
+  - isPrime
+  - primes
+  # number.baseconv -- Numeral system conversion
+  - baseToBase
+  - binToDec
+  - decToBin
+  - decToHex
+  - decToOct
+  - hexToDec
+  - numeric-conversions
+  - octToDec
+  - romanToInt
+  # math.basic -- Cross/dot products, root finding, rounding
+  - crossProd
+  - crossProdN
+  - dotProd
+  - roundTo
+  - unirootAll
+  # math.precision -- Digit precision and numeric representation
+  - frac
+  - maxDigits
+  - nDec
+  - prec
+  - precision
+  # math.transform -- Ranking, scaling, and logit transforms
+  - linScale
+  - logit
+  - logitInv
+  - percentRank
+  - rankX
+  - winsorize
+  # math.geometry -- Geometric tests
+  - ptInPoly
 
-  - subtitle: "Data Frames"
-    contents:
-      - appendX
-      - appendEnum
-      - appendRowNames
-      - compareDataFrames
-      - multMerge
-      - collapseTable
-      - as.array.xtabs
+- title: Strings
+  desc: >
+    Character conversion and string transformation.
+  contents:
+  # string.code -- Character/ASCII conversion
+  - asciiToChar
+  - charToAscii
+  # string.transform -- Splitting and substitution
+  - mGsub
+  - strSplitToCol
+  - strSplitToDummy
 
-  - subtitle: "Reshaping"
-    contents:
-      - toLong
-      - toWide
-      - untable
+- title: Combinatorics
+  desc: >
+    Combinations, permutations, and sampling.
+  contents:
+  # combinatorics -- Combinations, permutations, sampling
+  - combN
+  - combPairs
+  - combSet
+  - pairApply
+  - permn
+  - randGroupSplit
+  - sampleX
+  - rSum21
 
-  - subtitle: "Columns"
-    contents:
-      - dummy
-      - strSplitToDummy
-      - strSplitToCol
-      - recycle
-      - pairApply
+- title: Files & Paths
+  desc: >
+    File I/O and path/URL handling.
+  contents:
+  # file.path -- Path and URL construction/validation
+  - buildPath
+  - fileExistURL
+  - findDownload
+  - isFilePath
+  - isURL
+  - readDownload
+  - splitPath
+  # file.io -- Opening and parsing files
+  - parseSASDatalines
+  - pdfManual
+  - peekFile
 
-  - subtitle: "Tables"
-    contents:
-      - crossProd
-      - crossProdN
-      - printCharMatrix
+- title: Labels & Attributes
+  desc: >
+    Variable labels, object attributes, and metadata import.
+  contents:
+  # label.attrs -- Getting/setting labels and attributes
+  - keepAttr
+  - label
+  - "`label<-`"
+  - removeAttr
+  - renameX
+  - setAttr
+  - "`setAttr-removeAttr-keepAttr`"
+  - setNamesX
+  # label.import -- Importing labels from external files
+  - dataDescription
+  - openDataObject
 
-# Vectors ====================================================================
-  - title: "Vector Operations"
-    contents:
-      - rankX
-      - sortX
-      - revX
-      - vRot
-      - vShift
-      - splitAt
-      - splitX
-      - unwhich
-      - midx
-      - setLength
-      - setNamesX
-      - sampleX
-      - winsorize
-      - moveAvg
-      - percentRank
-      - locf
-      - recodeX
-      - renameX
-      - bin
-      - abind
-      - closest
-      - flags
+- title: Dates
+  desc: >
+    Date/time formatting.
+  contents:
+  # date.format -- Date format conversion
+  - asCDateFmt
 
-# Strings ====================================================================
-  - title: "Strings"
+- title: Package Introspection
+  desc: >
+    Inspecting functions, arguments, and Rd documentation.
+  contents:
+  # pkg.funinfo -- Function and Rd introspection
+  - funArgs
+  - funCalls
+  - funKeywords
+  - funList
+  - rdLabels
+  - rdTitle
+  # pkg.args -- Argument-handling helpers
+  - callIf
+  - extractArgs
+  - getDotsArg
+  - mergeArgs
+  - recycle
 
-  - subtitle: "String Manipulation"
-    contents:
-      - strX
-      - trim
-      - mReplace
-      - mGsub
-      - strSplitToCol
-      - strSplitToDummy
-      - nz
-
-  - subtitle: "Formatting"
-    contents:
-      - nf
-      - prec
-      - quot
-      - columnWrap
-
-  - subtitle: "Character Utilities"
-    contents:
-      - chr
-      - nchr
-      - nUnique
-      - nDec
-      - asciiToChar
-      - charToAscii
-
-  - subtitle: "Paths"
-    contents:
-      - buildPath
-      - splitPath
-
-# Missing Values =============================================================
-  - title: "Missing Values"
-    contents:
-      - isNA
-      - naIf
-      - naReplace
-      - coalesceX
-      - locf
-      - countCompCases
-      - completeColumns
-
-# Data Inspection ============================================================
-  - title: "Data Inspection"
-    contents:
-      - dataDescription
-      - isLowCardinality
-      - allIdentical
-      - allDuplicated
-      - isDichotomous
-      - maxDigits
-      - stringsAsFactors
-      - openDataObject
-
-# Predicates =================================================================
-  - title: "Predicates & Type Checks"
-    contents:
-      - isNA
-      - isZero
-      - isNumeric
-      - isWholeLike
-      - isOdd
-      - isPrime
-      - isFilePath
-      - isURL
-      - isEuclid
-      - isLowCardinality
-      - isDichotomous
-      - allIdentical
-      - allDuplicated
-
-# Attributes & Labels ========================================================
-  - title: "Attributes & Labels"
-    contents:
-      - label
-      - label<-
-      - keepAttr
-      - removeAttr
-      - setAttr
-      - rdLabels
-      - rdTitle
-
-# Mathematics ================================================================
-  - title: "Mathematics"
-
-  - subtitle: "General Math"
-    contents:
-      - dotProd
-      - roundTo
-      - linScale
-      - logit
-      - logitInv
-      - frac
-      - int
-      - num
-      - unirootAll
-
-  - subtitle: "Geometry"
-    contents:
-      - distance
-      - overlap
-      - overlaps
-      - ptInPoly
-
-  - subtitle: "Number Theory"
-    contents:
-      - GCD
-      - LCM
-      - divisors
-      - primes
-      - isPrime
-      - fibonacci
-      - factorize
-      - digitSum
-
-# Combinatorics ==============================================================
-  - title: "Combinatorics"
-    contents:
-      - combN
-      - combPairs
-      - combSet
-      - combLevels
-      - permn
-      - randGroupSplit
-
-# Base Conversion ============================================================
-  - title: "Base Conversion"
-    contents:
-      - baseToBase
-      - toBaseR
-      - decToHex
-      - hexToDec
-      - decToBin
-      - binToDec
-      - decToOct
-      - octToDec
-      - asBinary
-
-# Programming Utilities ======================================================
-  - title: "Programming Utilities"
-
-  - subtitle: "Function Inspection"
-    contents:
-      - funArgs
-      - funCalls
-      - funList
-      - funKeywords
-
-  - subtitle: "Argument Handling"
-    contents:
-      - extractArgs
-      - mergeArgs
-      - getDotsArg
-
-  - subtitle: "Formula Handling"
-    contents:
-      - resolveFormula
-      - resolveGroups
-      - resolveContingency
-
-  - subtitle: "Conditional Evaluation"
-    contents:
-      - callIf
-
-# Files & URLs ===============================================================
-  - title: "Files & URLs"
-    contents:
-      - isFilePath
-      - isURL
-      - fileExistURL
-      - readDownload
-      - findDownload
-      - pdfManual
-      - peekFile
-
-# Miscellaneous ==============================================================
-  - title: "Miscellaneous"
-
-  - subtitle: "Date & Time"
-    contents:
-      - asCDateFmt
-
-  - subtitle: "Encoding"
-    contents:
-      - romanToInt
-      - revCode
-
-  - subtitle: "Algorithms"
-    contents:
-      - binaryTree
-
-  - subtitle: "Datasets"
-    contents:
-      - courseData
-      - parseSASDatalines
-
-# Data =======================================================================
-  - title: "Data"
-    contents:
-      - Pizza
-      - Cards
-      - Roulette
-      - Tarot
-      
-
+- title: Datasets
+  desc: >
+    Example datasets shipped with bedrock.
+  contents:
+  # datasets -- Example datasets
+  - Cards
+  - Pizza
+  - Roulette
+  - Tarot
+  - courseData
+  

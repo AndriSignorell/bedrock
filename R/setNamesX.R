@@ -44,10 +44,9 @@
 
 
 
-#' @family data.manipulation  
+#' @family label.attrs
 #' @concept attribute
-#'
-#'
+#' @concept label
 #' @export
 setNamesX <- function (x, ...) {
   

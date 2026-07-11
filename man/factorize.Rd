@@ -7,7 +7,8 @@
 factorize(n)
 }
 \arguments{
-\item{n}{vector of positive whole numbers to factorize.}
+\item{n}{vector of positive whole numbers to factorize, not exceeding
+\code{2^53}}
 }
 \value{
 A named \code{\link{list}} of the same length as \code{n}, each
@@ -16,13 +17,18 @@ column \code{"m"} their respective exponents (or multiplicities), i.e., for a
 prime number \code{n}, the resulting matrix is \code{cbind(p = n, m = 1)}.
 }
 \description{
-Compute the prime factorization(s) of integer(s) \code{n}.
-Prime factorization of integer(s) works via \code{\link{primes}},
-currently in a cheap way, sub-optimal for large composite \code{n}.
+Compute the prime factorization(s) of integer(s) \code{n}, using
+Pollard's rho algorithm with deterministic Miller-Rabin primality
+testing (64-bit, implemented in C++).
 }
 \details{
-For factorization of moderately or really large numbers, see the \pkg{gmp}
-package, and its \code{gmp::factorize()} (which is ~20x faster!).
+\code{n} must not exceed \code{2^53} (\code{.Machine$integer.max}
+squared, roughly \code{9.007e15}). Above this bound, R's double
+representation can no longer store integers exactly, so a factorized
+result could silently correspond to a different number than the one
+entered -- for such inputs, use the \pkg{gmp} package's
+\code{gmp::factorize()}, which represents arbitrarily large integers
+exactly (e.g. via \code{gmp::as.bigz()} or a string).
 }
 \examples{
 
@@ -32,14 +38,14 @@ factorize(seq(101, 120, by=2))
 }
 \seealso{
 Other number.theory:
+\code{\link{GCD-LCM}},
 \code{\link[=digitSum]{digitSum()}},
 \code{\link[=divisors]{divisors()}},
 \code{\link[=fibonacci]{fibonacci()}},
-\code{\link{gcd_lcm}},
 \code{\link[=isOdd]{isOdd()}},
 \code{\link[=isPrime]{isPrime()}},
-\code{\link{numeric-conversions}},
 \code{\link[=primes]{primes()}}
 }
 \concept{number-theory}
 \concept{number.theory}
+\concept{numerical-methods}

@@ -18,8 +18,6 @@
 #' @return an integer vector containing the proper divisors if \code{x} is a
 #'   single number, otherwise a named list of such vectors
 #'
-#' @author Andri Signorell <andri@@signorell.net>
-#'
 #' @examples
 #'
 #' divisors(786)
@@ -28,6 +26,7 @@
 #'
 #' @family number.theory
 #' @concept number-theory
+#' @concept numerical-methods
 #' @export
 divisors <- function(x) {
 

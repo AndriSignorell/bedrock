@@ -13,11 +13,11 @@ vShift(x, k = 1L)
 
 - x:
 
-  A vector.
+  a vector
 
 - k:
 
-  Integer. Number of positions to shift. Positive values shift to the
+  integer. Number of positions to shift. Positive values shift to the
   right, negative values to the left.
 
 ## Value
@@ -26,17 +26,13 @@ A vector of the same length as `x`, shifted with `NA` padding.
 
 ## Details
 
-Unlike `VecRot()`, this function does not wrap elements around. Elements
-shifted beyond the vector bounds are discarded.
+Unlike [`vRot()`](vRot.md), this function does not wrap elements around.
+Elements shifted beyond the vector bounds are discarded.
 
 ## See also
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
-[`trim()`](trim.md), [`vRot()`](vRot.md), [`winsorize()`](winsorize.md)
+Other vector.reshape: [`setLength()`](setLength.md),
+[`trim()`](trim.md), [`vRot()`](vRot.md)
 
 ## Examples
 

@@ -37,30 +37,24 @@ leaves it unnamed for matrices, while for data frames a default name
 Prepends (or inserts) a column of enumeration labels -- lowercase or
 uppercase Roman numerals, or Arabic numbers.
 }
+\examples{
+d <- data.frame(x = 1:3, y = c("a", "b", "c"))
+appendEnum(d)
+
+appendEnum(d, type = "arabic", suffix = ") ")
+
+# insert after the first column instead of prepending
+appendEnum(d, after = 1L, colName = "no")
+
+}
 \seealso{
-Other data.manipulation:
+\code{\link{append}}
+
+Other data.append:
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=multMerge]{multMerge()}}
 }
-\concept{categorization}
-\concept{data.manipulation}
+\concept{append}
+\concept{data.append}
+\concept{table}

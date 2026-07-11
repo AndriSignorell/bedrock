@@ -14,15 +14,15 @@
 #' If \code{m} contains more than one value, combinations are generated
 #' independently for each value of \code{m}.
 #'
-#' @param x A vector of numeric values or characters.
+#' @param x a vector of numeric values or characters.
 #'   Character values need not be unique.
-#' @param m Number of elements to choose.
+#' @param m number of elements to choose.
 #'   May be a vector.
-#' @param replace Logical. Should repetition of the same element
+#' @param replace logical. Should repetition of the same element
 #'   be allowed? Default is \code{FALSE}.
-#' @param ordered Logical. Does the order matter?
+#' @param ordered logical. Does the order matter?
 #'   Default is \code{FALSE}.
-#' @param output Character string specifying the output representation.
+#' @param output character string specifying the output representation.
 #'   One of \code{"matrix"} (return combinations as a matrix, the default)
 #'   or \code{"list"} (return combinations as a flat list).
 #'

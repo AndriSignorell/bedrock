@@ -7,7 +7,7 @@
 isURL(x)
 }
 \arguments{
-\item{x}{\code{character(1)} - the string to test.}
+\item{x}{\code{character(1)} - the string to test}
 }
 \value{
 \code{logical(1)} - \code{TRUE} if \code{x} is a URL, \code{FALSE} otherwise.
@@ -28,20 +28,13 @@ isURL("./script.R")                     # FALSE
 \seealso{
 \code{\link[=isFilePath]{isFilePath()}} for the complementary file-path check.
 
-Other data.inspection:
-\code{\link[=allDuplicated]{allDuplicated()}},
-\code{\link[=allIdentical]{allIdentical()}},
-\code{\link{between}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=completeColumns]{completeColumns()}},
-\code{\link[=countCompCases]{countCompCases()}},
-\code{\link[=flags]{flags()}},
-\code{\link[=isDichotomous]{isDichotomous()}},
-\code{\link[=isEuclid]{isEuclid()}},
+Other file.path:
+\code{\link[=buildPath]{buildPath()}},
+\code{\link[=fileExistURL]{fileExistURL()}},
+\code{\link[=findDownload]{findDownload()}},
 \code{\link[=isFilePath]{isFilePath()}},
-\code{\link[=isNumeric]{isNumeric()}},
-\code{\link[=isWholeLike]{isWholeLike()}},
-\code{\link[=isZero]{isZero()}}
+\code{\link[=splitPath]{splitPath()}}
 }
-\concept{data.inspection}
-\concept{ordering}
+\concept{file.path}
+\concept{path-handling}
+\concept{type-test}

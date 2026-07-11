@@ -7,8 +7,8 @@
 #' \code{NA} elements are not considered zero and are retained in the
 #' result.
 #'
-#' @param x A numeric vector.
-#' @param tol Tolerance passed to \code{\link{isZero}}.
+#' @param x a numeric vector
+#' @param tol tolerance passed to \code{\link{isZero}}
 #'
 #' @return A vector containing only the non-zero elements of \code{x}.
 #'
@@ -18,8 +18,9 @@
 #' nz(c(0, 1, 2, 0, 3))
 #' nz(c(1e-20, 1, NA))
 #'
-#' @family vector.ops
-#' @concept missing-value
+#' @family vector.utils
+#' @concept filtering
+#' @concept data-inspection
 #' @export
 nz <- function(x, tol = sqrt(.Machine$double.eps)) {
   x[!isZero(x, tol = tol) | is.na(x)]

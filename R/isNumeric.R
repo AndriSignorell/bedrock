@@ -16,14 +16,14 @@
 #' Length validation is the responsibility of the caller and should be
 #' performed separately with an explicit \code{length()} check.
 #'
-#' @param x An object to be tested.
-#' @param isIntegerValued Logical. If \code{TRUE}, values must be whole-like
+#' @param x an object to be tested
+#' @param isIntegerValued logical. If \code{TRUE}, values must be whole-like
 #'   (within tolerance). Uses \code{\link{isWholeLike}} internally.
-#' @param isPositive Logical. If \code{TRUE}, all values must be strictly
+#' @param isPositive logical. If \code{TRUE}, all values must be strictly
 #'   greater than zero.
-#' @param tol Numerical tolerance used when \code{isIntegerValued = TRUE}.
+#' @param tol numerical tolerance used when \code{isIntegerValued = TRUE}.
 #'   Default is \code{sqrt(.Machine$double.eps)}.
-#' @param na.rm Logical. If \code{TRUE}, missing values are removed before
+#' @param na.rm logical. If \code{TRUE}, missing values are removed before
 #'   validation. If \code{FALSE} (default) and \code{x} contains \code{NA},
 #'   the function returns \code{FALSE}.
 #'
@@ -37,8 +37,9 @@
 #'
 #' @seealso \code{\link{isWholeLike}}
 #'
-#' @family data.inspection
-#' @concept ordering
+#' @family data.predicate
+#' @concept type-test
+#' @concept data-inspection
 #' @export
 isNumeric <- function(x,
                       isIntegerValued = FALSE,

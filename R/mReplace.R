@@ -5,10 +5,10 @@
 #' parallel vectors. Each element exactly matching a pattern is replaced
 #' with the corresponding replacement.
 #'
-#' @param x A character vector whose elements are to be replaced.
-#' @param patterns A character vector of values to search for.
-#' @param replacements A character vector of replacement values,
-#'   in the same order as \code{patterns}.
+#' @param x a character vector whose elements are to be replaced
+#' @param patterns a character vector of values to search for
+#' @param replacements a character vector of replacement values,
+#'   in the same order as \code{patterns}
 #'
 #' @return A character vector of the same length as \code{x}, with matching
 #'   elements replaced. Non-matching elements are returned unchanged.
@@ -19,7 +19,8 @@
 #' mReplace(c("a", "b", "c", "d"), c("a", "c"), c("A", "C"))
 #' # [1] "A" "b" "C" "d"
 #'
-#' @family string
+#' @family data.recode
+#' @concept recoding
 #' @concept string-manipulation
 #' @export
 mReplace <- function(x, patterns, replacements) {

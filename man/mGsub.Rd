@@ -7,13 +7,13 @@
 mGsub(x, patterns, replacements)
 }
 \arguments{
-\item{x}{A character vector in which substitutions are performed.}
+\item{x}{a character vector in which substitutions are performed}
 
-\item{patterns}{A character vector of substrings to search for
-(\code{fixed = TRUE}).}
+\item{patterns}{a character vector of substrings to search for
+(\code{fixed = TRUE})}
 
-\item{replacements}{A character vector of replacement strings,
-in the same order as \code{patterns}.}
+\item{replacements}{a character vector of replacement strings,
+in the same order as \code{patterns}}
 }
 \value{
 A character vector of the same length as \code{x}.
@@ -44,9 +44,10 @@ mGsub(x, patterns = c("A", "B"), replacements = c("BX", "CY"))
 \seealso{
 \code{\link{mReplace}} for exact whole-element replacement.
 
-Other string:
-\code{\link{char-ascii-conversion}},
-\code{\link[=mReplace]{mReplace()}}
+Other string.transform:
+\code{\link[=strSplitToCol]{strSplitToCol()}},
+\code{\link[=strSplitToDummy]{strSplitToDummy()}}
 }
-\concept{string}
+\concept{recoding}
 \concept{string-manipulation}
+\concept{string.transform}

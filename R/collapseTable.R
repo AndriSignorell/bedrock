@@ -5,11 +5,11 @@
 #' of one or more dimensions according to user-supplied mappings, and summing
 #' the frequencies within each resulting level combination.
 #'
-#' @param x A \code{table} or \code{ftable} object with named dimensions.
-#' @param ... Named or unnamed mapping vectors specifying how levels of each
+#' @param x a \code{table} or \code{ftable} object with named dimensions
+#' @param ... named or unnamed mapping vectors specifying how levels of each
 #'   dimension should be collapsed. Each mapping vector must have length equal
 #'   to the number of levels in the corresponding dimension.
-#' @param strict Logical (default \code{TRUE}). Controls error handling.
+#' @param strict logical (default \code{TRUE}). Controls error handling.
 #'
 #' @details
 #' Mapping vectors define how factor levels are reassigned. Element \code{i}
@@ -58,9 +58,9 @@
 #' # positional assignment (first dimension), silent with strict = FALSE
 #' collapseTable(tab, c("3-4", "3-4", "5"), strict = FALSE)
 #'
-#' @family frequency
+#' @family data.reshape
+#' @concept reshape
 #' @concept table
-#' @concept frequency-table
 #' @export
 collapseTable <- function(x, ..., strict = TRUE) {
   

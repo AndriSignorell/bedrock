@@ -2,14 +2,23 @@
 % Please edit documentation in R/toBaseR.R
 \name{toBaseR}
 \alias{toBaseR}
+\alias{toBaseR.tbl_df}
+\alias{toBaseR.haven_labelled}
+\alias{toBaseR.default}
 \title{Back to Basics with Tibbles}
 \usage{
 toBaseR(x, ...)
+
+\method{toBaseR}{tbl_df}(x, ...)
+
+\method{toBaseR}{haven_labelled}(x, ...)
+
+\method{toBaseR}{default}(x, ...)
 }
 \arguments{
-\item{x}{the object to be converted.}
+\item{x}{the object to be converted}
 
-\item{\dots}{arguments passed on.}
+\item{\dots}{arguments passed on}
 }
 \value{
 converted object
@@ -32,29 +41,10 @@ d.miss <- toBaseR(haven::read_sav(url))
 }
 }
 \seealso{
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
+Other data.coerce:
 \code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}}
+\code{\link{type-aliases}}
 }
-\concept{data.manipulation}
-\concept{reshape}
+\concept{data.coerce}
+\concept{tibble}
+\concept{type-coercion}

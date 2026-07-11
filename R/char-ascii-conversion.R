@@ -42,9 +42,9 @@
 #' 
 #' @name char-ascii-conversion
 #'
-#' @param x A character vector.
-#' @param i An integer vector of character codes (1--255).
-#' @param output Character string specifying the output representation.
+#' @param x a character vector
+#' @param i an integer vector of character codes (1--255)
+#' @param output character string specifying the output representation.
 #'   One of \code{"vector"} (simplify the result whenever possible, the
 #'   default) or \code{"list"} (always return a list). See Details.
 #'
@@ -56,8 +56,9 @@
 #'   \item \code{asciiToChar()} returns a character vector.
 #' }
 #'
-#' @family string
+#' @family string.encoding
 #' @concept character-conversion
+#' @concept string-manipulation
 #' 
 #' @seealso
 #' \code{\link{charToRaw}},
@@ -82,6 +83,9 @@ NULL
 
 
 #' @rdname char-ascii-conversion
+#' @family string.code
+#' @concept character-conversion
+#' @concept string-manipulation
 #' @export
 charToAscii <- function(x,
                         output = c("vector", "list")) {
@@ -107,6 +111,9 @@ charToAscii <- function(x,
 
 
 #' @rdname char-ascii-conversion
+#' @family string.code
+#' @concept character-conversion
+#' @concept string-manipulation
 #' @export
 asciiToChar <- function(i) {
 

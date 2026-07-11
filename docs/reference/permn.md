@@ -14,11 +14,11 @@ permn(x, sortResults = FALSE)
 
 - x:
 
-  Atomic vector. Missing values are not supported.
+  atomic vector. Missing values are not supported.
 
 - sortResults:
 
-  Logical scalar. If `TRUE`, the result matrix is sorted using
+  logical scalar. If `TRUE`, the result matrix is sorted using
   [`sortX()`](sortX.md). Default is `FALSE`.
 
 ## Value
@@ -29,13 +29,12 @@ per row.
 ## See also
 
 [`utils::combn()`](https://rdrr.io/r/utils/combn.html),
-[`base::factorial()`](https://rdrr.io/r/base/Special.html),
-[combPairs](combPairs.md)
+[`base::factorial()`](https://rdrr.io/r/base/Special.html)
 
 Other combinatorics: [`combN()`](combN.md),
-[`combPairs()`](combPairs.md), [`combSet()`](combinatoric.md),
-[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md),
-[`unwhich()`](unwhich.md)
+[`combPairs()`](combPairs.md), [`combSet()`](combSet.md),
+[`pairApply()`](pairApply.md), [`randGroupSplit()`](randGroupSplit.md),
+[`sampleX()`](sampleX.md)
 
 ## Examples
 

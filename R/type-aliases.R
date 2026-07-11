@@ -26,7 +26,7 @@
 #'   values are required.
 #' @param ... further arguments passed to the underlying base function
 #'   (\code{as.numeric}, \code{as.integer}, \code{as.character}, or
-#'   \code{\link{asBinary}}).
+#'   \code{\link{asBinary}})
 #'
 #' @return A vector of the target type and the same length as \code{x}.
 #'
@@ -42,29 +42,44 @@
 #' !bin(c("no", "yes", "no"))           # reversed
 #' bin(factor(c("m", "w", "m")))        # "m" -> FALSE, "w" -> TRUE
 #'
-#' @seealso \code{\link{asBinary}()}
+#' @seealso [nf()], [asBinary()] 
 #' @name type-aliases
 #' @aliases num int chr nchr bin
 NULL
 
 
 #' @rdname type-aliases
+#' @family data.coerce
+#' @concept type-coercion
+#' @concept programming
 #' @export
 num <- function(x, ...) as.numeric(x, ...)
 
 #' @rdname type-aliases
+#' @family data.coerce
+#' @concept type-coercion
+#' @concept programming
 #' @export
 int <- function(x, ...) as.integer(x, ...)
 
 #' @rdname type-aliases
+#' @family data.coerce
+#' @concept type-coercion
+#' @concept programming
 #' @export
 chr <- function(x, ...) as.character(x, ...)
 
 #' @rdname type-aliases
+#' @family data.coerce
+#' @concept type-coercion
+#' @concept programming
 #' @export
 nchr <- function(x) as.numeric(as.character(x))
 
 #' @rdname type-aliases
+#' @family data.coerce
+#' @concept type-coercion
+#' @concept programming
 #' @export
 bin <- function(x, ...) {
   b <- asBinary(x, warn = FALSE, ...)

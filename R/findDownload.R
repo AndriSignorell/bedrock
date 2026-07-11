@@ -9,7 +9,7 @@
 #'
 #' If the file does not exist, an error is thrown.
 #'
-#' @param file Character string. Name of the file.
+#' @param file character string. Name of the file.
 #'
 #' @return
 #' A character string giving the full path to the file.
@@ -20,8 +20,9 @@
 #' findDownload("data.csv")
 #' }
 #'
-#' @family file.utils
-#' @concept programming
+#' @family file.path
+#' @concept path-handling
+#' @concept file-io
 #' @export
 findDownload <- function(file) {
 

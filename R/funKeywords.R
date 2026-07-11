@@ -9,7 +9,17 @@
 #' doc/Keywords file.
 #'
 #' @param topic optional, object or man page topic
-#' @author Gregory R. Warnes \email{greg@@warnes.net}
+#'
+#' @return If \code{topic} is missing, the R keywords documentation file is
+#'   opened for display via \code{\link[base]{file.show}}, invisibly
+#'   returning \code{NULL}. Otherwise, a character vector of topic names
+#'   whose keywords match \code{topic}.
+#'
+#' @note
+#' Substantially based on the \code{keywords()} function from the
+#' \pkg{gtools} package by Gregory R. Warnes, with minor adaptations by the
+#' package author.
+#'
 #' @seealso \code{\link[utils]{help}}
 #' @keywords documentation
 #' @examples
@@ -22,8 +32,9 @@
 #' funKeywords("merge")
 #' }
 #'
-#' @family pkg.introspection
+#' @family pkg.funinfo
 #' @concept introspection
+#' @concept programming
 #' @export
 funKeywords <- function(topic) {
 

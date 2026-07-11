@@ -28,8 +28,10 @@ A numeric (integer) value.
 ## Details
 
 The computation is based on the Euclidean algorithm without using the
-extended version.The greatest common divisor for all numbers in the
-integer vector `x` will be computed (the multiple GCD).
+extended version. The greatest common divisor for all numbers in the
+integer vector `x` will be computed (the multiple GCD). Negative values
+are allowed and enter via their absolute value; logical vectors are
+coerced to integer.
 
 ## Note
 
@@ -42,8 +44,7 @@ The following relation is always true:
 Other number.theory: [`digitSum()`](digitSum.md),
 [`divisors()`](divisors.md), [`factorize()`](factorize.md),
 [`fibonacci()`](fibonacci.md), [`isOdd()`](isOdd.md),
-[`isPrime()`](isPrime.md),
-[`numeric-conversions`](numeric-conversions.md), [`primes()`](primes.md)
+[`isPrime()`](isPrime.md), [`primes()`](primes.md)
 
 ## Author
 

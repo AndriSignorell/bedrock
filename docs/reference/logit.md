@@ -15,28 +15,28 @@ logitInv(x, min = 0, max = 1)
 
 - x:
 
-  Numeric vector. For `logit()`, values are interpreted relative to the
+  numeric vector. For `logit()`, values are interpreted relative to the
   interval \\\[min, max\]\\. For `logitInv()`, `x` can be any real
   number.
 
 - min:
 
-  Lower bound of the interval. Must be finite.
+  lower bound of the interval. Must be finite.
 
 - max:
 
-  Upper bound of the interval. Must be finite and greater than `min`.
+  upper bound of the interval. Must be finite and greater than `min`.
 
 - eps:
 
-  Small positive value used to clamp probabilities away from \\0\\ and
+  small positive value used to clamp probabilities away from \\0\\ and
   \\1\\ for numerical stability in `logit()`. Default:
   `.Machine$double.eps`.
 
 - warn:
 
-  Logical; if `TRUE`, a warning is issued when values are effectively
-  clamped because they fall outside the open interval \\(min, max)\\.
+  logical; if `TRUE`, a warning is issued when values are effectively
+  clamped because they fall outside \\(eps, 1 - eps)\\ after rescaling.
   Default: `FALSE`.
 
 ## Value
@@ -79,12 +79,9 @@ well-defined for all real inputs, so no stabilization is required.
 [`qlogis`](https://rdrr.io/r/stats/Logistic.html),
 [`plogis`](https://rdrr.io/r/stats/Logistic.html)
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`linScale()`](linScale.md), [`nUnique()`](nUnique.md),
-[`percentRank()`](percentRank.md), [`precision`](precision.md),
-[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
-[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
+Other math.transform: [`linScale()`](linScale.md),
+[`percentRank()`](percentRank.md), [`rankX()`](rankX.md),
+[`winsorize()`](winsorize.md)
 
 ## Examples
 

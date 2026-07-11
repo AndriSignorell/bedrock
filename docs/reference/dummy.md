@@ -18,22 +18,22 @@ dummy(
 
 - x:
 
-  Factor or vector of classes.
+  factor or vector of classes
 
 - method:
 
-  Character string specifying the contrast method. One of `"treatment"`,
+  character string specifying the contrast method. One of `"treatment"`,
   `"sum"`, `"helmert"`, `"poly"`, or `"full"`. Abbreviations are
   accepted.
 
 - base:
 
-  Integer or character string specifying the baseline group for
-  treatment contrasts.
+  integer or character string specifying the baseline group. Only used
+  for `method = "treatment"` (see Details).
 
 - levels:
 
-  Optional character vector specifying the possible levels of `x`. If
+  optional character vector specifying the possible levels of `x`. If
   `NULL`, levels are inferred by `factor(x)`.
 
 ## Value
@@ -43,7 +43,7 @@ A matrix with dummy codes. The number of rows equals `length(x)`. For
 Otherwise, the number of columns equals the number of levels minus one.
 
 The returned matrix has an attribute `"base"` containing the baseline
-level for non-full coding, and `NA` for full coding.
+level for treatment coding, and `NA` otherwise.
 
 ## Details
 
@@ -53,27 +53,29 @@ coding is usually redundant for
 [`lm()`](https://rdrr.io/r/stats/lm.html) and related modelling
 functions.
 
+The `base` argument is only used by `method = "treatment"`. The other
+contrast types have no freely choosable baseline: `"sum"` implicitly
+uses the last level as reference, `"helmert"` contrasts each level
+against the preceding ones, and `"poly"` uses orthogonal polynomials.
+
+Column names reflect the semantics of the coding: level names for
+`"treatment"` (without the baseline), `"full"` (all levels), `"sum"`
+(without the last level) and `"helmert"` (without the first level);
+`"poly"` keeps the standard degree labels (`.L`, `.Q`, ...).
+
 ## See also
 
-`model.frame`, `contrasts`,
-[`stats::contr.treatment`](https://rdrr.io/r/stats/contrast.html),
-[`stats::contr.sum`](https://rdrr.io/r/stats/contrast.html),
-[`stats::contr.helmert`](https://rdrr.io/r/stats/contrast.html),
-[`stats::contr.poly`](https://rdrr.io/r/stats/contrast.html)
+[`model.frame()`](https://rdrr.io/r/stats/model.frame.html),
+[`contrasts()`](https://rdrr.io/r/stats/contrasts.html),
+[`stats::contr.treatment()`](https://rdrr.io/r/stats/contrast.html),
+[`stats::contr.sum()`](https://rdrr.io/r/stats/contrast.html),
+[`stats::contr.helmert()`](https://rdrr.io/r/stats/contrast.html),
+[`stats::contr.poly()`](https://rdrr.io/r/stats/contrast.html)
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`nf()`](nf.md),
-[`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+Other data.recode: [`asBinary()`](asBinary.md),
+[`combLevels()`](combLevels.md), [`mReplace()`](mReplace.md),
+[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`revCode()`](revCode.md),
+[`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 
@@ -104,17 +106,17 @@ dummy(x, base = 2)
 #> attr(,"base")
 #> [1] "green"
 dummy(x, method = "sum")
-#>   green red
-#> 1    -1  -1
-#> 2     1   0
-#> 3     0   1
-#> 4     1   0
-#> 5     0   1
-#> 6    -1  -1
-#> 7    -1  -1
-#> 8     1   0
+#>   blue green
+#> 1   -1    -1
+#> 2    1     0
+#> 3    0     1
+#> 4    1     0
+#> 5    0     1
+#> 6   -1    -1
+#> 7   -1    -1
+#> 8    1     0
 #> attr(,"base")
-#> [1] "blue"
+#> [1] NA
 
 y <- c("Max", "Max", "Max", "Max", "Max", "Bill", "Bill", "Bill")
 dummy(y)

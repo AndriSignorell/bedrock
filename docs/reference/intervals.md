@@ -21,13 +21,13 @@ x %overlaps% y
 
 - x:
 
-  A numeric vector of length 2 `c(lower, upper)`, or a numeric matrix
-  with 2 columns where each row defines one interval.
+  a numeric vector of length 2 `c(lower, upper)`, or a numeric matrix
+  with 2 columns where each row defines one interval
 
 - y:
 
-  A numeric vector of length 2 `c(lower, upper)`, or a numeric matrix
-  with 2 columns where each row defines one interval.
+  a numeric vector of length 2 `c(lower, upper)`, or a numeric matrix
+  with 2 columns where each row defines one interval
 
 ## Value
 
@@ -56,6 +56,11 @@ Intervals are treated as closed, i.e., \\\[a, b\]\\. Consequently:
   `overlaps` returns `TRUE`.
 
 - `distance` returns 0 whenever intervals touch or overlap.
+
+## See also
+
+Other data.interval: [`between-operators`](between-operators.md),
+[`range-operators`](range-operators.md)
 
 ## Examples
 

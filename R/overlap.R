@@ -7,10 +7,10 @@
 #' with 2 columns (one interval per row). Unordered bounds are silently
 #' sorted; rows are recycled to equal length.
 #'
-#' @param x A numeric vector of length 2 \code{c(lower, upper)}, or a
-#'   numeric matrix with 2 columns where each row defines one interval.
-#' @param y A numeric vector of length 2 \code{c(lower, upper)}, or a
-#'   numeric matrix with 2 columns where each row defines one interval.
+#' @param x a numeric vector of length 2 \code{c(lower, upper)}, or a
+#'   numeric matrix with 2 columns where each row defines one interval
+#' @param y a numeric vector of length 2 \code{c(lower, upper)}, or a
+#'   numeric matrix with 2 columns where each row defines one interval
 #'
 #' @return
 #' \describe{
@@ -53,11 +53,15 @@
 #' overlap(m, c(4, 7))
 #'
 #' @name intervals
-#' @family data.utils
+#' @family data.interval
 #' @concept range
+#' @concept overlap
 NULL
 
 #' @rdname intervals
+#' @family data.interval
+#' @concept range
+#' @concept overlap
 #' @export
 overlap <- function(x, y) {
   dat <- .intervalEngine(x, y)
@@ -70,6 +74,9 @@ overlap <- function(x, y) {
 }
 
 #' @rdname intervals
+#' @family data.interval
+#' @concept range
+#' @concept overlap
 #' @export
 overlaps <- function(x, y) {
   dat <- .intervalEngine(x, y)
@@ -79,6 +86,9 @@ overlaps <- function(x, y) {
 }
 
 #' @rdname intervals
+#' @family data.interval
+#' @concept range
+#' @concept overlap
 #' @export
 distance <- function(x, y) {
   dat <- .intervalEngine(x, y)
@@ -110,8 +120,8 @@ distance <- function(x, y) {
 #' Internal helper to ensure intervals are ordered (min, max)
 #' and recycled to equal length.
 #'
-#' @param x Numeric vector or matrix with 2 columns
-#' @param y Numeric vector or matrix with 2 columns
+#' @param x numeric vector or matrix with 2 columns
+#' @param y numeric vector or matrix with 2 columns
 #'
 #' @return A list with normalized and recycled matrices `x` and `y`
 #' @keywords internal

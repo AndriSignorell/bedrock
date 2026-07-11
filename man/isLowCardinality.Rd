@@ -7,9 +7,9 @@
 isLowCardinality(x, maxUnique = 12)
 }
 \arguments{
-\item{x}{A numeric or integer vector.}
+\item{x}{a numeric or integer vector}
 
-\item{maxUnique}{Integer. The threshold up to which \code{x} is considered to
+\item{maxUnique}{integer. The threshold up to which \code{x} is considered to
 have low cardinality. Defaults to \code{12}.}
 }
 \value{
@@ -31,19 +31,15 @@ isLowCardinality(1:100, maxUnique = 12)
 \seealso{
 \code{\link[=nUnique]{nUnique()}} for the uncapped count.
 
-Other math.utils:
-\code{\link[=crossProd]{crossProd()}},
-\code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=dotProd]{dotProd()}},
-\code{\link[=linScale]{linScale()}},
-\code{\link[=logit]{logit()}},
-\code{\link[=nUnique]{nUnique()}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=rankX]{rankX()}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
+Other data.predicate:
+\code{\link[=flags]{flags()}},
+\code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isEuclid]{isEuclid()}},
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=isZero]{isZero()}},
+\code{\link[=nUnique]{nUnique()}}
 }
-\concept{math.utils}
-\concept{ordering}
+\concept{cardinality}
+\concept{data.predicate}
+\concept{type-test}

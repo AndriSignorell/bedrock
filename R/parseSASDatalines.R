@@ -20,9 +20,9 @@
 #' More complex command structures, i.e. other delimiters (dlm), in the
 #' \code{INPUT}-section are not (yet) supported. 
 #' 
-#' @param x A single character string containing a SAS DATA step with
-#'   a DATALINES, CARDS, or CARDS4 block.
-#' @param validateNames Logical. If \code{TRUE} (default \code{FALSE}), emits
+#' @param x a single character string containing a SAS DATA step with
+#'   a DATALINES, CARDS, or CARDS4 block
+#' @param validateNames logical. If \code{TRUE} (default \code{FALSE}), emits
 #'   a warning when the dataset name violates SAS naming rules.
 #'
 #' @return A data.frame with column names taken from the INPUT statement.
@@ -53,8 +53,8 @@
 #' "
 #' df <- parseSASDatalines(sas_code)
 #'
-#' @family file.utils
-#' @concept programming
+#' @family file.io
+#' @concept file-io
 #' @concept string-manipulation
 #' @export
 parseSASDatalines <- function(x, validateNames = FALSE) {

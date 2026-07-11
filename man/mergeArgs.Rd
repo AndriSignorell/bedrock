@@ -7,19 +7,19 @@
 mergeArgs(defaults, user, forbidden = NULL, warn = TRUE)
 }
 \arguments{
-\item{defaults}{Named list of default arguments.}
+\item{defaults}{named list of default arguments}
 
-\item{user}{Named list of user-supplied arguments, or \code{NULL}.}
+\item{user}{named list of user-supplied arguments, or \code{NULL}}
 
-\item{forbidden}{Character vector of argument names that are not allowed.}
+\item{forbidden}{character vector of argument names that are not allowed}
 
-\item{warn}{Logical; whether to issue a warning if forbidden arguments are removed.}
+\item{warn}{logical; whether to issue a warning if forbidden arguments are removed}
 }
 \value{
 A named list of merged arguments.
 }
 \description{
-Internal helper used to merge defaults with user arguments, remove
+Helper used to merge defaults with user arguments, remove
 forbidden argument names, and optionally warn if forbidden arguments
 were supplied.
 }
@@ -37,19 +37,14 @@ mergeArgs(list(col = "black"), list(col = NULL))
 
 }
 \seealso{
-\code{\link{extractArgs}}, \code{\link{getDotsArg}},
-\code{\link{callIf}}
+\code{\link[utils:modifyList]{utils::modifyList()}}
 
-Other pkg.introspection:
+Other pkg.args:
+\code{\link[=callIf]{callIf()}},
 \code{\link[=extractArgs]{extractArgs()}},
-\code{\link[=funArgs]{funArgs()}},
-\code{\link[=funCalls]{funCalls()}},
-\code{\link[=funKeywords]{funKeywords()}},
-\code{\link[=funList]{funList()}},
 \code{\link[=getDotsArg]{getDotsArg()}},
-\code{\link[=rdLabels]{rdLabels()}},
-\code{\link[=rdTitle]{rdTitle()}},
-\code{\link[=strX]{strX()}}
+\code{\link[=recycle]{recycle()}}
 }
-\concept{pkg.introspection}
+\concept{introspection}
+\concept{pkg.args}
 \concept{programming}

@@ -21,24 +21,25 @@ rankX(
 
 - ...:
 
-  One or more vectors to be ranked. If multiple vectors are provided,
+  one or more vectors to be ranked. If multiple vectors are provided,
   they are ranked lexicographically (like `order`). All inputs must have
   the same length.
 
 - decreasing:
 
-  Logical; if `TRUE`, larger values receive smaller ranks (i.e., ranking
-  in descending order).
+  logical; if `TRUE`, larger values receive smaller ranks (i.e., ranking
+  in descending order). When ranking multiple inputs, a logical vector
+  may be given to control the direction per input.
 
 - na.last:
 
-  Logical or `"keep"`; determines the placement of `NA` values. Passed
+  logical or `"keep"`; determines the placement of `NA` values. Passed
   to
   [`data.table::frankv`](https://rdrr.io/pkg/data.table/man/frank.html).
 
 - ties.method:
 
-  Character string specifying how ties are handled. One of:
+  character string specifying how ties are handled. One of:
 
   `"average"`
 
@@ -96,12 +97,9 @@ to:
 [`rank`](https://rdrr.io/r/base/rank.html),
 [`frankv`](https://rdrr.io/pkg/data.table/man/frank.html)
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`linScale()`](linScale.md), [`logit()`](logit.md),
-[`nUnique()`](nUnique.md), [`percentRank()`](percentRank.md),
-[`precision`](precision.md), [`roundTo()`](roundTo.md),
-[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
+Other math.transform: [`linScale()`](linScale.md),
+[`logit()`](logit.md), [`percentRank()`](percentRank.md),
+[`winsorize()`](winsorize.md)
 
 ## Examples
 

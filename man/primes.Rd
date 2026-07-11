@@ -7,7 +7,7 @@
 primes(n)
 }
 \arguments{
-\item{n}{A numeric vector of positive whole numbers.}
+\item{n}{a numeric vector of positive whole numbers}
 }
 \value{
 An integer vector containing the prime numbers less than or equal
@@ -28,18 +28,15 @@ primes(c(5, 10))
 
 }
 \seealso{
-\code{\link{isPrime}}, \code{\link{factorize}},
-\code{\link{divisors}}
-
 Other number.theory:
+\code{\link{GCD-LCM}},
 \code{\link[=digitSum]{digitSum()}},
 \code{\link[=divisors]{divisors()}},
 \code{\link[=factorize]{factorize()}},
 \code{\link[=fibonacci]{fibonacci()}},
-\code{\link{gcd_lcm}},
 \code{\link[=isOdd]{isOdd()}},
-\code{\link[=isPrime]{isPrime()}},
-\code{\link{numeric-conversions}}
+\code{\link[=isPrime]{isPrime()}}
 }
 \concept{number-theory}
 \concept{number.theory}
+\concept{numerical-methods}

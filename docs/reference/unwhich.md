@@ -11,7 +11,7 @@ positions, so the original vector cannot be fully recovered.
 ``` r
 unwhich(
   idx,
-  n = if (length(idx) > 0L && all(idx > 0L)) max(idx) else 0L,
+  n = if (length(idx) > 0L && !anyNA(idx) && all(idx > 0L)) max(idx) else 0L,
   useNames = TRUE
 )
 ```
@@ -20,7 +20,7 @@ unwhich(
 
 - idx:
 
-  A vector of non-zero whole-number indices. Positive values mark `TRUE`
+  a vector of non-zero whole-number indices. Positive values mark `TRUE`
   positions; negative values mark `FALSE` positions (all others become
   `TRUE`). As in base R, positive and negative indices must not be
   mixed. Duplicate indices are allowed and result in a single `TRUE` (or
@@ -28,13 +28,13 @@ unwhich(
 
 - n:
 
-  A single non-negative whole number giving the length of the result.
+  a single non-negative whole number giving the length of the result.
   For positive `idx`, defaults to `max(idx)`; for negative or empty
   `idx`, defaults to `0L`. Must not be less than `max(abs(idx))`.
 
 - useNames:
 
-  Logical. If `TRUE` (default) *and* `idx` has names, those names are
+  logical. If `TRUE` (default) *and* `idx` has names, those names are
   attached to the corresponding `TRUE` positions of the result; all
   other positions receive an empty string. If `FALSE` or `idx` is
   unnamed, the result has no names. Ignored for negative indices.
@@ -51,7 +51,9 @@ indices must not be mixed.
 
 ## Note
 
-Based on code by Nick Sabbe.
+The positive-index construction (`rv[indices] <- TRUE` with name
+propagation) is based on code by Nick Sabbe; negative-index handling and
+input validation are original additions.
 
 ## References
 
@@ -62,10 +64,7 @@ Sabbe, N. (2012). Inverse of `which`.
 
 [`which`](https://rdrr.io/r/base/which.html)
 
-Other combinatorics: [`combN()`](combN.md),
-[`combPairs()`](combPairs.md), [`combSet()`](combinatoric.md),
-[`permn()`](permn.md), [`randGroupSplit()`](randGroupSplit.md),
-[`sampleX()`](sampleX.md)
+Other vector.utils: [`nz()`](nz.md)
 
 ## Examples
 
@@ -76,7 +75,8 @@ i <- which(ll)
 
 # reconstruct TRUE positions (names preserved on TRUE positions)
 unwhich(i, length(ll))
-#> [1]  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE
+#>     a           c                       g 
+#>  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE 
 
 # without names
 unwhich(i, length(ll), useNames = FALSE)
@@ -84,7 +84,7 @@ unwhich(i, length(ll), useNames = FALSE)
 
 # negative index: TRUE everywhere except position 2
 unwhich(-2, 5)
-#> [1] FALSE  TRUE FALSE FALSE FALSE
+#> [1]  TRUE FALSE  TRUE  TRUE  TRUE
 
 # empty index -> all-FALSE vector
 unwhich(integer(0), n = 5L)

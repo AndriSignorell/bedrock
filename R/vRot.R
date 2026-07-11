@@ -3,8 +3,8 @@
 #' Rotates a vector cyclically to the right by \code{k} positions.
 #' Negative values of \code{k} rotate to the left.
 #'
-#' @param x A vector.
-#' @param k Integer. Number of positions to rotate (default = 1).
+#' @param x a vector
+#' @param k integer. Number of positions to rotate (default = 1).
 #'
 #' @return A vector of the same length as \code{x}, rotated cyclically.
 #'
@@ -20,10 +20,9 @@
 #'
 
 
-#' @family vector.ops  
-#' @concept ordering
-#'
-#'
+#' @family vector.reshape
+#' @concept shift
+#' @concept reshape
 #' @export
 vRot <- function(x, k = 1L) {
 

@@ -7,13 +7,13 @@
 linScale(x, low = NULL, high = NULL, newLow = 0, newHigh = 1)
 }
 \arguments{
-\item{x}{A numeric vector, matrix or data frame.}
+\item{x}{a numeric vector, matrix or data frame}
 
-\item{low, high}{Optional numeric vectors specifying the lower and upper
+\item{low, high}{optional numeric vectors specifying the lower and upper
 bounds of the original scale. If \code{NULL}, the column-wise minima
 and maxima of \code{x} are used.}
 
-\item{newLow, newHigh}{Numeric vectors specifying the target range.
+\item{newLow, newHigh}{numeric vectors specifying the target range.
 Defaults to \code{0} and \code{1}.}
 }
 \value{
@@ -54,20 +54,12 @@ linScale(x, low = 1, high = 10)
 \seealso{
 \code{\link{scale}}
 
-Other math.utils:
-\code{\link[=crossProd]{crossProd()}},
-\code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=dotProd]{dotProd()}},
-\code{\link[=isLowCardinality]{isLowCardinality()}},
+Other math.transform:
 \code{\link[=logit]{logit()}},
-\code{\link[=nUnique]{nUnique()}},
 \code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
 \code{\link[=rankX]{rankX()}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
+\code{\link[=winsorize]{winsorize()}}
 }
-\concept{math.utils}
+\concept{math.transform}
 \concept{standardization}
 \concept{transformation}

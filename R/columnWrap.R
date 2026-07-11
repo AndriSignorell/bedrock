@@ -23,8 +23,9 @@
 #'
 #' print(columnWrap("This is a very long text for a table", 12))
 #'
-#' @family data.manipulation
-#' @concept reshape
+#' @family data.print
+#' @concept formatting
+#' @concept string-manipulation
 #' @export
 columnWrap <- function(x, width = NULL) {
 

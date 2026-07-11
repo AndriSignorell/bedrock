@@ -5,19 +5,19 @@
 #'
 #' @name appendX
 #'
-#' @param x Object to which values are appended.
-#' @param values Values to insert into \code{x}. For matrices with
+#' @param x object to which values are appended
+#' @param values values to insert into \code{x}. For matrices with
 #'   \code{rows = TRUE}, values are read row by row.
-#' @param after Position after which to insert. If \code{NULL}, values are appended
+#' @param after position after which to insert. If \code{NULL}, values are appended
 #'   at the end. Use \code{0} to prepend.
-#' @param rows Logical; if TRUE, insert rows instead of columns. Ignored for
+#' @param rows logical; if TRUE, insert rows instead of columns. Ignored for
 #'   vectors. Note that the method for \code{TOne} objects defaults to
 #'   \code{rows = TRUE}, as appending rows is the typical use case there.
-#' @param newNames Optional names for the inserted elements: column names when
+#' @param newNames optional names for the inserted elements: column names when
 #'   inserting columns, row names when inserting rows. When inserting a column
 #'   into a data.frame without giving \code{newNames}, default names
 #'   (\code{"V1"}, \code{"V2"}, ...) are used.
-#' @param ... Additional arguments.
+#' @param ... additional arguments
 #'
 #' @return Object of the same class as \code{x}.
 #'
@@ -38,8 +38,9 @@
 #' appendX(d, 7:9, after = 1, newNames = "z")
 #' appendX(d, list(a = 99, b = 88), after = 0, rows = TRUE)
 #'
-#' @family data.manipulation
-#' @concept merge
+#' @family data.append
+#' @concept append
+#' @concept table
 #' @export
 appendX <- function(x, values, after = NULL, ...) {
   UseMethod("appendX")

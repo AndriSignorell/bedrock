@@ -5,16 +5,16 @@
 #' column spacing, optional row/column names, optional \pkg{cli}-based styling,
 #' and automatic wrapping if the output exceeds the console width.
 #'
-#' @param m A matrix (or object coercible to a matrix) containing values that
-#'   will be converted to character for display.
-#' @param align Character string specifying alignment of cell contents.
+#' @param m a matrix (or object coercible to a matrix) containing values that
+#'   will be converted to character for display
+#' @param align character string specifying alignment of cell contents.
 #'   Either \code{"right"} (default) or \code{"left"}.
-#' @param sep Integer. Number of spaces between columns. Default is \code{2}.
-#' @param showRownames Logical. Should row names be printed? Default is \code{TRUE}.
-#' @param showColnames Logical. Should column names be printed? Default is \code{TRUE}.
-#' @param useCliStyle Logical. If \code{TRUE}, column names and row names are styled
+#' @param sep integer. Number of spaces between columns. Default is \code{2}.
+#' @param showRownames logical. Should row names be printed? Default is \code{TRUE}.
+#' @param showColnames logical. Should column names be printed? Default is \code{TRUE}.
+#' @param useCliStyle logical. If \code{TRUE}, column names and row names are styled
 #'   using \code{cli::style_bold()}. Default is \code{FALSE}.
-#' @param width Integer. Maximum output width (in characters). Defaults to
+#' @param width integer. Maximum output width (in characters). Defaults to
 #'   \code{getOption("width")}. If the table exceeds this width, it is split into
 #'   column blocks and printed in multiple sections.
 #'
@@ -56,7 +56,8 @@
 #' # Force wrapping by reducing width
 #' printCharMatrix(m, width = 20)
 #'
-#' @family format
+#' @family data.print
+#' @concept formatting
 #' @concept table
 #' @export
 printCharMatrix <- function(

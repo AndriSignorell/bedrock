@@ -7,10 +7,10 @@
 rdTitle(topic, man = "man")
 }
 \arguments{
-\item{topic}{A single character string giving the topic (function name or
-alias) to look up.}
+\item{topic}{a single character string giving the topic (function name or
+alias) to look up}
 
-\item{man}{A single character string giving the path to the directory
+\item{man}{a single character string giving the path to the directory
 containing \file{.Rd} files.  Defaults to \code{"man"}, i.e. the
 \file{man/} subdirectory of the current working directory.}
 }
@@ -33,16 +33,13 @@ rdTitle("lm", man = "path/to/pkg/man")
 \seealso{
 \code{\link[tools]{parse_Rd}}
 
-Other pkg.introspection:
-\code{\link[=extractArgs]{extractArgs()}},
+Other pkg.funinfo:
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},
-\code{\link[=getDotsArg]{getDotsArg()}},
-\code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=rdLabels]{rdLabels()}},
-\code{\link[=strX]{strX()}}
+\code{\link[=rdLabels]{rdLabels()}}
 }
 \concept{introspection}
-\concept{pkg.introspection}
+\concept{pkg.funinfo}
+\concept{programming}

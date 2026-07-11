@@ -13,20 +13,13 @@ countCompCases(x)
 
 - x:
 
-  a data.frame containg the data.
+  a data.frame containing the data
 
 ## Value
 
 A list with three elements. The first gives the number of rows, the
 second the number of complete cases for the whole data frame. The third
 element `tab` contains the data for the single variables.
-
-## Details
-
-Count Complete Cases
-
-Return for each variable of a data frame the number of missing values
-and the complete cases to be expected if this variable would be omitted.
 
 ## See also
 
@@ -35,12 +28,7 @@ and the complete cases to be expected if this variable would be omitted.
 [`is.na`](https://rdrr.io/r/base/NA.html),
 [`na.omit`](https://rdrr.io/r/stats/na.fail.html)
 
-Other data.inspection: [`allDuplicated()`](allDuplicated.md),
-[`allIdentical()`](allIdentical.md),
-[`completeColumns()`](completeColumns.md), [`flags()`](flags.md),
-[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
-[`isNumeric()`](isNumeric.md), [`isURL()`](isURL.md),
-[`isWholeLike()`](isWholeLike.md), [`isZero()`](isZero.md)
+Other data.missing: [`completeColumns()`](completeColumns.md)
 
 ## Examples
 
@@ -63,5 +51,4 @@ countCompCases(airquality)
 #> 
 #> attr(,"class")
 #> [1] "CountCompCases"
-
 ```

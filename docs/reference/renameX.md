@@ -9,14 +9,14 @@ and `colnames` can be targeted via the `which` argument.
 ## Usage
 
 ``` r
-renameX(x, ..., which = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
+renameX(x, ..., on = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
 ```
 
 ## Arguments
 
 - x:
 
-  A named object. Any type that supports
+  a named object. Any type that supports
   [`names()`](https://rdrr.io/r/base/names.html),
   [`rownames()`](https://rdrr.io/r/base/colnames.html), or
   [`colnames()`](https://rdrr.io/r/base/colnames.html), e.g. a vector,
@@ -24,32 +24,32 @@ renameX(x, ..., which = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
 
 - ...:
 
-  Name mappings of the form `old = "new"`, a single function to apply to
+  name mappings of the form `old = "new"`, a single function to apply to
   all names (e.g. `toupper`), or unnamed character strings applied
-  positionally (see Details).
+  positionally (see Details)
 
-- which:
+- on:
 
-  Character scalar specifying which names to operate on. One of
+  character scalar specifying which names to operate on. One of
   `"names"` (default), `"rownames"`, or `"colnames"`. Partial matching
   is supported.
 
 - useGsub:
 
-  Logical scalar. If `TRUE`, each mapping is applied as a
+  logical scalar. If `TRUE`, each mapping is applied as a
   [`gsub()`](https://rdrr.io/r/base/grep.html) pattern substitution
   across all current names rather than an exact replacement. Default is
   `FALSE`.
 
 - fixed:
 
-  Logical scalar. Passed to [`gsub()`](https://rdrr.io/r/base/grep.html)
+  logical scalar. Passed to [`gsub()`](https://rdrr.io/r/base/grep.html)
   when `useGsub = TRUE`. If `TRUE` (default), patterns are treated as
   fixed strings rather than regular expressions.
 
 - warn:
 
-  Logical scalar. If `TRUE` (default), a warning is issued when one or
+  logical scalar. If `TRUE` (default), a warning is issued when one or
   more old names supplied in `...` are not found in the targeted names
   of `x`. Only relevant in exact mode (`useGsub = FALSE`).
 
@@ -89,20 +89,11 @@ positionally: the first element replaces `names(x)[1]`, the second
 ## See also
 
 [`names`](https://rdrr.io/r/base/names.html),
-[`setNamesX`](setNamesX.md)
+[`setNames`](https://rdrr.io/r/stats/setNames.html)
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`revCode()`](revCode.md), [`revX()`](revX.md),
+Other label.attrs: [`label()`](label.md),
 [`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+[`setNamesX()`](setNamesX.md)
 
 ## Examples
 
@@ -149,19 +140,19 @@ renameX(y, `^v_` = "", useGsub = TRUE, fixed = FALSE)
 # Matrix: rename colnames selectively
 m <- matrix(1:6, nrow = 2,
             dimnames = list(c("row_a", "row_b"), c("col_x", "col_y", "col_z")))
-renameX(m, col_x = "alpha", which = "colnames")
+renameX(m, col_x = "alpha", on = "colnames")
 #>       alpha col_y col_z
 #> row_a     1     3     5
 #> row_b     2     4     6
 
 # Matrix: uppercase all rownames via function mode
-renameX(m, toupper, which = "rownames")
+renameX(m, toupper, on = "rownames")
 #>       col_x col_y col_z
 #> ROW_A     1     3     5
 #> ROW_B     2     4     6
 
 # Matrix: rename rownames via gsub
-renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, which = "rownames")
+renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, on = "rownames")
 #>   col_x col_y col_z
 #> a     1     3     5
 #> b     2     4     6

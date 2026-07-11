@@ -13,7 +13,7 @@
 #' @param strict logical, if \code{TRUE} each element must have length 1 or
 #' \code{maxdim}, so that no partial recycling (or truncation) can occur.
 #' Default is \code{FALSE}.
-#' @param \dots a number of vectors of elements.
+#' @param \dots a number of vectors of elements
 #'
 #' @return a list of the supplied elements\cr \code{attr(,"maxdim")} contains
 #' the maximal dimension of the recycled list
@@ -29,8 +29,9 @@
 #' sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]),
 #'                                         collapse=z$sep[i]))
 #'
-#' @family data.manipulation
+#' @family pkg.args
 #' @concept programming
+#' @concept introspection
 #' @export
 recycle <- function(..., maxdim = NULL, strict = FALSE) {
 

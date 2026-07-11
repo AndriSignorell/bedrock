@@ -20,13 +20,13 @@
 #'
 #' Recycling follows standard R rules.
 #'
-#' @param x A numeric vector to search in.
-#' @param a The reference value. May be a vector; see Details.
-#' @param output Character string specifying the output representation.
+#' @param x a numeric vector to search in
+#' @param a the reference value. May be a vector; see Details.
+#' @param output character string specifying the output representation.
 #'   One of \code{"value"} (return the closest value(s), the default) or
 #'   \code{"index"} (return the index position(s) in \code{x}).
 #'   May be a vector; recycled to the length of \code{a}.
-#' @param na.rm Logical. If \code{TRUE}, \code{NA} values in \code{x}
+#' @param na.rm logical. If \code{TRUE}, \code{NA} values in \code{x}
 #'   are ignored before searching. Default is \code{FALSE}.
 #'
 #' @return
@@ -89,8 +89,9 @@
 #'   output = c("value", "index")
 #' )
 #'
-#' @family vector.ops
-#' @concept ordering
+#' @family math.basic
+#' @concept nearest-value
+#' @concept numerical-methods
 #' @export
 closest <- function(x, a, output = "value", na.rm = FALSE) {
 

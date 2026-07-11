@@ -17,11 +17,11 @@ distance(x, y)
 x \%overlaps\% y
 }
 \arguments{
-\item{x}{A numeric vector of length 2 \code{c(lower, upper)}, or a
-numeric matrix with 2 columns where each row defines one interval.}
+\item{x}{a numeric vector of length 2 \code{c(lower, upper)}, or a
+numeric matrix with 2 columns where each row defines one interval}
 
-\item{y}{A numeric vector of length 2 \code{c(lower, upper)}, or a
-numeric matrix with 2 columns where each row defines one interval.}
+\item{y}{a numeric vector of length 2 \code{c(lower, upper)}, or a
+numeric matrix with 2 columns where each row defines one interval}
 }
 \value{
 \describe{
@@ -71,13 +71,10 @@ overlap(m, c(4, 7))
 
 }
 \seealso{
-Other data.utils:
-\code{\link[=binaryTree]{binaryTree()}},
-\code{\link[=ptInPoly]{ptInPoly()}},
-\code{\link{range-operators}},
-\code{\link[=resolveContingency]{resolveContingency()}},
-\code{\link[=resolveFormula]{resolveFormula()}},
-\code{\link[=resolveGroups]{resolveGroups()}}
+Other data.interval:
+\code{\link{between-operators}},
+\code{\link{range-operators}}
 }
-\concept{data.utils}
+\concept{data.interval}
+\concept{overlap}
 \concept{range}

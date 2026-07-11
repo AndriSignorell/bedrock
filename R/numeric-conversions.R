@@ -33,14 +33,14 @@
 #'
 #' @name numeric-conversions
 #'
-#' @param x A vector of numbers or character strings representing values in
+#' @param x a vector of numbers or character strings representing values in
 #'   the input base.  For \code{baseToBase()} a numeric \code{x} is accepted
 #'   only when \code{from = 10}.  \code{NA} propagates to the output.
-#' @param from A single integer in \eqn{[2, 36]} specifying the input base
-#'   (\code{baseToBase()} only).
-#' @param to A single integer in \eqn{[2, 36]} specifying the output base
-#'   (\code{baseToBase()} only).
-#' @param width A single non-negative integer or \code{NULL} (default).
+#' @param from a single integer in \eqn{[2, 36]} specifying the input base
+#'   (\code{baseToBase()} only)
+#' @param to a single integer in \eqn{[2, 36]} specifying the output base
+#'   (\code{baseToBase()} only)
+#' @param width a single non-negative integer or \code{NULL} (default).
 #'   When given, output strings are left-padded with zeros to at least
 #'   \code{width} characters (\code{baseToBase()} only).
 #'
@@ -91,31 +91,45 @@
 #' baseToBase(c("A", "B", "FF"), from = 16, to = 10)
 #'
 #' @rdname numeric-conversions
-#' @family number.theory
-#' @concept number-theory
+#' @family number.baseconv
 #' @concept numeric-conversion
-#'
+#' @concept number-formatting
 #' @export
 hexToDec <- function(x)
   strtoi(gsub("^#", "", x), 16L)
 
 #' @rdname numeric-conversions
+#' @family number.baseconv
+#' @concept numeric-conversion
+#' @concept number-formatting
 #' @export
 decToHex <- function(x) as.hexmode(as.numeric(x))
 
 #' @rdname numeric-conversions
+#' @family number.baseconv
+#' @concept numeric-conversion
+#' @concept number-formatting
 #' @export
 octToDec <- function(x) strtoi(x, 8L)
 
 #' @rdname numeric-conversions
+#' @family number.baseconv
+#' @concept numeric-conversion
+#' @concept number-formatting
 #' @export
 decToOct <- function(x) as.numeric(as.character(as.octmode(as.numeric(x))))
 
 #' @rdname numeric-conversions
+#' @family number.baseconv
+#' @concept numeric-conversion
+#' @concept number-formatting
 #' @export
 binToDec <- function(x) strtoi(x, 2L)
 
 #' @rdname numeric-conversions
+#' @family number.baseconv
+#' @concept numeric-conversion
+#' @concept number-formatting
 #' @export
 decToBin <- function(x) {
   x <- as.numeric(x)
@@ -127,6 +141,9 @@ decToBin <- function(x) {
 }
 
 #' @rdname numeric-conversions
+#' @family number.baseconv
+#' @concept numeric-conversion
+#' @concept number-formatting
 #' @export
 romanToInt <- function(x) {
   roman <- trimws(toupper(as.character(x)))
@@ -139,6 +156,9 @@ romanToInt <- function(x) {
 
 
 #' @rdname numeric-conversions
+#' @family number.baseconv
+#' @concept numeric-conversion
+#' @concept number-formatting
 #' @export
 baseToBase <- function(x, from, to, width = NULL) {
   

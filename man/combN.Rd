@@ -7,7 +7,7 @@
 combN(n, m, replace = FALSE, ordered = FALSE)
 }
 \arguments{
-\item{n}{number of elements from which to choose.}
+\item{n}{number of elements from which to choose}
 
 \item{m}{number of elements to choose. For \code{combSet} can \code{m} be a
 numeric vector too.}
@@ -32,16 +32,16 @@ combN(n, m, replace=FALSE, ordered=FALSE)
 
 }
 \seealso{
-\code{\link{combPairs}},
 \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
-\cr \code{vignette("Combinatorics")}
+\code{vignette("Combinatorics", package = "bedrock")}
 
 Other combinatorics:
 \code{\link[=combPairs]{combPairs()}},
 \code{\link[=combSet]{combSet()}},
+\code{\link[=pairApply]{pairApply()}},
 \code{\link[=permn]{permn()}},
 \code{\link[=randGroupSplit]{randGroupSplit()}},
-\code{\link[=sampleX]{sampleX()}},
-\code{\link[=unwhich]{unwhich()}}
+\code{\link[=sampleX]{sampleX()}}
 }
 \concept{combinatorics}
+\concept{number-theory}

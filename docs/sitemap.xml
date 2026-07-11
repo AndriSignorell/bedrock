@@ -2,6 +2,7 @@
 <url><loc>/404.html</loc></url>
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
 <url><loc>/reference/allDuplicated.html</loc></url>
 <url><loc>/reference/allIdentical.html</loc></url>
 <url><loc>/reference/appendEnum.html</loc></url>
@@ -10,6 +11,7 @@
 <url><loc>/reference/as.array.xtabs.html</loc></url>
 <url><loc>/reference/asBinary.html</loc></url>
 <url><loc>/reference/asCDateFmt.html</loc></url>
+<url><loc>/reference/between-operators.html</loc></url>
 <url><loc>/reference/between.html</loc></url>
 <url><loc>/reference/binaryTree.html</loc></url>
 <url><loc>/reference/buildPath.html</loc></url>
@@ -24,6 +26,7 @@
 <url><loc>/reference/combLevels.html</loc></url>
 <url><loc>/reference/combN.html</loc></url>
 <url><loc>/reference/combPairs.html</loc></url>
+<url><loc>/reference/combSet.html</loc></url>
 <url><loc>/reference/compareDataFrames.html</loc></url>
 <url><loc>/reference/completeColumns.html</loc></url>
 <url><loc>/reference/countCompCases.html</loc></url>
@@ -46,6 +49,7 @@
 <url><loc>/reference/funCalls.html</loc></url>
 <url><loc>/reference/funKeywords.html</loc></url>
 <url><loc>/reference/funList.html</loc></url>
+<url><loc>/reference/GCD-LCM.html</loc></url>
 <url><loc>/reference/gcd_lcm.html</loc></url>
 <url><loc>/reference/getDotsArg.html</loc></url>
 <url><loc>/reference/getRdLabels.html</loc></url>
@@ -109,6 +113,7 @@
 <url><loc>/reference/revX.html</loc></url>
 <url><loc>/reference/Roulette.html</loc></url>
 <url><loc>/reference/roundTo.html</loc></url>
+<url><loc>/reference/rSum21.html</loc></url>
 <url><loc>/reference/sampleX.html</loc></url>
 <url><loc>/reference/setAttr-removeAttr-keepAttr.html</loc></url>
 <url><loc>/reference/setLength.html</loc></url>

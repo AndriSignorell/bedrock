@@ -20,9 +20,9 @@
 #'   \item \code{tol}: Tolerance used for the test
 #' }
 #'
-#' @param distmat An object of class \code{dist}.
-#' @param tol Numeric tolerance for detecting negative eigenvalues,
-#'   relative to the largest absolute eigenvalue.
+#' @param distmat an object of class \code{dist}
+#' @param tol numeric tolerance for detecting negative eigenvalues,
+#'   relative to the largest absolute eigenvalue
 #'
 #' @return A logical scalar. Returns \code{TRUE} if the distance matrix is
 #'   (approximately) Euclidean, otherwise \code{FALSE}.
@@ -36,8 +36,9 @@
 #' attr(res, "eigenvalues")
 #' attr(res, "minEigenvalue")
 #'
-#' @family data.inspection
-#' @concept ordering
+#' @family data.predicate
+#' @concept type-test
+#' @concept geometry
 #' @export
 isEuclid <- function(distmat, tol = 1e-07) {
   if (!inherits(distmat, "dist"))

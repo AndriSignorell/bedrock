@@ -7,9 +7,9 @@
 fileExistURL(url, timeout = 5)
 }
 \arguments{
-\item{url}{Character string. The full URL to check.}
+\item{url}{character string. The full URL to check.}
 
-\item{timeout}{Numeric. Timeout in seconds for the HTTP request. Default is 5.}
+\item{timeout}{numeric. Timeout in seconds for the HTTP request. Default is 5.}
 }
 \value{
 Logical value indicating whether the resource exists (\code{TRUE}) or not (\code{FALSE}).
@@ -45,13 +45,13 @@ attr(res, "error")
 
 }
 \seealso{
-Other file.utils:
+Other file.path:
 \code{\link[=buildPath]{buildPath()}},
 \code{\link[=findDownload]{findDownload()}},
-\code{\link[=parseSASDatalines]{parseSASDatalines()}},
-\code{\link[=pdfManual]{pdfManual()}},
-\code{\link[=peekFile]{peekFile()}},
+\code{\link[=isFilePath]{isFilePath()}},
+\code{\link[=isURL]{isURL()}},
 \code{\link[=splitPath]{splitPath()}}
 }
-\concept{file.utils}
-\concept{programming}
+\concept{file.path}
+\concept{path-handling}
+\concept{type-test}

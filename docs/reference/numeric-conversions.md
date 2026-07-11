@@ -1,6 +1,6 @@
 # Convert Numbers Between Bases
 
-Vectorized conversion between positional numeral systems (bases 2–36),
+Vectorized conversion between positional numeral systems (bases 2-36),
 plus Roman-numeral parsing. The convenience wrappers cover the most
 common cases; `baseToBase()` handles any combination of bases.
 
@@ -28,23 +28,23 @@ baseToBase(x, from, to, width = NULL)
 
 - x:
 
-  A vector of numbers or character strings representing values in the
+  a vector of numbers or character strings representing values in the
   input base. For `baseToBase()` a numeric `x` is accepted only when
   `from = 10`. `NA` propagates to the output.
 
 - from:
 
-  A single integer in \\\[2, 36\]\\ specifying the input base
-  (`baseToBase()` only).
+  a single integer in \\\[2, 36\]\\ specifying the input base
+  (`baseToBase()` only)
 
 - to:
 
-  A single integer in \\\[2, 36\]\\ specifying the output base
-  (`baseToBase()` only).
+  a single integer in \\\[2, 36\]\\ specifying the output base
+  (`baseToBase()` only)
 
 - width:
 
-  A single non-negative integer or `NULL` (default). When given, output
+  a single non-negative integer or `NULL` (default). When given, output
   strings are left-padded with zeros to at least `width` characters
   (`baseToBase()` only).
 
@@ -52,15 +52,15 @@ baseToBase(x, from, to, width = NULL)
 
 A vector of the same length as `x`:
 
-- `binToDec()`, `octToDec()`, `hexToDec()`, `romanToInt()` — integer or
+- `binToDec()`, `octToDec()`, `hexToDec()`, `romanToInt()` - integer or
   numeric vector.
 
-- `decToHex()` — object of class
+- `decToHex()` - object of class
   [`hexmode`](https://rdrr.io/r/base/hexmode.html).
 
-- `decToOct()` — numeric vector (octal digit string coerced to numeric).
+- `decToOct()` - numeric vector (octal digit string coerced to numeric).
 
-- `decToBin()`, `baseToBase()` — character vector (uppercase digits).
+- `decToBin()`, `baseToBase()` - character vector (uppercase digits).
 
 `NA` input always produces `NA` output.
 
@@ -103,12 +103,6 @@ same cap explicitly (values \\\> 536\\870\\911\\ become `NA`).
 [`as.octmode`](https://rdrr.io/r/base/octmode.html),
 [`as.roman`](https://rdrr.io/r/utils/roman.html)
 
-Other number.theory: [`digitSum()`](digitSum.md),
-[`divisors()`](divisors.md), [`factorize()`](factorize.md),
-[`fibonacci()`](fibonacci.md), [`gcd_lcm`](gcd_lcm.md),
-[`isOdd()`](isOdd.md), [`isPrime()`](isPrime.md),
-[`primes()`](primes.md)
-
 ## Examples
 
 ``` r
@@ -132,11 +126,9 @@ hexToDec(c("FF", "ff", "#1A2B3C"))
 
 # Roman numerals
 romanToInt(c("I", "IV", "XIV", "MCMXCIX"))   # 1, 4, 14, 1999
-#>       I      IV     XIV MCMXCIX 
-#>       1       4      14    1999 
+#> [1]    1    4   14 1999
 romanToInt("invalid")                          # NA
-#> INVALID 
-#>      NA 
+#> [1] NA
 
 # baseToBase: general case
 baseToBase("FF",       from = 16, to = 10)   # 255

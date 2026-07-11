@@ -7,7 +7,7 @@
 multMerge(..., all.x = TRUE, all.y = TRUE, by = NULL)
 }
 \arguments{
-\item{\dots}{data frames to be coerced to one.}
+\item{\dots}{data frames to be coerced to one}
 
 \item{all.x}{logical; if \code{TRUE}, then extra rows will be added to the
 output, one for each row in x that has no matching row in y. These rows will
@@ -15,7 +15,7 @@ have \code{NA}s in those columns that are usually filled with values from y.
 The default is \code{TRUE}, so that non-matching rows are kept and
 padded with \code{NA}s (full outer join).}
 
-\item{all.y}{logical; analogous to \code{all.x}.}
+\item{all.y}{logical; analogous to \code{all.x}}
 
 \item{by}{column used for merging, if this is not defined rownames will be
 used by default. The column must be included in all the provided data
@@ -54,29 +54,11 @@ multMerge(x1, x2, x3, by="v")
 \seealso{
 \code{\link{merge}}
 
-Other data.manipulation:
+Other data.append:
 \code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=appendX]{appendX()}}
 }
-\concept{data.manipulation}
+\concept{data.append}
 \concept{merge}
+\concept{table}

@@ -26,7 +26,7 @@ untable(x, dimnames = NULL, type = NULL, rownames = NULL, colnames = NULL, ...)
 
 - ...:
 
-  further arguments passed to or from functions (not used here).
+  further arguments passed to or from functions (not used here)
 
 - freq:
 
@@ -35,7 +35,7 @@ untable(x, dimnames = NULL, type = NULL, rownames = NULL, colnames = NULL, ...)
 
 - rownames:
 
-  A names vector for the rownames of the resulting data.frame. If set to
+  a names vector for the rownames of the resulting data.frame If set to
   `NULL` (default) the names will be defined according to the table's
   dimnames.
 
@@ -52,7 +52,7 @@ untable(x, dimnames = NULL, type = NULL, rownames = NULL, colnames = NULL, ...)
 
 - colnames:
 
-  A names vector for the colnames of the resulting data.frame. If set to
+  a names vector for the colnames of the resulting data.frame If set to
   `NULL` (default) the names will be defined according to the table's
   dimnames.
 
@@ -74,12 +74,9 @@ For x being a vector this reduces to `rep(..., n)` with n as vector
 [`gl`](https://rdrr.io/r/base/gl.html),
 [`xtabs`](https://rdrr.io/r/stats/xtabs.html)
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`linScale()`](linScale.md), [`logit()`](logit.md),
-[`nUnique()`](nUnique.md), [`percentRank()`](percentRank.md),
-[`precision`](precision.md), [`rankX()`](rankX.md),
-[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
+Other data.reshape: [`collapseTable()`](collapseTable.md),
+[`long-wide-reshape`](long-wide-reshape.md), [`splitAt()`](splitAt.md),
+[`splitX()`](splitX.md)
 
 ## Examples
 

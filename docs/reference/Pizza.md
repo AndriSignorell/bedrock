@@ -15,7 +15,7 @@ Pizza
 
 ## Format
 
-A data frame with 1209 observations and XX variables.
+A data frame with 1209 observations and 22 variables.
 
 ## Source
 
@@ -35,7 +35,7 @@ commonly used data types such as numerics, factors, ordered factors,
 integers, logicals and dates. Missing values occur both systematically
 and randomly (except for the index).
 
-A data frame with 1209 observations on XX variables:
+A data frame with 1209 observations on 22 variables:
 
 - index:
 
@@ -61,7 +61,7 @@ A data frame with 1209 observations on XX variables:
 
   Number of pizzas delivered.
 
-- rabate:
+- rebate:
 
   Logical, TRUE if a rebate was given.
 
@@ -151,3 +151,8 @@ confidence intervals).
 
 Toutenburg H, Schomaker M, Wissmann M, Heumann C (2009): *Arbeitsbuch
 zur deskriptiven und induktiven Statistik* Springer, Berlin Heidelberg.
+
+## See also
+
+Other datasets: [`Cards`](Cards.md), [`Roulette`](Roulette.md),
+[`Tarot`](Tarot.md), [`courseData()`](courseData.md)

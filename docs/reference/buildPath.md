@@ -1,8 +1,8 @@
-# Construct a normalized file path
+# Construct a Normalized File Path
 
 Safely constructs a file path from a directory and a filename,
 independent of whether the directory ends with a trailing slash. The
-resulting path is normalized and uses forward slashes.
+resulting path uses forward slashes.
 
 ## Usage
 
@@ -14,39 +14,42 @@ buildPath(dir, filename)
 
 - dir:
 
-  Character string. Directory path.
+  character string. Directory path.
 
 - filename:
 
-  Character string. File name to append to `dir`.
+  character string. File name to append to `dir`.
 
 ## Value
 
-A character string representing the normalized file path.
+A character string representing the file path.
 
 ## Details
 
-This function is a thin wrapper around
-[`file.path`](https://rdrr.io/r/base/file.path.html) and
-[`normalizePath`](https://rdrr.io/r/base/normalizePath.html). It ensures
-consistent path construction across platforms and avoids issues with
-trailing slashes.
+Trailing slashes (or backslashes) in `dir` are removed before the
+components are joined, so `buildPath("data", "file.csv")` and
+`buildPath("data/", "file.csv")` yield the same result.
 
-The argument `mustWork = FALSE` allows returning paths that do not yet
-exist.
+The path is then passed through
+[`normalizePath`](https://rdrr.io/r/base/normalizePath.html) with
+`mustWork = FALSE`, so paths that do not (yet) exist are allowed. Note
+that `normalizePath` resolves existing paths to absolute form, while
+non-existing paths are returned as constructed (i.e. possibly relative).
+
+Both arguments are vectorized in the usual
+[`file.path`](https://rdrr.io/r/base/file.path.html) manner.
 
 ## Note
 
 Converting between forward slashes and backslashes is a frequent
-necessity—and a hassle—especially in Windows. The `FlipSlashes()`
-function in the `swissButler` package is useful for this purpose.
+necessity – and a hassle – especially in Windows. The `cycleSlashes()`
+function in the `swissValet` package is useful for this purpose.
 
 ## See also
 
-Other file.utils: [`fileExistURL()`](fileExistURL.md),
-[`findDownload()`](findDownload.md),
-[`parseSASDatalines()`](parseSASDatalines.md),
-[`pdfManual()`](pdfManual.md), [`splitPath()`](splitPath.md)
+Other file.path: [`fileExistURL()`](fileExistURL.md),
+[`findDownload()`](findDownload.md), [`isFilePath()`](isFilePath.md),
+[`isURL()`](isURL.md), [`splitPath()`](splitPath.md)
 
 ## Examples
 

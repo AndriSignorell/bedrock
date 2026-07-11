@@ -9,6 +9,7 @@
 #' the requested precision. Note that for very coarse rounding the exact-sum
 #' guarantee may not be attainable at the given precision.
 #'
+#' @name rSum21
 #' @param size integer. The number of values to generate.
 #' @param digits integer. If not \code{NULL} (default), the values are
 #'   rounded to this number of decimal places while preserving the sum of 1.
@@ -24,6 +25,7 @@
 #'
 #' @family random.numbers
 #' @concept random
+#' @concept sampling
 #' @export
 rSum21 <- function(size, digits = NULL) {
 

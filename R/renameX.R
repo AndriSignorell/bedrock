@@ -31,22 +31,22 @@
 #' positionally: the first element replaces \code{names(x)[1]}, the second
 #' \code{names(x)[2]}, and so on.
 #'
-#' @param x     A named object.  Any type that supports \code{names()},
+#' @param x     a named object.  Any type that supports \code{names()},
 #'   \code{rownames()}, or \code{colnames()}, e.g. a vector, list, data frame,
 #'   or matrix.
-#' @param ...   Name mappings of the form \code{old = "new"}, a single
+#' @param ...   name mappings of the form \code{old = "new"}, a single
 #'   function to apply to all names (e.g. \code{toupper}), or unnamed
-#'   character strings applied positionally (see Details).
-#' @param on Character scalar specifying which names to operate on.
+#'   character strings applied positionally (see Details)
+#' @param on character scalar specifying which names to operate on.
 #'   One of \code{"names"} (default), \code{"rownames"}, or \code{"colnames"}.
 #'   Partial matching is supported.
-#' @param useGsub Logical scalar.  If \code{TRUE}, each mapping is applied as
+#' @param useGsub logical scalar.  If \code{TRUE}, each mapping is applied as
 #'   a \code{gsub()} pattern substitution across all current names rather than
 #'   an exact replacement.  Default is \code{FALSE}.
-#' @param fixed  Logical scalar.  Passed to \code{\link{gsub}()} when
+#' @param fixed  logical scalar.  Passed to \code{\link{gsub}()} when
 #'   \code{useGsub = TRUE}.  If \code{TRUE} (default), patterns are treated as
 #'   fixed strings rather than regular expressions.
-#' @param warn   Logical scalar.  If \code{TRUE} (default), a warning is
+#' @param warn   logical scalar.  If \code{TRUE} (default), a warning is
 #'   issued when one or more old names supplied in \code{...} are not found in
 #'   the targeted names of \code{x}.  Only relevant in exact mode
 #'   (\code{useGsub = FALSE}).
@@ -54,7 +54,7 @@
 #' @return The object \code{x} with updated names; all other attributes are
 #'   preserved.
 #'
-#' @seealso \code{\link{names}}, \code{\link{setNamesX}}
+#' @seealso \code{\link{names}}, \code{\link[stats]{setNames}}
 #'
 #' @examples
 #' x <- c(a = 1, b = 2, c = 3)
@@ -91,8 +91,9 @@
 #' # Matrix: rename rownames via gsub
 #' renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, on = "rownames")
 #'
-#' @family data.manipulation
+#' @family label.attrs
 #' @concept attribute
+#' @concept label
 #' @export
 renameX <- function(x, ..., on = "names",
                     useGsub = FALSE, fixed = TRUE, warn = TRUE) {

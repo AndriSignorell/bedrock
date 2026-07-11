@@ -61,21 +61,8 @@ prec(as.numeric(x))
 \seealso{
 \code{\link{format.info}}, \code{\link{as.integer}},
 \code{\link{trunc}}
-
-Other math.utils:
-\code{\link[=crossProd]{crossProd()}},
-\code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=dotProd]{dotProd()}},
-\code{\link[=isLowCardinality]{isLowCardinality()}},
-\code{\link[=linScale]{linScale()}},
-\code{\link[=logit]{logit()}},
-\code{\link[=nUnique]{nUnique()}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link[=rankX]{rankX()}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
 }
-\concept{math.utils}
-\concept{number-formatting}
+\concept{math.precision}
+\concept{numerical-methods}
+\concept{precision}
 \keyword{arith}

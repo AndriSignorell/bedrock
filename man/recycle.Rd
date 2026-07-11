@@ -7,7 +7,7 @@
 recycle(..., maxdim = NULL, strict = FALSE)
 }
 \arguments{
-\item{\dots}{a number of vectors of elements.}
+\item{\dots}{a number of vectors of elements}
 
 \item{maxdim}{defines the maximal dimension, if set to \code{NULL} (default)
 the maximal dimension of the list.}
@@ -41,30 +41,13 @@ sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]),
 \seealso{
 \code{\link{rep}}, \code{\link{replicate}}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+Other pkg.args:
+\code{\link[=callIf]{callIf()}},
+\code{\link[=extractArgs]{extractArgs()}},
+\code{\link[=getDotsArg]{getDotsArg()}},
+\code{\link[=mergeArgs]{mergeArgs()}}
 }
-\concept{data.manipulation}
+\concept{introspection}
+\concept{pkg.args}
 \concept{programming}
 \keyword{utilities}

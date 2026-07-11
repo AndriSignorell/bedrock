@@ -11,13 +11,13 @@ charToAscii(x, output = c("vector", "list"))
 asciiToChar(i)
 }
 \arguments{
-\item{x}{A character vector.}
+\item{x}{a character vector}
 
-\item{output}{Character string specifying the output representation.
+\item{output}{character string specifying the output representation.
 One of \code{"vector"} (simplify the result whenever possible, the
 default) or \code{"list"} (always return a list). See Details.}
 
-\item{i}{An integer vector of character codes (1--255).}
+\item{i}{an integer vector of character codes (1--255)}
 }
 \value{
 \itemize{
@@ -86,10 +86,8 @@ charToRaw("Silvia")
 \seealso{
 \code{\link{charToRaw}},
 \code{\link{rawToChar}}
-
-Other string:
-\code{\link[=mGsub]{mGsub()}},
-\code{\link[=mReplace]{mReplace()}}
 }
 \concept{character-conversion}
-\concept{string}
+\concept{string-manipulation}
+\concept{string.code}
+\concept{string.encoding}

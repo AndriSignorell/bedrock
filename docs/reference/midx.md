@@ -14,17 +14,17 @@ midx(x, inclZero = FALSE, cumulate = FALSE)
 
 - x:
 
-  A numeric vector.
+  a numeric vector
 
 - inclZero:
 
-  Logical. If `TRUE`, a zero is prepended to `x` before computing
+  logical. If `TRUE`, a zero is prepended to `x` before computing
   midpoints. In this case, the first midpoint equals `x[1] / 2`. Default
   is `FALSE`.
 
 - cumulate:
 
-  Logical. If `TRUE`, returns the cumulative sum of the midpoints.
+  logical. If `TRUE`, returns the cumulative sum of the midpoints.
   Default is `FALSE`.
 
 ## Value
@@ -41,15 +41,7 @@ When `inclZero = TRUE`, the computation is performed on `c(0, x)`.
 
 ## See also
 
-[`moveAvg`](moveAvg.md)
-
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`locf()`](locf.md),
-[`moveAvg()`](moveAvg.md), [`naIf()`](naIf.md),
-[`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
-[`trim()`](trim.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+Other vector.window: [`moveAvg()`](moveAvg.md), [`quot()`](quot.md)
 
 ## Examples
 
@@ -68,6 +60,6 @@ tab <- matrix(c(401,216,221,254,259,169), nrow = 2, byrow = TRUE)
 b <- barplot(tab, beside = FALSE, horiz = TRUE)
 
 xpos <- t(apply(tab, 2, midx, inclZero = TRUE, cumulate = TRUE))
-text(tab, x = xpos, y = b, col = "red")
+text(x = xpos, y = b, labels = t(tab), col = "red")
 
 ```

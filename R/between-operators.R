@@ -34,8 +34,8 @@
 #'     of the between-operator were closed)
 #' }
 #'
-#' @name between
-#' @param x is a variable with at least ordinal scale, usually a numeric value,
+#' @name between-operators
+#' @param x a variable with at least ordinal scale, usually a numeric value,
 #' but can be an ordered factor or a text as well. Texts would be treated
 #' alphabetically.
 #' @param rng a vector of two values or a matrix with 2 columns, defining the
@@ -44,8 +44,9 @@
 #' \code{x} only.
 #' @return A logical vector of the same length as x.
 #'
-#' @seealso \code{\link{if}}, \code{\link{ifelse}}, \code{\link{Comparison}},
-#' \code{\link{overlap}}, \code{\link{distance}}
+#' @seealso \code{\link{if}}, \code{\link{ifelse}}
+#' 
+#' @family data.interval @concept range
 #'
 #' @examples
 #'
@@ -88,27 +89,27 @@
 #' # both arguments are recycled
 #' c(2,3) %[]% cbind(1:4,2:5)
 #'
-#' @family data.inspection
+#' @family data.interval
 #' @concept range
 NULL
 
 
-#' @rdname between
+#' @rdname between-operators
 #' @export
 `%[]%` <- function(x, rng)
   .betweenDispatch(x, rng, TRUE, TRUE)
 
-#' @rdname between
+#' @rdname between-operators
 #' @export
 `%[)%` <- function(x, rng)
   .betweenDispatch(x, rng, TRUE, FALSE)
 
-#' @rdname between
+#' @rdname between-operators
 #' @export
 `%(]%` <- function(x, rng)
   .betweenDispatch(x, rng, FALSE, TRUE)
 
-#' @rdname between
+#' @rdname between-operators
 #' @export
 `%()%` <- function(x, rng)
   .betweenDispatch(x, rng, FALSE, FALSE)
@@ -118,25 +119,25 @@ NULL
 # outside operators: negations of the between operators, matched by
 # meaning (not by mirrored bracket symbols)
 
-#' @rdname between
+#' @rdname between-operators
 #' @export
 `%][%` <- function(x, rng) {
   return(!(x %()% rng))
 }
 
-#' @rdname between
+#' @rdname between-operators
 #' @export
 `%](%` <- function(x, rng) {
   return(!(x %(]% rng))
 }
 
-#' @rdname between
+#' @rdname between-operators
 #' @export
 `%)[%` <- function(x, rng) {
   return(!(x %[)% rng))
 }
 
-#' @rdname between
+#' @rdname between-operators
 #' @export
 `%)(%` <- function(x, rng) {
   return(!(x %[]% rng))

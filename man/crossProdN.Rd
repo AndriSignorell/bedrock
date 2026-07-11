@@ -7,8 +7,8 @@
 crossProdN(A)
 }
 \arguments{
-\item{A}{A numeric or complex vector of length 2, or a matrix of dimension
-\eqn{n x (n+1)}.}
+\item{A}{a numeric or complex vector of length 2, or a matrix of dimension
+\eqn{n x (n+1)}}
 }
 \value{
 A numeric or complex vector of length \eqn{n+1}.
@@ -53,19 +53,13 @@ crossProdN(A[2:1, ])
 
 }
 \seealso{
-Other math.utils:
+Other math.basic:
+\code{\link[=closest]{closest()}},
 \code{\link[=crossProd]{crossProd()}},
 \code{\link[=dotProd]{dotProd()}},
-\code{\link[=isLowCardinality]{isLowCardinality()}},
-\code{\link[=linScale]{linScale()}},
-\code{\link[=logit]{logit()}},
-\code{\link[=nUnique]{nUnique()}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=rankX]{rankX()}},
 \code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
+\code{\link[=unirootAll]{unirootAll()}}
 }
-\concept{math.utils}
+\concept{linear-algebra}
+\concept{math.basic}
 \concept{numerical-methods}

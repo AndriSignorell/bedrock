@@ -1,4 +1,4 @@
-# List all arguments of a function
+# List All Arguments of a Function
 
 Returns the formal arguments of a function together with their default
 values.
@@ -9,7 +9,7 @@ values.
 funArgs(
   fun,
   package = NULL,
-  sort = FALSE,
+  sorted = FALSE,
   output = c("data.frame", "list", "string")
 )
 ```
@@ -18,20 +18,20 @@ funArgs(
 
 - fun:
 
-  Function object or function name.
+  function object or function name
 
 - package:
 
-  Optional package name used to resolve `fun`.
+  optional package name used to resolve `fun`
 
-- sort:
+- sorted:
 
-  Logical; should arguments be sorted alphabetically? Ignored when
-  `output = "list"`.
+  logical; should arguments be sorted alphabetically? `...` is always
+  kept last. Ignored when `output = "list"`.
 
 - output:
 
-  Character string specifying the output format:
+  character string specifying the output format:
 
   - `"data.frame"` (default): return a data frame.
 
@@ -55,22 +55,19 @@ Depending on `output`:
 [`formals`](https://rdrr.io/r/base/formals.html),
 [`args`](https://rdrr.io/r/base/args.html)
 
-Other pkg.introspection: [`extractArgs()`](extractArgs.md),
-[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
-[`funList()`](funList.md), [`getDotsArg()`](getDotsArg.md),
-[`mergeArgs()`](mergeArgs.md), [`quot()`](quot.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
-[`strX()`](strX.md)
+Other pkg.funinfo: [`funCalls()`](funCalls.md),
+[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
 
 ## Examples
 
 ``` r
 funArgs("combN")
-#>      name value
-#> n       n      
-#> m       m      
-#> repl repl FALSE
-#> ord   ord FALSE
+#>            name value
+#> n             n      
+#> m             m      
+#> replace replace FALSE
+#> ordered ordered FALSE
 
 funArgs("combN", output = "list")
 #> $n
@@ -79,16 +76,16 @@ funArgs("combN", output = "list")
 #> $m
 #> 
 #> 
-#> $repl
+#> $replace
 #> [1] FALSE
 #> 
-#> $ord
+#> $ordered
 #> [1] FALSE
 #> 
 
 funArgs("combN", output = "string")
-#> [1] "n, m, repl = FALSE, ord = FALSE"
+#> [1] "n, m, replace = FALSE, ordered = FALSE"
 
 cat(funArgs("combN", output = "string"))
-#> n, m, repl = FALSE, ord = FALSE
+#> n, m, replace = FALSE, ordered = FALSE
 ```

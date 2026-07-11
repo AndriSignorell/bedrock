@@ -7,19 +7,19 @@
 strSplitToCol(x, split = " ", fixed = TRUE, naForm = "", colNames = NULL)
 }
 \arguments{
-\item{x}{A character vector or a data frame of character columns to be split.
+\item{x}{a character vector or a data frame of character columns to be split.
 Each element (or column) is processed separately.}
 
-\item{split}{Character string specifying the delimiter for splitting.
+\item{split}{character string specifying the delimiter for splitting.
 Passed to \code{\link[base]{strsplit}}.}
 
-\item{fixed}{Logical; if \code{TRUE}, \code{split} is used as a fixed string.
+\item{fixed}{logical; if \code{TRUE}, \code{split} is used as a fixed string.
 Otherwise, it is treated as a regular expression.}
 
-\item{naForm}{Character value used to replace missing elements created
-by unequal split lengths.}
+\item{naForm}{character value used to replace missing elements created
+by unequal split lengths}
 
-\item{colNames}{Optional character vector specifying column names for the
+\item{colNames}{optional character vector specifying column names for the
 resulting data frame. Recycled if necessary.}
 }
 \value{
@@ -70,9 +70,10 @@ strSplitToCol(df)
 
 }
 \seealso{
-Other string.utilities:
+Other string.transform:
+\code{\link[=mGsub]{mGsub()}},
 \code{\link[=strSplitToDummy]{strSplitToDummy()}}
 }
 \concept{reshape}
 \concept{string-manipulation}
-\concept{string.utilities}
+\concept{string.transform}

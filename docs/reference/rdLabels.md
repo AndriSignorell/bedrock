@@ -15,11 +15,11 @@ rdLabels(dataName, package)
 
 - dataName:
 
-  Character string. Name of the dataset.
+  character string. Name of the dataset.
 
 - package:
 
-  Character string. Name of the package containing the dataset.
+  character string. Name of the package containing the dataset.
 
 ## Value
 
@@ -41,13 +41,9 @@ The function is fully CRAN-compliant and does not rely on internal
 
 ## See also
 
-[`bedrock::label`](label.md)
-
-Other pkg.introspection: [`extractArgs()`](extractArgs.md),
-[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
-[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`getDotsArg()`](getDotsArg.md), [`mergeArgs()`](mergeArgs.md),
-[`quot()`](quot.md), [`rdTitle()`](rdTitle.md), [`strX()`](strX.md)
+Other pkg.funinfo: [`funArgs()`](funArgs.md),
+[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
+[`funList()`](funList.md), [`rdTitle()`](rdTitle.md)
 
 ## Examples
 

@@ -13,11 +13,11 @@ peekFile(file, n = 10, ..., output = c("data.frame", "tibble"))
 
 - file:
 
-  character string specifying the file name.
+  character string specifying the file name
 
 - n:
 
-  integer specifying the number of data rows to read, defaults to 10.
+  integer specifying the number of data rows to read, defaults to 10
 
 - ...:
 
@@ -54,11 +54,8 @@ larger `guess_max` via the dots.
 [`read_delim`](https://readr.tidyverse.org/reference/read_delim.html),
 [`toBaseR`](toBaseR.md)
 
-Other io: [`readDownload()`](readDownload.md)
-
-## Author
-
-Andri Signorell <andri@signorell.net>
+Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
+[`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md)
 
 ## Examples
 

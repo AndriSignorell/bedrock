@@ -10,13 +10,13 @@
 #'
 #' @name long-wide-reshape
 #'
-#' @param x Object to reshape. For `toLong()`, a matrix, table, data frame, or
+#' @param x object to reshape. For `toLong()`, a matrix, table, data frame, or
 #'   list. For `toWide()`, a vector.
-#' @param groups Grouping vector used to define the columns in the wide result.
-#' @param by Optional vector used to align values row-wise when reshaping to
+#' @param groups grouping vector used to define the columns in the wide result
+#' @param by optional vector used to align values row-wise when reshaping to
 #'   wide format. If `NULL`, values are aligned by their order within each group.
-#' @param varNames Optional character vector of column names for the result.
-#' @param includeRowNames Logical. If `TRUE`, append a column containing the row
+#' @param varNames optional character vector of column names for the result
+#' @param includeRowNames logical. If `TRUE`, append a column containing the row
 #'   names of `x` when reshaping to long format.
 #'
 #' @return
@@ -42,10 +42,11 @@
 #' PlantGrowth$nr <- c(sample(12, 10), sample(12, 10), sample(12, 10))
 #' toWide(PlantGrowth$weight, PlantGrowth$group, by = PlantGrowth$nr)
 #'
-#' @family data.manipulation
+
+
+#' @family data.reshape
 #' @concept reshape
-
-
+#' @concept table
 #' @export
 toLong <- function(x, varNames = NULL, includeRowNames = FALSE) {
   if (!is.list(x)) {
@@ -102,6 +103,9 @@ toLong <- function(x, varNames = NULL, includeRowNames = FALSE) {
 
 
 #' @rdname long-wide-reshape
+#' @family data.reshape
+#' @concept reshape
+#' @concept table
 #' @export
 toWide <- function(x, groups, by = NULL, varNames = NULL) {
   groups <- factor(groups)

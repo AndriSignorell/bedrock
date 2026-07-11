@@ -1,7 +1,12 @@
 # Convert to Numeric via Factor
 
 Converts an object to numeric by first coercing it to a factor and then
-to numeric.
+to numeric. This is useful whenever a categorical or character variable
+needs a purely numeric stand-in – for example, as input to functions
+that require numeric data (distance calculations, correlation matrices,
+some modelling routines), or to obtain a compact, deterministic
+small-integer code for an ordinal variable by passing an explicit
+`levels` order.
 
 ## Usage
 
@@ -13,12 +18,12 @@ nf(x, ...)
 
 - x:
 
-  A vector to be converted.
+  a vector to be converted
 
 - ...:
 
-  Additional arguments passed to
-  [`factor`](https://rdrr.io/r/base/factor.html).
+  additional arguments passed to
+  [`factor`](https://rdrr.io/r/base/factor.html)
 
 ## Value
 
@@ -27,31 +32,23 @@ levels.
 
 ## Details
 
-This function is a shorthand for `as.numeric(factor(x, ...))`. It is
-useful for converting categorical or character variables into integer
-codes representing factor levels.
+This function is a shorthand for `as.numeric(factor(x, ...))`.
 
 Note that the resulting numeric values correspond to the internal factor
-levels, not the original numeric values.
+levels, not the original numeric values. In particular, for character
+vectors holding numbers the codes follow the alphabetical level order
+(see the last example) – use `as.numeric(as.character(x))` to recover
+the values themselves.
 
 ## See also
 
 [`factor`](https://rdrr.io/r/base/factor.html),
 [`as.numeric`](https://rdrr.io/r/base/numeric.html)
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+Other data.recode: [`asBinary()`](asBinary.md),
+[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
+[`mReplace()`](mReplace.md), [`recodeX()`](recodeX.md),
+[`revCode()`](revCode.md), [`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 
@@ -60,4 +57,8 @@ nf(c("a", "b", "a"))
 #> [1] 1 2 1
 nf(c("low", "medium", "high"), levels = c("low", "medium", "high"))
 #> [1] 1 2 3
+
+# caution: codes, not values
+nf(c("10", "2"))    # 1 2, not 10 2
+#> [1] 1 2
 ```

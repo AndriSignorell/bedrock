@@ -35,3 +35,4 @@ sum(x)
 }
 \concept{random}
 \concept{random.numbers}
+\concept{sampling}

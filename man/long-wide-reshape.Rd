@@ -11,17 +11,17 @@ toLong(x, varNames = NULL, includeRowNames = FALSE)
 toWide(x, groups, by = NULL, varNames = NULL)
 }
 \arguments{
-\item{x}{Object to reshape. For \code{toLong()}, a matrix, table, data frame, or
+\item{x}{object to reshape. For \code{toLong()}, a matrix, table, data frame, or
 list. For \code{toWide()}, a vector.}
 
-\item{varNames}{Optional character vector of column names for the result.}
+\item{varNames}{optional character vector of column names for the result}
 
-\item{includeRowNames}{Logical. If \code{TRUE}, append a column containing the row
+\item{includeRowNames}{logical. If \code{TRUE}, append a column containing the row
 names of \code{x} when reshaping to long format.}
 
-\item{groups}{Grouping vector used to define the columns in the wide result.}
+\item{groups}{grouping vector used to define the columns in the wide result}
 
-\item{by}{Optional vector used to align values row-wise when reshaping to
+\item{by}{optional vector used to align values row-wise when reshaping to
 wide format. If \code{NULL}, values are aligned by their order within each group.}
 }
 \value{
@@ -58,29 +58,12 @@ toWide(PlantGrowth$weight, PlantGrowth$group, by = PlantGrowth$nr)
 \seealso{
 \code{reshape}, \code{stack}, \code{unstack}
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
+Other data.reshape:
+\code{\link[=collapseTable]{collapseTable()}},
 \code{\link[=splitAt]{splitAt()}},
 \code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=untable]{untable()}}
 }
-\concept{data.manipulation}
+\concept{data.reshape}
 \concept{reshape}
+\concept{table}

@@ -1,4 +1,4 @@
-# Convert custom date format to strftime format
+# Convert Custom Date Format to strftime Format
 
 Translates a custom date format string using tokens like `yyyy`, `mm`,
 `dd`, `mmm`, etc. into a valid `strftime`-compatible format string
@@ -14,7 +14,7 @@ asCDateFmt(fmt)
 
 - fmt:
 
-  Character string. Custom date format.
+  character string. Custom date format.
 
 ## Value
 
@@ -53,21 +53,6 @@ Mapping:
 - `ddd` -\> `%a`
 
 - `dddd` -\> `%A`
-
-## See also
-
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`columnWrap()`](columnWrap.md), [`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`recycle()`](recycle.md),
-[`renameX()`](renameX.md), [`revCode()`](revCode.md),
-[`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
 
 ## Examples
 

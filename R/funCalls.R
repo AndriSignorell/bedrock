@@ -28,8 +28,9 @@
 #'
 #' funCalls("combN", package="bedrock")
 #'
-#' @family pkg.introspection
+#' @family pkg.funinfo
 #' @concept introspection
+#' @concept programming
 #' @export
 funCalls <- function(name, package = NULL, sorted = FALSE) {
 

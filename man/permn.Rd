@@ -7,9 +7,9 @@
 permn(x, sortResults = FALSE)
 }
 \arguments{
-\item{x}{Atomic vector. Missing values are not supported.}
+\item{x}{atomic vector. Missing values are not supported.}
 
-\item{sortResults}{Logical scalar. If \code{TRUE}, the result matrix is sorted
+\item{sortResults}{logical scalar. If \code{TRUE}, the result matrix is sorted
 using \code{\link[=sortX]{sortX()}}. Default is \code{FALSE}.}
 }
 \value{
@@ -29,15 +29,15 @@ permn(c("a", "b", "c", "a"))
 
 }
 \seealso{
-\code{\link[utils:combn]{utils::combn()}}, \code{\link[base:factorial]{base::factorial()}}, \code{\link[=combPairs]{combPairs()}}
+\code{\link[utils:combn]{utils::combn()}}, \code{\link[base:factorial]{base::factorial()}}
 
 Other combinatorics:
 \code{\link[=combN]{combN()}},
 \code{\link[=combPairs]{combPairs()}},
 \code{\link[=combSet]{combSet()}},
+\code{\link[=pairApply]{pairApply()}},
 \code{\link[=randGroupSplit]{randGroupSplit()}},
-\code{\link[=sampleX]{sampleX()}},
-\code{\link[=unwhich]{unwhich()}}
+\code{\link[=sampleX]{sampleX()}}
 }
 \concept{combinatorics}
-\concept{sampling}
+\concept{number-theory}

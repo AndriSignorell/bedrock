@@ -9,7 +9,7 @@
 #' \eqn{\ge n/2} then the result will be \code{NA}. The same applies if
 #' \code{x} contains \code{NA}s and \code{na.rm} is \code{FALSE}.
 #' 
-#' @param x a numeric vector to be trimmed. 
+#' @param x a numeric vector to be trimmed 
 #' @param trim the fraction (0 to 0.5) of observations to be trimmed from each
 #' end of x. Values of trim outside that range (and < 1) are taken as the
 #' nearest endpoint.  If \code{trim} is set to a value >1 it's interpreted as
@@ -42,13 +42,10 @@
 #' s.tr <- trim(s, trim = 2)
 #' setequal(c(s[attr(s.tr, "trim")], s.tr), s)
 #'
-
-
-
-#' @family vector.ops  
-#' @concept ordering
 #'
-#'
+#' @family vector.reshape
+#' @concept reshape
+#' @concept outlier-detection
 #' @export 
 trim <- function(x, trim = 0.1, na.rm = FALSE){
   

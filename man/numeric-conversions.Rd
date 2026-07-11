@@ -29,17 +29,17 @@ romanToInt(x)
 baseToBase(x, from, to, width = NULL)
 }
 \arguments{
-\item{x}{A vector of numbers or character strings representing values in
+\item{x}{a vector of numbers or character strings representing values in
 the input base.  For \code{baseToBase()} a numeric \code{x} is accepted
 only when \code{from = 10}.  \code{NA} propagates to the output.}
 
-\item{from}{A single integer in \eqn{[2, 36]} specifying the input base
-(\code{baseToBase()} only).}
+\item{from}{a single integer in \eqn{[2, 36]} specifying the input base
+(\code{baseToBase()} only)}
 
-\item{to}{A single integer in \eqn{[2, 36]} specifying the output base
-(\code{baseToBase()} only).}
+\item{to}{a single integer in \eqn{[2, 36]} specifying the output base
+(\code{baseToBase()} only)}
 
-\item{width}{A single non-negative integer or \code{NULL} (default).
+\item{width}{a single non-negative integer or \code{NULL} (default).
 When given, output strings are left-padded with zeros to at least
 \code{width} characters (\code{baseToBase()} only).}
 }
@@ -127,17 +127,7 @@ baseToBase(c("A", "B", "FF"), from = 16, to = 10)
 \seealso{
 \code{\link{strtoi}}, \code{\link{as.hexmode}},
 \code{\link{as.octmode}}, \code{\link{as.roman}}
-
-Other number.theory:
-\code{\link[=digitSum]{digitSum()}},
-\code{\link[=divisors]{divisors()}},
-\code{\link[=factorize]{factorize()}},
-\code{\link[=fibonacci]{fibonacci()}},
-\code{\link{gcd_lcm}},
-\code{\link[=isOdd]{isOdd()}},
-\code{\link[=isPrime]{isPrime()}},
-\code{\link[=primes]{primes()}}
 }
-\concept{number-theory}
-\concept{number.theory}
+\concept{number-formatting}
+\concept{number.baseconv}
 \concept{numeric-conversion}

@@ -17,8 +17,20 @@
 #'
 #' @return \code{x} with an additional enumeration column
 #'
-#' @family data.manipulation
-#' @concept categorization
+#' @examples
+#' d <- data.frame(x = 1:3, y = c("a", "b", "c"))
+#' appendEnum(d)
+#'
+#' appendEnum(d, type = "arabic", suffix = ") ")
+#'
+#' # insert after the first column instead of prepending
+#' appendEnum(d, after = 1L, colName = "no")
+#'
+#' @seealso \code{\link{append}}
+#' 
+#' @family data.append
+#' @concept table
+#' @concept append
 #' @export
 appendEnum <- function(x, type = c("roman-lcase", "roman-ucase", "arabic"),
                        suffix = ". ", startWith = 1L, after = 0L,

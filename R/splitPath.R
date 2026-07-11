@@ -6,8 +6,8 @@
 #' and extension. The function is OS-aware and works on both Windows
 #' and Unix-like systems.
 #'
-#' @param path A character vector of file paths.
-#' @param lastIsFile Logical; if \code{TRUE}, the last component of
+#' @param path a character vector of file paths
+#' @param lastIsFile logical; if \code{TRUE}, the last component of
 #'   \code{path} is treated as a file name. If \code{FALSE}, it is treated
 #'   as part of the directory path. If \code{NULL} (default), the function
 #'   determines this automatically based on whether the path ends with a
@@ -51,10 +51,9 @@
 
 
 
-#' @family file.utils  
-#' @concept programming
-#'
-#'
+#' @family file.path
+#' @concept path-handling
+#' @concept string-manipulation
 #' @export
 splitPath <- function(path, lastIsFile = NULL) {
 

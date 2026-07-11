@@ -14,7 +14,7 @@ percentRank(x)
 
 - x:
 
-  A numeric (or comparable) vector.
+  a numeric (or comparable) vector
 
 ## Value
 
@@ -39,14 +39,11 @@ If `x` contains fewer than two non-missing values, all results are `NA`.
 
 ## See also
 
-[`rankX`](rankX.md), [`rank`](https://rdrr.io/r/base/rank.html)
+[`base::rank()`](https://rdrr.io/r/base/rank.html)
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`linScale()`](linScale.md), [`logit()`](logit.md),
-[`nUnique()`](nUnique.md), [`precision`](precision.md),
-[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
-[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
+Other math.transform: [`linScale()`](linScale.md),
+[`logit()`](logit.md), [`rankX()`](rankX.md),
+[`winsorize()`](winsorize.md)
 
 ## Examples
 

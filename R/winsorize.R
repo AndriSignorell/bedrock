@@ -28,8 +28,8 @@
 #'   \item The result of a call to \code{\link{quantile}} (e.g. with custom \code{type})
 #' }
 #'
-#' @param x A numeric vector to be winsorized.
-#' @param val A numeric vector of length two specifying the lower and upper
+#' @param x a numeric vector to be winsorized
+#' @param val a numeric vector of length two specifying the lower and upper
 #'   winsorization limits. Defaults to the 5% and 95% quantiles of \code{x}
 #'   with \code{na.rm = TRUE}.
 #'
@@ -67,10 +67,9 @@
 
 
 
-#' @family vector.ops  
-#' @concept robust-statistics
-#'
-#'
+#' @family math.transform
+#' @concept transformation
+#' @concept outlier-detection
 #' @export
 winsorize <- function(
     x,

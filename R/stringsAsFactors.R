@@ -9,7 +9,7 @@
 #'
 #' @param x the data.frame
 #' @param columns names or indexes of the columns to be converted;
-#'  negative values can be used to omit columns.
+#'  negative values can be used to omit columns
 #' @return the given data.frame including the converted factors
 #' @examples
 #' d.dat <- data.frame(char_x = LETTERS[1:5],
@@ -28,10 +28,9 @@
 
 
 
-#' @family data.manipulation  
+#' @family data.recode
 #' @concept categorization
-#'
-#'
+#' @concept type-coercion
 #' @export
 stringsAsFactors <- function(x, columns = NULL) {
 

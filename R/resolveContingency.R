@@ -8,8 +8,8 @@
 #' Otherwise \code{x} and \code{y} are converted to factors and a table
 #' is constructed after removing incomplete observations.
 #'
-#' @param x a contingency table, factor or vector.
-#' @param y an optional factor or vector.
+#' @param x a contingency table, factor or vector
+#' @param y an optional factor or vector
 #' Ignored when \code{x} is a matrix.
 #' @param square logical indicating whether a square contingency table
 #' is required.
@@ -35,9 +35,22 @@
 #'   \item{data.name}{name of the data}
 #' }
 #'
-#' @family data.utils
-#' @concept formula
-#' @concept frequency-table
+#' @family data.resolve
+#' @concept data-resolution
+#' @concept table
+#'
+#' @examples
+#' # from an existing contingency table
+#' tab <- matrix(c(10, 5, 3, 12), nrow = 2,
+#'               dimnames = list(c("A", "B"), c("yes", "no")))
+#' resolveContingency(tab)
+#'
+#' # from two classification variables
+#' set.seed(1)
+#' x <- sample(c("low", "high"), 100, replace = TRUE)
+#' y <- sample(c("yes", "no"), 100, replace = TRUE)
+#' resolveContingency(x, y)
+#'
 #' @export
 resolveContingency <- function(
     x,

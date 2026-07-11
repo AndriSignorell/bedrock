@@ -15,22 +15,22 @@ printCharMatrix(
 )
 }
 \arguments{
-\item{m}{A matrix (or object coercible to a matrix) containing values that
-will be converted to character for display.}
+\item{m}{a matrix (or object coercible to a matrix) containing values that
+will be converted to character for display}
 
-\item{align}{Character string specifying alignment of cell contents.
+\item{align}{character string specifying alignment of cell contents.
 Either \code{"right"} (default) or \code{"left"}.}
 
-\item{sep}{Integer. Number of spaces between columns. Default is \code{2}.}
+\item{sep}{integer. Number of spaces between columns. Default is \code{2}.}
 
-\item{showRownames}{Logical. Should row names be printed? Default is \code{TRUE}.}
+\item{showRownames}{logical. Should row names be printed? Default is \code{TRUE}.}
 
-\item{showColnames}{Logical. Should column names be printed? Default is \code{TRUE}.}
+\item{showColnames}{logical. Should column names be printed? Default is \code{TRUE}.}
 
-\item{useCliStyle}{Logical. If \code{TRUE}, column names and row names are styled
+\item{useCliStyle}{logical. If \code{TRUE}, column names and row names are styled
 using \code{cli::style_bold()}. Default is \code{FALSE}.}
 
-\item{width}{Integer. Maximum output width (in characters). Defaults to
+\item{width}{integer. Maximum output width (in characters). Defaults to
 \code{getOption("width")}. If the table exceeds this width, it is split into
 column blocks and printed in multiple sections.}
 }
@@ -79,8 +79,9 @@ printCharMatrix(m, width = 20)
 
 }
 \seealso{
-Other format:
-\code{\link[=asCDateFmt]{asCDateFmt()}}
+Other data.print:
+\code{\link[=columnWrap]{columnWrap()}}
 }
-\concept{format}
+\concept{data.print}
+\concept{formatting}
 \concept{table}

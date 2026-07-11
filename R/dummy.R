@@ -18,13 +18,13 @@
 #' (without the last level) and `"helmert"` (without the first level);
 #' `"poly"` keeps the standard degree labels (`.L`, `.Q`, ...).
 #'
-#' @param x Factor or vector of classes.
-#' @param method Character string specifying the contrast method. One of
+#' @param x factor or vector of classes
+#' @param method character string specifying the contrast method. One of
 #'   `"treatment"`, `"sum"`, `"helmert"`, `"poly"`, or `"full"`.
 #'   Abbreviations are accepted.
-#' @param base Integer or character string specifying the baseline group.
+#' @param base integer or character string specifying the baseline group.
 #'   Only used for `method = "treatment"` (see Details).
-#' @param levels Optional character vector specifying the possible levels of
+#' @param levels optional character vector specifying the possible levels of
 #'   `x`. If `NULL`, levels are inferred by `factor(x)`.
 #'
 #' @return
@@ -61,7 +61,7 @@
 #'   function(z) ifelse(sum(z) == 0, attr(m, "base"), colnames(m)[z == 1])
 #' )
 #'
-#' @family data.manipulation
+#' @family data.recode
 #' @concept dummy-coding
 #' @concept categorization
 #' @export

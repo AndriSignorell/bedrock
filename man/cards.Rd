@@ -36,6 +36,7 @@ table(Cards$suit)
 }
 \seealso{
 Other datasets:
+\code{\link{Pizza}},
 \code{\link{Roulette}},
 \code{\link{Tarot}},
 \code{\link[=courseData]{courseData()}}

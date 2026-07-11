@@ -13,16 +13,19 @@ fibonacci(n)
 
 - n:
 
-  nonnegative integer or vector of nonnegative integers.
+  nonnegative integer (\<= 78) or vector of such integers
 
 ## Value
 
-A single integer, or a vector of integers.
+An integer-valued numeric vector.
 
 ## Details
 
-Generates the `n`-th Fibonacci number, whereas `Fibonacci(0) = 0`.  
+Generates the `n`-th Fibonacci number, whereas `fibonacci(0) = 0`.  
 The golden ratio is defined as `phi = 0.5*(1+sqrt(5))`.
+
+Values of `n` are limited to 78, as larger Fibonacci numbers exceed the
+range in which doubles represent integers exactly (`2^53`).
 
 ## References
 
@@ -31,19 +34,18 @@ The golden ratio is defined as `phi = 0.5*(1+sqrt(5))`.
 
 ## See also
 
-Other number.theory: [`digitSum()`](digitSum.md),
-[`divisors()`](divisors.md), [`factorize()`](factorize.md),
-[`gcd_lcm`](gcd_lcm.md), [`isOdd()`](isOdd.md),
-[`isPrime()`](isPrime.md),
-[`numeric-conversions`](numeric-conversions.md), [`primes()`](primes.md)
+Other number.theory: [`GCD-LCM`](GCD-LCM.md),
+[`digitSum()`](digitSum.md), [`divisors()`](divisors.md),
+[`factorize()`](factorize.md), [`isOdd()`](isOdd.md),
+[`isPrime()`](isPrime.md), [`primes()`](primes.md)
 
 ## Examples
 
 ``` r
 
-fibonacci(0)                            # 1
+fibonacci(0)                            # 0
 #> [1] 0
-fibonacci(2)                            # 2
+fibonacci(2)                            # 1
 #> [1] 1
 fibonacci(0:3)                          # 0 1 1 2
 #> [1] 0 1 1 2
@@ -64,7 +66,7 @@ fibo <- function(n) {
   fib <- (phi^(n+1) - (1-phi)^(n+1)) / (2*phi - 1)
   round(fib)
 }
-  
+
 fibo(30:33)                             # 1346269 2178309 3524578 5702887
 #> [1] 1346269 2178309 3524578 5702887
 ```

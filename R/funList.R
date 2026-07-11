@@ -24,8 +24,9 @@
 #'
 #' funList("bedrock")
 #'
-#' @family pkg.introspection
+#' @family pkg.funinfo
 #' @concept introspection
+#' @concept programming
 #' @export
 funList <- function(package, exported = TRUE) {
 

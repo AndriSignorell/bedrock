@@ -48,6 +48,7 @@ summary(Tarot$rank_minor)
 \seealso{
 Other datasets:
 \code{\link{Cards}},
+\code{\link{Pizza}},
 \code{\link{Roulette}},
 \code{\link[=courseData]{courseData()}}
 }

@@ -7,7 +7,7 @@
 resolveGroups(x, groups)
 }
 \arguments{
-\item{x}{a numeric vector of observations, or a list of numeric vectors.}
+\item{x}{a numeric vector of observations, or a list of numeric vectors}
 
 \item{groups}{a grouping variable of the same length as \code{x}.
 Ignored when \code{x} is a list.}
@@ -33,15 +33,22 @@ Missing observations are removed and grouping information is returned
 in a consistent format suitable for hypothesis tests, summaries,
 effect-size calculations and plotting functions.
 }
+\examples{
+# vector + grouping variable
+set.seed(1)
+x <- rnorm(30)
+g <- rep(c("a", "b", "c"), each = 10)
+resolveGroups(x, g)
+
+# list of group-specific vectors
+resolveGroups(list(a = rnorm(10), b = rnorm(12), c = rnorm(8)))
+
+}
 \seealso{
-Other data.utils:
-\code{\link[=binaryTree]{binaryTree()}},
-\code{\link{intervals}},
-\code{\link[=ptInPoly]{ptInPoly()}},
-\code{\link{range-operators}},
+Other data.resolve:
 \code{\link[=resolveContingency]{resolveContingency()}},
 \code{\link[=resolveFormula]{resolveFormula()}}
 }
-\concept{data.utils}
-\concept{formula}
-\concept{modelling}
+\concept{categorization}
+\concept{data-resolution}
+\concept{data.resolve}

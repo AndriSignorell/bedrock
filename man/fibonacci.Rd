@@ -7,7 +7,7 @@
 fibonacci(n)
 }
 \arguments{
-\item{n}{nonnegative integer (<= 78) or vector of such integers.}
+\item{n}{nonnegative integer (<= 78) or vector of such integers}
 }
 \value{
 An integer-valued numeric vector.
@@ -51,14 +51,14 @@ fibo(30:33)                             # 1346269 2178309 3524578 5702887
 }
 \seealso{
 Other number.theory:
+\code{\link{GCD-LCM}},
 \code{\link[=digitSum]{digitSum()}},
 \code{\link[=divisors]{divisors()}},
 \code{\link[=factorize]{factorize()}},
-\code{\link{gcd_lcm}},
 \code{\link[=isOdd]{isOdd()}},
 \code{\link[=isPrime]{isPrime()}},
-\code{\link{numeric-conversions}},
 \code{\link[=primes]{primes()}}
 }
 \concept{number-theory}
 \concept{number.theory}
+\concept{numerical-methods}

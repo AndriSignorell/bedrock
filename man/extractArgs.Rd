@@ -7,18 +7,18 @@
 extractArgs(dots, defaults, validate = NULL, returnRest = FALSE)
 }
 \arguments{
-\item{dots}{Named list of arguments (usually \code{list(...)})}
+\item{dots}{named list of arguments (usually \code{list(...)})}
 
-\item{defaults}{Named list of default values}
+\item{defaults}{named list of default values}
 
-\item{validate}{Optional validation function, called with the merged
+\item{validate}{optional validation function, called with the merged
 argument list for its side effect. It should throw an error on
 invalid input; its return value is ignored.}
 
-\item{returnRest}{Logical; if \code{TRUE}, a list with components
+\item{returnRest}{logical; if \code{TRUE}, a list with components
 \code{args} (the merged arguments) and \code{rest} (all elements of
 \code{dots} not matching a default, including unnamed ones) is
-returned.}
+returned}
 }
 \value{
 Named list of extracted arguments, or a list with components
@@ -39,16 +39,12 @@ extractArgs(dots, defaults = list(col = "black", lty = 1),
 
 }
 \seealso{
-Other pkg.introspection:
-\code{\link[=funArgs]{funArgs()}},
-\code{\link[=funCalls]{funCalls()}},
-\code{\link[=funKeywords]{funKeywords()}},
-\code{\link[=funList]{funList()}},
+Other pkg.args:
+\code{\link[=callIf]{callIf()}},
 \code{\link[=getDotsArg]{getDotsArg()}},
 \code{\link[=mergeArgs]{mergeArgs()}},
-\code{\link[=rdLabels]{rdLabels()}},
-\code{\link[=rdTitle]{rdTitle()}},
-\code{\link[=strX]{strX()}}
+\code{\link[=recycle]{recycle()}}
 }
-\concept{pkg.introspection}
+\concept{introspection}
+\concept{pkg.args}
 \concept{programming}

@@ -10,14 +10,13 @@
 #' allowed and enter via their absolute value; logical vectors are coerced
 #' to integer.
 #'
-#' @name gcd_lcm
-#' @param ... integer or logical vectors.
+#' @name GCD-LCM
+#' @param ... integer or logical vectors
 #' @param na.rm logical. Should missing values (including NaN) be removed?
 #' @return A numeric (integer) value.
 #' @note The following relation is always true:
 #'
 #' \code{n * m = GCD(n, m) * LCM(n, m)}
-#' @author Andri Signorell <andri@@signorell.net>
 #'
 #' @examples
 #' GCD(12, 10)
@@ -34,6 +33,7 @@
 #'
 #' @family number.theory
 #' @concept number-theory
+#' @concept numerical-methods
 #' @export
 GCD <- function(..., na.rm = FALSE) {
 
@@ -71,7 +71,7 @@ GCD <- function(..., na.rm = FALSE) {
 }
 
 
-#' @rdname gcd_lcm
+#' @rdname GCD-LCM
 #' @export
 LCM <- function(..., na.rm = FALSE) {
 

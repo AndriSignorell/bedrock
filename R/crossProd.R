@@ -17,9 +17,9 @@
 #'
 #' Numeric and complex inputs can be mixed; standard R coercion rules apply.
 #'
-#' @param x A numeric or complex vector of length 3, or a matrix with one dimension of length 3.
-#' @param y A numeric or complex vector or matrix with the same dimensions as \code{x}.
-#' @param orientation Character string specifying whether vectors are stored in rows or columns
+#' @param x a numeric or complex vector of length 3, or a matrix with one dimension of length 3
+#' @param y a numeric or complex vector or matrix with the same dimensions as \code{x}
+#' @param orientation character string specifying whether vectors are stored in rows or columns
 #'   when matrices are supplied. Must be one of \code{"rows"} or \code{"cols"}.
 #'   Ignored if \code{x} and \code{y} are vectors.
 #'
@@ -47,7 +47,8 @@
 #' y <- matrix(9:1, nrow = 3)
 #' crossProd(x, y, "cols")
 #'
-#' @family math.utils
+#' @family math.basic
+#' @concept linear-algebra
 #' @concept numerical-methods
 #' @export
 crossProd <- function(x, y, orientation = c("rows", "cols")) {

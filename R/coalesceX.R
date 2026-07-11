@@ -66,8 +66,9 @@
 #' coalesceX(d.frm)
 #' coalesceX(as.list(d.frm))
 #'
-#' @family vector.ops
+#' @family vector.na
 #' @concept missing-value
+#' @concept imputation
 #' @export
 coalesceX <- function(..., method = c("is.na", "is.null", "is.finite"),
                       flatten = TRUE) {

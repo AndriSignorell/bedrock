@@ -26,6 +26,11 @@ goodpractice::gp()
 pkgdown::build_site()
 pkgdown::build_reference_index()
 
+
+# hard CRAN check
+rhub::check_for_cran()
+
+
 # for themes
 # https://bootswatch.com/
   
@@ -61,7 +66,7 @@ sortX(funList("bedrock", ex=T))
 grep(sortX(funList("bedrock", ex=T)), v=T)
 
 
-
+Pizza
 
 files <- list.files("c:/temp/bedrock/R", full.names = TRUE, pattern = "\\.R$")
 files <- list.files("c:/temp/aurora/R", full.names = TRUE, pattern = "\\.R$")
@@ -70,7 +75,7 @@ files <- list.files("c:/temp/alloy/R", full.names = TRUE, pattern = "\\.R$")
 
 tax <- bedrock::toBaseR(readxl::read_excel("c:/temp/DescToolsX_doku/bedrockFamiliesConcepts.xlsx"))
 
-for (f in files[19:25]) {
+for (f in files) {
   cat("Updating:", f, "\n")
   update_roxy_safe(f, tax)
 }

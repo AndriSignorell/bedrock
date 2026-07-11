@@ -1,3 +1,4 @@
+
 #' Extract variable labels from Rd documentation
 #'
 #' Extracts variable descriptions from the \code{\\describe} section of a dataset's
@@ -7,8 +8,8 @@
 #' This function is useful for automatically generating variable labels from
 #' documented datasets in R packages.
 #'
-#' @param dataName Character string. Name of the dataset.
-#' @param package Character string. Name of the package containing the dataset.
+#' @param dataName character string. Name of the dataset.
+#' @param package character string. Name of the package containing the dataset.
 #'
 #' @return A named character vector where names are variable names and values
 #'   are their corresponding descriptions extracted from the Rd file.
@@ -27,15 +28,9 @@
 #' rdLabels("Pizza", "bedrock")
 #' }
 #'
-#' @seealso \code{\link{label}}
-#'
-
-
-#' @family pkg.introspection
-#' @concept package-utilities
-#' @concept variable-labels
-#'
-#'
+#' @family pkg.funinfo
+#' @concept introspection
+#' @concept label
 #' @importFrom tools Rd_db
 #' @export
 rdLabels <- function(dataName, package) {
@@ -104,3 +99,4 @@ rdLabels <- function(dataName, package) {
   NULL
   
 }
+

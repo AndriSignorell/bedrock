@@ -12,7 +12,7 @@ isNA(x)
 
 - x:
 
-  An object to be tested.
+  an object to be tested
 
 ## Value
 
@@ -37,7 +37,8 @@ that it:
 
 ## See also
 
-Other utilities: [`callIf()`](callIf.md)
+Other vector.na: [`coalesceX()`](coalesceX.md), [`locf()`](locf.md),
+[`naIf()`](naIf.md), [`naReplace()`](naReplace.md)
 
 ## Examples
 

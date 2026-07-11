@@ -5,9 +5,6 @@ defined). Combinations of the same elements will be dropped (no
 replacing). The vector `x` need not contain unique values. Duplicate
 elements in `x` will result in duplicate pairs.
 
-If y = `NULL` then all combination of 2 out of x are returned.  
-If y is defined then all combinations of x and y are calculated.
-
 ## Usage
 
 ``` r
@@ -18,7 +15,8 @@ combPairs(x, y = NULL)
 
 - x:
 
-  a vector of elements
+  a vector of elements, must contain at least 2 elements if `y` is
+  `NULL`.
 
 - y:
 
@@ -30,6 +28,11 @@ combPairs(x, y = NULL)
 A data.frame with two columns `X1` and `X2` containing the pairwise
 combinations.
 
+## Details
+
+If y = `NULL` then all combination of 2 out of x are returned.  
+If y is defined then all combinations of x and y are calculated.
+
 ## See also
 
 [`combn`](https://rdrr.io/r/utils/combn.html),
@@ -37,10 +40,9 @@ combinations.
 [`outer`](https://rdrr.io/r/base/outer.html),
 [`lower.tri`](https://rdrr.io/r/base/lower.tri.html)
 
-Other combinatorics: [`combN()`](combN.md),
-[`combSet()`](combinatoric.md), [`permn()`](permn.md),
-[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md),
-[`unwhich()`](unwhich.md)
+Other combinatorics: [`combN()`](combN.md), [`combSet()`](combSet.md),
+[`pairApply()`](pairApply.md), [`permn()`](permn.md),
+[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md)
 
 ## Examples
 

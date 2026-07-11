@@ -5,9 +5,9 @@
 #' \code{list(...)}). If the argument is not present, a default value is
 #' returned.
 #'
-#' @param dots Named list (usually \code{list(...)})
-#' @param name Character string, argument name
-#' @param default Default value if argument not present
+#' @param dots named list (usually \code{list(...)})
+#' @param name character string, argument name
+#' @param default default value if argument not present
 #'
 #' @return The value of the argument or \code{default}.
 #'
@@ -23,8 +23,9 @@
 #' f(col = "red", lwd = 2)
 #' f(lwd = 2)
 #'
-#' @family pkg.introspection
+#' @family pkg.args
 #' @concept programming
+#' @concept introspection
 #' @export
 getDotsArg <- function(dots, name, default = NULL) {
 

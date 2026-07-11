@@ -7,7 +7,7 @@
 allIdentical(...)
 }
 \arguments{
-\item{...}{Objects to compare.}
+\item{...}{objects to compare}
 }
 \value{
 Logical scalar.
@@ -42,20 +42,10 @@ allIdentical(1, 1L)          # FALSE (type matters)
 \seealso{
 \code{\link{identical}}
 
-Other data.inspection:
+Other data.equal:
 \code{\link[=allDuplicated]{allDuplicated()}},
-\code{\link{between}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=completeColumns]{completeColumns()}},
-\code{\link[=countCompCases]{countCompCases()}},
-\code{\link[=flags]{flags()}},
-\code{\link[=isDichotomous]{isDichotomous()}},
-\code{\link[=isEuclid]{isEuclid()}},
-\code{\link[=isFilePath]{isFilePath()}},
-\code{\link[=isNumeric]{isNumeric()}},
-\code{\link[=isURL]{isURL()}},
-\code{\link[=isWholeLike]{isWholeLike()}},
-\code{\link[=isZero]{isZero()}}
+\code{\link[=compareDataFrames]{compareDataFrames()}}
 }
 \concept{comparison}
-\concept{data.inspection}
+\concept{data-inspection}
+\concept{data.equal}

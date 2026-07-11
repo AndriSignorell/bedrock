@@ -7,17 +7,17 @@
 courseData(name, url = NULL, header = TRUE, sep = ";", ...)
 }
 \arguments{
-\item{name}{Character string. File name including extension (e.g. \code{"data.csv"}).}
+\item{name}{character string. File name including extension (e.g. \code{"data.csv"}).}
 
-\item{url}{Optional character string. Base URL where the file is located.
+\item{url}{optional character string. Base URL where the file is located.
 If \code{NULL}, default course repositories are searched.}
 
-\item{header}{Logical. Whether the file contains a header row. Passed to \code{read.table()}.}
+\item{header}{logical. Whether the file contains a header row. Passed to \code{read.table()}.}
 
-\item{sep}{Character. Field separator used in the file. Default is \code{";"}.}
+\item{sep}{character. Field separator used in the file. Default is \code{";"}.}
 
-\item{...}{Additional arguments passed to the underlying import functions
-such as \code{read.table()} or \code{openDataObject()}.}
+\item{...}{additional arguments passed to the underlying import functions
+such as \code{read.table()} or \code{openDataObject()}}
 }
 \value{
 A data frame or object returned by the respective import function:
@@ -55,12 +55,12 @@ courseData("mydata.csv", url = "https://example.com/data/")
 
 }
 \seealso{
-\code{\link{fileExistURL}}
-
 Other datasets:
 \code{\link{Cards}},
+\code{\link{Pizza}},
 \code{\link{Roulette}},
 \code{\link{Tarot}}
 }
 \concept{dataset}
 \concept{datasets}
+\concept{file-io}

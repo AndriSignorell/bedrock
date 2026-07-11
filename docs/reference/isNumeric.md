@@ -19,25 +19,25 @@ isNumeric(
 
 - x:
 
-  An object to be tested.
+  an object to be tested
 
 - isIntegerValued:
 
-  Logical. If `TRUE`, values must be whole-like (within tolerance). Uses
+  logical. If `TRUE`, values must be whole-like (within tolerance). Uses
   [`isWholeLike`](isWholeLike.md) internally.
 
 - isPositive:
 
-  Logical. If `TRUE`, all values must be strictly greater than zero.
+  logical. If `TRUE`, all values must be strictly greater than zero.
 
 - tol:
 
-  Numerical tolerance used when `isIntegerValued = TRUE`. Default is
+  numerical tolerance used when `isIntegerValued = TRUE`. Default is
   `sqrt(.Machine$double.eps)`.
 
 - na.rm:
 
-  Logical. If `TRUE`, missing values are removed before validation. If
+  logical. If `TRUE`, missing values are removed before validation. If
   `FALSE` (default) and `x` contains `NA`, the function returns `FALSE`.
 
 ## Value
@@ -66,13 +66,11 @@ should be performed separately with an explicit
 
 [`isWholeLike`](isWholeLike.md)
 
-Other data.inspection: [`allDuplicated()`](allDuplicated.md),
-[`allIdentical()`](allIdentical.md),
-[`completeColumns()`](completeColumns.md),
-[`countCompCases()`](countCompCases.md), [`flags()`](flags.md),
+Other data.predicate: [`flags()`](flags.md),
 [`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
-[`isURL()`](isURL.md), [`isWholeLike()`](isWholeLike.md),
-[`isZero()`](isZero.md)
+[`isLowCardinality()`](isLowCardinality.md),
+[`isWholeLike()`](isWholeLike.md), [`isZero()`](isZero.md),
+[`nUnique()`](nUnique.md)
 
 ## Examples
 

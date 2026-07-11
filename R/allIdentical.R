@@ -13,7 +13,7 @@
 #' \code{do.call(allIdentical, myList)} to compare the elements of
 #' a list.
 #' 
-#' @param ... Objects to compare.
+#' @param ... objects to compare
 #'
 #' @return Logical scalar.
 #'
@@ -31,8 +31,9 @@
 #' allIdentical(1, 1L)          # FALSE (type matters)
 #'
 #'
-#' @family data.inspection
+#' @family data.equal
 #' @concept comparison
+#' @concept data-inspection
 #' @export
 allIdentical <- function(...) {
   

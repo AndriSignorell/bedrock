@@ -1,4 +1,4 @@
-# Split a File Path into Components
+# Split a File Path into Its Components
 
 Splits a file path into its components such as directory, file name, and
 extension. The function is OS-aware and works on both Windows and
@@ -14,18 +14,19 @@ splitPath(path, lastIsFile = NULL)
 
 - path:
 
-  A character vector of file paths.
+  a character vector of file paths
 
 - lastIsFile:
 
-  Logical; if `TRUE`, the last component of `path` is treated as a file
+  logical; if `TRUE`, the last component of `path` is treated as a file
   name. If `FALSE`, it is treated as part of the directory path. If
   `NULL` (default), the function determines this automatically based on
   whether the path ends with a path separator.
 
 ## Value
 
-A list with the following components:
+A list with the following components (each a vector of the same length
+as `path`):
 
 - normpath:
 
@@ -38,7 +39,7 @@ A list with the following components:
 
 - dirname:
 
-  Directory path including trailing separator.
+  Directory path without drive letter, including trailing separator.
 
 - fullfilename:
 
@@ -46,7 +47,7 @@ A list with the following components:
 
 - fullpath:
 
-  Full directory path (same as `dirname`).
+  Full directory path including drive letter and trailing separator.
 
 - filename:
 
@@ -76,18 +77,17 @@ returned as `NA`.
 [`file_ext`](https://rdrr.io/r/tools/fileutils.html),
 [`file_path_sans_ext`](https://rdrr.io/r/tools/fileutils.html)
 
-Other file.utils: [`buildPath()`](buildPath.md),
+Other file.path: [`buildPath()`](buildPath.md),
 [`fileExistURL()`](fileExistURL.md),
-[`findDownload()`](findDownload.md),
-[`parseSASDatalines()`](parseSASDatalines.md),
-[`pdfManual()`](pdfManual.md)
+[`findDownload()`](findDownload.md), [`isFilePath()`](isFilePath.md),
+[`isURL()`](isURL.md)
 
 ## Examples
 
 ``` r
 splitPath("C:/temp/file.txt")
 #> $normpath
-#> [1] "C:\\temp\\file.txt"
+#> [1] "C:/temp/file.txt"
 #> 
 #> $drive
 #> [1] "C:"
@@ -110,7 +110,7 @@ splitPath("C:/temp/file.txt")
 
 splitPath("/home/user/data.csv")
 #> $normpath
-#> [1] "C:\\home\\user\\data.csv"
+#> [1] "C:/home/user/data.csv"
 #> 
 #> $drive
 #> [1] "C:"
@@ -134,19 +134,19 @@ splitPath("/home/user/data.csv")
 # treat as directory
 splitPath("/home/user/folder/", lastIsFile = FALSE)
 #> $normpath
-#> [1] "C:\\home\\user\\folder\\"
+#> [1] "C:/home/user/folder/"
 #> 
 #> $drive
 #> [1] "C:"
 #> 
 #> $dirname
-#> [1] "/home/user/folder/"
+#> [1] "/home/user/folder//"
 #> 
 #> $fullfilename
 #> [1] NA
 #> 
 #> $fullpath
-#> [1] "C:/home/user/folder/"
+#> [1] "C:/home/user/folder//"
 #> 
 #> $filename
 #> [1] NA

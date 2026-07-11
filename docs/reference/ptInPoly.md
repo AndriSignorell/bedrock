@@ -13,19 +13,19 @@ ptInPoly(x, y, polyX, polyY)
 
 - x:
 
-  Numeric vector of x-coordinates of the query points.
+  numeric vector of x-coordinates of the query points
 
 - y:
 
-  Numeric vector of y-coordinates of the query points.
+  numeric vector of y-coordinates of the query points
 
 - polyX:
 
-  Numeric vector of x-coordinates of the polygon vertices.
+  numeric vector of x-coordinates of the polygon vertices
 
 - polyY:
 
-  Numeric vector of y-coordinates of the polygon vertices.
+  numeric vector of y-coordinates of the polygon vertices
 
 ## Value
 
@@ -49,13 +49,6 @@ implemented in C++ via Rcpp.
 - The polygon is assumed to be non-self-intersecting.
 
 - Numerical robustness is ensured via epsilon-based comparisons.
-
-## See also
-
-Other data.utils: [`binaryTree()`](binaryTree.md),
-[`resolveContingency()`](resolveContingency.md),
-[`resolveFormula()`](resolveFormula.md),
-[`resolveGroups()`](resolveGroups.md)
 
 ## Examples
 

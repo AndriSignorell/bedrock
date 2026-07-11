@@ -7,9 +7,9 @@
 vRot(x, k = 1L)
 }
 \arguments{
-\item{x}{A vector.}
+\item{x}{a vector}
 
-\item{k}{Integer. Number of positions to rotate (default = 1).}
+\item{k}{integer. Number of positions to rotate (default = 1).}
 }
 \value{
 A vector of the same length as \code{x}, rotated cyclically.
@@ -30,21 +30,11 @@ vRot(1:5, -1)
 
 }
 \seealso{
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=locf]{locf()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
+Other vector.reshape:
 \code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+\code{\link[=vShift]{vShift()}}
 }
-\concept{ordering}
-\concept{vector.ops}
+\concept{reshape}
+\concept{shift}
+\concept{vector.reshape}

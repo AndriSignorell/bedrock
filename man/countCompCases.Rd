@@ -7,7 +7,7 @@
 countCompCases(x)
 }
 \arguments{
-\item{x}{a data.frame containing the data.}
+\item{x}{a data.frame containing the data}
 }
 \value{
 A list with three elements. The first gives the number of rows, the
@@ -26,20 +26,9 @@ countCompCases(airquality)
 \code{\link[aurora]{plotMiss}},
 \code{\link{complete.cases}}, \code{\link{is.na}}, \code{\link{na.omit}}
 
-Other data.inspection:
-\code{\link[=allDuplicated]{allDuplicated()}},
-\code{\link[=allIdentical]{allIdentical()}},
-\code{\link{between}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=completeColumns]{completeColumns()}},
-\code{\link[=flags]{flags()}},
-\code{\link[=isDichotomous]{isDichotomous()}},
-\code{\link[=isEuclid]{isEuclid()}},
-\code{\link[=isFilePath]{isFilePath()}},
-\code{\link[=isNumeric]{isNumeric()}},
-\code{\link[=isURL]{isURL()}},
-\code{\link[=isWholeLike]{isWholeLike()}},
-\code{\link[=isZero]{isZero()}}
+Other data.missing:
+\code{\link[=completeColumns]{completeColumns()}}
 }
-\concept{data.inspection}
+\concept{data-inspection}
+\concept{data.missing}
 \concept{missing-value}

@@ -56,12 +56,9 @@ If `FUN` is set to `ceiling` it will always round up, and if set to
 [`ceiling`](https://rdrr.io/r/base/Round.html),
 [`floor`](https://rdrr.io/r/base/Round.html)
 
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`linScale()`](linScale.md), [`logit()`](logit.md),
-[`nUnique()`](nUnique.md), [`percentRank()`](percentRank.md),
-[`precision`](precision.md), [`rankX()`](rankX.md),
-[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
+Other math.basic: [`closest()`](closest.md),
+[`crossProd()`](crossProd.md), [`crossProdN()`](crossProdN.md),
+[`dotProd()`](dotProd.md), [`unirootAll()`](unirootAll.md)
 
 ## Examples
 
@@ -76,8 +73,10 @@ roundTo(1.3, 0.2)  # Rounds 1.3 to a nearest multiple of 0.2 (1.2)
 #> [1] 1.2
 roundTo(-1.3, 0.2) # Rounds -1.3 to a nearest multiple of 0.2 (-1.2)
 #> [1] -1.2
-roundTo(5, -2)     # Returns an error, because -2 and 5 have different signs
-#> [1] 4
+# Different signs of x and multiple raise an error
+try(roundTo(5, -2))
+#> Error in roundTo(5, -2) : 
+#>   a negative `multiple` cannot be combined with positive `x`.
 
 # Round down
 roundTo(c(1,-1) * 1.2335, 0.05, floor)

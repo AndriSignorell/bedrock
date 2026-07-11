@@ -53,9 +53,9 @@ Other combinatorics:
 \code{\link[=combN]{combN()}},
 \code{\link[=combPairs]{combPairs()}},
 \code{\link[=combSet]{combSet()}},
+\code{\link[=pairApply]{pairApply()}},
 \code{\link[=permn]{permn()}},
-\code{\link[=randGroupSplit]{randGroupSplit()}},
-\code{\link[=unwhich]{unwhich()}}
+\code{\link[=randGroupSplit]{randGroupSplit()}}
 }
 \concept{combinatorics}
 \concept{sampling}

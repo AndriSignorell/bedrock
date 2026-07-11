@@ -74,10 +74,9 @@
 #' 
 
 
-#' @family math.utils  
-#' @concept number-formatting
-#'
-#'
+#' @family math.basic
+#' @concept rounding
+#' @concept numerical-methods
 #' @export
 roundTo <- function(x, multiple = 1, FUN = round) {
 

@@ -7,15 +7,15 @@
 revCode(x, min = NULL, max = NULL, na.rm = FALSE)
 }
 \arguments{
-\item{x}{A vector (numeric, logical, or factor).}
+\item{x}{a vector (numeric, logical, or factor)}
 
-\item{min}{Optional numeric minimum. Must be provided together with \code{max}.
+\item{min}{optional numeric minimum. Must be provided together with \code{max}.
 If \code{NULL} (default), the observed minimum of \code{x} is used.}
 
-\item{max}{Optional numeric maximum. Must be provided together with \code{min}.
+\item{max}{optional numeric maximum. Must be provided together with \code{min}.
 If \code{NULL} (default), the observed maximum of \code{x} is used.}
 
-\item{na.rm}{Logical; whether to ignore \code{NA}s when computing the range
+\item{na.rm}{logical; whether to ignore \code{NA}s when computing the range
 (numeric only). If \code{FALSE} and \code{NA}s are present, a warning is
 issued and \code{NA} is returned for all values. Default is \code{FALSE}.}
 }
@@ -57,29 +57,15 @@ revCode(x)
 
 }
 \seealso{
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+Other data.recode:
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
+\code{\link[=mReplace]{mReplace()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=stringsAsFactors]{stringsAsFactors()}}
 }
 \concept{categorization}
-\concept{data.manipulation}
+\concept{data.recode}
+\concept{recoding}

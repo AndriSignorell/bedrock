@@ -11,11 +11,11 @@
 #' otherwise the shorter one consumes its characters before the longer
 #' one is considered.
 #'
-#' @param x A character vector in which substitutions are performed.
-#' @param patterns A character vector of substrings to search for
-#'   (\code{fixed = TRUE}).
-#' @param replacements A character vector of replacement strings,
-#'   in the same order as \code{patterns}.
+#' @param x a character vector in which substitutions are performed
+#' @param patterns a character vector of substrings to search for
+#'   (\code{fixed = TRUE})
+#' @param replacements a character vector of replacement strings,
+#'   in the same order as \code{patterns}
 #'
 #' @return A character vector of the same length as \code{x}.
 #'
@@ -31,8 +31,9 @@
 #'
 #' @seealso \code{\link{mReplace}} for exact whole-element replacement.
 #'
-#' @family string
+#' @family string.transform
 #' @concept string-manipulation
+#' @concept recoding
 #' @export
 mGsub <- function(x, patterns, replacements) {
 

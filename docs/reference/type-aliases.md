@@ -33,7 +33,7 @@ bin(x, ...)
 
   further arguments passed to the underlying base function
   (`as.numeric`, `as.integer`, `as.character`, or
-  [`asBinary`](asBinary.md)).
+  [`asBinary`](asBinary.md))
 
 ## Value
 
@@ -69,7 +69,10 @@ A vector of the target type and the same length as `x`.
 
 ## See also
 
-[`asBinary()`](asBinary.md)
+[`nf()`](nf.md), [`asBinary()`](asBinary.md)
+
+Other data.coerce: [`as.array.xtabs()`](as.array.xtabs.md),
+[`toBaseR()`](toBaseR.md)
 
 ## Examples
 

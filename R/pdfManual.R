@@ -9,7 +9,7 @@
 #' A warning (not an error) is issued if the package is not installed
 #' locally, as the manual may well exist on CRAN anyway.
 #'
-#' @param package Package name (symbol or character).
+#' @param package package name (symbol or character)
 #'
 #' @return The URL of the PDF manual, invisibly. Called for its side effect
 #'   of opening the browser.
@@ -22,8 +22,9 @@
 #' pdfManual("bedrock")
 #' }
 #'
-#' @family file.utils
-#' @concept programming
+#' @family file.io
+#' @concept file-io
+#' @concept introspection
 #' @export
 pdfManual <- function(package) {
 

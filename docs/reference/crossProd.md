@@ -14,16 +14,16 @@ crossProd(x, y, orientation = c("rows", "cols"))
 
 - x:
 
-  A numeric or complex vector of length 3, or a matrix with one
-  dimension of length 3.
+  a numeric or complex vector of length 3, or a matrix with one
+  dimension of length 3
 
 - y:
 
-  A numeric or complex vector or matrix with the same dimensions as `x`.
+  a numeric or complex vector or matrix with the same dimensions as `x`
 
 - orientation:
 
-  Character string specifying whether vectors are stored in rows or
+  character string specifying whether vectors are stored in rows or
   columns when matrices are supplied. Must be one of `"rows"` or
   `"cols"`. Ignored if `x` and `y` are vectors.
 
@@ -31,7 +31,9 @@ crossProd(x, y, orientation = c("rows", "cols"))
 
 - A vector of length 3 if inputs are vectors.
 
-- A matrix with propagated dimension names if matrices are supplied.
+- A matrix if matrices are supplied. Dimension names along the vector
+  axis are propagated from `x`, the component axis is labelled `x`, `y`,
+  `z`.
 
 ## Details
 
@@ -52,12 +54,9 @@ apply.
 
 ## See also
 
-Other math.utils: [`crossProdN()`](crossProdN.md),
-[`dotProd()`](dotProd.md), [`linScale()`](linScale.md),
-[`logit()`](logit.md), [`nUnique()`](nUnique.md),
-[`percentRank()`](percentRank.md), [`precision`](precision.md),
-[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
-[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
+Other math.basic: [`closest()`](closest.md),
+[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
+[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
 
 ## Examples
 

@@ -37,16 +37,13 @@ New S Language}. Wadsworth & Brooks/Cole.
 \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}},
 \code{\link{getNamespaceExports}}
 
-Other pkg.introspection:
-\code{\link[=extractArgs]{extractArgs()}},
+Other pkg.funinfo:
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},
-\code{\link[=getDotsArg]{getDotsArg()}},
-\code{\link[=mergeArgs]{mergeArgs()}},
 \code{\link[=rdLabels]{rdLabels()}},
-\code{\link[=rdTitle]{rdTitle()}},
-\code{\link[=strX]{strX()}}
+\code{\link[=rdTitle]{rdTitle()}}
 }
 \concept{introspection}
-\concept{pkg.introspection}
+\concept{pkg.funinfo}
+\concept{programming}

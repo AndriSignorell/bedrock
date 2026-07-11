@@ -7,14 +7,14 @@
 appendRowNames(x, colName = "rowname", after = 0L, removeRowNames = TRUE)
 }
 \arguments{
-\item{x}{A data.frame or matrix.}
+\item{x}{a data.frame or matrix}
 
-\item{colName}{Name of the new column containing the row names.}
+\item{colName}{name of the new column containing the row names}
 
-\item{after}{Position after which the column is inserted.
+\item{after}{position after which the column is inserted.
 Default is 0 (first column).}
 
-\item{removeRowNames}{Logical; if TRUE, existing row names are removed.}
+\item{removeRowNames}{logical; if TRUE, existing row names are removed}
 }
 \value{
 An object of the same class as \code{x} with the row names added
@@ -32,31 +32,13 @@ appendRowNames(dd)
 
 }
 \seealso{
-\code{\link{appendX}}, \code{\link{append}}
+\code{\link{append}}
 
-Other data.manipulation:
+Other data.append:
 \code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
-\code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
-\code{\link[=combLevels]{combLevels()}},
-\code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
-\code{\link[=nf]{nf()}},
-\code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=multMerge]{multMerge()}}
 }
-\concept{data.manipulation}
+\concept{append}
+\concept{data.append}
 \concept{table}

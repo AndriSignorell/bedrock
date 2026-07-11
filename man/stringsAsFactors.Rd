@@ -10,7 +10,7 @@ stringsAsFactors(x, columns = NULL)
 \item{x}{the data.frame}
 
 \item{columns}{names or indexes of the columns to be converted;
-negative values can be used to omit columns.}
+negative values can be used to omit columns}
 }
 \value{
 the given data.frame including the converted factors
@@ -38,29 +38,15 @@ str(stringsAsFactors(d.dat, columns = -2))
 
 }
 \seealso{
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+Other data.recode:
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
+\code{\link[=mReplace]{mReplace()}},
 \code{\link[=nf]{nf()}},
 \code{\link[=recodeX]{recodeX()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
-\code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=revCode]{revCode()}}
 }
 \concept{categorization}
-\concept{data.manipulation}
+\concept{data.recode}
+\concept{type-coercion}

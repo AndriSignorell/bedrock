@@ -4,11 +4,11 @@
 #' Returns the formal arguments of a function together with their default
 #' values.
 #'
-#' @param fun Function object or function name.
-#' @param package Optional package name used to resolve \code{fun}.
-#' @param sorted Logical; should arguments be sorted alphabetically?
+#' @param fun function object or function name
+#' @param package optional package name used to resolve \code{fun}
+#' @param sorted logical; should arguments be sorted alphabetically?
 #'   \code{...} is always kept last. Ignored when \code{output = "list"}.
-#' @param output Character string specifying the output format:
+#' @param output character string specifying the output format:
 #'   \itemize{
 #'     \item \code{"data.frame"} (default): return a data frame.
 #'     \item \code{"list"}: return a named list of formal arguments.
@@ -36,8 +36,9 @@
 #'
 #' cat(funArgs("combN", output = "string"))
 #'
-#' @family pkg.introspection
+#' @family pkg.funinfo
 #' @concept introspection
+#' @concept programming
 #' @export
 funArgs <- function(fun,
                     package = NULL,

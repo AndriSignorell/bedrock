@@ -7,12 +7,12 @@
 isDichotomous(x, strict = FALSE, na.rm = FALSE)
 }
 \arguments{
-\item{x}{A vector.}
+\item{x}{a vector}
 
-\item{strict}{Logical. If \code{TRUE}, exactly two distinct values must
+\item{strict}{logical. If \code{TRUE}, exactly two distinct values must
 be present. If \code{FALSE} (default), at most two distinct values are allowed.}
 
-\item{na.rm}{Logical. If \code{TRUE}, missing values are removed before
+\item{na.rm}{logical. If \code{TRUE}, missing values are removed before
 evaluation. If \code{FALSE} (default), the presence of \code{NA} results
 in \code{NA} (indeterminate status).}
 }
@@ -35,20 +35,15 @@ isDichotomous(factor(c("A", "A", "B", "C")))
 
 }
 \seealso{
-Other data.inspection:
-\code{\link[=allDuplicated]{allDuplicated()}},
-\code{\link[=allIdentical]{allIdentical()}},
-\code{\link{between}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=completeColumns]{completeColumns()}},
-\code{\link[=countCompCases]{countCompCases()}},
+Other data.predicate:
 \code{\link[=flags]{flags()}},
 \code{\link[=isEuclid]{isEuclid()}},
-\code{\link[=isFilePath]{isFilePath()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=isNumeric]{isNumeric()}},
-\code{\link[=isURL]{isURL()}},
 \code{\link[=isWholeLike]{isWholeLike()}},
-\code{\link[=isZero]{isZero()}}
+\code{\link[=isZero]{isZero()}},
+\code{\link[=nUnique]{nUnique()}}
 }
 \concept{binary}
-\concept{data.inspection}
+\concept{data.predicate}
+\concept{type-test}

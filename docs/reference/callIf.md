@@ -15,11 +15,11 @@ callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
 
 - fun:
 
-  A function to be called.
+  a function to be called
 
 - arg:
 
-  Controls whether and how `fun` is called:
+  controls whether and how `fun` is called:
 
   - `FALSE`, `NULL`, or `NA`: `fun` is not called and `NULL` is returned
     invisibly.
@@ -27,24 +27,24 @@ callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
   - `TRUE`: `fun` is called with `defaults` (if provided), or with no
     arguments.
 
-  - A named list: `fun` is called with the list elements as arguments.
-    If `defaults` is provided, it is merged with `arg`, where elements
-    of `arg` override those in `defaults`.
+  - A fully named list: `fun` is called with the list elements as
+    arguments. If `defaults` is provided, it is merged with `arg`, where
+    elements of `arg` override those in `defaults`.
 
 - defaults:
 
-  A named list of default arguments passed to `fun` when `arg = TRUE`,
+  a named list of default arguments passed to `fun` when `arg = TRUE`,
   or used as a base when `arg` is a list. Default is `NULL`.
 
 - forbidden:
 
-  Optional character vector of argument names that are not allowed. If
+  optional character vector of argument names that are not allowed. If
   any of these appear in `arg`, they are removed before calling `fun`. A
   warning is issued unless `warn = FALSE`.
 
 - warn:
 
-  Logical. If `TRUE` (default), a warning is issued when forbidden
+  logical. If `TRUE` (default), a warning is issued when forbidden
   arguments are removed.
 
 ## Value
@@ -62,13 +62,17 @@ This function implements a flexible pattern for optional function calls:
 
 - Provide safe defaults and restrict certain arguments
 
-The merging of `defaults` and `arg` is performed using
-[`modifyList`](https://rdrr.io/r/utils/modifyList.html), where
-user-supplied arguments take precedence.
+When merging `defaults` and `arg`, user-supplied arguments take
+precedence. Unlike
+[`modifyList`](https://rdrr.io/r/utils/modifyList.html), elements with
+the value `NULL` are preserved and passed on to `fun` (so that an
+explicit `NULL` can be used to reset an argument).
 
 ## See also
 
-Other utilities: [`isNA()`](isNA.md)
+Other pkg.args: [`extractArgs()`](extractArgs.md),
+[`getDotsArg()`](getDotsArg.md), [`mergeArgs()`](mergeArgs.md),
+[`recycle()`](recycle.md)
 
 ## Examples
 

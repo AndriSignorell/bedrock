@@ -6,24 +6,24 @@
 \usage{
 unwhich(
   idx,
-  n = if (length(idx) > 0L && all(idx > 0L)) max(idx) else 0L,
+  n = if (length(idx) > 0L && !anyNA(idx) && all(idx > 0L)) max(idx) else 0L,
   useNames = TRUE
 )
 }
 \arguments{
-\item{idx}{A vector of non-zero whole-number indices.  Positive
+\item{idx}{a vector of non-zero whole-number indices.  Positive
 values mark \code{TRUE} positions; negative values mark
 \code{FALSE} positions (all others become \code{TRUE}).  As in base
 R, positive and negative indices must not be mixed.  Duplicate
 indices are allowed and result in a single \code{TRUE} (or
 \code{FALSE}) at that position.}
 
-\item{n}{A single non-negative whole number giving the length of
+\item{n}{a single non-negative whole number giving the length of
 the result.  For positive \code{idx}, defaults to \code{max(idx)};
 for negative or empty \code{idx}, defaults to \code{0L}.  Must not
 be less than \code{max(abs(idx))}.}
 
-\item{useNames}{Logical.  If \code{TRUE} (default) \emph{and}
+\item{useNames}{logical.  If \code{TRUE} (default) \emph{and}
 \code{idx} has names, those names are attached to the corresponding
 \code{TRUE} positions of the result; all other positions receive an
 empty string.  If \code{FALSE} or \code{idx} is unnamed, the result
@@ -45,7 +45,9 @@ returns a vector with \code{TRUE} everywhere \emph{except} position 2.
 Positive and negative indices must not be mixed.
 }
 \note{
-Based on code by Nick Sabbe.
+The positive-index construction (\code{rv[indices] <- TRUE} with name
+propagation) is based on code by Nick Sabbe; negative-index handling
+and input validation are original additions.
 }
 \examples{
 ll <- c(TRUE, FALSE, TRUE, NA, FALSE, FALSE, TRUE)
@@ -72,13 +74,9 @@ Sabbe, N. (2012). Inverse of \code{which}.
 \seealso{
 \code{\link{which}}
 
-Other combinatorics:
-\code{\link[=combN]{combN()}},
-\code{\link[=combPairs]{combPairs()}},
-\code{\link[=combSet]{combSet()}},
-\code{\link[=permn]{permn()}},
-\code{\link[=randGroupSplit]{randGroupSplit()}},
-\code{\link[=sampleX]{sampleX()}}
+Other vector.utils:
+\code{\link[=nz]{nz()}}
 }
-\concept{combinatorics}
-\concept{ordering}
+\concept{data-inspection}
+\concept{indexing}
+\concept{vector.utils}

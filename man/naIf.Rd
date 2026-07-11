@@ -7,9 +7,9 @@
 naIf(x, values)
 }
 \arguments{
-\item{x}{A vector.}
+\item{x}{a vector}
 
-\item{values}{Values to be replaced by \code{NA}.}
+\item{values}{values to be replaced by \code{NA}}
 }
 \value{
 A vector of the same type as \code{x}.
@@ -25,23 +25,12 @@ naIf(c("a", "b", "n/a", ""), c("n/a", ""))
 
 }
 \seealso{
-\code{\link{coalesceX}}
-
-Other vector.ops:
-\code{\link[=closest]{closest()}},
+Other vector.na:
 \code{\link[=coalesceX]{coalesceX()}},
+\code{\link[=isNA]{isNA()}},
 \code{\link[=locf]{locf()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+\code{\link[=naReplace]{naReplace()}}
 }
+\concept{data-inspection}
 \concept{missing-value}
-\concept{vector.ops}
+\concept{vector.na}

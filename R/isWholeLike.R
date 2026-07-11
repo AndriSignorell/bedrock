@@ -11,15 +11,15 @@
 #' with \code{isNonNegative = TRUE}, both parts must additionally be
 #' non-negative.
 #'
-#' @param x A numeric, integer, or complex vector.
-#' @param all Logical. If \code{TRUE} (default), returns a single logical
+#' @param x a numeric, integer, or complex vector
+#' @param all logical. If \code{TRUE} (default), returns a single logical
 #'   indicating whether all elements are whole-like. If \code{FALSE},
 #'   returns a logical vector of the same length as \code{x}.
-#' @param isNonNegative Logical. If \code{TRUE}, additionally requires values
+#' @param isNonNegative logical. If \code{TRUE}, additionally requires values
 #'   to be non-negative.
-#' @param tol Numerical tolerance for comparing to the nearest integer.
+#' @param tol numerical tolerance for comparing to the nearest integer.
 #'   Default is \code{sqrt(.Machine$double.eps)}.
-#' @param na.rm Logical. If \code{TRUE}, missing values are removed before
+#' @param na.rm logical. If \code{TRUE}, missing values are removed before
 #'   testing. If \code{FALSE} (default) and \code{x} contains \code{NA},
 #'   the result is \code{FALSE}.
 #'
@@ -34,8 +34,9 @@
 #' isWholeLike(c(1, -2), isNonNegative = TRUE)
 #' isWholeLike(1:5 + 0i)
 #'
-#' @family data.inspection
-#' @concept ordering
+#' @family data.predicate
+#' @concept type-test
+#' @concept data-inspection
 #' @export
 isWholeLike <- function(x,
                         all = TRUE,

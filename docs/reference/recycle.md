@@ -12,7 +12,7 @@ recycle(..., maxdim = NULL, strict = FALSE)
 
 - ...:
 
-  a number of vectors of elements.
+  a number of vectors of elements
 
 - maxdim:
 
@@ -21,30 +21,30 @@ recycle(..., maxdim = NULL, strict = FALSE)
 
 - strict:
 
-  defines if number of arguments must be 1 or maxdim.
+  logical, if `TRUE` each element must have length 1 or `maxdim`, so
+  that no partial recycling (or truncation) can occur. Default is
+  `FALSE`.
 
 ## Value
 
 a list of the supplied elements  
 `attr(,"maxdim")` contains the maximal dimension of the recycled list
 
+## Details
+
+If `maxdim` is smaller than the length of an element, that element is
+truncated to the first `maxdim` values. Zero-length elements are
+recycled to `NA` vectors of length `maxdim`. Both situations are
+rejected when `strict = TRUE`.
+
 ## See also
 
 [`rep`](https://rdrr.io/r/base/rep.html),
 [`replicate`](https://rdrr.io/r/base/lapply.html)
 
-Other data.manipulation: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md),
-[`as.array.xtabs()`](as.array.xtabs.md), [`asBinary()`](asBinary.md),
-[`asCDateFmt()`](asCDateFmt.md), [`columnWrap()`](columnWrap.md),
-[`combLevels()`](combLevels.md),
-[`compareDataFrames()`](compareDataFrames.md), [`dummy()`](dummy.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`renameX()`](renameX.md),
-[`revCode()`](revCode.md), [`revX()`](revX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md), [`sortX()`](sortX.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`stringsAsFactors()`](stringsAsFactors.md), [`toBaseR()`](toBaseR.md)
+Other pkg.args: [`callIf()`](callIf.md),
+[`extractArgs()`](extractArgs.md), [`getDotsArg()`](getDotsArg.md),
+[`mergeArgs()`](mergeArgs.md)
 
 ## Examples
 

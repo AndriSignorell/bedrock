@@ -25,7 +25,7 @@ values are required.}
 
 \item{...}{further arguments passed to the underlying base function
 (\code{as.numeric}, \code{as.integer}, \code{as.character}, or
-\code{\link{asBinary}}).}
+\code{\link{asBinary}})}
 }
 \value{
 A vector of the target type and the same length as \code{x}.
@@ -66,5 +66,12 @@ bin(factor(c("m", "w", "m")))        # "m" -> FALSE, "w" -> TRUE
 
 }
 \seealso{
-\code{\link{asBinary}()}
+\code{\link[=nf]{nf()}}, \code{\link[=asBinary]{asBinary()}}
+
+Other data.coerce:
+\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+\code{\link[=toBaseR]{toBaseR()}}
 }
+\concept{data.coerce}
+\concept{programming}
+\concept{type-coercion}

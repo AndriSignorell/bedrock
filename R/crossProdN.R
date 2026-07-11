@@ -25,8 +25,8 @@
 #' is fixed by the convention that the first component with non-zero modulus
 #' has a positive real part.
 #'
-#' @param A A numeric or complex vector of length 2, or a matrix of dimension
-#'   \eqn{n x (n+1)}.
+#' @param A a numeric or complex vector of length 2, or a matrix of dimension
+#'   \eqn{n x (n+1)}
 #'
 #' @return A numeric or complex vector of length \eqn{n+1}.
 #'
@@ -42,7 +42,8 @@
 #' # swapping rows flips the sign (anticommutativity)
 #' crossProdN(A[2:1, ])
 #'
-#' @family math.utils
+#' @family math.basic
+#' @concept linear-algebra
 #' @concept numerical-methods
 #' @export
 crossProdN <- function(A) {

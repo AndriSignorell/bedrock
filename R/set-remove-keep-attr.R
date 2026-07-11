@@ -6,16 +6,16 @@
 #'
 #' @name setAttr-removeAttr-keepAttr
 #'
-#' @param x Object to modify
-#' @param attrNames Character vector of attribute names
-#' @param attrValues Values for the attributes (only for setting). For a
+#' @param x object to modify
+#' @param attrNames character vector of attribute names
+#' @param attrValues values for the attributes (only for setting). For a
 #'   single attribute name, \code{attrValues} is taken as the value itself
 #'   (which may be a vector). For several names, supply one value per name;
 #'   use a list for non-scalar or mixed-type values.
 #'
 #' @return Modified object
 #'
-#' @seealso \code{\link{setNamesX}}, \code{\link{unname}}
+#' @seealso [stats::setNames], [base::unname]
 #'
 #' @examples
 #' x <- runif(10)
@@ -45,9 +45,10 @@ NULL
 
 
 #' @rdname setAttr-removeAttr-keepAttr
-#' @family data.manipulation
-#' @concept attribute
 
+#' @family label.attrs
+#' @concept attribute
+#' @concept programming
 #' @export
 setAttr <- function(x, attrNames, attrValues) {
 
@@ -77,6 +78,9 @@ setAttr <- function(x, attrNames, attrValues) {
 
 
 #' @rdname setAttr-removeAttr-keepAttr
+#' @family label.attrs
+#' @concept attribute
+#' @concept programming
 #' @export
 removeAttr <- function(x, attrNames = NULL) {
   
@@ -93,6 +97,9 @@ removeAttr <- function(x, attrNames = NULL) {
 
 
 #' @rdname setAttr-removeAttr-keepAttr
+#' @family label.attrs
+#' @concept attribute
+#' @concept programming
 #' @export
 keepAttr <- function(x, attrNames) {
   # remove all attributes except those listed in attrNames

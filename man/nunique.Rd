@@ -7,9 +7,9 @@
 nUnique(x, na.rm = FALSE)
 }
 \arguments{
-\item{x}{A vector.}
+\item{x}{a vector}
 
-\item{na.rm}{Logical. Should missing values (\code{NA}) be removed before
+\item{na.rm}{logical. Should missing values (\code{NA}) be removed before
 counting unique values? Defaults to \code{FALSE}.}
 }
 \value{
@@ -27,22 +27,18 @@ nUnique(c(1, 1, 2, NA), na.rm = TRUE)
 
 }
 \seealso{
-\code{\link[=isLowCardinality]{isLowCardinality()}} to check whether \code{x} has at most a given
+\code{\link[base:nlevels]{base::nlevels()}}, \code{\link[=isLowCardinality]{isLowCardinality()}} to check whether \code{x} has at most a given
 number of unique values, without counting all of them first.
 
-Other math.utils:
-\code{\link[=crossProd]{crossProd()}},
-\code{\link[=crossProdN]{crossProdN()}},
-\code{\link[=dotProd]{dotProd()}},
+Other data.predicate:
+\code{\link[=flags]{flags()}},
+\code{\link[=isDichotomous]{isDichotomous()}},
+\code{\link[=isEuclid]{isEuclid()}},
 \code{\link[=isLowCardinality]{isLowCardinality()}},
-\code{\link[=linScale]{linScale()}},
-\code{\link[=logit]{logit()}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=rankX]{rankX()}},
-\code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
+\code{\link[=isNumeric]{isNumeric()}},
+\code{\link[=isWholeLike]{isWholeLike()}},
+\code{\link[=isZero]{isZero()}}
 }
-\concept{math.utils}
-\concept{ordering}
+\concept{cardinality}
+\concept{data-inspection}
+\concept{data.predicate}

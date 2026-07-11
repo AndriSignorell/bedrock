@@ -23,13 +23,13 @@ returned as \code{character} again.}
 named with the new level:\cr \code{newlevel_a = c("old_a", "old_b"),
 }\cr\code{newlevel_b = c("old_c", "old_d")}\cr See examples.}
 
-\item{keep}{vector of levels that should be left untouched.}
+\item{keep}{vector of levels that should be left untouched}
 
 \item{elseLevel}{the value for levels, which are not matched by newlevel
 list.  If this is set to \code{NULL}, the elseLevels will be left unchanged.
 If set to \code{NA} (default) non matched levels will be set to \code{NA}.}
 
-\item{ref}{the reference level, typically a string.}
+\item{ref}{the reference level, typically a string}
 
 \item{useEmpty}{logical. Defines how a new level, which can't be found in
 x, should be handled.  Should it be left in the level's list or be dropped?
@@ -119,30 +119,16 @@ recodeX(likert, "1"=1:6, "2"=7:8, "5"=9:10, num=TRUE)
 \code{\link{reorder}}\cr There's another solution for this problem in the
 package \bold{car}.
 
-Other data.manipulation:
-\code{\link[=appendEnum]{appendEnum()}},
-\code{\link[=appendRowNames]{appendRowNames()}},
-\code{\link[=appendX]{appendX()}},
-\code{\link[=as.array.xtabs]{as.array.xtabs()}},
+Other data.recode:
 \code{\link[=asBinary]{asBinary()}},
-\code{\link[=columnWrap]{columnWrap()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
-\code{\link{long-wide-reshape}},
-\code{\link[=multMerge]{multMerge()}},
+\code{\link[=mReplace]{mReplace()}},
 \code{\link[=nf]{nf()}},
-\code{\link[=recycle]{recycle()}},
-\code{\link[=renameX]{renameX()}},
 \code{\link[=revCode]{revCode()}},
-\code{\link[=revX]{revX()}},
-\code{\link{setAttr-removeAttr-keepAttr}},
-\code{\link[=setNamesX]{setNamesX()}},
-\code{\link[=sortX]{sortX()}},
-\code{\link[=splitAt]{splitAt()}},
-\code{\link[=splitX]{splitX()}},
-\code{\link[=stringsAsFactors]{stringsAsFactors()}},
-\code{\link[=toBaseR]{toBaseR()}}
+\code{\link[=stringsAsFactors]{stringsAsFactors()}}
 }
 \concept{categorization}
-\concept{data.manipulation}
+\concept{data.recode}
+\concept{recoding}
 \keyword{manip}

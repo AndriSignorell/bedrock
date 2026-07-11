@@ -14,17 +14,17 @@ collapseTable(x, ..., strict = TRUE)
 
 - x:
 
-  A `table` or `ftable` object with named dimensions.
+  a `table` or `ftable` object with named dimensions
 
 - ...:
 
-  Named or unnamed mapping vectors specifying how levels of each
+  named or unnamed mapping vectors specifying how levels of each
   dimension should be collapsed. Each mapping vector must have length
   equal to the number of levels in the corresponding dimension.
 
 - strict:
 
-  Logical (default `TRUE`). Controls error handling.
+  logical (default `TRUE`). Controls error handling.
 
 ## Value
 
@@ -69,12 +69,33 @@ occurrence of each value in the mapping vector.
 
 ## See also
 
-Other table.utils: [`multMerge()`](multMerge.md),
-[`printCharMatrix()`](printCharMatrix.md)
+Other data.reshape: [`long-wide-reshape`](long-wide-reshape.md),
+[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
+[`untable()`](untable.md)
 
 ## Examples
 
 ``` r
-# Example usage (assuming suitable table 'tab')
-# collapseTable(tab, age = c("young", "adult", "adult"))
+tab <- xtabs(~ gear + cyl, data = mtcars)
+tab
+#>     cyl
+#> gear  4  6  8
+#>    3  1  2 12
+#>    4  8  4  0
+#>    5  2  1  2
+
+# merge the 4- and 6-cylinder categories
+collapseTable(tab, cyl = c("le6", "le6", "8"))
+#>     cyl
+#> gear le6  8
+#>    3   3 12
+#>    4  12  0
+#>    5   3  2
+
+# positional assignment (first dimension), silent with strict = FALSE
+collapseTable(tab, c("3-4", "3-4", "5"), strict = FALSE)
+#>      cyl
+#> gear   4  6  8
+#>   3-4  9  6 12
+#>   5    2  1  2
 ```

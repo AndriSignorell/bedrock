@@ -7,10 +7,10 @@
 peekFile(file, n = 10, ..., output = c("data.frame", "tibble"))
 }
 \arguments{
-\item{file}{character string specifying the file name.}
+\item{file}{character string specifying the file name}
 
 \item{n}{integer specifying the number of data rows to read,
-defaults to 10.}
+defaults to 10}
 
 \item{\dots}{additional arguments passed to
 \code{readr::read_delim()}, e.g. \code{delim} or \code{skip}.
@@ -53,16 +53,11 @@ peekFile("data.csv", n = 10, guess_max = 1000)
 \seealso{
 \code{\link[readr]{read_delim}}, \code{\link{toBaseR}}
 
-Other file.utils:
-\code{\link[=buildPath]{buildPath()}},
-\code{\link[=fileExistURL]{fileExistURL()}},
-\code{\link[=findDownload]{findDownload()}},
+Other file.io:
 \code{\link[=parseSASDatalines]{parseSASDatalines()}},
 \code{\link[=pdfManual]{pdfManual()}},
-\code{\link[=splitPath]{splitPath()}}
+\code{\link[=readDownload]{readDownload()}}
 }
-\author{
-Andri Signorell \href{mailto:andri@signorell.net}{andri@signorell.net}
-}
+\concept{data-inspection}
 \concept{file-io}
-\concept{file.utils}
+\concept{file.io}

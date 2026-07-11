@@ -18,17 +18,17 @@ moveAvg(
 
 - x:
 
-  A univariate numeric vector or `ts` object. Matrices and multi-column
+  a univariate numeric vector or `ts` object. Matrices and multi-column
   objects are not supported.
 
 - order:
 
-  A single positive integer giving the window width. Must satisfy
+  a single positive integer giving the window width. Must satisfy
   `1 <= order <= length(x)`.
 
 - align:
 
-  A character string controlling how the window is positioned relative
+  a character string controlling how the window is positioned relative
   to each output value:
 
   `"center"`
@@ -48,7 +48,7 @@ moveAvg(
 
 - endrule:
 
-  A character string indicating how boundary values (where a full window
+  a character string indicating how boundary values (where a full window
   is unavailable) are handled:
 
   `"NA"`
@@ -85,7 +85,7 @@ depends on `align`.
 For even `order`, centering is ambiguous. This implementation averages
 the two adjacent right-aligned windows of width `order`, which is the
 convention used by
-[`ma`](https://pkg.robjhyndman.com/forecast/reference/ma.html).
+[`forecast::ma()`](https://pkg.robjhyndman.com/forecast/reference/ma.html).
 
 **Boundary handling (`endrule = "trim"`)**
 
@@ -103,15 +103,11 @@ There is no `na.rm` option; pre-filter with `x[!is.na(x)]` if needed
 
 ## See also
 
-[`runmean`](https://rdrr.io/pkg/caTools/man/runmean.html),
-[`ma`](https://pkg.robjhyndman.com/forecast/reference/ma.html)
+[`zoo::rollmean()`](https://rdrr.io/pkg/zoo/man/rollmean.html),
+[`forecast::ma()`](https://pkg.robjhyndman.com/forecast/reference/ma.html),
+[`stats::runmed()`](https://rdrr.io/r/stats/runmed.html)
 
-Other vector.ops: [`closest()`](closest.md),
-[`coalesceX()`](coalesceX.md), [`locf()`](locf.md), [`midx()`](midx.md),
-[`naIf()`](naIf.md), [`naReplace()`](naReplace.md), [`nz()`](nz.md),
-[`pairApply()`](pairApply.md), [`setLength()`](setLength.md),
-[`trim()`](trim.md), [`vRot()`](vRot.md), [`vShift()`](vShift.md),
-[`winsorize()`](winsorize.md)
+Other vector.window: [`midx()`](midx.md), [`quot()`](quot.md)
 
 ## Examples
 

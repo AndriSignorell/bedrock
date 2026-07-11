@@ -1,9 +1,10 @@
-# Fractional Part and Maximal Digits of a Numeric Value
+# Precision, Decimal Places and Fractional Part of a Numeric Value
 
-`frac()` returns the fractional part of a numeric value. `maxDigits()`
-return the number of digits in `x`.  
 `nDec()` returns the number of decimals.  
-`prec()` returns the precision of a number `x`.
+`prec()` returns the precision of a number x, i.e. the smallest
+positional value of its last significant digit (e.g. 0.001 for 3.142).  
+`frac()` returns the fractional part of a numeric value.  
+`maxDigits()` returns the maximal number of decimal digits in `x`.
 
 ## Usage
 
@@ -30,18 +31,24 @@ maxDigits(x)
   with. The result will be returned rounded to integer. Defaults to `NA`
   and will then be ignored.
 
+## Value
+
+- `nDec()`: an integer vector of the same length as `x`; `NA` elements
+  yield `NA`.
+
+- `prec()`: a single numeric value, the finest precision found across
+  all (non-missing) elements of `x`. Returns 1 if all values are zero
+  and `NA` if no non-missing values are left.
+
+- `frac()`: a numeric vector of the same length as `x`.
+
+- `maxDigits()`: a single integer value.
+
 ## See also
 
 [`format.info`](https://rdrr.io/r/base/format.info.html),
 [`as.integer`](https://rdrr.io/r/base/integer.html),
 [`trunc`](https://rdrr.io/r/base/Round.html)
-
-Other math.utils: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`linScale()`](linScale.md), [`logit()`](logit.md),
-[`nUnique()`](nUnique.md), [`percentRank()`](percentRank.md),
-[`rankX()`](rankX.md), [`roundTo()`](roundTo.md),
-[`unirootAll()`](unirootAll.md), [`untable()`](untable.md)
 
 ## Examples
 

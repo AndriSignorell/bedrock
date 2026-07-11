@@ -7,10 +7,10 @@
 isEuclid(distmat, tol = 0.0000001)
 }
 \arguments{
-\item{distmat}{An object of class \code{dist}.}
+\item{distmat}{an object of class \code{dist}}
 
-\item{tol}{Numeric tolerance for detecting negative eigenvalues,
-relative to the largest absolute eigenvalue.}
+\item{tol}{numeric tolerance for detecting negative eigenvalues,
+relative to the largest absolute eigenvalue}
 }
 \value{
 A logical scalar. Returns \code{TRUE} if the distance matrix is
@@ -48,20 +48,15 @@ attr(res, "minEigenvalue")
 
 }
 \seealso{
-Other data.inspection:
-\code{\link[=allDuplicated]{allDuplicated()}},
-\code{\link[=allIdentical]{allIdentical()}},
-\code{\link{between}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=completeColumns]{completeColumns()}},
-\code{\link[=countCompCases]{countCompCases()}},
+Other data.predicate:
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},
-\code{\link[=isFilePath]{isFilePath()}},
+\code{\link[=isLowCardinality]{isLowCardinality()}},
 \code{\link[=isNumeric]{isNumeric()}},
-\code{\link[=isURL]{isURL()}},
 \code{\link[=isWholeLike]{isWholeLike()}},
-\code{\link[=isZero]{isZero()}}
+\code{\link[=isZero]{isZero()}},
+\code{\link[=nUnique]{nUnique()}}
 }
-\concept{data.inspection}
-\concept{ordering}
+\concept{data.predicate}
+\concept{geometry}
+\concept{type-test}

@@ -5,13 +5,13 @@
 #' Optionally processes a documentation sheet to assign variable labels and
 #' convert variables into factors with labeled levels.
 #'
-#' @param name Character string. File name including extension (e.g. \code{"data.xlsx"}).
-#' @param url Character string. Base URL where the file is located.
+#' @param name character string. File name including extension (e.g. \code{"data.xlsx"}).
+#' @param url character string. Base URL where the file is located.
 #'   Defaults to \url{https://www.signorell.net/hwz/datasets/}.
-#' @param doc List or \code{NA}. Defines the structure of the documentation sheet.
+#' @param doc list or \code{NA}. Defines the structure of the documentation sheet.
 #'   If \code{NULL}, the function tries to detect a sheet named \code{"Description"}.
 #'   If \code{NA}, no metadata processing is performed.
-#' @param ... Additional arguments passed to \code{readxl::read_excel()}.
+#' @param ... additional arguments passed to \code{readxl::read_excel()}
 #'
 #' @return
 #' A \code{data.frame} containing the imported data. If metadata is available:
@@ -47,9 +47,9 @@
 #' }
 #'
 #'
-#' @family label.utils
+#' @family label.import
 #' @concept label
-#' @concept attribute
+#' @concept file-io
 #' @export
 openDataObject <- function(name, url = NULL, doc = NULL, ...) {
 

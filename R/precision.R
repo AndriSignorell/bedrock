@@ -44,8 +44,9 @@
 #' nDec(x)
 #' prec(as.numeric(x))
 #'
-#' @family math.utils
-#' @concept number-formatting
+#' @family math.precision
+#' @concept precision
+#' @concept numerical-methods
 #' @export
 nDec <- function(x) {
 
@@ -83,6 +84,9 @@ nDec <- function(x) {
 
 
 #' @rdname precision
+#' @family math.precision
+#' @concept precision
+#' @concept numerical-methods
 #' @export
 prec <- function(x) {
 
@@ -118,6 +122,9 @@ prec <- function(x) {
 
 
 #' @rdname precision
+#' @family math.precision
+#' @concept precision
+#' @concept numerical-methods
 #' @export
 frac <- function(x, dpwr = NA) {  # fractional part
   res <- abs(x) %% 1
@@ -128,6 +135,9 @@ frac <- function(x, dpwr = NA) {  # fractional part
 
 
 #' @rdname precision
+#' @family math.precision
+#' @concept precision
+#' @concept numerical-methods
 #' @export
 maxDigits <- function(x) {
   # maximal number of decimal digits;

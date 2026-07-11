@@ -7,13 +7,13 @@
 collapseTable(x, ..., strict = TRUE)
 }
 \arguments{
-\item{x}{A \code{table} or \code{ftable} object with named dimensions.}
+\item{x}{a \code{table} or \code{ftable} object with named dimensions}
 
-\item{...}{Named or unnamed mapping vectors specifying how levels of each
+\item{...}{named or unnamed mapping vectors specifying how levels of each
 dimension should be collapsed. Each mapping vector must have length equal
 to the number of levels in the corresponding dimension.}
 
-\item{strict}{Logical (default \code{TRUE}). Controls error handling.}
+\item{strict}{logical (default \code{TRUE}). Controls error handling.}
 }
 \value{
 A collapsed \code{table} object with updated dimensions and
@@ -69,6 +69,13 @@ collapseTable(tab, cyl = c("le6", "le6", "8"))
 collapseTable(tab, c("3-4", "3-4", "5"), strict = FALSE)
 
 }
-\concept{frequency}
-\concept{frequency-table}
+\seealso{
+Other data.reshape:
+\code{\link{long-wide-reshape}},
+\code{\link[=splitAt]{splitAt()}},
+\code{\link[=splitX]{splitX()}},
+\code{\link[=untable]{untable()}}
+}
+\concept{data.reshape}
+\concept{reshape}
 \concept{table}

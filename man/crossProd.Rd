@@ -7,11 +7,11 @@
 crossProd(x, y, orientation = c("rows", "cols"))
 }
 \arguments{
-\item{x}{A numeric or complex vector of length 3, or a matrix with one dimension of length 3.}
+\item{x}{a numeric or complex vector of length 3, or a matrix with one dimension of length 3}
 
-\item{y}{A numeric or complex vector or matrix with the same dimensions as \code{x}.}
+\item{y}{a numeric or complex vector or matrix with the same dimensions as \code{x}}
 
-\item{orientation}{Character string specifying whether vectors are stored in rows or columns
+\item{orientation}{character string specifying whether vectors are stored in rows or columns
 when matrices are supplied. Must be one of \code{"rows"} or \code{"cols"}.
 Ignored if \code{x} and \code{y} are vectors.}
 }
@@ -59,19 +59,13 @@ crossProd(x, y, "cols")
 
 }
 \seealso{
-Other math.utils:
+Other math.basic:
+\code{\link[=closest]{closest()}},
 \code{\link[=crossProdN]{crossProdN()}},
 \code{\link[=dotProd]{dotProd()}},
-\code{\link[=isLowCardinality]{isLowCardinality()}},
-\code{\link[=linScale]{linScale()}},
-\code{\link[=logit]{logit()}},
-\code{\link[=nUnique]{nUnique()}},
-\code{\link[=percentRank]{percentRank()}},
-\code{\link{precision}},
-\code{\link[=rankX]{rankX()}},
 \code{\link[=roundTo]{roundTo()}},
-\code{\link[=unirootAll]{unirootAll()}},
-\code{\link[=untable]{untable()}}
+\code{\link[=unirootAll]{unirootAll()}}
 }
-\concept{math.utils}
+\concept{linear-algebra}
+\concept{math.basic}
 \concept{numerical-methods}

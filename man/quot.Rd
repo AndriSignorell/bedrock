@@ -10,11 +10,11 @@ quot(x, lag = 1L, quotients = 1L, ...)
 \item{x}{a numeric vector or matrix containing the values to be used for
 calculating the quotients.}
 
-\item{lag}{an integer indicating which lag to use.}
+\item{lag}{an integer indicating which lag to use}
 
-\item{quotients}{an integer indicating the order of the quotient.}
+\item{quotients}{an integer indicating the order of the quotient}
 
-\item{\dots}{further arguments to be passed to or from methods.}
+\item{\dots}{further arguments to be passed to or from methods}
 }
 \value{
 If \code{x} is a vector of length \code{n} and \code{quotients = 1},
@@ -50,22 +50,11 @@ New S Language}.  Wadsworth & Brooks/Cole.
 \seealso{
 \code{\link{diff}}
 
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=locf]{locf()}},
+Other vector.window:
 \code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=setLength]{setLength()}},
-\code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=vShift]{vShift()}},
-\code{\link[=winsorize]{winsorize()}}
+\code{\link[=moveAvg]{moveAvg()}}
 }
-\concept{time-series}
-\concept{vector.ops}
+\concept{moving-window}
+\concept{numerical-methods}
+\concept{vector.window}
 \keyword{arith}

@@ -8,7 +8,7 @@
 #' in a consistent format suitable for hypothesis tests, summaries,
 #' effect-size calculations and plotting functions.
 #'
-#' @param x a numeric vector of observations, or a list of numeric vectors.
+#' @param x a numeric vector of observations, or a list of numeric vectors
 #' @param groups a grouping variable of the same length as \code{x}.
 #'   Ignored when \code{x} is a list.
 #'
@@ -26,10 +26,19 @@
 
 
 
-#' @family data.utils  
-#' @concept formula  
-#' @concept modelling
+#' @family data.resolve
+#' @concept data-resolution
+#' @concept categorization
 #'
+#' @examples
+#' # vector + grouping variable
+#' set.seed(1)
+#' x <- rnorm(30)
+#' g <- rep(c("a", "b", "c"), each = 10)
+#' resolveGroups(x, g)
+#'
+#' # list of group-specific vectors
+#' resolveGroups(list(a = rnorm(10), b = rnorm(12), c = rnorm(8)))
 #'
 #' @export
 resolveGroups <- function(x, groups) {

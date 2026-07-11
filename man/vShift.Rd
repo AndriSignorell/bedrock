@@ -7,9 +7,9 @@
 vShift(x, k = 1L)
 }
 \arguments{
-\item{x}{A vector.}
+\item{x}{a vector}
 
-\item{k}{Integer. Number of positions to shift.
+\item{k}{integer. Number of positions to shift.
 Positive values shift to the right, negative values to the left.}
 }
 \value{
@@ -35,21 +35,11 @@ vShift(1:5, 10)
 
 }
 \seealso{
-Other vector.ops:
-\code{\link[=closest]{closest()}},
-\code{\link[=coalesceX]{coalesceX()}},
-\code{\link[=locf]{locf()}},
-\code{\link[=midx]{midx()}},
-\code{\link[=moveAvg]{moveAvg()}},
-\code{\link[=naIf]{naIf()}},
-\code{\link[=naReplace]{naReplace()}},
-\code{\link[=nz]{nz()}},
-\code{\link[=pairApply]{pairApply()}},
-\code{\link[=quot]{quot()}},
+Other vector.reshape:
 \code{\link[=setLength]{setLength()}},
 \code{\link[=trim]{trim()}},
-\code{\link[=vRot]{vRot()}},
-\code{\link[=winsorize]{winsorize()}}
+\code{\link[=vRot]{vRot()}}
 }
-\concept{ordering}
-\concept{vector.ops}
+\concept{reshape}
+\concept{shift}
+\concept{vector.reshape}

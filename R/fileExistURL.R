@@ -13,8 +13,8 @@
 #' If the request fails (e.g., due to network issues or invalid URLs), the function
 #' returns \code{FALSE} and stores the error message as an attribute.
 #'
-#' @param url Character string. The full URL to check.
-#' @param timeout Numeric. Timeout in seconds for the HTTP request. Default is 5.
+#' @param url character string. The full URL to check.
+#' @param timeout numeric. Timeout in seconds for the HTTP request. Default is 5.
 #'
 #' @return
 #' Logical value indicating whether the resource exists (\code{TRUE}) or not (\code{FALSE}).
@@ -34,9 +34,9 @@
 #' attr(res, "error")
 #' }
 #'
-#' @family file.utils
-#' @concept programming
-#' @importFrom httr HEAD GET status_code
+#' @family file.path
+#' @concept path-handling
+#' @concept type-test
 #' @export
 fileExistURL <- function(url, timeout = 5) {
 

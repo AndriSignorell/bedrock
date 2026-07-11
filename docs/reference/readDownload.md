@@ -13,12 +13,12 @@ readDownload(file, ..., output = c("data.frame", "tibble"))
 
 - file:
 
-  character string specifying the name of the file.
+  character string specifying the name of the file
 
 - ...:
 
   additional arguments passed to the underlying read function, e.g.
-  `sheet` for Excel files or `delim` for text files.
+  `sheet` for Excel files or `delim` for text files
 
 - output:
 
@@ -55,16 +55,12 @@ default, the result is converted to a base R `data.frame`.
 
 ## See also
 
-[`findDownload`](findDownload.md), [`peekFile`](peekFile.md),
-[`toBaseR`](toBaseR.md),
+[`findDownload`](findDownload.md), [`toBaseR`](toBaseR.md),
 [`read_excel`](https://readxl.tidyverse.org/reference/read_excel.html),
 [`read_csv`](https://readr.tidyverse.org/reference/read_delim.html)
 
-Other io: [`peekFile()`](peekFile.md)
-
-## Author
-
-Andri Signorell <andri@signorell.net>
+Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
+[`pdfManual()`](pdfManual.md), [`peekFile()`](peekFile.md)
 
 ## Examples
 

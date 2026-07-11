@@ -1,6 +1,6 @@
 # Check for Low Cardinality
 
-Checks whether `x` contains fewer than `maxUnique` unique, non-missing
+Checks whether `x` contains at most `maxUnique` unique, non-missing
 values. Unlike [`nUnique()`](nUnique.md), this stops counting as soon as
 the threshold is exceeded, which makes it considerably faster for large,
 high-cardinality vectors.
@@ -15,11 +15,11 @@ isLowCardinality(x, maxUnique = 12)
 
 - x:
 
-  A numeric or integer vector.
+  a numeric or integer vector
 
 - maxUnique:
 
-  Integer. The threshold below which `x` is considered to have low
+  integer. The threshold up to which `x` is considered to have low
   cardinality. Defaults to `12`.
 
 ## Value
@@ -30,6 +30,11 @@ non-`NA` values, `FALSE` otherwise.
 ## See also
 
 [`nUnique()`](nUnique.md) for the uncapped count.
+
+Other data.predicate: [`flags()`](flags.md),
+[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
+[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
+[`isZero()`](isZero.md), [`nUnique()`](nUnique.md)
 
 ## Examples
 

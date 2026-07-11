@@ -7,10 +7,10 @@
 completeColumns(x, output = c("names", "logical"))
 }
 \arguments{
-\item{x}{A data.frame or list-like object whose elements are checked
-for missing values.}
+\item{x}{a data.frame or list-like object whose elements are checked
+for missing values}
 
-\item{output}{Character string specifying the output representation.
+\item{output}{character string specifying the output representation.
 One of \code{"names"} (return the names of the complete elements,
 the default) or \code{"logical"} (return a logical vector indicating
 completeness for each element).}
@@ -45,20 +45,9 @@ completeColumns(airquality, output = "logical")
 \code{\link{anyNA}}, \code{\link{is.na}},
 \code{\link{na.omit}}, \code{\link{complete.cases}}
 
-Other data.inspection:
-\code{\link[=allDuplicated]{allDuplicated()}},
-\code{\link[=allIdentical]{allIdentical()}},
-\code{\link{between}},
-\code{\link[=compareDataFrames]{compareDataFrames()}},
-\code{\link[=countCompCases]{countCompCases()}},
-\code{\link[=flags]{flags()}},
-\code{\link[=isDichotomous]{isDichotomous()}},
-\code{\link[=isEuclid]{isEuclid()}},
-\code{\link[=isFilePath]{isFilePath()}},
-\code{\link[=isNumeric]{isNumeric()}},
-\code{\link[=isURL]{isURL()}},
-\code{\link[=isWholeLike]{isWholeLike()}},
-\code{\link[=isZero]{isZero()}}
+Other data.missing:
+\code{\link[=countCompCases]{countCompCases()}}
 }
-\concept{data.inspection}
+\concept{data-inspection}
+\concept{data.missing}
 \concept{missing-value}

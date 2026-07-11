@@ -14,22 +14,27 @@ allIdentical(...)
 
 - ...:
 
-  Objects to compare.
+  objects to compare
 
 ## Value
 
 Logical scalar.
 
+## Details
+
+If zero or one object is supplied, the function returns `TRUE`.
+
+Note that the objects themselves are compared, not their elements. So
+`allIdentical(list(A, B, C))` is `TRUE`, as a single object is trivially
+identical to itself. Use `do.call(allIdentical, myList)` to compare the
+elements of a list.
+
 ## See also
 
 [`identical`](https://rdrr.io/r/base/identical.html)
 
-Other data.inspection: [`allDuplicated()`](allDuplicated.md),
-[`completeColumns()`](completeColumns.md),
-[`countCompCases()`](countCompCases.md), [`flags()`](flags.md),
-[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
-[`isNumeric()`](isNumeric.md), [`isURL()`](isURL.md),
-[`isWholeLike()`](isWholeLike.md), [`isZero()`](isZero.md)
+Other data.equal: [`allDuplicated()`](allDuplicated.md),
+[`compareDataFrames()`](compareDataFrames.md)
 
 ## Examples
 
@@ -43,4 +48,8 @@ allIdentical(A, B, C)        # TRUE
 #> [1] TRUE
 allIdentical(A, B, C, E)     # FALSE
 #> [1] FALSE
+
+allIdentical(1, 1L)          # FALSE (type matters)
+#> [1] FALSE
+
 ```

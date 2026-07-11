@@ -13,11 +13,11 @@ dataDescription(fn, sheet = "Description")
 
 - fn:
 
-  Character string. Path to the Excel file.
+  character string. Path to the Excel file.
 
 - sheet:
 
-  Character string. Name of the documentation sheet. Default is
+  character string. Name of the documentation sheet. Default is
   `"Description"`.
 
 ## Value
@@ -33,7 +33,8 @@ A list with the following components:
 The function reads the specified sheet and trims trailing empty rows.
 
 If a column named `"Codes"` is present, its contents are split by line
-breaks (`\r\n`) and returned as a list of codes per variable.
+breaks and returned as a list of codes per variable, keyed by the
+`"Variable"` column.
 
 The Excel sheet is expected to contain at least:
 
@@ -48,8 +49,7 @@ function returns `NULL`.
 
 ## See also
 
-Other label.utils: [`label()`](label.md),
-[`openDataObject()`](openDataObject.md)
+Other label.import: [`openDataObject()`](openDataObject.md)
 
 ## Examples
 

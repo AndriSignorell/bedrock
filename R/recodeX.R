@@ -14,11 +14,11 @@
 #' @param \dots the old levels (combined by \code{c}() if there are several)
 #' named with the new level:\cr \code{newlevel_a = c("old_a", "old_b"),
 #' }\cr\code{newlevel_b = c("old_c", "old_d")}\cr See examples.
-#' @param keep vector of levels that should be left untouched.
+#' @param keep vector of levels that should be left untouched
 #' @param elseLevel the value for levels, which are not matched by newlevel
 #' list.  If this is set to \code{NULL}, the elseLevels will be left unchanged.
 #' If set to \code{NA} (default) non matched levels will be set to \code{NA}.
-#' @param ref the reference level, typically a string.
+#' @param ref the reference level, typically a string
 #' @param useEmpty logical. Defines how a new level, which can't be found in
 #' x, should be handled.  Should it be left in the level's list or be dropped?
 #' The default is \code{FALSE}, which drops empty levels.
@@ -99,10 +99,9 @@
 #' 
 
 
-#' @family data.manipulation  
+#' @family data.recode
+#' @concept recoding
 #' @concept categorization
-#'
-#'
 #' @export
 recodeX <- function(x, ..., keep=NULL, elseLevel=NA, ref= NULL, 
                    useEmpty=FALSE, num=FALSE){

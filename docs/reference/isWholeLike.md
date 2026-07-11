@@ -19,26 +19,26 @@ isWholeLike(
 
 - x:
 
-  A numeric, integer, or complex vector.
+  a numeric, integer, or complex vector
 
 - all:
 
-  Logical. If `TRUE` (default), returns a single logical indicating
+  logical. If `TRUE` (default), returns a single logical indicating
   whether all elements are whole-like. If `FALSE`, returns a logical
   vector of the same length as `x`.
 
 - isNonNegative:
 
-  Logical. If `TRUE`, additionally requires values to be non-negative.
+  logical. If `TRUE`, additionally requires values to be non-negative.
 
 - tol:
 
-  Numerical tolerance for comparing to the nearest integer. Default is
+  numerical tolerance for comparing to the nearest integer. Default is
   `sqrt(.Machine$double.eps)`.
 
 - na.rm:
 
-  Logical. If `TRUE`, missing values are removed before testing. If
+  logical. If `TRUE`, missing values are removed before testing. If
   `FALSE` (default) and `x` contains `NA`, the result is `FALSE`.
 
 ## Value
@@ -51,17 +51,17 @@ vector.
 A value is considered whole-like if the absolute difference between the
 value and its nearest integer is smaller than `tol`.
 
-For complex numbers, both real and imaginary parts must be whole-like.
+For complex numbers, both real and imaginary parts must be whole-like;
+with `isNonNegative = TRUE`, both parts must additionally be
+non-negative.
 
 ## See also
 
-Other data.inspection: [`allDuplicated()`](allDuplicated.md),
-[`allIdentical()`](allIdentical.md),
-[`completeColumns()`](completeColumns.md),
-[`countCompCases()`](countCompCases.md), [`flags()`](flags.md),
+Other data.predicate: [`flags()`](flags.md),
 [`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
-[`isNumeric()`](isNumeric.md), [`isURL()`](isURL.md),
-[`isZero()`](isZero.md)
+[`isLowCardinality()`](isLowCardinality.md),
+[`isNumeric()`](isNumeric.md), [`isZero()`](isZero.md),
+[`nUnique()`](nUnique.md)
 
 ## Examples
 

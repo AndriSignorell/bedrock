@@ -36,7 +36,8 @@ x %)(% rng
 
   a vector of two values or a matrix with 2 columns, defining the
   minimum and maximum of the range for x.  
-  If rng is a matrix, x or rng will be recycled.
+  If rng is a matrix, x or rng will be recycled. Matrix ranges are
+  supported for numeric (and date) `x` only.
 
 ## Value
 
@@ -46,16 +47,16 @@ A logical vector of the same length as x.
 
 The "BETWEEN" operators basically combine two conditional statements
 into one and simplify the query process.  
-They are merely a wrapper for: `x >= rng\[1\] & x <= rng\[2\]`, where
+They are merely a wrapper for: `\code{x >= rng[1] & x <= rng[2]}`, where
 the round bracket `(` means *strictly greater (\>)* and the square
-bracket `\[` means *greater or equal (\>=)*. Numerical values of x will
-be handled by C-code, which is significantly faster than two comparisons
-in R (especially when x is huge).  
+bracket `\code{[}` means *greater or equal (\>=)*. Numerical values of x
+will be handled by C-code, which is significantly faster than two
+comparisons in R (especially when x is huge).  
 
-Elements on the limits of the corresponding between-range will return
-`FALSE` for the matching outside-operator (i.e. boundary elements are
-never "outside" if the between-operator they negate included that
-boundary).
+For the matching outside-operator, boundary elements of the
+corresponding between-range return `FALSE`; that is, they are not
+considered outside whenever the negated between-operator includes that
+boundary.
 
 Both arguments, `x` and `rng`, will be recycled to the highest
 dimension, which is either the length of the vector (`x`) or the number
@@ -74,10 +75,6 @@ operators, matched by *meaning* rather than by mirrored bracket symbols:
 
 - `%)(%` negates `%[]%` (strictly outside, both bounds of the
   between-operator were closed)
-
-## Note
-
-Based on C-code by Kevin Ushey
 
 ## See also
 
@@ -126,14 +123,14 @@ letters[letters %(]% c("d","h")]
 # select numbers between 0.4 and 0.5
 x <- runif(20)
 x %[]% c(0.4, 0.5)
-#>  [1] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-#> [13] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+#>  [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+#> [13]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
 
 # use it with an ordered factor
-x <- ordered(sample(LETTERS, 20))
+x <- ordered(sample(LETTERS, 20), levels = LETTERS)
 x %[)% c("G","K")
-#>  [1] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
-#> [13] FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE
+#>  [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE
+#> [13] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
 
 
 # use multiple ranges

@@ -11,9 +11,9 @@
 #' \code{guess_max} equals \code{n}). If early rows are not representative,
 #' supply a larger \code{guess_max} via the dots.
 #'
-#' @param file character string specifying the file name.
+#' @param file character string specifying the file name
 #' @param n integer specifying the number of data rows to read,
-#'   defaults to 10.
+#'   defaults to 10
 #' @param \dots additional arguments passed to
 #'   \code{readr::read_delim()}, e.g. \code{delim} or \code{skip}.
 #'   The arguments \code{n_max} and \code{show_col_types} are managed
@@ -28,11 +28,7 @@
 #' @return a \code{data.frame} or a tibble (according to \code{output})
 #'   containing the first \code{n} data rows of the file.
 #'
-#' @author Andri Signorell <andri@@signorell.net>
 #' @seealso \code{\link[readr]{read_delim}}, \code{\link{toBaseR}}
-#'
-#' @family file.utils
-#' @concept file-io
 #'
 #' @examples
 #' \dontrun{
@@ -43,6 +39,9 @@
 #' peekFile("data.csv", n = 10, guess_max = 1000)
 #' }
 #'
+#' @family file.io
+#' @concept file-io
+#' @concept data-inspection
 #' @export
 peekFile <- function(file, n = 10, ...,
                      output = c("data.frame", "tibble")) {

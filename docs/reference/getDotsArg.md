@@ -1,7 +1,8 @@
-# Get a single argument from dots with default
+# Get a Single Argument from Dots with Default
 
 Lightweight helper to extract a named argument from a list (typically
-list(...)).
+`list(...)`). If the argument is not present, a default value is
+returned.
 
 ## Usage
 
@@ -13,25 +14,39 @@ getDotsArg(dots, name, default = NULL)
 
 - dots:
 
-  Named list (usually list(...))
+  named list (usually `list(...)`)
 
 - name:
 
-  Character string, argument name
+  character string, argument name
 
 - default:
 
-  Default value if argument not present
+  default value if argument not present
 
 ## Value
 
-The value of the argument or default
+The value of the argument or `default`.
 
 ## See also
 
-Other pkg.introspection: [`extractArgs()`](extractArgs.md),
-[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
-[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`mergeArgs()`](mergeArgs.md), [`quot()`](quot.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
-[`strX()`](strX.md)
+[`extractArgs`](extractArgs.md) for extracting several arguments at
+once.
+
+Other pkg.args: [`callIf()`](callIf.md),
+[`extractArgs()`](extractArgs.md), [`mergeArgs()`](mergeArgs.md),
+[`recycle()`](recycle.md)
+
+## Examples
+
+``` r
+f <- function(...) {
+  dots <- list(...)
+  getDotsArg(dots, "col", default = "black")
+}
+
+f(col = "red", lwd = 2)
+#> [1] "red"
+f(lwd = 2)
+#> [1] "black"
+```

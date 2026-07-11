@@ -15,28 +15,32 @@ mGsub(x, patterns, replacements)
 
 - x:
 
-  A character vector in which substitutions are performed.
+  a character vector in which substitutions are performed
 
 - patterns:
 
-  A character vector of substrings to search for (`fixed = TRUE`).
+  a character vector of substrings to search for (`fixed = TRUE`)
 
 - replacements:
 
-  A character vector of replacement strings, in the same order as
-  `patterns`.
+  a character vector of replacement strings, in the same order as
+  `patterns`
 
 ## Value
 
 A character vector of the same length as `x`.
 
+## Details
+
+Patterns are processed in the given order. For overlapping patterns
+(e.g. `"AB"` and `"A"`), list the longer pattern first, otherwise the
+shorter one consumes its characters before the longer one is considered.
+
 ## See also
 
 [`mReplace`](mReplace.md) for exact whole-element replacement.
 
-Other string.utilities:
-[`char-ascii-conversion`](char-ascii-conversion.md),
-[`mReplace()`](mReplace.md), [`strSplitToCol()`](strSplitToCol.md),
+Other string.transform: [`strSplitToCol()`](strSplitToCol.md),
 [`strSplitToDummy()`](strSplitToDummy.md)
 
 ## Examples

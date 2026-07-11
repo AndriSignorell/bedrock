@@ -3,7 +3,7 @@
 #'
 #' Return the number of combinations with and without replacement and order.
 #'
-#' @param n number of elements from which to choose.
+#' @param n number of elements from which to choose
 #' @param m number of elements to choose. For \code{combSet} can \code{m} be a
 #' numeric vector too.
 #' @param replace logical. Should repetition of the same element be allowed?
@@ -12,9 +12,8 @@
 #'
 #' @return a numeric value
 #'
-#' @seealso \code{\link{combPairs}},
-#' \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
-#' \cr \code{vignette("Combinatorics")}
+#' @seealso \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
+#' \code{vignette("Combinatorics", package = "bedrock")}
 #'
 #' @examples
 #' n <- 5; m <- 2
@@ -25,6 +24,7 @@
 #'
 #' @family combinatorics
 #' @concept combinatorics
+#' @concept number-theory
 #' @export
 combN <- function(n, m, replace = FALSE, ordered = FALSE) {
   # return the number for the 4 combinatoric cases

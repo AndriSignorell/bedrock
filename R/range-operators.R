@@ -7,17 +7,17 @@
 #' quantifiers in regular expressions:
 #'
 #' \itemize{
-#'   \item `\%:\%` (lazy): up to the *first* occurrence of `rng[2]`.
-#'   \item `\%::\%` (greedy): up to the *last* occurrence of `rng[2]`.
+#'   \item `%:%` (lazy): up to the *first* occurrence of `rng[2]`.
+#'   \item `%::%` (greedy): up to the *last* occurrence of `rng[2]`.
 #' }
 #'
 #' @name range-operators
-#' @param x a vector.
+#' @param x a vector
 #' @param rng a vector of length 2: `c(from, to)`. May contain `NA` to match
 #'   missing values in `x`.
 #'
 #' @return a subset of `x`, from the first occurrence of `rng[1]` to the
-#'   first (`\%:\%`) or last (`\%::\%`) occurrence of `rng[2]`.
+#'   first (`%:%`) or last (`%::%`) occurrence of `rng[2]`.
 #'
 #' @examples
 #' letters %:% c("c", "g")
@@ -29,8 +29,9 @@
 #' # select a column range by name
 #' colnames(mtcars) %:% c("hp", "vs")
 #'
-#' @family data.utils
+#' @family data.interval
 #' @concept range
+#' @concept range-selection
 NULL
 
 

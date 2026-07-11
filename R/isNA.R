@@ -15,7 +15,7 @@
 #'   \item Works consistently across all NA types
 #' }
 #'
-#' @param x An object to be tested.
+#' @param x an object to be tested
 #'
 #' @return Logical scalar. Returns \code{TRUE} if \code{x} is a single
 #'   missing value (\code{NA}), and \code{FALSE} otherwise.
@@ -30,8 +30,9 @@
 #' isNA(1)              # FALSE
 #' isNA(c(1, NA))       # FALSE
 #'
-#' @family utils
+#' @family vector.na
 #' @concept missing-value
+#' @concept type-test
 #' @export
 isNA <- function(x) {
   is.atomic(x) && length(x) == 1L && is.na(x)

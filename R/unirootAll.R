@@ -16,25 +16,25 @@
 #' fails on a sub-interval, that interval is skipped with a warning rather
 #' than aborting the entire search.
 #'
-#' @param f       A function for which roots are sought. Must accept a numeric
+#' @param f       a function for which roots are sought. Must accept a numeric
 #'   first argument; additional arguments are passed via \code{...}.
-#' @param interval A numeric vector of length 2 specifying the search interval.
+#' @param interval a numeric vector of length 2 specifying the search interval.
 #'   Either \code{interval} or both \code{lower} and \code{upper} must be
 #'   supplied.
-#' @param lower  Lower bound of the search interval.
+#' @param lower  lower bound of the search interval.
 #'   Default: \code{min(interval)}.
-#' @param upper  Upper bound of the search interval.
+#' @param upper  upper bound of the search interval.
 #'   Default: \code{max(interval)}.
-#' @param tol    Convergence tolerance passed to \code{\link[stats]{uniroot}},
+#' @param tol    convergence tolerance passed to \code{\link[stats]{uniroot}},
 #'   and also used as the threshold for (i) treating grid-point values as
 #'   exact zeros and (ii) collapsing near-duplicate roots.
 #'   Default: \code{.Machine$double.eps^0.5}.
-#' @param maxiter Maximum number of iterations for \code{\link[stats]{uniroot}}.
+#' @param maxiter maximum number of iterations for \code{\link[stats]{uniroot}}.
 #'   Default: \code{1000}.
-#' @param n      Number of sub-intervals used for the initial grid search.
+#' @param n      number of sub-intervals used for the initial grid search.
 #'   Increase \code{n} if roots may be close together or the function
 #'   oscillates rapidly. Default: \code{100}.
-#' @param ...    Additional arguments passed to \code{f}.
+#' @param ...    additional arguments passed to \code{f}
 #'
 #' @return A numeric vector of roots found in \code{[lower, upper]}, sorted in
 #'   ascending order. Returns \code{numeric(0)} if no roots are found.
@@ -60,10 +60,9 @@
 
 
 
-#' @family math.utils  
+#' @family math.basic
 #' @concept numerical-methods
-#'
-#'
+#' @concept range
 #' @export
 unirootAll <- function(f,
                        interval,

@@ -14,23 +14,23 @@ openDataObject(name, url = NULL, doc = NULL, ...)
 
 - name:
 
-  Character string. File name including extension (e.g. `"data.xlsx"`).
+  character string. File name including extension (e.g. `"data.xlsx"`).
 
 - url:
 
-  Character string. Base URL where the file is located. Defaults to
-  <http://www.signorell.net/hwz/datasets/>.
+  character string. Base URL where the file is located. Defaults to
+  <https://www.signorell.net/hwz/datasets/>.
 
 - doc:
 
-  List or `NA`. Defines the structure of the documentation sheet. If
+  list or `NA`. Defines the structure of the documentation sheet. If
   `NULL`, the function tries to detect a sheet named `"Description"`. If
   `NA`, no metadata processing is performed.
 
 - ...:
 
-  Additional arguments passed to
-  [`readxl::read_excel()`](https://readxl.tidyverse.org/reference/read_excel.html).
+  additional arguments passed to
+  [`readxl::read_excel()`](https://readxl.tidyverse.org/reference/read_excel.html)
 
 ## Value
 
@@ -59,12 +59,12 @@ such as:
 - Scale ("nominal", "ordinal", etc.)
 
 Variables with scale `"nominal"` or `"ordinal"` are converted to
-factors.
+factors. Data values without a matching entry in the codes column become
+`NA`.
 
 ## See also
 
-Other label.utils: [`dataDescription()`](dataDescription.md),
-[`label()`](label.md)
+Other label.import: [`dataDescription()`](dataDescription.md)
 
 ## Examples
 
@@ -76,4 +76,5 @@ openDataObject("example.xlsx")
 # Load dataset without metadata processing
 openDataObject("example.xlsx", doc = NA)
 } # }
+
 ```

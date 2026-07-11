@@ -2,12 +2,12 @@
 
 For screening purposes it can be useful to get a list of all function
 calls our function may depend on. `funCalls()` parses the function
-source and return all found function calls grouped by their package.
+source and returns all found function calls grouped by their package.
 
 ## Usage
 
 ``` r
-funCalls(name, package = NULL, sort = FALSE)
+funCalls(name, package = NULL, sorted = FALSE)
 ```
 
 ## Arguments
@@ -18,34 +18,37 @@ funCalls(name, package = NULL, sort = FALSE)
 
 - package:
 
-  the name of the package
+  optional name of a package; if given, the result is filtered to source
+  environments matching `package`
 
-- sort:
+- sorted:
 
-  logical (default `FALSE`) should the arguments be alphabetically
-  sorted?
+  logical (default `FALSE`) should the calls be alphabetically sorted?
+
+## Value
+
+A list of character vectors with the function calls, grouped by the
+environment the called functions were found in.
+
+## Details
+
+The source packages are resolved via
+[`find`](https://rdrr.io/r/utils/apropos.html), which only sees attached
+packages. Calls to functions from packages that are not on the search
+path are reported under `"<not found>"`.
 
 ## Note
 
 Based on code by Nicholas Cooper.
 
-## References
-
-Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) *The New S
-Language*. Wadsworth & Brooks/Cole.
-
 ## See also
 
-[`ls`](https://rdrr.io/r/base/ls.html),
-[`ls.str`](https://rdrr.io/r/utils/ls_str.html),
-[`lsf.str`](https://rdrr.io/r/utils/ls_str.html)
+[`funList`](funList.md), [`funArgs`](funArgs.md),
+[`getParseData`](https://rdrr.io/r/utils/getParseData.html)
 
-Other pkg.introspection: [`extractArgs()`](extractArgs.md),
-[`funArgs()`](funArgs.md), [`funKeywords()`](funKeywords.md),
-[`funList()`](funList.md), [`getDotsArg()`](getDotsArg.md),
-[`mergeArgs()`](mergeArgs.md), [`quot()`](quot.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
-[`strX()`](strX.md)
+Other pkg.funinfo: [`funArgs()`](funArgs.md),
+[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
 
 ## Examples
 

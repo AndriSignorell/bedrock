@@ -1,6 +1,6 @@
-# List Objects, Functions Or Data in a Package
+# List Functions in a Package
 
-List all the objects, functions or data in a package.
+List all the functions in a package.
 
 ## Usage
 
@@ -18,13 +18,16 @@ funList(package, exported = TRUE)
 
   logical (default `TRUE`) should only exported functions be listed?
 
+## Value
+
+A sorted character vector with the function names.
+
 ## Details
 
-This is just a wrapper for [`ls`](https://rdrr.io/r/base/ls.html),
-[`ls.str`](https://rdrr.io/r/utils/ls_str.html) and
-[`lsf.str`](https://rdrr.io/r/utils/ls_str.html) with the appropriate
-arguments (as I always forgot how to do the trick). `objList()` lists
-all objects, `funList()` just the functions in a package.
+This is just a wrapper for the namespace inspection functions (as I
+always forgot how to do the trick). By default only the exported
+functions are returned; with `exported = FALSE` all functions defined in
+the package namespace are listed, including internal ones.
 
 ## References
 
@@ -35,70 +38,68 @@ Language*. Wadsworth & Brooks/Cole.
 
 [`ls`](https://rdrr.io/r/base/ls.html),
 [`ls.str`](https://rdrr.io/r/utils/ls_str.html),
-[`lsf.str`](https://rdrr.io/r/utils/ls_str.html)
+[`lsf.str`](https://rdrr.io/r/utils/ls_str.html),
+[`getNamespaceExports`](https://rdrr.io/r/base/ns-reflect.html)
 
-Other pkg.introspection: [`extractArgs()`](extractArgs.md),
-[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
-[`funKeywords()`](funKeywords.md), [`getDotsArg()`](getDotsArg.md),
-[`mergeArgs()`](mergeArgs.md), [`quot()`](quot.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md),
-[`strX()`](strX.md)
+Other pkg.funinfo: [`funArgs()`](funArgs.md),
+[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
 
 ## Examples
 
 ``` r
 
 funList("bedrock")
-#>   [1] "stringsAsFactors"   "%[)%"               "dataDescription"   
-#>   [4] "splitX"             "asciiToChar"        "combLevels"        
-#>   [7] "nz"                 "openDataObject"     "isNA"              
-#>  [10] "rdTitle"            "pairApply"          "crossProdN"        
-#>  [13] "setLength"          "funList"            "naReplace"         
-#>  [16] "funCalls"           "charToAscii"        "nDec"              
-#>  [19] "strX"               "rankX"              "prec"              
-#>  [22] "completeColumns"    "roundTo"            "GCD"               
-#>  [25] "label"              "readDownload"       "mReplace"          
-#>  [28] "combPairs"          "naIf"               "removeAttr"        
-#>  [31] "overlaps"           "appendRowNames"     "%^%"               
-#>  [34] "logit"              "sampleX"            "coalesceX"         
-#>  [37] "%[]%"               "parseSASDatalines"  "label<-"           
-#>  [40] "moveAvg"            "percentRank"        "isLowCardinality"  
-#>  [43] "compareDataFrames"  "midx"               "allIdentical"      
-#>  [46] "recodeX"            "permn"              "courseData"        
-#>  [49] "decToHex"           "binToDec"           "%overlaps%"        
-#>  [52] "abind"              "fibonacci"          "isDichotomous"     
-#>  [55] "isFilePath"         "distance"           "flags"             
-#>  [58] "renameX"            "revX"               "%)(%"              
-#>  [61] "asCDateFmt"         "isZero"             "chr"               
-#>  [64] "ptInPoly"           "toWide"             "linScale"          
-#>  [67] "binaryTree"         "allDuplicated"      "keepAttr"          
-#>  [70] "collapseTable"      "isWholeLike"        "isNumeric"         
-#>  [73] "divisors"           "%)[%"               "fileExistURL"      
-#>  [76] "funKeywords"        "unirootAll"         "callIf"            
-#>  [79] "unwhich"            "digitSum"           "dotProd"           
-#>  [82] "decToOct"           "rdLabels"           "overlap"           
-#>  [85] "closest"            "%()%"               "bin"               
-#>  [88] "baseToBase"         "int"                "multMerge"         
-#>  [91] "toBaseR"            "funArgs"            "getDotsArg"        
-#>  [94] "maxDigits"          "isOdd"              "decToBin"          
-#>  [97] "setNamesX"          "winsorize"          "asBinary"          
-#> [100] "strSplitToCol"      "isPrime"            "vRot"              
-#> [103] "%](%"               "vShift"             "revCode"           
-#> [106] "printCharMatrix"    "quot"               "splitAt"           
-#> [109] "logitInv"           "columnWrap"         "buildPath"         
-#> [112] "untable"            "LCM"                "nUnique"           
-#> [115] "%(]%"               "nchr"               "extractArgs"       
-#> [118] "resolveFormula"     "%][%"               "isURL"             
-#> [121] "mGsub"              "mergeArgs"          "appendEnum"        
-#> [124] "combSet"            "resolveGroups"      "findDownload"      
-#> [127] "sortX"              "hexToDec"           "factorize"         
-#> [130] "octToDec"           "resolveContingency" "toLong"            
-#> [133] "randGroupSplit"     "combN"              "setAttr"           
-#> [136] "%:%"                "nf"                 "locf"              
-#> [139] "peekFile"           "crossProd"          "isEuclid"          
-#> [142] "trim"               "strSplitToDummy"    "num"               
-#> [145] "pdfManual"          "appendX"            "primes"            
-#> [148] "frac"               "countCompCases"     "recycle"           
-#> [151] "dummy"              "splitPath"          "romanToInt"        
-#> [154] "%::%"              
+#>   [1] "%()%"               "%(]%"               "%)(%"              
+#>   [4] "%)[%"               "%:%"                "%::%"              
+#>   [7] "%[)%"               "%[]%"               "%](%"              
+#>  [10] "%][%"               "%^%"                "%overlaps%"        
+#>  [13] "GCD"                "LCM"                "abind"             
+#>  [16] "allDuplicated"      "allIdentical"       "appendEnum"        
+#>  [19] "appendRowNames"     "appendX"            "asBinary"          
+#>  [22] "asCDateFmt"         "asciiToChar"        "baseToBase"        
+#>  [25] "bin"                "binToDec"           "binaryTree"        
+#>  [28] "buildPath"          "callIf"             "charToAscii"       
+#>  [31] "chr"                "closest"            "coalesceX"         
+#>  [34] "collapseTable"      "columnWrap"         "combLevels"        
+#>  [37] "combN"              "combPairs"          "combSet"           
+#>  [40] "compareDataFrames"  "completeColumns"    "countCompCases"    
+#>  [43] "courseData"         "crossProd"          "crossProdN"        
+#>  [46] "dataDescription"    "decToBin"           "decToHex"          
+#>  [49] "decToOct"           "digitSum"           "distance"          
+#>  [52] "divisors"           "dotProd"            "dummy"             
+#>  [55] "extractArgs"        "factorize"          "fibonacci"         
+#>  [58] "fileExistURL"       "findDownload"       "flags"             
+#>  [61] "frac"               "funArgs"            "funCalls"          
+#>  [64] "funKeywords"        "funList"            "getDotsArg"        
+#>  [67] "hexToDec"           "int"                "isDichotomous"     
+#>  [70] "isEuclid"           "isFilePath"         "isLowCardinality"  
+#>  [73] "isNA"               "isNumeric"          "isOdd"             
+#>  [76] "isPrime"            "isURL"              "isWholeLike"       
+#>  [79] "isZero"             "keepAttr"           "label"             
+#>  [82] "label<-"            "linScale"           "locf"              
+#>  [85] "logit"              "logitInv"           "mGsub"             
+#>  [88] "mReplace"           "maxDigits"          "mergeArgs"         
+#>  [91] "midx"               "moveAvg"            "multMerge"         
+#>  [94] "nDec"               "nUnique"            "naIf"              
+#>  [97] "naReplace"          "nchr"               "nf"                
+#> [100] "num"                "nz"                 "octToDec"          
+#> [103] "openDataObject"     "overlap"            "overlaps"          
+#> [106] "pairApply"          "parseSASDatalines"  "pdfManual"         
+#> [109] "peekFile"           "percentRank"        "permn"             
+#> [112] "prec"               "primes"             "printCharMatrix"   
+#> [115] "ptInPoly"           "quot"               "rSum21"            
+#> [118] "randGroupSplit"     "rankX"              "rdLabels"          
+#> [121] "rdTitle"            "readDownload"       "recodeX"           
+#> [124] "recycle"            "removeAttr"         "renameX"           
+#> [127] "resolveContingency" "resolveFormula"     "resolveGroups"     
+#> [130] "revCode"            "revX"               "romanToInt"        
+#> [133] "roundTo"            "sampleX"            "setAttr"           
+#> [136] "setLength"          "setNamesX"          "sortX"             
+#> [139] "splitAt"            "splitPath"          "splitX"            
+#> [142] "strSplitToCol"      "strSplitToDummy"    "strX"              
+#> [145] "stringsAsFactors"   "toBaseR"            "toLong"            
+#> [148] "toWide"             "trim"               "unirootAll"        
+#> [151] "untable"            "unwhich"            "vRot"              
+#> [154] "vShift"             "winsorize"         
 ```
