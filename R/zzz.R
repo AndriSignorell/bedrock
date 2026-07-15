@@ -1,12 +1,7 @@
 
 
 .onLoad <- function(libname, pkgname) {
-  
   # presetting DescToolsX options not already defined by the user
-  
-  # here the same as in DescToolsX to ensure they are defined, even
-  # id aurora are loaded as single package
-  
 }
 
 

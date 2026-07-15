@@ -91,6 +91,9 @@ resolveGroups <- function(x, groups) {
     x <- x[ok]
     groups <- factor(groups[ok])
 
+    if (length(x) < 2L)
+      stop("not enough observations")
+
     if (nlevels(groups) < 2L)
       stop("all observations are in the same group")
 
@@ -98,9 +101,6 @@ resolveGroups <- function(x, groups) {
   }
   
   n <- length(x)
-  
-  if (n < 2L)
-    stop("not enough observations")
   
   list(
     x = x,

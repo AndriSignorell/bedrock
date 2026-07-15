@@ -6,7 +6,7 @@ devtools::check()
 devtools::install()
 devtools::build_manual(pkg = "C:/temp/DescToolsX")
 devtools::build_manual(pkg = "C:/temp/lumen")
-devtools::build_manual(pkg = "C:/temp/aurora")
+devtools::build_manual(pkg = "C:/temp/lyra")
 devtools::build_manual(pkg = "C:/temp/bedrock")
 devtools::build_manual(pkg = "C:/temp/alloy")
 devtools::build_manual(pkg = "C:/temp/hermes")
@@ -28,7 +28,7 @@ pkgdown::build_reference_index()
 
 
 # hard CRAN check
-rhub::check_for_cran()
+rhub::rhub_check()
 
 
 # for themes
@@ -69,7 +69,7 @@ grep(sortX(funList("bedrock", ex=T)), v=T)
 Pizza
 
 files <- list.files("c:/temp/bedrock/R", full.names = TRUE, pattern = "\\.R$")
-files <- list.files("c:/temp/aurora/R", full.names = TRUE, pattern = "\\.R$")
+files <- list.files("c:/temp/lyra/R", full.names = TRUE, pattern = "\\.R$")
 files <- list.files("c:/temp/lumen/R", full.names = TRUE, pattern = "\\.R$")
 files <- list.files("c:/temp/alloy/R", full.names = TRUE, pattern = "\\.R$")
 
@@ -179,3 +179,4 @@ update_roxy_safe <- function(file, tax) {
 
 
 
+Sys.which("git")

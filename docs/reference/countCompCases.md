@@ -23,7 +23,7 @@ element `tab` contains the data for the single variables.
 
 ## See also
 
-[`plotMiss`](https://rdrr.io/pkg/aurora/man/plotMiss.html),
+[`plotMiss`](https://rdrr.io/pkg/lyra/man/plotMiss.html),
 [`complete.cases`](https://rdrr.io/r/stats/complete.cases.html),
 [`is.na`](https://rdrr.io/r/base/NA.html),
 [`na.omit`](https://rdrr.io/r/stats/na.fail.html)

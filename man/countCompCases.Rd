@@ -23,7 +23,7 @@ countCompCases(airquality)
 
 }
 \seealso{
-\code{\link[aurora]{plotMiss}},
+\code{\link[lyra]{plotMiss}},
 \code{\link{complete.cases}}, \code{\link{is.na}}, \code{\link{na.omit}}
 
 Other data.missing:

@@ -38,7 +38,7 @@ improvements by the package author.
 
 ## See also
 
-[`plotBinaryTree`](https://rdrr.io/pkg/aurora/man/binaryTree.html)
+[`plotBinaryTree`](https://rdrr.io/pkg/lyra/man/binaryTree.html)
 
 Other data.order: [`revX()`](revX.md), [`sortX()`](sortX.md)
 

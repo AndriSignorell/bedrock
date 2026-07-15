@@ -36,7 +36,7 @@ binaryTree(12)
 
 }
 \seealso{
-\code{\link[aurora]{plotBinaryTree}}
+\code{\link[lyra]{plotBinaryTree}}
 
 Other data.order:
 \code{\link[=revX]{revX()}},
