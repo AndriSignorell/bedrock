@@ -10,12 +10,12 @@
 #' of unequal sizes are required. It uses \code{\link{sample}}, so results
 #' can be made reproducible with \code{\link{set.seed}}.
 #'
-#' @param x a vector containing the elements to be split into groups
+#' @param x a vector containing the elements to be split into groups.
 #' @param groupSizes an integer vector specifying the sizes of the groups.
 #'   The sum of \code{groupSizes} must equal \code{length(x)}. If the vector
 #'   is named, the names are used as group names in the result.
 #'
-#' @return A list of vectors, where each element corresponds to one group.
+#' @return a list of vectors, where each element corresponds to one group.
 #'   The length of the list equals \code{length(groupSizes)}.
 #'
 #' @examples

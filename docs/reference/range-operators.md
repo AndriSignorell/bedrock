@@ -17,7 +17,7 @@ x %::% rng
 
 - x:
 
-  a vector
+  a vector.
 
 - rng:
 

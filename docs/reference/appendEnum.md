@@ -21,33 +21,33 @@ appendEnum(
 - x:
 
   a data.frame or matrix (vectors are coerced via
-  [`matrix()`](https://rdrr.io/r/base/matrix.html))
+  [`matrix()`](https://rdrr.io/r/base/matrix.html)).
 
 - type:
 
-  enumeration style: `"roman-lcase"`, `"roman-ucase"` or `"arabic"`
+  enumeration style: `"roman-lcase"`, `"roman-ucase"` or `"arabic"`.
 
 - suffix:
 
-  text appended to each enumeration label
+  text appended to each enumeration label.
 
 - startWith:
 
-  first enumeration index
+  first enumeration index.
 
 - after:
 
   position after which the column is inserted (see
-  [`appendX`](appendX.md)); default `0L` prepends it
+  [`appendX`](appendX.md)); default `0L` prepends it.
 
 - colName:
 
   optional name for the new column; `NULL` (default) leaves it unnamed
-  for matrices, while for data frames a default name (`"V1"`) is used
+  for matrices, while for data frames a default name (`"V1"`) is used.
 
 ## Value
 
-`x` with an additional enumeration column
+`x` with an additional enumeration column.
 
 ## See also
 

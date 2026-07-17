@@ -15,11 +15,11 @@ allDuplicated(x)
 
 - x:
 
-  a vector of any type
+  a vector of any type.
 
 ## Value
 
-A logical vector of the same length as `x`.
+a logical vector of the same length as `x`.
 
 ## Details
 

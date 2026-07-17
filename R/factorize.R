@@ -14,9 +14,9 @@
 #' exactly (e.g. via \code{gmp::as.bigz()} or a string).
 #'
 #' @param n vector of positive whole numbers to factorize, not exceeding
-#'   \code{2^53}
+#'   \code{2^53}.
 #'
-#' @return A named \code{\link{list}} of the same length as \code{n}, each
+#' @return a named \code{\link{list}} of the same length as \code{n}, each
 #' element a 2-column matrix with column \code{"p"} the prime factors and
 #' column \code{"m"} their respective exponents (or multiplicities), i.e., for a
 #' prime number \code{n}, the resulting matrix is \code{cbind(p = n, m = 1)}.

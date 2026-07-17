@@ -21,20 +21,20 @@ splitX(formula, data, subset, na.action, drop = FALSE, ...)
 
 - x:
 
-  object to be split (typically a vector)
+  object to be split (typically a vector).
 
 - ...:
 
   further arguments passed to
-  [`split`](https://rdrr.io/r/base/split.html)
+  [`split`](https://rdrr.io/r/base/split.html).
 
 - f:
 
-  a factor or list of factors defining the groups (default method)
+  a factor or list of factors defining the groups (default method).
 
 - drop:
 
-  logical; if `TRUE`, unused factor levels are dropped
+  logical; if `TRUE`, unused factor levels are dropped.
 
 - formula:
 
@@ -43,11 +43,11 @@ splitX(formula, data, subset, na.action, drop = FALSE, ...)
 
 - data:
 
-  a data frame containing the variables in the formula
+  a data frame containing the variables in the formula.
 
 - subset:
 
-  optional logical expression indicating rows to include
+  optional logical expression indicating rows to include.
 
 - na.action:
 
@@ -57,7 +57,7 @@ splitX(formula, data, subset, na.action, drop = FALSE, ...)
 
 ## Value
 
-A list of subsets of `x`, grouped according to `f` or the grouping
+a list of subsets of `x`, grouped according to `f` or the grouping
 variables in the formula.
 
 ## Details

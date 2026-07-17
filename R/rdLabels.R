@@ -11,7 +11,7 @@
 #' @param dataName character string. Name of the dataset.
 #' @param package character string. Name of the package containing the dataset.
 #'
-#' @return A named character vector where names are variable names and values
+#' @return a named character vector where names are variable names and values
 #'   are their corresponding descriptions extracted from the Rd file.
 #'
 #' @details

@@ -7,11 +7,11 @@
 readDownload(file, ..., output = c("data.frame", "tibble"))
 }
 \arguments{
-\item{file}{character string specifying the name of the file}
+\item{file}{character string specifying the name of the file.}
 
 \item{\dots}{additional arguments passed to the underlying read
 function, e.g. \code{sheet} for Excel files or \code{delim}
-for text files}
+for text files.}
 
 \item{output}{character, either \code{"data.frame"} (default) or
 \code{"tibble"}, determining the class of the returned object.

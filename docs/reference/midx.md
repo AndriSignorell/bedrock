@@ -14,7 +14,7 @@ midx(x, inclZero = FALSE, cumulate = FALSE)
 
 - x:
 
-  a numeric vector
+  a numeric vector.
 
 - inclZero:
 
@@ -29,7 +29,7 @@ midx(x, inclZero = FALSE, cumulate = FALSE)
 
 ## Value
 
-A numeric vector of length `length(x) - 1` (or `length(x)` if
+a numeric vector of length `length(x) - 1` (or `length(x)` if
 `inclZero = TRUE`) containing the midpoints. Returns an empty numeric
 vector if fewer than two values are available.
 

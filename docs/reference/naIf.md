@@ -14,15 +14,15 @@ naIf(x, values)
 
 - x:
 
-  a vector
+  a vector.
 
 - values:
 
-  values to be replaced by `NA`
+  values to be replaced by `NA`.
 
 ## Value
 
-A vector of the same type as `x`.
+a vector of the same type as `x`.
 
 ## See also
 

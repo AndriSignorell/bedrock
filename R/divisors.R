@@ -13,10 +13,10 @@
 #' determined with the function \code{\link{length}()}.
 #'
 #' @param x vector of positive whole numbers for which the divisors are to
-#'   be returned
+#'   be returned.
 #'
 #' @return an integer vector containing the proper divisors if \code{x} is a
-#'   single number, otherwise a named list of such vectors
+#'   single number, otherwise a named list of such vectors.
 #'
 #' @examples
 #'

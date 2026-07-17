@@ -13,7 +13,7 @@ linScale(x, low = NULL, high = NULL, newLow = 0, newHigh = 1)
 
 - x:
 
-  a numeric vector, matrix or data frame
+  a numeric vector, matrix or data frame.
 
 - low, high:
 
@@ -27,7 +27,7 @@ linScale(x, low = NULL, high = NULL, newLow = 0, newHigh = 1)
 
 ## Value
 
-An object of the same shape as `x`: a numeric vector for vector input,
+an object of the same shape as `x`: a numeric vector for vector input,
 otherwise a numeric matrix with the same dimensions, where each column
 is linearly rescaled to the interval `[newLow, newHigh]`.
 

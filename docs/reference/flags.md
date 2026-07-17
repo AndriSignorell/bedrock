@@ -18,7 +18,7 @@ flags(
 
 - x:
 
-  a data frame or matrix
+  a data frame or matrix.
 
 - strict:
 
@@ -40,15 +40,15 @@ flags(
 
 ## Value
 
-Depending on `output`:
+depending on `output`:
 
-- `"data"`: data frame or matrix
+- `"data"`: data frame or matrix.
 
-- `"names"`: character vector
+- `"names"`: character vector.
 
-- `"index"`: integer vector
+- `"index"`: integer vector.
 
-- `"logical"`: logical vector
+- `"logical"`: logical vector.
 
 ## Details
 

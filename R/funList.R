@@ -8,11 +8,11 @@
 #' returned; with \code{exported = FALSE} all functions defined in the
 #' package namespace are listed, including internal ones.
 #'
-#' @param package the name of the package
-#' @param exported logical (default \code{TRUE}) should only exported
-#'   functions be listed?
+#' @param package the name of the package.
+#' @param exported logical; whether only exported functions are listed.
+#'   Defaults to \code{TRUE}.
 #'
-#' @return A sorted character vector with the function names.
+#' @return a sorted character vector with the function names.
 #'
 #' @seealso \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}},
 #' \code{\link{getNamespaceExports}}

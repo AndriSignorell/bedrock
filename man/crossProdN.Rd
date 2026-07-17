@@ -8,10 +8,10 @@ crossProdN(A)
 }
 \arguments{
 \item{A}{a numeric or complex vector of length 2, or a matrix of dimension
-\eqn{n x (n+1)}}
+\eqn{n x (n+1)}.}
 }
 \value{
-A numeric or complex vector of length \eqn{n+1}.
+a numeric or complex vector of length \eqn{n+1}.
 }
 \description{
 Computes a vector orthogonal to all rows of a matrix using a determinant-based

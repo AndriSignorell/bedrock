@@ -14,20 +14,21 @@ strX(object, ..., enumerate = TRUE, recursive = FALSE, strict.width = "cut")
 
 - object:
 
-  any R object
+  any R object.
 
 - ...:
 
   additional arguments passed to
-  [`utils::str()`](https://rdrr.io/r/utils/str.html)
+  [`utils::str()`](https://rdrr.io/r/utils/str.html).
 
 - enumerate:
 
-  logical. Should variables/elements be numbered? Default is `TRUE`.
+  logical; whether variables or elements are numbered. Default is
+  `TRUE`.
 
 - recursive:
 
-  logical. Should nested list elements also be numbered? Default is
+  logical; whether nested list elements are also numbered. Default is
   `FALSE`.
 
 - strict.width:
@@ -38,7 +39,7 @@ strX(object, ..., enumerate = TRUE, recursive = FALSE, strict.width = "cut")
 
 ## Value
 
-Invisibly returns the character vector produced by
+invisibly returns the character vector produced by
 [`utils::str()`](https://rdrr.io/r/utils/str.html).
 
 ## Details

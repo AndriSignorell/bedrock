@@ -12,7 +12,7 @@ flags(
 )
 }
 \arguments{
-\item{x}{a data frame or matrix}
+\item{x}{a data frame or matrix.}
 
 \item{strict}{logical. If \code{TRUE}, only variables with exactly two
 distinct values are considered dichotomous. If \code{FALSE} (default),
@@ -28,13 +28,13 @@ variables), \code{"index"} (column indices) or \code{"logical"}
 (logical vector indicating dichotomous variables).}
 }
 \value{
-Depending on \code{output}:
+depending on \code{output}:
 
 \itemize{
-\item \code{"data"}: data frame or matrix
-\item \code{"names"}: character vector
-\item \code{"index"}: integer vector
-\item \code{"logical"}: logical vector
+\item \code{"data"}: data frame or matrix.
+\item \code{"names"}: character vector.
+\item \code{"index"}: integer vector.
+\item \code{"logical"}: logical vector.
 }
 }
 \description{

@@ -13,7 +13,7 @@ vShift(x, k = 1L)
 
 - x:
 
-  a vector
+  a vector.
 
 - k:
 
@@ -22,7 +22,7 @@ vShift(x, k = 1L)
 
 ## Value
 
-A vector of the same length as `x`, shifted with `NA` padding.
+a vector of the same length as `x`, shifted with `NA` padding.
 
 ## Details
 

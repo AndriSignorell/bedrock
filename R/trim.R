@@ -9,14 +9,14 @@
 #' \eqn{\ge n/2} then the result will be \code{NA}. The same applies if
 #' \code{x} contains \code{NA}s and \code{na.rm} is \code{FALSE}.
 #' 
-#' @param x a numeric vector to be trimmed 
+#' @param x a numeric vector to be trimmed. 
 #' @param trim the fraction (0 to 0.5) of observations to be trimmed from each
 #' end of x. Values of trim outside that range (and < 1) are taken as the
 #' nearest endpoint.  If \code{trim} is set to a value >1 it's interpreted as
 #' the number of elements to be cut off at each tail of \code{x}. 
 #' @param na.rm a logical value indicating whether \code{NA} values should be
 #' stripped before the computation proceeds. 
-#' @return The trimmed vector \code{x}. The indices of the trimmed values will
+#' @return the trimmed vector \code{x}. The indices of the trimmed values will
 #' be attached as attribute named \code{"trim"}. 
 #' 
 #' @note This function is basically an excerpt from the base function

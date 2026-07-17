@@ -14,11 +14,11 @@ percentRank(x)
 
 - x:
 
-  a numeric (or comparable) vector
+  a numeric (or comparable) vector.
 
 ## Value
 
-A numeric vector of the same length as `x`, containing values between 0
+a numeric vector of the same length as `x`, containing values between 0
 and 1.
 
 ## Details

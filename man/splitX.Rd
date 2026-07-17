@@ -13,27 +13,27 @@ splitX(x, ...)
 \method{splitX}{formula}(formula, data, subset, na.action, drop = FALSE, ...)
 }
 \arguments{
-\item{x}{object to be split (typically a vector)}
+\item{x}{object to be split (typically a vector).}
 
-\item{...}{further arguments passed to \code{\link[base]{split}}}
+\item{...}{further arguments passed to \code{\link[base]{split}}.}
 
-\item{f}{a factor or list of factors defining the groups (default method)}
+\item{f}{a factor or list of factors defining the groups (default method).}
 
-\item{drop}{logical; if \code{TRUE}, unused factor levels are dropped}
+\item{drop}{logical; if \code{TRUE}, unused factor levels are dropped.}
 
 \item{formula}{a formula of the form \code{y ~ group} or \code{y ~ g1 + g2}
 specifying the variable to split (\code{y}) and the grouping variables.}
 
-\item{data}{a data frame containing the variables in the formula}
+\item{data}{a data frame containing the variables in the formula.}
 
-\item{subset}{optional logical expression indicating rows to include}
+\item{subset}{optional logical expression indicating rows to include.}
 
 \item{na.action}{a function specifying how missing values are handled,
 passed to \code{\link[stats]{model.frame}}
 (e.g., \code{\link[stats]{na.omit}}).}
 }
 \value{
-A list of subsets of \code{x}, grouped according to \code{f} or the
+a list of subsets of \code{x}, grouped according to \code{f} or the
 grouping variables in the formula.
 }
 \description{

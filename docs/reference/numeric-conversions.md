@@ -35,12 +35,12 @@ baseToBase(x, from, to, width = NULL)
 - from:
 
   a single integer in \\\[2, 36\]\\ specifying the input base
-  (`baseToBase()` only)
+  (`baseToBase()` only).
 
 - to:
 
   a single integer in \\\[2, 36\]\\ specifying the output base
-  (`baseToBase()` only)
+  (`baseToBase()` only).
 
 - width:
 
@@ -50,7 +50,7 @@ baseToBase(x, from, to, width = NULL)
 
 ## Value
 
-A vector of the same length as `x`:
+a vector of the same length as `x`:
 
 - `binToDec()`, `octToDec()`, `hexToDec()`, `romanToInt()` - integer or
   numeric vector.

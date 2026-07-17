@@ -25,7 +25,7 @@
 #' out of \code{\link{trunc}}, \code{ceiling}, \code{round} (default) or
 #' \code{floor}.
 #' 
-#' @return the rounded value 
+#' @return the rounded value. 
 #' 
  
 #' @seealso \code{\link{round}}, \code{\link{trunc}}, \code{\link{ceiling}},

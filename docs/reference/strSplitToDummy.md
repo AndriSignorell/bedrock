@@ -13,7 +13,7 @@ strSplitToDummy(x, split = ",", trim = TRUE, na.action = na.pass, ...)
 
 - x:
 
-  a character vector with delimited tokens
+  a character vector with delimited tokens.
 
 - split:
 
@@ -38,25 +38,25 @@ strSplitToDummy(x, split = ",", trim = TRUE, na.action = na.pass, ...)
 
   `na.omit`
 
-  :   Rows with NAs are silently removed.
+  :   rows with NAs are silently removed.
 
   `na.exclude`
 
-  :   Like `na.omit` but the indices of removed rows are stored in a
+  :   like `na.omit` but the indices of removed rows are stored in a
       `"na.action"` attribute.
 
   `na.fail`
 
-  :   An error is raised if any `NA` is present.
+  :   an error is raised if any `NA` is present.
 
 - ...:
 
   additional arguments passed to
-  [`strsplit`](https://rdrr.io/r/base/strsplit.html)
+  [`strsplit`](https://rdrr.io/r/base/strsplit.html).
 
 ## Value
 
-A `data.frame` with one row per element of `x` and one column per unique
+a `data.frame` with one row per element of `x` and one column per unique
 token. Values are `0L` or `1L`. Column names are the token values as-is
 and may not be syntactically valid R identifiers. The attribute
 `"tokens"` contains the sorted vector of unique tokens.

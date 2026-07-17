@@ -7,14 +7,14 @@
 getDotsArg(dots, name, default = NULL)
 }
 \arguments{
-\item{dots}{named list (usually \code{list(...)})}
+\item{dots}{named list (usually \code{list(...)}).}
 
-\item{name}{character string, argument name}
+\item{name}{character string, argument name.}
 
-\item{default}{default value if argument not present}
+\item{default}{default value if argument not present.}
 }
 \value{
-The value of the argument or \code{default}.
+the value of the argument or \code{default}.
 }
 \description{
 Lightweight helper to extract a named argument from a list (typically

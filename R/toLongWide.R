@@ -12,15 +12,15 @@
 #'
 #' @param x object to reshape. For `toLong()`, a matrix, table, data frame, or
 #'   list. For `toWide()`, a vector.
-#' @param groups grouping vector used to define the columns in the wide result
+#' @param groups grouping vector used to define the columns in the wide result.
 #' @param by optional vector used to align values row-wise when reshaping to
 #'   wide format. If `NULL`, values are aligned by their order within each group.
-#' @param varNames optional character vector of column names for the result
+#' @param varNames optional character vector of column names for the result.
 #' @param includeRowNames logical. If `TRUE`, append a column containing the row
 #'   names of `x` when reshaping to long format.
 #'
 #' @return
-#' A reshaped object of class `data.frame`.
+#' a reshaped object of class `data.frame`.
 #'
 #' @seealso `reshape`, `stack`, `unstack`
 #'

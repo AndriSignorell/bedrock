@@ -7,13 +7,13 @@
 nUnique(x, na.rm = FALSE)
 }
 \arguments{
-\item{x}{a vector}
+\item{x}{a vector.}
 
 \item{na.rm}{logical. Should missing values (\code{NA}) be removed before
 counting unique values? Defaults to \code{FALSE}.}
 }
 \value{
-An integer of length one.
+an integer of length one.
 }
 \description{
 Returns the number of unique elements in a vector.

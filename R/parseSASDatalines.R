@@ -21,11 +21,11 @@
 #' \code{INPUT}-section are not (yet) supported. 
 #' 
 #' @param x a single character string containing a SAS DATA step with
-#'   a DATALINES, CARDS, or CARDS4 block
+#'   a DATALINES, CARDS, or CARDS4 block.
 #' @param validateNames logical. If \code{TRUE} (default \code{FALSE}), emits
 #'   a warning when the dataset name violates SAS naming rules.
 #'
-#' @return A data.frame with column names taken from the INPUT statement.
+#' @return a data.frame with column names taken from the INPUT statement.
 #'   The attribute \code{sas_dataset_name} carries the DATA step name.
 #'   For \code{DATA _NULL_} the data is still parsed and returned; the caller
 #'   decides what to do with it (matching SAS semantics).

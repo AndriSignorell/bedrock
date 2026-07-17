@@ -16,16 +16,16 @@ stringsAsFactors(x, columns = NULL)
 
 - x:
 
-  the data.frame
+  the data.frame.
 
 - columns:
 
   names or indexes of the columns to be converted; negative values can
-  be used to omit columns
+  be used to omit columns.
 
 ## Value
 
-the given data.frame including the converted factors
+the given data.frame including the converted factors.
 
 ## See also
 

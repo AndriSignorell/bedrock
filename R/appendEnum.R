@@ -4,18 +4,18 @@
 #' Prepends (or inserts) a column of enumeration labels -- lowercase or
 #' uppercase Roman numerals, or Arabic numbers.
 #'
-#' @param x a data.frame or matrix (vectors are coerced via \code{matrix()})
+#' @param x a data.frame or matrix (vectors are coerced via \code{matrix()}).
 #' @param type enumeration style: \code{"roman-lcase"}, \code{"roman-ucase"}
-#'   or \code{"arabic"}
-#' @param suffix text appended to each enumeration label
-#' @param startWith first enumeration index
+#'   or \code{"arabic"}.
+#' @param suffix text appended to each enumeration label.
+#' @param startWith first enumeration index.
 #' @param after position after which the column is inserted (see
-#'   \code{\link{appendX}}); default \code{0L} prepends it
+#'   \code{\link{appendX}}); default \code{0L} prepends it.
 #' @param colName optional name for the new column; \code{NULL} (default)
 #'   leaves it unnamed for matrices, while for data frames a default name
-#'   (\code{"V1"}) is used
+#'   (\code{"V1"}) is used.
 #'
-#' @return \code{x} with an additional enumeration column
+#' @return \code{x} with an additional enumeration column.
 #'
 #' @examples
 #' d <- data.frame(x = 1:3, y = c("a", "b", "c"))

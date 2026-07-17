@@ -26,7 +26,7 @@ untable(x, dimnames = NULL, type = NULL, rownames = NULL, colnames = NULL, ...)
 
 - ...:
 
-  further arguments passed to or from functions (not used here)
+  further arguments passed to or from functions (not used here).
 
 - freq:
 
@@ -59,7 +59,7 @@ untable(x, dimnames = NULL, type = NULL, rownames = NULL, colnames = NULL, ...)
 ## Value
 
 a data.frame with the detailed data (even if x was a 1-dimensional
-table)
+table).
 
 ## Details
 

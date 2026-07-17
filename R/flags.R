@@ -14,7 +14,7 @@
 #' (i.e. \code{NA} returned by \code{isDichotomous()})
 #' are treated as non-dichotomous for filtering purposes.
 #'
-#' @param x a data frame or matrix
+#' @param x a data frame or matrix.
 #' @param strict logical. If \code{TRUE}, only variables with exactly two
 #'   distinct values are considered dichotomous. If \code{FALSE} (default),
 #'   variables with one or two distinct values are allowed.
@@ -27,13 +27,13 @@
 #'   (logical vector indicating dichotomous variables).
 #'
 #' @return
-#' Depending on \code{output}:
+#' depending on \code{output}:
 #'
 #' \itemize{
-#'   \item \code{"data"}: data frame or matrix
-#'   \item \code{"names"}: character vector
-#'   \item \code{"index"}: integer vector
-#'   \item \code{"logical"}: logical vector
+#'   \item \code{"data"}: data frame or matrix.
+#'   \item \code{"names"}: character vector.
+#'   \item \code{"index"}: integer vector.
+#'   \item \code{"logical"}: logical vector.
 #' }
 #'
 #' @seealso \code{\link{isDichotomous}}

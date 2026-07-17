@@ -7,7 +7,7 @@
 linScale(x, low = NULL, high = NULL, newLow = 0, newHigh = 1)
 }
 \arguments{
-\item{x}{a numeric vector, matrix or data frame}
+\item{x}{a numeric vector, matrix or data frame.}
 
 \item{low, high}{optional numeric vectors specifying the lower and upper
 bounds of the original scale. If \code{NULL}, the column-wise minima
@@ -17,7 +17,7 @@ and maxima of \code{x} are used.}
 Defaults to \code{0} and \code{1}.}
 }
 \value{
-An object of the same shape as \code{x}: a numeric vector for
+an object of the same shape as \code{x}: a numeric vector for
 vector input, otherwise a numeric matrix with the same dimensions,
 where each column is linearly rescaled to the interval
 \code{[newLow, newHigh]}.

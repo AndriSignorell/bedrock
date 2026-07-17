@@ -8,9 +8,9 @@
 #' \code{topic}.  Otherwise, display the list of valid R Keywords from the R
 #' doc/Keywords file.
 #'
-#' @param topic optional, object or man page topic
+#' @param topic optional, object or man page topic.
 #'
-#' @return If \code{topic} is missing, the R keywords documentation file is
+#' @return if \code{topic} is missing, the R keywords documentation file is
 #'   opened for display via \code{\link[base]{file.show}}, invisibly
 #'   returning \code{NULL}. Otherwise, a character vector of topic names
 #'   whose keywords match \code{topic}.

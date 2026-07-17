@@ -7,13 +7,13 @@
 isEuclid(distmat, tol = 0.0000001)
 }
 \arguments{
-\item{distmat}{an object of class \code{dist}}
+\item{distmat}{an object of class \code{dist}.}
 
 \item{tol}{numeric tolerance for detecting negative eigenvalues,
-relative to the largest absolute eigenvalue}
+relative to the largest absolute eigenvalue.}
 }
 \value{
-A logical scalar. Returns \code{TRUE} if the distance matrix is
+a logical scalar. Returns \code{TRUE} if the distance matrix is
 (approximately) Euclidean, otherwise \code{FALSE}.
 }
 \description{

@@ -25,7 +25,7 @@ combPairs(x, y = NULL)
 
 ## Value
 
-A data.frame with two columns `X1` and `X2` containing the pairwise
+a data.frame with two columns `X1` and `X2` containing the pairwise
 combinations.
 
 ## Details

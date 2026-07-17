@@ -27,7 +27,7 @@ roundTo(x, multiple = 1, FUN = round)
 
 ## Value
 
-the rounded value
+the rounded value.
 
 ## Details
 

@@ -13,7 +13,7 @@ combN(n, m, replace = FALSE, ordered = FALSE)
 
 - n:
 
-  number of elements from which to choose
+  number of elements from which to choose.
 
 - m:
 
@@ -22,8 +22,8 @@ combN(n, m, replace = FALSE, ordered = FALSE)
 
 - replace:
 
-  logical. Should repetition of the same element be allowed? Defaults to
-  `FALSE`
+  logical; whether repetition of the same element is allowed. Defaults
+  to `FALSE`.
 
 - ordered:
 
@@ -31,7 +31,7 @@ combN(n, m, replace = FALSE, ordered = FALSE)
 
 ## Value
 
-a numeric value
+a numeric value.
 
 ## See also
 

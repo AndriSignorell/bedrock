@@ -5,7 +5,7 @@
 #'
 #' @name appendX
 #'
-#' @param x object to which values are appended
+#' @param x object to which values are appended.
 #' @param values values to insert into \code{x}. For matrices with
 #'   \code{rows = TRUE}, values are read row by row.
 #' @param after position after which to insert. If \code{NULL}, values are appended
@@ -17,9 +17,9 @@
 #'   inserting columns, row names when inserting rows. When inserting a column
 #'   into a data.frame without giving \code{newNames}, default names
 #'   (\code{"V1"}, \code{"V2"}, ...) are used.
-#' @param ... additional arguments
+#' @param ... additional arguments.
 #'
-#' @return Object of the same class as \code{x}.
+#' @return object of the same class as \code{x}.
 #'
 #' @seealso \code{\link{append}}
 #'

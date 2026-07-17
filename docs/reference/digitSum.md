@@ -13,11 +13,11 @@ digitSum(x)
 
 - x:
 
-  an integer vector, or a numeric vector of whole numbers
+  an integer vector, or a numeric vector of whole numbers.
 
 ## Value
 
-An integer vector containing the digit sums.
+an integer vector containing the digit sums.
 
 ## Details
 

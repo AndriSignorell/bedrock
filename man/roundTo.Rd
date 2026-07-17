@@ -17,7 +17,7 @@ out of \code{\link{trunc}}, \code{ceiling}, \code{round} (default) or
 \code{floor}.}
 }
 \value{
-the rounded value
+the rounded value.
 }
 \description{
 Returns a number rounded to the nearest specified multiple.

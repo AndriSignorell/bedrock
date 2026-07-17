@@ -5,7 +5,7 @@
 #' `FALSE` otherwise. Convenience wrapper around the internal
 #' \code{.detectInputType()} helper.
 #'
-#' @param x `character(1)` - the string to test
+#' @param x `character(1)` - the string to test.
 #'
 #' @return `logical(1)` - `TRUE` if `x` is a URL, `FALSE` otherwise.
 #'
@@ -33,7 +33,7 @@ isURL <- function(x) {
 #' or relative, Unix/Windows style), `FALSE` otherwise. Convenience wrapper
 #' around the internal \code{.detectInputType()} helper.
 #'
-#' @param x `character(1)` - the string to test
+#' @param x `character(1)` - the string to test.
 #'
 #' @return `logical(1)` - `TRUE` if `x` is a file path, `FALSE` otherwise.
 #'

@@ -7,10 +7,10 @@
 pdfManual(package)
 }
 \arguments{
-\item{package}{package name (symbol or character)}
+\item{package}{package name (symbol or character).}
 }
 \value{
-The URL of the PDF manual, invisibly. Called for its side effect
+the URL of the PDF manual, invisibly. Called for its side effect
 of opening the browser.
 }
 \description{

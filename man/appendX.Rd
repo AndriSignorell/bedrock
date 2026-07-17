@@ -19,7 +19,7 @@ appendX(x, values, after = NULL, ...)
 \method{appendX}{TOne}(x, values, after = NULL, rows = TRUE, newNames = NULL, ...)
 }
 \arguments{
-\item{x}{object to which values are appended}
+\item{x}{object to which values are appended.}
 
 \item{values}{values to insert into \code{x}. For matrices with
 \code{rows = TRUE}, values are read row by row.}
@@ -27,7 +27,7 @@ appendX(x, values, after = NULL, ...)
 \item{after}{position after which to insert. If \code{NULL}, values are appended
 at the end. Use \code{0} to prepend.}
 
-\item{...}{additional arguments}
+\item{...}{additional arguments.}
 
 \item{rows}{logical; if TRUE, insert rows instead of columns. Ignored for
 vectors. Note that the method for \code{TOne} objects defaults to
@@ -39,7 +39,7 @@ into a data.frame without giving \code{newNames}, default names
 (\code{"V1"}, \code{"V2"}, ...) are used.}
 }
 \value{
-Object of the same class as \code{x}.
+object of the same class as \code{x}.
 }
 \description{
 Generic function to append elements to vectors, matrices, and data frames.

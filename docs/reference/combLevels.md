@@ -13,20 +13,20 @@ combLevels(..., sorted = FALSE, na = FALSE)
 
 - ...:
 
-  one or more vectors or factors
+  one or more vectors or factors.
 
 - sorted:
 
-  logical; if `TRUE`, the resulting levels are sorted
+  logical; if `TRUE`, the resulting levels are sorted.
 
 - na:
 
   logical; if `TRUE`, `NA` is treated as a valid level (i.e., included
-  in the result)
+  in the result).
 
 ## Value
 
-A character vector containing the unique levels across all inputs.
+a character vector containing the unique levels across all inputs.
 
 ## Details
 

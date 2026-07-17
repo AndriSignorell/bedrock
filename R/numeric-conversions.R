@@ -37,15 +37,15 @@
 #'   the input base.  For \code{baseToBase()} a numeric \code{x} is accepted
 #'   only when \code{from = 10}.  \code{NA} propagates to the output.
 #' @param from a single integer in \eqn{[2, 36]} specifying the input base
-#'   (\code{baseToBase()} only)
+#'   (\code{baseToBase()} only).
 #' @param to a single integer in \eqn{[2, 36]} specifying the output base
-#'   (\code{baseToBase()} only)
+#'   (\code{baseToBase()} only).
 #' @param width a single non-negative integer or \code{NULL} (default).
 #'   When given, output strings are left-padded with zeros to at least
 #'   \code{width} characters (\code{baseToBase()} only).
 #'
 #' @return
-#' A vector of the same length as \code{x}:
+#' a vector of the same length as \code{x}:
 #' \itemize{
 #'   \item \code{binToDec()}, \code{octToDec()}, \code{hexToDec()},
 #'         \code{romanToInt()} - integer or numeric vector.

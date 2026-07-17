@@ -20,7 +20,7 @@ or a positive integer, or a data frame whose rows are to be sampled.}
 to choose. If missing, it defaults to the number of elements of \code{x}
 (resp. \code{nrow(x)} for data frames), yielding a random permutation.}
 
-\item{replace}{logical. Should sampling be with replacement?}
+\item{replace}{logical; whether sampling is performed with replacement.}
 
 \item{prob}{a vector of probability weights for obtaining the elements
 (or rows) being sampled.}

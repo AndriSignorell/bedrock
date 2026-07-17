@@ -7,7 +7,7 @@
 setNamesX(x, ...)
 }
 \arguments{
-\item{x}{an object for which a names attribute will be meaningful}
+\item{x}{an object for which a names attribute will be meaningful.}
 
 \item{...}{the names to be assigned to the object. This should be a
 character vector of names named \code{dimnames}, \code{rownames},
@@ -16,7 +16,7 @@ existing rownames. All kind of names can be changed at the same time.
 Default would be \code{names}. Abbreviations are supported.}
 }
 \value{
-An object of the same sort as object with the new names assigned.
+an object of the same sort as object with the new names assigned.
 }
 \description{
 This is a convenience function that sets the names of an object and returns

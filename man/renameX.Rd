@@ -13,7 +13,7 @@ or matrix.}
 
 \item{...}{name mappings of the form \code{old = "new"}, a single
 function to apply to all names (e.g. \code{toupper}), or unnamed
-character strings applied positionally (see Details)}
+character strings applied positionally (see Details).}
 
 \item{on}{character scalar specifying which names to operate on.
 One of \code{"names"} (default), \code{"rownames"}, or \code{"colnames"}.
@@ -33,7 +33,7 @@ the targeted names of \code{x}.  Only relevant in exact mode
 (\code{useGsub = FALSE}).}
 }
 \value{
-The object \code{x} with updated names; all other attributes are
+the object \code{x} with updated names; all other attributes are
 preserved.
 }
 \description{

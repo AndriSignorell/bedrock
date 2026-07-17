@@ -10,7 +10,7 @@ asCDateFmt(fmt)
 \item{fmt}{character string. Custom date format.}
 }
 \value{
-Character string. A valid \code{strftime} format.
+character string. A valid \code{strftime} format.
 }
 \description{
 Translates a custom date format string using tokens like

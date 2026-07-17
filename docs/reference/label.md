@@ -21,11 +21,11 @@ label(x, vars = NULL) <- value
 
   optional specification of variables (columns) in a data.frame. Can be:
 
-  - `NULL`: operate on the object label (default)
+  - `NULL`: operate on the object label (default).
 
-  - `TRUE`: all columns
+  - `TRUE`: all columns.
 
-  - numeric indices or character names of columns
+  - numeric indices or character names of columns.
 
 - value:
 
@@ -35,10 +35,10 @@ label(x, vars = NULL) <- value
 
 ## Value
 
-- Getter: A character scalar (object label) or a named character vector
+- getter: a character scalar (object label) or a named character vector
   (variable labels).
 
-- Setter: The modified object `x`.
+- setter: the modified object `x`.
 
 ## Details
 

@@ -17,19 +17,19 @@ quot(x, lag = 1L, quotients = 1L, ...)
 
 - lag:
 
-  an integer indicating which lag to use
+  an integer indicating which lag to use.
 
 - quotients:
 
-  an integer indicating the order of the quotient
+  an integer indicating the order of the quotient.
 
 - ...:
 
-  further arguments to be passed to or from methods
+  further arguments to be passed to or from methods.
 
 ## Value
 
-If `x` is a vector of length `n` and `quotients = 1`, then the computed
+if `x` is a vector of length `n` and `quotients = 1`, then the computed
 result is equal to the successive quotients
 `x[(1+lag):n] / x[1:(n-lag)]`.
 

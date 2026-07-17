@@ -14,18 +14,18 @@ toWide(x, groups, by = NULL, varNames = NULL)
 \item{x}{object to reshape. For \code{toLong()}, a matrix, table, data frame, or
 list. For \code{toWide()}, a vector.}
 
-\item{varNames}{optional character vector of column names for the result}
+\item{varNames}{optional character vector of column names for the result.}
 
 \item{includeRowNames}{logical. If \code{TRUE}, append a column containing the row
 names of \code{x} when reshaping to long format.}
 
-\item{groups}{grouping vector used to define the columns in the wide result}
+\item{groups}{grouping vector used to define the columns in the wide result.}
 
 \item{by}{optional vector used to align values row-wise when reshaping to
 wide format. If \code{NULL}, values are aligned by their order within each group.}
 }
 \value{
-A reshaped object of class \code{data.frame}.
+a reshaped object of class \code{data.frame}.
 }
 \description{
 Reshape data between long and wide format using a grouping variable.

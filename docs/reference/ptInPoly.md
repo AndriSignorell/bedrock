@@ -13,31 +13,31 @@ ptInPoly(x, y, polyX, polyY)
 
 - x:
 
-  numeric vector of x-coordinates of the query points
+  numeric vector of x-coordinates of the query points.
 
 - y:
 
-  numeric vector of y-coordinates of the query points
+  numeric vector of y-coordinates of the query points.
 
 - polyX:
 
-  numeric vector of x-coordinates of the polygon vertices
+  numeric vector of x-coordinates of the polygon vertices.
 
 - polyY:
 
-  numeric vector of y-coordinates of the polygon vertices
+  numeric vector of y-coordinates of the polygon vertices.
 
 ## Value
 
-An integer vector of length `length(x)`:
+an integer vector of length `length(x)`:
 
 - 0:
 
-  point is outside the polygon
+  point is outside the polygon.
 
 - 1:
 
-  point is inside the polygon or on its boundary
+  point is inside the polygon or on its boundary.
 
 ## Details
 

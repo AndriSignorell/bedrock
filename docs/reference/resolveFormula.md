@@ -26,7 +26,7 @@ resolveFormula(
 
   `y ~ 1` or `y`
 
-  :   one-sample design
+  :   one-sample design.
 
   `Pair(x, y) ~ 1`
 
@@ -36,15 +36,15 @@ resolveFormula(
 
   `y ~ g`
 
-  :   two-sample or n-sample independent group comparison
+  :   two-sample or n-sample independent group comparison.
 
   `y ~ x`, `x` numeric
 
-  :   numeric-numeric (correlation, regression)
+  :   numeric-numeric (correlation, regression).
 
   `y ~ trt | block`
 
-  :   n-sample dependent (blocked design)
+  :   n-sample dependent (blocked design).
 
 - data:
 
@@ -77,15 +77,15 @@ a named list with at minimum:
 
 - `type`:
 
-  character, one of the design types listed above
+  character, one of the design types listed above.
 
 - `mf`:
 
-  the [`model.frame`](https://rdrr.io/r/stats/model.frame.html)
+  the [`model.frame`](https://rdrr.io/r/stats/model.frame.html).
 
 - `data.name`:
 
-  the deparsed formula string
+  the deparsed formula string.
 
 Plus design-specific components as described in Details.
 

@@ -38,7 +38,7 @@ recodeX(
 
 - keep:
 
-  vector of levels that should be left untouched
+  vector of levels that should be left untouched.
 
 - elseLevel:
 
@@ -48,7 +48,7 @@ recodeX(
 
 - ref:
 
-  the reference level, typically a string
+  the reference level, typically a string.
 
 - useEmpty:
 
@@ -64,7 +64,7 @@ recodeX(
 ## Value
 
 the factor having the new levels applied.  
-if `x` was a `character` vector, the result will also be `character`
+if `x` was a `character` vector, the result will also be `character`.
 
 ## See also
 

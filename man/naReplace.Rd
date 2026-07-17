@@ -13,13 +13,13 @@ naReplace(x, value)
 \method{naReplace}{factor}(x, value)
 }
 \arguments{
-\item{x}{a vector or factor}
+\item{x}{a vector or factor.}
 
 \item{value}{the replacement value. For factors, a single character
 string.}
 }
 \value{
-An object of the same class as \code{x} with \code{NA} values
+an object of the same class as \code{x} with \code{NA} values
 replaced by \code{value}.
 }
 \description{

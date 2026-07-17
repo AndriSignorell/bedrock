@@ -14,7 +14,7 @@ columnWrap(x, width = NULL)
 - x:
 
   a character vector, typically one row of a matrix (e.g. via
-  `apply(m, 1, columnWrap)`)
+  `apply(m, 1, columnWrap)`).
 
 - width:
 
@@ -25,7 +25,7 @@ columnWrap(x, width = NULL)
 ## Value
 
 a character matrix with one column per element of `x` and one row per
-wrapped line
+wrapped line.
 
 ## Details
 

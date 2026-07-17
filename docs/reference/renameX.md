@@ -26,7 +26,7 @@ renameX(x, ..., on = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
 
   name mappings of the form `old = "new"`, a single function to apply to
   all names (e.g. `toupper`), or unnamed character strings applied
-  positionally (see Details)
+  positionally (see Details).
 
 - on:
 
@@ -55,7 +55,7 @@ renameX(x, ..., on = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
 
 ## Value
 
-The object `x` with updated names; all other attributes are preserved.
+the object `x` with updated names; all other attributes are preserved.
 
 ## Details
 

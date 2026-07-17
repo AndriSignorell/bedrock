@@ -12,7 +12,7 @@ nUnique(x, na.rm = FALSE)
 
 - x:
 
-  a vector
+  a vector.
 
 - na.rm:
 
@@ -21,7 +21,7 @@ nUnique(x, na.rm = FALSE)
 
 ## Value
 
-An integer of length one.
+an integer of length one.
 
 ## See also
 

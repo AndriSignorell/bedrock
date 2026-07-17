@@ -8,7 +8,7 @@
 #' Otherwise \code{x} and \code{y} are converted to factors and a table
 #' is constructed after removing incomplete observations.
 #'
-#' @param x a contingency table, factor or vector
+#' @param x a contingency table, factor or vector.
 #' @param y an optional factor or vector
 #' Ignored when \code{x} is a matrix.
 #' @param square logical indicating whether a square contingency table
@@ -25,14 +25,14 @@
 #' argument names of the calling function (e.g. \code{"x and y"}) rather
 #' than the names the end user actually typed.
 #'
-#' @return A list containing:
+#' @return a list containing:
 #' \describe{
-#'   \item{table}{contingency table}
-#'   \item{n}{total sample size}
-#'   \item{r}{number of rows}
-#'   \item{c}{number of columns}
-#'   \item{k}{number of rows (alias; convenient for square tables)}
-#'   \item{data.name}{name of the data}
+#'   \item{table}{contingency table.}
+#'   \item{n}{total sample size.}
+#'   \item{r}{number of rows.}
+#'   \item{c}{number of columns.}
+#'   \item{k}{number of rows (alias; convenient for square tables).}
+#'   \item{data.name}{name of the data.}
 #' }
 #'
 #' @family data.resolve

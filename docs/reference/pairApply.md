@@ -24,7 +24,7 @@ pairApply(x, FUN = NULL, ..., symmetric = FALSE)
 
 - ...:
 
-  the dots are passed to FUN
+  the dots are passed to FUN.
 
 - symmetric:
 

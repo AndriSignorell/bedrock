@@ -7,10 +7,10 @@
 isOdd(x)
 }
 \arguments{
-\item{x}{a numeric vector}
+\item{x}{a numeric vector.}
 }
 \value{
-A logical vector of the same length as \code{x}. Returns \code{TRUE}
+a logical vector of the same length as \code{x}. Returns \code{TRUE}
 for odd integers, \code{FALSE} for even integers, and \code{NA} for
 non-integer or non-finite values.
 }

@@ -12,16 +12,16 @@ isEuclid(distmat, tol = 0.0000001)
 
 - distmat:
 
-  an object of class `dist`
+  an object of class `dist`.
 
 - tol:
 
   numeric tolerance for detecting negative eigenvalues, relative to the
-  largest absolute eigenvalue
+  largest absolute eigenvalue.
 
 ## Value
 
-A logical scalar. Returns `TRUE` if the distance matrix is
+a logical scalar. Returns `TRUE` if the distance matrix is
 (approximately) Euclidean, otherwise `FALSE`.
 
 ## Details

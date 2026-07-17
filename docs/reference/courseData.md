@@ -33,16 +33,16 @@ courseData(name, url = NULL, header = TRUE, sep = ";", ...)
 
   additional arguments passed to the underlying import functions such as
   [`read.table()`](https://rdrr.io/r/utils/read.table.html) or
-  [`openDataObject()`](openDataObject.md)
+  [`openDataObject()`](openDataObject.md).
 
 ## Value
 
-A data frame or object returned by the respective import function:
+a data frame or object returned by the respective import function:
 
-- For text files: a `data.frame`
+- for text files: a `data.frame`.
 
-- For Excel files: an object returned by
-  [`openDataObject()`](openDataObject.md)
+- for Excel files: an object returned by
+  [`openDataObject()`](openDataObject.md).
 
 ## Details
 

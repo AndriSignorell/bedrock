@@ -8,9 +8,9 @@
 #' numbers (e.g. \code{124} and \code{124L} are both valid). Fractional
 #' values raise an error. Missing values (\code{NA}) are propagated.
 #'
-#' @param x an integer vector, or a numeric vector of whole numbers
+#' @param x an integer vector, or a numeric vector of whole numbers.
 #'
-#' @return An integer vector containing the digit sums.
+#' @return an integer vector containing the digit sums.
 #'
 #' @examples
 #' digitSum(124)

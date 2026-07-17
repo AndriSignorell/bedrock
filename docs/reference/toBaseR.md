@@ -23,15 +23,15 @@ toBaseR(x, ...)
 
 - x:
 
-  the object to be converted
+  the object to be converted.
 
 - ...:
 
-  arguments passed on
+  arguments passed on.
 
 ## Value
 
-converted object
+converted object.
 
 ## See also
 

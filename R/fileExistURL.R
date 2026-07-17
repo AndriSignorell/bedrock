@@ -17,12 +17,12 @@
 #' @param timeout numeric. Timeout in seconds for the HTTP request. Default is 5.
 #'
 #' @return
-#' Logical value indicating whether the resource exists (\code{TRUE}) or not (\code{FALSE}).
+#' logical value indicating whether the resource exists (\code{TRUE}) or not (\code{FALSE}).
 #'
 #' The returned value has additional attributes:
 #' \itemize{
-#'   \item \code{status}: HTTP status code returned by the server (e.g. 200, 404)
-#'   \item \code{error}: Error message (if a request error occurred)
+#'   \item \code{status}: HTTP status code returned by the server (e.g. 200, 404).
+#'   \item \code{error}: error message (if a request error occurred).
 #' }
 #'
 #' @examples

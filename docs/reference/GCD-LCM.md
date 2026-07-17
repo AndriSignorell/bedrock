@@ -15,15 +15,15 @@ LCM(..., na.rm = FALSE)
 
 - ...:
 
-  integer or logical vectors
+  integer or logical vectors.
 
 - na.rm:
 
-  logical. Should missing values (including NaN) be removed?
+  logical; whether missing values (including NaN) are removed.
 
 ## Value
 
-A numeric (integer) value.
+a numeric (integer) value.
 
 ## Details
 

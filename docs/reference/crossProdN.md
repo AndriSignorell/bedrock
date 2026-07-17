@@ -15,11 +15,11 @@ crossProdN(A)
 - A:
 
   a numeric or complex vector of length 2, or a matrix of dimension \\n
-  x (n+1)\\
+  x (n+1)\\.
 
 ## Value
 
-A numeric or complex vector of length \\n+1\\.
+a numeric or complex vector of length \\n+1\\.
 
 ## Details
 

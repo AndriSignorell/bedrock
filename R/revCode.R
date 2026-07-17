@@ -8,7 +8,7 @@
 #'   \item \strong{Factor}: Reverses the order of levels
 #' }
 #'
-#' @param x a vector (numeric, logical, or factor)
+#' @param x a vector (numeric, logical, or factor).
 #' @param min optional numeric minimum. Must be provided together with \code{max}.
 #'   If \code{NULL} (default), the observed minimum of \code{x} is used.
 #' @param max optional numeric maximum. Must be provided together with \code{min}.
@@ -17,7 +17,7 @@
 #'   (numeric only). If \code{FALSE} and \code{NA}s are present, a warning is
 #'   issued and \code{NA} is returned for all values. Default is \code{FALSE}.
 #'
-#' @return A vector of the same type and length as \code{x}, with reversed coding.
+#' @return a vector of the same type and length as \code{x}, with reversed coding.
 #'
 #' @section Errors:
 #' Throws an error if all values are \code{NA}, if only one of \code{min}/\code{max}

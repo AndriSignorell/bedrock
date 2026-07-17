@@ -13,11 +13,11 @@ fibonacci(n)
 
 - n:
 
-  nonnegative integer (\<= 78) or vector of such integers
+  nonnegative integer (\<= 78) or vector of such integers.
 
 ## Value
 
-An integer-valued numeric vector.
+an integer-valued numeric vector.
 
 ## Details
 

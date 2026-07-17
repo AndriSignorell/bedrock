@@ -9,13 +9,13 @@
 #' decide, whether rownames, colnames or simply the names are to be set. Names
 #' are recyled.   
 #' 
-#' @param x an object for which a names attribute will be meaningful 
+#' @param x an object for which a names attribute will be meaningful. 
 #' @param ... the names to be assigned to the object. This should be a
 #' character vector of names named \code{dimnames}, \code{rownames},
 #' \code{colnames} or \code{names}. Setting \code{rownames=NULL} would remove
 #' existing rownames. All kind of names can be changed at the same time.
 #' Default would be \code{names}. Abbreviations are supported. 
-#' @return An object of the same sort as object with the new names assigned.
+#' @return an object of the same sort as object with the new names assigned.
 #'  
 #' @seealso \code{\link{setNames}}
 #' @keywords list

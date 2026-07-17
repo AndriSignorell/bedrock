@@ -13,11 +13,11 @@ isZero(x, tol = sqrt(.Machine$double.eps), na.rm = FALSE)
 
 - x:
 
-  a (non-empty) numeric or complex vector of data values
+  a (non-empty) numeric or complex vector of data values.
 
 - tol:
 
-  tolerance to be used
+  tolerance to be used.
 
 - na.rm:
 

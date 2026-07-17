@@ -7,10 +7,10 @@
 isNA(x)
 }
 \arguments{
-\item{x}{an object to be tested}
+\item{x}{an object to be tested.}
 }
 \value{
-Logical scalar. Returns \code{TRUE} if \code{x} is a single
+logical scalar. Returns \code{TRUE} if \code{x} is a single
 missing value (\code{NA}), and \code{FALSE} otherwise.
 }
 \description{

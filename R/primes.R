@@ -7,9 +7,9 @@
 #' are returned as an integer vector; for several values, a named list is
 #' returned, with names corresponding to the input values.
 #'
-#' @param n a numeric vector of positive whole numbers
+#' @param n a numeric vector of positive whole numbers.
 #'
-#' @return An integer vector containing the prime numbers less than or equal
+#' @return an integer vector containing the prime numbers less than or equal
 #'   to \code{n} if \code{n} is a single number, otherwise a named list of
 #'   such vectors.
 #'

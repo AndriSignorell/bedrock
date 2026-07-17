@@ -7,7 +7,7 @@
 locf(x)
 }
 \arguments{
-\item{x}{a vector, a data.frame or a matrix containing NAs}
+\item{x}{a vector, a data.frame or a matrix containing NAs.}
 }
 \value{
 an object of the same type and dimension as \code{x}.

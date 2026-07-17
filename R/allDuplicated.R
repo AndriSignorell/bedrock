@@ -18,9 +18,9 @@
 #' are flagged as ties. As the function builds on \code{\link{duplicated}},
 #' it also works for data frames (row-wise) and matrices.
 #'
-#' @param x a vector of any type
+#' @param x a vector of any type.
 #'
-#' @return A logical vector of the same length as \code{x}.
+#' @return a logical vector of the same length as \code{x}.
 #'
 #' @seealso
 #' \code{\link{duplicated}} for identifying duplicate elements (excluding first

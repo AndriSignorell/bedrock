@@ -13,12 +13,12 @@ divisors(x)
 - x:
 
   vector of positive whole numbers for which the divisors are to be
-  returned
+  returned.
 
 ## Value
 
 an integer vector containing the proper divisors if `x` is a single
-number, otherwise a named list of such vectors
+number, otherwise a named list of such vectors.
 
 ## Details
 

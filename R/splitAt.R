@@ -3,11 +3,11 @@
 #'
 #' Splits a vector into consecutive segments at specified positions.
 #'
-#' @param x a vector to be split
+#' @param x a vector to be split.
 #' @param pos an integer vector of positions at which to split \code{x}.
 #'   Positions refer to indices in \code{x} where a new segment should start.
 #'
-#' @return A list of vectors, each representing a segment of \code{x}.
+#' @return a list of vectors, each representing a segment of \code{x}.
 #'
 #' @details
 #' The function splits \code{x} into consecutive chunks defined by \code{pos}.

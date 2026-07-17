@@ -15,9 +15,9 @@ label(x, vars = NULL) <- value
 \item{vars}{optional specification of variables (columns) in a data.frame.
 Can be:
 \itemize{
-\item \code{NULL}: operate on the object label (default)
-\item \code{TRUE}: all columns
-\item numeric indices or character names of columns
+\item \code{NULL}: operate on the object label (default).
+\item \code{TRUE}: all columns.
+\item numeric indices or character names of columns.
 }}
 
 \item{value}{a character vector of labels, or \code{NULL} to remove them.
@@ -26,8 +26,8 @@ length 1 or the same length as \code{vars}.}
 }
 \value{
 \itemize{
-\item Getter: A character scalar (object label) or a named character vector (variable labels).
-\item Setter: The modified object \code{x}.
+\item getter: a character scalar (object label) or a named character vector (variable labels).
+\item setter: the modified object \code{x}.
 }
 }
 \description{

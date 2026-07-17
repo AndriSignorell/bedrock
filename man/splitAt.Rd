@@ -7,13 +7,13 @@
 splitAt(x, pos)
 }
 \arguments{
-\item{x}{a vector to be split}
+\item{x}{a vector to be split.}
 
 \item{pos}{an integer vector of positions at which to split \code{x}.
 Positions refer to indices in \code{x} where a new segment should start.}
 }
 \value{
-A list of vectors, each representing a segment of \code{x}.
+a list of vectors, each representing a segment of \code{x}.
 }
 \description{
 Splits a vector into consecutive segments at specified positions.

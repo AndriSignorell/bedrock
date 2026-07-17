@@ -51,10 +51,10 @@ sortX(x, ...)
 }
 \arguments{
 \item{x}{a numeric, complex, character or logical vector, factor,
-matrix, table, or data frame to be sorted}
+matrix, table, or data frame to be sorted.}
 
 \item{\dots}{further arguments passed to \code{\link{sort}} in
-\code{sortX.default}}
+\code{sortX.default}.}
 
 \item{decreasing}{logical scalar or vector. Should the sort be in
 decreasing order? For 2-dimensional objects a vector of the same length
@@ -83,7 +83,7 @@ sorts by row marginal sums. This argument is not available for
 \code{sortX.default}. Default: \code{NULL} (all columns, left to right).}
 }
 \value{
-The sorted object, of the same class as \code{x}.
+the sorted object, of the same class as \code{x}.
 }
 \description{
 \code{sortX} extends the base \code{\link{sort}} function by providing

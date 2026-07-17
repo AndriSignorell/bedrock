@@ -9,9 +9,9 @@
 #' A warning (not an error) is issued if the package is not installed
 #' locally, as the manual may well exist on CRAN anyway.
 #'
-#' @param package package name (symbol or character)
+#' @param package package name (symbol or character).
 #'
-#' @return The URL of the PDF manual, invisibly. Called for its side effect
+#' @return the URL of the PDF manual, invisibly. Called for its side effect
 #'   of opening the browser.
 #'
 #' @seealso \code{\link{browseURL}}

@@ -15,11 +15,11 @@ extractArgs(dots, defaults, validate = NULL, returnRest = FALSE)
 
 - dots:
 
-  named list of arguments (usually `list(...)`)
+  named list of arguments (usually `list(...)`).
 
 - defaults:
 
-  named list of default values
+  named list of default values.
 
 - validate:
 
@@ -31,11 +31,11 @@ extractArgs(dots, defaults, validate = NULL, returnRest = FALSE)
 
   logical; if `TRUE`, a list with components `args` (the merged
   arguments) and `rest` (all elements of `dots` not matching a default,
-  including unnamed ones) is returned
+  including unnamed ones) is returned.
 
 ## Value
 
-Named list of extracted arguments, or a list with components `args` and
+named list of extracted arguments, or a list with components `args` and
 `rest` if `returnRest = TRUE`.
 
 ## See also

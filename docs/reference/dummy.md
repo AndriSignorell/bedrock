@@ -18,7 +18,7 @@ dummy(
 
 - x:
 
-  factor or vector of classes
+  factor or vector of classes.
 
 - method:
 
@@ -38,7 +38,7 @@ dummy(
 
 ## Value
 
-A matrix with dummy codes. The number of rows equals `length(x)`. For
+a matrix with dummy codes. The number of rows equals `length(x)`. For
 `method = "full"`, the number of columns equals the number of levels.
 Otherwise, the number of columns equals the number of levels minus one.
 

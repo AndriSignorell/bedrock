@@ -17,7 +17,7 @@ findDownload(file)
 
 ## Value
 
-A character string giving the full path to the file.
+a character string giving the full path to the file.
 
 ## Details
 

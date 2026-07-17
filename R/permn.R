@@ -8,7 +8,7 @@
 #' @param sortResults logical scalar. If `TRUE`, the result matrix is sorted
 #'   using [sortX()]. Default is `FALSE`.
 #'
-#' @return A matrix containing all distinct permutations of `x`, one
+#' @return a matrix containing all distinct permutations of `x`, one
 #'   permutation per row.
 #'
 #' @examples

@@ -10,7 +10,7 @@ findDownload(file)
 \item{file}{character string. Name of the file.}
 }
 \value{
-A character string giving the full path to the file.
+a character string giving the full path to the file.
 }
 \description{
 Returns the full path to a file located in the user's Downloads directory.

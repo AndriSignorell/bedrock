@@ -4,7 +4,7 @@
 #' Splits a character vector of delimited tokens into a binary dummy
 #' data.frame where each unique token becomes a column.
 #'
-#' @param x a character vector with delimited tokens
+#' @param x a character vector with delimited tokens.
 #' @param split a character string to use as delimiter. Default is \code{","}.
 #' @param trim logical. If \code{TRUE} (default), whitespace is trimmed from
 #'   each token after splitting.
@@ -13,14 +13,14 @@
 #'   \code{\link[stats]{na.exclude}}, and \code{\link[stats]{na.fail}}.
 #'   \describe{
 #'     \item{\code{na.pass}}{NAs are kept as all-zero rows (default).}
-#'     \item{\code{na.omit}}{Rows with NAs are silently removed.}
-#'     \item{\code{na.exclude}}{Like \code{na.omit} but the indices of removed
+#'     \item{\code{na.omit}}{rows with NAs are silently removed.}
+#'     \item{\code{na.exclude}}{like \code{na.omit} but the indices of removed
 #'       rows are stored in a \code{"na.action"} attribute.}
-#'     \item{\code{na.fail}}{An error is raised if any \code{NA} is present.}
+#'     \item{\code{na.fail}}{an error is raised if any \code{NA} is present.}
 #'   }
-#' @param \dots additional arguments passed to \code{\link[base]{strsplit}}
+#' @param \dots additional arguments passed to \code{\link[base]{strsplit}}.
 #'
-#' @return A \code{data.frame} with one row per element of \code{x} and one
+#' @return a \code{data.frame} with one row per element of \code{x} and one
 #'   column per unique token. Values are \code{0L} or \code{1L}. Column names
 #'   are the token values as-is and may not be syntactically valid R
 #'   identifiers. The attribute \code{"tokens"} contains the sorted vector of

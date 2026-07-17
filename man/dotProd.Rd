@@ -7,15 +7,15 @@
 dotProd(x, y)
 }
 \arguments{
-\item{x}{a numeric or complex vector, or a numeric/complex matrix}
+\item{x}{a numeric or complex vector, or a numeric/complex matrix.}
 
 \item{y}{a numeric or complex vector, or a numeric/complex matrix with the
-same dimensions as \code{x}}
+same dimensions as \code{x}.}
 }
 \value{
 \itemize{
-\item A scalar if \code{x} and \code{y} are vectors.
-\item A numeric or complex vector containing the column-wise dot
+\item a scalar if \code{x} and \code{y} are vectors.
+\item a numeric or complex vector containing the column-wise dot
 products if matrices are supplied.
 }
 }

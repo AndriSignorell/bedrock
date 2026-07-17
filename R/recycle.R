@@ -13,10 +13,10 @@
 #' @param strict logical, if \code{TRUE} each element must have length 1 or
 #' \code{maxdim}, so that no partial recycling (or truncation) can occur.
 #' Default is \code{FALSE}.
-#' @param \dots a number of vectors of elements
+#' @param \dots a number of vectors of elements.
 #'
 #' @return a list of the supplied elements\cr \code{attr(,"maxdim")} contains
-#' the maximal dimension of the recycled list
+#' the maximal dimension of the recycled list.
 #'
 #' @seealso \code{\link{rep}}, \code{\link{replicate}}
 #'

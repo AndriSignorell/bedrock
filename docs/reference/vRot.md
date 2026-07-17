@@ -13,7 +13,7 @@ vRot(x, k = 1L)
 
 - x:
 
-  a vector
+  a vector.
 
 - k:
 
@@ -21,7 +21,7 @@ vRot(x, k = 1L)
 
 ## Value
 
-A vector of the same length as `x`, rotated cyclically.
+a vector of the same length as `x`, rotated cyclically.
 
 ## Details
 

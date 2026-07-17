@@ -14,11 +14,11 @@ factorize(n)
 
 - n:
 
-  vector of positive whole numbers to factorize, not exceeding `2^53`
+  vector of positive whole numbers to factorize, not exceeding `2^53`.
 
 ## Value
 
-A named [`list`](https://rdrr.io/r/base/list.html) of the same length as
+a named [`list`](https://rdrr.io/r/base/list.html) of the same length as
 `n`, each element a 2-column matrix with column `"p"` the prime factors
 and column `"m"` their respective exponents (or multiplicities), i.e.,
 for a prime number `n`, the resulting matrix is `cbind(p = n, m = 1)`.
@@ -29,11 +29,8 @@ for a prime number `n`, the resulting matrix is `cbind(p = n, m = 1)`.
 `9.007e15`). Above this bound, R's double representation can no longer
 store integers exactly, so a factorized result could silently correspond
 to a different number than the one entered – for such inputs, use the
-gmp package's
-[`gmp::factorize()`](https://rdrr.io/pkg/gmp/man/factor.html), which
-represents arbitrarily large integers exactly (e.g. via
-[`gmp::as.bigz()`](https://rdrr.io/pkg/gmp/man/biginteger.html) or a
-string).
+gmp package's `gmp::factorize()`, which represents arbitrarily large
+integers exactly (e.g. via `gmp::as.bigz()` or a string).
 
 ## See also
 

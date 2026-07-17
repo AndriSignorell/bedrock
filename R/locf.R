@@ -19,7 +19,7 @@
 #' It should be noted, that the last observation carried forward approach may
 #' result in biased estimates and may underestimate the variability.
 #'
-#' @param x a vector, a data.frame or a matrix containing NAs
+#' @param x a vector, a data.frame or a matrix containing NAs.
 #'
 #' @return an object of the same type and dimension as \code{x}.
 #'

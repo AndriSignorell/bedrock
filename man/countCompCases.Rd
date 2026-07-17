@@ -7,10 +7,10 @@
 countCompCases(x)
 }
 \arguments{
-\item{x}{a data.frame containing the data}
+\item{x}{a data.frame containing the data.}
 }
 \value{
-A list with three elements. The first gives the number of rows, the
+a list with three elements. The first gives the number of rows, the
 second the number of complete cases for the whole data frame. The third
 element \code{tab} contains the data for the single variables.
 }

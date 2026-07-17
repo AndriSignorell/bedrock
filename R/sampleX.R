@@ -12,7 +12,7 @@
 #' @param size a non-negative integer giving the number of items (or rows)
 #' to choose. If missing, it defaults to the number of elements of \code{x}
 #' (resp. \code{nrow(x)} for data frames), yielding a random permutation.
-#' @param replace logical. Should sampling be with replacement?
+#' @param replace logical; whether sampling is performed with replacement.
 #' @param prob a vector of probability weights for obtaining the elements
 #' (or rows) being sampled.
 #' @return sampled elements in the same structure as \code{x}; for data

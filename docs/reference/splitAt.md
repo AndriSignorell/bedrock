@@ -12,7 +12,7 @@ splitAt(x, pos)
 
 - x:
 
-  a vector to be split
+  a vector to be split.
 
 - pos:
 
@@ -21,7 +21,7 @@ splitAt(x, pos)
 
 ## Value
 
-A list of vectors, each representing a segment of `x`.
+a list of vectors, each representing a segment of `x`.
 
 ## Details
 

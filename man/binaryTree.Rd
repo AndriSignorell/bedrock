@@ -7,10 +7,10 @@
 binaryTree(n)
 }
 \arguments{
-\item{n}{integer, size of the tree}
+\item{n}{integer, size of the tree.}
 }
 \value{
-an integer vector of length n
+an integer vector of length n.
 }
 \description{
 Create a binary tree of a given number of nodes \code{n}. Can be used to

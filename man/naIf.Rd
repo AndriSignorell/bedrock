@@ -7,12 +7,12 @@
 naIf(x, values)
 }
 \arguments{
-\item{x}{a vector}
+\item{x}{a vector.}
 
-\item{values}{values to be replaced by \code{NA}}
+\item{values}{values to be replaced by \code{NA}.}
 }
 \value{
-A vector of the same type as \code{x}.
+a vector of the same type as \code{x}.
 }
 \description{
 Replaces specified values in a vector with \code{NA}, in the manner of

@@ -14,7 +14,7 @@ asBinary(x, pos = NULL, warn = TRUE)
 
 - x:
 
-  a logical, numeric, integer, factor, or character vector
+  a logical, numeric, integer, factor, or character vector.
 
 - pos:
 

@@ -7,17 +7,17 @@
 appendRowNames(x, colName = "rowname", after = 0L, removeRowNames = TRUE)
 }
 \arguments{
-\item{x}{a data.frame or matrix}
+\item{x}{a data.frame or matrix.}
 
-\item{colName}{name of the new column containing the row names}
+\item{colName}{name of the new column containing the row names.}
 
 \item{after}{position after which the column is inserted.
 Default is 0 (first column).}
 
-\item{removeRowNames}{logical; if TRUE, existing row names are removed}
+\item{removeRowNames}{logical; if TRUE, existing row names are removed.}
 }
 \value{
-An object of the same class as \code{x} with the row names added
+an object of the same class as \code{x} with the row names added
 as a column. Note that for matrices the result is coerced to the common
 mode, so appending (character) row names to a numeric matrix yields a
 character matrix.

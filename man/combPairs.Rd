@@ -14,7 +14,7 @@ combPairs(x, y = NULL)
 \code{NULL} then all combination x and y are returned.}
 }
 \value{
-A data.frame with two columns \code{X1} and \code{X2}
+a data.frame with two columns \code{X1} and \code{X2}
 containing the pairwise combinations.
 }
 \description{

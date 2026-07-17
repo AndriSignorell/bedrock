@@ -14,7 +14,7 @@ isURL(x)
 
 - x:
 
-  `character(1)` - the string to test
+  `character(1)` - the string to test.
 
 ## Value
 

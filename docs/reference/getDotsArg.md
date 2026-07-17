@@ -14,19 +14,19 @@ getDotsArg(dots, name, default = NULL)
 
 - dots:
 
-  named list (usually `list(...)`)
+  named list (usually `list(...)`).
 
 - name:
 
-  character string, argument name
+  character string, argument name.
 
 - default:
 
-  default value if argument not present
+  default value if argument not present.
 
 ## Value
 
-The value of the argument or `default`.
+the value of the argument or `default`.
 
 ## See also
 

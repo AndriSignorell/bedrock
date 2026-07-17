@@ -7,9 +7,9 @@
 #' values (e.g. 3.5), \code{NA}, \code{NaN}, or \code{Inf} return \code{NA}.
 #' A bare logical \code{NA} is accepted and treated as a missing numeric value.
 #'
-#' @param x a numeric vector
+#' @param x a numeric vector.
 #'
-#' @return A logical vector of the same length as \code{x}. Returns \code{TRUE}
+#' @return a logical vector of the same length as \code{x}. Returns \code{TRUE}
 #'   for odd integers, \code{FALSE} for even integers, and \code{NA} for
 #'   non-integer or non-finite values.
 #'

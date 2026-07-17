@@ -10,14 +10,14 @@
 #' When \code{inclZero = TRUE}, the computation is performed on
 #' \code{c(0, x)}.
 #'
-#' @param x a numeric vector
+#' @param x a numeric vector.
 #' @param inclZero logical. If \code{TRUE}, a zero is prepended to \code{x}
 #'   before computing midpoints. In this case, the first midpoint equals
 #'   \code{x[1] / 2}. Default is \code{FALSE}.
 #' @param cumulate logical. If \code{TRUE}, returns the cumulative sum of the
 #'   midpoints. Default is \code{FALSE}.
 #'
-#' @return A numeric vector of length \code{length(x) - 1} (or \code{length(x)}
+#' @return a numeric vector of length \code{length(x) - 1} (or \code{length(x)}
 #'   if \code{inclZero = TRUE}) containing the midpoints. Returns an empty
 #'   numeric vector if fewer than two values are available.
 #'

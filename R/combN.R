@@ -3,14 +3,14 @@
 #'
 #' Return the number of combinations with and without replacement and order.
 #'
-#' @param n number of elements from which to choose
+#' @param n number of elements from which to choose.
 #' @param m number of elements to choose. For \code{combSet} can \code{m} be a
 #' numeric vector too.
-#' @param replace logical. Should repetition of the same element be allowed?
-#' Defaults to \code{FALSE}
+#' @param replace logical; whether repetition of the same element is allowed.
+#' Defaults to \code{FALSE}.
 #' @param ordered logical. Does the order matter? Default is \code{FALSE}.
 #'
-#' @return a numeric value
+#' @return a numeric value.
 #'
 #' @seealso \code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
 #' \code{vignette("Combinatorics", package = "bedrock")}

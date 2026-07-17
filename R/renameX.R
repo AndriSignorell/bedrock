@@ -36,7 +36,7 @@
 #'   or matrix.
 #' @param ...   name mappings of the form \code{old = "new"}, a single
 #'   function to apply to all names (e.g. \code{toupper}), or unnamed
-#'   character strings applied positionally (see Details)
+#'   character strings applied positionally (see Details).
 #' @param on character scalar specifying which names to operate on.
 #'   One of \code{"names"} (default), \code{"rownames"}, or \code{"colnames"}.
 #'   Partial matching is supported.
@@ -51,7 +51,7 @@
 #'   the targeted names of \code{x}.  Only relevant in exact mode
 #'   (\code{useGsub = FALSE}).
 #'
-#' @return The object \code{x} with updated names; all other attributes are
+#' @return the object \code{x} with updated names; all other attributes are
 #'   preserved.
 #'
 #' @seealso \code{\link{names}}, \code{\link[stats]{setNames}}

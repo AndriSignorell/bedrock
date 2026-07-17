@@ -4,11 +4,11 @@
 #' Shifts a vector to the left or right by \code{k} positions.
 #' Vacated positions are filled with \code{NA}.
 #'
-#' @param x a vector
+#' @param x a vector.
 #' @param k integer. Number of positions to shift.
 #'   Positive values shift to the right, negative values to the left.
 #'
-#' @return A vector of the same length as \code{x}, shifted with \code{NA} padding.
+#' @return a vector of the same length as \code{x}, shifted with \code{NA} padding.
 #'
 #' @details
 #' Unlike \code{\link{vRot}()}, this function does not wrap elements around.

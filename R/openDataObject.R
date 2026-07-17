@@ -11,14 +11,14 @@
 #' @param doc list or \code{NA}. Defines the structure of the documentation sheet.
 #'   If \code{NULL}, the function tries to detect a sheet named \code{"Description"}.
 #'   If \code{NA}, no metadata processing is performed.
-#' @param ... additional arguments passed to \code{readxl::read_excel()}
+#' @param ... additional arguments passed to \code{readxl::read_excel()}.
 #'
 #' @return
-#' A \code{data.frame} containing the imported data. If metadata is available:
+#' a \code{data.frame} containing the imported data. If metadata is available:
 #' \itemize{
-#'   \item Variables may be converted to factors (nominal/ordinal)
-#'   \item Factor levels are labeled using provided codes
-#'   \item Variable labels are assigned using \code{label()}
+#'   \item variables may be converted to factors (nominal/ordinal).
+#'   \item factor levels are labeled using provided codes.
+#'   \item variable labels are assigned using \code{label()}.
 #' }
 #'
 #' @details

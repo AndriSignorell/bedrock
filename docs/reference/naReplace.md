@@ -18,7 +18,7 @@ naReplace(x, value)
 
 - x:
 
-  a vector or factor
+  a vector or factor.
 
 - value:
 
@@ -26,7 +26,7 @@ naReplace(x, value)
 
 ## Value
 
-An object of the same class as `x` with `NA` values replaced by `value`.
+an object of the same class as `x` with `NA` values replaced by `value`.
 
 ## Details
 

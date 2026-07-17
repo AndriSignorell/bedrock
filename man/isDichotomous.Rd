@@ -7,7 +7,7 @@
 isDichotomous(x, strict = FALSE, na.rm = FALSE)
 }
 \arguments{
-\item{x}{a vector}
+\item{x}{a vector.}
 
 \item{strict}{logical. If \code{TRUE}, exactly two distinct values must
 be present. If \code{FALSE} (default), at most two distinct values are allowed.}

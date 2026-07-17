@@ -13,10 +13,10 @@ dataDescription(fn, sheet = "Description")
 Default is \code{"Description"}.}
 }
 \value{
-A list with the following components:
+a list with the following components:
 \itemize{
-\item \code{desctable}: A data frame containing the description table
-\item \code{codes}: A named list of code definitions per variable
+\item \code{desctable}: A data frame containing the description table.
+\item \code{codes}: A named list of code definitions per variable.
 }
 }
 \description{

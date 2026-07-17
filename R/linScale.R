@@ -15,14 +15,14 @@
 #' \code{[low, high]} are extrapolated linearly and are not clipped to the
 #' target range.
 #'
-#' @param x a numeric vector, matrix or data frame
+#' @param x a numeric vector, matrix or data frame.
 #' @param low,high optional numeric vectors specifying the lower and upper
 #'   bounds of the original scale. If \code{NULL}, the column-wise minima
 #'   and maxima of \code{x} are used.
 #' @param newLow,newHigh numeric vectors specifying the target range.
 #'   Defaults to \code{0} and \code{1}.
 #'
-#' @return An object of the same shape as \code{x}: a numeric vector for
+#' @return an object of the same shape as \code{x}: a numeric vector for
 #'   vector input, otherwise a numeric matrix with the same dimensions,
 #'   where each column is linearly rescaled to the interval
 #'   \code{[newLow, newHigh]}.

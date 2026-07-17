@@ -11,20 +11,20 @@
 #'
 #' The values of the \code{key} column must be unique in both data frames.
 #'
-#' @param x a data frame
-#' @param y a data frame to compare against \code{x}
+#' @param x a data frame.
+#' @param y a data frame to compare against \code{x}.
 #' @param key character string. Name of the column used as row identifier.
 #'   Must be present in both \code{x} and \code{y}, with unique values.
 #'
-#' @return A named list with four elements:
+#' @return a named list with four elements:
 #' \describe{
-#'   \item{\code{identical}}{Logical. \code{TRUE} if the two data frames are
+#'   \item{\code{identical}}{logical. \code{TRUE} if the two data frames are
 #'     identical with respect to the common columns and key.}
-#'   \item{\code{onlyInX}}{Data frame of rows whose key value appears in
+#'   \item{\code{onlyInX}}{data frame of rows whose key value appears in
 #'     \code{x} but not in \code{y}.}
-#'   \item{\code{onlyInY}}{Data frame of rows whose key value appears in
+#'   \item{\code{onlyInY}}{data frame of rows whose key value appears in
 #'     \code{y} but not in \code{x}.}
-#'   \item{\code{diffs}}{Data frame with columns named after the \code{key}
+#'   \item{\code{diffs}}{data frame with columns named after the \code{key}
 #'     argument (the key value) and \code{diffCols} (a list column of character
 #'     vectors naming the differing columns for that key).}
 #' }

@@ -12,11 +12,11 @@ isOdd(x)
 
 - x:
 
-  a numeric vector
+  a numeric vector.
 
 ## Value
 
-A logical vector of the same length as `x`. Returns `TRUE` for odd
+a logical vector of the same length as `x`. Returns `TRUE` for odd
 integers, `FALSE` for even integers, and `NA` for non-integer or
 non-finite values.
 

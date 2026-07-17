@@ -7,10 +7,10 @@
 allDuplicated(x)
 }
 \arguments{
-\item{x}{a vector of any type}
+\item{x}{a vector of any type.}
 }
 \value{
-A logical vector of the same length as \code{x}.
+a logical vector of the same length as \code{x}.
 }
 \description{
 The function \code{\link{duplicated}} returns a logical vector indicating

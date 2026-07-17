@@ -15,7 +15,7 @@ rdTitle(topic, man = "man")
 - topic:
 
   a single character string giving the topic (function name or alias) to
-  look up
+  look up.
 
 - man:
 
@@ -25,7 +25,7 @@ rdTitle(topic, man = "man")
 
 ## Value
 
-A single character string with the title, trimmed of leading and
+a single character string with the title, trimmed of leading and
 trailing whitespace. Stops with an error if `topic` is not found.
 
 ## See also

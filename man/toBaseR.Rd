@@ -16,12 +16,12 @@ toBaseR(x, ...)
 \method{toBaseR}{default}(x, ...)
 }
 \arguments{
-\item{x}{the object to be converted}
+\item{x}{the object to be converted.}
 
-\item{\dots}{arguments passed on}
+\item{\dots}{arguments passed on.}
 }
 \value{
-converted object
+converted object.
 }
 \description{
 Sometimes we might wish for the old days be back and want to work with

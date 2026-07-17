@@ -7,7 +7,7 @@
 splitPath(path, lastIsFile = NULL)
 }
 \arguments{
-\item{path}{a character vector of file paths}
+\item{path}{a character vector of file paths.}
 
 \item{lastIsFile}{logical; if \code{TRUE}, the last component of
 \code{path} is treated as a file name. If \code{FALSE}, it is treated
@@ -16,19 +16,19 @@ determines this automatically based on whether the path ends with a
 path separator.}
 }
 \value{
-A list with the following components (each a vector of the same
+a list with the following components (each a vector of the same
 length as \code{path}):
 \describe{
-\item{normpath}{Normalized path as returned by \code{\link{normalizePath}}.}
-\item{drive}{Drive letter on Windows systems (e.g., \code{"C:"}),
+\item{normpath}{normalized path as returned by \code{\link{normalizePath}}.}
+\item{drive}{drive letter on Windows systems (e.g., \code{"C:"}),
 otherwise \code{NA}.}
-\item{dirname}{Directory path without drive letter, including trailing
+\item{dirname}{directory path without drive letter, including trailing
 separator.}
-\item{fullfilename}{Full file name including extension (if applicable).}
-\item{fullpath}{Full directory path including drive letter and trailing
+\item{fullfilename}{full file name including extension (if applicable).}
+\item{fullpath}{full directory path including drive letter and trailing
 separator.}
-\item{filename}{File name without extension.}
-\item{extension}{File extension without leading dot.}
+\item{filename}{file name without extension.}
+\item{extension}{file extension without leading dot.}
 }
 }
 \description{

@@ -10,12 +10,12 @@
 \method{as.matrix}{xtabs}(x, ...)
 }
 \arguments{
-\item{x}{an object of class \code{"xtabs"}}
+\item{x}{an object of class \code{"xtabs"}.}
 
-\item{...}{ignored}
+\item{...}{ignored.}
 }
 \value{
-An array (or matrix in the two-dimensional case) with no
+an array (or matrix in the two-dimensional case) with no
 additional classes.
 }
 \description{

@@ -4,8 +4,8 @@
 #' Return for each variable of a data frame the number of missing values and
 #' the complete cases to be expected if this variable would be omitted.
 #'
-#' @param x a data.frame containing the data
-#' @return A list with three elements. The first gives the number of rows, the
+#' @param x a data.frame containing the data.
+#' @return a list with three elements. The first gives the number of rows, the
 #' second the number of complete cases for the whole data frame. The third
 #' element \code{tab} contains the data for the single variables.
 #'

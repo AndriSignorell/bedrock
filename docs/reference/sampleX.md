@@ -32,7 +32,7 @@ sampleX(x, size, replace = FALSE, prob = NULL)
 
 - replace:
 
-  logical. Should sampling be with replacement?
+  logical; whether sampling is performed with replacement.
 
 - prob:
 

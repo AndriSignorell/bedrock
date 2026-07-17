@@ -22,7 +22,7 @@
 #' @param dir character string. Directory path.
 #' @param filename character string. File name to append to \code{dir}.
 #'
-#' @return A character string representing the file path.
+#' @return a character string representing the file path.
 #'
 #' @note Converting between forward slashes and backslashes is a frequent
 #' necessity -- and a hassle -- especially in Windows. The

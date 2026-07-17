@@ -14,20 +14,20 @@ setLength(x, n, fill = NA)
 
 - x:
 
-  a vector
+  a vector.
 
 - n:
 
-  target length, a single non-negative whole number
+  target length, a single non-negative whole number.
 
 - fill:
 
   value used for newly added elements when `x` is extended (default
-  `NA`)
+  `NA`).
 
 ## Value
 
-`x`, of length `n`
+`x`, of length `n`.
 
 ## See also
 

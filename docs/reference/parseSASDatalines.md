@@ -14,7 +14,7 @@ parseSASDatalines(x, validateNames = FALSE)
 - x:
 
   a single character string containing a SAS DATA step with a DATALINES,
-  CARDS, or CARDS4 block
+  CARDS, or CARDS4 block.
 
 - validateNames:
 
@@ -23,7 +23,7 @@ parseSASDatalines(x, validateNames = FALSE)
 
 ## Value
 
-A data.frame with column names taken from the INPUT statement. The
+a data.frame with column names taken from the INPUT statement. The
 attribute `sas_dataset_name` carries the DATA step name. For
 `DATA _NULL_` the data is still parsed and returned; the caller decides
 what to do with it (matching SAS semantics). SAS missing-value markers

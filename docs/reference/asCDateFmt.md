@@ -18,7 +18,7 @@ asCDateFmt(fmt)
 
 ## Value
 
-Character string. A valid `strftime` format.
+character string. A valid `strftime` format.
 
 ## Details
 

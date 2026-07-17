@@ -30,7 +30,7 @@ empty string.  If \code{FALSE} or \code{idx} is unnamed, the result
 has no names.  Ignored for negative indices.}
 }
 \value{
-A logical vector of length \code{n}.
+a logical vector of length \code{n}.
 }
 \description{
 Reconstructs the \code{TRUE} positions from the index vector returned

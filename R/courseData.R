@@ -23,13 +23,13 @@
 #' @param header logical. Whether the file contains a header row. Passed to \code{read.table()}.
 #' @param sep character. Field separator used in the file. Default is \code{";"}.
 #' @param ... additional arguments passed to the underlying import functions
-#'   such as \code{read.table()} or \code{openDataObject()}
+#'   such as \code{read.table()} or \code{openDataObject()}.
 #'
 #' @return
-#' A data frame or object returned by the respective import function:
+#' a data frame or object returned by the respective import function:
 #' \itemize{
-#'   \item For text files: a \code{data.frame}
-#'   \item For Excel files: an object returned by \code{openDataObject()}
+#'   \item for text files: a \code{data.frame}.
+#'   \item for Excel files: an object returned by \code{openDataObject()}.
 #' }
 #'
 #' @examples

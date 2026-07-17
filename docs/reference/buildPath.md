@@ -22,7 +22,7 @@ buildPath(dir, filename)
 
 ## Value
 
-A character string representing the file path.
+a character string representing the file path.
 
 ## Details
 

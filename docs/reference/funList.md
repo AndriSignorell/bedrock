@@ -12,15 +12,16 @@ funList(package, exported = TRUE)
 
 - package:
 
-  the name of the package
+  the name of the package.
 
 - exported:
 
-  logical (default `TRUE`) should only exported functions be listed?
+  logical; whether only exported functions are listed. Defaults to
+  `TRUE`.
 
 ## Value
 
-A sorted character vector with the function names.
+a sorted character vector with the function names.
 
 ## Details
 

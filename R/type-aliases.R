@@ -26,9 +26,9 @@
 #'   values are required.
 #' @param ... further arguments passed to the underlying base function
 #'   (\code{as.numeric}, \code{as.integer}, \code{as.character}, or
-#'   \code{\link{asBinary}})
+#'   \code{\link{asBinary}}).
 #'
-#' @return A vector of the target type and the same length as \code{x}.
+#' @return a vector of the target type and the same length as \code{x}.
 #'
 #' @examples
 #' num("3.14")

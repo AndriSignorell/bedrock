@@ -12,7 +12,7 @@ recycle(..., maxdim = NULL, strict = FALSE)
 
 - ...:
 
-  a number of vectors of elements
+  a number of vectors of elements.
 
 - maxdim:
 
@@ -28,7 +28,7 @@ recycle(..., maxdim = NULL, strict = FALSE)
 ## Value
 
 a list of the supplied elements  
-`attr(,"maxdim")` contains the maximal dimension of the recycled list
+`attr(,"maxdim")` contains the maximal dimension of the recycled list.
 
 ## Details
 

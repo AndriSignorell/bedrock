@@ -8,11 +8,11 @@
 #' \code{value} is an existing level, the missing values are simply filled
 #' with it.
 #'
-#' @param x a vector or factor
+#' @param x a vector or factor.
 #' @param value the replacement value. For factors, a single character
 #'   string.
 #'
-#' @return An object of the same class as \code{x} with \code{NA} values
+#' @return an object of the same class as \code{x} with \code{NA} values
 #'   replaced by \code{value}.
 #'
 #' @examples

@@ -8,14 +8,14 @@ rdTitle(topic, man = "man")
 }
 \arguments{
 \item{topic}{a single character string giving the topic (function name or
-alias) to look up}
+alias) to look up.}
 
 \item{man}{a single character string giving the path to the directory
 containing \file{.Rd} files.  Defaults to \code{"man"}, i.e. the
 \file{man/} subdirectory of the current working directory.}
 }
 \value{
-A single character string with the title, trimmed of leading and
+a single character string with the title, trimmed of leading and
 trailing whitespace.  Stops with an error if \code{topic} is not found.
 }
 \description{

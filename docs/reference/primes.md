@@ -12,11 +12,11 @@ primes(n)
 
 - n:
 
-  a numeric vector of positive whole numbers
+  a numeric vector of positive whole numbers.
 
 ## Value
 
-An integer vector containing the prime numbers less than or equal to `n`
+an integer vector containing the prime numbers less than or equal to `n`
 if `n` is a single number, otherwise a named list of such vectors.
 
 ## Details

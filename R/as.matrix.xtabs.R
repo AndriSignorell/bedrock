@@ -6,10 +6,10 @@
 #' along with the \code{call} attribute.
 #' 
 #' @name as.array.xtabs
-#' @param x an object of class \code{"xtabs"}
-#' @param ... ignored
+#' @param x an object of class \code{"xtabs"}.
+#' @param ... ignored.
 #'
-#' @return An array (or matrix in the two-dimensional case) with no
+#' @return an array (or matrix in the two-dimensional case) with no
 #'   additional classes.
 #'
 #' @examples

@@ -7,10 +7,10 @@
 primes(n)
 }
 \arguments{
-\item{n}{a numeric vector of positive whole numbers}
+\item{n}{a numeric vector of positive whole numbers.}
 }
 \value{
-An integer vector containing the prime numbers less than or equal
+an integer vector containing the prime numbers less than or equal
 to \code{n} if \code{n} is a single number, otherwise a named list of
 such vectors.
 }

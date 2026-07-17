@@ -7,7 +7,7 @@
 isURL(x)
 }
 \arguments{
-\item{x}{\code{character(1)} - the string to test}
+\item{x}{\code{character(1)} - the string to test.}
 }
 \value{
 \code{logical(1)} - \code{TRUE} if \code{x} is a URL, \code{FALSE} otherwise.

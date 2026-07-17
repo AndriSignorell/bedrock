@@ -14,7 +14,7 @@
 #' @param y a vector of elements, need not be same dimension as x.  If y is not
 #' \code{NULL} then all combination x and y are returned.
 #'
-#' @return A data.frame with two columns \code{X1} and \code{X2}
+#' @return a data.frame with two columns \code{X1} and \code{X2}
 #' containing the pairwise combinations.
 #'
 #' @seealso \code{\link{combn}}, \code{\link{expand.grid}},

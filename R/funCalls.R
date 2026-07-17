@@ -9,13 +9,13 @@
 #' sees attached packages. Calls to functions from packages that are not on
 #' the search path are reported under \code{"<not found>"}.
 #'
-#' @param name the name of the function
+#' @param name the name of the function.
 #' @param package optional name of a package; if given, the result is
-#'   filtered to source environments matching \code{package}
-#' @param sorted logical (default \code{FALSE}) should the calls be
-#'   alphabetically sorted?
+#'   filtered to source environments matching \code{package}.
+#' @param sorted logical; whether calls are sorted alphabetically. Defaults to
+#'   \code{FALSE}.
 #'
-#' @return A list of character vectors with the function calls, grouped by
+#' @return a list of character vectors with the function calls, grouped by
 #'   the environment the called functions were found in.
 #'
 #' @note

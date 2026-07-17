@@ -15,13 +15,13 @@
 #' The order of levels follows their first occurrence unless
 #' \code{sorted = TRUE}.
 #'
-#' @param ... one or more vectors or factors
-#' @param sorted logical; if \code{TRUE}, the resulting levels are sorted
+#' @param ... one or more vectors or factors.
+#' @param sorted logical; if \code{TRUE}, the resulting levels are sorted.
 #' @param na logical; if \code{TRUE}, \code{NA} is treated as a valid level
-#'   (i.e., included in the result)
+#'   (i.e., included in the result).
 #'
 #' @return
-#' A character vector containing the unique levels across all inputs.
+#' a character vector containing the unique levels across all inputs.
 #'
 #' @examples
 #' x <- factor(c("A", "B"))

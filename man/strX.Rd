@@ -7,21 +7,21 @@
 strX(object, ..., enumerate = TRUE, recursive = FALSE, strict.width = "cut")
 }
 \arguments{
-\item{object}{any R object}
+\item{object}{any R object.}
 
-\item{...}{additional arguments passed to \code{\link[utils:str]{utils::str()}}}
+\item{...}{additional arguments passed to \code{\link[utils:str]{utils::str()}}.}
 
-\item{enumerate}{logical. Should variables/elements be numbered?
+\item{enumerate}{logical; whether variables or elements are numbered.
 Default is \code{TRUE}.}
 
-\item{recursive}{logical. Should nested list elements also be numbered?
+\item{recursive}{logical; whether nested list elements are also numbered.
 Default is \code{FALSE}.}
 
 \item{strict.width}{character string passed to \code{\link[utils:str]{utils::str()}}.
 Default is \code{"cut"}.}
 }
 \value{
-Invisibly returns the character vector produced by \code{\link[utils:str]{utils::str()}}.
+invisibly returns the character vector produced by \code{\link[utils:str]{utils::str()}}.
 }
 \description{
 Wrapper around \code{\link[utils:str]{utils::str()}} that optionally numbers variables in

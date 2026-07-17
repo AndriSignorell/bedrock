@@ -14,24 +14,24 @@ appendEnum(
 )
 }
 \arguments{
-\item{x}{a data.frame or matrix (vectors are coerced via \code{matrix()})}
+\item{x}{a data.frame or matrix (vectors are coerced via \code{matrix()}).}
 
 \item{type}{enumeration style: \code{"roman-lcase"}, \code{"roman-ucase"}
-or \code{"arabic"}}
+or \code{"arabic"}.}
 
-\item{suffix}{text appended to each enumeration label}
+\item{suffix}{text appended to each enumeration label.}
 
-\item{startWith}{first enumeration index}
+\item{startWith}{first enumeration index.}
 
 \item{after}{position after which the column is inserted (see
-\code{\link{appendX}}); default \code{0L} prepends it}
+\code{\link{appendX}}); default \code{0L} prepends it.}
 
 \item{colName}{optional name for the new column; \code{NULL} (default)
 leaves it unnamed for matrices, while for data frames a default name
-(\code{"V1"}) is used}
+(\code{"V1"}) is used.}
 }
 \value{
-\code{x} with an additional enumeration column
+\code{x} with an additional enumeration column.
 }
 \description{
 Prepends (or inserts) a column of enumeration labels -- lowercase or

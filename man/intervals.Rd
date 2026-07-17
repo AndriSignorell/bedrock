@@ -18,19 +18,19 @@ x \%overlaps\% y
 }
 \arguments{
 \item{x}{a numeric vector of length 2 \code{c(lower, upper)}, or a
-numeric matrix with 2 columns where each row defines one interval}
+numeric matrix with 2 columns where each row defines one interval.}
 
 \item{y}{a numeric vector of length 2 \code{c(lower, upper)}, or a
-numeric matrix with 2 columns where each row defines one interval}
+numeric matrix with 2 columns where each row defines one interval.}
 }
 \value{
 \describe{
-\item{\code{overlap}}{Numeric vector of overlap lengths (0 if no overlap).}
-\item{\code{overlaps}}{Logical vector; \code{TRUE} if intervals share at
+\item{\code{overlap}}{numeric vector of overlap lengths (0 if no overlap).}
+\item{\code{overlaps}}{logical vector; \code{TRUE} if intervals share at
 least one point.}
-\item{\code{distance}}{Numeric vector of gap lengths between non-overlapping
+\item{\code{distance}}{numeric vector of gap lengths between non-overlapping
 intervals (0 if overlapping or touching).}
-\item{\code{\%overlaps\%}}{Logical vector; operator wrapper for
+\item{\code{\%overlaps\%}}{logical vector; operator wrapper for
 \code{overlaps()}.}
 }
 }

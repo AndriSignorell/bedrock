@@ -19,7 +19,7 @@ setNamesX(x, ...)
 
 - x:
 
-  an object for which a names attribute will be meaningful
+  an object for which a names attribute will be meaningful.
 
 - ...:
 
@@ -31,7 +31,7 @@ setNamesX(x, ...)
 
 ## Value
 
-An object of the same sort as object with the new names assigned.
+an object of the same sort as object with the new names assigned.
 
 ## See also
 

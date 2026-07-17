@@ -14,20 +14,20 @@ mReplace(x, patterns, replacements)
 
 - x:
 
-  a character vector whose elements are to be replaced
+  a character vector whose elements are to be replaced.
 
 - patterns:
 
-  a character vector of values to search for
+  a character vector of values to search for.
 
 - replacements:
 
   a character vector of replacement values, in the same order as
-  `patterns`
+  `patterns`.
 
 ## Value
 
-A character vector of the same length as `x`, with matching elements
+a character vector of the same length as `x`, with matching elements
 replaced. Non-matching elements are returned unchanged.
 
 ## See also

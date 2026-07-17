@@ -11,12 +11,12 @@ GCD(..., na.rm = FALSE)
 LCM(..., na.rm = FALSE)
 }
 \arguments{
-\item{...}{integer or logical vectors}
+\item{...}{integer or logical vectors.}
 
-\item{na.rm}{logical. Should missing values (including NaN) be removed?}
+\item{na.rm}{logical; whether missing values (including NaN) are removed.}
 }
 \value{
-A numeric (integer) value.
+a numeric (integer) value.
 }
 \description{
 Calculates the greatest common divisor (GCD) and least common multiple (LCM)

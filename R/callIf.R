@@ -19,14 +19,14 @@
 #' \code{NULL} are preserved and passed on to \code{fun} (so that an explicit
 #' \code{NULL} can be used to reset an argument).
 #'
-#' @param fun a function to be called
+#' @param fun a function to be called.
 #' @param arg controls whether and how \code{fun} is called:
 #'   \itemize{
 #'     \item \code{FALSE}, \code{NULL}, or \code{NA}: \code{fun} is not called
 #'       and \code{NULL} is returned invisibly.
 #'     \item \code{TRUE}: \code{fun} is called with \code{defaults} (if provided),
 #'       or with no arguments.
-#'     \item A fully named list: \code{fun} is called with the list elements as
+#'     \item a fully named list: \code{fun} is called with the list elements as
 #'       arguments. If \code{defaults} is provided, it is merged with
 #'       \code{arg}, where elements of \code{arg} override those in
 #'       \code{defaults}.
@@ -40,7 +40,7 @@
 #' @param warn logical. If \code{TRUE} (default), a warning is issued when
 #'   forbidden arguments are removed.
 #'
-#' @return Returns the result of \code{fun(...)} if called. If \code{arg} is
+#' @return returns the result of \code{fun(...)} if called. If \code{arg} is
 #'   \code{FALSE}, \code{NULL}, or \code{NA}, returns \code{NULL} invisibly.
 #'
 #' @examples

@@ -28,7 +28,7 @@
 #'   empty string.  If \code{FALSE} or \code{idx} is unnamed, the result
 #'   has no names.  Ignored for negative indices.
 #'
-#' @return A logical vector of length \code{n}.
+#' @return a logical vector of length \code{n}.
 #'
 #' @note
 #' The positive-index construction (\code{rv[indices] <- TRUE} with name

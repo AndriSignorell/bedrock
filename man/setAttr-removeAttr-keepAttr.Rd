@@ -14,9 +14,9 @@ removeAttr(x, attrNames = NULL)
 keepAttr(x, attrNames)
 }
 \arguments{
-\item{x}{object to modify}
+\item{x}{object to modify.}
 
-\item{attrNames}{character vector of attribute names}
+\item{attrNames}{character vector of attribute names.}
 
 \item{attrValues}{values for the attributes (only for setting). For a
 single attribute name, \code{attrValues} is taken as the value itself
@@ -24,7 +24,7 @@ single attribute name, \code{attrValues} is taken as the value itself
 use a list for non-scalar or mixed-type values.}
 }
 \value{
-Modified object
+modified object.
 }
 \description{
 Convenience helpers to add, remove, or selectively retain attributes

@@ -8,19 +8,19 @@
 #' in a consistent format suitable for hypothesis tests, summaries,
 #' effect-size calculations and plotting functions.
 #'
-#' @param x a numeric vector of observations, or a list of numeric vectors
+#' @param x a numeric vector of observations, or a list of numeric vectors.
 #' @param groups a grouping variable of the same length as \code{x}.
 #'   Ignored when \code{x} is a list.
 #'
-#' @return A list containing:
+#' @return a list containing:
 #' \describe{
-#'   \item{x}{numeric response vector}
-#'   \item{groups}{grouping factor}
-#'   \item{n}{total number of observations}
-#'   \item{k}{number of groups}
-#'   \item{group.sizes}{group sample sizes}
-#'   \item{group.names}{group labels}
-#'   \item{data.name}{character description of the input}
+#'   \item{x}{numeric response vector.}
+#'   \item{groups}{grouping factor.}
+#'   \item{n}{total number of observations.}
+#'   \item{k}{number of groups.}
+#'   \item{group.sizes}{group sample sizes.}
+#'   \item{group.names}{group labels.}
+#'   \item{data.name}{character description of the input.}
 #' }
 #'
 

@@ -43,35 +43,35 @@ rankX(
 
   `"average"`
 
-  :   Average of the ranks for tied values (default).
+  :   average of the ranks for tied values (default).
 
   `"first"`
 
-  :   Ranks assigned in order of appearance.
+  :   ranks assigned in order of appearance.
 
   `"last"`
 
-  :   Ranks assigned in reverse order of appearance.
+  :   ranks assigned in reverse order of appearance.
 
   `"random"`
 
-  :   Ranks assigned at random.
+  :   ranks assigned at random.
 
   `"max"`
 
-  :   Maximum rank for tied values.
+  :   maximum rank for tied values.
 
   `"min"`
 
-  :   Minimum rank for tied values.
+  :   minimum rank for tied values.
 
   `"dense"`
 
-  :   Like `"min"`, but ranks are consecutive integers without gaps.
+  :   like `"min"`, but ranks are consecutive integers without gaps.
 
 ## Value
 
-An integer or numeric vector of ranks with the same length as the input.
+an integer or numeric vector of ranks with the same length as the input.
 
 ## Details
 

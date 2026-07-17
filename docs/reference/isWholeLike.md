@@ -19,7 +19,7 @@ isWholeLike(
 
 - x:
 
-  a numeric, integer, or complex vector
+  a numeric, integer, or complex vector.
 
 - all:
 
@@ -43,7 +43,7 @@ isWholeLike(
 
 ## Value
 
-If `all = TRUE`, a single logical value. If `all = FALSE`, a logical
+if `all = TRUE`, a single logical value. If `all = FALSE`, a logical
 vector.
 
 ## Details

@@ -14,7 +14,7 @@ collapseTable(x, ..., strict = TRUE)
 
 - x:
 
-  a `table` or `ftable` object with named dimensions
+  a `table` or `ftable` object with named dimensions.
 
 - ...:
 
@@ -28,7 +28,7 @@ collapseTable(x, ..., strict = TRUE)
 
 ## Value
 
-A collapsed `table` object with updated dimensions and aggregated
+a collapsed `table` object with updated dimensions and aggregated
 frequencies.
 
 ## Details

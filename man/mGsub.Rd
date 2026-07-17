@@ -7,16 +7,16 @@
 mGsub(x, patterns, replacements)
 }
 \arguments{
-\item{x}{a character vector in which substitutions are performed}
+\item{x}{a character vector in which substitutions are performed.}
 
 \item{patterns}{a character vector of substrings to search for
-(\code{fixed = TRUE})}
+(\code{fixed = TRUE}).}
 
 \item{replacements}{a character vector of replacement strings,
-in the same order as \code{patterns}}
+in the same order as \code{patterns}.}
 }
 \value{
-A character vector of the same length as \code{x}.
+a character vector of the same length as \code{x}.
 }
 \description{
 Replaces multiple substrings in a character vector simultaneously,

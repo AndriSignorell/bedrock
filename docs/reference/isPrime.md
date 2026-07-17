@@ -17,7 +17,7 @@ isPrime(n)
 
 ## Value
 
-A logical vector indicating whether each element of `n` is a prime
+a logical vector indicating whether each element of `n` is a prime
 number.
 
 ## Details

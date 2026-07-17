@@ -6,12 +6,12 @@
 #' \code{length(x) <- n}, but with a configurable fill value instead
 #' of \code{NA}.
 #'
-#' @param x a vector
-#' @param n target length, a single non-negative whole number
+#' @param x a vector.
+#' @param n target length, a single non-negative whole number.
 #' @param fill value used for newly added elements when \code{x} is
-#'   extended (default \code{NA})
+#'   extended (default \code{NA}).
 #'
-#' @return \code{x}, of length \code{n}
+#' @return \code{x}, of length \code{n}.
 #'
 #' @examples
 #' setLength(LETTERS[1:3], 5)

@@ -13,11 +13,11 @@ binaryTree(n)
 
 - n:
 
-  integer, size of the tree
+  integer, size of the tree.
 
 ## Value
 
-an integer vector of length n
+an integer vector of length n.
 
 ## Details
 
@@ -38,7 +38,7 @@ improvements by the package author.
 
 ## See also
 
-[`plotBinaryTree`](https://rdrr.io/pkg/lyra/man/binaryTree.html)
+`plotBinaryTree`
 
 Other data.order: [`revX()`](revX.md), [`sortX()`](sortX.md)
 

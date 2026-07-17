@@ -12,11 +12,11 @@ appendRowNames(x, colName = "rowname", after = 0L, removeRowNames = TRUE)
 
 - x:
 
-  a data.frame or matrix
+  a data.frame or matrix.
 
 - colName:
 
-  name of the new column containing the row names
+  name of the new column containing the row names.
 
 - after:
 
@@ -25,11 +25,11 @@ appendRowNames(x, colName = "rowname", after = 0L, removeRowNames = TRUE)
 
 - removeRowNames:
 
-  logical; if TRUE, existing row names are removed
+  logical; if TRUE, existing row names are removed.
 
 ## Value
 
-An object of the same class as `x` with the row names added as a column.
+an object of the same class as `x` with the row names added as a column.
 Note that for matrices the result is coerced to the common mode, so
 appending (character) row names to a numeric matrix yields a character
 matrix.

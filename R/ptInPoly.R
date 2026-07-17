@@ -8,15 +8,15 @@
 #' The function uses a numerically stable angle summation algorithm
 #' implemented in C++ via Rcpp.
 #'
-#' @param x numeric vector of x-coordinates of the query points
-#' @param y numeric vector of y-coordinates of the query points
-#' @param polyX numeric vector of x-coordinates of the polygon vertices
-#' @param polyY numeric vector of y-coordinates of the polygon vertices
+#' @param x numeric vector of x-coordinates of the query points.
+#' @param y numeric vector of y-coordinates of the query points.
+#' @param polyX numeric vector of x-coordinates of the polygon vertices.
+#' @param polyY numeric vector of y-coordinates of the polygon vertices.
 #'
-#' @return An integer vector of length `length(x)`:
+#' @return an integer vector of length `length(x)`:
 #' \describe{
-#'   \item{0}{point is outside the polygon}
-#'   \item{1}{point is inside the polygon or on its boundary}
+#'   \item{0}{point is outside the polygon.}
+#'   \item{1}{point is inside the polygon or on its boundary.}
 #' }
 #'
 #' @details

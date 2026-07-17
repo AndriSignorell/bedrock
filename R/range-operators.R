@@ -12,7 +12,7 @@
 #' }
 #'
 #' @name range-operators
-#' @param x a vector
+#' @param x a vector.
 #' @param rng a vector of length 2: `c(from, to)`. May contain `NA` to match
 #'   missing values in `x`.
 #'

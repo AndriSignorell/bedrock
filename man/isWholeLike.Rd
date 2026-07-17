@@ -13,7 +13,7 @@ isWholeLike(
 )
 }
 \arguments{
-\item{x}{a numeric, integer, or complex vector}
+\item{x}{a numeric, integer, or complex vector.}
 
 \item{all}{logical. If \code{TRUE} (default), returns a single logical
 indicating whether all elements are whole-like. If \code{FALSE},
@@ -30,7 +30,7 @@ testing. If \code{FALSE} (default) and \code{x} contains \code{NA},
 the result is \code{FALSE}.}
 }
 \value{
-If \code{all = TRUE}, a single logical value.
+if \code{all = TRUE}, a single logical value.
 If \code{all = FALSE}, a logical vector.
 }
 \description{

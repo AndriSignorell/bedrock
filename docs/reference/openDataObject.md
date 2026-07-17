@@ -30,17 +30,17 @@ openDataObject(name, url = NULL, doc = NULL, ...)
 - ...:
 
   additional arguments passed to
-  [`readxl::read_excel()`](https://readxl.tidyverse.org/reference/read_excel.html)
+  [`readxl::read_excel()`](https://readxl.tidyverse.org/reference/read_excel.html).
 
 ## Value
 
-A `data.frame` containing the imported data. If metadata is available:
+a `data.frame` containing the imported data. If metadata is available:
 
-- Variables may be converted to factors (nominal/ordinal)
+- variables may be converted to factors (nominal/ordinal).
 
-- Factor levels are labeled using provided codes
+- factor levels are labeled using provided codes.
 
-- Variable labels are assigned using [`label()`](label.md)
+- variable labels are assigned using [`label()`](label.md).
 
 ## Details
 

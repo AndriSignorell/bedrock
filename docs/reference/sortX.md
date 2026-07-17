@@ -59,12 +59,12 @@ sortX(
 - x:
 
   a numeric, complex, character or logical vector, factor, matrix,
-  table, or data frame to be sorted
+  table, or data frame to be sorted.
 
 - ...:
 
   further arguments passed to [`sort`](https://rdrr.io/r/base/sort.html)
-  in `sortX.default`
+  in `sortX.default`.
 
 - decreasing:
 
@@ -101,7 +101,7 @@ sortX(
 
 ## Value
 
-The sorted object, of the same class as `x`.
+the sorted object, of the same class as `x`.
 
 ## Details
 

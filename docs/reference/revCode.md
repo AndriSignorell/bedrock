@@ -19,7 +19,7 @@ revCode(x, min = NULL, max = NULL, na.rm = FALSE)
 
 - x:
 
-  a vector (numeric, logical, or factor)
+  a vector (numeric, logical, or factor).
 
 - min:
 
@@ -39,7 +39,7 @@ revCode(x, min = NULL, max = NULL, na.rm = FALSE)
 
 ## Value
 
-A vector of the same type and length as `x`, with reversed coding.
+a vector of the same type and length as `x`, with reversed coding.
 
 ## Errors
 

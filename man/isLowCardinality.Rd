@@ -7,13 +7,13 @@
 isLowCardinality(x, maxUnique = 12)
 }
 \arguments{
-\item{x}{a numeric or integer vector}
+\item{x}{a numeric or integer vector.}
 
 \item{maxUnique}{integer. The threshold up to which \code{x} is considered to
 have low cardinality. Defaults to \code{12}.}
 }
 \value{
-A logical of length one: \code{TRUE} if \code{x} has \code{maxUnique} or fewer
+a logical of length one: \code{TRUE} if \code{x} has \code{maxUnique} or fewer
 unique, non-\code{NA} values, \code{FALSE} otherwise.
 }
 \description{

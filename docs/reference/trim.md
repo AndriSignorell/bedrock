@@ -13,7 +13,7 @@ trim(x, trim = 0.1, na.rm = FALSE)
 
 - x:
 
-  a numeric vector to be trimmed
+  a numeric vector to be trimmed.
 
 - trim:
 
@@ -29,7 +29,7 @@ trim(x, trim = 0.1, na.rm = FALSE)
 
 ## Value
 
-The trimmed vector `x`. The indices of the trimmed values will be
+the trimmed vector `x`. The indices of the trimmed values will be
 attached as attribute named `"trim"`.
 
 ## Details

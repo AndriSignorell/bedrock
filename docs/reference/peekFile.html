@@ -9,7 +9,7 @@ the result as a base R data.frame."><meta property="og:image" content="/logo.png
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.943</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.946</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,17 +58,17 @@ the result as a base R <code>data.frame</code>.</p>
 
 
 <dl><dt id="arg-file">file<a class="anchor" aria-label="anchor" href="#arg-file"></a></dt>
-<dd><p>character string specifying the file name</p></dd>
+<dd><p>character string specifying the file name.</p></dd>
 
 
 <dt id="arg-n">n<a class="anchor" aria-label="anchor" href="#arg-n"></a></dt>
 <dd><p>integer specifying the number of data rows to read,
-defaults to 10</p></dd>
+defaults to 10.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>additional arguments passed to
-<code><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">readr::read_delim()</a></code>, e.g. <code>delim</code> or <code>skip</code>.
+<code>readr::read_delim()</code>, e.g. <code>delim</code> or <code>skip</code>.
 The arguments <code>n_max</code> and <code>show_col_types</code> are managed
 internally and will be ignored if supplied; <code>guess_max</code>
 defaults to <code>n</code> but may be overridden.</p></dd>
@@ -90,14 +90,14 @@ containing the first <code>n</code> data rows of the file.</p>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>This function is intended for quickly inspecting large text files,
-including compressed files supported by <code><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">readr::read_delim()</a></code>.</p>
+including compressed files supported by <code>readr::read_delim()</code>.</p>
 <p>Column types are guessed from the previewed rows only (the default
 <code>guess_max</code> equals <code>n</code>). If early rows are not representative,
 supply a larger <code>guess_max</code> via the dots.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_delim</a></code>, <code><a href="toBaseR.html">toBaseR</a></code></p>
+    <div class="dont-index"><p><code>read_delim</code>, <code><a href="toBaseR.html">toBaseR</a></code></p>
 <p>Other file.io:
 <code><a href="parseSASDatalines.html">parseSASDatalines()</a></code>,
 <code><a href="pdfManual.html">pdfManual()</a></code>,
@@ -125,7 +125,7 @@ supply a larger <code>guess_max</code> via the dots.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

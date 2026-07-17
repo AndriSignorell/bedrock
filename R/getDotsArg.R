@@ -5,11 +5,11 @@
 #' \code{list(...)}). If the argument is not present, a default value is
 #' returned.
 #'
-#' @param dots named list (usually \code{list(...)})
-#' @param name character string, argument name
-#' @param default default value if argument not present
+#' @param dots named list (usually \code{list(...)}).
+#' @param name character string, argument name.
+#' @param default default value if argument not present.
 #'
-#' @return The value of the argument or \code{default}.
+#' @return the value of the argument or \code{default}.
 #'
 #' @seealso \code{\link{extractArgs}} for extracting several arguments
 #' at once.

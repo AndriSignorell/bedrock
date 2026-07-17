@@ -14,20 +14,20 @@ funCalls(name, package = NULL, sorted = FALSE)
 
 - name:
 
-  the name of the function
+  the name of the function.
 
 - package:
 
   optional name of a package; if given, the result is filtered to source
-  environments matching `package`
+  environments matching `package`.
 
 - sorted:
 
-  logical (default `FALSE`) should the calls be alphabetically sorted?
+  logical; whether calls are sorted alphabetically. Defaults to `FALSE`.
 
 ## Value
 
-A list of character vectors with the function calls, grouped by the
+a list of character vectors with the function calls, grouped by the
 environment the called functions were found in.
 
 ## Details

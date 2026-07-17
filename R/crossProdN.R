@@ -26,9 +26,9 @@
 #' has a positive real part.
 #'
 #' @param A a numeric or complex vector of length 2, or a matrix of dimension
-#'   \eqn{n x (n+1)}
+#'   \eqn{n x (n+1)}.
 #'
-#' @return A numeric or complex vector of length \eqn{n+1}.
+#' @return a numeric or complex vector of length \eqn{n+1}.
 #'
 #' @examples
 #' # 2D case

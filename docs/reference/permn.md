@@ -23,7 +23,7 @@ permn(x, sortResults = FALSE)
 
 ## Value
 
-A matrix containing all distinct permutations of `x`, one permutation
+a matrix containing all distinct permutations of `x`, one permutation
 per row.
 
 ## See also

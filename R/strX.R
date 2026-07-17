@@ -9,17 +9,17 @@
 #' By default, only top-level elements are numbered. Recursive numbering
 #' of nested list elements can be enabled with `recursive = TRUE`.
 #'
-#' @param object any R object
-#' @param ... additional arguments passed to [utils::str()]
-#' @param enumerate logical. Should variables/elements be numbered?
+#' @param object any R object.
+#' @param ... additional arguments passed to [utils::str()].
+#' @param enumerate logical; whether variables or elements are numbered.
 #'   Default is `TRUE`.
-#' @param recursive logical. Should nested list elements also be numbered?
+#' @param recursive logical; whether nested list elements are also numbered.
 #'   Default is `FALSE`.
 #' @param strict.width character string passed to [utils::str()].
 #'   Default is `"cut"`.
 #'
 #' @return
-#' Invisibly returns the character vector produced by [utils::str()].
+#' invisibly returns the character vector produced by [utils::str()].
 #'
 #' @examples
 #' # Data frame

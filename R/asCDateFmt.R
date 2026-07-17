@@ -32,7 +32,7 @@
 #'
 #' @param fmt character string. Custom date format.
 #'
-#' @return Character string. A valid \code{strftime} format.
+#' @return character string. A valid \code{strftime} format.
 #'
 #' @examples
 #' asCDateFmt("yyyy-mm-dd")

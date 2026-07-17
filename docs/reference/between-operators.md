@@ -41,7 +41,7 @@ x %)(% rng
 
 ## Value
 
-A logical vector of the same length as x.
+a logical vector of the same length as x.
 
 ## Details
 

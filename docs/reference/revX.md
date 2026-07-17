@@ -31,11 +31,11 @@ revX(x, margin = 1:2, ...)
 
 - x:
 
-  a vector, a matrix or a higher dimensional table to be reversed
+  a vector, a matrix or a higher dimensional table to be reversed.
 
 - ...:
 
-  the dots are passed to the array interface
+  the dots are passed to the array interface.
 
 - margin:
 

@@ -8,15 +8,15 @@
 #'
 #' @param formula a model formula. Supported forms are:
 #'   \describe{
-#'     \item{\code{y ~ 1} or \code{y}}{one-sample design}
+#'     \item{\code{y ~ 1} or \code{y}}{one-sample design.}
 #'     \item{\code{Pair(x, y) ~ 1}}{two-sample dependent (paired).
 #'       \code{\link[stats]{Pair}} constructs a two-column matrix of
 #'       paired observations.}
 #'     \item{\code{y ~ g}}{two-sample or n-sample independent group
-#'       comparison}
+#'       comparison.}
 #'     \item{\code{y ~ x}, \code{x} numeric}{numeric-numeric (correlation,
-#'       regression)}
-#'     \item{\code{y ~ trt | block}}{n-sample dependent (blocked design)}
+#'       regression).}
+#'     \item{\code{y ~ trt | block}}{n-sample dependent (blocked design).}
 #'   }
 #' @param data an optional data frame containing the variables in
 #'   \code{formula}. A matrix is coerced to a data frame.
@@ -104,9 +104,9 @@
 #'
 #' @return a named list with at minimum:
 #' \describe{
-#'   \item{\code{type}}{character, one of the design types listed above}
-#'   \item{\code{mf}}{the \code{\link[stats]{model.frame}}}
-#'   \item{\code{data.name}}{the deparsed formula string}
+#'   \item{\code{type}}{character, one of the design types listed above.}
+#'   \item{\code{mf}}{the \code{\link[stats]{model.frame}}.}
+#'   \item{\code{data.name}}{the deparsed formula string.}
 #' }
 #' Plus design-specific components as described in Details.
 #'

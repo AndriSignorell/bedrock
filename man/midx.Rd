@@ -7,7 +7,7 @@
 midx(x, inclZero = FALSE, cumulate = FALSE)
 }
 \arguments{
-\item{x}{a numeric vector}
+\item{x}{a numeric vector.}
 
 \item{inclZero}{logical. If \code{TRUE}, a zero is prepended to \code{x}
 before computing midpoints. In this case, the first midpoint equals
@@ -17,7 +17,7 @@ before computing midpoints. In this case, the first midpoint equals
 midpoints. Default is \code{FALSE}.}
 }
 \value{
-A numeric vector of length \code{length(x) - 1} (or \code{length(x)}
+a numeric vector of length \code{length(x) - 1} (or \code{length(x)}
 if \code{inclZero = TRUE}) containing the midpoints. Returns an empty
 numeric vector if fewer than two values are available.
 }

@@ -10,14 +10,14 @@
 #' missing values.
 #'
 #' @param x a data.frame or list-like object whose elements are checked
-#'   for missing values
+#'   for missing values.
 #' @param output character string specifying the output representation.
 #'   One of \code{"names"} (return the names of the complete elements,
 #'   the default) or \code{"logical"} (return a logical vector indicating
 #'   completeness for each element).
 #'
 #' @return
-#' If \code{output = "names"}, a character vector with the names of all
+#' if \code{output = "names"}, a character vector with the names of all
 #' complete elements.
 #'
 #' If \code{output = "logical"}, a logical vector of length

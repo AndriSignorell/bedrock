@@ -7,15 +7,15 @@
 combLevels(..., sorted = FALSE, na = FALSE)
 }
 \arguments{
-\item{...}{one or more vectors or factors}
+\item{...}{one or more vectors or factors.}
 
-\item{sorted}{logical; if \code{TRUE}, the resulting levels are sorted}
+\item{sorted}{logical; if \code{TRUE}, the resulting levels are sorted.}
 
 \item{na}{logical; if \code{TRUE}, \code{NA} is treated as a valid level
-(i.e., included in the result)}
+(i.e., included in the result).}
 }
 \value{
-A character vector containing the unique levels across all inputs.
+a character vector containing the unique levels across all inputs.
 }
 \description{
 Extracts and combines the levels from one or more vectors or factors.

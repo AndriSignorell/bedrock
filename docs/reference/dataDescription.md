@@ -22,11 +22,11 @@ dataDescription(fn, sheet = "Description")
 
 ## Value
 
-A list with the following components:
+a list with the following components:
 
-- `desctable`: A data frame containing the description table
+- `desctable`: A data frame containing the description table.
 
-- `codes`: A named list of code definitions per variable
+- `codes`: A named list of code definitions per variable.
 
 ## Details
 

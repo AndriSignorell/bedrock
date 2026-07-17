@@ -11,7 +11,7 @@ isPrime(n)
 unsigned 64-bit integer range.}
 }
 \value{
-A logical vector indicating whether each element of \code{n}
+a logical vector indicating whether each element of \code{n}
 is a prime number.
 }
 \description{

@@ -7,13 +7,13 @@
 funList(package, exported = TRUE)
 }
 \arguments{
-\item{package}{the name of the package}
+\item{package}{the name of the package.}
 
-\item{exported}{logical (default \code{TRUE}) should only exported
-functions be listed?}
+\item{exported}{logical; whether only exported functions are listed.
+Defaults to \code{TRUE}.}
 }
 \value{
-A sorted character vector with the function names.
+a sorted character vector with the function names.
 }
 \description{
 List all the functions in a package.

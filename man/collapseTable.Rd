@@ -7,7 +7,7 @@
 collapseTable(x, ..., strict = TRUE)
 }
 \arguments{
-\item{x}{a \code{table} or \code{ftable} object with named dimensions}
+\item{x}{a \code{table} or \code{ftable} object with named dimensions.}
 
 \item{...}{named or unnamed mapping vectors specifying how levels of each
 dimension should be collapsed. Each mapping vector must have length equal
@@ -16,7 +16,7 @@ to the number of levels in the corresponding dimension.}
 \item{strict}{logical (default \code{TRUE}). Controls error handling.}
 }
 \value{
-A collapsed \code{table} object with updated dimensions and
+a collapsed \code{table} object with updated dimensions and
 aggregated frequencies.
 }
 \description{

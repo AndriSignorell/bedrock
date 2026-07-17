@@ -12,7 +12,7 @@ rdLabels(dataName, package)
 \item{package}{character string. Name of the package containing the dataset.}
 }
 \value{
-A named character vector where names are variable names and values
+a named character vector where names are variable names and values
 are their corresponding descriptions extracted from the Rd file.
 }
 \description{

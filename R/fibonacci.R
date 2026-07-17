@@ -10,8 +10,8 @@
 #' Values of \code{n} are limited to 78, as larger Fibonacci numbers exceed
 #' the range in which doubles represent integers exactly (\code{2^53}).
 #'
-#' @param n nonnegative integer (<= 78) or vector of such integers
-#' @return An integer-valued numeric vector.
+#' @param n nonnegative integer (<= 78) or vector of such integers.
+#' @return an integer-valued numeric vector.
 #'
 #' @references \url{https://en.wikipedia.org/wiki/Fibonacci_number}\cr
 #' \url{https://mathworld.wolfram.com/GoldenRatio.html}

@@ -9,7 +9,7 @@ or time series."><meta property="og:image" content="/logo.png"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.943</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.946</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,16 +75,16 @@ Must satisfy <code>1 &lt;= order &lt;= length(x)</code>.</p></dd>
 <dt id="arg-align">align<a class="anchor" aria-label="anchor" href="#arg-align"></a></dt>
 <dd><p>a character string controlling how the window is
 positioned relative to each output value:</p><dl><dt><code>"center"</code></dt>
-<dd><p>Default.  The window is centred on the
+<dd><p>default.  The window is centred on the
 current observation.  For odd <code>order</code> the window is
 symmetric; for even <code>order</code> see Details.</p></dd>
 
 <dt><code>"left"</code></dt>
-<dd><p>The window starts at the current observation
+<dd><p>the window starts at the current observation
 and extends to the right.</p></dd>
 
 <dt><code>"right"</code></dt>
-<dd><p>The window ends at the current observation
+<dd><p>the window ends at the current observation
 and extends to the left.</p></dd>
 
 
@@ -94,19 +94,19 @@ and extends to the left.</p></dd>
 <dt id="arg-endrule">endrule<a class="anchor" aria-label="anchor" href="#arg-endrule"></a></dt>
 <dd><p>a character string indicating how boundary values
 (where a full window is unavailable) are handled:</p><dl><dt><code>"NA"</code></dt>
-<dd><p>Default.  Boundary values are left as
+<dd><p>default.  Boundary values are left as
 <code>NA</code>.</p></dd>
 
 <dt><code>"keep"</code></dt>
-<dd><p>Boundary values are taken from the original
+<dd><p>boundary values are taken from the original
 <code>x</code>.</p></dd>
 
 <dt><code>"constant"</code></dt>
-<dd><p>Boundary values are filled with the
+<dd><p>boundary values are filled with the
 nearest computed moving-average value.</p></dd>
 
 <dt><code>"trim"</code></dt>
-<dd><p>Boundary values are computed from all
+<dd><p>boundary values are computed from all
 available observations in a progressively smaller window.</p></dd>
 
 
@@ -115,7 +115,7 @@ available observations in a progressively smaller window.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A vector of the same length and class as <code>x</code>, with
+    <p>a vector of the same length and class as <code>x</code>, with
 <code>NA</code> at boundary positions unless <code>endrule</code> specifies
 otherwise.</p>
     </div>
@@ -231,7 +231,7 @@ that observation.  There is no <code>na.rm</code> option; pre-filter with
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

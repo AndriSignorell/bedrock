@@ -16,11 +16,11 @@ pdfManual(package)
 
 - package:
 
-  package name (symbol or character)
+  package name (symbol or character).
 
 ## Value
 
-The URL of the PDF manual, invisibly. Called for its side effect of
+the URL of the PDF manual, invisibly. Called for its side effect of
 opening the browser.
 
 ## Details

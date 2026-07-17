@@ -23,13 +23,13 @@ returned as \code{character} again.}
 named with the new level:\cr \code{newlevel_a = c("old_a", "old_b"),
 }\cr\code{newlevel_b = c("old_c", "old_d")}\cr See examples.}
 
-\item{keep}{vector of levels that should be left untouched}
+\item{keep}{vector of levels that should be left untouched.}
 
 \item{elseLevel}{the value for levels, which are not matched by newlevel
 list.  If this is set to \code{NULL}, the elseLevels will be left unchanged.
 If set to \code{NA} (default) non matched levels will be set to \code{NA}.}
 
-\item{ref}{the reference level, typically a string}
+\item{ref}{the reference level, typically a string.}
 
 \item{useEmpty}{logical. Defines how a new level, which can't be found in
 x, should be handled.  Should it be left in the level's list or be dropped?
@@ -40,7 +40,7 @@ is useful if you want to recode strings to specific numeric values.}
 }
 \value{
 the factor having the new levels applied.\cr if \code{x} was a
-\code{character} vector, the result will also be \code{character}
+\code{character} vector, the result will also be \code{character}.
 }
 \description{
 Combining or rearranging a factor can be tedious if it has many levels.

@@ -19,7 +19,7 @@ toWide(x, groups, by = NULL, varNames = NULL)
 
 - varNames:
 
-  optional character vector of column names for the result
+  optional character vector of column names for the result.
 
 - includeRowNames:
 
@@ -28,7 +28,7 @@ toWide(x, groups, by = NULL, varNames = NULL)
 
 - groups:
 
-  grouping vector used to define the columns in the wide result
+  grouping vector used to define the columns in the wide result.
 
 - by:
 
@@ -38,7 +38,7 @@ toWide(x, groups, by = NULL, varNames = NULL)
 
 ## Value
 
-A reshaped object of class `data.frame`.
+a reshaped object of class `data.frame`.
 
 ## Details
 

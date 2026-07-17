@@ -7,10 +7,10 @@
 digitSum(x)
 }
 \arguments{
-\item{x}{an integer vector, or a numeric vector of whole numbers}
+\item{x}{an integer vector, or a numeric vector of whole numbers.}
 }
 \value{
-An integer vector containing the digit sums.
+an integer vector containing the digit sums.
 }
 \description{
 Computes the sum of digits for whole-numbered inputs. Negative values are

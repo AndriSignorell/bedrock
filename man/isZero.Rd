@@ -7,9 +7,9 @@
 isZero(x, tol = sqrt(.Machine$double.eps), na.rm = FALSE)
 }
 \arguments{
-\item{x}{a (non-empty) numeric or complex vector of data values}
+\item{x}{a (non-empty) numeric or complex vector of data values.}
 
-\item{tol}{tolerance to be used}
+\item{tol}{tolerance to be used.}
 
 \item{na.rm}{logical, indicating whether \code{NA} values should be stripped
 before the computation proceeds. Defaults to \code{FALSE}.}

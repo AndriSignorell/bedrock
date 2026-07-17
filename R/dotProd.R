@@ -18,14 +18,14 @@
 #' first argument for complex input, so it computes \eqn{t(X) Y} rather
 #' than the Hermitian inner product; this function does conjugate.
 #'
-#' @param x a numeric or complex vector, or a numeric/complex matrix
+#' @param x a numeric or complex vector, or a numeric/complex matrix.
 #' @param y a numeric or complex vector, or a numeric/complex matrix with the
-#'   same dimensions as \code{x}
+#'   same dimensions as \code{x}.
 #'
 #' @return
 #' \itemize{
-#'   \item A scalar if \code{x} and \code{y} are vectors.
-#'   \item A numeric or complex vector containing the column-wise dot
+#'   \item a scalar if \code{x} and \code{y} are vectors.
+#'   \item a numeric or complex vector containing the column-wise dot
 #'   products if matrices are supplied.
 #' }
 #'

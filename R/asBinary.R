@@ -19,7 +19,7 @@
 #' non-missing values. By default the alphabetically second value is coded
 #' as 1. The same \code{pos} logic applies.
 #'
-#' @param x a logical, numeric, integer, factor, or character vector
+#' @param x a logical, numeric, integer, factor, or character vector.
 #' @param pos optional positive value. If supplied, observations equal to
 #'   \code{pos} are coded as 1 and all others as 0. Must be one of the
 #'   observed values or factor levels.

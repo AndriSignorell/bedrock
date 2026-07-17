@@ -3,13 +3,13 @@
 #'
 #' Adds the row names of a data.frame or matrix as a column.
 #'
-#' @param x a data.frame or matrix
-#' @param colName name of the new column containing the row names
+#' @param x a data.frame or matrix.
+#' @param colName name of the new column containing the row names.
 #' @param after position after which the column is inserted.
 #'   Default is 0 (first column).
-#' @param removeRowNames logical; if TRUE, existing row names are removed
+#' @param removeRowNames logical; if TRUE, existing row names are removed.
 #'
-#' @return An object of the same class as \code{x} with the row names added
+#' @return an object of the same class as \code{x} with the row names added
 #'   as a column. Note that for matrices the result is coerced to the common
 #'   mode, so appending (character) row names to a numeric matrix yields a
 #'   character matrix.

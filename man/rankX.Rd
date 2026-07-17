@@ -27,18 +27,18 @@ input.}
 \item{ties.method}{character string specifying how ties are handled.
 One of:
 \describe{
-\item{\code{"average"}}{Average of the ranks for tied values (default).}
-\item{\code{"first"}}{Ranks assigned in order of appearance.}
-\item{\code{"last"}}{Ranks assigned in reverse order of appearance.}
-\item{\code{"random"}}{Ranks assigned at random.}
-\item{\code{"max"}}{Maximum rank for tied values.}
-\item{\code{"min"}}{Minimum rank for tied values.}
-\item{\code{"dense"}}{Like \code{"min"}, but ranks are consecutive
+\item{\code{"average"}}{average of the ranks for tied values (default).}
+\item{\code{"first"}}{ranks assigned in order of appearance.}
+\item{\code{"last"}}{ranks assigned in reverse order of appearance.}
+\item{\code{"random"}}{ranks assigned at random.}
+\item{\code{"max"}}{maximum rank for tied values.}
+\item{\code{"min"}}{minimum rank for tied values.}
+\item{\code{"dense"}}{like \code{"min"}, but ranks are consecutive
 integers without gaps.}
 }}
 }
 \value{
-An integer or numeric vector of ranks with the same length as the input.
+an integer or numeric vector of ranks with the same length as the input.
 }
 \description{
 Computes ranks for vectors or multiple inputs using a fast implementation

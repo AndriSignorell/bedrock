@@ -22,31 +22,31 @@ x %overlaps% y
 - x:
 
   a numeric vector of length 2 `c(lower, upper)`, or a numeric matrix
-  with 2 columns where each row defines one interval
+  with 2 columns where each row defines one interval.
 
 - y:
 
   a numeric vector of length 2 `c(lower, upper)`, or a numeric matrix
-  with 2 columns where each row defines one interval
+  with 2 columns where each row defines one interval.
 
 ## Value
 
 - `overlap`:
 
-  Numeric vector of overlap lengths (0 if no overlap).
+  numeric vector of overlap lengths (0 if no overlap).
 
 - `overlaps`:
 
-  Logical vector; `TRUE` if intervals share at least one point.
+  logical vector; `TRUE` if intervals share at least one point.
 
 - `distance`:
 
-  Numeric vector of gap lengths between non-overlapping intervals (0 if
+  numeric vector of gap lengths between non-overlapping intervals (0 if
   overlapping or touching).
 
 - `%overlaps%`:
 
-  Logical vector; operator wrapper for `overlaps()`.
+  logical vector; operator wrapper for `overlaps()`.
 
 ## Details
 

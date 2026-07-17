@@ -19,10 +19,10 @@
 #' suppressed by default; supply \code{show_col_types = TRUE} to restore
 #' it. By default, the result is converted to a base R \code{data.frame}.
 #'
-#' @param file character string specifying the name of the file
+#' @param file character string specifying the name of the file.
 #' @param \dots additional arguments passed to the underlying read
 #'   function, e.g. \code{sheet} for Excel files or \code{delim}
-#'   for text files
+#'   for text files.
 #' @param output character, either \code{"data.frame"} (default) or
 #'   \code{"tibble"}, determining the class of the returned object.
 #'   Conversion to \code{data.frame} is done by \code{\link{toBaseR}}.

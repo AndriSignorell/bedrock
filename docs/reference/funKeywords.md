@@ -13,11 +13,11 @@ funKeywords(topic)
 
 - topic:
 
-  optional, object or man page topic
+  optional, object or man page topic.
 
 ## Value
 
-If `topic` is missing, the R keywords documentation file is opened for
+if `topic` is missing, the R keywords documentation file is opened for
 display via [`file.show`](https://rdrr.io/r/base/file.show.html),
 invisibly returning `NULL`. Otherwise, a character vector of topic names
 whose keywords match `topic`.

@@ -5,7 +5,7 @@
 #' of one or more dimensions according to user-supplied mappings, and summing
 #' the frequencies within each resulting level combination.
 #'
-#' @param x a \code{table} or \code{ftable} object with named dimensions
+#' @param x a \code{table} or \code{ftable} object with named dimensions.
 #' @param ... named or unnamed mapping vectors specifying how levels of each
 #'   dimension should be collapsed. Each mapping vector must have length equal
 #'   to the number of levels in the corresponding dimension.
@@ -45,7 +45,7 @@
 #'   (and are ignored), and positional assignment is silent.
 #' }
 #'
-#' @return A collapsed \code{table} object with updated dimensions and
+#' @return a collapsed \code{table} object with updated dimensions and
 #'   aggregated frequencies.
 #'
 #' @examples

@@ -7,10 +7,10 @@
 funKeywords(topic)
 }
 \arguments{
-\item{topic}{optional, object or man page topic}
+\item{topic}{optional, object or man page topic.}
 }
 \value{
-If \code{topic} is missing, the R keywords documentation file is
+if \code{topic} is missing, the R keywords documentation file is
 opened for display via \code{\link[base]{file.show}}, invisibly
 returning \code{NULL}. Otherwise, a character vector of topic names
 whose keywords match \code{topic}.

@@ -7,7 +7,7 @@
 callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
 }
 \arguments{
-\item{fun}{a function to be called}
+\item{fun}{a function to be called.}
 
 \item{arg}{controls whether and how \code{fun} is called:
 \itemize{
@@ -15,7 +15,7 @@ callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
 and \code{NULL} is returned invisibly.
 \item \code{TRUE}: \code{fun} is called with \code{defaults} (if provided),
 or with no arguments.
-\item A fully named list: \code{fun} is called with the list elements as
+\item a fully named list: \code{fun} is called with the list elements as
 arguments. If \code{defaults} is provided, it is merged with
 \code{arg}, where elements of \code{arg} override those in
 \code{defaults}.
@@ -33,7 +33,7 @@ calling \code{fun}. A warning is issued unless \code{warn = FALSE}.}
 forbidden arguments are removed.}
 }
 \value{
-Returns the result of \code{fun(...)} if called. If \code{arg} is
+returns the result of \code{fun(...)} if called. If \code{arg} is
 \code{FALSE}, \code{NULL}, or \code{NA}, returns \code{NULL} invisibly.
 }
 \description{

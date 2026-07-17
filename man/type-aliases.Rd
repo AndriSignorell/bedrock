@@ -25,10 +25,10 @@ values are required.}
 
 \item{...}{further arguments passed to the underlying base function
 (\code{as.numeric}, \code{as.integer}, \code{as.character}, or
-\code{\link{asBinary}})}
+\code{\link{asBinary}}).}
 }
 \value{
-A vector of the target type and the same length as \code{x}.
+a vector of the target type and the same length as \code{x}.
 }
 \description{
 Concise aliases for common base R coercion functions.

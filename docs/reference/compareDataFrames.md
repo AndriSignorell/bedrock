@@ -14,11 +14,11 @@ compareDataFrames(x, y, key)
 
 - x:
 
-  a data frame
+  a data frame.
 
 - y:
 
-  a data frame to compare against `x`
+  a data frame to compare against `x`.
 
 - key:
 
@@ -27,24 +27,24 @@ compareDataFrames(x, y, key)
 
 ## Value
 
-A named list with four elements:
+a named list with four elements:
 
 - `identical`:
 
-  Logical. `TRUE` if the two data frames are identical with respect to
+  logical. `TRUE` if the two data frames are identical with respect to
   the common columns and key.
 
 - `onlyInX`:
 
-  Data frame of rows whose key value appears in `x` but not in `y`.
+  data frame of rows whose key value appears in `x` but not in `y`.
 
 - `onlyInY`:
 
-  Data frame of rows whose key value appears in `y` but not in `x`.
+  data frame of rows whose key value appears in `y` but not in `x`.
 
 - `diffs`:
 
-  Data frame with columns named after the `key` argument (the key value)
+  data frame with columns named after the `key` argument (the key value)
   and `diffCols` (a list column of character vectors naming the
   differing columns for that key).
 

@@ -13,17 +13,17 @@ countCompCases(x)
 
 - x:
 
-  a data.frame containing the data
+  a data.frame containing the data.
 
 ## Value
 
-A list with three elements. The first gives the number of rows, the
+a list with three elements. The first gives the number of rows, the
 second the number of complete cases for the whole data frame. The third
 element `tab` contains the data for the single variables.
 
 ## See also
 
-[`plotMiss`](https://rdrr.io/pkg/lyra/man/plotMiss.html),
+`plotMiss`,
 [`complete.cases`](https://rdrr.io/r/stats/complete.cases.html),
 [`is.na`](https://rdrr.io/r/base/NA.html),
 [`na.omit`](https://rdrr.io/r/stats/na.fail.html)

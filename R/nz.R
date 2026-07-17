@@ -7,10 +7,10 @@
 #' \code{NA} elements are not considered zero and are retained in the
 #' result.
 #'
-#' @param x a numeric vector
-#' @param tol tolerance passed to \code{\link{isZero}}
+#' @param x a numeric vector.
+#' @param tol tolerance passed to \code{\link{isZero}}.
 #'
-#' @return A vector containing only the non-zero elements of \code{x}.
+#' @return a vector containing only the non-zero elements of \code{x}.
 #'
 #' @seealso \code{\link{isZero}}
 #'

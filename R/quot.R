@@ -7,10 +7,10 @@
 #'
 #' @param x a numeric vector or matrix containing the values to be used for
 #' calculating the quotients.
-#' @param lag an integer indicating which lag to use
-#' @param quotients an integer indicating the order of the quotient
-#' @param \dots further arguments to be passed to or from methods
-#' @return If \code{x} is a vector of length \code{n} and \code{quotients = 1},
+#' @param lag an integer indicating which lag to use.
+#' @param quotients an integer indicating the order of the quotient.
+#' @param \dots further arguments to be passed to or from methods.
+#' @return if \code{x} is a vector of length \code{n} and \code{quotients = 1},
 #' then the computed result is equal to the successive quotients
 #' \code{x[(1+lag):n] / x[1:(n-lag)]}.
 #'

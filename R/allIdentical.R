@@ -13,9 +13,9 @@
 #' \code{do.call(allIdentical, myList)} to compare the elements of
 #' a list.
 #' 
-#' @param ... objects to compare
+#' @param ... objects to compare.
 #'
-#' @return Logical scalar.
+#' @return logical scalar.
 #'
 #' @seealso \code{\link{identical}}
 #'

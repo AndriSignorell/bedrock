@@ -31,7 +31,7 @@ strSplitToCol(x, split = " ", fixed = TRUE, naForm = "", colNames = NULL)
 - naForm:
 
   character value used to replace missing elements created by unequal
-  split lengths
+  split lengths.
 
 - colNames:
 
@@ -40,10 +40,10 @@ strSplitToCol(x, split = " ", fixed = TRUE, naForm = "", colNames = NULL)
 
 ## Value
 
-A data frame containing the split components of `x`. Additional
+a data frame containing the split components of `x`. Additional
 attribute:
 
-- `cols`: Integer vector with number of columns per input element
+- `cols`: integer vector with number of columns per input element.
 
 ## Details
 

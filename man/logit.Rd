@@ -27,7 +27,7 @@ effectively clamped because they fall outside \eqn{(eps, 1 - eps)} after
 rescaling. Default: \code{FALSE}.}
 }
 \value{
-A numeric vector of the same length as \code{x}.
+a numeric vector of the same length as \code{x}.
 }
 \description{
 Computes the logit transformation and its inverse for values defined on a

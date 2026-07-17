@@ -13,7 +13,7 @@ permn(x, sortResults = FALSE)
 using \code{\link[=sortX]{sortX()}}. Default is \code{FALSE}.}
 }
 \value{
-A matrix containing all distinct permutations of \code{x}, one
+a matrix containing all distinct permutations of \code{x}, one
 permutation per row.
 }
 \description{

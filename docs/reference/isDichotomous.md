@@ -12,7 +12,7 @@ isDichotomous(x, strict = FALSE, na.rm = FALSE)
 
 - x:
 
-  a vector
+  a vector.
 
 - strict:
 

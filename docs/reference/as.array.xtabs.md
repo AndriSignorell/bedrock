@@ -18,15 +18,15 @@ as.matrix(x, ...)
 
 - x:
 
-  an object of class `"xtabs"`
+  an object of class `"xtabs"`.
 
 - ...:
 
-  ignored
+  ignored.
 
 ## Value
 
-An array (or matrix in the two-dimensional case) with no additional
+an array (or matrix in the two-dimensional case) with no additional
 classes.
 
 ## See also

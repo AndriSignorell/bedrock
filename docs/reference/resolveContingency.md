@@ -19,7 +19,7 @@ resolveContingency(
 
 - x:
 
-  a contingency table, factor or vector
+  a contingency table, factor or vector.
 
 - y:
 
@@ -48,31 +48,31 @@ resolveContingency(
 
 ## Value
 
-A list containing:
+a list containing:
 
 - table:
 
-  contingency table
+  contingency table.
 
 - n:
 
-  total sample size
+  total sample size.
 
 - r:
 
-  number of rows
+  number of rows.
 
 - c:
 
-  number of columns
+  number of columns.
 
 - k:
 
-  number of rows (alias; convenient for square tables)
+  number of rows (alias; convenient for square tables).
 
 - data.name:
 
-  name of the data
+  name of the data.
 
 ## Details
 

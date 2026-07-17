@@ -1,8 +1,35 @@
 Package: bedrock
 Title: Base functions for the DescToolsX ecosystem
-Version: 0.0.0.945
-Authors@R: 
-    person("Andri", "Signorell", , "andri@signorell.net", role = c("aut", "cre"))
+Version: 0.0.0.946
+Authors@R: c(
+  person(given="Andri", family="Signorell",  
+         email = "andri@signorell.net", 
+         role = c("aut", "cre"),
+         comment = c(ORCID = "0000-0003-4311-1969")),
+  person("R-Core", role = c("ctb")),
+  person("Hans W.", "Borchers", role = c("ctb")),
+  person("Daniel", "Chessel", role = c("ctb")),
+  person("Nicholas", "Cooper", role = c("ctb")),
+  person("Stephane", "Dray", role = c("ctb")),
+  person("Martin", "Elff", role = c("ctb")),
+  person("Michael", "Friendly", role = c("ctb")),
+  person("Friederich", "Leisch", role = c("ctb")),
+  person("Thomas", "Lumley", role = c("ctb")),
+  person("Martin", "Maechler", role = c("ctb")),
+  person("Nick", "Sabbe", role = c("ctb")),
+  person("Karline", "Soetaert", role = c("ctb")),
+  person("Terry", "Therneau", role = c("ctb")),
+  person("Kevin", "Ushey", role = c("ctb")),
+  person("Jeremy", "VanDerWal", role = c("ctb")),
+  person("Bill", "Venables", role = c("ctb")),
+  person("Gregory R.", "Warnes", role = c("ctb")),
+  person("Daniel", "Wollschlaeger", role = c("ctb")),
+  person("Thomas W.", "Yee", role = c("ctb")),
+  person("OpenAI Codex",  role = c("ctb"), 
+    comment = "AI-assisted code and documentation review; all suggestions reviewed by the maintainer"),
+  person("Anthropic Claude", role = c("ctb"),
+    comment = "AI-assisted code and documentation review; all suggestions reviewed by the maintainer")
+ )    
 Description: Provides low level, generic utilities and basic routines used in DescToolsX.
 Depends: R (>= 4.4.0)
 License: GPL (>= 2)

@@ -16,14 +16,14 @@ Defaults to \url{https://www.signorell.net/hwz/datasets/}.}
 If \code{NULL}, the function tries to detect a sheet named \code{"Description"}.
 If \code{NA}, no metadata processing is performed.}
 
-\item{...}{additional arguments passed to \code{readxl::read_excel()}}
+\item{...}{additional arguments passed to \code{readxl::read_excel()}.}
 }
 \value{
-A \code{data.frame} containing the imported data. If metadata is available:
+a \code{data.frame} containing the imported data. If metadata is available:
 \itemize{
-\item Variables may be converted to factors (nominal/ordinal)
-\item Factor levels are labeled using provided codes
-\item Variable labels are assigned using \code{label()}
+\item variables may be converted to factors (nominal/ordinal).
+\item factor levels are labeled using provided codes.
+\item variable labels are assigned using \code{label()}.
 }
 }
 \description{

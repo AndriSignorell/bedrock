@@ -10,14 +10,14 @@ quot(x, lag = 1L, quotients = 1L, ...)
 \item{x}{a numeric vector or matrix containing the values to be used for
 calculating the quotients.}
 
-\item{lag}{an integer indicating which lag to use}
+\item{lag}{an integer indicating which lag to use.}
 
-\item{quotients}{an integer indicating the order of the quotient}
+\item{quotients}{an integer indicating the order of the quotient.}
 
-\item{\dots}{further arguments to be passed to or from methods}
+\item{\dots}{further arguments to be passed to or from methods.}
 }
 \value{
-If \code{x} is a vector of length \code{n} and \code{quotients = 1},
+if \code{x} is a vector of length \code{n} and \code{quotients = 1},
 then the computed result is equal to the successive quotients
 \code{x[(1+lag):n] / x[1:(n-lag)]}.
 

@@ -15,9 +15,9 @@
 #'   \item Works consistently across all NA types
 #' }
 #'
-#' @param x an object to be tested
+#' @param x an object to be tested.
 #'
-#' @return Logical scalar. Returns \code{TRUE} if \code{x} is a single
+#' @return logical scalar. Returns \code{TRUE} if \code{x} is a single
 #'   missing value (\code{NA}), and \code{FALSE} otherwise.
 #'
 #' @examples

@@ -13,9 +13,9 @@
 #' 12, 6, 13, 3, 7)} meaning that the smallest element will be in position 8
 #' of the tree, the next smallest in position 4, etc.
 #'
-#' @param n integer, size of the tree
+#' @param n integer, size of the tree.
 #'
-#' @return an integer vector of length n
+#' @return an integer vector of length n.
 #'
 #' @note
 #' Substantially based on code by Terry Therneau, with major extensions

@@ -7,15 +7,15 @@
 setLength(x, n, fill = NA)
 }
 \arguments{
-\item{x}{a vector}
+\item{x}{a vector.}
 
-\item{n}{target length, a single non-negative whole number}
+\item{n}{target length, a single non-negative whole number.}
 
 \item{fill}{value used for newly added elements when \code{x} is
-extended (default \code{NA})}
+extended (default \code{NA}).}
 }
 \value{
-\code{x}, of length \code{n}
+\code{x}, of length \code{n}.
 }
 \description{
 Extends \code{x} to length \code{n} by appending \code{fill}, or

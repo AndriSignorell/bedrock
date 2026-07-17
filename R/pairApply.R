@@ -14,7 +14,7 @@
 #' @param FUN a function (or the name of a function) to be calculated. It is
 #' assumed, that the first 2 arguments denominate x and y, and that it
 #' returns a single numeric value.
-#' @param \dots the dots are passed to FUN
+#' @param \dots the dots are passed to FUN.
 #' @param symmetric logical. Does the function yield the same result for FUN(x,
 #' y) and FUN(y, x)? \cr If \code{TRUE} just the lower triangular matrix is
 #' calculated and mirrored. Default is FALSE.

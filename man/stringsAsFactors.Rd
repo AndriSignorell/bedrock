@@ -7,13 +7,13 @@
 stringsAsFactors(x, columns = NULL)
 }
 \arguments{
-\item{x}{the data.frame}
+\item{x}{the data.frame.}
 
 \item{columns}{names or indexes of the columns to be converted;
-negative values can be used to omit columns}
+negative values can be used to omit columns.}
 }
 \value{
-the given data.frame including the converted factors
+the given data.frame including the converted factors.
 }
 \description{
 Strings as factors have recently been downgraded in base R's

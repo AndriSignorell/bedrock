@@ -17,16 +17,16 @@
 #'
 #' Numeric and complex inputs can be mixed; standard R coercion rules apply.
 #'
-#' @param x a numeric or complex vector of length 3, or a matrix with one dimension of length 3
-#' @param y a numeric or complex vector or matrix with the same dimensions as \code{x}
+#' @param x a numeric or complex vector of length 3, or a matrix with one dimension of length 3.
+#' @param y a numeric or complex vector or matrix with the same dimensions as \code{x}.
 #' @param orientation character string specifying whether vectors are stored in rows or columns
 #'   when matrices are supplied. Must be one of \code{"rows"} or \code{"cols"}.
 #'   Ignored if \code{x} and \code{y} are vectors.
 #'
 #' @return
 #' \itemize{
-#'   \item A vector of length 3 if inputs are vectors.
-#'   \item A matrix if matrices are supplied. Dimension names along the
+#'   \item a vector of length 3 if inputs are vectors.
+#'   \item a matrix if matrices are supplied. Dimension names along the
 #'   vector axis are propagated from \code{x}, the component axis is
 #'   labelled \code{x}, \code{y}, \code{z}.
 #' }

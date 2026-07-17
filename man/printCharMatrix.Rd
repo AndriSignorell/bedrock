@@ -16,7 +16,7 @@ printCharMatrix(
 }
 \arguments{
 \item{m}{a matrix (or object coercible to a matrix) containing values that
-will be converted to character for display}
+will be converted to character for display.}
 
 \item{align}{character string specifying alignment of cell contents.
 Either \code{"right"} (default) or \code{"left"}.}
@@ -35,7 +35,7 @@ using \code{cli::style_bold()}. Default is \code{FALSE}.}
 column blocks and printed in multiple sections.}
 }
 \value{
-Invisibly returns \code{NULL}. The formatted table is printed to the console.
+invisibly returns \code{NULL}. The formatted table is printed to the console.
 }
 \description{
 Prints a character matrix to the console with configurable alignment,

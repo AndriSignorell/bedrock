@@ -6,9 +6,9 @@
 #' \code{data.frames} as smoothly as possible.
 #' 
 #' 
-#' @param x the object to be converted
-#' @param \dots arguments passed on
-#' @return converted object
+#' @param x the object to be converted.
+#' @param \dots arguments passed on.
+#' @return converted object.
 
 #' @examples
 #' 

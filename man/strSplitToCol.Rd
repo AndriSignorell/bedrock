@@ -17,16 +17,16 @@ Passed to \code{\link[base]{strsplit}}.}
 Otherwise, it is treated as a regular expression.}
 
 \item{naForm}{character value used to replace missing elements created
-by unequal split lengths}
+by unequal split lengths.}
 
 \item{colNames}{optional character vector specifying column names for the
 resulting data frame. Recycled if necessary.}
 }
 \value{
-A data frame containing the split components of \code{x}.
+a data frame containing the split components of \code{x}.
 Additional attribute:
 \itemize{
-\item \code{cols}: Integer vector with number of columns per input element
+\item \code{cols}: integer vector with number of columns per input element.
 }
 }
 \description{

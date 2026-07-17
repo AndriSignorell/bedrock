@@ -7,12 +7,12 @@
 vRot(x, k = 1L)
 }
 \arguments{
-\item{x}{a vector}
+\item{x}{a vector.}
 
 \item{k}{integer. Number of positions to rotate (default = 1).}
 }
 \value{
-A vector of the same length as \code{x}, rotated cyclically.
+a vector of the same length as \code{x}, rotated cyclically.
 }
 \description{
 Rotates a vector cyclically to the right by \code{k} positions.

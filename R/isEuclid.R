@@ -20,11 +20,11 @@
 #'   \item \code{tol}: Tolerance used for the test
 #' }
 #'
-#' @param distmat an object of class \code{dist}
+#' @param distmat an object of class \code{dist}.
 #' @param tol numeric tolerance for detecting negative eigenvalues,
-#'   relative to the largest absolute eigenvalue
+#'   relative to the largest absolute eigenvalue.
 #'
-#' @return A logical scalar. Returns \code{TRUE} if the distance matrix is
+#' @return a logical scalar. Returns \code{TRUE} if the distance matrix is
 #'   (approximately) Euclidean, otherwise \code{FALSE}.
 #'
 #' @examples

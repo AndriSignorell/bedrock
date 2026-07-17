@@ -11,7 +11,7 @@
 #' with \code{isNonNegative = TRUE}, both parts must additionally be
 #' non-negative.
 #'
-#' @param x a numeric, integer, or complex vector
+#' @param x a numeric, integer, or complex vector.
 #' @param all logical. If \code{TRUE} (default), returns a single logical
 #'   indicating whether all elements are whole-like. If \code{FALSE},
 #'   returns a logical vector of the same length as \code{x}.
@@ -24,7 +24,7 @@
 #'   the result is \code{FALSE}.
 #'
 #' @return
-#' If \code{all = TRUE}, a single logical value.
+#' if \code{all = TRUE}, a single logical value.
 #' If \code{all = FALSE}, a logical vector.
 #'
 #' @examples

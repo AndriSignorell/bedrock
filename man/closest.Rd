@@ -7,7 +7,7 @@
 closest(x, a, output = "value", na.rm = FALSE)
 }
 \arguments{
-\item{x}{a numeric vector to search in}
+\item{x}{a numeric vector to search in.}
 
 \item{a}{the reference value. May be a vector; see Details.}
 
@@ -20,11 +20,11 @@ May be a vector; recycled to the length of \code{a}.}
 are ignored before searching. Default is \code{FALSE}.}
 }
 \value{
-If \code{a} and \code{output} are scalar:
+if \code{a} and \code{output} are scalar:
 
 \itemize{
-\item numeric vector if \code{output = "value"}
-\item integer vector if \code{output = "index"}
+\item numeric vector if \code{output = "value"}.
+\item integer vector if \code{output = "index"}.
 }
 
 If \code{a} or \code{output} are vectors:

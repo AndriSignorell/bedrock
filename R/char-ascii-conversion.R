@@ -42,8 +42,8 @@
 #' 
 #' @name char-ascii-conversion
 #'
-#' @param x a character vector
-#' @param i an integer vector of character codes (1--255)
+#' @param x a character vector.
+#' @param i an integer vector of character codes (1--255).
 #' @param output character string specifying the output representation.
 #'   One of \code{"vector"} (simplify the result whenever possible, the
 #'   default) or \code{"list"} (always return a list). See Details.

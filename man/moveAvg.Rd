@@ -21,30 +21,30 @@ Must satisfy \code{1 <= order <= length(x)}.}
 \item{align}{a character string controlling how the window is
 positioned relative to each output value:
 \describe{
-\item{\code{"center"}}{Default.  The window is centred on the
+\item{\code{"center"}}{default.  The window is centred on the
 current observation.  For odd \code{order} the window is
 symmetric; for even \code{order} see Details.}
-\item{\code{"left"}}{The window starts at the current observation
+\item{\code{"left"}}{the window starts at the current observation
 and extends to the right.}
-\item{\code{"right"}}{The window ends at the current observation
+\item{\code{"right"}}{the window ends at the current observation
 and extends to the left.}
 }}
 
 \item{endrule}{a character string indicating how boundary values
 (where a full window is unavailable) are handled:
 \describe{
-\item{\code{"NA"}}{Default.  Boundary values are left as
+\item{\code{"NA"}}{default.  Boundary values are left as
 \code{NA}.}
-\item{\code{"keep"}}{Boundary values are taken from the original
+\item{\code{"keep"}}{boundary values are taken from the original
 \code{x}.}
-\item{\code{"constant"}}{Boundary values are filled with the
+\item{\code{"constant"}}{boundary values are filled with the
 nearest computed moving-average value.}
-\item{\code{"trim"}}{Boundary values are computed from all
+\item{\code{"trim"}}{boundary values are computed from all
 available observations in a progressively smaller window.}
 }}
 }
 \value{
-A vector of the same length and class as \code{x}, with
+a vector of the same length and class as \code{x}, with
 \code{NA} at boundary positions unless \code{endrule} specifies
 otherwise.
 }

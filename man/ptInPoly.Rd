@@ -7,19 +7,19 @@
 ptInPoly(x, y, polyX, polyY)
 }
 \arguments{
-\item{x}{numeric vector of x-coordinates of the query points}
+\item{x}{numeric vector of x-coordinates of the query points.}
 
-\item{y}{numeric vector of y-coordinates of the query points}
+\item{y}{numeric vector of y-coordinates of the query points.}
 
-\item{polyX}{numeric vector of x-coordinates of the polygon vertices}
+\item{polyX}{numeric vector of x-coordinates of the polygon vertices.}
 
-\item{polyY}{numeric vector of y-coordinates of the polygon vertices}
+\item{polyY}{numeric vector of y-coordinates of the polygon vertices.}
 }
 \value{
-An integer vector of length \code{length(x)}:
+an integer vector of length \code{length(x)}:
 \describe{
-\item{0}{point is outside the polygon}
-\item{1}{point is inside the polygon or on its boundary}
+\item{0}{point is outside the polygon.}
+\item{1}{point is inside the polygon or on its boundary.}
 }
 }
 \description{

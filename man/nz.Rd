@@ -7,12 +7,12 @@
 nz(x, tol = sqrt(.Machine$double.eps))
 }
 \arguments{
-\item{x}{a numeric vector}
+\item{x}{a numeric vector.}
 
-\item{tol}{tolerance passed to \code{\link{isZero}}}
+\item{tol}{tolerance passed to \code{\link{isZero}}.}
 }
 \value{
-A vector containing only the non-zero elements of \code{x}.
+a vector containing only the non-zero elements of \code{x}.
 }
 \description{
 Returns all non-zero elements of a vector. Zeroness is determined by

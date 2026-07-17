@@ -14,11 +14,11 @@ allIdentical(...)
 
 - ...:
 
-  objects to compare
+  objects to compare.
 
 ## Value
 
-Logical scalar.
+logical scalar.
 
 ## Details
 

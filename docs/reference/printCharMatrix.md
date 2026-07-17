@@ -23,7 +23,7 @@ printCharMatrix(
 - m:
 
   a matrix (or object coercible to a matrix) containing values that will
-  be converted to character for display
+  be converted to character for display.
 
 - align:
 
@@ -56,7 +56,7 @@ printCharMatrix(
 
 ## Value
 
-Invisibly returns `NULL`. The formatted table is printed to the console.
+invisibly returns `NULL`. The formatted table is printed to the console.
 
 ## Details
 

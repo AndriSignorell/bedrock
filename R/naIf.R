@@ -5,10 +5,10 @@
 #' SQL's \code{NULLIF}. This is the complementary operation to
 #' \code{\link{coalesceX}}.
 #'
-#' @param x a vector
-#' @param values values to be replaced by \code{NA}
+#' @param x a vector.
+#' @param values values to be replaced by \code{NA}.
 #'
-#' @return A vector of the same type as \code{x}.
+#' @return a vector of the same type as \code{x}.
 #'
 #' @examples
 #' naIf(c(1, 2, 99, 3, 99), 99)

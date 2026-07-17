@@ -18,16 +18,16 @@ nf(x, ...)
 
 - x:
 
-  a vector to be converted
+  a vector to be converted.
 
 - ...:
 
   additional arguments passed to
-  [`factor`](https://rdrr.io/r/base/factor.html)
+  [`factor`](https://rdrr.io/r/base/factor.html).
 
 ## Value
 
-A numeric vector corresponding to the integer codes of the factor
+a numeric vector corresponding to the integer codes of the factor
 levels.
 
 ## Details

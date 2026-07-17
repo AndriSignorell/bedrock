@@ -13,15 +13,15 @@ nz(x, tol = sqrt(.Machine$double.eps))
 
 - x:
 
-  a numeric vector
+  a numeric vector.
 
 - tol:
 
-  tolerance passed to [`isZero`](isZero.md)
+  tolerance passed to [`isZero`](isZero.md).
 
 ## Value
 
-A vector containing only the non-zero elements of `x`.
+a vector containing only the non-zero elements of `x`.
 
 ## Details
 

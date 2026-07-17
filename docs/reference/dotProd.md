@@ -13,18 +13,18 @@ dotProd(x, y)
 
 - x:
 
-  a numeric or complex vector, or a numeric/complex matrix
+  a numeric or complex vector, or a numeric/complex matrix.
 
 - y:
 
   a numeric or complex vector, or a numeric/complex matrix with the same
-  dimensions as `x`
+  dimensions as `x`.
 
 ## Value
 
-- A scalar if `x` and `y` are vectors.
+- a scalar if `x` and `y` are vectors.
 
-- A numeric or complex vector containing the column-wise dot products if
+- a numeric or complex vector containing the column-wise dot products if
   matrices are supplied.
 
 ## Details

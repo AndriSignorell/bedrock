@@ -7,21 +7,21 @@
 resolveGroups(x, groups)
 }
 \arguments{
-\item{x}{a numeric vector of observations, or a list of numeric vectors}
+\item{x}{a numeric vector of observations, or a list of numeric vectors.}
 
 \item{groups}{a grouping variable of the same length as \code{x}.
 Ignored when \code{x} is a list.}
 }
 \value{
-A list containing:
+a list containing:
 \describe{
-\item{x}{numeric response vector}
-\item{groups}{grouping factor}
-\item{n}{total number of observations}
-\item{k}{number of groups}
-\item{group.sizes}{group sample sizes}
-\item{group.names}{group labels}
-\item{data.name}{character description of the input}
+\item{x}{numeric response vector.}
+\item{groups}{grouping factor.}
+\item{n}{total number of observations.}
+\item{k}{number of groups.}
+\item{group.sizes}{group sample sizes.}
+\item{group.names}{group labels.}
+\item{data.name}{character description of the input.}
 }
 }
 \description{

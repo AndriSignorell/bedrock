@@ -61,11 +61,11 @@ unirootAll(
 
 - ...:
 
-  additional arguments passed to `f`
+  additional arguments passed to `f`.
 
 ## Value
 
-A numeric vector of roots found in `[lower, upper]`, sorted in ascending
+a numeric vector of roots found in `[lower, upper]`, sorted in ascending
 order. Returns `numeric(0)` if no roots are found.
 
 ## Details

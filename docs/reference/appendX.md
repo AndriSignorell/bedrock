@@ -25,7 +25,7 @@ appendX(x, values, after = NULL, rows = TRUE, newNames = NULL, ...)
 
 - x:
 
-  object to which values are appended
+  object to which values are appended.
 
 - values:
 
@@ -39,7 +39,7 @@ appendX(x, values, after = NULL, rows = TRUE, newNames = NULL, ...)
 
 - ...:
 
-  additional arguments
+  additional arguments.
 
 - rows:
 
@@ -56,7 +56,7 @@ appendX(x, values, after = NULL, rows = TRUE, newNames = NULL, ...)
 
 ## Value
 
-Object of the same class as `x`.
+object of the same class as `x`.
 
 ## See also
 

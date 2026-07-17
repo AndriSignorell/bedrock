@@ -13,7 +13,7 @@ isNumeric(
 )
 }
 \arguments{
-\item{x}{an object to be tested}
+\item{x}{an object to be tested.}
 
 \item{isIntegerValued}{logical. If \code{TRUE}, values must be whole-like
 (within tolerance). Uses \code{\link{isWholeLike}} internally.}
@@ -29,7 +29,7 @@ validation. If \code{FALSE} (default) and \code{x} contains \code{NA},
 the function returns \code{FALSE}.}
 }
 \value{
-A single logical value.
+a single logical value.
 }
 \description{
 Validates that an object is numeric and optionally satisfies additional

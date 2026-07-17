@@ -22,14 +22,14 @@ fileExistURL(url, timeout = 5)
 
 ## Value
 
-Logical value indicating whether the resource exists (`TRUE`) or not
+logical value indicating whether the resource exists (`TRUE`) or not
 (`FALSE`).
 
 The returned value has additional attributes:
 
-- `status`: HTTP status code returned by the server (e.g. 200, 404)
+- `status`: HTTP status code returned by the server (e.g. 200, 404).
 
-- `error`: Error message (if a request error occurred)
+- `error`: error message (if a request error occurred).
 
 ## Details
 

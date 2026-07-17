@@ -7,16 +7,16 @@
 mergeArgs(defaults, user, forbidden = NULL, warn = TRUE)
 }
 \arguments{
-\item{defaults}{named list of default arguments}
+\item{defaults}{named list of default arguments.}
 
-\item{user}{named list of user-supplied arguments, or \code{NULL}}
+\item{user}{named list of user-supplied arguments, or \code{NULL}.}
 
-\item{forbidden}{character vector of argument names that are not allowed}
+\item{forbidden}{character vector of argument names that are not allowed.}
 
-\item{warn}{logical; whether to issue a warning if forbidden arguments are removed}
+\item{warn}{logical; whether to issue a warning if forbidden arguments are removed.}
 }
 \value{
-A named list of merged arguments.
+a named list of merged arguments.
 }
 \description{
 Helper used to merge defaults with user arguments, remove

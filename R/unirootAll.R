@@ -34,9 +34,9 @@
 #' @param n      number of sub-intervals used for the initial grid search.
 #'   Increase \code{n} if roots may be close together or the function
 #'   oscillates rapidly. Default: \code{100}.
-#' @param ...    additional arguments passed to \code{f}
+#' @param ...    additional arguments passed to \code{f}.
 #'
-#' @return A numeric vector of roots found in \code{[lower, upper]}, sorted in
+#' @return a numeric vector of roots found in \code{[lower, upper]}, sorted in
 #'   ascending order. Returns \code{numeric(0)} if no roots are found.
 #'
 #' @details

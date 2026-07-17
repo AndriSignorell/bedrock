@@ -16,7 +16,7 @@
 #' Length validation is the responsibility of the caller and should be
 #' performed separately with an explicit \code{length()} check.
 #'
-#' @param x an object to be tested
+#' @param x an object to be tested.
 #' @param isIntegerValued logical. If \code{TRUE}, values must be whole-like
 #'   (within tolerance). Uses \code{\link{isWholeLike}} internally.
 #' @param isPositive logical. If \code{TRUE}, all values must be strictly
@@ -27,7 +27,7 @@
 #'   validation. If \code{FALSE} (default) and \code{x} contains \code{NA},
 #'   the function returns \code{FALSE}.
 #'
-#' @return A single logical value.
+#' @return a single logical value.
 #'
 #' @examples
 #' isNumeric(c(1, 2, 3))

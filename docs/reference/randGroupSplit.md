@@ -14,7 +14,7 @@ randGroupSplit(x, groupSizes)
 
 - x:
 
-  a vector containing the elements to be split into groups
+  a vector containing the elements to be split into groups.
 
 - groupSizes:
 
@@ -24,7 +24,7 @@ randGroupSplit(x, groupSizes)
 
 ## Value
 
-A list of vectors, where each element corresponds to one group. The
+a list of vectors, where each element corresponds to one group. The
 length of the list equals `length(groupSizes)`.
 
 ## Details

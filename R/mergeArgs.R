@@ -10,12 +10,12 @@
 #' preserved (so that an explicit \code{NULL} can be passed on as an
 #' argument value instead of silently deleting the entry).
 #'
-#' @param defaults named list of default arguments
-#' @param user named list of user-supplied arguments, or \code{NULL}
-#' @param forbidden character vector of argument names that are not allowed
-#' @param warn logical; whether to issue a warning if forbidden arguments are removed
+#' @param defaults named list of default arguments.
+#' @param user named list of user-supplied arguments, or \code{NULL}.
+#' @param forbidden character vector of argument names that are not allowed.
+#' @param warn logical; whether to issue a warning if forbidden arguments are removed.
 #'
-#' @return A named list of merged arguments.
+#' @return a named list of merged arguments.
 #'
 #' @examples
 #' mergeArgs(list(col = "black", lty = 1), list(col = "red"))

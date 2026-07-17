@@ -15,7 +15,7 @@ isLowCardinality(x, maxUnique = 12)
 
 - x:
 
-  a numeric or integer vector
+  a numeric or integer vector.
 
 - maxUnique:
 
@@ -24,7 +24,7 @@ isLowCardinality(x, maxUnique = 12)
 
 ## Value
 
-A logical of length one: `TRUE` if `x` has `maxUnique` or fewer unique,
+a logical of length one: `TRUE` if `x` has `maxUnique` or fewer unique,
 non-`NA` values, `FALSE` otherwise.
 
 ## See also

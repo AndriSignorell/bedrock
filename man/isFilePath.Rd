@@ -7,7 +7,7 @@
 isFilePath(x)
 }
 \arguments{
-\item{x}{\code{character(1)} - the string to test}
+\item{x}{\code{character(1)} - the string to test.}
 }
 \value{
 \code{logical(1)} - \code{TRUE} if \code{x} is a file path, \code{FALSE} otherwise.

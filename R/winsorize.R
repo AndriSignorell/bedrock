@@ -28,16 +28,16 @@
 #'   \item The result of a call to \code{\link{quantile}} (e.g. with custom \code{type})
 #' }
 #'
-#' @param x a numeric vector to be winsorized
+#' @param x a numeric vector to be winsorized.
 #' @param val a numeric vector of length two specifying the lower and upper
 #'   winsorization limits. Defaults to the 5% and 95% quantiles of \code{x}
 #'   with \code{na.rm = TRUE}.
 #'
-#' @return A numeric vector of the same length as \code{x}, where:
+#' @return a numeric vector of the same length as \code{x}, where:
 #' \itemize{
-#'   \item values below the lower limit are replaced by the lower limit
-#'   \item values above the upper limit are replaced by the upper limit
-#'   \item missing values remain unchanged
+#'   \item values below the lower limit are replaced by the lower limit.
+#'   \item values above the upper limit are replaced by the upper limit.
+#'   \item missing values remain unchanged.
 #' }
 #'
 #' @details

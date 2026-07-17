@@ -22,9 +22,9 @@ revX(x, ...)
 \method{revX}{data.frame}(x, margin = 1:2, ...)
 }
 \arguments{
-\item{x}{a vector, a matrix or a higher dimensional table to be reversed}
+\item{x}{a vector, a matrix or a higher dimensional table to be reversed.}
 
-\item{\dots}{the dots are passed to the array interface}
+\item{\dots}{the dots are passed to the array interface.}
 
 \item{margin}{vector of dimensions which to be reversed (1 for rows, 2 for
 columns, etc.). If not defined, all dimensions will be reverted.}

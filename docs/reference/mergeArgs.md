@@ -14,23 +14,24 @@ mergeArgs(defaults, user, forbidden = NULL, warn = TRUE)
 
 - defaults:
 
-  named list of default arguments
+  named list of default arguments.
 
 - user:
 
-  named list of user-supplied arguments, or `NULL`
+  named list of user-supplied arguments, or `NULL`.
 
 - forbidden:
 
-  character vector of argument names that are not allowed
+  character vector of argument names that are not allowed.
 
 - warn:
 
-  logical; whether to issue a warning if forbidden arguments are removed
+  logical; whether to issue a warning if forbidden arguments are
+  removed.
 
 ## Value
 
-A named list of merged arguments.
+a named list of merged arguments.
 
 ## Details
 

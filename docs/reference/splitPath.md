@@ -14,7 +14,7 @@ splitPath(path, lastIsFile = NULL)
 
 - path:
 
-  a character vector of file paths
+  a character vector of file paths.
 
 - lastIsFile:
 
@@ -25,37 +25,37 @@ splitPath(path, lastIsFile = NULL)
 
 ## Value
 
-A list with the following components (each a vector of the same length
+a list with the following components (each a vector of the same length
 as `path`):
 
 - normpath:
 
-  Normalized path as returned by
+  normalized path as returned by
   [`normalizePath`](https://rdrr.io/r/base/normalizePath.html).
 
 - drive:
 
-  Drive letter on Windows systems (e.g., `"C:"`), otherwise `NA`.
+  drive letter on Windows systems (e.g., `"C:"`), otherwise `NA`.
 
 - dirname:
 
-  Directory path without drive letter, including trailing separator.
+  directory path without drive letter, including trailing separator.
 
 - fullfilename:
 
-  Full file name including extension (if applicable).
+  full file name including extension (if applicable).
 
 - fullpath:
 
-  Full directory path including drive letter and trailing separator.
+  full directory path including drive letter and trailing separator.
 
 - filename:
 
-  File name without extension.
+  file name without extension.
 
 - extension:
 
-  File extension without leading dot.
+  file extension without leading dot.
 
 ## Details
 

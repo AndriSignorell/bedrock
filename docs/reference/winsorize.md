@@ -14,7 +14,7 @@ winsorize(x, val = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE))
 
 - x:
 
-  a numeric vector to be winsorized
+  a numeric vector to be winsorized.
 
 - val:
 
@@ -24,13 +24,13 @@ winsorize(x, val = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE))
 
 ## Value
 
-A numeric vector of the same length as `x`, where:
+a numeric vector of the same length as `x`, where:
 
-- values below the lower limit are replaced by the lower limit
+- values below the lower limit are replaced by the lower limit.
 
-- values above the upper limit are replaced by the upper limit
+- values above the upper limit are replaced by the upper limit.
 
-- missing values remain unchanged
+- missing values remain unchanged.
 
 ## Details
 

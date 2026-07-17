@@ -18,11 +18,11 @@ funArgs(
 
 - fun:
 
-  function object or function name
+  function object or function name.
 
 - package:
 
-  optional package name used to resolve `fun`
+  optional package name used to resolve `fun`.
 
 - sorted:
 
@@ -42,7 +42,7 @@ funArgs(
 
 ## Value
 
-Depending on `output`:
+depending on `output`:
 
 - `"data.frame"`: a data frame with columns `name` and `value`.
 

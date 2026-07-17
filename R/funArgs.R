@@ -4,8 +4,8 @@
 #' Returns the formal arguments of a function together with their default
 #' values.
 #'
-#' @param fun function object or function name
-#' @param package optional package name used to resolve \code{fun}
+#' @param fun function object or function name.
+#' @param package optional package name used to resolve \code{fun}.
 #' @param sorted logical; should arguments be sorted alphabetically?
 #'   \code{...} is always kept last. Ignored when \code{output = "list"}.
 #' @param output character string specifying the output format:
@@ -17,7 +17,7 @@
 #'   }
 #'
 #' @return
-#' Depending on \code{output}:
+#' depending on \code{output}:
 #' \itemize{
 #'   \item \code{"data.frame"}: a data frame with columns
 #'     \code{name} and \code{value}.

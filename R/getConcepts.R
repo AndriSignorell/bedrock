@@ -13,7 +13,7 @@
 #' @param sorted logical. If \code{TRUE} (default), concepts are returned
 #'   sorted.
 #'
-#' @return A character vector of unique concept names.
+#' @return a character vector of unique concept names.
 #'
 #' @keywords internal
 #' @noRd

@@ -41,7 +41,7 @@ logitInv(x, min = 0, max = 1)
 
 ## Value
 
-A numeric vector of the same length as `x`.
+a numeric vector of the same length as `x`.
 
 ## Details
 

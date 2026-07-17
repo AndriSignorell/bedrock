@@ -17,10 +17,10 @@
 #' level order (see the last example) -- use
 #' \code{as.numeric(as.character(x))} to recover the values themselves.
 #'
-#' @param x a vector to be converted
-#' @param ... additional arguments passed to \code{\link{factor}}
+#' @param x a vector to be converted.
+#' @param ... additional arguments passed to \code{\link{factor}}.
 #'
-#' @return A numeric vector corresponding to the integer codes of the factor levels.
+#' @return a numeric vector corresponding to the integer codes of the factor levels.
 #'
 #' @seealso \code{\link{factor}}, \code{\link{as.numeric}}
 #'

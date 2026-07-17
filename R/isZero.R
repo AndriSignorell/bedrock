@@ -4,8 +4,8 @@
 #' Test if x is zero. This is done by checking if the numeric value is
 #' below the machine tolerance.
 #'
-#' @param x a (non-empty) numeric or complex vector of data values
-#' @param tol tolerance to be used
+#' @param x a (non-empty) numeric or complex vector of data values.
+#' @param tol tolerance to be used.
 #' @param na.rm logical, indicating whether \code{NA} values should be stripped
 #' before the computation proceeds. Defaults to \code{FALSE}.
 #'

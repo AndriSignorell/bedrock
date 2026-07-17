@@ -14,7 +14,7 @@ asciiToChar(i)
 
 - x:
 
-  a character vector
+  a character vector.
 
 - output:
 
@@ -24,7 +24,7 @@ asciiToChar(i)
 
 - i:
 
-  an integer vector of character codes (1–255)
+  an integer vector of character codes (1–255).
 
 ## Value
 

@@ -18,7 +18,7 @@
 #' (without the last level) and `"helmert"` (without the first level);
 #' `"poly"` keeps the standard degree labels (`.L`, `.Q`, ...).
 #'
-#' @param x factor or vector of classes
+#' @param x factor or vector of classes.
 #' @param method character string specifying the contrast method. One of
 #'   `"treatment"`, `"sum"`, `"helmert"`, `"poly"`, or `"full"`.
 #'   Abbreviations are accepted.
@@ -28,7 +28,7 @@
 #'   `x`. If `NULL`, levels are inferred by `factor(x)`.
 #'
 #' @return
-#' A matrix with dummy codes. The number of rows equals `length(x)`.
+#' a matrix with dummy codes. The number of rows equals `length(x)`.
 #' For `method = "full"`, the number of columns equals the number of levels.
 #' Otherwise, the number of columns equals the number of levels minus one.
 #'

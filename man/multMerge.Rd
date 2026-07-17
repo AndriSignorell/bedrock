@@ -7,7 +7,7 @@
 multMerge(..., all.x = TRUE, all.y = TRUE, by = NULL)
 }
 \arguments{
-\item{\dots}{data frames to be coerced to one}
+\item{\dots}{data frames to be coerced to one.}
 
 \item{all.x}{logical; if \code{TRUE}, then extra rows will be added to the
 output, one for each row in x that has no matching row in y. These rows will
@@ -15,7 +15,7 @@ have \code{NA}s in those columns that are usually filled with values from y.
 The default is \code{TRUE}, so that non-matching rows are kept and
 padded with \code{NA}s (full outer join).}
 
-\item{all.y}{logical; analogous to \code{all.x}}
+\item{all.y}{logical; analogous to \code{all.x}.}
 
 \item{by}{column used for merging, if this is not defined rownames will be
 used by default. The column must be included in all the provided data
@@ -23,7 +23,7 @@ frames and its values must be unique within each data frame. Note that
 the restored key column is of type character.}
 }
 \value{
-A data frame. The rows are sorted according to the appearance of
+a data frame. The rows are sorted according to the appearance of
 previously unobserved rownames. So the rownames appearing in the first data
 frame are first, then the rownames in the second data frame, which have no
 corespondence in the first data frame and so on. The columns are the

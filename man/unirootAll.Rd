@@ -41,10 +41,10 @@ Default: \code{1000}.}
 Increase \code{n} if roots may be close together or the function
 oscillates rapidly. Default: \code{100}.}
 
-\item{...}{additional arguments passed to \code{f}}
+\item{...}{additional arguments passed to \code{f}.}
 }
 \value{
-A numeric vector of roots found in \code{[lower, upper]}, sorted in
+a numeric vector of roots found in \code{[lower, upper]}, sorted in
 ascending order. Returns \code{numeric(0)} if no roots are found.
 }
 \description{

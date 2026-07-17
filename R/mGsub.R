@@ -11,13 +11,13 @@
 #' otherwise the shorter one consumes its characters before the longer
 #' one is considered.
 #'
-#' @param x a character vector in which substitutions are performed
+#' @param x a character vector in which substitutions are performed.
 #' @param patterns a character vector of substrings to search for
-#'   (\code{fixed = TRUE})
+#'   (\code{fixed = TRUE}).
 #' @param replacements a character vector of replacement strings,
-#'   in the same order as \code{patterns}
+#'   in the same order as \code{patterns}.
 #'
-#' @return A character vector of the same length as \code{x}.
+#' @return a character vector of the same length as \code{x}.
 #'
 #' @examples
 #' mGsub(c("foo bar", "bar foo"), c("foo", "bar"), c("bar", "foo"))

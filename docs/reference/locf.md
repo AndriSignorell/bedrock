@@ -18,7 +18,7 @@ locf(x)
 
 - x:
 
-  a vector, a data.frame or a matrix containing NAs
+  a vector, a data.frame or a matrix containing NAs.
 
 ## Value
 

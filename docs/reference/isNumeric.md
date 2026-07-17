@@ -19,7 +19,7 @@ isNumeric(
 
 - x:
 
-  an object to be tested
+  an object to be tested.
 
 - isIntegerValued:
 
@@ -42,7 +42,7 @@ isNumeric(
 
 ## Value
 
-A single logical value.
+a single logical value.
 
 ## Details
 

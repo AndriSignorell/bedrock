@@ -23,7 +23,7 @@ rdLabels(dataName, package)
 
 ## Value
 
-A named character vector where names are variable names and values are
+a named character vector where names are variable names and values are
 their corresponding descriptions extracted from the Rd file.
 
 ## Details

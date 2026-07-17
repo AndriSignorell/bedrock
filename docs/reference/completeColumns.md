@@ -15,7 +15,7 @@ completeColumns(x, output = c("names", "logical"))
 - x:
 
   a data.frame or list-like object whose elements are checked for
-  missing values
+  missing values.
 
 - output:
 
@@ -26,7 +26,7 @@ completeColumns(x, output = c("names", "logical"))
 
 ## Value
 
-If `output = "names"`, a character vector with the names of all complete
+if `output = "names"`, a character vector with the names of all complete
 elements.
 
 If `output = "logical"`, a logical vector of length `length(x)`, where

@@ -7,16 +7,16 @@
 funCalls(name, package = NULL, sorted = FALSE)
 }
 \arguments{
-\item{name}{the name of the function}
+\item{name}{the name of the function.}
 
 \item{package}{optional name of a package; if given, the result is
-filtered to source environments matching \code{package}}
+filtered to source environments matching \code{package}.}
 
-\item{sorted}{logical (default \code{FALSE}) should the calls be
-alphabetically sorted?}
+\item{sorted}{logical; whether calls are sorted alphabetically. Defaults to
+\code{FALSE}.}
 }
 \value{
-A list of character vectors with the function calls, grouped by
+a list of character vectors with the function calls, grouped by
 the environment the called functions were found in.
 }
 \description{

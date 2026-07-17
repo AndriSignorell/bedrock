@@ -17,11 +17,11 @@ keepAttr(x, attrNames)
 
 - x:
 
-  object to modify
+  object to modify.
 
 - attrNames:
 
-  character vector of attribute names
+  character vector of attribute names.
 
 - attrValues:
 
@@ -32,7 +32,7 @@ keepAttr(x, attrNames)
 
 ## Value
 
-Modified object
+modified object.
 
 ## See also
 

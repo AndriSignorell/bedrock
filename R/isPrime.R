@@ -15,7 +15,7 @@
 #' @param n a numeric vector. Values must be finite integers in the
 #'   unsigned 64-bit integer range.
 #'
-#' @return A logical vector indicating whether each element of \code{n}
+#' @return a logical vector indicating whether each element of \code{n}
 #'   is a prime number.
 #'
 #' @examples

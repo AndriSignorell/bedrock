@@ -11,7 +11,7 @@ x \%:\% rng
 x \%::\% rng
 }
 \arguments{
-\item{x}{a vector}
+\item{x}{a vector.}
 
 \item{rng}{a vector of length 2: \code{c(from, to)}. May contain \code{NA} to match
 missing values in \code{x}.}

@@ -51,7 +51,7 @@
 #'   effectively clamped because they fall outside \eqn{(eps, 1 - eps)} after
 #'   rescaling. Default: \code{FALSE}.
 #'
-#' @return A numeric vector of the same length as \code{x}.
+#' @return a numeric vector of the same length as \code{x}.
 #'
 #' @seealso \code{\link[stats]{qlogis}}, \code{\link[stats]{plogis}}
 #'

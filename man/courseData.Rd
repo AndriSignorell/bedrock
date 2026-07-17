@@ -17,13 +17,13 @@ If \code{NULL}, default course repositories are searched.}
 \item{sep}{character. Field separator used in the file. Default is \code{";"}.}
 
 \item{...}{additional arguments passed to the underlying import functions
-such as \code{read.table()} or \code{openDataObject()}}
+such as \code{read.table()} or \code{openDataObject()}.}
 }
 \value{
-A data frame or object returned by the respective import function:
+a data frame or object returned by the respective import function:
 \itemize{
-\item For text files: a \code{data.frame}
-\item For Excel files: an object returned by \code{openDataObject()}
+\item for text files: a \code{data.frame}.
+\item for Excel files: an object returned by \code{openDataObject()}.
 }
 }
 \description{

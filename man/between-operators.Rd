@@ -39,7 +39,7 @@ will be recycled. Matrix ranges are supported for numeric (and date)
 \code{x} only.}
 }
 \value{
-A logical vector of the same length as x.
+a logical vector of the same length as x.
 }
 \description{
 The between and outside operators are used to check, whether a vector of

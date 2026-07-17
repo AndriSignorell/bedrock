@@ -13,7 +13,7 @@ resolveGroups(x, groups)
 
 - x:
 
-  a numeric vector of observations, or a list of numeric vectors
+  a numeric vector of observations, or a list of numeric vectors.
 
 - groups:
 
@@ -22,35 +22,35 @@ resolveGroups(x, groups)
 
 ## Value
 
-A list containing:
+a list containing:
 
 - x:
 
-  numeric response vector
+  numeric response vector.
 
 - groups:
 
-  grouping factor
+  grouping factor.
 
 - n:
 
-  total number of observations
+  total number of observations.
 
 - k:
 
-  number of groups
+  number of groups.
 
 - group.sizes:
 
-  group sample sizes
+  group sample sizes.
 
 - group.names:
 
-  group labels
+  group labels.
 
 - data.name:
 
-  character description of the input
+  character description of the input.
 
 ## Details
 

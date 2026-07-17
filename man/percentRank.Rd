@@ -7,10 +7,10 @@
 percentRank(x)
 }
 \arguments{
-\item{x}{a numeric (or comparable) vector}
+\item{x}{a numeric (or comparable) vector.}
 }
 \value{
-A numeric vector of the same length as \code{x}, containing values
+a numeric vector of the same length as \code{x}, containing values
 between 0 and 1.
 }
 \description{

@@ -12,7 +12,7 @@
 #' @param file character string. Name of the file.
 #'
 #' @return
-#' A character string giving the full path to the file.
+#' a character string giving the full path to the file.
 #'
 #' @examples
 #' \dontrun{

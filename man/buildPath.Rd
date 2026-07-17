@@ -12,7 +12,7 @@ buildPath(dir, filename)
 \item{filename}{character string. File name to append to \code{dir}.}
 }
 \value{
-A character string representing the file path.
+a character string representing the file path.
 }
 \description{
 Safely constructs a file path from a directory and a filename, independent

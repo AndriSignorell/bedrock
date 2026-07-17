@@ -15,11 +15,11 @@ crossProd(x, y, orientation = c("rows", "cols"))
 - x:
 
   a numeric or complex vector of length 3, or a matrix with one
-  dimension of length 3
+  dimension of length 3.
 
 - y:
 
-  a numeric or complex vector or matrix with the same dimensions as `x`
+  a numeric or complex vector or matrix with the same dimensions as `x`.
 
 - orientation:
 
@@ -29,9 +29,9 @@ crossProd(x, y, orientation = c("rows", "cols"))
 
 ## Value
 
-- A vector of length 3 if inputs are vectors.
+- a vector of length 3 if inputs are vectors.
 
-- A matrix if matrices are supplied. Dimension names along the vector
+- a matrix if matrices are supplied. Dimension names along the vector
   axis are propagated from `x`, the component axis is labelled `x`, `y`,
   `z`.
 

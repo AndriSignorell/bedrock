@@ -15,20 +15,20 @@ mGsub(x, patterns, replacements)
 
 - x:
 
-  a character vector in which substitutions are performed
+  a character vector in which substitutions are performed.
 
 - patterns:
 
-  a character vector of substrings to search for (`fixed = TRUE`)
+  a character vector of substrings to search for (`fixed = TRUE`).
 
 - replacements:
 
   a character vector of replacement strings, in the same order as
-  `patterns`
+  `patterns`.
 
 ## Value
 
-A character vector of the same length as `x`.
+a character vector of the same length as `x`.
 
 ## Details
 

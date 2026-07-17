@@ -33,17 +33,17 @@ moveAvg(
 
   `"center"`
 
-  :   Default. The window is centred on the current observation. For odd
+  :   default. The window is centred on the current observation. For odd
       `order` the window is symmetric; for even `order` see Details.
 
   `"left"`
 
-  :   The window starts at the current observation and extends to the
+  :   the window starts at the current observation and extends to the
       right.
 
   `"right"`
 
-  :   The window ends at the current observation and extends to the
+  :   the window ends at the current observation and extends to the
       left.
 
 - endrule:
@@ -53,25 +53,25 @@ moveAvg(
 
   `"NA"`
 
-  :   Default. Boundary values are left as `NA`.
+  :   default. Boundary values are left as `NA`.
 
   `"keep"`
 
-  :   Boundary values are taken from the original `x`.
+  :   boundary values are taken from the original `x`.
 
   `"constant"`
 
-  :   Boundary values are filled with the nearest computed
+  :   boundary values are filled with the nearest computed
       moving-average value.
 
   `"trim"`
 
-  :   Boundary values are computed from all available observations in a
+  :   boundary values are computed from all available observations in a
       progressively smaller window.
 
 ## Value
 
-A vector of the same length and class as `x`, with `NA` at boundary
+a vector of the same length and class as `x`, with `NA` at boundary
 positions unless `endrule` specifies otherwise.
 
 ## Details

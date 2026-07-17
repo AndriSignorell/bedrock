@@ -14,7 +14,7 @@ closest(x, a, output = "value", na.rm = FALSE)
 
 - x:
 
-  a numeric vector to search in
+  a numeric vector to search in.
 
 - a:
 
@@ -34,11 +34,11 @@ closest(x, a, output = "value", na.rm = FALSE)
 
 ## Value
 
-If `a` and `output` are scalar:
+if `a` and `output` are scalar:
 
-- numeric vector if `output = "value"`
+- numeric vector if `output = "value"`.
 
-- integer vector if `output = "index"`
+- integer vector if `output = "index"`.
 
 If `a` or `output` are vectors: a list with one element per value of
 `a`.

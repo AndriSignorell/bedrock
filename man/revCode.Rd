@@ -7,7 +7,7 @@
 revCode(x, min = NULL, max = NULL, na.rm = FALSE)
 }
 \arguments{
-\item{x}{a vector (numeric, logical, or factor)}
+\item{x}{a vector (numeric, logical, or factor).}
 
 \item{min}{optional numeric minimum. Must be provided together with \code{max}.
 If \code{NULL} (default), the observed minimum of \code{x} is used.}
@@ -20,7 +20,7 @@ If \code{NULL} (default), the observed maximum of \code{x} is used.}
 issued and \code{NA} is returned for all values. Default is \code{FALSE}.}
 }
 \value{
-A vector of the same type and length as \code{x}, with reversed coding.
+a vector of the same type and length as \code{x}, with reversed coding.
 }
 \description{
 Reverses the coding of a vector. Supports numeric, logical, and factor inputs:

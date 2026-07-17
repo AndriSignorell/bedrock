@@ -7,10 +7,10 @@
 allIdentical(...)
 }
 \arguments{
-\item{...}{objects to compare}
+\item{...}{objects to compare.}
 }
 \value{
-Logical scalar.
+logical scalar.
 }
 \description{
 Extends \code{\link{identical}} to more than two objects. Returns

@@ -7,7 +7,7 @@
 recycle(..., maxdim = NULL, strict = FALSE)
 }
 \arguments{
-\item{\dots}{a number of vectors of elements}
+\item{\dots}{a number of vectors of elements.}
 
 \item{maxdim}{defines the maximal dimension, if set to \code{NULL} (default)
 the maximal dimension of the list.}
@@ -18,7 +18,7 @@ Default is \code{FALSE}.}
 }
 \value{
 a list of the supplied elements\cr \code{attr(,"maxdim")} contains
-the maximal dimension of the recycled list
+the maximal dimension of the recycled list.
 }
 \description{
 This function recycles all supplied elements to the maximal dimension.

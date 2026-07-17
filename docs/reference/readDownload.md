@@ -13,12 +13,12 @@ readDownload(file, ..., output = c("data.frame", "tibble"))
 
 - file:
 
-  character string specifying the name of the file
+  character string specifying the name of the file.
 
 - ...:
 
   additional arguments passed to the underlying read function, e.g.
-  `sheet` for Excel files or `delim` for text files
+  `sheet` for Excel files or `delim` for text files.
 
 - output:
 
@@ -39,15 +39,12 @@ This is a convenience wrapper combining
 - Excel files (`.xls`, `.xlsx`) via
   [`readxl::read_excel`](https://readxl.tidyverse.org/reference/read_excel.html)
 
-- CSV files via
-  [`readr::read_csv`](https://readr.tidyverse.org/reference/read_delim.html)
+- CSV files via `readr::read_csv`
 
-- TSV files via
-  [`readr::read_tsv`](https://readr.tidyverse.org/reference/read_delim.html)
+- TSV files via `readr::read_tsv`
 
-- Text files (`.txt`) via
-  [`readr::read_delim`](https://readr.tidyverse.org/reference/read_delim.html),
-  which guesses the delimiter from the file content
+- Text files (`.txt`) via `readr::read_delim`, which guesses the
+  delimiter from the file content
 
 For the readr-based formats the column specification message is
 suppressed by default; supply `show_col_types = TRUE` to restore it. By
@@ -57,7 +54,7 @@ default, the result is converted to a base R `data.frame`.
 
 [`findDownload`](findDownload.md), [`toBaseR`](toBaseR.md),
 [`read_excel`](https://readxl.tidyverse.org/reference/read_excel.html),
-[`read_csv`](https://readr.tidyverse.org/reference/read_delim.html)
+`read_csv`
 
 Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
 [`pdfManual()`](pdfManual.md), [`peekFile()`](peekFile.md)

@@ -42,7 +42,7 @@
 #' minimum and maximum of the range for x. \cr If rng is a matrix, x or rng
 #' will be recycled. Matrix ranges are supported for numeric (and date)
 #' \code{x} only.
-#' @return A logical vector of the same length as x.
+#' @return a logical vector of the same length as x.
 #'
 #' @seealso \code{\link{if}}, \code{\link{ifelse}}
 #' 

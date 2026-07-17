@@ -11,9 +11,9 @@
 #' to integer.
 #'
 #' @name GCD-LCM
-#' @param ... integer or logical vectors
-#' @param na.rm logical. Should missing values (including NaN) be removed?
-#' @return A numeric (integer) value.
+#' @param ... integer or logical vectors.
+#' @param na.rm logical; whether missing values (including NaN) are removed.
+#' @return a numeric (integer) value.
 #' @note The following relation is always true:
 #'
 #' \code{n * m = GCD(n, m) * LCM(n, m)}

@@ -15,7 +15,7 @@ callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
 
 - fun:
 
-  a function to be called
+  a function to be called.
 
 - arg:
 
@@ -27,7 +27,7 @@ callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
   - `TRUE`: `fun` is called with `defaults` (if provided), or with no
     arguments.
 
-  - A fully named list: `fun` is called with the list elements as
+  - a fully named list: `fun` is called with the list elements as
     arguments. If `defaults` is provided, it is merged with `arg`, where
     elements of `arg` override those in `defaults`.
 
@@ -49,7 +49,7 @@ callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
 
 ## Value
 
-Returns the result of `fun(...)` if called. If `arg` is `FALSE`, `NULL`,
+returns the result of `fun(...)` if called. If `arg` is `FALSE`, `NULL`,
 or `NA`, returns `NULL` invisibly.
 
 ## Details

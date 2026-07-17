@@ -26,7 +26,7 @@ combSet(x, m, replace = FALSE, ordered = FALSE, output = c("matrix", "list"))
 
 - ordered:
 
-  logical. Does the order matter? Default is `FALSE`.
+  logical; whether order matters. Default is `FALSE`.
 
 - output:
 
@@ -36,15 +36,15 @@ combSet(x, m, replace = FALSE, ordered = FALSE, output = c("matrix", "list"))
 
 ## Value
 
-If `output = "matrix"`:
+if `output = "matrix"`:
 
-- a matrix with one combination per row
+- a matrix with one combination per row.
 
-- if `length(m) > 1`, a list of matrices
+- if `length(m) > 1`, a list of matrices.
 
 If `output = "list"`:
 
-- a flat list with one element per combination
+- a flat list with one element per combination.
 
 ## Details
 

@@ -10,7 +10,7 @@
 #' This corresponds to the definition used in SQL and
 #' \code{dplyr::percent_rank()}.
 #'
-#' @param x a numeric (or comparable) vector
+#' @param x a numeric (or comparable) vector.
 #'
 #' @details
 #' The smallest value in \code{x} receives a percent rank of 0, and the
@@ -26,7 +26,7 @@
 #' are \code{NA}.
 #'
 #' @return
-#' A numeric vector of the same length as \code{x}, containing values
+#' a numeric vector of the same length as \code{x}, containing values
 #' between 0 and 1.
 #'
 #' @seealso [base::rank()]

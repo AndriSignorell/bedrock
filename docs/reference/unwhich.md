@@ -41,7 +41,7 @@ unwhich(
 
 ## Value
 
-A logical vector of length `n`.
+a logical vector of length `n`.
 
 ## Details
 

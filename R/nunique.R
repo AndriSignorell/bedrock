@@ -3,11 +3,11 @@
 #'
 #' Returns the number of unique elements in a vector.
 #'
-#' @param x a vector
+#' @param x a vector.
 #' @param na.rm logical. Should missing values (`NA`) be removed before
 #'   counting unique values? Defaults to `FALSE`.
 #'
-#' @return An integer of length one.
+#' @return an integer of length one.
 #'
 #' @seealso [base::nlevels()], [isLowCardinality()] to check whether `x` has at most a given
 #'   number of unique values, without counting all of them first.
@@ -39,11 +39,11 @@ nUnique <- function(x, na.rm = FALSE) {
 #' is exceeded, which makes it considerably faster for large,
 #' high-cardinality vectors.
 #'
-#' @param x a numeric or integer vector
+#' @param x a numeric or integer vector.
 #' @param maxUnique integer. The threshold up to which `x` is considered to
 #'   have low cardinality. Defaults to `12`.
 #'
-#' @return A logical of length one: `TRUE` if `x` has `maxUnique` or fewer
+#' @return a logical of length one: `TRUE` if `x` has `maxUnique` or fewer
 #'   unique, non-`NA` values, `FALSE` otherwise.
 #'
 #' @seealso [nUnique()] for the uncapped count.

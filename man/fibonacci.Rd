@@ -7,10 +7,10 @@
 fibonacci(n)
 }
 \arguments{
-\item{n}{nonnegative integer (<= 78) or vector of such integers}
+\item{n}{nonnegative integer (<= 78) or vector of such integers.}
 }
 \value{
-An integer-valued numeric vector.
+an integer-valued numeric vector.
 }
 \description{
 Generate Fibonacci numbers. The Fibonacci numbers can also be calculated

@@ -7,7 +7,7 @@
 trim(x, trim = 0.1, na.rm = FALSE)
 }
 \arguments{
-\item{x}{a numeric vector to be trimmed}
+\item{x}{a numeric vector to be trimmed.}
 
 \item{trim}{the fraction (0 to 0.5) of observations to be trimmed from each
 end of x. Values of trim outside that range (and < 1) are taken as the
@@ -18,7 +18,7 @@ the number of elements to be cut off at each tail of \code{x}.}
 stripped before the computation proceeds.}
 }
 \value{
-The trimmed vector \code{x}. The indices of the trimmed values will
+the trimmed vector \code{x}. The indices of the trimmed values will
 be attached as attribute named \code{"trim"}.
 }
 \description{

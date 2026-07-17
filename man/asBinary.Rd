@@ -7,7 +7,7 @@
 asBinary(x, pos = NULL, warn = TRUE)
 }
 \arguments{
-\item{x}{a logical, numeric, integer, factor, or character vector}
+\item{x}{a logical, numeric, integer, factor, or character vector.}
 
 \item{pos}{optional positive value. If supplied, observations equal to
 \code{pos} are coded as 1 and all others as 0. Must be one of the

@@ -7,15 +7,15 @@
 mReplace(x, patterns, replacements)
 }
 \arguments{
-\item{x}{a character vector whose elements are to be replaced}
+\item{x}{a character vector whose elements are to be replaced.}
 
-\item{patterns}{a character vector of values to search for}
+\item{patterns}{a character vector of values to search for.}
 
 \item{replacements}{a character vector of replacement values,
-in the same order as \code{patterns}}
+in the same order as \code{patterns}.}
 }
 \value{
-A character vector of the same length as \code{x}, with matching
+a character vector of the same length as \code{x}, with matching
 elements replaced. Non-matching elements are returned unchanged.
 }
 \description{

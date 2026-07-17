@@ -25,7 +25,7 @@
 #' @aliases sortX sortX.default sortX.data.frame sortX.matrix sortX.table
 #'
 #' @param x a numeric, complex, character or logical vector, factor,
-#'   matrix, table, or data frame to be sorted
+#'   matrix, table, or data frame to be sorted.
 #' @param decreasing logical scalar or vector. Should the sort be in
 #'   decreasing order? For 2-dimensional objects a vector of the same length
 #'   as \code{ord} may be supplied to control the direction per column;
@@ -48,9 +48,9 @@
 #'   sorts by row marginal sums. This argument is not available for
 #'   \code{sortX.default}. Default: \code{NULL} (all columns, left to right).
 #' @param \dots further arguments passed to \code{\link{sort}} in
-#'   \code{sortX.default}
+#'   \code{sortX.default}.
 #'
-#' @return The sorted object, of the same class as \code{x}.
+#' @return the sorted object, of the same class as \code{x}.
 #'
 #' @seealso \code{\link{sort}}, \code{\link{order}}
 #'

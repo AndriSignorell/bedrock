@@ -7,13 +7,13 @@
 vShift(x, k = 1L)
 }
 \arguments{
-\item{x}{a vector}
+\item{x}{a vector.}
 
 \item{k}{integer. Number of positions to shift.
 Positive values shift to the right, negative values to the left.}
 }
 \value{
-A vector of the same length as \code{x}, shifted with \code{NA} padding.
+a vector of the same length as \code{x}, shifted with \code{NA} padding.
 }
 \description{
 Shifts a vector to the left or right by \code{k} positions.

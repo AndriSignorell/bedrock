@@ -4,17 +4,17 @@
 #' This is a wrapper around \code{\link[base]{split}} with an additional
 #' formula interface.
 #'
-#' @param x object to be split (typically a vector)
-#' @param f a factor or list of factors defining the groups (default method)
+#' @param x object to be split (typically a vector).
+#' @param f a factor or list of factors defining the groups (default method).
 #' @param formula a formula of the form \code{y ~ group} or \code{y ~ g1 + g2}
 #' specifying the variable to split (\code{y}) and the grouping variables.
-#' @param data a data frame containing the variables in the formula
-#' @param subset optional logical expression indicating rows to include
+#' @param data a data frame containing the variables in the formula.
+#' @param subset optional logical expression indicating rows to include.
 #' @param na.action a function specifying how missing values are handled,
 #' passed to \code{\link[stats]{model.frame}}
 #' (e.g., \code{\link[stats]{na.omit}}).
-#' @param drop logical; if \code{TRUE}, unused factor levels are dropped
-#' @param ... further arguments passed to \code{\link[base]{split}}
+#' @param drop logical; if \code{TRUE}, unused factor levels are dropped.
+#' @param ... further arguments passed to \code{\link[base]{split}}.
 #'
 #' @details
 #' \code{splitX} extends \code{\link[base]{split}} by providing:
@@ -31,7 +31,7 @@
 #' interaction (similar to \code{split(..., interaction(...))}).
 #'
 #' @return
-#' A list of subsets of \code{x}, grouped according to \code{f} or the
+#' a list of subsets of \code{x}, grouped according to \code{f} or the
 #' grouping variables in the formula.
 #'
 #' @examples

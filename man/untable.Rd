@@ -19,7 +19,7 @@ inflated to the original list. \cr If x is a data.frame it is interpreted as
 a table in frequency form (containing one or more factors and a frequency
 variable).}
 
-\item{\dots}{further arguments passed to or from functions (not used here)}
+\item{\dots}{further arguments passed to or from functions (not used here).}
 
 \item{freq}{character, the name of the frequency variable in case x is a
 data.frame.}
@@ -41,7 +41,7 @@ table's dimnames.}
 }
 \value{
 a data.frame with the detailed data (even if x was a 1-dimensional
-table)
+table).
 }
 \description{
 Recreates the data.frame out of a contingency table x.

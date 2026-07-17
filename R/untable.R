@@ -27,10 +27,10 @@
 #' table's dimnames.
 #' @param freq character, the name of the frequency variable in case x is a
 #' data.frame.
-#' @param \dots further arguments passed to or from functions (not used here)
+#' @param \dots further arguments passed to or from functions (not used here).
 #' 
 #' @return a data.frame with the detailed data (even if x was a 1-dimensional
-#' table)
+#' table).
 #' 
 
 #' @seealso \code{\link{expand.grid}}, \code{\link{rep}}, \code{\link{gl}},

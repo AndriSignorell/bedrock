@@ -13,7 +13,7 @@ resolveContingency(
 )
 }
 \arguments{
-\item{x}{a contingency table, factor or vector}
+\item{x}{a contingency table, factor or vector.}
 
 \item{y}{an optional factor or vector
 Ignored when \code{x} is a matrix.}
@@ -35,14 +35,14 @@ argument names of the calling function (e.g. \code{"x and y"}) rather
 than the names the end user actually typed.}
 }
 \value{
-A list containing:
+a list containing:
 \describe{
-\item{table}{contingency table}
-\item{n}{total sample size}
-\item{r}{number of rows}
-\item{c}{number of columns}
-\item{k}{number of rows (alias; convenient for square tables)}
-\item{data.name}{name of the data}
+\item{table}{contingency table.}
+\item{n}{total sample size.}
+\item{r}{number of rows.}
+\item{c}{number of columns.}
+\item{k}{number of rows (alias; convenient for square tables).}
+\item{data.name}{name of the data.}
 }
 }
 \description{

@@ -6,7 +6,7 @@
 #' and automatic wrapping if the output exceeds the console width.
 #'
 #' @param m a matrix (or object coercible to a matrix) containing values that
-#'   will be converted to character for display
+#'   will be converted to character for display.
 #' @param align character string specifying alignment of cell contents.
 #'   Either \code{"right"} (default) or \code{"left"}.
 #' @param sep integer. Number of spaces between columns. Default is \code{2}.
@@ -30,7 +30,7 @@
 #' for reporting outputs in packages.
 #'
 #' @return
-#' Invisibly returns \code{NULL}. The formatted table is printed to the console.
+#' invisibly returns \code{NULL}. The formatted table is printed to the console.
 #'
 #' @examples
 #' m <- matrix(c(

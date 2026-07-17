@@ -7,9 +7,9 @@
 extractArgs(dots, defaults, validate = NULL, returnRest = FALSE)
 }
 \arguments{
-\item{dots}{named list of arguments (usually \code{list(...)})}
+\item{dots}{named list of arguments (usually \code{list(...)}).}
 
-\item{defaults}{named list of default values}
+\item{defaults}{named list of default values.}
 
 \item{validate}{optional validation function, called with the merged
 argument list for its side effect. It should throw an error on
@@ -18,10 +18,10 @@ invalid input; its return value is ignored.}
 \item{returnRest}{logical; if \code{TRUE}, a list with components
 \code{args} (the merged arguments) and \code{rest} (all elements of
 \code{dots} not matching a default, including unnamed ones) is
-returned}
+returned.}
 }
 \value{
-Named list of extracted arguments, or a list with components
+named list of extracted arguments, or a list with components
 \code{args} and \code{rest} if \code{returnRest = TRUE}.
 }
 \description{

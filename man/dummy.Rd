@@ -12,7 +12,7 @@ dummy(
 )
 }
 \arguments{
-\item{x}{factor or vector of classes}
+\item{x}{factor or vector of classes.}
 
 \item{method}{character string specifying the contrast method. One of
 \code{"treatment"}, \code{"sum"}, \code{"helmert"}, \code{"poly"}, or \code{"full"}.
@@ -25,7 +25,7 @@ Only used for \code{method = "treatment"} (see Details).}
 \code{x}. If \code{NULL}, levels are inferred by \code{factor(x)}.}
 }
 \value{
-A matrix with dummy codes. The number of rows equals \code{length(x)}.
+a matrix with dummy codes. The number of rows equals \code{length(x)}.
 For \code{method = "full"}, the number of columns equals the number of levels.
 Otherwise, the number of columns equals the number of levels minus one.
 

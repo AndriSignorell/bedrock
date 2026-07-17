@@ -14,7 +14,7 @@ pairwise.}
 assumed, that the first 2 arguments denominate x and y, and that it
 returns a single numeric value.}
 
-\item{\dots}{the dots are passed to FUN}
+\item{\dots}{the dots are passed to FUN.}
 
 \item{symmetric}{logical. Does the function yield the same result for FUN(x,
 y) and FUN(y, x)? \cr If \code{TRUE} just the lower triangular matrix is

@@ -12,11 +12,11 @@ isNA(x)
 
 - x:
 
-  an object to be tested
+  an object to be tested.
 
 ## Value
 
-Logical scalar. Returns `TRUE` if `x` is a single missing value (`NA`),
+logical scalar. Returns `TRUE` if `x` is a single missing value (`NA`),
 and `FALSE` otherwise.
 
 ## Details

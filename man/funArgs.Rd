@@ -12,9 +12,9 @@ funArgs(
 )
 }
 \arguments{
-\item{fun}{function object or function name}
+\item{fun}{function object or function name.}
 
-\item{package}{optional package name used to resolve \code{fun}}
+\item{package}{optional package name used to resolve \code{fun}.}
 
 \item{sorted}{logical; should arguments be sorted alphabetically?
 \code{...} is always kept last. Ignored when \code{output = "list"}.}
@@ -28,7 +28,7 @@ argument assignments.
 }}
 }
 \value{
-Depending on \code{output}:
+depending on \code{output}:
 \itemize{
 \item \code{"data.frame"}: a data frame with columns
 \code{name} and \code{value}.

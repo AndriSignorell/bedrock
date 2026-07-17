@@ -7,12 +7,12 @@
 nf(x, ...)
 }
 \arguments{
-\item{x}{a vector to be converted}
+\item{x}{a vector to be converted.}
 
-\item{...}{additional arguments passed to \code{\link{factor}}}
+\item{...}{additional arguments passed to \code{\link{factor}}.}
 }
 \value{
-A numeric vector corresponding to the integer codes of the factor levels.
+a numeric vector corresponding to the integer codes of the factor levels.
 }
 \description{
 Converts an object to numeric by first coercing it to a factor and then
