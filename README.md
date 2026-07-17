@@ -1,6 +1,6 @@
 # 📦 bedrock
 
-**Version:** 0.0.0.938\
+**Version:** 0.0.0.945\
 **Title:** Base functions for the DescToolsX ecosystem\
 **License:** GPL (≥ 2)
 
