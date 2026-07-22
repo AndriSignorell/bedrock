@@ -2,11 +2,11 @@
 % Please edit documentation in R/printCharMatrix.R
 \name{printCharMatrix}
 \alias{printCharMatrix}
-\title{Pretty-print a character matrix with alignment, spacing and wrapping}
+\title{Pretty-print a character matrix with alignment, spacing and column splitting}
 \usage{
 printCharMatrix(
   m,
-  align = c("right", "left"),
+  align = "right",
   sep = 2,
   showRownames = TRUE,
   showColnames = TRUE,
@@ -18,8 +18,10 @@ printCharMatrix(
 \item{m}{a matrix (or object coercible to a matrix) containing values that
 will be converted to character for display.}
 
-\item{align}{character string specifying alignment of cell contents.
-Either \code{"right"} (default) or \code{"left"}.}
+\item{align}{character vector specifying alignment of cell contents,
+either \code{"right"} (default) or \code{"left"}. A single value is
+recycled across all columns; alternatively a vector of length
+\code{ncol(m)} sets the alignment per column.}
 
 \item{sep}{integer. Number of spaces between columns. Default is \code{2}.}
 
@@ -32,7 +34,7 @@ using \code{cli::style_bold()}. Default is \code{FALSE}.}
 
 \item{width}{integer. Maximum output width (in characters). Defaults to
 \code{getOption("width")}. If the table exceeds this width, it is split into
-column blocks and printed in multiple sections.}
+column blocks that are printed one after another.}
 }
 \value{
 invisibly returns \code{NULL}. The formatted table is printed to the console.
@@ -40,13 +42,19 @@ invisibly returns \code{NULL}. The formatted table is printed to the console.
 \description{
 Prints a character matrix to the console with configurable alignment,
 column spacing, optional row/column names, optional \pkg{cli}-based styling,
-and automatic wrapping if the output exceeds the console width.
+and automatic splitting into column blocks if the output exceeds the console
+width.
 }
 \details{
 The function formats all entries as character strings and computes column widths
-dynamically. If the full table does not fit into the specified \code{width}, it is
-split column-wise into multiple blocks. In this case, row names and column headers
-are repeated for each block.
+dynamically. \code{NA} entries are shown as \code{"NA"}. If the full table does
+not fit into the specified \code{width}, it is split column-wise into multiple
+blocks (cell contents themselves are never wrapped). In this case, row names and
+column headers are repeated for each block.
+
+If a single column is wider than \code{width}, that column is printed on its own
+and the requested \code{width} is deliberately exceeded, since a column cannot be
+split further.
 
 Alignment is applied per column, and spacing between columns is controlled via
 \code{sep}. The function is designed as a lightweight alternative to
@@ -74,7 +82,7 @@ if (requireNamespace("cli", quietly = TRUE)) {
   printCharMatrix(m, useCliStyle = TRUE)
 }
 
-# Force wrapping by reducing width
+# Force splitting into column blocks by reducing width
 printCharMatrix(m, width = 20)
 
 }

@@ -21,7 +21,7 @@
 #' Substantially based on code by Terry Therneau, with major extensions
 #' and improvements by the package author.
 #'
-#' @seealso \code{\link[lyra]{plotBinaryTree}}
+#' @seealso \code{\link[pharos]{plotBinaryTree}}
 #' @examples
 #'
 #' binaryTree(12)

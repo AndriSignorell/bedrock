@@ -6,10 +6,11 @@ devtools::check()
 devtools::install()
 devtools::build_manual(pkg = "C:/temp/DescToolsX")
 devtools::build_manual(pkg = "C:/temp/lumen")
-devtools::build_manual(pkg = "C:/temp/lyra")
+devtools::build_manual(pkg = "C:/temp/pharos")
 devtools::build_manual(pkg = "C:/temp/bedrock")
 devtools::build_manual(pkg = "C:/temp/alloy")
 devtools::build_manual(pkg = "C:/temp/hermes")
+devtools::build_manual(pkg = "C:/temp/pons")
 
 devtools::build_manual(pkg = "C:/temp/swissValet")
 
@@ -69,7 +70,7 @@ grep(sortX(funList("bedrock", ex=T)), v=T)
 Pizza
 
 files <- list.files("c:/temp/bedrock/R", full.names = TRUE, pattern = "\\.R$")
-files <- list.files("c:/temp/lyra/R", full.names = TRUE, pattern = "\\.R$")
+files <- list.files("c:/temp/pharos/R", full.names = TRUE, pattern = "\\.R$")
 files <- list.files("c:/temp/lumen/R", full.names = TRUE, pattern = "\\.R$")
 files <- list.files("c:/temp/alloy/R", full.names = TRUE, pattern = "\\.R$")
 

@@ -9,7 +9,7 @@
 #' second the number of complete cases for the whole data frame. The third
 #' element \code{tab} contains the data for the single variables.
 #'
-#' @seealso \code{\link[lyra]{plotMiss}},
+#' @seealso \code{\link[pharos]{plotMiss}},
 #' \code{\link{complete.cases}}, \code{\link{is.na}}, \code{\link{na.omit}}
 #'
 #' @examples
