@@ -39,12 +39,15 @@ This is a convenience wrapper combining
 - Excel files (`.xls`, `.xlsx`) via
   [`readxl::read_excel`](https://readxl.tidyverse.org/reference/read_excel.html)
 
-- CSV files via `readr::read_csv`
+- CSV files via
+  [`readr::read_csv`](https://readr.tidyverse.org/reference/read_delim.html)
 
-- TSV files via `readr::read_tsv`
+- TSV files via
+  [`readr::read_tsv`](https://readr.tidyverse.org/reference/read_delim.html)
 
-- Text files (`.txt`) via `readr::read_delim`, which guesses the
-  delimiter from the file content
+- Text files (`.txt`) via
+  [`readr::read_delim`](https://readr.tidyverse.org/reference/read_delim.html),
+  which guesses the delimiter from the file content
 
 For the readr-based formats the column specification message is
 suppressed by default; supply `show_col_types = TRUE` to restore it. By
@@ -54,7 +57,7 @@ default, the result is converted to a base R `data.frame`.
 
 [`findDownload`](findDownload.md), [`toBaseR`](toBaseR.md),
 [`read_excel`](https://readxl.tidyverse.org/reference/read_excel.html),
-`read_csv`
+[`read_csv`](https://readr.tidyverse.org/reference/read_delim.html)
 
 Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
 [`pdfManual()`](pdfManual.md), [`peekFile()`](peekFile.md)

@@ -26,7 +26,7 @@ goodpractice::gp()
 
 pkgdown::build_site()
 pkgdown::build_reference_index()
-
+pkgdown::build_favicons(overwrite = TRUE)
 
 # hard CRAN check
 rhub::rhub_check()

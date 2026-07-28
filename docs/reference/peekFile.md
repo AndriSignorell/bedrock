@@ -21,10 +21,11 @@ peekFile(file, n = 10, ..., output = c("data.frame", "tibble"))
 
 - ...:
 
-  additional arguments passed to `readr::read_delim()`, e.g. `delim` or
-  `skip`. The arguments `n_max` and `show_col_types` are managed
-  internally and will be ignored if supplied; `guess_max` defaults to
-  `n` but may be overridden.
+  additional arguments passed to
+  [`readr::read_delim()`](https://readr.tidyverse.org/reference/read_delim.html),
+  e.g. `delim` or `skip`. The arguments `n_max` and `show_col_types` are
+  managed internally and will be ignored if supplied; `guess_max`
+  defaults to `n` but may be overridden.
 
 - output:
 
@@ -41,7 +42,8 @@ a `data.frame` or a tibble (according to `output`) containing the first
 ## Details
 
 This function is intended for quickly inspecting large text files,
-including compressed files supported by `readr::read_delim()`.
+including compressed files supported by
+[`readr::read_delim()`](https://readr.tidyverse.org/reference/read_delim.html).
 
 Column types are guessed from the previewed rows only (the default
 `guess_max` equals `n`). If early rows are not representative, supply a
@@ -49,7 +51,8 @@ larger `guess_max` via the dots.
 
 ## See also
 
-`read_delim`, [`toBaseR`](toBaseR.md)
+[`read_delim`](https://readr.tidyverse.org/reference/read_delim.html),
+[`toBaseR`](toBaseR.md)
 
 Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
 [`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md)

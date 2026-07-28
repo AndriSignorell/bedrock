@@ -346,7 +346,7 @@ Reshaping, recoding, ordering, and inspecting data structures.
 - [`columnWrap()`](columnWrap.md) : Column Wrap
 
 - [`printCharMatrix()`](printCharMatrix.md) : Pretty-print a character
-  matrix with alignment, spacing and wrapping
+  matrix with alignment, spacing and column splitting
 
 - [`resolveContingency()`](resolveContingency.md) : Resolve Contingency
   Table
@@ -418,6 +418,8 @@ Number theory, base conversion, and numerical utilities.
 - [`winsorize()`](winsorize.md) : Winsorize a Numeric Vector
 - [`ptInPoly()`](ptInPoly.md) : Point-in-Polygon Test (Angle Summation,
   Rcpp)
+- [`withSeed()`](withSeed.md) : Evaluate an expression under a temporary
+  random seed
 
 ## Strings
 

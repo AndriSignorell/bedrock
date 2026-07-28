@@ -38,7 +38,7 @@ improvements by the package author.
 
 ## See also
 
-`plotBinaryTree`
+[`plotBinaryTree`](https://rdrr.io/pkg/pharos/man/binaryTree.html)
 
 Other data.order: [`revX()`](revX.md), [`sortX()`](sortX.md)
 

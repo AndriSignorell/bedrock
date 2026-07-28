@@ -102,5 +102,5 @@ funList("bedrock")
 #> [145] "stringsAsFactors"   "toBaseR"            "toLong"            
 #> [148] "toWide"             "trim"               "unirootAll"        
 #> [151] "untable"            "unwhich"            "vRot"              
-#> [154] "vShift"             "winsorize"         
+#> [154] "vShift"             "winsorize"          "withSeed"          
 ```

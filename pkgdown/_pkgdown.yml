@@ -178,6 +178,7 @@ reference:
   - winsorize
   # math.geometry -- Geometric tests
   - ptInPoly
+  - withSeed
 
 - title: Strings
   desc: >

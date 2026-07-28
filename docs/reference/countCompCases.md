@@ -23,7 +23,7 @@ element `tab` contains the data for the single variables.
 
 ## See also
 
-`plotMiss`,
+[`plotMiss`](https://rdrr.io/pkg/pharos/man/plotMiss.html),
 [`complete.cases`](https://rdrr.io/r/stats/complete.cases.html),
 [`is.na`](https://rdrr.io/r/base/NA.html),
 [`na.omit`](https://rdrr.io/r/stats/na.fail.html)
