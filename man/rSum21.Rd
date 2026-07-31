@@ -33,6 +33,10 @@ x <- rSum21(5, digits = 2)
 sum(x)
 
 }
+\seealso{
+Other random.numbers:
+\code{\link[=rBetaShape]{rBetaShape()}}
+}
 \concept{random}
 \concept{random.numbers}
 \concept{sampling}

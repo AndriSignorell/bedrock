@@ -5,8 +5,8 @@
 #'
 #' If no \code{url} is provided, the function searches for the file in the following locations:
 #' \itemize{
-#'   \item \url{https://www.signorell.net/hwz/datasets/}
-#'   \item \url{https://www.signorell.net/buch/}
+#'   \item \url{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/}
+#'   \item \url{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}
 #' }
 #'
 #' The first location where the file exists is used.
@@ -53,8 +53,8 @@ courseData <- function(name,
 
   if (is.null(url)) {
     candidates <- c(
-      "https://www.signorell.net/hwz/datasets/",
-      "https://www.signorell.net/buch/"
+      "https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/",
+      "https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/"
     )
     url <- .resolveCourseURL(name, candidates)
 

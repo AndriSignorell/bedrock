@@ -2,7 +2,7 @@
 #' Preview a Delimited Text File
 #'
 #' Read the first \code{n} data rows of a delimited text file and return
-#' the result as a base R \code{data.frame}.
+#' the result as a base R \code{data.frame} (a kind of [head()] for files).
 #'
 #' This function is intended for quickly inspecting large text files,
 #' including compressed files supported by \code{readr::read_delim()}.
@@ -28,7 +28,7 @@
 #' @return a \code{data.frame} or a tibble (according to \code{output})
 #'   containing the first \code{n} data rows of the file.
 #'
-#' @seealso \code{\link[readr]{read_delim}}, \code{\link{toBaseR}}
+#' @seealso [readr::read_delim()], [toBaseR()], [head()],
 #'
 #' @examples
 #' \dontrun{
