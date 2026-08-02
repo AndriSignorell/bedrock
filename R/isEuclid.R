@@ -10,7 +10,10 @@
 #'
 #' The tolerance is applied \emph{relative} to the largest absolute
 #' eigenvalue, so that the test is invariant to rescaling of the
-#' distances.
+#' distances. Note that this holds in both directions: the comparison
+#' below uses \code{max(abs(lambda))} without an absolute floor, so
+#' shrinking all distances by a constant factor cannot turn a
+#' non-Euclidean matrix into a Euclidean one.
 #'
 #' The returned logical value carries additional diagnostic information
 #' as attributes:
@@ -44,8 +47,17 @@ isEuclid <- function(distmat, tol = 1e-07) {
   if (!inherits(distmat, "dist"))
     stop("Object of class 'dist' expected")
 
+  if (!is.numeric(tol) || length(tol) != 1L || !is.finite(tol) || tol < 0)
+    stop("'tol' must be a single non-negative number")
+
   D <- as.matrix(distmat)
   n <- nrow(D)
+
+  if (n < 2L)
+    stop("'distmat' must contain at least two objects")
+
+  if (anyNA(D))
+    stop("'distmat' must not contain missing values")
 
   # double centering
   J <- diag(n) - 1 / n
@@ -55,7 +67,16 @@ isEuclid <- function(distmat, tol = 1e-07) {
 
   # relative tolerance: eigenvalues scale with the squared distances,
   # an absolute threshold would fail for rescaled point clouds
-  res <- min(lambda) > -tol * max(abs(lambda), 1)
+  # No floor of 1 on the scale. `max(abs(lambda), 1)` made the threshold
+  # an ABSOLUTE -tol whenever every eigenvalue was below 1 in magnitude,
+  # which is exactly the case for a point cloud scaled down - so the
+  # invariance promised above held for enlarging the distances but not
+  # for shrinking them, and a non-Euclidean matrix could be scaled into
+  # passing. An all-zero distance matrix is Euclidean by definition and
+  # is caught separately.
+  scale <- max(abs(lambda))
+
+  res <- if (scale == 0) TRUE else min(lambda) > -tol * scale
 
   # attach diagnostics
   attr(res, "eigenvalues") <- lambda

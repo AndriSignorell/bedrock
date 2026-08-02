@@ -30,7 +30,7 @@ containing the first \code{n} data rows of the file.
 }
 \description{
 Read the first \code{n} data rows of a delimited text file and return
-the result as a base R \code{data.frame} (a kind of \url{head} for files).
+the result as a base R \code{data.frame} (a kind of \code{\link[=head]{head()}} for files).
 }
 \details{
 This function is intended for quickly inspecting large text files,
@@ -51,7 +51,7 @@ peekFile("data.csv", n = 10, guess_max = 1000)
 
 }
 \seealso{
-\code{\link[readr]{read_delim}()}, \code{\link{toBaseR}()}, \code{\link[=head]{head()}},
+\code{\link[readr:read_delim]{readr::read_delim()}}, \code{\link[=toBaseR]{toBaseR()}}, \code{\link[=head]{head()}},
 
 Other file.io:
 \code{\link[=parseSASDatalines]{parseSASDatalines()}},
