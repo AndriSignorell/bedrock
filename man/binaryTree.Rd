@@ -36,7 +36,7 @@ binaryTree(12)
 
 }
 \seealso{
-\code{\link[pharos]{plotBinaryTree}}
+\code{pharos::plotBinaryTree}
 
 Other data.order:
 \code{\link[=revX]{revX()}},

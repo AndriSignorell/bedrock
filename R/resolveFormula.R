@@ -113,7 +113,7 @@
 #' @seealso
 #'   \code{\link[stats]{model.frame}},
 #'   \code{\link[stats]{Pair}},
-#'   \code{\link[DescToolsX]{desc}}
+#'   \code{DescToolsX:desc}
 #'
 #' @examples
 #' set.seed(1)

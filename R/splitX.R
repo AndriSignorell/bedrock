@@ -19,9 +19,9 @@
 #' @details
 #' \code{splitX} extends \code{\link[base]{split}} by providing:
 #' \itemize{
-#'   \item An S3 interface
-#'   \item A formula method for convenient specification of variables
-#'   \item Support for multiple grouping variables via formula
+#'   \item an S3 interface
+#'   \item a formula method for convenient specification of variables
+#'   \item support for multiple grouping variables via formula
 #' }
 #'
 #' The formula interface evaluates a \code{\link[stats]{model.frame}} and splits

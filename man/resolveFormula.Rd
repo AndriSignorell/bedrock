@@ -183,7 +183,7 @@ is.numeric(r5$predictor)
 \seealso{
 \code{\link[stats]{model.frame}},
 \code{\link[stats]{Pair}},
-\code{\link[DescToolsX]{desc}}
+\code{DescToolsX:desc}
 
 Other data.resolve:
 \code{\link[=resolveContingency]{resolveContingency()}},

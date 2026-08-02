@@ -1,9 +1,23 @@
 
+# ***********************************************************************
+# Developping Code for DescToolsX
+# place in root folder and mention it in .RBuildignore
+#
+# ***********************************************************************
 
+
+# available names
+available::available("figura", browse = FALSE)
+
+
+# restart with Ctrl+Shift+F10
+.rs.restartR()
 Rcpp::compileAttributes()
 devtools::clean_dll()
+
 devtools::check()
 devtools::install()
+
 devtools::build_manual(pkg = "C:/temp/DescToolsX")
 devtools::build_manual(pkg = "C:/temp/lumen")
 devtools::build_manual(pkg = "C:/temp/pharos")
@@ -11,14 +25,16 @@ devtools::build_manual(pkg = "C:/temp/bedrock")
 devtools::build_manual(pkg = "C:/temp/alloy")
 devtools::build_manual(pkg = "C:/temp/hermes")
 devtools::build_manual(pkg = "C:/temp/pons")
-
 devtools::build_manual(pkg = "C:/temp/swissValet")
 
 devtools::document()
 devtools::load_all()
+
 devtools::test()
 devtools::run_examples()
 
+
+isLowCardinality
 
 covr::package_coverage()
 goodpractice::gp()
@@ -34,9 +50,11 @@ rhub::rhub_check()
 
 # for themes
 # https://bootswatch.com/
-  
 
-# rename system data
+
+
+# ==========================================================================
+# handling rename system data
 
 rename_rda <- function(old_file, old_name, new_name, data_dir = "C:/temp/bedrock/data/") {
   e <- new.env()
@@ -54,20 +72,30 @@ rename_rda <- function(old_file, old_name, new_name, data_dir = "C:/temp/bedrock
   cat(sprintf("  %s -> %s\n", old_name, new_name))
 }
 
-
 rename_rda("d.pizza.rda",  "d.pizza",  "Pizza")
 rename_rda("cards.rda",    "cards",    "Cards")
 rename_rda("roulette.rda", "roulette", "Roulette")
 rename_rda("tarot.rda",    "tarot",    "Tarot")
 
 
+# put the datasets in sysdata.rda
+Prefix <- d.prefix
+Units  <- d.units
+usethis::use_data(Prefix, Units, internal = TRUE, overwrite = TRUE)
+
+
+
+
+# ==========================================================================
+# complete function list
 
 sortX(funList("bedrock", ex=T))
 
 grep(sortX(funList("bedrock", ex=T)), v=T)
 
 
-Pizza
+# ==========================================================================
+# organise @family and @concept tags systematically
 
 files <- list.files("c:/temp/bedrock/R", full.names = TRUE, pattern = "\\.R$")
 files <- list.files("c:/temp/pharos/R", full.names = TRUE, pattern = "\\.R$")
@@ -80,9 +108,6 @@ for (f in files) {
   cat("Updating:", f, "\n")
   update_roxy_safe(f, tax)
 }
-
-
-
 
 
 update_roxy_safe <- function(file, tax) {
@@ -179,5 +204,12 @@ update_roxy_safe <- function(file, tax) {
 }
 
 
+# ==========================================================================
+# handling helpfiles
 
-Sys.which("git")
+tools::Rd2pdf(
+  "C:/temp/lumen",
+  output = "C:/temp/lumen-manual.pdf"
+)
+
+

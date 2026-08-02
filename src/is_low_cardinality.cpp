@@ -4,7 +4,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-bool isLowCardinality(SEXP x, int maxUnique = 12) {
+bool is_low_cardinality_cpp(SEXP x, int maxUnique = 12) {
   
   if (TYPEOF(x) == REALSXP) {
     

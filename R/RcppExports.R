@@ -37,12 +37,12 @@ gcd_cpp <- function(a, b) {
     .Call(`_bedrock_gcd_cpp`, a, b)
 }
 
-divs <- function(x) {
-    .Call(`_bedrock_divs`, x)
+divs_cpp <- function(x) {
+    .Call(`_bedrock_divs_cpp`, x)
 }
 
-isLowCardinality <- function(x, maxUnique = 12L) {
-    .Call(`_bedrock_isLowCardinality`, x, maxUnique)
+is_low_cardinality_cpp <- function(x, maxUnique = 12L) {
+    .Call(`_bedrock_is_low_cardinality_cpp`, x, maxUnique)
 }
 
 pip_cpp <- function(ptx, pty, plx, ply) {

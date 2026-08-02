@@ -36,7 +36,7 @@ divisors <- function(x) {
   if (any(x > .Machine$integer.max))
     stop("'x' must not exceed .Machine$integer.max (", .Machine$integer.max, ").")
 
-  res <- setNamesX(lapply(x, divs), x)
+  res <- setNamesX(lapply(x, divs_cpp), x)
 
   if (length(x) == 1L)
     res[[1L]]

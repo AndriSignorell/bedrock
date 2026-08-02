@@ -58,5 +58,5 @@ nUnique <- function(x, na.rm = FALSE) {
 #' @concept cardinality
 #' @export
 isLowCardinality <- function(x, maxUnique = 12) {
-  .Call(`_bedrock_isLowCardinality`, x, maxUnique)
+  .Call(`_bedrock_is_low_cardinality_cpp`, x, maxUnique)
 }

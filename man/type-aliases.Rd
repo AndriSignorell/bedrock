@@ -39,13 +39,13 @@ Concise aliases for common base R coercion functions.
 }
 \details{
 \describe{
-\item{\code{num(x, ...)}}{Equivalent to \code{as.numeric(x)}.}
-\item{\code{int(x, ...)}}{Equivalent to \code{as.integer(x)}.}
-\item{\code{chr(x, ...)}}{Equivalent to \code{as.character(x)}.}
-\item{\code{nchr(x)}}{Shortcut for \code{as.numeric(as.character(x))}.
+\item{\code{num(x, ...)}}{equivalent to \code{as.numeric(x)}.}
+\item{\code{int(x, ...)}}{equivalent to \code{as.integer(x)}.}
+\item{\code{chr(x, ...)}}{equivalent to \code{as.character(x)}.}
+\item{\code{nchr(x)}}{shortcut for \code{as.numeric(as.character(x))}.
 Avoids the trap of \code{as.numeric(factor)} returning internal
 integer codes instead of the label values.}
-\item{\code{bin(x, ...)}}{Converts a two-valued vector (character,
+\item{\code{bin(x, ...)}}{converts a two-valued vector (character,
 factor, integer, or numeric) to logical. Mapping follows
 \code{\link{factor}()} level order: the \emph{first} level becomes
 \code{FALSE}, the \emph{second} \code{TRUE}. To reverse, use

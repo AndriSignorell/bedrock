@@ -26,7 +26,7 @@ long long gcd_cpp(long long int a, long long int b){
 // Divisors
 
 //[[Rcpp::export]]
-IntegerVector divs( int x ){
+IntegerVector divs_cpp( int x ){
   IntegerVector d = seq_len( x / 2 );
   IntegerVector out(0);
   for( int i = 0 ; i < d.size(); i++){
