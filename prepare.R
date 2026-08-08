@@ -36,6 +36,9 @@ devtools::run_examples()
 
 isLowCardinality
 
+1:100 %[]% c(2:5)
+
+bedrock::`%][%`(1:20, c(1,5))
 covr::package_coverage()
 goodpractice::gp()
 
@@ -90,8 +93,14 @@ usethis::use_data(Prefix, Units, internal = TRUE, overwrite = TRUE)
 # complete function list
 
 sortX(funList("bedrock", ex=T))
-
 grep(sortX(funList("bedrock", ex=T)), v=T)
+
+
+pkgs <- c("DescToolsX","lumen","pharos","bedrock","pons","alloy","swissValet")
+
+funs <- setNamesX(lapply(pkgs, bedrock::funList), names=pkgs)
+
+
 
 
 # ==========================================================================

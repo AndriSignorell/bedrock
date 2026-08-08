@@ -57,6 +57,8 @@ export(binaryTree)
 export(buildPath)
 export(callIf)
 export(charToAscii)
+export(checkConfLevel)
+export(checkFlag)
 export(chr)
 export(closest)
 export(coalesceX)
@@ -185,50 +187,62 @@ export(winsorize)
 export(withSeed)
 importFrom(Rcpp,sourceCpp)
 importFrom(abind,abind)
-importFrom(cli,col_blue)
-importFrom(cli,col_cyan)
-importFrom(cli,style_bold)
+importFrom(cli,
+  col_blue,
+  col_cyan,
+  style_bold
+)
 importFrom(expm,`%^%`)
-importFrom(httr,GET)
-importFrom(httr,HEAD)
-importFrom(httr,status_code)
-importFrom(httr,timeout)
-importFrom(readxl,excel_sheets)
-importFrom(readxl,read_excel)
-importFrom(stats,aggregate)
-importFrom(stats,as.formula)
-importFrom(stats,complete.cases)
-importFrom(stats,contr.helmert)
-importFrom(stats,contr.poly)
-importFrom(stats,contr.sum)
-importFrom(stats,contr.treatment)
-importFrom(stats,filter)
-importFrom(stats,is.ts)
-importFrom(stats,model.frame)
-importFrom(stats,na.exclude)
-importFrom(stats,na.fail)
-importFrom(stats,na.omit)
-importFrom(stats,na.pass)
-importFrom(stats,plogis)
-importFrom(stats,qlogis)
-importFrom(stats,quantile)
-importFrom(stats,relevel)
-importFrom(stats,runif)
-importFrom(stats,uniroot)
-importFrom(stats,xtabs)
-importFrom(tools,Rd_db)
-importFrom(tools,file_ext)
-importFrom(utils,as.roman)
-importFrom(utils,browseURL)
-importFrom(utils,capture.output)
-importFrom(utils,combn)
-importFrom(utils,find)
-importFrom(utils,getAnywhere)
-importFrom(utils,head)
-importFrom(utils,help.search)
-importFrom(utils,modifyList)
-importFrom(utils,read.table)
-importFrom(utils,readRegistry)
-importFrom(utils,str)
-importFrom(utils,tail)
+importFrom(httr,
+  GET,
+  HEAD,
+  status_code,
+  timeout
+)
+importFrom(readxl,
+  excel_sheets,
+  read_excel
+)
+importFrom(stats,
+  aggregate,
+  as.formula,
+  complete.cases,
+  contr.helmert,
+  contr.poly,
+  contr.sum,
+  contr.treatment,
+  filter,
+  is.ts,
+  model.frame,
+  na.exclude,
+  na.fail,
+  na.omit,
+  na.pass,
+  plogis,
+  qlogis,
+  quantile,
+  relevel,
+  runif,
+  uniroot,
+  xtabs
+)
+importFrom(tools,
+  Rd_db,
+  file_ext
+)
+importFrom(utils,
+  as.roman,
+  browseURL,
+  capture.output,
+  combn,
+  find,
+  getAnywhere,
+  head,
+  help.search,
+  modifyList,
+  read.table,
+  readRegistry,
+  str,
+  tail
+)
 useDynLib(bedrock, .registration = TRUE)

@@ -1,6 +1,6 @@
 Package: bedrock
 Title: Base functions for the DescToolsX ecosystem
-Version: 0.0.0.953
+Version: 0.0.0.954
 Authors@R: c(
   person(given="Andri", family="Signorell",  
          email = "andri@signorell.net", 
@@ -45,4 +45,4 @@ LazyData: true
 URL: https://andrisignorell.github.io/bedrock/,
             https://github.com/AndriSignorell/bedrock/
 BugReports: https://github.com/AndriSignorell/bedrock/issues
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.0
