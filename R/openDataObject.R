@@ -58,7 +58,7 @@ openDataObject <- function(name, url = NULL, doc = NULL, ...) {
     stop("Packages 'httr' and 'readxl' are required for this function.")
 
   if (is.null(url))
-    url <- "https://www.signorell.net/hwz/datasets/"
+    url <- "https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/"
 
   fullUrl <- paste0(sub("/+$", "", url), "/", name)
   
