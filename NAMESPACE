@@ -242,7 +242,6 @@ importFrom(utils,
   help.search,
   modifyList,
   read.table,
-  readRegistry,
   str,
   tail
 )

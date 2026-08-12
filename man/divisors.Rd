@@ -11,8 +11,11 @@ divisors(x)
 be returned.}
 }
 \value{
-an integer vector containing the proper divisors if \code{x} is a
-single number, otherwise a named list of such vectors.
+an integer vector containing the proper divisors in ascending
+order if \code{x} is a single number, otherwise a named list of such
+vectors. A prime number yields \code{1}, and 1 itself yields
+\code{integer(0)} - its only divisor is 1, which is \code{x} itself and
+therefore not a proper one.
 }
 \description{
 Calculate the proper divisors of positive natural numbers.
@@ -32,6 +35,12 @@ determined with the function \code{\link{length}()}.
 divisors(786)
 
 divisors(c(145, 786))
+
+# the number of proper divisors
+length(divisors(786))
+
+# a prime has only one, and this one is at the integer limit
+divisors(.Machine$integer.max)
 
 }
 \seealso{

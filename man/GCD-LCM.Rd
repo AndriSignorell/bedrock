@@ -33,7 +33,21 @@ to integer.
 The following relation is always true:
 
 \code{n * m = GCD(n, m) * LCM(n, m)}
+
+It also holds when one of the values is zero, and that is the shortest way
+to see why \code{LCM(0, 6)} has to be 0 rather than 6.
 }
+\section{Zero}{
+
+Zero behaves differently in the two functions, which is why they do not
+treat it the same way. For the greatest common divisor it is
+\emph{neutral} - every number divides 0, so \code{GCD(0, a)} is
+\code{abs(a)} and zeros can simply be dropped. For the least common
+multiple it is \emph{absorbing} - 0 is a multiple of every number and the
+smallest non-negative one, so \code{LCM(0, a)} is 0. \code{GCD(0, 0)} and
+\code{LCM(0, 0)} are both 0.
+}
+
 \examples{
 GCD(12, 10)
 GCD(144, 233)    # Fibonacci numbers are relatively prime to each other
@@ -46,6 +60,13 @@ GCD(2, 3, c(5, 7) * 11)
 GCD(c(2*3, 3*5, 5*7))
 LCM(c(2, 3, 5, 7) * 11)
 LCM(2*3, 3*5, 5*7)
+
+# zero is neutral for the GCD and absorbing for the LCM
+GCD(0, 6)
+LCM(0, 6)
+
+# n * m == GCD(n, m) * LCM(n, m), zero included
+GCD(0, 6) * LCM(0, 6)
 
 }
 \seealso{

@@ -70,12 +70,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // primes_upto_cpp
-IntegerVector primes_upto_cpp(int n);
+IntegerVector primes_upto_cpp(double n);
 RcppExport SEXP _bedrock_primes_upto_cpp(SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< double >::type n(nSEXP);
     rcpp_result_gen = Rcpp::wrap(primes_upto_cpp(n));
     return rcpp_result_gen;
 END_RCPP

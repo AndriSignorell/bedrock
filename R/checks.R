@@ -23,7 +23,8 @@
 #'
 #' @param conf.level the value to check.
 #'
-#' @return \code{conf.level}, invisibly, so the check can be used in an
+#' @return \code{conf.level}, invisibly, \cr
+#' so the check can be used in an
 #'   assignment: \code{conf.level <- checkConfLevel(conf.level)}.
 #'
 #' @details

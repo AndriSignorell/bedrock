@@ -30,7 +30,7 @@ shapes and transforms them to a specified interval.
 The following predefined shapes and beta parameters are available:
 
 \tabular{lrrl}{
-Shape \tab \code{shape1} \tab \code{shape2} \tab Description \cr
+\strong{Shape} \tab \strong{shape1} \tab \strong{shape2} \tab \strong{Description} \cr
 \code{"norm"}  \tab 5.0 \tab 5.0 \tab symmetric and bell-shaped \cr
 \code{"left"}  \tab 5.0 \tab 2.0 \tab left-skewed with values concentrated near the upper bound \cr
 \code{"right"} \tab 2.0 \tab 5.0 \tab right-skewed with values concentrated near the lower bound \cr

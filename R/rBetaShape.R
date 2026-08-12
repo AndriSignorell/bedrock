@@ -16,7 +16,7 @@
 #' The following predefined shapes and beta parameters are available:
 #'
 #' \tabular{lrrl}{
-#' Shape \tab `shape1` \tab `shape2` \tab Description \cr
+#' \strong{Shape} \tab \strong{shape1} \tab \strong{shape2} \tab \strong{Description} \cr
 #' `"norm"`  \tab 5.0 \tab 5.0 \tab symmetric and bell-shaped \cr
 #' `"left"`  \tab 5.0 \tab 2.0 \tab left-skewed with values concentrated near the upper bound \cr
 #' `"right"` \tab 2.0 \tab 5.0 \tab right-skewed with values concentrated near the lower bound \cr

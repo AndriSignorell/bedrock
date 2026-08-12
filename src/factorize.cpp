@@ -124,26 +124,73 @@ bool is_prime_cpp(double x) {
   return miller_rabin_u64((uint64_t)x);
 }
 
+// --------------------------------
+// Primes up to n, by the sieve of Eratosthenes
+//
+// The limit is 1e8, and it is a practical bound rather than a type bound.
+// At 1e8 the sieve is a bit-packed 12.5 MB, the 5,761,455 primes are 23 MB
+// as an integer vector, and the peak - C++ vector plus the copy into R -
+// stays under about 70 MB. At .Machine$integer.max the same three numbers
+// are 268 MB, 105,097,565 primes for 420 MB, and a peak beyond a gigabyte.
+// Someone who genuinely needs that range needs a segmented sieve, not a
+// larger allocation.
+//
+// The parameter is double, not int, for the same reason is_prime_cpp() and
+// factor_u64_cpp() in this file take one: R passes numeric, and converting
+// a double past INT_MAX to int is undefined behaviour that would happen
+// BEFORE any check inside the function could run. Taking the double and
+// validating it here means primes_upto_cpp(1e10) reports the limit instead
+// of misbehaving.
+//
+// The loop counters are int64_t so that neither `i * i` nor `j += i` can
+// overflow. With the limit above they could not anyway, but the previous
+// version had `std::vector<bool> is_prime(n + 1, true)` with an int n -
+// and n + 1 at INT_MAX is signed overflow, i.e. undefined behaviour on the
+// largest input the wrapper then permitted.
+
 // [[Rcpp::export]]
-IntegerVector primes_upto_cpp(int n) {
-  if (n < 2) return IntegerVector();
+IntegerVector primes_upto_cpp(double n) {
   
-  std::vector<bool> is_prime(n + 1, true);
-  is_prime[0] = is_prime[1] = false;
+  constexpr double maxN = 100000000.0;
   
-  for (int i = 2; (int64_t)i * i <= n; ++i)
-    if (is_prime[i])
-      for (int j = i * i; j <= n; j += i)
-        is_prime[j] = false;
+  if (!R_finite(n) || n != std::floor(n) || n < 1.0 || n > maxN)
+    stop("'n' must be a whole number between 1 and 100000000.");
+  
+  const std::int64_t limit = static_cast<std::int64_t>(n);
+  
+  if (limit < 2)
+    return IntegerVector();
+  
+  std::vector<bool> isPrime(static_cast<std::size_t>(limit) + 1U, true);
+  
+  isPrime[0] = false;
+  isPrime[1] = false;
+  
+  for (std::int64_t i = 2; i * i <= limit; ++i) {
     
-  std::vector<int> primes;
+    if (!isPrime[static_cast<std::size_t>(i)])
+      continue;
+    
+    for (std::int64_t j = i * i; j <= limit; j += i)
+      isPrime[static_cast<std::size_t>(j)] = false;
+  }
   
-  for (int i = 2; i <= n; ++i)
-    if (is_prime[i])
-      primes.push_back(i);
-      
-  return wrap(primes);
+  std::vector<int> result;
   
+  // Reserving cuts the peak the colleague's estimate is mostly about: a
+  // growing vector reallocates by doubling, so the last growth holds the
+  // old and the new buffer at once - up to 1.5 times the final size in
+  // addition to the sieve. Rosser and Schoenfeld give pi(x) < 1.25506
+  // x/ln(x) for x > 1, so this reserve is an upper bound and never short.
+  if (limit > 16)
+    result.reserve(static_cast<std::size_t>(
+        1.26 * static_cast<double>(limit) / std::log(static_cast<double>(limit))));
+  
+  for (std::int64_t i = 2; i <= limit; ++i)
+    if (isPrime[static_cast<std::size_t>(i)])
+      result.push_back(static_cast<int>(i));
+  
+  return wrap(result);
 }
 
 

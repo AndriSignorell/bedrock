@@ -10,7 +10,8 @@ checkConfLevel(conf.level)
 \item{conf.level}{the value to check.}
 }
 \value{
-\code{conf.level}, invisibly, so the check can be used in an
+\code{conf.level}, invisibly, \cr
+so the check can be used in an
 assignment: \code{conf.level <- checkConfLevel(conf.level)}.
 }
 \description{
