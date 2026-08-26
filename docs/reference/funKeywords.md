@@ -37,9 +37,12 @@ by Gregory R. Warnes, with minor adaptations by the package author.
 
 [`help`](https://rdrr.io/r/utils/help.html)
 
-Other pkg.funinfo: [`funArgs()`](funArgs.md),
-[`funCalls()`](funCalls.md), [`funList()`](funList.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
+Other pkg.funinfo:
+[`funArgs()`](https://andrisignorell.github.io/bedrock/reference/funArgs.md),
+[`funCalls()`](https://andrisignorell.github.io/bedrock/reference/funCalls.md),
+[`funList()`](https://andrisignorell.github.io/bedrock/reference/funList.md),
+[`rdLabels()`](https://andrisignorell.github.io/bedrock/reference/rdLabels.md),
+[`rdTitle()`](https://andrisignorell.github.io/bedrock/reference/rdTitle.md)
 
 ## Examples
 

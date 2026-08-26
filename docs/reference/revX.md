@@ -54,7 +54,9 @@ elements along `margin` reversed.
 [`sort`](https://rdrr.io/r/base/sort.html),
 [`seq`](https://rdrr.io/r/base/seq.html)
 
-Other data.order: [`binaryTree()`](binaryTree.md), [`sortX()`](sortX.md)
+Other data.order:
+[`binaryTree()`](https://andrisignorell.github.io/bedrock/reference/binaryTree.md),
+[`sortX()`](https://andrisignorell.github.io/bedrock/reference/sortX.md)
 
 ## Examples
 

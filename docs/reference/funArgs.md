@@ -55,9 +55,12 @@ depending on `output`:
 [`formals`](https://rdrr.io/r/base/formals.html),
 [`args`](https://rdrr.io/r/base/args.html)
 
-Other pkg.funinfo: [`funCalls()`](funCalls.md),
-[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
+Other pkg.funinfo:
+[`funCalls()`](https://andrisignorell.github.io/bedrock/reference/funCalls.md),
+[`funKeywords()`](https://andrisignorell.github.io/bedrock/reference/funKeywords.md),
+[`funList()`](https://andrisignorell.github.io/bedrock/reference/funList.md),
+[`rdLabels()`](https://andrisignorell.github.io/bedrock/reference/rdLabels.md),
+[`rdTitle()`](https://andrisignorell.github.io/bedrock/reference/rdTitle.md)
 
 ## Examples
 

@@ -54,9 +54,12 @@ apply.
 
 ## See also
 
-Other math.basic: [`closest()`](closest.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
+Other math.basic:
+[`closest()`](https://andrisignorell.github.io/bedrock/reference/closest.md),
+[`crossProdN()`](https://andrisignorell.github.io/bedrock/reference/crossProdN.md),
+[`dotProd()`](https://andrisignorell.github.io/bedrock/reference/dotProd.md),
+[`roundTo()`](https://andrisignorell.github.io/bedrock/reference/roundTo.md),
+[`unirootAll()`](https://andrisignorell.github.io/bedrock/reference/unirootAll.md)
 
 ## Examples
 

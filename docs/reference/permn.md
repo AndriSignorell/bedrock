@@ -19,7 +19,8 @@ permn(x, sortResults = FALSE)
 - sortResults:
 
   logical scalar. If `TRUE`, the result matrix is sorted using
-  [`sortX()`](sortX.md). Default is `FALSE`.
+  [`sortX()`](https://andrisignorell.github.io/bedrock/reference/sortX.md).
+  Default is `FALSE`.
 
 ## Value
 
@@ -31,10 +32,13 @@ per row.
 [`utils::combn()`](https://rdrr.io/r/utils/combn.html),
 [`base::factorial()`](https://rdrr.io/r/base/Special.html)
 
-Other combinatorics: [`combN()`](combN.md),
-[`combPairs()`](combPairs.md), [`combSet()`](combSet.md),
-[`pairApply()`](pairApply.md), [`randGroupSplit()`](randGroupSplit.md),
-[`sampleX()`](sampleX.md)
+Other combinatorics:
+[`combN()`](https://andrisignorell.github.io/bedrock/reference/combN.md),
+[`combPairs()`](https://andrisignorell.github.io/bedrock/reference/combPairs.md),
+[`combSet()`](https://andrisignorell.github.io/bedrock/reference/combSet.md),
+[`pairApply()`](https://andrisignorell.github.io/bedrock/reference/pairApply.md),
+[`randGroupSplit()`](https://andrisignorell.github.io/bedrock/reference/randGroupSplit.md),
+[`sampleX()`](https://andrisignorell.github.io/bedrock/reference/sampleX.md)
 
 ## Examples
 

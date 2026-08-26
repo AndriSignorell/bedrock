@@ -56,9 +56,12 @@ If `FUN` is set to `ceiling` it will always round up, and if set to
 [`ceiling`](https://rdrr.io/r/base/Round.html),
 [`floor`](https://rdrr.io/r/base/Round.html)
 
-Other math.basic: [`closest()`](closest.md),
-[`crossProd()`](crossProd.md), [`crossProdN()`](crossProdN.md),
-[`dotProd()`](dotProd.md), [`unirootAll()`](unirootAll.md)
+Other math.basic:
+[`closest()`](https://andrisignorell.github.io/bedrock/reference/closest.md),
+[`crossProd()`](https://andrisignorell.github.io/bedrock/reference/crossProd.md),
+[`crossProdN()`](https://andrisignorell.github.io/bedrock/reference/crossProdN.md),
+[`dotProd()`](https://andrisignorell.github.io/bedrock/reference/dotProd.md),
+[`unirootAll()`](https://andrisignorell.github.io/bedrock/reference/unirootAll.md)
 
 ## Examples
 

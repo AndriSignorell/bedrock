@@ -37,7 +37,8 @@ wraps the lines within the columns.
 
 [`strwrap()`](https://rdrr.io/r/base/strwrap.html)
 
-Other data.print: [`printCharMatrix()`](printCharMatrix.md)
+Other data.print:
+[`printCharMatrix()`](https://andrisignorell.github.io/bedrock/reference/printCharMatrix.md)
 
 ## Examples
 

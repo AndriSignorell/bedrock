@@ -68,7 +68,7 @@
 #' moveAvg(AirPassengers, order = 5, endrule = "trim")
 #' moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 #'
-#' @seealso [zoo::rollmean()], [forecast::ma()], [stats::runmed()]
+#' @seealso \code{zoo::rollmean()}, \code{forecast::ma()}, [stats::runmed()]
 #'
 #' @family vector.window
 #' @concept moving-window

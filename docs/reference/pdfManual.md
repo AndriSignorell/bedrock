@@ -32,8 +32,10 @@ locally, as the manual may well exist on CRAN anyway.
 
 [`browseURL`](https://rdrr.io/r/utils/browseURL.html)
 
-Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
-[`peekFile()`](peekFile.md), [`readDownload()`](readDownload.md)
+Other file.io:
+[`parseSASDatalines()`](https://andrisignorell.github.io/bedrock/reference/parseSASDatalines.md),
+[`peekFile()`](https://andrisignorell.github.io/bedrock/reference/peekFile.md),
+[`readDownload()`](https://andrisignorell.github.io/bedrock/reference/readDownload.md)
 
 ## Examples
 

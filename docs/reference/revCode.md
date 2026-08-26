@@ -50,10 +50,14 @@ A warning is issued if values of `x` lie outside an explicitly provided
 
 ## See also
 
-Other data.recode: [`asBinary()`](asBinary.md),
-[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
-[`mReplace()`](mReplace.md), [`nf()`](nf.md), [`recodeX()`](recodeX.md),
-[`stringsAsFactors()`](stringsAsFactors.md)
+Other data.recode:
+[`asBinary()`](https://andrisignorell.github.io/bedrock/reference/asBinary.md),
+[`combLevels()`](https://andrisignorell.github.io/bedrock/reference/combLevels.md),
+[`dummy()`](https://andrisignorell.github.io/bedrock/reference/dummy.md),
+[`mReplace()`](https://andrisignorell.github.io/bedrock/reference/mReplace.md),
+[`nf()`](https://andrisignorell.github.io/bedrock/reference/nf.md),
+[`recodeX()`](https://andrisignorell.github.io/bedrock/reference/recodeX.md),
+[`stringsAsFactors()`](https://andrisignorell.github.io/bedrock/reference/stringsAsFactors.md)
 
 ## Examples
 

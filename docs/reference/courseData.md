@@ -33,7 +33,7 @@ courseData(name, url = NULL, header = TRUE, sep = ";", ...)
 
   additional arguments passed to the underlying import functions such as
   [`read.table()`](https://rdrr.io/r/utils/read.table.html) or
-  [`openDataObject()`](openDataObject.md).
+  [`openDataObject()`](https://andrisignorell.github.io/bedrock/reference/openDataObject.md).
 
 ## Value
 
@@ -42,30 +42,34 @@ a data frame or object returned by the respective import function:
 - for text files: a `data.frame`.
 
 - for Excel files: an object returned by
-  [`openDataObject()`](openDataObject.md).
+  [`openDataObject()`](https://andrisignorell.github.io/bedrock/reference/openDataObject.md).
 
 ## Details
 
 If no `url` is provided, the function searches for the file in the
-following locations:
+following locations (see <https://github.com/AndriSignorell/Teaching>):
 
-- <https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/>
+- `https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/`
 
-- <https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/>
+- `https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/`
 
 The first location where the file exists is used.
 
 File type handling:
 
-- `.xls`, `.xlsx`: loaded via [`openDataObject()`](openDataObject.md)
+- `.xls`, `.xlsx`: loaded via
+  [`openDataObject()`](https://andrisignorell.github.io/bedrock/reference/openDataObject.md)
 
 - other files: loaded via
   [`read.table()`](https://rdrr.io/r/utils/read.table.html)
 
 ## See also
 
-Other datasets: [`Cards`](Cards.md), [`Pizza`](Pizza.md),
-[`Roulette`](Roulette.md), [`Tarot`](Tarot.md)
+Other datasets:
+[`Cards`](https://andrisignorell.github.io/bedrock/reference/Cards.md),
+[`Pizza`](https://andrisignorell.github.io/bedrock/reference/Pizza.md),
+[`Roulette`](https://andrisignorell.github.io/bedrock/reference/Roulette.md),
+[`Tarot`](https://andrisignorell.github.io/bedrock/reference/Tarot.md)
 
 ## Examples
 

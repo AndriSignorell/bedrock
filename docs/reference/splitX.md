@@ -80,9 +80,11 @@ interaction (similar to `split(..., interaction(...))`).
 
 ## See also
 
-Other data.reshape: [`collapseTable()`](collapseTable.md),
-[`long-wide-reshape`](long-wide-reshape.md), [`splitAt()`](splitAt.md),
-[`untable()`](untable.md)
+Other data.reshape:
+[`collapseTable()`](https://andrisignorell.github.io/bedrock/reference/collapseTable.md),
+[`long-wide-reshape`](https://andrisignorell.github.io/bedrock/reference/long-wide-reshape.md),
+[`splitAt()`](https://andrisignorell.github.io/bedrock/reference/splitAt.md),
+[`untable()`](https://andrisignorell.github.io/bedrock/reference/untable.md)
 
 ## Examples
 

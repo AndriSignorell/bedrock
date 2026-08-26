@@ -64,7 +64,8 @@ Sabbe, N. (2012). Inverse of `which`.
 
 [`which`](https://rdrr.io/r/base/which.html)
 
-Other vector.utils: [`nz()`](nz.md)
+Other vector.utils:
+[`nz()`](https://andrisignorell.github.io/bedrock/reference/nz.md)
 
 ## Examples
 

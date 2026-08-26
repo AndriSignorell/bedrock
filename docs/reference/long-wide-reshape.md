@@ -51,9 +51,11 @@ one column per group.
 
 `reshape`, `stack`, `unstack`
 
-Other data.reshape: [`collapseTable()`](collapseTable.md),
-[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
-[`untable()`](untable.md)
+Other data.reshape:
+[`collapseTable()`](https://andrisignorell.github.io/bedrock/reference/collapseTable.md),
+[`splitAt()`](https://andrisignorell.github.io/bedrock/reference/splitAt.md),
+[`splitX()`](https://andrisignorell.github.io/bedrock/reference/splitX.md),
+[`untable()`](https://andrisignorell.github.io/bedrock/reference/untable.md)
 
 ## Examples
 

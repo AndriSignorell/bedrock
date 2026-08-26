@@ -49,11 +49,14 @@ attributes:
 
 ## See also
 
-Other data.predicate: [`flags()`](flags.md),
-[`isDichotomous()`](isDichotomous.md),
-[`isLowCardinality()`](isLowCardinality.md),
-[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
-[`isZero()`](isZero.md), [`nUnique()`](nUnique.md)
+Other data.predicate:
+[`flags()`](https://andrisignorell.github.io/bedrock/reference/flags.md),
+[`isDichotomous()`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md),
+[`isLowCardinality()`](https://andrisignorell.github.io/bedrock/reference/isLowCardinality.md),
+[`isNumeric()`](https://andrisignorell.github.io/bedrock/reference/isNumeric.md),
+[`isWholeLike()`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md),
+[`isZero()`](https://andrisignorell.github.io/bedrock/reference/isZero.md),
+[`nUnique()`](https://andrisignorell.github.io/bedrock/reference/nUnique.md)
 
 ## Examples
 

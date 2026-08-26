@@ -38,7 +38,8 @@ appendEnum(
 - after:
 
   position after which the column is inserted (see
-  [`appendX`](appendX.md)); default `0L` prepends it.
+  [`appendX`](https://andrisignorell.github.io/bedrock/reference/appendX.md));
+  default `0L` prepends it.
 
 - colName:
 
@@ -53,8 +54,10 @@ appendEnum(
 
 [`append`](https://rdrr.io/r/base/append.html)
 
-Other data.append: [`appendRowNames()`](appendRowNames.md),
-[`appendX()`](appendX.md), [`multMerge()`](multMerge.md)
+Other data.append:
+[`appendRowNames()`](https://andrisignorell.github.io/bedrock/reference/appendRowNames.md),
+[`appendX()`](https://andrisignorell.github.io/bedrock/reference/appendX.md),
+[`multMerge()`](https://andrisignorell.github.io/bedrock/reference/multMerge.md)
 
 ## Examples
 

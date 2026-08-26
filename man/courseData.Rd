@@ -30,10 +30,11 @@ a data frame or object returned by the respective import function:
 Downloads and loads a dataset from predefined course servers or a user-defined URL.
 }
 \details{
-If no \code{url} is provided, the function searches for the file in the following locations:
+If no \code{url} is provided, the function searches for the file in
+the following locations (see \url{https://github.com/AndriSignorell/Teaching}):
 \itemize{
-\item \url{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/}
-\item \url{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}
+\item \code{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/}
+\item \code{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}
 }
 
 The first location where the file exists is used.

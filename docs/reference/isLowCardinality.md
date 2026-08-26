@@ -1,9 +1,10 @@
 # Check for Low Cardinality
 
 Checks whether `x` contains at most `maxUnique` unique, non-missing
-values. Unlike [`nUnique()`](nUnique.md), this stops counting as soon as
-the threshold is exceeded, which makes it considerably faster for large,
-high-cardinality vectors.
+values. Unlike
+[`nUnique()`](https://andrisignorell.github.io/bedrock/reference/nUnique.md),
+this stops counting as soon as the threshold is exceeded, which makes it
+considerably faster for large, high-cardinality vectors.
 
 ## Usage
 
@@ -29,12 +30,17 @@ non-`NA` values, `FALSE` otherwise.
 
 ## See also
 
-[`nUnique()`](nUnique.md) for the uncapped count.
+[`nUnique()`](https://andrisignorell.github.io/bedrock/reference/nUnique.md)
+for the uncapped count.
 
-Other data.predicate: [`flags()`](flags.md),
-[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
-[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
-[`isZero()`](isZero.md), [`nUnique()`](nUnique.md)
+Other data.predicate:
+[`flags()`](https://andrisignorell.github.io/bedrock/reference/flags.md),
+[`isDichotomous()`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md),
+[`isEuclid()`](https://andrisignorell.github.io/bedrock/reference/isEuclid.md),
+[`isNumeric()`](https://andrisignorell.github.io/bedrock/reference/isNumeric.md),
+[`isWholeLike()`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md),
+[`isZero()`](https://andrisignorell.github.io/bedrock/reference/isZero.md),
+[`nUnique()`](https://andrisignorell.github.io/bedrock/reference/nUnique.md)
 
 ## Examples
 

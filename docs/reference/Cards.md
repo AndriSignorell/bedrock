@@ -41,8 +41,11 @@ categorical data.
 
 ## See also
 
-Other datasets: [`Pizza`](Pizza.md), [`Roulette`](Roulette.md),
-[`Tarot`](Tarot.md), [`courseData()`](courseData.md)
+Other datasets:
+[`Pizza`](https://andrisignorell.github.io/bedrock/reference/Pizza.md),
+[`Roulette`](https://andrisignorell.github.io/bedrock/reference/Roulette.md),
+[`Tarot`](https://andrisignorell.github.io/bedrock/reference/Tarot.md),
+[`courseData()`](https://andrisignorell.github.io/bedrock/reference/courseData.md)
 
 ## Examples
 

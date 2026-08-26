@@ -33,7 +33,8 @@ guarantee may not be attainable at the given precision.
 
 ## See also
 
-Other random.numbers: [`rBetaShape()`](rBetaShape.md)
+Other random.numbers:
+[`rBetaShape()`](https://andrisignorell.github.io/bedrock/reference/rBetaShape.md)
 
 ## Examples
 

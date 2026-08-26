@@ -70,8 +70,9 @@ generated for each element of `x`.
 
 ## See also
 
-Other string.transform: [`mGsub()`](mGsub.md),
-[`strSplitToDummy()`](strSplitToDummy.md)
+Other string.transform:
+[`mGsub()`](https://andrisignorell.github.io/bedrock/reference/mGsub.md),
+[`strSplitToDummy()`](https://andrisignorell.github.io/bedrock/reference/strSplitToDummy.md)
 
 ## Examples
 

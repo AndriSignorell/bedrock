@@ -47,8 +47,10 @@ The result has the row names resulting from the merge.
 
 [`merge`](https://rdrr.io/r/base/merge.html)
 
-Other data.append: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md)
+Other data.append:
+[`appendEnum()`](https://andrisignorell.github.io/bedrock/reference/appendEnum.md),
+[`appendRowNames()`](https://andrisignorell.github.io/bedrock/reference/appendRowNames.md),
+[`appendX()`](https://andrisignorell.github.io/bedrock/reference/appendX.md)
 
 ## Examples
 

@@ -75,7 +75,7 @@ openDataObject <- function(name, url = NULL, doc = NULL, ...) {
   sheets <- readxl::excel_sheets(tf)
   
   if (is.null(doc)) {
-    if (length(sheets) > 1)
+    if ("Description" %in% sheets)
       doc <- list(Description = c("Variable", "Beschreibung", "Codes", "Skala"))
     else
       doc <- NA

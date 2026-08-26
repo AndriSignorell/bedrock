@@ -42,9 +42,12 @@ Language*. Wadsworth & Brooks/Cole.
 [`lsf.str`](https://rdrr.io/r/utils/ls_str.html),
 [`getNamespaceExports`](https://rdrr.io/r/base/ns-reflect.html)
 
-Other pkg.funinfo: [`funArgs()`](funArgs.md),
-[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
+Other pkg.funinfo:
+[`funArgs()`](https://andrisignorell.github.io/bedrock/reference/funArgs.md),
+[`funCalls()`](https://andrisignorell.github.io/bedrock/reference/funCalls.md),
+[`funKeywords()`](https://andrisignorell.github.io/bedrock/reference/funKeywords.md),
+[`rdLabels()`](https://andrisignorell.github.io/bedrock/reference/rdLabels.md),
+[`rdTitle()`](https://andrisignorell.github.io/bedrock/reference/rdTitle.md)
 
 ## Examples
 

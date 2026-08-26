@@ -39,8 +39,10 @@ modified object.
 [stats::setNames](https://rdrr.io/r/stats/setNames.html),
 [base::unname](https://rdrr.io/r/base/unname.html)
 
-Other label.attrs: [`label()`](label.md), [`renameX()`](renameX.md),
-[`setNamesX()`](setNamesX.md)
+Other label.attrs:
+[`label()`](https://andrisignorell.github.io/bedrock/reference/label.md),
+[`renameX()`](https://andrisignorell.github.io/bedrock/reference/renameX.md),
+[`setNamesX()`](https://andrisignorell.github.io/bedrock/reference/setNamesX.md)
 
 ## Examples
 

@@ -83,18 +83,19 @@ compareDataFrames <- function(x, y, key) {
     }
   }
 
-  diffsList <- Filter(Negate(is.null), diffsList)
+  hasDiff <- !vapply(diffsList, is.null, logical(1L))
+  diffsList <- diffsList[hasDiff]
 
   # convert to data.frame
   if (length(diffsList) > 0) {
     diffs <- data.frame(
-      key      = sapply(diffsList, `[[`, "key"),
+      key      = commonKeys[hasDiff],
       diffCols = I(lapply(diffsList, `[[`, "diffCols"))
     )
     names(diffs)[1] <- key
   } else {
     diffs <- data.frame(
-      key      = character(0),
+      key      = commonKeys[FALSE],
       diffCols = I(list())
     )
     names(diffs)[1] <- key

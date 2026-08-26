@@ -77,10 +77,12 @@ returned as `NA`.
 [`file_ext`](https://rdrr.io/r/tools/fileutils.html),
 [`file_path_sans_ext`](https://rdrr.io/r/tools/fileutils.html)
 
-Other file.path: [`buildPath()`](buildPath.md),
-[`fileExistURL()`](fileExistURL.md),
-[`findDownload()`](findDownload.md), [`isFilePath()`](isFilePath.md),
-[`isURL()`](isURL.md)
+Other file.path:
+[`buildPath()`](https://andrisignorell.github.io/bedrock/reference/buildPath.md),
+[`fileExistURL()`](https://andrisignorell.github.io/bedrock/reference/fileExistURL.md),
+[`findDownload()`](https://andrisignorell.github.io/bedrock/reference/findDownload.md),
+[`isFilePath()`](https://andrisignorell.github.io/bedrock/reference/isFilePath.md),
+[`isURL()`](https://andrisignorell.github.io/bedrock/reference/isURL.md)
 
 ## Examples
 

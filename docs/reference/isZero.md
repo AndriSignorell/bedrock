@@ -32,13 +32,16 @@ Non-numeric input yields all-`FALSE`.
 ## See also
 
 [`all.equal`](https://rdrr.io/r/base/all.equal.html),
-[`isWholeLike`](isWholeLike.md)
+[`isWholeLike`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md)
 
-Other data.predicate: [`flags()`](flags.md),
-[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
-[`isLowCardinality()`](isLowCardinality.md),
-[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
-[`nUnique()`](nUnique.md)
+Other data.predicate:
+[`flags()`](https://andrisignorell.github.io/bedrock/reference/flags.md),
+[`isDichotomous()`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md),
+[`isEuclid()`](https://andrisignorell.github.io/bedrock/reference/isEuclid.md),
+[`isLowCardinality()`](https://andrisignorell.github.io/bedrock/reference/isLowCardinality.md),
+[`isNumeric()`](https://andrisignorell.github.io/bedrock/reference/isNumeric.md),
+[`isWholeLike()`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md),
+[`nUnique()`](https://andrisignorell.github.io/bedrock/reference/nUnique.md)
 
 ## Examples
 

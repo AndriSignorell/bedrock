@@ -1,7 +1,14 @@
-# 📦 bedrock
+# 📦 bedrock <img src="man/figures/logo.png" align="right" height="139" alt="bedrock logo" />
 
-**Version:** 0.0.0.945\
-**Title:** Base functions for the DescToolsX ecosystem\
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/bedrock)](https://CRAN.R-project.org/package=bedrock)
+[![R-CMD-check](https://github.com/AndriSignorell/bedrock/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AndriSignorell/bedrock/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/AndriSignorell/bedrock/graph/badge.svg)](https://app.codecov.io/gh/AndriSignorell/bedrock)
+[![Downloads](https://cranlogs.r-pkg.org/badges/bedrock)](https://CRAN.R-project.org/package=bedrock)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
+<!-- badges: end -->
+
+**Title:** Base Functions for the DescToolsX Ecosystem\
 **License:** GPL (≥ 2)
 
 ## 🧩 Overview
@@ -12,14 +19,24 @@ manipulation, inspection, vector operations, string handling, math and
 combinatorics — that serve as building blocks for the higher-level
 statistical, graphics, and modelling packages of the suite.
 
-The package follows the DescToolsX design rules: a consistent
-lowerCamelCase API, generic functions with S3 methods, predictable
-argument names and ordering, and performance-critical routines
-implemented in Rcpp.
+The package is self-contained. It has no dependency on any other package
+of the suite and is equally useful on its own.
+
+It follows the DescToolsX design rules: a consistent lowerCamelCase API,
+generic functions with S3 methods, predictable argument names and
+ordering, and performance-critical routines implemented in Rcpp.
 
 📖 **Documentation:** <https://andrisignorell.github.io/bedrock/>
 
 ## ⚙️ Installation
+
+Install the released version from CRAN:
+
+``` r
+install.packages("bedrock")
+```
+
+Or the development version from GitHub:
 
 ``` r
 remotes::install_github("AndriSignorell/bedrock")
@@ -66,7 +83,8 @@ Predicates and checks for data quality and structure.
 
 ### 🔹 Mathematical Functions
 
--   `roundTo()`, `linScale()`, `logit()`, `precision()`
+-   `roundTo()`, `linScale()`, `logit()`
+-   `nDec()`, `prec()`, `frac()`, `maxDigits()`
 -   `rankX()`, `percentRank()`, `nUnique()`
 -   `dotProd()`, `crossProd()`, `crossProdN()`
 -   `unirootAll()`, `untable()`
@@ -74,8 +92,9 @@ Predicates and checks for data quality and structure.
 ### 🔹 Number Theory & Combinatorics
 
 -   `primes()`, `isPrime()`, `factorize()`, `divisors()`
--   `gcd()` / `lcm()`, `fibonacci()`, `digitSum()`, `isOdd()`
--   Base conversions: `numericConversions`
+-   `GCD()` / `LCM()`, `fibonacci()`, `digitSum()`, `isOdd()`
+-   Base conversions: `decToBin()`, `decToHex()`, `decToOct()`,
+    `baseToBase()`, `romanToInt()`
 -   `combN()`, `combSet()`, `combPairs()`, `permn()`
 -   `sampleX()`, `randGroupSplit()`, `unwhich()`
 
@@ -149,6 +168,13 @@ sas <- "
 "
 parseSASDatalines(sas)
 ```
+
+## 🙏 Acknowledgements
+
+Parts of the code and documentation were reviewed with the help of large
+language models (OpenAI Codex, Anthropic Claude). Every suggestion was
+assessed, edited and verified by the maintainer, who remains solely
+responsible for the content of this package.
 
 ## 📜 License
 

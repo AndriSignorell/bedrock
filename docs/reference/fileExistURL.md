@@ -44,9 +44,12 @@ function returns `FALSE` and stores the error message as an attribute.
 
 ## See also
 
-Other file.path: [`buildPath()`](buildPath.md),
-[`findDownload()`](findDownload.md), [`isFilePath()`](isFilePath.md),
-[`isURL()`](isURL.md), [`splitPath()`](splitPath.md)
+Other file.path:
+[`buildPath()`](https://andrisignorell.github.io/bedrock/reference/buildPath.md),
+[`findDownload()`](https://andrisignorell.github.io/bedrock/reference/findDownload.md),
+[`isFilePath()`](https://andrisignorell.github.io/bedrock/reference/isFilePath.md),
+[`isURL()`](https://andrisignorell.github.io/bedrock/reference/isURL.md),
+[`splitPath()`](https://andrisignorell.github.io/bedrock/reference/splitPath.md)
 
 ## Examples
 

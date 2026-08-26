@@ -10,3 +10,5 @@ Rplots.pdf
 Combinatorics.docx
 prepare.R
 ^\.github$
+^cran-comments\.md$
+

@@ -48,9 +48,9 @@ Returns `NA` if `x` is empty or all-`NA` (with `na.rm = TRUE`).
 ## Details
 
 Distance is computed as \\\|x_i - a\|\\. Ties are detected via
-[`isZero()`](isZero.md) rather than exact equality, which avoids
-spurious misses due to floating-point representation (e.g.
-`0.3 - 0.2 != 0.1`).
+[`isZero()`](https://andrisignorell.github.io/bedrock/reference/isZero.md)
+rather than exact equality, which avoids spurious misses due to
+floating-point representation (e.g. `0.3 - 0.2 != 0.1`).
 
 When `na.rm = TRUE`, `NA` elements are excluded from the search but the
 original index positions of the remaining elements are preserved, so
@@ -65,9 +65,12 @@ Recycling follows standard R rules.
 
 [`which`](https://rdrr.io/r/base/which.html)
 
-Other math.basic: [`crossProd()`](crossProd.md),
-[`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),
-[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
+Other math.basic:
+[`crossProd()`](https://andrisignorell.github.io/bedrock/reference/crossProd.md),
+[`crossProdN()`](https://andrisignorell.github.io/bedrock/reference/crossProdN.md),
+[`dotProd()`](https://andrisignorell.github.io/bedrock/reference/dotProd.md),
+[`roundTo()`](https://andrisignorell.github.io/bedrock/reference/roundTo.md),
+[`unirootAll()`](https://andrisignorell.github.io/bedrock/reference/unirootAll.md)
 
 ## Examples
 

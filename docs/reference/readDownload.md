@@ -24,8 +24,10 @@ readDownload(file, ..., output = c("data.frame", "tibble"))
 
   character, either `"data.frame"` (default) or `"tibble"`, determining
   the class of the returned object. Conversion to `data.frame` is done
-  by [`toBaseR`](toBaseR.md). The argument can be abbreviated. Note that
-  it must be given as a named argument, as it follows the dots.
+  by
+  [`toBaseR`](https://andrisignorell.github.io/bedrock/reference/toBaseR.md).
+  The argument can be abbreviated. Note that it must be given as a named
+  argument, as it follows the dots.
 
 ## Value
 
@@ -34,7 +36,8 @@ a `data.frame` or a tibble, according to `output`.
 ## Details
 
 This is a convenience wrapper combining
-[`findDownload`](findDownload.md) with common file readers:
+[`findDownload`](https://andrisignorell.github.io/bedrock/reference/findDownload.md)
+with common file readers:
 
 - Excel files (`.xls`, `.xlsx`) via
   [`readxl::read_excel`](https://readxl.tidyverse.org/reference/read_excel.html)
@@ -55,12 +58,15 @@ default, the result is converted to a base R `data.frame`.
 
 ## See also
 
-[`findDownload`](findDownload.md), [`toBaseR`](toBaseR.md),
+[`findDownload`](https://andrisignorell.github.io/bedrock/reference/findDownload.md),
+[`toBaseR`](https://andrisignorell.github.io/bedrock/reference/toBaseR.md),
 [`read_excel`](https://readxl.tidyverse.org/reference/read_excel.html),
 [`read_csv`](https://readr.tidyverse.org/reference/read_delim.html)
 
-Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
-[`pdfManual()`](pdfManual.md), [`peekFile()`](peekFile.md)
+Other file.io:
+[`parseSASDatalines()`](https://andrisignorell.github.io/bedrock/reference/parseSASDatalines.md),
+[`pdfManual()`](https://andrisignorell.github.io/bedrock/reference/pdfManual.md),
+[`peekFile()`](https://andrisignorell.github.io/bedrock/reference/peekFile.md)
 
 ## Examples
 

@@ -72,10 +72,14 @@ Column names reflect the semantics of the coding: level names for
 [`stats::contr.helmert()`](https://rdrr.io/r/stats/contrast.html),
 [`stats::contr.poly()`](https://rdrr.io/r/stats/contrast.html)
 
-Other data.recode: [`asBinary()`](asBinary.md),
-[`combLevels()`](combLevels.md), [`mReplace()`](mReplace.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`revCode()`](revCode.md),
-[`stringsAsFactors()`](stringsAsFactors.md)
+Other data.recode:
+[`asBinary()`](https://andrisignorell.github.io/bedrock/reference/asBinary.md),
+[`combLevels()`](https://andrisignorell.github.io/bedrock/reference/combLevels.md),
+[`mReplace()`](https://andrisignorell.github.io/bedrock/reference/mReplace.md),
+[`nf()`](https://andrisignorell.github.io/bedrock/reference/nf.md),
+[`recodeX()`](https://andrisignorell.github.io/bedrock/reference/recodeX.md),
+[`revCode()`](https://andrisignorell.github.io/bedrock/reference/revCode.md),
+[`stringsAsFactors()`](https://andrisignorell.github.io/bedrock/reference/stringsAsFactors.md)
 
 ## Examples
 

@@ -82,8 +82,9 @@ removing incomplete observations.
 
 ## See also
 
-Other data.resolve: [`resolveFormula()`](resolveFormula.md),
-[`resolveGroups()`](resolveGroups.md)
+Other data.resolve:
+[`resolveFormula()`](https://andrisignorell.github.io/bedrock/reference/resolveFormula.md),
+[`resolveGroups()`](https://andrisignorell.github.io/bedrock/reference/resolveGroups.md)
 
 ## Examples
 

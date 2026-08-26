@@ -32,12 +32,17 @@ replaced. Non-matching elements are returned unchanged.
 
 ## See also
 
-[`mGsub`](mGsub.md) for substring replacement.
+[`mGsub`](https://andrisignorell.github.io/bedrock/reference/mGsub.md)
+for substring replacement.
 
-Other data.recode: [`asBinary()`](asBinary.md),
-[`combLevels()`](combLevels.md), [`dummy()`](dummy.md), [`nf()`](nf.md),
-[`recodeX()`](recodeX.md), [`revCode()`](revCode.md),
-[`stringsAsFactors()`](stringsAsFactors.md)
+Other data.recode:
+[`asBinary()`](https://andrisignorell.github.io/bedrock/reference/asBinary.md),
+[`combLevels()`](https://andrisignorell.github.io/bedrock/reference/combLevels.md),
+[`dummy()`](https://andrisignorell.github.io/bedrock/reference/dummy.md),
+[`nf()`](https://andrisignorell.github.io/bedrock/reference/nf.md),
+[`recodeX()`](https://andrisignorell.github.io/bedrock/reference/recodeX.md),
+[`revCode()`](https://andrisignorell.github.io/bedrock/reference/revCode.md),
+[`stringsAsFactors()`](https://andrisignorell.github.io/bedrock/reference/stringsAsFactors.md)
 
 ## Examples
 

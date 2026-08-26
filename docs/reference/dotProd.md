@@ -45,9 +45,12 @@ conjugate.
 
 [`crossprod`](https://rdrr.io/r/base/crossprod.html)
 
-Other math.basic: [`closest()`](closest.md),
-[`crossProd()`](crossProd.md), [`crossProdN()`](crossProdN.md),
-[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
+Other math.basic:
+[`closest()`](https://andrisignorell.github.io/bedrock/reference/closest.md),
+[`crossProd()`](https://andrisignorell.github.io/bedrock/reference/crossProd.md),
+[`crossProdN()`](https://andrisignorell.github.io/bedrock/reference/crossProdN.md),
+[`roundTo()`](https://andrisignorell.github.io/bedrock/reference/roundTo.md),
+[`unirootAll()`](https://andrisignorell.github.io/bedrock/reference/unirootAll.md)
 
 ## Examples
 

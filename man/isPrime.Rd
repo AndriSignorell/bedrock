@@ -7,12 +7,12 @@
 isPrime(n)
 }
 \arguments{
-\item{n}{a numeric vector. Values must be finite integers in the
-unsigned 64-bit integer range.}
+\item{n}{a numeric vector. Values must be finite whole numbers not
+exceeding \code{2^53}.}
 }
 \value{
 a logical vector indicating whether each element of \code{n}
-is a prime number.
+is a prime number, \code{NA} where \code{n} exceeds \code{2^53}.
 }
 \description{
 Determines whether integer values are prime numbers.
@@ -25,8 +25,31 @@ Internally, a fast deterministic primality test for 64-bit integers
 is used.
 
 Non-integer, negative, missing, or non-finite values result in
-\code{FALSE}.
+\code{FALSE}: there the answer is known, it simply is not "prime".
 }
+\section{Upper limit}{
+
+
+Values above \code{2^53} (\code{9007199254740992}) return \code{NA} with
+a warning, because for them there is no answer to give. \code{2^53} is
+the largest integer up to which \emph{every} integer is exactly
+representable; above it the representable integers thin out, so the
+value that reaches the test need not be the value that was entered: R
+parses \code{9007199254740997}, which is prime, as
+\code{9007199254740996}.
+Every representable double above \code{2^53} is even, so testing the
+neighbour would report \code{FALSE} for \emph{every} prime beyond the
+bound -- silently, and with no way for the caller to notice. For larger
+numbers, use \code{gmp::isprime()} with a \code{gmp::as.bigz()} or
+character input.
+
+\code{\link{factorize}} carries the same bound but rejects the input
+with an error instead. The difference is deliberate: \code{factorize()}
+answers one number per call element and can refuse the call, whereas a
+vectorized predicate should not let a single unrepresentable element
+discard the result for all the others.
+}
+
 \examples{
 isPrime(2)
 isPrime(1:10)

@@ -46,8 +46,11 @@ package author.
 
 See also the package Hmisc for less coarse imputation functions.
 
-Other vector.na: [`coalesceX()`](coalesceX.md), [`isNA()`](isNA.md),
-[`naIf()`](naIf.md), [`naReplace()`](naReplace.md)
+Other vector.na:
+[`coalesceX()`](https://andrisignorell.github.io/bedrock/reference/coalesceX.md),
+[`isNA()`](https://andrisignorell.github.io/bedrock/reference/isNA.md),
+[`naIf()`](https://andrisignorell.github.io/bedrock/reference/naIf.md),
+[`naReplace()`](https://andrisignorell.github.io/bedrock/reference/naReplace.md)
 
 ## Examples
 

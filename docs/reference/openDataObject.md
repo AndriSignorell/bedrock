@@ -40,7 +40,8 @@ a `data.frame` containing the imported data. If metadata is available:
 
 - factor levels are labeled using provided codes.
 
-- variable labels are assigned using [`label()`](label.md).
+- variable labels are assigned using
+  [`label()`](https://andrisignorell.github.io/bedrock/reference/label.md).
 
 ## Details
 
@@ -64,7 +65,8 @@ factors. Data values without a matching entry in the codes column become
 
 ## See also
 
-Other label.import: [`dataDescription()`](dataDescription.md)
+Other label.import:
+[`dataDescription()`](https://andrisignorell.github.io/bedrock/reference/dataDescription.md)
 
 ## Examples
 

@@ -159,8 +159,9 @@ components depend on the design:
 [`model.frame`](https://rdrr.io/r/stats/model.frame.html),
 [`Pair`](https://rdrr.io/r/stats/Pair.html), `DescToolsX:desc`
 
-Other data.resolve: [`resolveContingency()`](resolveContingency.md),
-[`resolveGroups()`](resolveGroups.md)
+Other data.resolve:
+[`resolveContingency()`](https://andrisignorell.github.io/bedrock/reference/resolveContingency.md),
+[`resolveGroups()`](https://andrisignorell.github.io/bedrock/reference/resolveGroups.md)
 
 ## Examples
 

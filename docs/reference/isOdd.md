@@ -28,10 +28,14 @@ logical `NA` is accepted and treated as a missing numeric value.
 
 ## See also
 
-Other number.theory: [`GCD-LCM`](GCD-LCM.md),
-[`digitSum()`](digitSum.md), [`divisors()`](divisors.md),
-[`factorize()`](factorize.md), [`fibonacci()`](fibonacci.md),
-[`isPrime()`](isPrime.md), [`primes()`](primes.md)
+Other number.theory:
+[`GCD-LCM`](https://andrisignorell.github.io/bedrock/reference/GCD-LCM.md),
+[`digitSum()`](https://andrisignorell.github.io/bedrock/reference/digitSum.md),
+[`divisors()`](https://andrisignorell.github.io/bedrock/reference/divisors.md),
+[`factorize()`](https://andrisignorell.github.io/bedrock/reference/factorize.md),
+[`fibonacci()`](https://andrisignorell.github.io/bedrock/reference/fibonacci.md),
+[`isPrime()`](https://andrisignorell.github.io/bedrock/reference/isPrime.md),
+[`primes()`](https://andrisignorell.github.io/bedrock/reference/primes.md)
 
 ## Examples
 

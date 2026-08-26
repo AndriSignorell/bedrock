@@ -79,9 +79,11 @@ well-defined for all real inputs, so no stabilization is required.
 [`qlogis`](https://rdrr.io/r/stats/Logistic.html),
 [`plogis`](https://rdrr.io/r/stats/Logistic.html)
 
-Other math.transform: [`linScale()`](linScale.md),
-[`percentRank()`](percentRank.md), [`rankX()`](rankX.md),
-[`winsorize()`](winsorize.md)
+Other math.transform:
+[`linScale()`](https://andrisignorell.github.io/bedrock/reference/linScale.md),
+[`percentRank()`](https://andrisignorell.github.io/bedrock/reference/percentRank.md),
+[`rankX()`](https://andrisignorell.github.io/bedrock/reference/rankX.md),
+[`winsorize()`](https://andrisignorell.github.io/bedrock/reference/winsorize.md)
 
 ## Examples
 

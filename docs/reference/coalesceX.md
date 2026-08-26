@@ -49,8 +49,11 @@ data structure.
 [`is.na`](https://rdrr.io/r/base/NA.html),
 [`is.finite`](https://rdrr.io/r/base/is.finite.html)
 
-Other vector.na: [`isNA()`](isNA.md), [`locf()`](locf.md),
-[`naIf()`](naIf.md), [`naReplace()`](naReplace.md)
+Other vector.na:
+[`isNA()`](https://andrisignorell.github.io/bedrock/reference/isNA.md),
+[`locf()`](https://andrisignorell.github.io/bedrock/reference/locf.md),
+[`naIf()`](https://andrisignorell.github.io/bedrock/reference/naIf.md),
+[`naReplace()`](https://andrisignorell.github.io/bedrock/reference/naReplace.md)
 
 ## Examples
 

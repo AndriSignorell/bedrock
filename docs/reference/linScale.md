@@ -45,9 +45,11 @@ are extrapolated linearly and are not clipped to the target range.
 
 [`scale`](https://rdrr.io/r/base/scale.html)
 
-Other math.transform: [`logit()`](logit.md),
-[`percentRank()`](percentRank.md), [`rankX()`](rankX.md),
-[`winsorize()`](winsorize.md)
+Other math.transform:
+[`logit()`](https://andrisignorell.github.io/bedrock/reference/logit.md),
+[`percentRank()`](https://andrisignorell.github.io/bedrock/reference/percentRank.md),
+[`rankX()`](https://andrisignorell.github.io/bedrock/reference/rankX.md),
+[`winsorize()`](https://andrisignorell.github.io/bedrock/reference/winsorize.md)
 
 ## Examples
 

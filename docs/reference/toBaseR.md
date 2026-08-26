@@ -35,8 +35,9 @@ converted object.
 
 ## See also
 
-Other data.coerce: [`as.array.xtabs()`](as.array.xtabs.md),
-[`type-aliases`](type-aliases.md)
+Other data.coerce:
+[`as.array.xtabs()`](https://andrisignorell.github.io/bedrock/reference/as.array.xtabs.md),
+[`type-aliases`](https://andrisignorell.github.io/bedrock/reference/type-aliases.md)
 
 ## Examples
 

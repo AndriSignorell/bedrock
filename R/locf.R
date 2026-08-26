@@ -46,6 +46,9 @@
 #' @export
 locf <- function(x) {
 
+  if (length(x) == 0L)
+    return(x)
+
   # columns are handled separately: a single flattened pass would carry
   # the last value of one column into the leading NAs of the next
   if (is.data.frame(x)) {

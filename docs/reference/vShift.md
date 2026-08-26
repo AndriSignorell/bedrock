@@ -26,13 +26,17 @@ a vector of the same length as `x`, shifted with `NA` padding.
 
 ## Details
 
-Unlike [`vRot()`](vRot.md), this function does not wrap elements around.
-Elements shifted beyond the vector bounds are discarded.
+Unlike
+[`vRot()`](https://andrisignorell.github.io/bedrock/reference/vRot.md),
+this function does not wrap elements around. Elements shifted beyond the
+vector bounds are discarded.
 
 ## See also
 
-Other vector.reshape: [`setLength()`](setLength.md),
-[`trim()`](trim.md), [`vRot()`](vRot.md)
+Other vector.reshape:
+[`setLength()`](https://andrisignorell.github.io/bedrock/reference/setLength.md),
+[`trim()`](https://andrisignorell.github.io/bedrock/reference/trim.md),
+[`vRot()`](https://andrisignorell.github.io/bedrock/reference/vRot.md)
 
 ## Examples
 

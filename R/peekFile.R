@@ -52,7 +52,7 @@ peekFile <- function(file, n = 10, ...,
     stop("package 'readr' is required for peekFile(), please install it",
          call. = FALSE)
 
-  if (!is.numeric(n) || length(n) != 1L || is.na(n) ||
+  if (!is.numeric(n) || length(n) != 1L || !is.finite(n) ||
       n < 1 || n %% 1 != 0)
     stop("'n' must be a single positive integer", call. = FALSE)
 

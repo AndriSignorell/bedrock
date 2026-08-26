@@ -37,10 +37,13 @@ reproducible with [`set.seed`](https://rdrr.io/r/base/Random.html).
 
 ## See also
 
-Other combinatorics: [`combN()`](combN.md),
-[`combPairs()`](combPairs.md), [`combSet()`](combSet.md),
-[`pairApply()`](pairApply.md), [`permn()`](permn.md),
-[`sampleX()`](sampleX.md)
+Other combinatorics:
+[`combN()`](https://andrisignorell.github.io/bedrock/reference/combN.md),
+[`combPairs()`](https://andrisignorell.github.io/bedrock/reference/combPairs.md),
+[`combSet()`](https://andrisignorell.github.io/bedrock/reference/combSet.md),
+[`pairApply()`](https://andrisignorell.github.io/bedrock/reference/pairApply.md),
+[`permn()`](https://andrisignorell.github.io/bedrock/reference/permn.md),
+[`sampleX()`](https://andrisignorell.github.io/bedrock/reference/sampleX.md)
 
 ## Examples
 

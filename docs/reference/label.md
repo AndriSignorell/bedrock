@@ -61,9 +61,10 @@ Assigning `NULL` removes the label(s).
 
 ## See also
 
-Other label.attrs: [`renameX()`](renameX.md),
-[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),
-[`setNamesX()`](setNamesX.md)
+Other label.attrs:
+[`renameX()`](https://andrisignorell.github.io/bedrock/reference/renameX.md),
+[`setAttr-removeAttr-keepAttr`](https://andrisignorell.github.io/bedrock/reference/setAttr-removeAttr-keepAttr.md),
+[`setNamesX()`](https://andrisignorell.github.io/bedrock/reference/setNamesX.md)
 
 ## Examples
 

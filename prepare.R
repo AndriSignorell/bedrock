@@ -33,22 +33,44 @@ devtools::load_all()
 devtools::test()
 devtools::run_examples()
 
+devtools::check(args = "--as-cran")
 
-isLowCardinality
-
-1:100 %[]% c(2:5)
-
-bedrock::`%][%`(1:20, c(1,5))
 covr::package_coverage()
 goodpractice::gp()
 
 
+pkgdown::build_home()
 pkgdown::build_site()
+usethis::use_pkgdown_github_pages()
+
 pkgdown::build_reference_index()
 pkgdown::build_favicons(overwrite = TRUE)
 
 
+
+# 1. Öffnet GitHub im Browser und bereitet einen passenden Token vor
+usethis::create_github_token(
+  description = "Andri Windows RStudio"
+)
+
+# 2. Den auf GitHub erzeugten Token kopieren und hier bei der
+#    verdeckten Eingabe einfügen
+gitcreds::gitcreds_set()
+
+gh::gh_whoami()
+
+# Wenn dein GitHub-Benutzer korrekt angezeigt wird:
 usethis::use_pkgdown_github_pages()
+
+usethis::edit_r_environ()
+
+
+gitcreds::gitcreds_delete("https://github.com")
+
+usethis::edit_file(".github/workflows/pkgdown.yaml")
+
+
+
 
 
 # hard CRAN check

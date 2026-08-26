@@ -40,7 +40,9 @@ improvements by the package author.
 
 [`pharos::plotBinaryTree`](https://rdrr.io/pkg/pharos/man/binaryTree.html)
 
-Other data.order: [`revX()`](revX.md), [`sortX()`](sortX.md)
+Other data.order:
+[`revX()`](https://andrisignorell.github.io/bedrock/reference/revX.md),
+[`sortX()`](https://andrisignorell.github.io/bedrock/reference/sortX.md)
 
 ## Examples
 

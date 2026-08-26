@@ -46,7 +46,8 @@ to detect missing values.
 [`na.omit`](https://rdrr.io/r/stats/na.fail.html),
 [`complete.cases`](https://rdrr.io/r/stats/complete.cases.html)
 
-Other data.missing: [`countCompCases()`](countCompCases.md)
+Other data.missing:
+[`countCompCases()`](https://andrisignorell.github.io/bedrock/reference/countCompCases.md)
 
 ## Examples
 

@@ -32,9 +32,12 @@ trailing whitespace. Stops with an error if `topic` is not found.
 
 [`parse_Rd`](https://rdrr.io/r/tools/parse_Rd.html)
 
-Other pkg.funinfo: [`funArgs()`](funArgs.md),
-[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
-[`funList()`](funList.md), [`rdLabels()`](rdLabels.md)
+Other pkg.funinfo:
+[`funArgs()`](https://andrisignorell.github.io/bedrock/reference/funArgs.md),
+[`funCalls()`](https://andrisignorell.github.io/bedrock/reference/funCalls.md),
+[`funKeywords()`](https://andrisignorell.github.io/bedrock/reference/funKeywords.md),
+[`funList()`](https://andrisignorell.github.io/bedrock/reference/funList.md),
+[`rdLabels()`](https://andrisignorell.github.io/bedrock/reference/rdLabels.md)
 
 ## Examples
 

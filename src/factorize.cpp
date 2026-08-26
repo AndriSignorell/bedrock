@@ -1,8 +1,9 @@
-
 #include <Rcpp.h>
 #include <cstdint>
 #include <vector>
 #include <cmath>
+#include <algorithm>
+#include <initializer_list>
 
 using namespace Rcpp;
 
@@ -73,36 +74,61 @@ bool miller_rabin_u64(uint64_t n) {
 
 /* ============================================================
  Pollard's rho (64-bit)
+ 
+ Returns a NON-TRIVIAL divisor of the composite n.
+ 
+ The cycle-finding walk x -> x^2 + c mod n can fail: Floyd's tortoise and
+ hare may meet before the gcd separates a factor, in which case the gcd is
+ n itself. The only correct reaction is to walk the SAME n again with a
+ different c, because a different c is a different pseudo-random sequence.
+ 
+ The previous version did `return pollard_rho(n + 1)` here, i.e. it went
+ looking for a divisor of a DIFFERENT NUMBER and handed it back as if it
+ divided n. Two things then went wrong at once: the divisor is generally
+ not a divisor of n, and `n / d` in factor_rec truncates, so the recursion
+ continued on a number unrelated to the input. factorize(21) returned
+ 2, 2, 5 and factorize(25) returned 2, 2, 2, 3. Over 2..20000 the product
+ of the reported factors differed from the input for 2582 of the 19999
+ numbers, so this was not an edge case.
+ 
+ Termination: for odd composite n the loop over c ends as soon as one c
+ splits n. Empirically c never exceeded 3 (checked over all n in 2..300000
+ and 2000 random n below 2^53); there is no proof that some c must work,
+ which is why the loop is written over c rather than as a fixed retry.
  ============================================================ */
 
 uint64_t pollard_rho(uint64_t n) {
   if (n % 2 == 0) return 2;
   
-  uint64_t x = 2, y = 2, c = 1, d = 1;
-  
-  auto f = [&](uint64_t v) {
-    return (mul_mod(v, v, n) + c) % n;
-  };
-  
-  while (d == 1) {
-    x = f(x);
-    y = f(f(y));
-    uint64_t diff = x > y ? x - y : y - x;
-    d = gcd_u64(diff, n);
+  for (uint64_t c = 1; ; ++c) {
+    
+    uint64_t x = 2, y = 2, d = 1;
+    
+    // gcd(0, n) == n, so a closed cycle (x == y) leaves the loop with
+    // d == n and is handled by the retry below like any other failure.
+    while (d == 1) {
+      x = (mul_mod(x, x, n) + c) % n;
+      y = (mul_mod(y, y, n) + c) % n;
+      y = (mul_mod(y, y, n) + c) % n;
+      uint64_t diff = x > y ? x - y : y - x;
+      d = gcd_u64(diff, n);
+    }
+    
+    if (d != n)
+      return d;
   }
-  
-  if (d == n)
-    return pollard_rho(n + 1);
-  
-  return d;
 }
 
 /* ============================================================
  Recursive factorization
+ 
+ Yields the prime factors of n in ARBITRARY order: rho splits n into two
+ parts of unpredictable size, so 35 comes out as 7, 5 and 63 as 3, 7, 3.
+ The caller must sort before counting multiplicities.
  ============================================================ */
 
 void factor_rec(uint64_t n, std::vector<uint64_t>& factors) {
-  if (n == 1) return;
+  if (n < 2) return;               // 1 has the empty factorization
   
   if (miller_rabin_u64(n)) {
     factors.push_back(n);
@@ -117,10 +143,38 @@ void factor_rec(uint64_t n, std::vector<uint64_t>& factors) {
  R interfaces
  ============================================================ */
 
+// --------------------------------
+// Primality of x.
+//
+// x < 2, non-integer and non-finite values are FALSE by definition of the
+// predicate - there the answer is known, it is just not "prime".
+//
+// Above 2^53 there is no answer to give: a double does not represent every
+// integer up there, so the value that arrives is not necessarily the value
+// that was typed. R parses 9007199254740997 - a prime - as
+// 9007199254740996, and every representable double above 2^53 is even, so
+// a test of the neighbour reports FALSE for EVERY prime beyond the bound.
+// Returning false would be a confident wrong answer, hence stop().
+// isPrime() masks these elements out and reports them as NA with a
+// warning - that is the wrapper's own decision, not a precondition of this
+// function, so anything calling is_prime_cpp() directly gets the error.
+// The two files have to move together: with an isPrime() that does not
+// mask, oversized elements arrive here and abort the whole call.
+
 // [[Rcpp::export]]
 bool is_prime_cpp(double x) {
-  if (x < 2 || x != std::floor(x) || x > 9.22e18)
+  
+  constexpr double maxX = 9007199254740992.0;   // 2^53
+  
+  // non-finite first, so that Inf and NaN follow the predicate rule
+  // rather than the range check below
+  if (!R_finite(x) || x < 2 || x != std::floor(x))
     return false;
+  
+  if (x > maxX)
+    stop("'x' must not exceed 2^53; above this bound, not every integer "
+         "can be represented exactly by a double.");
+  
   return miller_rabin_u64((uint64_t)x);
 }
 
@@ -194,14 +248,37 @@ IntegerVector primes_upto_cpp(double n) {
 }
 
 
+// --------------------------------
+// Prime factorization of x, as a two-column matrix (p, m).
+//
+// The upper bound is 2^53 and matches factorize(): it is the largest
+// integer up to which EVERY integer is representable. Above it the
+// representable integers thin out - 2^53 + 1 is not one, 2^53 + 2 is - so
+// the value arriving here need not be the value the user typed, and the
+// factorization would be correct for a number nobody asked about. The
+// bound is written as the exact constant rather than as 9.22e18, so that
+// the check and the message agree.
+//
+// x == 1 returns a zero-row matrix: the empty product. That keeps the
+// invariant prod(p^m) == x valid at the lower end of the documented range
+// and is what R's prod(numeric(0)) == 1 does anyway.
+
 // [[Rcpp::export]]
 NumericMatrix factor_u64_cpp(double x) {
-  if (x < 2 || x != std::floor(x) || x > 9.22e18)
-    stop("x must be an integer in [2, 2^63)");
+  
+  constexpr double maxX = 9007199254740992.0;   // 2^53
+  
+  if (!R_finite(x) || x != std::floor(x) || x < 1.0 || x > maxX)
+    stop("'x' must be a whole number between 1 and 2^53.");
   
   uint64_t n = (uint64_t)x;
   std::vector<uint64_t> f;
-  factor_rec(n, f);          // yields sorted factors
+  factor_rec(n, f);
+  
+  // factor_rec splits, it does not order - see the comment there. Without
+  // this sort the counting loop below sees 63 as 3, 7, 3 and reports the
+  // two threes as two separate rows with multiplicity one.
+  std::sort(f.begin(), f.end());
   
   // count factors (linear, no table/unique)
   std::vector<uint64_t> p, m;
@@ -220,6 +297,11 @@ NumericMatrix factor_u64_cpp(double x) {
     out(i, 1) = (double)m[i];
   }
   
-  colnames(out) = CharacterVector::create("p", "m");
+  // Set explicitly rather than through colnames(), which needs a matrix
+  // that already has dimnames or rows to hang them on; x == 1 gives a
+  // zero-row matrix.
+  out.attr("dimnames") = List::create(R_NilValue,
+           CharacterVector::create("p", "m"));
+  
   return out;
 }

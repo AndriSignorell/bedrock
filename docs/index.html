@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>bedrock • bedrock</title>
+<title>Base Functions for the DescToolsX Ecosystem • bedrock</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -15,20 +15,20 @@
 <link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="bedrock">
-<meta name="description" content="Base functions for the DescToolsX ecosystem">
-<meta property="og:description" content="Base functions for the DescToolsX ecosystem">
-<meta property="og:image" content="/logo.png">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Base Functions for the DescToolsX Ecosystem">
+<meta name="description" content="Provides the low level utilities on which the DescToolsX ecosystem is built. Covered are data manipulation and reshaping, predicates for data inspection and validation, vector and string operations, handling of labels and metadata, and routines from number theory and combinatorics. All functions share a common naming and argument scheme and are implemented as S3 generics wherever several input types are meaningful, with performance critical parts written in C++. The package is self contained and can be used on its own, independently of the higher level packages of the suite.">
+<meta property="og:description" content="Provides the low level utilities on which the DescToolsX ecosystem is built. Covered are data manipulation and reshaping, predicates for data inspection and validation, vector and string operations, handling of labels and metadata, and routines from number theory and combinatorics. All functions share a common naming and argument scheme and are implemented as S3 generics wherever several input types are meaningful, with performance critical parts written in C++. The package is self contained and can be used on its own, independently of the higher level packages of the suite.">
+<meta property="og:image" content="https://andrisignorell.github.io/bedrock/logo.png">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,25 +37,13 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-book"></span></button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-">
-<li><h6 class="dropdown-header" data-toc-skip>Documentation for version of package:</h6></li>
-    <li><a class="external-link dropdown-item" href="https://andrisignorell.github.io/bedrock/">Released</a></li>
-    <li><a class="external-link dropdown-item" href="https://andrisignorell.github.io/bedrock/dev/">In-development</a></li>
-  </ul>
-</li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorials" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Tutorials</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-tutorials">
-<li><h6 class="dropdown-header" data-toc-skip>PDF:</h6></li>
-    <li><a class="external-link dropdown-item" href="https://github.com/AndriSignorell/bedrock/blob/main/vignettes/Combinatorics.pdf">Combinatorics</a></li>
-  </ul>
-</li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
+</form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/AndriSignorell/bedrock/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
@@ -66,21 +54,28 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="package-bedrock">📦 bedrock<a class="anchor" aria-label="anchor" href="#package-bedrock"></a>
+<img src="logo.png" class="logo" alt=""><h1 id="package-bedrock-">📦 bedrock <a class="anchor" aria-label="anchor" href="#package-bedrock-"></a>
 </h1>
 </div>
-<p><strong>Version:</strong> 0.0.0.945<br><strong>Title:</strong> Base functions for the DescToolsX ecosystem<br><strong>License:</strong> GPL (≥ 2)</p>
+<!-- badges: start -->
+
+<p><strong>Title:</strong> Base Functions for the DescToolsX Ecosystem<br><strong>License:</strong> GPL (≥ 2)</p>
 <div class="section level2">
 <h2 id="jigsaw-overview">🧩 Overview<a class="anchor" aria-label="anchor" href="#jigsaw-overview"></a>
 </h2>
 <p><code>bedrock</code> is the foundation layer of the <strong>DescToolsX ecosystem</strong>. It provides low-level, generic utilities and basic routines — data manipulation, inspection, vector operations, string handling, math and combinatorics — that serve as building blocks for the higher-level statistical, graphics, and modelling packages of the suite.</p>
-<p>The package follows the DescToolsX design rules: a consistent lowerCamelCase API, generic functions with S3 methods, predictable argument names and ordering, and performance-critical routines implemented in Rcpp.</p>
-<p>📖 <strong>Documentation:</strong> <a href="https://andrisignorell.github.io/bedrock/" class="external-link uri">https://andrisignorell.github.io/bedrock/</a></p>
+<p>The package is self-contained. It has no dependency on any other package of the suite and is equally useful on its own.</p>
+<p>It follows the DescToolsX design rules: a consistent lowerCamelCase API, generic functions with S3 methods, predictable argument names and ordering, and performance-critical routines implemented in Rcpp.</p>
+<p>📖 <strong>Documentation:</strong> <a href="https://andrisignorell.github.io/bedrock/" class="uri">https://andrisignorell.github.io/bedrock/</a></p>
 </div>
 <div class="section level2">
 <h2 id="gear-installation">⚙️ Installation<a class="anchor" aria-label="anchor" href="#gear-installation"></a>
 </h2>
+<p>Install the released version from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"bedrock"</span><span class="op">)</span></span></code></pre></div>
+<p>Or the development version from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"AndriSignorell/bedrock"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -169,7 +164,10 @@
 </h3>
 <ul>
 <li>
-<code><a href="reference/roundTo.html">roundTo()</a></code>, <code><a href="reference/linScale.html">linScale()</a></code>, <code><a href="reference/logit.html">logit()</a></code>, <code><a href="reference/precision.html">precision()</a></code>
+<code><a href="reference/roundTo.html">roundTo()</a></code>, <code><a href="reference/linScale.html">linScale()</a></code>, <code><a href="reference/logit.html">logit()</a></code>
+</li>
+<li>
+<code><a href="reference/precision.html">nDec()</a></code>, <code><a href="reference/precision.html">prec()</a></code>, <code><a href="reference/precision.html">frac()</a></code>, <code><a href="reference/precision.html">maxDigits()</a></code>
 </li>
 <li>
 <code><a href="reference/rankX.html">rankX()</a></code>, <code><a href="reference/percentRank.html">percentRank()</a></code>, <code><a href="reference/nUnique.html">nUnique()</a></code>
@@ -190,9 +188,9 @@
 <code><a href="reference/primes.html">primes()</a></code>, <code><a href="reference/isPrime.html">isPrime()</a></code>, <code><a href="reference/factorize.html">factorize()</a></code>, <code><a href="reference/divisors.html">divisors()</a></code>
 </li>
 <li>
-<code>gcd()</code> / <code><a href="https://rdrr.io/r/graphics/layout.html" class="external-link">lcm()</a></code>, <code><a href="reference/fibonacci.html">fibonacci()</a></code>, <code><a href="reference/digitSum.html">digitSum()</a></code>, <code><a href="reference/isOdd.html">isOdd()</a></code>
+<code><a href="reference/GCD-LCM.html">GCD()</a></code> / <code><a href="reference/GCD-LCM.html">LCM()</a></code>, <code><a href="reference/fibonacci.html">fibonacci()</a></code>, <code><a href="reference/digitSum.html">digitSum()</a></code>, <code><a href="reference/isOdd.html">isOdd()</a></code>
 </li>
-<li>Base conversions: <code>numericConversions</code>
+<li>Base conversions: <code><a href="reference/numeric-conversions.html">decToBin()</a></code>, <code><a href="reference/numeric-conversions.html">decToHex()</a></code>, <code><a href="reference/numeric-conversions.html">decToOct()</a></code>, <code><a href="reference/numeric-conversions.html">baseToBase()</a></code>, <code><a href="reference/numeric-conversions.html">romanToInt()</a></code>
 </li>
 <li>
 <code><a href="reference/combN.html">combN()</a></code>, <code><a href="reference/combSet.html">combSet()</a></code>, <code><a href="reference/combPairs.html">combPairs()</a></code>, <code><a href="reference/permn.html">permn()</a></code>
@@ -282,8 +280,8 @@
 <div class="section level2">
 <h2 id="test_tube-example">🧪 Example<a class="anchor" aria-label="anchor" href="#test_tube-example"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://andrisignorell.github.io/bedrock/" class="external-link">bedrock</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://andrisignorell.github.io/bedrock/">bedrock</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># range operators</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
@@ -308,6 +306,11 @@
 <span><span class="st">  ;</span></span>
 <span><span class="st">"</span></span>
 <span><span class="fu"><a href="reference/parseSASDatalines.html">parseSASDatalines</a></span><span class="op">(</span><span class="va">sas</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="pray-acknowledgements">🙏 Acknowledgements<a class="anchor" aria-label="anchor" href="#pray-acknowledgements"></a>
+</h2>
+<p>Parts of the code and documentation were reviewed with the help of large language models (OpenAI Codex, Anthropic Claude). Every suggestion was assessed, edited and verified by the maintainer, who remains solely responsible for the content of this package.</p>
 </div>
 <div class="section level2">
 <h2 id="scroll-license">📜 License<a class="anchor" aria-label="anchor" href="#scroll-license"></a>
@@ -346,7 +349,16 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=bedrock" class="external-link"><img src="https://www.r-pkg.org/badges/version/bedrock" alt="CRAN status"></a></li>
+<li><a href="https://github.com/AndriSignorell/bedrock/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/AndriSignorell/bedrock/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/AndriSignorell/bedrock" class="external-link"><img src="https://codecov.io/gh/AndriSignorell/bedrock/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://CRAN.R-project.org/package=bedrock" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/bedrock" alt="Downloads"></a></li>
+<li><a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html" class="external-link"><img src="https://img.shields.io/badge/License-GPL%20v2-blue.svg" alt="License: GPL v2"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>

@@ -45,10 +45,14 @@ the values themselves.
 [`factor`](https://rdrr.io/r/base/factor.html),
 [`as.numeric`](https://rdrr.io/r/base/numeric.html)
 
-Other data.recode: [`asBinary()`](asBinary.md),
-[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
-[`mReplace()`](mReplace.md), [`recodeX()`](recodeX.md),
-[`revCode()`](revCode.md), [`stringsAsFactors()`](stringsAsFactors.md)
+Other data.recode:
+[`asBinary()`](https://andrisignorell.github.io/bedrock/reference/asBinary.md),
+[`combLevels()`](https://andrisignorell.github.io/bedrock/reference/combLevels.md),
+[`dummy()`](https://andrisignorell.github.io/bedrock/reference/dummy.md),
+[`mReplace()`](https://andrisignorell.github.io/bedrock/reference/mReplace.md),
+[`recodeX()`](https://andrisignorell.github.io/bedrock/reference/recodeX.md),
+[`revCode()`](https://andrisignorell.github.io/bedrock/reference/revCode.md),
+[`stringsAsFactors()`](https://andrisignorell.github.io/bedrock/reference/stringsAsFactors.md)
 
 ## Examples
 

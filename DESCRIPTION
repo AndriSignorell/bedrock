@@ -1,12 +1,12 @@
 Package: bedrock
-Title: Base functions for the DescToolsX ecosystem
-Version: 0.1.2
+Title: Base Functions for the 'DescToolsX' Ecosystem
+Version: 0.1.3
 Authors@R: c(
   person(given="Andri", family="Signorell",  
          email = "andri@signorell.net", 
          role = c("aut", "cre"),
          comment = c(ORCID = "0000-0003-4311-1969")),
-  person("R-Core", role = c("ctb")),
+  person("R Core Team", role = c("ctb")),
   person("Hans W.", "Borchers", role = c("ctb")),
   person("Daniel", "Chessel", role = c("ctb")),
   person("Nicholas", "Cooper", role = c("ctb")),
@@ -24,13 +24,18 @@ Authors@R: c(
   person("Bill", "Venables", role = c("ctb")),
   person("Gregory R.", "Warnes", role = c("ctb")),
   person("Daniel", "Wollschlaeger", role = c("ctb")),
-  person("Thomas W.", "Yee", role = c("ctb")),
-  person("OpenAI Codex",  role = c("ctb"), 
-    comment = "AI-assisted code and documentation review; all suggestions reviewed by the maintainer"),
-  person("Anthropic Claude", role = c("ctb"),
-    comment = "AI-assisted code and documentation review; all suggestions reviewed by the maintainer")
- )    
-Description: Provides low level, generic utilities and basic routines used in DescToolsX.
+  person("Thomas W.", "Yee", role = c("ctb"))
+  )
+Description: Provides the low level utilities on which the 'DescToolsX'
+    ecosystem is built. Covered are data manipulation and reshaping,
+    predicates for data inspection and validation, vector and string
+    operations, handling of labels and metadata, and routines from
+    number theory and combinatorics. All functions share a common
+    naming and argument scheme and are implemented as S3 generics
+    wherever several input types are meaningful, with performance
+    critical parts written in C++. The package is self contained and
+    can be used on its own, independently of the higher level packages
+    of the suite.
 Depends: R (>= 4.4.0)
 License: GPL (>= 2)
 Encoding: UTF-8
@@ -40,7 +45,6 @@ Imports: Rcpp, abind, expm, tools, data.table, readxl, httr, cli
 Suggests:
     testthat (>= 3.0.0), haven, R.rsp, readr, tibble
 Config/testthat/edition: 3
-SystemRequirements: C++17
 VignetteBuilder: R.rsp
 LazyData: true
 URL: https://andrisignorell.github.io/bedrock/,

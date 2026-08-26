@@ -40,9 +40,11 @@ named list of extracted arguments, or a list with components `args` and
 
 ## See also
 
-Other pkg.args: [`callIf()`](callIf.md),
-[`getDotsArg()`](getDotsArg.md), [`mergeArgs()`](mergeArgs.md),
-[`recycle()`](recycle.md)
+Other pkg.args:
+[`callIf()`](https://andrisignorell.github.io/bedrock/reference/callIf.md),
+[`getDotsArg()`](https://andrisignorell.github.io/bedrock/reference/getDotsArg.md),
+[`mergeArgs()`](https://andrisignorell.github.io/bedrock/reference/mergeArgs.md),
+[`recycle()`](https://andrisignorell.github.io/bedrock/reference/recycle.md)
 
 ## Examples
 

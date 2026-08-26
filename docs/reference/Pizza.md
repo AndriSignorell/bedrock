@@ -154,5 +154,8 @@ zur deskriptiven und induktiven Statistik* Springer, Berlin Heidelberg.
 
 ## See also
 
-Other datasets: [`Cards`](Cards.md), [`Roulette`](Roulette.md),
-[`Tarot`](Tarot.md), [`courseData()`](courseData.md)
+Other datasets:
+[`Cards`](https://andrisignorell.github.io/bedrock/reference/Cards.md),
+[`Roulette`](https://andrisignorell.github.io/bedrock/reference/Roulette.md),
+[`Tarot`](https://andrisignorell.github.io/bedrock/reference/Tarot.md),
+[`courseData()`](https://andrisignorell.github.io/bedrock/reference/courseData.md)

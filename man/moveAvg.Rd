@@ -86,7 +86,7 @@ moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 
 }
 \seealso{
-\code{\link[zoo:rollmean]{zoo::rollmean()}}, \code{\link[forecast:ma]{forecast::ma()}}, \code{\link[stats:runmed]{stats::runmed()}}
+\code{zoo::rollmean()}, \code{forecast::ma()}, \code{\link[stats:runmed]{stats::runmed()}}
 
 Other vector.window:
 \code{\link[=midx]{midx()}},

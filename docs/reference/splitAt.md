@@ -37,9 +37,11 @@ Each element of the returned list corresponds to a contiguous subset of
 
 [`split`](https://rdrr.io/r/base/split.html)
 
-Other data.reshape: [`collapseTable()`](collapseTable.md),
-[`long-wide-reshape`](long-wide-reshape.md), [`splitX()`](splitX.md),
-[`untable()`](untable.md)
+Other data.reshape:
+[`collapseTable()`](https://andrisignorell.github.io/bedrock/reference/collapseTable.md),
+[`long-wide-reshape`](https://andrisignorell.github.io/bedrock/reference/long-wide-reshape.md),
+[`splitX()`](https://andrisignorell.github.io/bedrock/reference/splitX.md),
+[`untable()`](https://andrisignorell.github.io/bedrock/reference/untable.md)
 
 ## Examples
 

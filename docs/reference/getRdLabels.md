@@ -41,11 +41,14 @@ The function is fully CRAN-compliant and does not rely on internal
 
 ## See also
 
-[`bedrock::label`](label.md)
+[`bedrock::label`](https://andrisignorell.github.io/bedrock/reference/label.md)
 
-Other pkg.introspection: [`funArgs()`](funArgs.md),
-[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
-[`funList()`](funList.md), [`mergeArgs()`](mergeArgs.md)
+Other pkg.introspection:
+[`funArgs()`](https://andrisignorell.github.io/bedrock/reference/funArgs.md),
+[`funCalls()`](https://andrisignorell.github.io/bedrock/reference/funCalls.md),
+[`funKeywords()`](https://andrisignorell.github.io/bedrock/reference/funKeywords.md),
+[`funList()`](https://andrisignorell.github.io/bedrock/reference/funList.md),
+[`mergeArgs()`](https://andrisignorell.github.io/bedrock/reference/mergeArgs.md)
 
 ## Examples
 

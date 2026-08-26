@@ -62,8 +62,10 @@ object of the same class as `x`.
 
 [`append`](https://rdrr.io/r/base/append.html)
 
-Other data.append: [`appendEnum()`](appendEnum.md),
-[`appendRowNames()`](appendRowNames.md), [`multMerge()`](multMerge.md)
+Other data.append:
+[`appendEnum()`](https://andrisignorell.github.io/bedrock/reference/appendEnum.md),
+[`appendRowNames()`](https://andrisignorell.github.io/bedrock/reference/appendRowNames.md),
+[`multMerge()`](https://andrisignorell.github.io/bedrock/reference/multMerge.md)
 
 ## Examples
 

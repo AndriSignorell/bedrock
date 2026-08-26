@@ -92,7 +92,12 @@ coalesceX <- function(..., method = c("is.na", "is.null", "is.finite"),
   }
 
   if (...length() > 1L) {
-    if (all(lengths(list(...)) > 1L)) {
+    lens <- lengths(list(...))
+
+    if (all(lens > 1L)) {
+      if (length(unique(lens)) != 1L)
+        stop("non-scalar inputs must have the same length")
+
       lst <- data.frame(..., stringsAsFactors = FALSE)
     } else {
       lst <- list(...)

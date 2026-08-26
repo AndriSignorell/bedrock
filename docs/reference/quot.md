@@ -53,7 +53,9 @@ Language*. Wadsworth & Brooks/Cole.
 
 [`diff`](https://rdrr.io/r/base/diff.html)
 
-Other vector.window: [`midx()`](midx.md), [`moveAvg()`](moveAvg.md)
+Other vector.window:
+[`midx()`](https://andrisignorell.github.io/bedrock/reference/midx.md),
+[`moveAvg()`](https://andrisignorell.github.io/bedrock/reference/moveAvg.md)
 
 ## Examples
 

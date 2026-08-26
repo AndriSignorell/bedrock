@@ -60,8 +60,9 @@ The values of the `key` column must be unique in both data frames.
 
 ## See also
 
-Other data.equal: [`allDuplicated()`](allDuplicated.md),
-[`allIdentical()`](allIdentical.md)
+Other data.equal:
+[`allDuplicated()`](https://andrisignorell.github.io/bedrock/reference/allDuplicated.md),
+[`allIdentical()`](https://andrisignorell.github.io/bedrock/reference/allIdentical.md)
 
 ## Examples
 

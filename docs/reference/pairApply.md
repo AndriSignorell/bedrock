@@ -50,10 +50,13 @@ to the row variable and the second to the column variable.
 [`base::outer()`](https://rdrr.io/r/base/outer.html),
 [stats::pairwise.table](https://rdrr.io/r/stats/pairwise.table.html)
 
-Other combinatorics: [`combN()`](combN.md),
-[`combPairs()`](combPairs.md), [`combSet()`](combSet.md),
-[`permn()`](permn.md), [`randGroupSplit()`](randGroupSplit.md),
-[`sampleX()`](sampleX.md)
+Other combinatorics:
+[`combN()`](https://andrisignorell.github.io/bedrock/reference/combN.md),
+[`combPairs()`](https://andrisignorell.github.io/bedrock/reference/combPairs.md),
+[`combSet()`](https://andrisignorell.github.io/bedrock/reference/combSet.md),
+[`permn()`](https://andrisignorell.github.io/bedrock/reference/permn.md),
+[`randGroupSplit()`](https://andrisignorell.github.io/bedrock/reference/randGroupSplit.md),
+[`sampleX()`](https://andrisignorell.github.io/bedrock/reference/sampleX.md)
 
 ## Examples
 

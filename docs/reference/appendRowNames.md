@@ -38,8 +38,10 @@ matrix.
 
 [`append`](https://rdrr.io/r/base/append.html)
 
-Other data.append: [`appendEnum()`](appendEnum.md),
-[`appendX()`](appendX.md), [`multMerge()`](multMerge.md)
+Other data.append:
+[`appendEnum()`](https://andrisignorell.github.io/bedrock/reference/appendEnum.md),
+[`appendX()`](https://andrisignorell.github.io/bedrock/reference/appendX.md),
+[`multMerge()`](https://andrisignorell.github.io/bedrock/reference/multMerge.md)
 
 ## Examples
 
