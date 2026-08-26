@@ -20,15 +20,22 @@ factorize(n)
 
 a named [`list`](https://rdrr.io/r/base/list.html) of the same length as
 `n`, each element a 2-column matrix with column `"p"` the prime factors
-and column `"m"` their respective exponents (or multiplicities), i.e.,
-for a prime number `n`, the resulting matrix is `cbind(p = n, m = 1)`.
+in increasing order and column `"m"` their respective exponents (or
+multiplicities), i.e., for a prime number `n`, the resulting matrix is
+`cbind(p = n, m = 1)`.
+
+Each prime appears in exactly one row, so `prod(p^m)` returns `n` and
+`p` is strictly increasing. `n = 1` yields a matrix with zero rows: 1 is
+the empty product, and `prod(numeric(0))` is 1 accordingly.
 
 ## Details
 
-`n` must not exceed `2^53` (`.Machine$integer.max` squared, roughly
-`9.007e15`). Above this bound, R's double representation can no longer
-store integers exactly, so a factorized result could silently correspond
-to a different number than the one entered – for such inputs, use the
+`n` must not exceed `2^53` (`9007199254740992`), the largest integer up
+to which every integer can be represented exactly. Larger integers can
+still be representable – every power of two is – but not all of them
+are, and above this bound `n` may already have been rounded by R before
+it reaches this function, so a factorization could silently be correct
+for a different number than the one entered – for such inputs, use the
 gmp package's `gmp::factorize()`, which represents arbitrarily large
 integers exactly (e.g. via `gmp::as.bigz()` or a string).
 
@@ -63,8 +70,9 @@ factorize(seq(101, 120, by=2))
 #> 
 #> $`105`
 #>      p m
-#> [1,] 2 2
-#> [2,] 5 2
+#> [1,] 3 1
+#> [2,] 5 1
+#> [3,] 7 1
 #> 
 #> $`107`
 #>        p m
@@ -98,4 +106,14 @@ factorize(seq(101, 120, by=2))
 #> [1,]  7 1
 #> [2,] 17 1
 #> 
+
+# the defining invariant
+f <- factorize(360)[[1]]
+f
+#>      p m
+#> [1,] 2 3
+#> [2,] 3 2
+#> [3,] 5 1
+prod(f[, "p"]^f[, "m"])
+#> [1] 360
 ```

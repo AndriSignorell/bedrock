@@ -2,7 +2,7 @@ pandoc: 3.8.3
 pkgdown: 2.2.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2026-08-26T06:35Z
+last_built: 2026-08-26T16:14Z
 urls:
   reference: https://andrisignorell.github.io/bedrock/reference
   article: https://andrisignorell.github.io/bedrock/articles

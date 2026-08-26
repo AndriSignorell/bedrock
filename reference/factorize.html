@@ -11,7 +11,7 @@ testing (64-bit, implemented in C++)."><meta property="og:image" content="https:
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,17 +59,23 @@ testing (64-bit, implemented in C++).</p>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>a named <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></code> of the same length as <code>n</code>, each
-element a 2-column matrix with column <code>"p"</code> the prime factors and
-column <code>"m"</code> their respective exponents (or multiplicities), i.e., for a
-prime number <code>n</code>, the resulting matrix is <code>cbind(p = n, m = 1)</code>.</p>
+element a 2-column matrix with column <code>"p"</code> the prime factors in
+increasing order and column <code>"m"</code> their respective exponents (or
+multiplicities), i.e., for a prime number <code>n</code>, the resulting matrix
+is <code>cbind(p = n, m = 1)</code>.</p>
+<p>Each prime appears in exactly one row, so <code>prod(p^m)</code> returns
+<code>n</code> and <code>p</code> is strictly increasing. <code>n = 1</code> yields a
+matrix with zero rows: 1 is the empty product, and
+<code>prod(numeric(0))</code> is 1 accordingly.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p><code>n</code> must not exceed <code>2^53</code> (<code>.Machine$integer.max</code>
-squared, roughly <code>9.007e15</code>). Above this bound, R's double
-representation can no longer store integers exactly, so a factorized
-result could silently correspond to a different number than the one
-entered – for such inputs, use the <span class="pkg">gmp</span> package's
+    <p><code>n</code> must not exceed <code>2^53</code> (<code>9007199254740992</code>), the
+largest integer up to which every integer can be represented exactly.
+Larger integers can still be representable – every power of two is –
+but not all of them are, and above this bound <code>n</code> may already have
+been rounded by R before it reaches this function, so a factorization
+could silently be correct for a different number than the one entered – for such inputs, use the <span class="pkg">gmp</span> package's
 <code>gmp::factorize()</code>, which represents arbitrarily large integers
 exactly (e.g. via <code>gmp::as.bigz()</code> or a string).</p>
     </div>
@@ -104,8 +110,9 @@ exactly (e.g. via <code>gmp::as.bigz()</code> or a string).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`105`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      p m</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 2 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 5 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 3 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 5 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 7 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`107`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        p m</span>
@@ -139,6 +146,16 @@ exactly (e.g. via <code>gmp::as.bigz()</code> or a string).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  7 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 17 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># the defining invariant</span></span></span>
+<span class="r-in"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu">factorize</span><span class="op">(</span><span class="fl">360</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">f</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      p m</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 2 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 3 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 5 1</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">f</span><span class="op">[</span>, <span class="st">"p"</span><span class="op">]</span><span class="op">^</span><span class="va">f</span><span class="op">[</span>, <span class="st">"m"</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 360</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

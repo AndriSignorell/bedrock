@@ -1,7 +1,6 @@
 # 📦 bedrock
 
-**Version:** 0.0.0.945  
-**Title:** Base functions for the DescToolsX ecosystem  
+**Title:** Base Functions for the DescToolsX Ecosystem  
 **License:** GPL (≥ 2)
 
 ## 🧩 Overview
@@ -12,14 +11,25 @@ manipulation, inspection, vector operations, string handling, math and
 combinatorics — that serve as building blocks for the higher-level
 statistical, graphics, and modelling packages of the suite.
 
-The package follows the DescToolsX design rules: a consistent
-lowerCamelCase API, generic functions with S3 methods, predictable
-argument names and ordering, and performance-critical routines
-implemented in Rcpp.
+The package is self-contained. It has no dependency on any other package
+of the suite and is equally useful on its own.
+
+It follows the DescToolsX design rules: a consistent lowerCamelCase API,
+generic functions with S3 methods, predictable argument names and
+ordering, and performance-critical routines implemented in Rcpp.
 
 📖 **Documentation:** <https://andrisignorell.github.io/bedrock/>
 
 ## ⚙️ Installation
+
+Install the released version from CRAN:
+
+``` r
+
+install.packages("bedrock")
+```
+
+Or the development version from GitHub:
 
 ``` r
 
@@ -113,8 +123,11 @@ Predicates and checks for data quality and structure.
 
 - [`roundTo()`](https://andrisignorell.github.io/bedrock/reference/roundTo.md),
   [`linScale()`](https://andrisignorell.github.io/bedrock/reference/linScale.md),
-  [`logit()`](https://andrisignorell.github.io/bedrock/reference/logit.md),
-  [`precision()`](https://andrisignorell.github.io/bedrock/reference/precision.md)
+  [`logit()`](https://andrisignorell.github.io/bedrock/reference/logit.md)
+- [`nDec()`](https://andrisignorell.github.io/bedrock/reference/precision.md),
+  [`prec()`](https://andrisignorell.github.io/bedrock/reference/precision.md),
+  [`frac()`](https://andrisignorell.github.io/bedrock/reference/precision.md),
+  [`maxDigits()`](https://andrisignorell.github.io/bedrock/reference/precision.md)
 - [`rankX()`](https://andrisignorell.github.io/bedrock/reference/rankX.md),
   [`percentRank()`](https://andrisignorell.github.io/bedrock/reference/percentRank.md),
   [`nUnique()`](https://andrisignorell.github.io/bedrock/reference/nunique.md)
@@ -130,11 +143,18 @@ Predicates and checks for data quality and structure.
   [`isPrime()`](https://andrisignorell.github.io/bedrock/reference/isPrime.md),
   [`factorize()`](https://andrisignorell.github.io/bedrock/reference/factorize.md),
   [`divisors()`](https://andrisignorell.github.io/bedrock/reference/divisors.md)
-- `gcd()` / [`lcm()`](https://rdrr.io/r/graphics/layout.html),
+- [`GCD()`](https://andrisignorell.github.io/bedrock/reference/GCD-LCM.md)
+  /
+  [`LCM()`](https://andrisignorell.github.io/bedrock/reference/GCD-LCM.md),
   [`fibonacci()`](https://andrisignorell.github.io/bedrock/reference/fibonacci.md),
   [`digitSum()`](https://andrisignorell.github.io/bedrock/reference/digitSum.md),
   [`isOdd()`](https://andrisignorell.github.io/bedrock/reference/isOdd.md)
-- Base conversions: `numericConversions`
+- Base conversions:
+  [`decToBin()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md),
+  [`decToHex()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md),
+  [`decToOct()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md),
+  [`baseToBase()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md),
+  [`romanToInt()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md)
 - [`combN()`](https://andrisignorell.github.io/bedrock/reference/combN.md),
   [`combSet()`](https://andrisignorell.github.io/bedrock/reference/combSet.md),
   [`combPairs()`](https://andrisignorell.github.io/bedrock/reference/combPairs.md),
@@ -237,6 +257,13 @@ sas <- "
 "
 parseSASDatalines(sas)
 ```
+
+## 🙏 Acknowledgements
+
+Parts of the code and documentation were reviewed with the help of large
+language models (OpenAI Codex, Anthropic Claude). Every suggestion was
+assessed, edited and verified by the maintainer, who remains solely
+responsible for the content of this package.
 
 ## 📜 License
 
