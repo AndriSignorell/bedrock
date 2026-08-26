@@ -1,0 +1,71 @@
+# Percent Rank of a Numeric Vector
+
+Computes the percent rank of each element in a numeric vector. The
+percent rank is defined as: \$\$(rank(x) - 1) / (n - 1)\$\$ where \\n\\
+is the number of non-missing observations.
+
+## Usage
+
+``` r
+percentRank(x)
+```
+
+## Arguments
+
+- x:
+
+  a numeric (or comparable) vector.
+
+## Value
+
+a numeric vector of the same length as `x`, containing values between 0
+and 1.
+
+## Details
+
+This corresponds to the definition used in SQL and
+`dplyr::percent_rank()`.
+
+The smallest value in `x` receives a percent rank of 0, and the largest
+value receives a percent rank of 1 (if there are at least two
+non-missing values).
+
+Ties are handled using `ties.method = "min"` via
+[`rankX`](https://andrisignorell.github.io/bedrock/reference/rankX.md),
+meaning tied values receive the same minimal rank.
+
+Missing values (`NA`) are preserved in the output.
+
+If `x` contains fewer than two non-missing values, all results are `NA`.
+
+## See also
+
+[`base::rank()`](https://rdrr.io/r/base/rank.html)
+
+Other math.transform:
+[`linScale()`](https://andrisignorell.github.io/bedrock/reference/linScale.md),
+[`logit()`](https://andrisignorell.github.io/bedrock/reference/logit.md),
+[`rankX()`](https://andrisignorell.github.io/bedrock/reference/rankX.md),
+[`winsorize()`](https://andrisignorell.github.io/bedrock/reference/winsorize.md)
+
+## Examples
+
+``` r
+x <- c(10, 20, 20, 30)
+percentRank(x)
+#> [1] 0.0000000 0.3333333 0.3333333 1.0000000
+
+# With ties
+x <- c(1, 2, 2, 3)
+percentRank(x)
+#> [1] 0.0000000 0.3333333 0.3333333 1.0000000
+
+# With missing values
+x <- c(3, NA, 1, 2)
+percentRank(x)
+#> [1] 1.0  NA 0.0 0.5
+
+# Single non-missing value
+percentRank(c(5, NA, NA))
+#> [1] NA NA NA
+```
