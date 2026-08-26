@@ -11,7 +11,7 @@ formula interface."><meta property="og:image" content="/logo.png"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.949</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,9 +108,9 @@ grouping variables in the formula.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p><code>splitX</code> extends <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split</a></code> by providing:</p><ul><li><p>An S3 interface</p></li>
-<li><p>A formula method for convenient specification of variables</p></li>
-<li><p>Support for multiple grouping variables via formula</p></li>
+    <p><code>splitX</code> extends <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split</a></code> by providing:</p><ul><li><p>an S3 interface</p></li>
+<li><p>a formula method for convenient specification of variables</p></li>
+<li><p>support for multiple grouping variables via formula</p></li>
 </ul><p>The formula interface evaluates a <code><a href="https://rdrr.io/r/stats/model.frame.html" class="external-link">model.frame</a></code> and splits
 the response variable by one or more grouping variables.</p>
 <p>If multiple grouping variables are provided, the data are split by their

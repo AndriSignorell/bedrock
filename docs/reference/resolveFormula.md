@@ -157,8 +157,7 @@ components depend on the design:
 ## See also
 
 [`model.frame`](https://rdrr.io/r/stats/model.frame.html),
-[`Pair`](https://rdrr.io/r/stats/Pair.html),
-[`desc`](https://rdrr.io/pkg/DescToolsX/man/desc.html)
+[`Pair`](https://rdrr.io/r/stats/Pair.html), `DescToolsX:desc`
 
 Other data.resolve: [`resolveContingency()`](resolveContingency.md),
 [`resolveGroups()`](resolveGroups.md)

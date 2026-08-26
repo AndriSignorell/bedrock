@@ -47,6 +47,10 @@ pkgdown::build_site()
 pkgdown::build_reference_index()
 pkgdown::build_favicons(overwrite = TRUE)
 
+
+usethis::use_pkgdown_github_pages()
+
+
 # hard CRAN check
 rhub::rhub_check()
 

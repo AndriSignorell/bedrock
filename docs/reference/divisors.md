@@ -17,8 +17,10 @@ divisors(x)
 
 ## Value
 
-an integer vector containing the proper divisors if `x` is a single
-number, otherwise a named list of such vectors.
+an integer vector containing the proper divisors in ascending order if
+`x` is a single number, otherwise a named list of such vectors. A prime
+number yields `1`, and 1 itself yields `integer(0)` - its only divisor
+is 1, which is `x` itself and therefore not a proper one.
 
 ## Details
 
@@ -53,4 +55,12 @@ divisors(c(145, 786))
 #> $`786`
 #> [1]   1   2   3   6 131 262 393
 #> 
+
+# the number of proper divisors
+length(divisors(786))
+#> [1] 7
+
+# a prime has only one, and this one is at the integer limit
+divisors(.Machine$integer.max)
+#> [1] 1
 ```

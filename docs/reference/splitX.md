@@ -65,11 +65,11 @@ variables in the formula.
 `splitX` extends [`split`](https://rdrr.io/r/base/split.html) by
 providing:
 
-- An S3 interface
+- an S3 interface
 
-- A formula method for convenient specification of variables
+- a formula method for convenient specification of variables
 
-- Support for multiple grouping variables via formula
+- support for multiple grouping variables via formula
 
 The formula interface evaluates a
 [`model.frame`](https://rdrr.io/r/stats/model.frame.html) and splits the

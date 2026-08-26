@@ -108,6 +108,13 @@ Reshaping, recoding, ordering, and inspecting data structures.
 
 - [`nUnique()`](nUnique.md) : Count Unique Values
 
+- [`applySides()`](applySides.md) : Open One Side of a Confidence
+  Interval
+
+- [`checkConfLevel()`](checkConfLevel.md) : Validate a Confidence Level
+
+- [`checkFlag()`](checkFlag.md) : Validate a Logical Flag
+
 - [`completeColumns()`](completeColumns.md) : Identify Columns Without
   Missing Values
 
@@ -220,6 +227,8 @@ Combinations, permutations, and sampling.
   Groups of Given Sizes
 - [`sampleX()`](sampleX.md) : Random Samples and Permutations
 - [`rSum21()`](rSum21.md) : Random Numbers Summing to 1
+- [`rBetaShape()`](rBetaShape.md) : Generate Beta-Distributed Random
+  Values by Shape
 
 ## Files & Paths
 

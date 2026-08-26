@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.949</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +76,10 @@ Euclidean if and only if \(B\) is positive semi-definite, i.e., all
 eigenvalues are non-negative (within numerical tolerance).</p>
 <p>The tolerance is applied <em>relative</em> to the largest absolute
 eigenvalue, so that the test is invariant to rescaling of the
-distances.</p>
+distances. Note that this holds in both directions: the comparison
+below uses <code>max(abs(lambda))</code> without an absolute floor, so
+shrinking all distances by a constant factor cannot turn a
+non-Euclidean matrix into a Euclidean one.</p>
 <p>The returned logical value carries additional diagnostic information
 as attributes:</p><ul><li><p><code>eigenvalues</code>: Eigenvalues of the centered matrix</p></li>
 <li><p><code>minEigenvalue</code>: Smallest eigenvalue</p></li>

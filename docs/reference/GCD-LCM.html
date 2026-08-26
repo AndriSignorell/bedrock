@@ -9,7 +9,7 @@ of all the values present in its arguments."><meta property="og:image" content="
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.949</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,6 +83,20 @@ to integer.</p>
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
     <p>The following relation is always true:</p>
 <p><code>n * m = GCD(n, m) * LCM(n, m)</code></p>
+<p>It also holds when one of the values is zero, and that is the shortest way
+to see why <code>LCM(0, 6)</code> has to be 0 rather than 6.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="zero">Zero<a class="anchor" aria-label="anchor" href="#zero"></a></h2>
+
+
+<p>Zero behaves differently in the two functions, which is why they do not
+treat it the same way. For the greatest common divisor it is
+<em>neutral</em> - every number divides 0, so <code>GCD(0, a)</code> is
+<code>abs(a)</code> and zeros can simply be dropped. For the least common
+multiple it is <em>absorbing</em> - 0 is a multiple of every number and the
+smallest non-negative one, so <code>LCM(0, a)</code> is 0. <code>GCD(0, 0)</code> and
+<code>LCM(0, 0)</code> are both 0.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -117,6 +131,16 @@ to integer.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2310</span>
 <span class="r-in"><span><span class="fu">LCM</span><span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">*</span><span class="fl">5</span>, <span class="fl">5</span><span class="op">*</span><span class="fl">7</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 210</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># zero is neutral for the GCD and absorbing for the LCM</span></span></span>
+<span class="r-in"><span><span class="fu">GCD</span><span class="op">(</span><span class="fl">0</span>, <span class="fl">6</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 6</span>
+<span class="r-in"><span><span class="fu">LCM</span><span class="op">(</span><span class="fl">0</span>, <span class="fl">6</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># n * m == GCD(n, m) * LCM(n, m), zero included</span></span></span>
+<span class="r-in"><span><span class="fu">GCD</span><span class="op">(</span><span class="fl">0</span>, <span class="fl">6</span><span class="op">)</span> <span class="op">*</span> <span class="fu">LCM</span><span class="op">(</span><span class="fl">0</span>, <span class="fl">6</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -8,6 +8,7 @@
 <url><loc>/reference/appendEnum.html</loc></url>
 <url><loc>/reference/appendRowNames.html</loc></url>
 <url><loc>/reference/appendX.html</loc></url>
+<url><loc>/reference/applySides.html</loc></url>
 <url><loc>/reference/as.array.xtabs.html</loc></url>
 <url><loc>/reference/asBinary.html</loc></url>
 <url><loc>/reference/asCDateFmt.html</loc></url>
@@ -18,6 +19,8 @@
 <url><loc>/reference/callIf.html</loc></url>
 <url><loc>/reference/Cards.html</loc></url>
 <url><loc>/reference/char-ascii-conversion.html</loc></url>
+<url><loc>/reference/checkConfLevel.html</loc></url>
+<url><loc>/reference/checkFlag.html</loc></url>
 <url><loc>/reference/closest.html</loc></url>
 <url><loc>/reference/coalesceX.html</loc></url>
 <url><loc>/reference/collapseTable.html</loc></url>
@@ -99,6 +102,7 @@
 <url><loc>/reference/randGroupSplit.html</loc></url>
 <url><loc>/reference/range-operators.html</loc></url>
 <url><loc>/reference/rankX.html</loc></url>
+<url><loc>/reference/rBetaShape.html</loc></url>
 <url><loc>/reference/rdLabels.html</loc></url>
 <url><loc>/reference/rdTitle.html</loc></url>
 <url><loc>/reference/readDownload.html</loc></url>

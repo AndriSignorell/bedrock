@@ -1,7 +1,8 @@
 # Preview a Delimited Text File
 
 Read the first `n` data rows of a delimited text file and return the
-result as a base R `data.frame`.
+result as a base R `data.frame` (a kind of
+[`head()`](https://rdrr.io/r/utils/head.html) for files).
 
 ## Usage
 
@@ -51,8 +52,9 @@ larger `guess_max` via the dots.
 
 ## See also
 
-[`read_delim`](https://readr.tidyverse.org/reference/read_delim.html),
-[`toBaseR`](toBaseR.md)
+[`readr::read_delim()`](https://readr.tidyverse.org/reference/read_delim.html),
+[`toBaseR()`](toBaseR.md),
+[`head()`](https://rdrr.io/r/utils/head.html),
 
 Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
 [`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md)

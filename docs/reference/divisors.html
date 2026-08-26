@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.949</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,8 +61,11 @@ be returned.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>an integer vector containing the proper divisors if <code>x</code> is a
-single number, otherwise a named list of such vectors.</p>
+    <p>an integer vector containing the proper divisors in ascending
+order if <code>x</code> is a single number, otherwise a named list of such
+vectors. A prime number yields <code>1</code>, and 1 itself yields
+<code>integer(0)</code> - its only divisor is 1, which is <code>x</code> itself and
+therefore not a proper one.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -100,6 +103,14 @@ determined with the function <code><a href="https://rdrr.io/r/base/length.html" 
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`786`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]   1   2   3   6 131 262 393</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># the number of proper divisors</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu">divisors</span><span class="op">(</span><span class="fl">786</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 7</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># a prime has only one, and this one is at the integer limit</span></span></span>
+<span class="r-in"><span><span class="fu">divisors</span><span class="op">(</span><span class="va">.Machine</span><span class="op">$</span><span class="va">integer.max</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

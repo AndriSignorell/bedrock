@@ -15,7 +15,7 @@ bin() converts any two-valued vector to logical."><meta property="og:image" cont
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.949</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,21 +93,21 @@ values are required.</p></dd>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
 
 <dl><dt><code>num(x, ...)</code></dt>
-<dd><p>Equivalent to <code>as.numeric(x)</code>.</p></dd>
+<dd><p>equivalent to <code>as.numeric(x)</code>.</p></dd>
 
 <dt><code>int(x, ...)</code></dt>
-<dd><p>Equivalent to <code>as.integer(x)</code>.</p></dd>
+<dd><p>equivalent to <code>as.integer(x)</code>.</p></dd>
 
 <dt><code>chr(x, ...)</code></dt>
-<dd><p>Equivalent to <code>as.character(x)</code>.</p></dd>
+<dd><p>equivalent to <code>as.character(x)</code>.</p></dd>
 
 <dt><code>nchr(x)</code></dt>
-<dd><p>Shortcut for <code>as.numeric(as.character(x))</code>.
+<dd><p>shortcut for <code>as.numeric(as.character(x))</code>.
 Avoids the trap of <code>as.numeric(factor)</code> returning internal
 integer codes instead of the label values.</p></dd>
 
 <dt><code>bin(x, ...)</code></dt>
-<dd><p>Converts a two-valued vector (character,
+<dd><p>converts a two-valued vector (character,
 factor, integer, or numeric) to logical. Mapping follows
 <code><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor()</a></code> level order: the <em>first</em> level becomes
 <code>FALSE</code>, the <em>second</em> <code>TRUE</code>. To reverse, use

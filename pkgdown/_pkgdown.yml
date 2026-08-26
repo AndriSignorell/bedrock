@@ -96,6 +96,10 @@ reference:
   - isWholeLike
   - isZero
   - nUnique
+  # data.ci -- Property tests for confidence interval arguments
+  - applySides
+  - checkConfLevel 
+  - checkFlag
   # data.missing -- Missing-value inspection
   - completeColumns
   - countCompCases
@@ -205,6 +209,7 @@ reference:
   - randGroupSplit
   - sampleX
   - rSum21
+  - rBetaShape
 
 - title: Files & Paths
   desc: >

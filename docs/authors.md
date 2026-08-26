@@ -19,7 +19,7 @@
 
 - **Michael Friendly**. Contributor.
 
-- **Friederich Leisch**. Contributor.
+- **Friedrich Leisch**. Contributor.
 
 - **Thomas Lumley**. Contributor.
 
@@ -57,13 +57,13 @@ Source:
 [`DESCRIPTION`](https://github.com/AndriSignorell/bedrock/blob/HEAD/DESCRIPTION)
 
 Signorell A (2026). *bedrock: Base functions for the DescToolsX
-ecosystem*. R package version 0.0.0.949,
+ecosystem*. R package version 0.1.1,
 <https://andrisignorell.github.io/bedrock/>.
 
     @Manual{,
       title = {bedrock: Base functions for the DescToolsX ecosystem},
       author = {Andri Signorell},
       year = {2026},
-      note = {R package version 0.0.0.949},
+      note = {R package version 0.1.1},
       url = {https://andrisignorell.github.io/bedrock/},
     }

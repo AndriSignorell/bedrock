@@ -32,7 +32,11 @@ Euclidean if and only if \\B\\ is positive semi-definite, i.e., all
 eigenvalues are non-negative (within numerical tolerance).
 
 The tolerance is applied *relative* to the largest absolute eigenvalue,
-so that the test is invariant to rescaling of the distances.
+so that the test is invariant to rescaling of the distances. Note that
+this holds in both directions: the comparison below uses
+`max(abs(lambda))` without an absolute floor, so shrinking all distances
+by a constant factor cannot turn a non-Euclidean matrix into a Euclidean
+one.
 
 The returned logical value carries additional diagnostic information as
 attributes:

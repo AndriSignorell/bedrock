@@ -39,6 +39,18 @@ The following relation is always true:
 
 `n * m = GCD(n, m) * LCM(n, m)`
 
+It also holds when one of the values is zero, and that is the shortest
+way to see why `LCM(0, 6)` has to be 0 rather than 6.
+
+## Zero
+
+Zero behaves differently in the two functions, which is why they do not
+treat it the same way. For the greatest common divisor it is *neutral* -
+every number divides 0, so `GCD(0, a)` is `abs(a)` and zeros can simply
+be dropped. For the least common multiple it is *absorbing* - 0 is a
+multiple of every number and the smallest non-negative one, so
+`LCM(0, a)` is 0. `GCD(0, 0)` and `LCM(0, 0)` are both 0.
+
 ## See also
 
 Other number.theory: [`digitSum()`](digitSum.md),
@@ -68,4 +80,14 @@ LCM(c(2, 3, 5, 7) * 11)
 #> [1] 2310
 LCM(2*3, 3*5, 5*7)
 #> [1] 210
+
+# zero is neutral for the GCD and absorbing for the LCM
+GCD(0, 6)
+#> [1] 6
+LCM(0, 6)
+#> [1] 0
+
+# n * m == GCD(n, m) * LCM(n, m), zero included
+GCD(0, 6) * LCM(0, 6)
+#> [1] 0
 ```

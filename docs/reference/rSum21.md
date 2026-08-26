@@ -31,6 +31,10 @@ is assigned to the largest element, which is then rounded again to the
 requested precision. Note that for very coarse rounding the exact-sum
 guarantee may not be attainable at the given precision.
 
+## See also
+
+Other random.numbers: [`rBetaShape()`](rBetaShape.md)
+
 ## Examples
 
 ``` r

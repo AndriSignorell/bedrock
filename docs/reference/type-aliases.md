@@ -43,25 +43,25 @@ a vector of the target type and the same length as `x`.
 
 - `num(x, ...)`:
 
-  Equivalent to `as.numeric(x)`.
+  equivalent to `as.numeric(x)`.
 
 - `int(x, ...)`:
 
-  Equivalent to `as.integer(x)`.
+  equivalent to `as.integer(x)`.
 
 - `chr(x, ...)`:
 
-  Equivalent to `as.character(x)`.
+  equivalent to `as.character(x)`.
 
 - `nchr(x)`:
 
-  Shortcut for `as.numeric(as.character(x))`. Avoids the trap of
+  shortcut for `as.numeric(as.character(x))`. Avoids the trap of
   `as.numeric(factor)` returning internal integer codes instead of the
   label values.
 
 - `bin(x, ...)`:
 
-  Converts a two-valued vector (character, factor, integer, or numeric)
+  converts a two-valued vector (character, factor, integer, or numeric)
   to logical. Mapping follows
   [`factor()`](https://rdrr.io/r/base/factor.html) level order: the
   *first* level becomes `FALSE`, the *second* `TRUE`. To reverse, use

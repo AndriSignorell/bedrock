@@ -49,9 +49,9 @@ a data frame or object returned by the respective import function:
 If no `url` is provided, the function searches for the file in the
 following locations:
 
-- <https://www.signorell.net/hwz/datasets/>
+- <https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/>
 
-- <https://www.signorell.net/buch/>
+- <https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/>
 
 The first location where the file exists is used.
 
