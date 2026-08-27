@@ -44,11 +44,9 @@ on as an argument value instead of silently deleting the entry).
 
 [`utils::modifyList()`](https://rdrr.io/r/utils/modifyList.html)
 
-Other pkg.args:
-[`callIf()`](https://andrisignorell.github.io/bedrock/reference/callIf.md),
-[`extractArgs()`](https://andrisignorell.github.io/bedrock/reference/extractArgs.md),
-[`getDotsArg()`](https://andrisignorell.github.io/bedrock/reference/getDotsArg.md),
-[`recycle()`](https://andrisignorell.github.io/bedrock/reference/recycle.md)
+Other pkg.args: [`callIf()`](callIf.md),
+[`extractArgs()`](extractArgs.md), [`getDotsArg()`](getDotsArg.md),
+[`recycle()`](recycle.md)
 
 ## Examples
 

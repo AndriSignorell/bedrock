@@ -30,10 +30,8 @@ the other.
 
 ## See also
 
-Other vector.reshape:
-[`setLength()`](https://andrisignorell.github.io/bedrock/reference/setLength.md),
-[`trim()`](https://andrisignorell.github.io/bedrock/reference/trim.md),
-[`vShift()`](https://andrisignorell.github.io/bedrock/reference/vShift.md)
+Other vector.reshape: [`setLength()`](setLength.md),
+[`trim()`](trim.md), [`vShift()`](vShift.md)
 
 ## Examples
 

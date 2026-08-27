@@ -43,16 +43,12 @@ Based on code by Nicholas Cooper.
 
 ## See also
 
-[`funList`](https://andrisignorell.github.io/bedrock/reference/funList.md),
-[`funArgs`](https://andrisignorell.github.io/bedrock/reference/funArgs.md),
+[`funList`](funList.md), [`funArgs`](funArgs.md),
 [`getParseData`](https://rdrr.io/r/utils/getParseData.html)
 
-Other pkg.funinfo:
-[`funArgs()`](https://andrisignorell.github.io/bedrock/reference/funArgs.md),
-[`funKeywords()`](https://andrisignorell.github.io/bedrock/reference/funKeywords.md),
-[`funList()`](https://andrisignorell.github.io/bedrock/reference/funList.md),
-[`rdLabels()`](https://andrisignorell.github.io/bedrock/reference/rdLabels.md),
-[`rdTitle()`](https://andrisignorell.github.io/bedrock/reference/rdTitle.md)
+Other pkg.funinfo: [`funArgs()`](funArgs.md),
+[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
+[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
 
 ## Examples
 

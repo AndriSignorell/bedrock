@@ -24,8 +24,7 @@ isNumeric(
 - isIntegerValued:
 
   logical. If `TRUE`, values must be whole-like (within tolerance). Uses
-  [`isWholeLike`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md)
-  internally.
+  [`isWholeLike`](isWholeLike.md) internally.
 
 - isPositive:
 
@@ -54,7 +53,7 @@ The function checks:
 - Whether all values are finite.
 
 - Optional integer-like constraint via
-  [`isWholeLike()`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md).
+  [`isWholeLike()`](isWholeLike.md).
 
 - Optional positivity constraint.
 
@@ -65,16 +64,13 @@ should be performed separately with an explicit
 
 ## See also
 
-[`isWholeLike`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md)
+[`isWholeLike`](isWholeLike.md)
 
-Other data.predicate:
-[`flags()`](https://andrisignorell.github.io/bedrock/reference/flags.md),
-[`isDichotomous()`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md),
-[`isEuclid()`](https://andrisignorell.github.io/bedrock/reference/isEuclid.md),
-[`isLowCardinality()`](https://andrisignorell.github.io/bedrock/reference/isLowCardinality.md),
-[`isWholeLike()`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md),
-[`isZero()`](https://andrisignorell.github.io/bedrock/reference/isZero.md),
-[`nUnique()`](https://andrisignorell.github.io/bedrock/reference/nunique.md)
+Other data.predicate: [`flags()`](flags.md),
+[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
+[`isLowCardinality()`](isLowCardinality.md),
+[`isWholeLike()`](isWholeLike.md), [`isZero()`](isZero.md),
+[`nUnique()`](nunique.md)
 
 ## Examples
 

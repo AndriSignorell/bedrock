@@ -73,17 +73,14 @@ The values are drawn with
 depend on the state of R's global random number generator. No seed is
 set internally; call
 [`base::set.seed()`](https://rdrr.io/r/base/Random.html) beforehand, or
-wrap the call in
-[`withSeed()`](https://andrisignorell.github.io/bedrock/reference/withSeed.md),
-for reproducible results.
+wrap the call in [`withSeed()`](withSeed.md), for reproducible results.
 
 ## See also
 
 [`stats::rbeta()`](https://rdrr.io/r/stats/Beta.html),
 [`stats::runif()`](https://rdrr.io/r/stats/Uniform.html)
 
-Other random.numbers:
-[`rSum21()`](https://andrisignorell.github.io/bedrock/reference/rSum21.md)
+Other random.numbers: [`rSum21()`](rSum21.md)
 
 ## Examples
 

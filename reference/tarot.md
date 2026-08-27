@@ -62,11 +62,8 @@ applications.
 
 ## See also
 
-Other datasets:
-[`Cards`](https://andrisignorell.github.io/bedrock/reference/cards.md),
-[`Pizza`](https://andrisignorell.github.io/bedrock/reference/Pizza.md),
-[`Roulette`](https://andrisignorell.github.io/bedrock/reference/roulette.md),
-[`courseData()`](https://andrisignorell.github.io/bedrock/reference/courseData.md)
+Other datasets: [`Cards`](cards.md), [`Pizza`](Pizza.md),
+[`Roulette`](roulette.md), [`courseData()`](courseData.md)
 
 ## Examples
 

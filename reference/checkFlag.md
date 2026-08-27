@@ -38,7 +38,7 @@ down rather than here.
 
 ## See also
 
-[checkConfLevel](https://andrisignorell.github.io/bedrock/reference/checkConfLevel.md)
+[checkConfLevel](checkConfLevel.md)
 
 ## Examples
 

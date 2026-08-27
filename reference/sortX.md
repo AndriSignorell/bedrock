@@ -125,9 +125,7 @@ unintuitive for unordered ones.
 [`sort`](https://rdrr.io/r/base/sort.html),
 [`order`](https://rdrr.io/r/base/order.html)
 
-Other data.order:
-[`binaryTree()`](https://andrisignorell.github.io/bedrock/reference/binaryTree.md),
-[`revX()`](https://andrisignorell.github.io/bedrock/reference/revX.md)
+Other data.order: [`binaryTree()`](binaryTree.md), [`revX()`](revX.md)
 
 ## Examples
 

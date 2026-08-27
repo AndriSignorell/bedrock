@@ -30,14 +30,12 @@ the value of the argument or `default`.
 
 ## See also
 
-[`extractArgs`](https://andrisignorell.github.io/bedrock/reference/extractArgs.md)
-for extracting several arguments at once.
+[`extractArgs`](extractArgs.md) for extracting several arguments at
+once.
 
-Other pkg.args:
-[`callIf()`](https://andrisignorell.github.io/bedrock/reference/callIf.md),
-[`extractArgs()`](https://andrisignorell.github.io/bedrock/reference/extractArgs.md),
-[`mergeArgs()`](https://andrisignorell.github.io/bedrock/reference/mergeArgs.md),
-[`recycle()`](https://andrisignorell.github.io/bedrock/reference/recycle.md)
+Other pkg.args: [`callIf()`](callIf.md),
+[`extractArgs()`](extractArgs.md), [`mergeArgs()`](mergeArgs.md),
+[`recycle()`](recycle.md)
 
 ## Examples
 

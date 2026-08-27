@@ -33,7 +33,7 @@ bin(x, ...)
 
   further arguments passed to the underlying base function
   (`as.numeric`, `as.integer`, `as.character`, or
-  [`asBinary`](https://andrisignorell.github.io/bedrock/reference/asBinary.md)).
+  [`asBinary`](asBinary.md)).
 
 ## Value
 
@@ -69,12 +69,10 @@ a vector of the target type and the same length as `x`.
 
 ## See also
 
-[`nf()`](https://andrisignorell.github.io/bedrock/reference/nf.md),
-[`asBinary()`](https://andrisignorell.github.io/bedrock/reference/asBinary.md)
+[`nf()`](nf.md), [`asBinary()`](asBinary.md)
 
-Other data.coerce:
-[`as.array.xtabs()`](https://andrisignorell.github.io/bedrock/reference/as.array.xtabs.md),
-[`toBaseR()`](https://andrisignorell.github.io/bedrock/reference/toBaseR.md)
+Other data.coerce: [`as.array.xtabs()`](as.array.xtabs.md),
+[`toBaseR()`](toBaseR.md)
 
 ## Examples
 

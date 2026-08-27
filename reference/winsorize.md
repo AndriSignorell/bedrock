@@ -61,11 +61,9 @@ winsorization.
 
 `scaleX()`, `winsorize()` in package robustHD
 
-Other math.transform:
-[`linScale()`](https://andrisignorell.github.io/bedrock/reference/linScale.md),
-[`logit()`](https://andrisignorell.github.io/bedrock/reference/logit.md),
-[`percentRank()`](https://andrisignorell.github.io/bedrock/reference/percentRank.md),
-[`rankX()`](https://andrisignorell.github.io/bedrock/reference/rankX.md)
+Other math.transform: [`linScale()`](linScale.md),
+[`logit()`](logit.md), [`percentRank()`](percentRank.md),
+[`rankX()`](rankX.md)
 
 ## Examples
 

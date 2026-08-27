@@ -42,14 +42,9 @@ The order of levels follows their first occurrence unless
 
 ## See also
 
-Other data.recode:
-[`asBinary()`](https://andrisignorell.github.io/bedrock/reference/asBinary.md),
-[`dummy()`](https://andrisignorell.github.io/bedrock/reference/dummy.md),
-[`mReplace()`](https://andrisignorell.github.io/bedrock/reference/mReplace.md),
-[`nf()`](https://andrisignorell.github.io/bedrock/reference/nf.md),
-[`recodeX()`](https://andrisignorell.github.io/bedrock/reference/recodeX.md),
-[`revCode()`](https://andrisignorell.github.io/bedrock/reference/revCode.md),
-[`stringsAsFactors()`](https://andrisignorell.github.io/bedrock/reference/stringsAsFactors.md)
+Other data.recode: [`asBinary()`](asBinary.md), [`dummy()`](dummy.md),
+[`mReplace()`](mReplace.md), [`nf()`](nf.md), [`recodeX()`](recodeX.md),
+[`revCode()`](revCode.md), [`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 

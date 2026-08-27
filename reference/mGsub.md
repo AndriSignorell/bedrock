@@ -38,12 +38,10 @@ shorter one consumes its characters before the longer one is considered.
 
 ## See also
 
-[`mReplace`](https://andrisignorell.github.io/bedrock/reference/mReplace.md)
-for exact whole-element replacement.
+[`mReplace`](mReplace.md) for exact whole-element replacement.
 
-Other string.transform:
-[`strSplitToCol()`](https://andrisignorell.github.io/bedrock/reference/strSplitToCol.md),
-[`strSplitToDummy()`](https://andrisignorell.github.io/bedrock/reference/strSplitToDummy.md)
+Other string.transform: [`strSplitToCol()`](strSplitToCol.md),
+[`strSplitToDummy()`](strSplitToDummy.md)
 
 ## Examples
 

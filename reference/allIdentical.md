@@ -33,9 +33,8 @@ elements of a list.
 
 [`identical`](https://rdrr.io/r/base/identical.html)
 
-Other data.equal:
-[`allDuplicated()`](https://andrisignorell.github.io/bedrock/reference/allDuplicated.md),
-[`compareDataFrames()`](https://andrisignorell.github.io/bedrock/reference/compareDataFrames.md)
+Other data.equal: [`allDuplicated()`](allDuplicated.md),
+[`compareDataFrames()`](compareDataFrames.md)
 
 ## Examples
 

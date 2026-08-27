@@ -37,9 +37,8 @@ a subset of `x`, from the first occurrence of `rng[1]` to the first
 
 ## See also
 
-Other data.interval:
-[`between-operators`](https://andrisignorell.github.io/bedrock/reference/between-operators.md),
-[`intervals`](https://andrisignorell.github.io/bedrock/reference/intervals.md)
+Other data.interval: [`between-operators`](between-operators.md),
+[`intervals`](intervals.md)
 
 ## Examples
 

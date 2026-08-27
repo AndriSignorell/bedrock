@@ -33,7 +33,7 @@ courseData(name, url = NULL, header = TRUE, sep = ";", ...)
 
   additional arguments passed to the underlying import functions such as
   [`read.table()`](https://rdrr.io/r/utils/read.table.html) or
-  [`openDataObject()`](https://andrisignorell.github.io/bedrock/reference/openDataObject.md).
+  [`openDataObject()`](openDataObject.md).
 
 ## Value
 
@@ -42,7 +42,7 @@ a data frame or object returned by the respective import function:
 - for text files: a `data.frame`.
 
 - for Excel files: an object returned by
-  [`openDataObject()`](https://andrisignorell.github.io/bedrock/reference/openDataObject.md).
+  [`openDataObject()`](openDataObject.md).
 
 ## Details
 
@@ -57,19 +57,15 @@ The first location where the file exists is used.
 
 File type handling:
 
-- `.xls`, `.xlsx`: loaded via
-  [`openDataObject()`](https://andrisignorell.github.io/bedrock/reference/openDataObject.md)
+- `.xls`, `.xlsx`: loaded via [`openDataObject()`](openDataObject.md)
 
 - other files: loaded via
   [`read.table()`](https://rdrr.io/r/utils/read.table.html)
 
 ## See also
 
-Other datasets:
-[`Cards`](https://andrisignorell.github.io/bedrock/reference/cards.md),
-[`Pizza`](https://andrisignorell.github.io/bedrock/reference/Pizza.md),
-[`Roulette`](https://andrisignorell.github.io/bedrock/reference/roulette.md),
-[`Tarot`](https://andrisignorell.github.io/bedrock/reference/tarot.md)
+Other datasets: [`Cards`](cards.md), [`Pizza`](Pizza.md),
+[`Roulette`](roulette.md), [`Tarot`](tarot.md)
 
 ## Examples
 

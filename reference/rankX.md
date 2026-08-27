@@ -97,11 +97,9 @@ to:
 [`rank`](https://rdrr.io/r/base/rank.html),
 [`frankv`](https://rdrr.io/pkg/data.table/man/frank.html)
 
-Other math.transform:
-[`linScale()`](https://andrisignorell.github.io/bedrock/reference/linScale.md),
-[`logit()`](https://andrisignorell.github.io/bedrock/reference/logit.md),
-[`percentRank()`](https://andrisignorell.github.io/bedrock/reference/percentRank.md),
-[`winsorize()`](https://andrisignorell.github.io/bedrock/reference/winsorize.md)
+Other math.transform: [`linScale()`](linScale.md),
+[`logit()`](logit.md), [`percentRank()`](percentRank.md),
+[`winsorize()`](winsorize.md)
 
 ## Examples
 

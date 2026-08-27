@@ -38,7 +38,7 @@ test a `NaN` would be silently accepted as "no interval wanted".
 
 ## See also
 
-[checkFlag](https://andrisignorell.github.io/bedrock/reference/checkFlag.md)
+[checkFlag](checkFlag.md)
 
 ## Examples
 

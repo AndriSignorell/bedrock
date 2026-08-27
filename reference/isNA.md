@@ -37,11 +37,8 @@ that it:
 
 ## See also
 
-Other vector.na:
-[`coalesceX()`](https://andrisignorell.github.io/bedrock/reference/coalesceX.md),
-[`locf()`](https://andrisignorell.github.io/bedrock/reference/locf.md),
-[`naIf()`](https://andrisignorell.github.io/bedrock/reference/naIf.md),
-[`naReplace()`](https://andrisignorell.github.io/bedrock/reference/naReplace.md)
+Other vector.na: [`coalesceX()`](coalesceX.md), [`locf()`](locf.md),
+[`naIf()`](naIf.md), [`naReplace()`](naReplace.md)
 
 ## Examples
 

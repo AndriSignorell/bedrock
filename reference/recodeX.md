@@ -74,14 +74,10 @@ if `x` was a `character` vector, the result will also be `character`.
 [`reorder`](https://rdrr.io/r/stats/reorder.factor.html)  
 There's another solution for this problem in the package **car**.
 
-Other data.recode:
-[`asBinary()`](https://andrisignorell.github.io/bedrock/reference/asBinary.md),
-[`combLevels()`](https://andrisignorell.github.io/bedrock/reference/combLevels.md),
-[`dummy()`](https://andrisignorell.github.io/bedrock/reference/dummy.md),
-[`mReplace()`](https://andrisignorell.github.io/bedrock/reference/mReplace.md),
-[`nf()`](https://andrisignorell.github.io/bedrock/reference/nf.md),
-[`revCode()`](https://andrisignorell.github.io/bedrock/reference/revCode.md),
-[`stringsAsFactors()`](https://andrisignorell.github.io/bedrock/reference/stringsAsFactors.md)
+Other data.recode: [`asBinary()`](asBinary.md),
+[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
+[`mReplace()`](mReplace.md), [`nf()`](nf.md), [`revCode()`](revCode.md),
+[`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 

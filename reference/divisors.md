@@ -36,14 +36,10 @@ divisors can be determined with the function
 
 ## See also
 
-Other number.theory:
-[`GCD-LCM`](https://andrisignorell.github.io/bedrock/reference/GCD-LCM.md),
-[`digitSum()`](https://andrisignorell.github.io/bedrock/reference/digitSum.md),
-[`factorize()`](https://andrisignorell.github.io/bedrock/reference/factorize.md),
-[`fibonacci()`](https://andrisignorell.github.io/bedrock/reference/fibonacci.md),
-[`isOdd()`](https://andrisignorell.github.io/bedrock/reference/isOdd.md),
-[`isPrime()`](https://andrisignorell.github.io/bedrock/reference/isPrime.md),
-[`primes()`](https://andrisignorell.github.io/bedrock/reference/primes.md)
+Other number.theory: [`GCD-LCM`](GCD-LCM.md),
+[`digitSum()`](digitSum.md), [`factorize()`](factorize.md),
+[`fibonacci()`](fibonacci.md), [`isOdd()`](isOdd.md),
+[`isPrime()`](isPrime.md), [`primes()`](primes.md)
 
 ## Examples
 

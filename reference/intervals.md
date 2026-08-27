@@ -59,9 +59,8 @@ Intervals are treated as closed, i.e., \\\[a, b\]\\. Consequently:
 
 ## See also
 
-Other data.interval:
-[`between-operators`](https://andrisignorell.github.io/bedrock/reference/between-operators.md),
-[`range-operators`](https://andrisignorell.github.io/bedrock/reference/range-operators.md)
+Other data.interval: [`between-operators`](between-operators.md),
+[`range-operators`](range-operators.md)
 
 ## Examples
 

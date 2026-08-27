@@ -31,10 +31,8 @@ setLength(x, n, fill = NA)
 
 ## See also
 
-Other vector.reshape:
-[`trim()`](https://andrisignorell.github.io/bedrock/reference/trim.md),
-[`vRot()`](https://andrisignorell.github.io/bedrock/reference/vRot.md),
-[`vShift()`](https://andrisignorell.github.io/bedrock/reference/vShift.md)
+Other vector.reshape: [`trim()`](trim.md), [`vRot()`](vRot.md),
+[`vShift()`](vShift.md)
 
 ## Examples
 

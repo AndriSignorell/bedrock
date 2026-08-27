@@ -1,433 +1,304 @@
 # Package index
 
-## All functions
+## Data Manipulation
 
-- [`GCD()`](https://andrisignorell.github.io/bedrock/reference/GCD-LCM.md)
-  [`LCM()`](https://andrisignorell.github.io/bedrock/reference/GCD-LCM.md)
-  : Greatest Common Divisor and Least Common Multiple
+Reshaping, recoding, ordering, and inspecting data structures.
 
-- [`label()`](https://andrisignorell.github.io/bedrock/reference/Label.md)
-  [`` `label<-`() ``](https://andrisignorell.github.io/bedrock/reference/Label.md)
-  : Get or Set Object and Variable Labels
+- [`num()`](type-aliases.md) [`int()`](type-aliases.md)
+  [`chr()`](type-aliases.md) [`nchr()`](type-aliases.md)
+  [`bin()`](type-aliases.md) : Type Coercion Shortcuts
 
-- [`Pizza`](https://andrisignorell.github.io/bedrock/reference/Pizza.md)
-  : Pizza delivery data (extended)
+- [`toBaseR()`](toBaseR.md) : Back to Basics with Tibbles
 
-- [`allDuplicated()`](https://andrisignorell.github.io/bedrock/reference/allDuplicated.md)
-  : Logical Indicator for All Values Involved in Ties
-
-- [`allIdentical()`](https://andrisignorell.github.io/bedrock/reference/allIdentical.md)
-  : Test Whether Multiple Objects Are Identical
-
-- [`appendEnum()`](https://andrisignorell.github.io/bedrock/reference/appendEnum.md)
-  : Add an Enumeration Column
-
-- [`appendRowNames()`](https://andrisignorell.github.io/bedrock/reference/appendRowNames.md)
-  : Append Rownames to a Data Frame or Matrix
-
-- [`appendX()`](https://andrisignorell.github.io/bedrock/reference/appendX.md)
-  : Append Elements to Objects
-
-- [`applySides()`](https://andrisignorell.github.io/bedrock/reference/applySides.md)
-  : Open One Side of a Confidence Interval
-
-- [`as.array(`*`<xtabs>`*`)`](https://andrisignorell.github.io/bedrock/reference/as.array.xtabs.md)
-  [`as.matrix(`*`<xtabs>`*`)`](https://andrisignorell.github.io/bedrock/reference/as.array.xtabs.md)
-  :
+- [`as.array(`*`<xtabs>`*`)`](as.array.xtabs.md)
+  [`as.matrix(`*`<xtabs>`*`)`](as.array.xtabs.md) :
 
   Coerce `xtabs` Object to Array or Matrix
 
-- [`asBinary()`](https://andrisignorell.github.io/bedrock/reference/asBinary.md)
-  : Coerce a Vector to Binary (0/1)
+- [`asBinary()`](asBinary.md) : Coerce a Vector to Binary (0/1)
 
-- [`asCDateFmt()`](https://andrisignorell.github.io/bedrock/reference/asCDateFmt.md)
-  : Convert Custom Date Format to strftime Format
+- [`combLevels()`](combLevels.md) : Combine Levels from Multiple Inputs
 
-- [`` `%[]%` ``](https://andrisignorell.github.io/bedrock/reference/between-operators.md)
-  [`` `%[)%` ``](https://andrisignorell.github.io/bedrock/reference/between-operators.md)
-  [`` `%(]%` ``](https://andrisignorell.github.io/bedrock/reference/between-operators.md)
-  [`` `%()%` ``](https://andrisignorell.github.io/bedrock/reference/between-operators.md)
-  [`` `%][%` ``](https://andrisignorell.github.io/bedrock/reference/between-operators.md)
-  [`` `%](%` ``](https://andrisignorell.github.io/bedrock/reference/between-operators.md)
-  [`` `%)[%` ``](https://andrisignorell.github.io/bedrock/reference/between-operators.md)
-  [`` `%)(%` ``](https://andrisignorell.github.io/bedrock/reference/between-operators.md)
-  : Operators To Check, If a Value Lies Within Or Outside a Given Range
+- [`dummy()`](dummy.md) : Generate Dummy Codes for a Factor
 
-- [`binaryTree()`](https://andrisignorell.github.io/bedrock/reference/binaryTree.md)
-  : Binary Tree
+- [`mReplace()`](mReplace.md) : Replace Multiple Values in a Vector
 
-- [`buildPath()`](https://andrisignorell.github.io/bedrock/reference/buildPath.md)
-  : Construct a Normalized File Path
+- [`nf()`](nf.md) : Convert to Numeric via Factor
 
-- [`callIf()`](https://andrisignorell.github.io/bedrock/reference/callIf.md)
-  : Conditionally Call a Function
+- [`recodeX()`](recodeX.md) : Recode a Variable
 
-- [`Cards`](https://andrisignorell.github.io/bedrock/reference/cards.md)
-  : Playing Cards dataset
+- [`revCode()`](revCode.md) : Reverse Coding of Variables
 
-- [`charToAscii()`](https://andrisignorell.github.io/bedrock/reference/char-ascii-conversion.md)
-  [`asciiToChar()`](https://andrisignorell.github.io/bedrock/reference/char-ascii-conversion.md)
-  : Character \<-\> ASCII Conversion
+- [`stringsAsFactors()`](stringsAsFactors.md) : Convert Character
+  Columns to Factors
 
-- [`checkConfLevel()`](https://andrisignorell.github.io/bedrock/reference/checkConfLevel.md)
-  : Validate a Confidence Level
+- [`collapseTable()`](collapseTable.md) : Collapse Table Dimensions by
+  Remapping Factor Levels
 
-- [`checkFlag()`](https://andrisignorell.github.io/bedrock/reference/checkFlag.md)
-  : Validate a Logical Flag
-
-- [`closest()`](https://andrisignorell.github.io/bedrock/reference/closest.md)
-  : Find the Closest Value
-
-- [`coalesceX()`](https://andrisignorell.github.io/bedrock/reference/coalesceX.md)
-  : Return the First Element Not Being NA
-
-- [`collapseTable()`](https://andrisignorell.github.io/bedrock/reference/collapseTable.md)
-  : Collapse Table Dimensions by Remapping Factor Levels
-
-- [`columnWrap()`](https://andrisignorell.github.io/bedrock/reference/columnWrap.md)
-  : Column Wrap
-
-- [`combLevels()`](https://andrisignorell.github.io/bedrock/reference/combLevels.md)
-  : Combine Levels from Multiple Inputs
-
-- [`combN()`](https://andrisignorell.github.io/bedrock/reference/combN.md)
-  : Number of Combinations of a Set
-
-- [`combPairs()`](https://andrisignorell.github.io/bedrock/reference/combPairs.md)
-  : Get All Pairs Out of One or Two Sets of Elements
-
-- [`combSet()`](https://andrisignorell.github.io/bedrock/reference/combSet.md)
-  : Samples for Combinations of a Set
-
-- [`compareDataFrames()`](https://andrisignorell.github.io/bedrock/reference/compareDataFrames.md)
-  : Compare Two Data Frames by Key Column
-
-- [`completeColumns()`](https://andrisignorell.github.io/bedrock/reference/completeColumns.md)
-  : Identify Columns Without Missing Values
-
-- [`countCompCases()`](https://andrisignorell.github.io/bedrock/reference/countCompCases.md)
-  : Count Complete Cases
-
-- [`courseData()`](https://andrisignorell.github.io/bedrock/reference/courseData.md)
-  : Load Course Dataset from Server
-
-- [`crossProd()`](https://andrisignorell.github.io/bedrock/reference/crossProd.md)
-  : Cross Product of 3D Vectors or Matrices
-
-- [`crossProdN()`](https://andrisignorell.github.io/bedrock/reference/crossProdN.md)
-  : Generalized Cross Product via Determinants
-
-- [`dataDescription()`](https://andrisignorell.github.io/bedrock/reference/dataDescription.md)
-  : Extract Data Description from Excel File
-
-- [`digitSum()`](https://andrisignorell.github.io/bedrock/reference/digitSum.md)
-  : Digit Sum for Integer Values
-
-- [`divisors()`](https://andrisignorell.github.io/bedrock/reference/divisors.md)
-  : Calculate Divisors
-
-- [`dotProd()`](https://andrisignorell.github.io/bedrock/reference/dotProd.md)
-  : Dot Product of Vectors or Matrices
-
-- [`dummy()`](https://andrisignorell.github.io/bedrock/reference/dummy.md)
-  : Generate Dummy Codes for a Factor
-
-- [`extractArgs()`](https://andrisignorell.github.io/bedrock/reference/extractArgs.md)
-  : Extract Named Arguments from Dots with Defaults
-
-- [`factorize()`](https://andrisignorell.github.io/bedrock/reference/factorize.md)
-  : Prime Factorization of Integers
-
-- [`fibonacci()`](https://andrisignorell.github.io/bedrock/reference/fibonacci.md)
-  : Fibonacci Numbers
-
-- [`fileExistURL()`](https://andrisignorell.github.io/bedrock/reference/fileExistURL.md)
-  : Check if a File Exists at a URL
-
-- [`findDownload()`](https://andrisignorell.github.io/bedrock/reference/findDownload.md)
-  : Locate a File in the Downloads Directory
-
-- [`flags()`](https://andrisignorell.github.io/bedrock/reference/flags.md)
-  : Extract Dichotomous (Binary) Variables
-
-- [`funArgs()`](https://andrisignorell.github.io/bedrock/reference/funArgs.md)
-  : List All Arguments of a Function
-
-- [`funCalls()`](https://andrisignorell.github.io/bedrock/reference/funCalls.md)
-  : List Calls Used in Function
-
-- [`funKeywords()`](https://andrisignorell.github.io/bedrock/reference/funKeywords.md)
-  : List Keywords For R Manual Pages
-
-- [`funList()`](https://andrisignorell.github.io/bedrock/reference/funList.md)
-  : List Functions in a Package
-
-- [`getDotsArg()`](https://andrisignorell.github.io/bedrock/reference/getDotsArg.md)
-  : Get a Single Argument from Dots with Default
-
-- [`overlap()`](https://andrisignorell.github.io/bedrock/reference/intervals.md)
-  [`overlaps()`](https://andrisignorell.github.io/bedrock/reference/intervals.md)
-  [`distance()`](https://andrisignorell.github.io/bedrock/reference/intervals.md)
-  [`` `%overlaps%` ``](https://andrisignorell.github.io/bedrock/reference/intervals.md)
-  : Interval Arithmetic
-
-- [`isDichotomous()`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md)
-  : Check Whether a Vector Is Dichotomous
-
-- [`isEuclid()`](https://andrisignorell.github.io/bedrock/reference/isEuclid.md)
-  : Test if a Distance Matrix Is Euclidean
-
-- [`isFilePath()`](https://andrisignorell.github.io/bedrock/reference/isFilePath.md)
-  : Check Whether a String Is a File Path
-
-- [`isLowCardinality()`](https://andrisignorell.github.io/bedrock/reference/isLowCardinality.md)
-  : Check for Low Cardinality
-
-- [`isNA()`](https://andrisignorell.github.io/bedrock/reference/isNA.md)
-  : Test for a Scalar Missing Value
-
-- [`isNumeric()`](https://andrisignorell.github.io/bedrock/reference/isNumeric.md)
-  : Check Whether an Object Is a Valid Numeric Vector
-
-- [`isOdd()`](https://andrisignorell.github.io/bedrock/reference/isOdd.md)
-  : Test if Numbers Are Odd
-
-- [`isPrime()`](https://andrisignorell.github.io/bedrock/reference/isPrime.md)
-  : Test Whether Numbers Are Prime
-
-- [`isURL()`](https://andrisignorell.github.io/bedrock/reference/isURL.md)
-  : Check Whether a String Is a URL
-
-- [`isWholeLike()`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md)
-  : Test Whether Values Are (Nearly) Whole Numbers
-
-- [`isZero()`](https://andrisignorell.github.io/bedrock/reference/isZero.md)
-  : Check a Vector For Being Zero
-
-- [`linScale()`](https://andrisignorell.github.io/bedrock/reference/linScale.md)
-  : Linearly Rescale Numeric Data
-
-- [`locf()`](https://andrisignorell.github.io/bedrock/reference/locf.md)
-  : Last Observation Carried Forward
-
-- [`logit()`](https://andrisignorell.github.io/bedrock/reference/logit.md)
-  [`logitInv()`](https://andrisignorell.github.io/bedrock/reference/logit.md)
-  : Logit Transformation and Its Inverse
-
-- [`toLong()`](https://andrisignorell.github.io/bedrock/reference/long-wide-reshape.md)
-  [`toWide()`](https://andrisignorell.github.io/bedrock/reference/long-wide-reshape.md)
+- [`toLong()`](long-wide-reshape.md) [`toWide()`](long-wide-reshape.md)
   : Reshape Between Long and Wide Format
 
-- [`mGsub()`](https://andrisignorell.github.io/bedrock/reference/mGsub.md)
-  : Multiple String Substitution
+- [`splitAt()`](splitAt.md) : Split a Vector at Given Positions
 
-- [`mReplace()`](https://andrisignorell.github.io/bedrock/reference/mReplace.md)
-  : Replace Multiple Values in a Vector
+- [`splitX()`](splitX.md) : Split Data into Groups (Extended Interface)
 
-- [`mergeArgs()`](https://andrisignorell.github.io/bedrock/reference/mergeArgs.md)
-  : Merge Default Arguments with User Overrides
+- [`untable()`](untable.md) : Recover Original Data From Contingency
+  Table
 
-- [`midx()`](https://andrisignorell.github.io/bedrock/reference/midx.md)
-  : Midpoints of a Numeric Vector
+- [`binaryTree()`](binaryTree.md) : Binary Tree
 
-- [`moveAvg()`](https://andrisignorell.github.io/bedrock/reference/moveAvg.md)
-  : Moving Average
+- [`revX()`](revX.md) : Reverse Elements of a Vector, a Matrix, a Table,
+  an Array or a Data.frame
 
-- [`multMerge()`](https://andrisignorell.github.io/bedrock/reference/multMerge.md)
-  : Merge Multiple Data Frames
+- [`sortX()`](sortX.md) : Sort Vectors, Matrices, Tables, and Data
+  Frames
 
-- [`naIf()`](https://andrisignorell.github.io/bedrock/reference/naIf.md)
-  : Replace Values with NA
+- [`appendEnum()`](appendEnum.md) : Add an Enumeration Column
 
-- [`naReplace()`](https://andrisignorell.github.io/bedrock/reference/naReplace.md)
-  : Replace NA Values
+- [`appendRowNames()`](appendRowNames.md) : Append Rownames to a Data
+  Frame or Matrix
 
-- [`nf()`](https://andrisignorell.github.io/bedrock/reference/nf.md) :
-  Convert to Numeric via Factor
+- [`appendX()`](appendX.md) : Append Elements to Objects
 
-- [`hexToDec()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md)
-  [`decToHex()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md)
-  [`octToDec()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md)
-  [`decToOct()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md)
-  [`binToDec()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md)
-  [`decToBin()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md)
-  [`romanToInt()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md)
-  [`baseToBase()`](https://andrisignorell.github.io/bedrock/reference/numeric-conversions.md)
-  : Convert Numbers Between Bases
+- [`multMerge()`](multMerge.md) : Merge Multiple Data Frames
 
-- [`nUnique()`](https://andrisignorell.github.io/bedrock/reference/nunique.md)
-  : Count Unique Values
+- [`` `%[]%` ``](between-operators.md)
+  [`` `%[)%` ``](between-operators.md)
+  [`` `%(]%` ``](between-operators.md)
+  [`` `%()%` ``](between-operators.md)
+  [`` `%][%` ``](between-operators.md)
+  [`` `%](%` ``](between-operators.md)
+  [`` `%)[%` ``](between-operators.md)
+  [`` `%)(%` ``](between-operators.md) : Operators To Check, If a Value
+  Lies Within Or Outside a Given Range
 
-- [`nz()`](https://andrisignorell.github.io/bedrock/reference/nz.md) :
-  Extract Non-Zero Values
+- [`` `%:%` ``](range-operators.md) [`` `%::%` ``](range-operators.md) :
+  Select a Range Between Two Elements
 
-- [`openDataObject()`](https://andrisignorell.github.io/bedrock/reference/openDataObject.md)
-  : Load Excel Data with Metadata (Codes and Labels)
+- [`overlap()`](intervals.md) [`overlaps()`](intervals.md)
+  [`distance()`](intervals.md) [`` `%overlaps%` ``](intervals.md) :
+  Interval Arithmetic
 
-- [`pairApply()`](https://andrisignorell.github.io/bedrock/reference/pairApply.md)
-  : Pairwise Calculations
+- [`allDuplicated()`](allDuplicated.md) : Logical Indicator for All
+  Values Involved in Ties
 
-- [`parseSASDatalines()`](https://andrisignorell.github.io/bedrock/reference/parseSASDatalines.md)
-  : Parse SAS DATALINES/CARDS blocks into a data.frame
+- [`allIdentical()`](allIdentical.md) : Test Whether Multiple Objects
+  Are Identical
 
-- [`pdfManual()`](https://andrisignorell.github.io/bedrock/reference/pdfManual.md)
-  : Open CRAN PDF Manual of a Package
+- [`compareDataFrames()`](compareDataFrames.md) : Compare Two Data
+  Frames by Key Column
 
-- [`peekFile()`](https://andrisignorell.github.io/bedrock/reference/peekFile.md)
-  : Preview a Delimited Text File
+- [`flags()`](flags.md) : Extract Dichotomous (Binary) Variables
 
-- [`percentRank()`](https://andrisignorell.github.io/bedrock/reference/percentRank.md)
-  : Percent Rank of a Numeric Vector
+- [`isDichotomous()`](isDichotomous.md) : Check Whether a Vector Is
+  Dichotomous
 
-- [`permn()`](https://andrisignorell.github.io/bedrock/reference/permn.md)
-  : Set of Permutations
+- [`isEuclid()`](isEuclid.md) : Test if a Distance Matrix Is Euclidean
 
-- [`nDec()`](https://andrisignorell.github.io/bedrock/reference/precision.md)
-  [`prec()`](https://andrisignorell.github.io/bedrock/reference/precision.md)
-  [`frac()`](https://andrisignorell.github.io/bedrock/reference/precision.md)
-  [`maxDigits()`](https://andrisignorell.github.io/bedrock/reference/precision.md)
-  : Precision, Decimal Places and Fractional Part of a Numeric Value
+- [`isLowCardinality()`](isLowCardinality.md) : Check for Low
+  Cardinality
 
-- [`primes()`](https://andrisignorell.github.io/bedrock/reference/primes.md)
-  : Generate Prime Numbers up to Given Limits
+- [`isNumeric()`](isNumeric.md) : Check Whether an Object Is a Valid
+  Numeric Vector
 
-- [`printCharMatrix()`](https://andrisignorell.github.io/bedrock/reference/printCharMatrix.md)
-  : Pretty-print a character matrix with alignment, spacing and column
-  splitting
+- [`isWholeLike()`](isWholeLike.md) : Test Whether Values Are (Nearly)
+  Whole Numbers
 
-- [`ptInPoly()`](https://andrisignorell.github.io/bedrock/reference/ptInPoly.md)
-  : Point-in-Polygon Test (Angle Summation, Rcpp)
+- [`isZero()`](isZero.md) : Check a Vector For Being Zero
 
-- [`quot()`](https://andrisignorell.github.io/bedrock/reference/quot.md)
-  : Lagged Quotients
+- [`nUnique()`](nunique.md) : Count Unique Values
 
-- [`rBetaShape()`](https://andrisignorell.github.io/bedrock/reference/rBetaShape.md)
-  : Generate Beta-Distributed Random Values by Shape
+- [`applySides()`](applySides.md) : Open One Side of a Confidence
+  Interval
 
-- [`rSum21()`](https://andrisignorell.github.io/bedrock/reference/rSum21.md)
-  : Random Numbers Summing to 1
+- [`checkConfLevel()`](checkConfLevel.md) : Validate a Confidence Level
+
+- [`checkFlag()`](checkFlag.md) : Validate a Logical Flag
 
-- [`randGroupSplit()`](https://andrisignorell.github.io/bedrock/reference/randGroupSplit.md)
-  : Randomly Split a Vector into Groups of Given Sizes
+- [`completeColumns()`](completeColumns.md) : Identify Columns Without
+  Missing Values
 
-- [`` `%:%` ``](https://andrisignorell.github.io/bedrock/reference/range-operators.md)
-  [`` `%::%` ``](https://andrisignorell.github.io/bedrock/reference/range-operators.md)
-  : Select a Range Between Two Elements
+- [`countCompCases()`](countCompCases.md) : Count Complete Cases
 
-- [`rankX()`](https://andrisignorell.github.io/bedrock/reference/rankX.md)
-  : Fast Ranking with Extended Tie Handling
+- [`strX()`](strX.md) : Extended str() with numbered variables
 
-- [`rdLabels()`](https://andrisignorell.github.io/bedrock/reference/rdLabels.md)
-  : Extract variable labels from Rd documentation
+- [`columnWrap()`](columnWrap.md) : Column Wrap
+
+- [`printCharMatrix()`](printCharMatrix.md) : Pretty-print a character
+  matrix with alignment, spacing and column splitting
+
+- [`resolveContingency()`](resolveContingency.md) : Resolve Contingency
+  Table
+
+- [`resolveFormula()`](resolveFormula.md) : Parse and Classify a Model
+  Formula
+
+- [`resolveGroups()`](resolveGroups.md) : Resolve Grouped Data
 
-- [`rdTitle()`](https://andrisignorell.github.io/bedrock/reference/rdTitle.md)
-  : Extract the Title from an Rd Help File
-
-- [`readDownload()`](https://andrisignorell.github.io/bedrock/reference/readDownload.md)
-  : Read a File from the Downloads Directory
-
-- [`recodeX()`](https://andrisignorell.github.io/bedrock/reference/recodeX.md)
-  : Recode a Variable
-
-- [`recycle()`](https://andrisignorell.github.io/bedrock/reference/recycle.md)
-  : Recycle a List of Elements
-
-- [`renameX()`](https://andrisignorell.github.io/bedrock/reference/renameX.md)
-  : Rename Elements of a Named Object
-
-- [`resolveContingency()`](https://andrisignorell.github.io/bedrock/reference/resolveContingency.md)
-  : Resolve Contingency Table
-
-- [`resolveFormula()`](https://andrisignorell.github.io/bedrock/reference/resolveFormula.md)
-  : Parse and Classify a Model Formula
-
-- [`resolveGroups()`](https://andrisignorell.github.io/bedrock/reference/resolveGroups.md)
-  : Resolve Grouped Data
-
-- [`revCode()`](https://andrisignorell.github.io/bedrock/reference/revCode.md)
-  : Reverse Coding of Variables
-
-- [`revX()`](https://andrisignorell.github.io/bedrock/reference/revX.md)
-  : Reverse Elements of a Vector, a Matrix, a Table, an Array or a
-  Data.frame
-
-- [`Roulette`](https://andrisignorell.github.io/bedrock/reference/roulette.md)
-  : Roulette wheel dataset
-
-- [`roundTo()`](https://andrisignorell.github.io/bedrock/reference/roundTo.md)
-  : Round to Multiple
-
-- [`sampleX()`](https://andrisignorell.github.io/bedrock/reference/sampleX.md)
-  : Random Samples and Permutations
-
-- [`setAttr()`](https://andrisignorell.github.io/bedrock/reference/setAttr-removeAttr-keepAttr.md)
-  [`removeAttr()`](https://andrisignorell.github.io/bedrock/reference/setAttr-removeAttr-keepAttr.md)
-  [`keepAttr()`](https://andrisignorell.github.io/bedrock/reference/setAttr-removeAttr-keepAttr.md)
-  : Set and Remove Object Attributes
-
-- [`setLength()`](https://andrisignorell.github.io/bedrock/reference/setLength.md)
-  : Set the length of a vector, padding or truncating as needed
-
-- [`setNamesX()`](https://andrisignorell.github.io/bedrock/reference/setNamesX.md)
-  : Set the Names in an Object
-
-- [`sortX()`](https://andrisignorell.github.io/bedrock/reference/sortX.md)
-  : Sort Vectors, Matrices, Tables, and Data Frames
-
-- [`splitAt()`](https://andrisignorell.github.io/bedrock/reference/splitAt.md)
-  : Split a Vector at Given Positions
-
-- [`splitPath()`](https://andrisignorell.github.io/bedrock/reference/splitPath.md)
-  : Split a File Path into Its Components
-
-- [`splitX()`](https://andrisignorell.github.io/bedrock/reference/splitX.md)
-  : Split Data into Groups (Extended Interface)
-
-- [`strSplitToCol()`](https://andrisignorell.github.io/bedrock/reference/strSplitToCol.md)
-  : Split Strings into Multiple Columns
-
-- [`strSplitToDummy()`](https://andrisignorell.github.io/bedrock/reference/strSplitToDummy.md)
-  : Split a Character Vector into a Dummy Matrix
-
-- [`strX()`](https://andrisignorell.github.io/bedrock/reference/strX.md)
-  : Extended str() with numbered variables
-
-- [`stringsAsFactors()`](https://andrisignorell.github.io/bedrock/reference/stringsAsFactors.md)
-  : Convert Character Columns to Factors
-
-- [`Tarot`](https://andrisignorell.github.io/bedrock/reference/tarot.md)
-  : Tarot Cards dataset
-
-- [`toBaseR()`](https://andrisignorell.github.io/bedrock/reference/toBaseR.md)
-  : Back to Basics with Tibbles
-
-- [`trim()`](https://andrisignorell.github.io/bedrock/reference/trim.md)
-  : Trim a Vector
-
-- [`num()`](https://andrisignorell.github.io/bedrock/reference/type-aliases.md)
-  [`int()`](https://andrisignorell.github.io/bedrock/reference/type-aliases.md)
-  [`chr()`](https://andrisignorell.github.io/bedrock/reference/type-aliases.md)
-  [`nchr()`](https://andrisignorell.github.io/bedrock/reference/type-aliases.md)
-  [`bin()`](https://andrisignorell.github.io/bedrock/reference/type-aliases.md)
-  : Type Coercion Shortcuts
-
-- [`unirootAll()`](https://andrisignorell.github.io/bedrock/reference/unirootAll.md)
-  : Find multiple roots of a function within an interval
-
-- [`untable()`](https://andrisignorell.github.io/bedrock/reference/untable.md)
-  : Recover Original Data From Contingency Table
-
-- [`unwhich()`](https://andrisignorell.github.io/bedrock/reference/unwhich.md)
-  : Inverse Which
-
-- [`vRot()`](https://andrisignorell.github.io/bedrock/reference/vRot.md)
-  : Rotate a vector
-
-- [`vShift()`](https://andrisignorell.github.io/bedrock/reference/vShift.md)
-  : Shift a vector with NA padding
-
-- [`winsorize()`](https://andrisignorell.github.io/bedrock/reference/winsorize.md)
-  : Winsorize a Numeric Vector
-
-- [`withSeed()`](https://andrisignorell.github.io/bedrock/reference/withSeed.md)
-  : Evaluate an expression under a temporary random seed
+## Vectors
+
+Vector-level utilities: NA handling, moving windows, resizing.
+
+- [`coalesceX()`](coalesceX.md) : Return the First Element Not Being NA
+- [`isNA()`](isNA.md) : Test for a Scalar Missing Value
+- [`locf()`](locf.md) : Last Observation Carried Forward
+- [`naIf()`](naIf.md) : Replace Values with NA
+- [`naReplace()`](naReplace.md) : Replace NA Values
+- [`midx()`](midx.md) : Midpoints of a Numeric Vector
+- [`moveAvg()`](moveAvg.md) : Moving Average
+- [`quot()`](quot.md) : Lagged Quotients
+- [`setLength()`](setLength.md) : Set the length of a vector, padding or
+  truncating as needed
+- [`trim()`](trim.md) : Trim a Vector
+- [`vRot()`](vRot.md) : Rotate a vector
+- [`vShift()`](vShift.md) : Shift a vector with NA padding
+- [`closest()`](closest.md) : Find the Closest Value
+- [`nz()`](nz.md) : Extract Non-Zero Values
+- [`unwhich()`](unwhich.md) : Inverse Which
+
+## Numbers & Mathematics
+
+Number theory, base conversion, and numerical utilities.
+
+- [`digitSum()`](digitSum.md) : Digit Sum for Integer Values
+- [`divisors()`](divisors.md) : Calculate Divisors
+- [`factorize()`](factorize.md) : Prime Factorization of Integers
+- [`fibonacci()`](fibonacci.md) : Fibonacci Numbers
+- [`GCD()`](GCD-LCM.md) [`LCM()`](GCD-LCM.md) : Greatest Common Divisor
+  and Least Common Multiple
+- [`isOdd()`](isOdd.md) : Test if Numbers Are Odd
+- [`isPrime()`](isPrime.md) : Test Whether Numbers Are Prime
+- [`primes()`](primes.md) : Generate Prime Numbers up to Given Limits
+- [`hexToDec()`](numeric-conversions.md)
+  [`decToHex()`](numeric-conversions.md)
+  [`octToDec()`](numeric-conversions.md)
+  [`decToOct()`](numeric-conversions.md)
+  [`binToDec()`](numeric-conversions.md)
+  [`decToBin()`](numeric-conversions.md)
+  [`romanToInt()`](numeric-conversions.md)
+  [`baseToBase()`](numeric-conversions.md) : Convert Numbers Between
+  Bases
+- [`crossProd()`](crossProd.md) : Cross Product of 3D Vectors or
+  Matrices
+- [`crossProdN()`](crossProdN.md) : Generalized Cross Product via
+  Determinants
+- [`dotProd()`](dotProd.md) : Dot Product of Vectors or Matrices
+- [`roundTo()`](roundTo.md) : Round to Multiple
+- [`unirootAll()`](unirootAll.md) : Find multiple roots of a function
+  within an interval
+- [`nDec()`](precision.md) [`prec()`](precision.md)
+  [`frac()`](precision.md) [`maxDigits()`](precision.md) : Precision,
+  Decimal Places and Fractional Part of a Numeric Value
+- [`linScale()`](linScale.md) : Linearly Rescale Numeric Data
+- [`logit()`](logit.md) [`logitInv()`](logit.md) : Logit Transformation
+  and Its Inverse
+- [`percentRank()`](percentRank.md) : Percent Rank of a Numeric Vector
+- [`rankX()`](rankX.md) : Fast Ranking with Extended Tie Handling
+- [`winsorize()`](winsorize.md) : Winsorize a Numeric Vector
+- [`ptInPoly()`](ptInPoly.md) : Point-in-Polygon Test (Angle Summation,
+  Rcpp)
+- [`withSeed()`](withSeed.md) : Evaluate an expression under a temporary
+  random seed
+
+## Strings
+
+Character conversion and string transformation.
+
+- [`charToAscii()`](char-ascii-conversion.md)
+  [`asciiToChar()`](char-ascii-conversion.md) : Character \<-\> ASCII
+  Conversion
+- [`mGsub()`](mGsub.md) : Multiple String Substitution
+- [`strSplitToCol()`](strSplitToCol.md) : Split Strings into Multiple
+  Columns
+- [`strSplitToDummy()`](strSplitToDummy.md) : Split a Character Vector
+  into a Dummy Matrix
+
+## Combinatorics
+
+Combinations, permutations, and sampling.
+
+- [`combN()`](combN.md) : Number of Combinations of a Set
+- [`combPairs()`](combPairs.md) : Get All Pairs Out of One or Two Sets
+  of Elements
+- [`combSet()`](combSet.md) : Samples for Combinations of a Set
+- [`pairApply()`](pairApply.md) : Pairwise Calculations
+- [`permn()`](permn.md) : Set of Permutations
+- [`randGroupSplit()`](randGroupSplit.md) : Randomly Split a Vector into
+  Groups of Given Sizes
+- [`sampleX()`](sampleX.md) : Random Samples and Permutations
+- [`rSum21()`](rSum21.md) : Random Numbers Summing to 1
+- [`rBetaShape()`](rBetaShape.md) : Generate Beta-Distributed Random
+  Values by Shape
+
+## Files & Paths
+
+File I/O and path/URL handling.
+
+- [`buildPath()`](buildPath.md) : Construct a Normalized File Path
+- [`fileExistURL()`](fileExistURL.md) : Check if a File Exists at a URL
+- [`findDownload()`](findDownload.md) : Locate a File in the Downloads
+  Directory
+- [`isFilePath()`](isFilePath.md) : Check Whether a String Is a File
+  Path
+- [`isURL()`](isURL.md) : Check Whether a String Is a URL
+- [`readDownload()`](readDownload.md) : Read a File from the Downloads
+  Directory
+- [`splitPath()`](splitPath.md) : Split a File Path into Its Components
+- [`parseSASDatalines()`](parseSASDatalines.md) : Parse SAS
+  DATALINES/CARDS blocks into a data.frame
+- [`pdfManual()`](pdfManual.md) : Open CRAN PDF Manual of a Package
+- [`peekFile()`](peekFile.md) : Preview a Delimited Text File
+
+## Labels & Attributes
+
+Variable labels, object attributes, and metadata import.
+
+- [`setAttr()`](setAttr-removeAttr-keepAttr.md)
+  [`removeAttr()`](setAttr-removeAttr-keepAttr.md)
+  [`keepAttr()`](setAttr-removeAttr-keepAttr.md) : Set and Remove Object
+  Attributes
+- [`label()`](Label.md) [`` `label<-`() ``](Label.md) : Get or Set
+  Object and Variable Labels
+- [`renameX()`](renameX.md) : Rename Elements of a Named Object
+- [`setNamesX()`](setNamesX.md) : Set the Names in an Object
+- [`dataDescription()`](dataDescription.md) : Extract Data Description
+  from Excel File
+- [`openDataObject()`](openDataObject.md) : Load Excel Data with
+  Metadata (Codes and Labels)
+
+## Dates
+
+Date/time formatting.
+
+- [`asCDateFmt()`](asCDateFmt.md) : Convert Custom Date Format to
+  strftime Format
+
+## Package Introspection
+
+Inspecting functions, arguments, and Rd documentation.
+
+- [`funArgs()`](funArgs.md) : List All Arguments of a Function
+- [`funCalls()`](funCalls.md) : List Calls Used in Function
+- [`funKeywords()`](funKeywords.md) : List Keywords For R Manual Pages
+- [`funList()`](funList.md) : List Functions in a Package
+- [`rdLabels()`](rdLabels.md) : Extract variable labels from Rd
+  documentation
+- [`rdTitle()`](rdTitle.md) : Extract the Title from an Rd Help File
+- [`callIf()`](callIf.md) : Conditionally Call a Function
+- [`extractArgs()`](extractArgs.md) : Extract Named Arguments from Dots
+  with Defaults
+- [`getDotsArg()`](getDotsArg.md) : Get a Single Argument from Dots with
+  Default
+- [`mergeArgs()`](mergeArgs.md) : Merge Default Arguments with User
+  Overrides
+- [`recycle()`](recycle.md) : Recycle a List of Elements
+
+## Datasets
+
+Example datasets shipped with bedrock.
+
+- [`Cards`](cards.md) : Playing Cards dataset
+- [`Pizza`](Pizza.md) : Pizza delivery data (extended)
+- [`Roulette`](roulette.md) : Roulette wheel dataset
+- [`Tarot`](tarot.md) : Tarot Cards dataset
+- [`courseData()`](courseData.md) : Load Course Dataset from Server

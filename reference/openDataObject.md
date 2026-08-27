@@ -19,7 +19,8 @@ openDataObject(name, url = NULL, doc = NULL, ...)
 - url:
 
   character string. Base URL where the file is located. Defaults to
-  <https://www.signorell.net/hwz/datasets/>.
+  `https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/`.
+  (see <https://github.com/AndriSignorell/Teaching/>)
 
 - doc:
 
@@ -40,8 +41,7 @@ a `data.frame` containing the imported data. If metadata is available:
 
 - factor levels are labeled using provided codes.
 
-- variable labels are assigned using
-  [`label()`](https://andrisignorell.github.io/bedrock/reference/Label.md).
+- variable labels are assigned using [`label()`](Label.md).
 
 ## Details
 
@@ -65,8 +65,7 @@ factors. Data values without a matching entry in the codes column become
 
 ## See also
 
-Other label.import:
-[`dataDescription()`](https://andrisignorell.github.io/bedrock/reference/dataDescription.md)
+Other label.import: [`dataDescription()`](dataDescription.md)
 
 ## Examples
 

@@ -74,11 +74,9 @@ For x being a vector this reduces to `rep(..., n)` with n as vector
 [`gl`](https://rdrr.io/r/base/gl.html),
 [`xtabs`](https://rdrr.io/r/stats/xtabs.html)
 
-Other data.reshape:
-[`collapseTable()`](https://andrisignorell.github.io/bedrock/reference/collapseTable.md),
-[`long-wide-reshape`](https://andrisignorell.github.io/bedrock/reference/long-wide-reshape.md),
-[`splitAt()`](https://andrisignorell.github.io/bedrock/reference/splitAt.md),
-[`splitX()`](https://andrisignorell.github.io/bedrock/reference/splitX.md)
+Other data.reshape: [`collapseTable()`](collapseTable.md),
+[`long-wide-reshape`](long-wide-reshape.md), [`splitAt()`](splitAt.md),
+[`splitX()`](splitX.md)
 
 ## Examples
 

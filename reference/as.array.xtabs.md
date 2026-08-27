@@ -31,9 +31,8 @@ classes.
 
 ## See also
 
-Other data.coerce:
-[`toBaseR()`](https://andrisignorell.github.io/bedrock/reference/toBaseR.md),
-[`type-aliases`](https://andrisignorell.github.io/bedrock/reference/type-aliases.md)
+Other data.coerce: [`toBaseR()`](toBaseR.md),
+[`type-aliases`](type-aliases.md)
 
 ## Examples
 

@@ -74,8 +74,7 @@ subtle enough to retype wrongly.
 
 ## See also
 
-[checkConfLevel](https://andrisignorell.github.io/bedrock/reference/checkConfLevel.md),
-[checkFlag](https://andrisignorell.github.io/bedrock/reference/checkFlag.md)
+[checkConfLevel](checkConfLevel.md), [checkFlag](checkFlag.md)
 
 ## Examples
 

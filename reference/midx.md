@@ -41,9 +41,7 @@ When `inclZero = TRUE`, the computation is performed on `c(0, x)`.
 
 ## See also
 
-Other vector.window:
-[`moveAvg()`](https://andrisignorell.github.io/bedrock/reference/moveAvg.md),
-[`quot()`](https://andrisignorell.github.io/bedrock/reference/quot.md)
+Other vector.window: [`moveAvg()`](moveAvg.md), [`quot()`](quot.md)
 
 ## Examples
 

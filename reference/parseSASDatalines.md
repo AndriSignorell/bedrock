@@ -62,10 +62,8 @@ splits on whitespace and does not handle quoted strings.
 
 ## See also
 
-Other file.io:
-[`pdfManual()`](https://andrisignorell.github.io/bedrock/reference/pdfManual.md),
-[`peekFile()`](https://andrisignorell.github.io/bedrock/reference/peekFile.md),
-[`readDownload()`](https://andrisignorell.github.io/bedrock/reference/readDownload.md)
+Other file.io: [`pdfManual()`](pdfManual.md),
+[`peekFile()`](peekFile.md), [`readDownload()`](readDownload.md)
 
 ## Examples
 
