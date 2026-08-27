@@ -5,7 +5,7 @@ Checks whether a distance matrix corresponds to Euclidean distances.
 ## Usage
 
 ``` r
-isEuclid(distmat, tol = 1e-07)
+isEuclid(distmat, tol = 0.0000001)
 ```
 
 ## Arguments

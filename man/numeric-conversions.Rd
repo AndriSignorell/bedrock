@@ -33,10 +33,10 @@ baseToBase(x, from, to, width = NULL)
 the input base.  For \code{baseToBase()} a numeric \code{x} is accepted
 only when \code{from = 10}.  \code{NA} propagates to the output.}
 
-\item{from}{a single integer in \eqn{[2, 36]} specifying the input base
+\item{from}{a single integer in [2, 36] specifying the input base
 (\code{baseToBase()} only).}
 
-\item{to}{a single integer in \eqn{[2, 36]} specifying the output base
+\item{to}{a single integer in [2, 36] specifying the output base
 (\code{baseToBase()} only).}
 
 \item{width}{a single non-negative integer or \code{NULL} (default).
@@ -88,9 +88,10 @@ reverse direction.
 \section{Platform limits}{
 
 \code{baseToBase()} uses \code{\link{strtoi}()} internally, which operates
-on \code{long int}.  On 32-bit platforms values above \eqn{2^{31} - 1}
-may silently return \code{NA}.  \code{decToBin()} applies the same cap
-explicitly (values \eqn{> 536\,870\,911} become \code{NA}).
+on \code{long int}.  On 32-bit platforms values
+above \eqn{2^{31} - 1}{2^31 - 1} may silently return \code{NA}.
+\code{decToBin()} applies the same cap
+explicitly (values > \code{536870911} become \code{NA}).
 }
 
 \examples{

@@ -12,7 +12,8 @@ template:
   bootstrap: 5
   params:
   bootswatch: flatly
-
+  math-rendering: mathjax
+  
 navbar:
   structure:
     left:  [version, home, intro, reference, articles, tutorials, news]
@@ -278,4 +279,3 @@ reference:
   - Roulette
   - Tarot
   - courseData
-  

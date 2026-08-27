@@ -27,18 +27,19 @@
 #'
 #' @section Platform limits:
 #' \code{baseToBase()} uses \code{\link{strtoi}()} internally, which operates
-#' on \code{long int}.  On 32-bit platforms values above \eqn{2^{31} - 1}
-#' may silently return \code{NA}.  \code{decToBin()} applies the same cap
-#' explicitly (values \eqn{> 536\,870\,911} become \code{NA}).
+#' on \code{long int}.  On 32-bit platforms values 
+#' above \eqn{2^{31} - 1}{2^31 - 1} may silently return \code{NA}.  
+#' \code{decToBin()} applies the same cap
+#' explicitly (values > \code{536870911} become \code{NA}).
 #'
 #' @name numeric-conversions
 #'
 #' @param x a vector of numbers or character strings representing values in
 #'   the input base.  For \code{baseToBase()} a numeric \code{x} is accepted
 #'   only when \code{from = 10}.  \code{NA} propagates to the output.
-#' @param from a single integer in \eqn{[2, 36]} specifying the input base
+#' @param from a single integer in \[2, 36\] specifying the input base
 #'   (\code{baseToBase()} only).
-#' @param to a single integer in \eqn{[2, 36]} specifying the output base
+#' @param to a single integer in \[2, 36\] specifying the output base
 #'   (\code{baseToBase()} only).
 #' @param width a single non-negative integer or \code{NULL} (default).
 #'   When given, output strings are left-padded with zeros to at least
