@@ -49,8 +49,7 @@ function returns `NULL`.
 
 ## See also
 
-Other label.import:
-[`openDataObject()`](https://andrisignorell.github.io/bedrock/reference/openDataObject.md)
+Other label.import: [`openDataObject()`](openDataObject.md)
 
 ## Examples
 

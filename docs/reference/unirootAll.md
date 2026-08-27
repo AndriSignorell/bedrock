@@ -93,12 +93,9 @@ despite finite function values being present.
 [`uniroot`](https://rdrr.io/r/stats/uniroot.html) for the underlying
 single-root solver.
 
-Other math.basic:
-[`closest()`](https://andrisignorell.github.io/bedrock/reference/closest.md),
-[`crossProd()`](https://andrisignorell.github.io/bedrock/reference/crossProd.md),
-[`crossProdN()`](https://andrisignorell.github.io/bedrock/reference/crossProdN.md),
-[`dotProd()`](https://andrisignorell.github.io/bedrock/reference/dotProd.md),
-[`roundTo()`](https://andrisignorell.github.io/bedrock/reference/roundTo.md)
+Other math.basic: [`closest()`](closest.md),
+[`crossProd()`](crossProd.md), [`crossProdN()`](crossProdN.md),
+[`dotProd()`](dotProd.md), [`roundTo()`](roundTo.md)
 
 ## Examples
 

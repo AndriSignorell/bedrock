@@ -46,9 +46,8 @@ values.
 [`split`](https://rdrr.io/r/base/split.html) for grouping tied values.  
 [`table`](https://rdrr.io/r/base/table.html) for counting frequencies.
 
-Other data.equal:
-[`allIdentical()`](https://andrisignorell.github.io/bedrock/reference/allIdentical.md),
-[`compareDataFrames()`](https://andrisignorell.github.io/bedrock/reference/compareDataFrames.md)
+Other data.equal: [`allIdentical()`](allIdentical.md),
+[`compareDataFrames()`](compareDataFrames.md)
 
 ## Examples
 

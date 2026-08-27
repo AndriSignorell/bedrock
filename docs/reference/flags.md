@@ -1,8 +1,7 @@
 # Extract Dichotomous (Binary) Variables
 
 Identify and extract dichotomous (binary) variables from a data frame or
-matrix using
-[`isDichotomous()`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md).
+matrix using [`isDichotomous()`](isDichotomous.md).
 
 ## Usage
 
@@ -60,22 +59,18 @@ When `na.rm = TRUE`, such variables are treated as empty vectors and are
 considered dichotomous only if `strict = FALSE`.
 
 Internally, variables with indeterminate dichotomous status (i.e. `NA`
-returned by
-[`isDichotomous()`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md))
-are treated as non-dichotomous for filtering purposes.
+returned by [`isDichotomous()`](isDichotomous.md)) are treated as
+non-dichotomous for filtering purposes.
 
 ## See also
 
-[`isDichotomous`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md)
+[`isDichotomous`](isDichotomous.md)
 
-Other data.predicate:
-[`isDichotomous()`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md),
-[`isEuclid()`](https://andrisignorell.github.io/bedrock/reference/isEuclid.md),
-[`isLowCardinality()`](https://andrisignorell.github.io/bedrock/reference/isLowCardinality.md),
-[`isNumeric()`](https://andrisignorell.github.io/bedrock/reference/isNumeric.md),
-[`isWholeLike()`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md),
-[`isZero()`](https://andrisignorell.github.io/bedrock/reference/isZero.md),
-[`nUnique()`](https://andrisignorell.github.io/bedrock/reference/nUnique.md)
+Other data.predicate: [`isDichotomous()`](isDichotomous.md),
+[`isEuclid()`](isEuclid.md),
+[`isLowCardinality()`](isLowCardinality.md),
+[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
+[`isZero()`](isZero.md), [`nUnique()`](nUnique.md)
 
 ## Examples
 

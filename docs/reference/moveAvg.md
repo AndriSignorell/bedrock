@@ -107,9 +107,7 @@ There is no `na.rm` option; pre-filter with `x[!is.na(x)]` if needed
 [`forecast::ma()`](https://pkg.robjhyndman.com/forecast/reference/ma.html),
 [`stats::runmed()`](https://rdrr.io/r/stats/runmed.html)
 
-Other vector.window:
-[`midx()`](https://andrisignorell.github.io/bedrock/reference/midx.md),
-[`quot()`](https://andrisignorell.github.io/bedrock/reference/quot.md)
+Other vector.window: [`midx()`](midx.md), [`quot()`](quot.md)
 
 ## Examples
 

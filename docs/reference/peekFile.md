@@ -32,10 +32,8 @@ peekFile(file, n = 10, ..., output = c("data.frame", "tibble"))
 
   character, either `"data.frame"` (default) or `"tibble"`, determining
   the class of the returned object. Conversion to `data.frame` is done
-  by
-  [`toBaseR`](https://andrisignorell.github.io/bedrock/reference/toBaseR.md).
-  The argument can be abbreviated. Note that it must be given as a named
-  argument, as it follows the dots.
+  by [`toBaseR`](toBaseR.md). The argument can be abbreviated. Note that
+  it must be given as a named argument, as it follows the dots.
 
 ## Value
 
@@ -55,13 +53,11 @@ larger `guess_max` via the dots.
 ## See also
 
 [`readr::read_delim()`](https://readr.tidyverse.org/reference/read_delim.html),
-[`toBaseR()`](https://andrisignorell.github.io/bedrock/reference/toBaseR.md),
+[`toBaseR()`](toBaseR.md),
 [`head()`](https://rdrr.io/r/utils/head.html),
 
-Other file.io:
-[`parseSASDatalines()`](https://andrisignorell.github.io/bedrock/reference/parseSASDatalines.md),
-[`pdfManual()`](https://andrisignorell.github.io/bedrock/reference/pdfManual.md),
-[`readDownload()`](https://andrisignorell.github.io/bedrock/reference/readDownload.md)
+Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
+[`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md)
 
 ## Examples
 

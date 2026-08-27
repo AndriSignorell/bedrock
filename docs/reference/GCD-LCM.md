@@ -53,14 +53,10 @@ multiple of every number and the smallest non-negative one, so
 
 ## See also
 
-Other number.theory:
-[`digitSum()`](https://andrisignorell.github.io/bedrock/reference/digitSum.md),
-[`divisors()`](https://andrisignorell.github.io/bedrock/reference/divisors.md),
-[`factorize()`](https://andrisignorell.github.io/bedrock/reference/factorize.md),
-[`fibonacci()`](https://andrisignorell.github.io/bedrock/reference/fibonacci.md),
-[`isOdd()`](https://andrisignorell.github.io/bedrock/reference/isOdd.md),
-[`isPrime()`](https://andrisignorell.github.io/bedrock/reference/isPrime.md),
-[`primes()`](https://andrisignorell.github.io/bedrock/reference/primes.md)
+Other number.theory: [`digitSum()`](digitSum.md),
+[`divisors()`](divisors.md), [`factorize()`](factorize.md),
+[`fibonacci()`](fibonacci.md), [`isOdd()`](isOdd.md),
+[`isPrime()`](isPrime.md), [`primes()`](primes.md)
 
 ## Examples
 

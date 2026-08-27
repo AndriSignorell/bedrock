@@ -37,10 +37,8 @@ an object of the same sort as object with the new names assigned.
 
 [`setNames`](https://rdrr.io/r/stats/setNames.html)
 
-Other label.attrs:
-[`label()`](https://andrisignorell.github.io/bedrock/reference/label.md),
-[`renameX()`](https://andrisignorell.github.io/bedrock/reference/renameX.md),
-[`setAttr-removeAttr-keepAttr`](https://andrisignorell.github.io/bedrock/reference/setAttr-removeAttr-keepAttr.md)
+Other label.attrs: [`label()`](label.md), [`renameX()`](renameX.md),
+[`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md)
 
 ## Examples
 

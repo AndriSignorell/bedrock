@@ -85,3 +85,4 @@ isEuclid <- function(distmat, tol = 1e-07) {
 
   return(res)
 }
+

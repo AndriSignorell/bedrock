@@ -82,8 +82,7 @@ in packages.
 
 ## See also
 
-Other data.print:
-[`columnWrap()`](https://andrisignorell.github.io/bedrock/reference/columnWrap.md)
+Other data.print: [`columnWrap()`](columnWrap.md)
 
 ## Examples
 

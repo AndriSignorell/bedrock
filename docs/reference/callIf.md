@@ -70,11 +70,9 @@ explicit `NULL` can be used to reset an argument).
 
 ## See also
 
-Other pkg.args:
-[`extractArgs()`](https://andrisignorell.github.io/bedrock/reference/extractArgs.md),
-[`getDotsArg()`](https://andrisignorell.github.io/bedrock/reference/getDotsArg.md),
-[`mergeArgs()`](https://andrisignorell.github.io/bedrock/reference/mergeArgs.md),
-[`recycle()`](https://andrisignorell.github.io/bedrock/reference/recycle.md)
+Other pkg.args: [`extractArgs()`](extractArgs.md),
+[`getDotsArg()`](getDotsArg.md), [`mergeArgs()`](mergeArgs.md),
+[`recycle()`](recycle.md)
 
 ## Examples
 

@@ -40,13 +40,9 @@ If y is defined then all combinations of x and y are calculated.
 [`outer`](https://rdrr.io/r/base/outer.html),
 [`lower.tri`](https://rdrr.io/r/base/lower.tri.html)
 
-Other combinatorics:
-[`combN()`](https://andrisignorell.github.io/bedrock/reference/combN.md),
-[`combSet()`](https://andrisignorell.github.io/bedrock/reference/combSet.md),
-[`pairApply()`](https://andrisignorell.github.io/bedrock/reference/pairApply.md),
-[`permn()`](https://andrisignorell.github.io/bedrock/reference/permn.md),
-[`randGroupSplit()`](https://andrisignorell.github.io/bedrock/reference/randGroupSplit.md),
-[`sampleX()`](https://andrisignorell.github.io/bedrock/reference/sampleX.md)
+Other combinatorics: [`combN()`](combN.md), [`combSet()`](combSet.md),
+[`pairApply()`](pairApply.md), [`permn()`](permn.md),
+[`randGroupSplit()`](randGroupSplit.md), [`sampleX()`](sampleX.md)
 
 ## Examples
 

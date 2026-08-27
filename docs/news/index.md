@@ -1,6 +1,6 @@
 # Changelog
 
-## bedrock 0.1.2
+## bedrock 0.1.3
 
 ### Initial CRAN release
 
@@ -17,7 +17,3 @@ Parts of the code and documentation were reviewed with the help of large
 language models (OpenAI Codex, Anthropic Claude). Every suggestion was
 assessed, edited and verified by the maintainer, who remains solely
 responsible for the content of this package.
-
-## bedrock 0.0.0.9000
-
-- Initial development version.

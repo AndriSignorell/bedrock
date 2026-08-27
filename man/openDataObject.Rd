@@ -10,7 +10,8 @@ openDataObject(name, url = NULL, doc = NULL, ...)
 \item{name}{character string. File name including extension (e.g. \code{"data.xlsx"}).}
 
 \item{url}{character string. Base URL where the file is located.
-Defaults to \url{https://www.signorell.net/hwz/datasets/}.}
+Defaults to \code{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}.
+(see \url{https://github.com/AndriSignorell/Teaching/})}
 
 \item{doc}{list or \code{NA}. Defines the structure of the documentation sheet.
 If \code{NULL}, the function tries to detect a sheet named \code{"Description"}.

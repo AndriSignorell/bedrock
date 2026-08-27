@@ -22,15 +22,12 @@ isFilePath(x)
 
 ## See also
 
-[`isURL()`](https://andrisignorell.github.io/bedrock/reference/isURL.md)
-for the complementary URL check.
+[`isURL()`](isURL.md) for the complementary URL check.
 
-Other file.path:
-[`buildPath()`](https://andrisignorell.github.io/bedrock/reference/buildPath.md),
-[`fileExistURL()`](https://andrisignorell.github.io/bedrock/reference/fileExistURL.md),
-[`findDownload()`](https://andrisignorell.github.io/bedrock/reference/findDownload.md),
-[`isURL()`](https://andrisignorell.github.io/bedrock/reference/isURL.md),
-[`splitPath()`](https://andrisignorell.github.io/bedrock/reference/splitPath.md)
+Other file.path: [`buildPath()`](buildPath.md),
+[`fileExistURL()`](fileExistURL.md),
+[`findDownload()`](findDownload.md), [`isURL()`](isURL.md),
+[`splitPath()`](splitPath.md)
 
 ## Examples
 

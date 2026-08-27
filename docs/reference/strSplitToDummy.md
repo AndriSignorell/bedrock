@@ -66,9 +66,8 @@ and may not be syntactically valid R identifiers. The attribute
 [`strsplit`](https://rdrr.io/r/base/strsplit.html),
 [`na.omit`](https://rdrr.io/r/stats/na.fail.html)
 
-Other string.transform:
-[`mGsub()`](https://andrisignorell.github.io/bedrock/reference/mGsub.md),
-[`strSplitToCol()`](https://andrisignorell.github.io/bedrock/reference/strSplitToCol.md)
+Other string.transform: [`mGsub()`](mGsub.md),
+[`strSplitToCol()`](strSplitToCol.md)
 
 ## Examples
 

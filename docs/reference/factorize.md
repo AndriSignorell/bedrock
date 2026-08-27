@@ -41,14 +41,10 @@ integers exactly (e.g. via `gmp::as.bigz()` or a string).
 
 ## See also
 
-Other number.theory:
-[`GCD-LCM`](https://andrisignorell.github.io/bedrock/reference/GCD-LCM.md),
-[`digitSum()`](https://andrisignorell.github.io/bedrock/reference/digitSum.md),
-[`divisors()`](https://andrisignorell.github.io/bedrock/reference/divisors.md),
-[`fibonacci()`](https://andrisignorell.github.io/bedrock/reference/fibonacci.md),
-[`isOdd()`](https://andrisignorell.github.io/bedrock/reference/isOdd.md),
-[`isPrime()`](https://andrisignorell.github.io/bedrock/reference/isPrime.md),
-[`primes()`](https://andrisignorell.github.io/bedrock/reference/primes.md)
+Other number.theory: [`GCD-LCM`](GCD-LCM.md),
+[`digitSum()`](digitSum.md), [`divisors()`](divisors.md),
+[`fibonacci()`](fibonacci.md), [`isOdd()`](isOdd.md),
+[`isPrime()`](isPrime.md), [`primes()`](primes.md)
 
 ## Examples
 

@@ -69,11 +69,9 @@ occurrence of each value in the mapping vector.
 
 ## See also
 
-Other data.reshape:
-[`long-wide-reshape`](https://andrisignorell.github.io/bedrock/reference/long-wide-reshape.md),
-[`splitAt()`](https://andrisignorell.github.io/bedrock/reference/splitAt.md),
-[`splitX()`](https://andrisignorell.github.io/bedrock/reference/splitX.md),
-[`untable()`](https://andrisignorell.github.io/bedrock/reference/untable.md)
+Other data.reshape: [`long-wide-reshape`](long-wide-reshape.md),
+[`splitAt()`](splitAt.md), [`splitX()`](splitX.md),
+[`untable()`](untable.md)
 
 ## Examples
 

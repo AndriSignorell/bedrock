@@ -1,8 +1,7 @@
 # Extract Non-Zero Values
 
 Returns all non-zero elements of a vector. Zeroness is determined by
-[`isZero`](https://andrisignorell.github.io/bedrock/reference/isZero.md),
-i.e. within a numerical tolerance.
+[`isZero`](isZero.md), i.e. within a numerical tolerance.
 
 ## Usage
 
@@ -18,8 +17,7 @@ nz(x, tol = sqrt(.Machine$double.eps))
 
 - tol:
 
-  tolerance passed to
-  [`isZero`](https://andrisignorell.github.io/bedrock/reference/isZero.md).
+  tolerance passed to [`isZero`](isZero.md).
 
 ## Value
 
@@ -31,10 +29,9 @@ a vector containing only the non-zero elements of `x`.
 
 ## See also
 
-[`isZero`](https://andrisignorell.github.io/bedrock/reference/isZero.md)
+[`isZero`](isZero.md)
 
-Other vector.utils:
-[`unwhich()`](https://andrisignorell.github.io/bedrock/reference/unwhich.md)
+Other vector.utils: [`unwhich()`](unwhich.md)
 
 ## Examples
 

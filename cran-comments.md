@@ -28,8 +28,8 @@ This note is expected for a first submission.
 
 ## Notes on the check output
 
-* Examples, tests and the vignette run cleanly. The test suite comprises
-  2143 expectations with no failures and no skips; network dependent
+* Examples, tests and the vignette run cleanly. The test suite runs 
+  with no failures and no skips; network dependent
   functions are covered via `testthat::local_mocked_bindings()` and do
   not access the internet during checks.
 * Examples wrapped in `\dontrun{}` require either a local file, an

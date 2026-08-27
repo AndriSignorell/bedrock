@@ -26,18 +26,15 @@ an integer of length one.
 ## See also
 
 [`base::nlevels()`](https://rdrr.io/r/base/nlevels.html),
-[`isLowCardinality()`](https://andrisignorell.github.io/bedrock/reference/isLowCardinality.md)
-to check whether `x` has at most a given number of unique values,
-without counting all of them first.
+[`isLowCardinality()`](isLowCardinality.md) to check whether `x` has at
+most a given number of unique values, without counting all of them
+first.
 
-Other data.predicate:
-[`flags()`](https://andrisignorell.github.io/bedrock/reference/flags.md),
-[`isDichotomous()`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md),
-[`isEuclid()`](https://andrisignorell.github.io/bedrock/reference/isEuclid.md),
-[`isLowCardinality()`](https://andrisignorell.github.io/bedrock/reference/isLowCardinality.md),
-[`isNumeric()`](https://andrisignorell.github.io/bedrock/reference/isNumeric.md),
-[`isWholeLike()`](https://andrisignorell.github.io/bedrock/reference/isWholeLike.md),
-[`isZero()`](https://andrisignorell.github.io/bedrock/reference/isZero.md)
+Other data.predicate: [`flags()`](flags.md),
+[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
+[`isLowCardinality()`](isLowCardinality.md),
+[`isNumeric()`](isNumeric.md), [`isWholeLike()`](isWholeLike.md),
+[`isZero()`](isZero.md)
 
 ## Examples
 

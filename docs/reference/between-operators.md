@@ -62,8 +62,7 @@ Both arguments, `x` and `rng`, will be recycled to the highest
 dimension, which is either the length of the vector (`x`) or the number
 of rows of the matrix (`rng`).  
 See also the routines used to check, whether two ranges overlap
-([`overlap`](https://andrisignorell.github.io/bedrock/reference/intervals.md),
-[`distance`](https://andrisignorell.github.io/bedrock/reference/intervals.md)).
+([`overlap`](intervals.md), [`distance`](intervals.md)).
 
 The "OUTSIDE" operators are the negations of the corresponding "BETWEEN"
 operators, matched by *meaning* rather than by mirrored bracket symbols:
@@ -82,9 +81,8 @@ operators, matched by *meaning* rather than by mirrored bracket symbols:
 [`if`](https://rdrr.io/r/base/Control.html),
 [`ifelse`](https://rdrr.io/r/base/ifelse.html)
 
-Other data.interval:
-[`intervals`](https://andrisignorell.github.io/bedrock/reference/intervals.md),
-[`range-operators`](https://andrisignorell.github.io/bedrock/reference/range-operators.md)
+Other data.interval: [`intervals`](intervals.md),
+[`range-operators`](range-operators.md)
 
 ## Examples
 

@@ -7,7 +7,9 @@
 #'
 #' @param name character string. File name including extension (e.g. \code{"data.xlsx"}).
 #' @param url character string. Base URL where the file is located.
-#'   Defaults to \url{https://www.signorell.net/hwz/datasets/}.
+#'   Defaults to \code{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}.
+#'   (see \url{https://github.com/AndriSignorell/Teaching/})
+#'   
 #' @param doc list or \code{NA}. Defines the structure of the documentation sheet.
 #'   If \code{NULL}, the function tries to detect a sheet named \code{"Description"}.
 #'   If \code{NA}, no metadata processing is performed.

@@ -40,13 +40,10 @@ a numeric value.
 [`factorial`](https://rdrr.io/r/base/Special.html),
 `vignette("Combinatorics", package = "bedrock")`
 
-Other combinatorics:
-[`combPairs()`](https://andrisignorell.github.io/bedrock/reference/combPairs.md),
-[`combSet()`](https://andrisignorell.github.io/bedrock/reference/combSet.md),
-[`pairApply()`](https://andrisignorell.github.io/bedrock/reference/pairApply.md),
-[`permn()`](https://andrisignorell.github.io/bedrock/reference/permn.md),
-[`randGroupSplit()`](https://andrisignorell.github.io/bedrock/reference/randGroupSplit.md),
-[`sampleX()`](https://andrisignorell.github.io/bedrock/reference/sampleX.md)
+Other combinatorics: [`combPairs()`](combPairs.md),
+[`combSet()`](combSet.md), [`pairApply()`](pairApply.md),
+[`permn()`](permn.md), [`randGroupSplit()`](randGroupSplit.md),
+[`sampleX()`](sampleX.md)
 
 ## Examples
 

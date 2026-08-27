@@ -2,7 +2,7 @@
 
 Replaces specified values in a vector with `NA`, in the manner of SQL's
 `NULLIF`. This is the complementary operation to
-[`coalesceX`](https://andrisignorell.github.io/bedrock/reference/coalesceX.md).
+[`coalesceX`](coalesceX.md).
 
 ## Usage
 
@@ -26,11 +26,8 @@ a vector of the same type as `x`.
 
 ## See also
 
-Other vector.na:
-[`coalesceX()`](https://andrisignorell.github.io/bedrock/reference/coalesceX.md),
-[`isNA()`](https://andrisignorell.github.io/bedrock/reference/isNA.md),
-[`locf()`](https://andrisignorell.github.io/bedrock/reference/locf.md),
-[`naReplace()`](https://andrisignorell.github.io/bedrock/reference/naReplace.md)
+Other vector.na: [`coalesceX()`](coalesceX.md), [`isNA()`](isNA.md),
+[`locf()`](locf.md), [`naReplace()`](naReplace.md)
 
 ## Examples
 

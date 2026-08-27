@@ -36,11 +36,8 @@ an existing level, the missing values are simply filled with it.
 
 ## See also
 
-Other vector.na:
-[`coalesceX()`](https://andrisignorell.github.io/bedrock/reference/coalesceX.md),
-[`isNA()`](https://andrisignorell.github.io/bedrock/reference/isNA.md),
-[`locf()`](https://andrisignorell.github.io/bedrock/reference/locf.md),
-[`naIf()`](https://andrisignorell.github.io/bedrock/reference/naIf.md)
+Other vector.na: [`coalesceX()`](coalesceX.md), [`isNA()`](isNA.md),
+[`locf()`](locf.md), [`naIf()`](naIf.md)
 
 ## Examples
 

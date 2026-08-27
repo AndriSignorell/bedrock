@@ -59,19 +59,16 @@ independently for each value of `m`.
 
 ## See also
 
-[`combPairs`](https://andrisignorell.github.io/bedrock/reference/combPairs.md),
+[`combPairs`](combPairs.md),
 [`combn`](https://rdrr.io/r/utils/combn.html),
 [`choose`](https://rdrr.io/r/base/Special.html),
 [`factorial`](https://rdrr.io/r/base/Special.html),
 `vignette("Combinatorics")`
 
-Other combinatorics:
-[`combN()`](https://andrisignorell.github.io/bedrock/reference/combN.md),
-[`combPairs()`](https://andrisignorell.github.io/bedrock/reference/combPairs.md),
-[`pairApply()`](https://andrisignorell.github.io/bedrock/reference/pairApply.md),
-[`permn()`](https://andrisignorell.github.io/bedrock/reference/permn.md),
-[`randGroupSplit()`](https://andrisignorell.github.io/bedrock/reference/randGroupSplit.md),
-[`sampleX()`](https://andrisignorell.github.io/bedrock/reference/sampleX.md)
+Other combinatorics: [`combN()`](combN.md),
+[`combPairs()`](combPairs.md), [`pairApply()`](pairApply.md),
+[`permn()`](permn.md), [`randGroupSplit()`](randGroupSplit.md),
+[`sampleX()`](sampleX.md)
 
 ## Examples
 

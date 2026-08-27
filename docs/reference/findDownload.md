@@ -29,12 +29,9 @@ If the file does not exist, an error is thrown.
 
 ## See also
 
-Other file.path:
-[`buildPath()`](https://andrisignorell.github.io/bedrock/reference/buildPath.md),
-[`fileExistURL()`](https://andrisignorell.github.io/bedrock/reference/fileExistURL.md),
-[`isFilePath()`](https://andrisignorell.github.io/bedrock/reference/isFilePath.md),
-[`isURL()`](https://andrisignorell.github.io/bedrock/reference/isURL.md),
-[`splitPath()`](https://andrisignorell.github.io/bedrock/reference/splitPath.md)
+Other file.path: [`buildPath()`](buildPath.md),
+[`fileExistURL()`](fileExistURL.md), [`isFilePath()`](isFilePath.md),
+[`isURL()`](isURL.md), [`splitPath()`](splitPath.md)
 
 ## Examples
 

@@ -23,13 +23,12 @@ element `tab` contains the data for the single variables.
 
 ## See also
 
-[`pharos::plotMiss`](https://rdrr.io/pkg/pharos/man/plotMiss.html),
+[`pharos::plotMiss`](https://andrisignorell.github.io/pharos/reference/plotMiss.html),
 [`complete.cases`](https://rdrr.io/r/stats/complete.cases.html),
 [`is.na`](https://rdrr.io/r/base/NA.html),
 [`na.omit`](https://rdrr.io/r/stats/na.fail.html)
 
-Other data.missing:
-[`completeColumns()`](https://andrisignorell.github.io/bedrock/reference/completeColumns.md)
+Other data.missing: [`completeColumns()`](completeColumns.md)
 
 ## Examples
 

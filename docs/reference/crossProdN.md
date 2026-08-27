@@ -43,12 +43,9 @@ has a positive real part.
 
 ## See also
 
-Other math.basic:
-[`closest()`](https://andrisignorell.github.io/bedrock/reference/closest.md),
-[`crossProd()`](https://andrisignorell.github.io/bedrock/reference/crossProd.md),
-[`dotProd()`](https://andrisignorell.github.io/bedrock/reference/dotProd.md),
-[`roundTo()`](https://andrisignorell.github.io/bedrock/reference/roundTo.md),
-[`unirootAll()`](https://andrisignorell.github.io/bedrock/reference/unirootAll.md)
+Other math.basic: [`closest()`](closest.md),
+[`crossProd()`](crossProd.md), [`dotProd()`](dotProd.md),
+[`roundTo()`](roundTo.md), [`unirootAll()`](unirootAll.md)
 
 ## Examples
 

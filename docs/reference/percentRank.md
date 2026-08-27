@@ -30,8 +30,7 @@ The smallest value in `x` receives a percent rank of 0, and the largest
 value receives a percent rank of 1 (if there are at least two
 non-missing values).
 
-Ties are handled using `ties.method = "min"` via
-[`rankX`](https://andrisignorell.github.io/bedrock/reference/rankX.md),
+Ties are handled using `ties.method = "min"` via [`rankX`](rankX.md),
 meaning tied values receive the same minimal rank.
 
 Missing values (`NA`) are preserved in the output.
@@ -42,11 +41,9 @@ If `x` contains fewer than two non-missing values, all results are `NA`.
 
 [`base::rank()`](https://rdrr.io/r/base/rank.html)
 
-Other math.transform:
-[`linScale()`](https://andrisignorell.github.io/bedrock/reference/linScale.md),
-[`logit()`](https://andrisignorell.github.io/bedrock/reference/logit.md),
-[`rankX()`](https://andrisignorell.github.io/bedrock/reference/rankX.md),
-[`winsorize()`](https://andrisignorell.github.io/bedrock/reference/winsorize.md)
+Other math.transform: [`linScale()`](linScale.md),
+[`logit()`](logit.md), [`rankX()`](rankX.md),
+[`winsorize()`](winsorize.md)
 
 ## Examples
 

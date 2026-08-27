@@ -49,10 +49,8 @@ standard deviation is needed?
 
 ## See also
 
-Other vector.reshape:
-[`setLength()`](https://andrisignorell.github.io/bedrock/reference/setLength.md),
-[`vRot()`](https://andrisignorell.github.io/bedrock/reference/vRot.md),
-[`vShift()`](https://andrisignorell.github.io/bedrock/reference/vShift.md)
+Other vector.reshape: [`setLength()`](setLength.md),
+[`vRot()`](vRot.md), [`vShift()`](vShift.md)
 
 ## Examples
 

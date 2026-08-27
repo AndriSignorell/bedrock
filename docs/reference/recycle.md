@@ -42,11 +42,9 @@ rejected when `strict = TRUE`.
 [`rep`](https://rdrr.io/r/base/rep.html),
 [`replicate`](https://rdrr.io/r/base/lapply.html)
 
-Other pkg.args:
-[`callIf()`](https://andrisignorell.github.io/bedrock/reference/callIf.md),
-[`extractArgs()`](https://andrisignorell.github.io/bedrock/reference/extractArgs.md),
-[`getDotsArg()`](https://andrisignorell.github.io/bedrock/reference/getDotsArg.md),
-[`mergeArgs()`](https://andrisignorell.github.io/bedrock/reference/mergeArgs.md)
+Other pkg.args: [`callIf()`](callIf.md),
+[`extractArgs()`](extractArgs.md), [`getDotsArg()`](getDotsArg.md),
+[`mergeArgs()`](mergeArgs.md)
 
 ## Examples
 

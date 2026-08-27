@@ -41,12 +41,9 @@ The function is fully CRAN-compliant and does not rely on internal
 
 ## See also
 
-Other pkg.funinfo:
-[`funArgs()`](https://andrisignorell.github.io/bedrock/reference/funArgs.md),
-[`funCalls()`](https://andrisignorell.github.io/bedrock/reference/funCalls.md),
-[`funKeywords()`](https://andrisignorell.github.io/bedrock/reference/funKeywords.md),
-[`funList()`](https://andrisignorell.github.io/bedrock/reference/funList.md),
-[`rdTitle()`](https://andrisignorell.github.io/bedrock/reference/rdTitle.md)
+Other pkg.funinfo: [`funArgs()`](funArgs.md),
+[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
+[`funList()`](funList.md), [`rdTitle()`](rdTitle.md)
 
 ## Examples
 

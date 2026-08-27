@@ -17,7 +17,3 @@ language models (OpenAI Codex, Anthropic Claude). Every suggestion was
 assessed, edited and verified by the maintainer, who remains solely
 responsible for the content of this package.
 
-# bedrock 0.0.0.9000
-
-- Initial development version.
-

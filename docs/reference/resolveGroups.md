@@ -60,9 +60,8 @@ effect-size calculations and plotting functions.
 
 ## See also
 
-Other data.resolve:
-[`resolveContingency()`](https://andrisignorell.github.io/bedrock/reference/resolveContingency.md),
-[`resolveFormula()`](https://andrisignorell.github.io/bedrock/reference/resolveFormula.md)
+Other data.resolve: [`resolveContingency()`](resolveContingency.md),
+[`resolveFormula()`](resolveFormula.md)
 
 ## Examples
 

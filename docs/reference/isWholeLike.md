@@ -57,14 +57,11 @@ non-negative.
 
 ## See also
 
-Other data.predicate:
-[`flags()`](https://andrisignorell.github.io/bedrock/reference/flags.md),
-[`isDichotomous()`](https://andrisignorell.github.io/bedrock/reference/isDichotomous.md),
-[`isEuclid()`](https://andrisignorell.github.io/bedrock/reference/isEuclid.md),
-[`isLowCardinality()`](https://andrisignorell.github.io/bedrock/reference/isLowCardinality.md),
-[`isNumeric()`](https://andrisignorell.github.io/bedrock/reference/isNumeric.md),
-[`isZero()`](https://andrisignorell.github.io/bedrock/reference/isZero.md),
-[`nUnique()`](https://andrisignorell.github.io/bedrock/reference/nUnique.md)
+Other data.predicate: [`flags()`](flags.md),
+[`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),
+[`isLowCardinality()`](isLowCardinality.md),
+[`isNumeric()`](isNumeric.md), [`isZero()`](isZero.md),
+[`nUnique()`](nUnique.md)
 
 ## Examples
 
