@@ -34,12 +34,12 @@ baseToBase(x, from, to, width = NULL)
 
 - from:
 
-  a single integer in \\\[2, 36\]\\ specifying the input base
+  a single integer in \[2, 36\] specifying the input base
   (`baseToBase()` only).
 
 - to:
 
-  a single integer in \\\[2, 36\]\\ specifying the output base
+  a single integer in \[2, 36\] specifying the output base
   (`baseToBase()` only).
 
 - width:
@@ -94,7 +94,7 @@ direction.
 `baseToBase()` uses [`strtoi()`](https://rdrr.io/r/base/strtoi.html)
 internally, which operates on `long int`. On 32-bit platforms values
 above \\2^{31} - 1\\ may silently return `NA`. `decToBin()` applies the
-same cap explicitly (values \\\> 536\\870\\911\\ become `NA`).
+same cap explicitly (values \> `536870911` become `NA`).
 
 ## See also
 
