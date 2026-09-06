@@ -7,9 +7,9 @@
   };
 </script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Find multiple roots of a function within an interval — unirootAll"><meta name="description" content="Searches a numeric interval for all roots (zeros) of a function f
 by subdividing it into n sub-intervals, detecting sign changes, and
-refining each candidate with uniroot."><meta property="og:description" content="Searches a numeric interval for all roots (zeros) of a function f
+refining each candidate with uniroot()."><meta property="og:description" content="Searches a numeric interval for all roots (zeros) of a function f
 by subdividing it into n sub-intervals, detecting sign changes, and
-refining each candidate with uniroot."><meta property="og:image" content="/logo.png"></head><body>
+refining each candidate with uniroot()."><meta property="og:image" content="/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -17,7 +17,7 @@ refining each candidate with uniroot."><meta property="og:image" content="/logo.
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +54,7 @@ refining each candidate with uniroot."><meta property="og:image" content="/logo.
     <div class="ref-description section level2">
     <p>Searches a numeric interval for all roots (zeros) of a function <code>f</code>
 by subdividing it into <code>n</code> sub-intervals, detecting sign changes, and
-refining each candidate with <code><a href="https://rdrr.io/r/stats/uniroot.html" class="external-link">uniroot</a></code>.</p>
+refining each candidate with <code><a href="https://rdrr.io/r/stats/uniroot.html" class="external-link">uniroot()</a></code>.</p>
     </div>
 
     <div class="section level2">
@@ -97,14 +97,14 @@ Default: <code>max(interval)</code>.</p></dd>
 
 
 <dt id="arg-tol">tol<a class="anchor" aria-label="anchor" href="#arg-tol"></a></dt>
-<dd><p>convergence tolerance passed to <code><a href="https://rdrr.io/r/stats/uniroot.html" class="external-link">uniroot</a></code>,
+<dd><p>convergence tolerance passed to <code><a href="https://rdrr.io/r/stats/uniroot.html" class="external-link">uniroot()</a></code>,
 and also used as the threshold for (i) treating grid-point values as
 exact zeros and (ii) collapsing near-duplicate roots.
 Default: <code>.Machine$double.eps^0.5</code>.</p></dd>
 
 
 <dt id="arg-maxiter">maxiter<a class="anchor" aria-label="anchor" href="#arg-maxiter"></a></dt>
-<dd><p>maximum number of iterations for <code><a href="https://rdrr.io/r/stats/uniroot.html" class="external-link">uniroot</a></code>.
+<dd><p>maximum number of iterations for <code><a href="https://rdrr.io/r/stats/uniroot.html" class="external-link">uniroot()</a></code>.
 Default: <code>1000</code>.</p></dd>
 
 
@@ -142,7 +142,7 @@ all despite finite function values being present.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/stats/uniroot.html" class="external-link">uniroot</a></code> for the underlying single-root solver.</p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/stats/uniroot.html" class="external-link">stats::uniroot()</a></code> for the underlying single-root solver.</p>
 <p>Other math.basic:
 <code><a href="closest.html">closest()</a></code>,
 <code><a href="crossProd.html">crossProd()</a></code>,

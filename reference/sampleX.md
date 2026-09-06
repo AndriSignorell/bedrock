@@ -2,8 +2,8 @@
 
 `sampleX` takes a sample of the specified size from the elements of `x`,
 with or without replacement. It does the same as
-[`base::sample()`](https://rdrr.io/r/base/sample.html) and additionally
-offers an interface for data frames, where rows are sampled.
+[`sample()`](https://rdrr.io/r/base/sample.html) and additionally offers
+an interface for data frames, where rows are sampled.
 
 ## Usage
 
@@ -46,7 +46,7 @@ frame containing the sampled rows.
 
 ## See also
 
-[`sample`](https://rdrr.io/r/base/sample.html)
+[`sample()`](https://rdrr.io/r/base/sample.html)
 
 Other combinatorics: [`combN()`](combN.md),
 [`combPairs()`](combPairs.md), [`combSet()`](combSet.md),

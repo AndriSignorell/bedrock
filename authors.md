@@ -49,13 +49,13 @@ Source:
 [`DESCRIPTION`](https://github.com/AndriSignorell/bedrock/blob/main/DESCRIPTION)
 
 Signorell A (2026). *bedrock: Base Functions for the 'DescToolsX'
-Ecosystem*. R package version 0.1.5,
+Ecosystem*. R package version 0.1.6,
 <https://andrisignorell.github.io/bedrock/>.
 
     @Manual{,
       title = {bedrock: Base Functions for the 'DescToolsX' Ecosystem},
       author = {Andri Signorell},
       year = {2026},
-      note = {R package version 0.1.5},
+      note = {R package version 0.1.6},
       url = {https://andrisignorell.github.io/bedrock/},
     }

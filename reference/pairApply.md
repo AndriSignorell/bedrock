@@ -47,8 +47,8 @@ to the row variable and the second to the column variable.
 
 ## See also
 
-[`base::outer()`](https://rdrr.io/r/base/outer.html),
-[stats::pairwise.table](https://rdrr.io/r/stats/pairwise.table.html)
+[`outer()`](https://rdrr.io/r/base/outer.html),
+[`pairwise.table()`](https://rdrr.io/r/stats/pairwise.table.html)
 
 Other combinatorics: [`combN()`](combN.md),
 [`combPairs()`](combPairs.md), [`combSet()`](combSet.md),

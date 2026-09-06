@@ -36,15 +36,15 @@ values.
 ## Details
 
 An element is considered *complete* if it contains zero missing values.
-Internally, the function uses [`anyNA`](https://rdrr.io/r/base/NA.html)
-to detect missing values.
+Internally, the function uses
+[`anyNA()`](https://rdrr.io/r/base/NA.html) to detect missing values.
 
 ## See also
 
-[`anyNA`](https://rdrr.io/r/base/NA.html),
-[`is.na`](https://rdrr.io/r/base/NA.html),
-[`na.omit`](https://rdrr.io/r/stats/na.fail.html),
-[`complete.cases`](https://rdrr.io/r/stats/complete.cases.html)
+[`anyNA()`](https://rdrr.io/r/base/NA.html),
+[`is.na()`](https://rdrr.io/r/base/NA.html),
+[`na.omit()`](https://rdrr.io/r/stats/na.fail.html),
+[`complete.cases()`](https://rdrr.io/r/stats/complete.cases.html)
 
 Other data.missing: [`countCompCases()`](countCompCases.md)
 

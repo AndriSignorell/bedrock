@@ -1,7 +1,7 @@
 # Append Elements to Objects
 
-Generic function to append elements to vectors, matrices, and data
-frames.
+Generic function to append or insert elements to vectors, matrices, and
+data frames.
 
 ## Usage
 
@@ -60,7 +60,7 @@ object of the same class as `x`.
 
 ## See also
 
-[`append`](https://rdrr.io/r/base/append.html)
+[`append()`](https://rdrr.io/r/base/append.html)
 
 Other data.append: [`appendEnum()`](appendEnum.md),
 [`appendRowNames()`](appendRowNames.md), [`multMerge()`](multMerge.md)

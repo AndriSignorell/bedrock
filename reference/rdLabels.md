@@ -1,9 +1,10 @@
-# Extract variable labels from Rd documentation
+# Extract Variable Labels from Rd Documentation
 
-Extracts variable descriptions from the `\describe` section of a
-dataset's Rd documentation and returns them as a named character vector.
-The names correspond to variable names and the values to their
-descriptions.
+Reads the variable descriptions out of the `\describe` section of a
+documented dataset and returns them as a named character vector, the
+names being the variable names. This turns documentation that already
+exists into labels usable in tables, plots and codebooks, instead of
+maintaining the same descriptions a second time in the code.
 
 ## Usage
 
@@ -15,31 +16,37 @@ rdLabels(dataName, package)
 
 - dataName:
 
-  character string. Name of the dataset.
+  character string, the name of the dataset.
 
 - package:
 
-  character string. Name of the package containing the dataset.
+  character string, the name of the package holding the dataset.
 
 ## Value
 
-a named character vector where names are variable names and values are
-their corresponding descriptions extracted from the Rd file.
+a named character vector of variable descriptions, the names being the
+variable names.
 
 ## Details
 
-This function is useful for automatically generating variable labels
-from documented datasets in R packages.
+The Rd database is read with
+[`tools::Rd_db()`](https://rdrr.io/r/tools/Rdutils.html) and searched
+recursively for the first `\describe` section, from which all
+`\item{var}{description}` entries are taken. Only that first section is
+read: on a page documenting more than one dataset, the labels of the
+first one are returned.
 
-The function parses the Rd database via
-[`tools::Rd_db`](https://rdrr.io/r/tools/Rdutils.html) and recursively
-searches for the `\describe` section. It then extracts all
-`\item{var}{description}` entries.
+Descriptions are returned as written in the Rd file, with whitespace and
+line breaks collapsed to single spaces. Rd markup inside a description,
+such as `\code{}` or `\eqn{}`, contributes its content without the
+surrounding command.
 
-The function is fully CRAN-compliant and does not rely on internal
-(non-exported) functions.
+The package must be installed, as the documentation is read from the
+installed Rd database rather than from the sources.
 
 ## See also
+
+[`tools::Rd_db()`](https://rdrr.io/r/tools/Rdutils.html)
 
 Other pkg.funinfo: [`funArgs()`](funArgs.md),
 [`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
@@ -48,8 +55,9 @@ Other pkg.funinfo: [`funArgs()`](funArgs.md),
 ## Examples
 
 ``` r
-# Extract labels from a package dataset
 if (FALSE) { # \dontrun{
 rdLabels("Pizza", "bedrock")
+## price               temperature         delivery_min
+## "Price of the ..."  "Temperature ..."   "Delivery ..."
 } # }
 ```

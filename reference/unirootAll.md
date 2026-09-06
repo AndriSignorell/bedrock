@@ -3,7 +3,7 @@
 Searches a numeric interval for all roots (zeros) of a function `f` by
 subdividing it into `n` sub-intervals, detecting sign changes, and
 refining each candidate with
-[`uniroot`](https://rdrr.io/r/stats/uniroot.html).
+[`uniroot()`](https://rdrr.io/r/stats/uniroot.html).
 
 ## Usage
 
@@ -43,7 +43,7 @@ unirootAll(
 - tol:
 
   convergence tolerance passed to
-  [`uniroot`](https://rdrr.io/r/stats/uniroot.html), and also used as
+  [`uniroot()`](https://rdrr.io/r/stats/uniroot.html), and also used as
   the threshold for (i) treating grid-point values as exact zeros
   and (ii) collapsing near-duplicate roots. Default:
   `.Machine$double.eps^0.5`.
@@ -51,7 +51,7 @@ unirootAll(
 - maxiter:
 
   maximum number of iterations for
-  [`uniroot`](https://rdrr.io/r/stats/uniroot.html). Default: `1000`.
+  [`uniroot()`](https://rdrr.io/r/stats/uniroot.html). Default: `1000`.
 
 - n:
 
@@ -90,8 +90,8 @@ despite finite function values being present.
 
 ## See also
 
-[`uniroot`](https://rdrr.io/r/stats/uniroot.html) for the underlying
-single-root solver.
+[`stats::uniroot()`](https://rdrr.io/r/stats/uniroot.html) for the
+underlying single-root solver.
 
 Other math.basic: [`closest()`](closest.md),
 [`crossProd()`](crossProd.md), [`crossProdN()`](crossProdN.md),

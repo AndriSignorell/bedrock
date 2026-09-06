@@ -36,14 +36,14 @@ conjugate of \\x_i\\ (for real input this is simply \\\sum_i x_i y_i\\).
 For matrices, the dot product of each column of `x` with the
 corresponding column of `y` is returned.
 
-Note that [`crossprod`](https://rdrr.io/r/base/crossprod.html) does
+Note that [`crossprod()`](https://rdrr.io/r/base/crossprod.html) does
 *not* conjugate its first argument for complex input, so it computes
 \\t(X) Y\\ rather than the Hermitian inner product; this function does
 conjugate.
 
 ## See also
 
-[`crossprod`](https://rdrr.io/r/base/crossprod.html)
+[`crossprod()`](https://rdrr.io/r/base/crossprod.html)
 
 Other math.basic: [`closest()`](closest.md),
 [`crossProd()`](crossProd.md), [`crossProdN()`](crossProdN.md),

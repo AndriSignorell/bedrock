@@ -17,7 +17,7 @@ values above an upper limit are set to that upper limit."><meta property="og:ima
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,14 +100,14 @@ u &amp; \text{if } x \ge u
 $$
 where \(l\) and \(u\) denote the lower and upper bounds.</p>
 <p>The argument <code>val</code> allows full control over the limits. It can be:</p><ul><li><p>A numeric vector of length two specifying fixed bounds</p></li>
-<li><p>The result of a call to <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></code> (e.g. with custom <code>type</code>)</p></li>
+<li><p>The result of a call to <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile()</a></code> (e.g. with custom <code>type</code>)</p></li>
 </ul><p>Winsorization is commonly used in robust statistics to reduce the influence
 of outliers. In some cases, it can be beneficial to standardize the data
-(e.g., using <code><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale</a></code>) before applying winsorization.</p>
+(e.g., using <code><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale()</a></code>) before applying winsorization.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code>scaleX()</code>, <code>winsorize()</code> in package <span class="pkg">robustHD</span></p>
+    <div class="dont-index"><p><code>DescToolsX::scaleX()</code>, <code>robustHD::winsorize()</code></p>
 <p>Other math.transform:
 <code><a href="linScale.html">linScale()</a></code>,
 <code><a href="logit.html">logit()</a></code>,

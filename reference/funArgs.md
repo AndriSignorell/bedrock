@@ -52,8 +52,8 @@ depending on `output`:
 
 ## See also
 
-[`formals`](https://rdrr.io/r/base/formals.html),
-[`args`](https://rdrr.io/r/base/args.html)
+[`formals()`](https://rdrr.io/r/base/formals.html),
+[`args()`](https://rdrr.io/r/base/args.html)
 
 Other pkg.funinfo: [`funCalls()`](funCalls.md),
 [`funKeywords()`](funKeywords.md), [`funList()`](funList.md),

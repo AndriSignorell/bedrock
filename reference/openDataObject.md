@@ -55,7 +55,7 @@ such as:
 
 - Description (label)
 
-- Codes (e.g. "1=Male\r\n2=Female")
+- Codes (e.g. "1=Male \| 2=Female")
 
 - Scale ("nominal", "ordinal", etc.)
 
@@ -72,10 +72,10 @@ Other label.import: [`dataDescription()`](dataDescription.md)
 ``` r
 if (FALSE) { # \dontrun{
 # Load dataset with automatic metadata detection
-openDataObject("example.xlsx")
+openDataObject("beauty.xlsx")
 
 # Load dataset without metadata processing
-openDataObject("example.xlsx", doc = NA)
+openDataObject("beauty.xlsx", doc = NA)
 } # }
 
 ```

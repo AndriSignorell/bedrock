@@ -114,8 +114,7 @@ Predicates and checks for data quality and structure.
   [`linScale()`](reference/linScale.md), [`logit()`](reference/logit.md)
 - [`nDec()`](reference/precision.md),
   [`prec()`](reference/precision.md),
-  [`frac()`](reference/precision.md),
-  [`maxDigits()`](reference/precision.md)
+  [`frac()`](reference/precision.md), `maxDigits()`
 - [`rankX()`](reference/rankX.md),
   [`percentRank()`](reference/percentRank.md),
   [`nUnique()`](reference/nunique.md)

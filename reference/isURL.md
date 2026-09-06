@@ -22,7 +22,8 @@ isURL(x)
 
 ## See also
 
-[`isFilePath()`](isFilePath.md) for the complementary file-path check.
+For the complementary check on an existing path, see
+[`isFilePath()`](isFilePath.md).
 
 Other file.path: [`buildPath()`](buildPath.md),
 [`fileExistURL()`](fileExistURL.md),

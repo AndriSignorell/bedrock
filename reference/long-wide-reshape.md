@@ -49,7 +49,9 @@ one column per group.
 
 ## See also
 
-`reshape`, `stack`, `unstack`
+[`reshape()`](https://rdrr.io/r/stats/reshape.html),
+[`stack()`](https://rdrr.io/r/utils/stack.html),
+[`unstack()`](https://rdrr.io/r/utils/stack.html)
 
 Other data.reshape: [`collapseTable()`](collapseTable.md),
 [`splitAt()`](splitAt.md), [`splitX()`](splitX.md),

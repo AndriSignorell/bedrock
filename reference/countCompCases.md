@@ -24,9 +24,9 @@ element `tab` contains the data for the single variables.
 ## See also
 
 `pharos::plotMiss`,
-[`complete.cases`](https://rdrr.io/r/stats/complete.cases.html),
-[`is.na`](https://rdrr.io/r/base/NA.html),
-[`na.omit`](https://rdrr.io/r/stats/na.fail.html)
+[`complete.cases()`](https://rdrr.io/r/stats/complete.cases.html),
+[`is.na()`](https://rdrr.io/r/base/NA.html),
+[`na.omit()`](https://rdrr.io/r/stats/na.fail.html)
 
 Other data.missing: [`completeColumns()`](completeColumns.md)
 

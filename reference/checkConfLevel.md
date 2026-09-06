@@ -38,7 +38,8 @@ test a `NaN` would be silently accepted as "no interval wanted".
 
 ## See also
 
-[checkFlag](checkFlag.md)
+[`checkFlag()`](checkFlag.md), [`checkCount()`](checkCount.md),
+[`checkString()`](checkString.md)
 
 ## Examples
 

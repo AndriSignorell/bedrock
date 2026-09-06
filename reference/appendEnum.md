@@ -38,7 +38,7 @@ appendEnum(
 - after:
 
   position after which the column is inserted (see
-  [`appendX`](appendX.md)); default `0L` prepends it.
+  [`appendX()`](appendX.md)); default `0L` prepends it.
 
 - colName:
 
@@ -51,7 +51,7 @@ appendEnum(
 
 ## See also
 
-[`append`](https://rdrr.io/r/base/append.html)
+[`append()`](https://rdrr.io/r/base/append.html)
 
 Other data.append: [`appendRowNames()`](appendRowNames.md),
 [`appendX()`](appendX.md), [`multMerge()`](multMerge.md)

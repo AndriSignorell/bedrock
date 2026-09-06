@@ -1,6 +1,6 @@
 # Count Unique Values
 
-Returns the number of unique elements in a vector.
+Returns the number of unique vector elements.
 
 ## Usage
 
@@ -25,7 +25,7 @@ an integer of length one.
 
 ## See also
 
-[`base::nlevels()`](https://rdrr.io/r/base/nlevels.html),
+[`nlevels()`](https://rdrr.io/r/base/nlevels.html),
 [`isLowCardinality()`](isLowCardinality.md) to check whether `x` has at
 most a given number of unique values, without counting all of them
 first.

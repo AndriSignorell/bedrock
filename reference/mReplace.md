@@ -32,7 +32,7 @@ replaced. Non-matching elements are returned unchanged.
 
 ## See also
 
-[`mGsub`](mGsub.md) for substring replacement.
+[`mGsub()`](mGsub.md) for substring replacement.
 
 Other data.recode: [`asBinary()`](asBinary.md),
 [`combLevels()`](combLevels.md), [`dummy()`](dummy.md), [`nf()`](nf.md),

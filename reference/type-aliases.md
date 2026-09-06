@@ -33,7 +33,7 @@ bin(x, ...)
 
   further arguments passed to the underlying base function
   (`as.numeric`, `as.integer`, `as.character`, or
-  [`asBinary`](asBinary.md)).
+  [`asBinary()`](asBinary.md)).
 
 ## Value
 

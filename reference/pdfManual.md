@@ -30,7 +30,7 @@ locally, as the manual may well exist on CRAN anyway.
 
 ## See also
 
-[`browseURL`](https://rdrr.io/r/utils/browseURL.html)
+[`browseURL()`](https://rdrr.io/r/utils/browseURL.html)
 
 Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
 [`peekFile()`](peekFile.md), [`readDownload()`](readDownload.md)

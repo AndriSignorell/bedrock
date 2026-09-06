@@ -19,7 +19,7 @@ where \(n\) is the number of non-missing observations."><meta property="og:image
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,7 +85,7 @@ between 0 and 1.</p>
 <p>The smallest value in <code>x</code> receives a percent rank of 0, and the
 largest value receives a percent rank of 1 (if there are at least two
 non-missing values).</p>
-<p>Ties are handled using <code>ties.method = "min"</code> via <code><a href="rankX.html">rankX</a></code>,
+<p>Ties are handled using <code>ties.method = "min"</code> via <code><a href="rankX.html">rankX()</a></code>,
 meaning tied values receive the same minimal rank.</p>
 <p>Missing values (<code>NA</code>) are preserved in the output.</p>
 <p>If <code>x</code> contains fewer than two non-missing values, all results
@@ -93,7 +93,7 @@ are <code>NA</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/rank.html" class="external-link">base::rank()</a></code></p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/rank.html" class="external-link">rank()</a></code>, <code><a href="rankX.html">rankX()</a></code></p>
 <p>Other math.transform:
 <code><a href="linScale.html">linScale()</a></code>,
 <code><a href="logit.html">logit()</a></code>,

@@ -1,7 +1,7 @@
 # Extract the Title from an Rd Help File
 
 Searches all `.Rd` files in a package's `man/` directory for a given
-topic (matched against `\alias` entries) and returns its `\title`
+topic (matched against `\\alias` entries) and returns its `\\title`
 string.
 
 ## Usage
@@ -30,7 +30,7 @@ trailing whitespace. Stops with an error if `topic` is not found.
 
 ## See also
 
-[`parse_Rd`](https://rdrr.io/r/tools/parse_Rd.html)
+[`tools::parse_Rd()`](https://rdrr.io/r/tools/parse_Rd.html)
 
 Other pkg.funinfo: [`funArgs()`](funArgs.md),
 [`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),

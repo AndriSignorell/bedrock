@@ -32,8 +32,8 @@ length of the list equals `length(groupSizes)`.
 This function is useful for random group assignments, for example in
 teaching settings, simulations, or experimental designs where groups of
 unequal sizes are required. It uses
-[`sample`](https://rdrr.io/r/base/sample.html), so results can be made
-reproducible with [`set.seed`](https://rdrr.io/r/base/Random.html).
+[`sample()`](https://rdrr.io/r/base/sample.html), so results can be made
+reproducible with [`set.seed()`](https://rdrr.io/r/base/Random.html).
 
 ## See also
 

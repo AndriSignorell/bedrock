@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +96,7 @@ neighbour would report <code>FALSE</code> for <em>every</em> prime beyond the
 bound – silently, and with no way for the caller to notice. For larger
 numbers, use <code>gmp::isprime()</code> with a <code>gmp::as.bigz()</code> or
 character input.</p>
-<p><code><a href="factorize.html">factorize</a></code> carries the same bound but rejects the input
+<p><code><a href="factorize.html">factorize()</a></code> carries the same bound but rejects the input
 with an error instead. The difference is deliberate: <code><a href="factorize.html">factorize()</a></code>
 answers one number per call element and can refuse the call, whereas a
 vectorized predicate should not let a single unrepresentable element

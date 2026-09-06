@@ -45,7 +45,7 @@ The result has the row names resulting from the merge.
 
 ## See also
 
-[`merge`](https://rdrr.io/r/base/merge.html)
+[`merge()`](https://rdrr.io/r/base/merge.html)
 
 Other data.append: [`appendEnum()`](appendEnum.md),
 [`appendRowNames()`](appendRowNames.md), [`appendX()`](appendX.md)
@@ -53,39 +53,37 @@ Other data.append: [`appendEnum()`](appendEnum.md),
 ## Examples
 
 ``` r
+x1 <- setNamesX(data.frame(v = letters[1:6], w = 1:6),
+                rownames = LETTERS[1:6])
+x2 <- setNamesX(data.frame(v = letters[2:4], ww = 11:13),
+                rownames = LETTERS[2:4])
+x3 <- setNamesX(data.frame(v = letters[c(1, 3, 5, 7, 10)], wwww = 22:26),
+                rownames = LETTERS[c(1, 3, 5, 7, 10)])
 
-x1 <- setNamesX(data.frame(v=letters[1:6], w=1:6), 
-                rownames=c("A", "B", "C", "D", "E", "F"))
-x2 <- setNamesX(data.frame(v=letters[1:3], ww=11:13), 
-                rownames=c("B", "C", "D"))
-x3 <- setNamesX(data.frame(v=letters[12:16], wwww=22:26), 
-                rownames=c("A", "C", "E", "G", "J"))
-
-# default is "merge by rownames" 
+# the default merges on the row names and returns their union,
+# with NA wherever a frame has no such row
 multMerge(x1, x2, x3)
 #>      v  w  v.1 ww  v.2 wwww
-#> A    a  1 <NA> NA    l   22
-#> B    b  2    a 11 <NA>   NA
-#> C    c  3    b 12    m   23
-#> D    d  4    c 13 <NA>   NA
-#> E    e  5 <NA> NA    n   24
+#> A    a  1 <NA> NA    a   22
+#> B    b  2    b 11 <NA>   NA
+#> C    c  3    c 12    c   23
+#> D    d  4    d 13 <NA>   NA
+#> E    e  5 <NA> NA    e   24
 #> F    f  6 <NA> NA <NA>   NA
-#> G <NA> NA <NA> NA    o   25
-#> J <NA> NA <NA> NA    p   26
-# ... which does not really make sense here
+#> G <NA> NA <NA> NA    g   25
+#> J <NA> NA <NA> NA    j   26
 
-# merge by column v
-multMerge(x1, x2, x3, by="v")
-#>    v  w ww wwww
-#> 1  a  1 11   NA
-#> 2  b  2 12   NA
-#> 3  c  3 13   NA
-#> 4  d  4 NA   NA
-#> 5  e  5 NA   NA
-#> 6  f  6 NA   NA
-#> 7  l NA NA   22
-#> 8  m NA NA   23
-#> 9  n NA NA   24
-#> 10 o NA NA   25
-#> 11 p NA NA   26
+# v is not a key in the call above and is simply carried along from
+# each frame; here it becomes the key instead
+multMerge(x1, x2, x3, by = "v")
+#>   v  w ww wwww
+#> 1 a  1 NA   22
+#> 2 b  2 11   NA
+#> 3 c  3 12   23
+#> 4 d  4 13   NA
+#> 5 e  5 NA   24
+#> 6 f  6 NA   NA
+#> 7 g NA NA   25
+#> 8 j NA NA   26
+
 ```

@@ -15,7 +15,7 @@ shapes and transforms them to a specified interval."><meta property="og:image" c
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,14 +106,14 @@ are transformed to the interval specified by <code>bounds</code> as</p>
     <h2 id="random-number-generation">Random number generation<a class="anchor" aria-label="anchor" href="#random-number-generation"></a></h2>
 
 
-<p>The values are drawn with <code><a href="https://rdrr.io/r/stats/Beta.html" class="external-link">stats::rbeta()</a></code> and therefore depend on the
+<p>The values are drawn with <code><a href="https://rdrr.io/r/stats/Beta.html" class="external-link">rbeta()</a></code> and therefore depend on the
 state of R's global random number generator. No seed is set internally;
-call <code><a href="https://rdrr.io/r/base/Random.html" class="external-link">base::set.seed()</a></code> beforehand, or wrap the call in
+call <code><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed()</a></code> beforehand, or wrap the call in
 <code><a href="withSeed.html">withSeed()</a></code>, for reproducible results.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/stats/Beta.html" class="external-link">stats::rbeta()</a></code>, <code><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">stats::runif()</a></code></p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/stats/Beta.html" class="external-link">rbeta()</a></code>, <code><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif()</a></code></p>
 <p>Other random.numbers:
 <code><a href="rSum21.html">rSum21()</a></code></p></div>
     </div>

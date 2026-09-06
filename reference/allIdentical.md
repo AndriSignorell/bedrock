@@ -1,6 +1,6 @@
 # Test Whether Multiple Objects Are Identical
 
-Extends [`identical`](https://rdrr.io/r/base/identical.html) to more
+Extends [`identical()`](https://rdrr.io/r/base/identical.html) to more
 than two objects. Returns `TRUE` if all supplied objects are exactly
 identical, and `FALSE` otherwise.
 
@@ -31,7 +31,7 @@ elements of a list.
 
 ## See also
 
-[`identical`](https://rdrr.io/r/base/identical.html)
+[`identical()`](https://rdrr.io/r/base/identical.html)
 
 Other data.equal: [`allDuplicated()`](allDuplicated.md),
 [`compareDataFrames()`](compareDataFrames.md)

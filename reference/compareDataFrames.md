@@ -52,7 +52,7 @@ a named list with four elements:
 
 Only columns present in both data frames are compared. Rows are matched
 by the `key` column using
-[`identical`](https://rdrr.io/r/base/identical.html) for element-wise
+[`identical()`](https://rdrr.io/r/base/identical.html) for element-wise
 comparison, so type differences (e.g., `integer` vs. `double`) will be
 flagged as differences.
 

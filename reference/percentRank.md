@@ -30,7 +30,7 @@ The smallest value in `x` receives a percent rank of 0, and the largest
 value receives a percent rank of 1 (if there are at least two
 non-missing values).
 
-Ties are handled using `ties.method = "min"` via [`rankX`](rankX.md),
+Ties are handled using `ties.method = "min"` via [`rankX()`](rankX.md),
 meaning tied values receive the same minimal rank.
 
 Missing values (`NA`) are preserved in the output.
@@ -39,7 +39,7 @@ If `x` contains fewer than two non-missing values, all results are `NA`.
 
 ## See also
 
-[`base::rank()`](https://rdrr.io/r/base/rank.html)
+[`rank()`](https://rdrr.io/r/base/rank.html), [`rankX()`](rankX.md)
 
 Other math.transform: [`linScale()`](linScale.md),
 [`logit()`](logit.md), [`rankX()`](rankX.md),

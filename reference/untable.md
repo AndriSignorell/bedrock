@@ -69,10 +69,10 @@ For x being a vector this reduces to `rep(..., n)` with n as vector
 
 ## See also
 
-[`expand.grid`](https://rdrr.io/r/base/expand.grid.html),
-[`rep`](https://rdrr.io/r/base/rep.html),
-[`gl`](https://rdrr.io/r/base/gl.html),
-[`xtabs`](https://rdrr.io/r/stats/xtabs.html)
+[`expand.grid()`](https://rdrr.io/r/base/expand.grid.html),
+[`rep()`](https://rdrr.io/r/base/rep.html),
+[`gl()`](https://rdrr.io/r/base/gl.html),
+[`xtabs()`](https://rdrr.io/r/stats/xtabs.html)
 
 Other data.reshape: [`collapseTable()`](collapseTable.md),
 [`long-wide-reshape`](long-wide-reshape.md), [`splitAt()`](splitAt.md),

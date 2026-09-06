@@ -26,7 +26,7 @@ applySides(ci, sides = "two.sided", lo = -Inf, hi = Inf)
   `"right"`. It names the side carrying the *finite* bound, so `"left"`
   corresponds to `alternative = "greater"` in a test. Callers are
   expected to have resolved the value with
-  [`match.arg`](https://rdrr.io/r/base/match.arg.html) already; an
+  [`match.arg()`](https://rdrr.io/r/base/match.arg.html) already; an
   unmatched value is an error rather than a partial match.
 
 - lo, hi:
@@ -74,7 +74,7 @@ subtle enough to retype wrongly.
 
 ## See also
 
-[checkConfLevel](checkConfLevel.md), [checkFlag](checkFlag.md)
+[`checkConfLevel()`](checkConfLevel.md), [`checkFlag()`](checkFlag.md)
 
 ## Examples
 

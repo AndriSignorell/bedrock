@@ -68,10 +68,10 @@ if `x` was a `character` vector, the result will also be `character`.
 
 ## See also
 
-[`factor`](https://rdrr.io/r/base/factor.html),
-[`levels`](https://rdrr.io/r/base/levels.html),
-[`relevel`](https://rdrr.io/r/stats/relevel.html),
-[`reorder`](https://rdrr.io/r/stats/reorder.factor.html)  
+[`factor()`](https://rdrr.io/r/base/factor.html),
+[`levels()`](https://rdrr.io/r/base/levels.html),
+[`relevel()`](https://rdrr.io/r/stats/relevel.html),
+[`reorder()`](https://rdrr.io/r/stats/reorder.factor.html)  
 There's another solution for this problem in the package **car**.
 
 Other data.recode: [`asBinary()`](asBinary.md),

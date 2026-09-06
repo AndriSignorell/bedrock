@@ -42,7 +42,7 @@ column separately.
 
 ## Details
 
-[`NA`](https://rdrr.io/r/base/NA.html)'s propagate.
+[`NA()`](https://rdrr.io/r/base/NA.html)'s propagate.
 
 ## References
 
@@ -51,7 +51,7 @@ Language*. Wadsworth & Brooks/Cole.
 
 ## See also
 
-[`diff`](https://rdrr.io/r/base/diff.html)
+[`diff()`](https://rdrr.io/r/base/diff.html)
 
 Other vector.window: [`midx()`](midx.md), [`moveAvg()`](moveAvg.md)
 

@@ -39,8 +39,8 @@ rejected when `strict = TRUE`.
 
 ## See also
 
-[`rep`](https://rdrr.io/r/base/rep.html),
-[`replicate`](https://rdrr.io/r/base/lapply.html)
+[`rep()`](https://rdrr.io/r/base/rep.html),
+[`replicate()`](https://rdrr.io/r/base/lapply.html)
 
 Other pkg.args: [`callIf()`](callIf.md),
 [`extractArgs()`](extractArgs.md), [`getDotsArg()`](getDotsArg.md),

@@ -2,7 +2,7 @@
 
 Replaces specified values in a vector with `NA`, in the manner of SQL's
 `NULLIF`. This is the complementary operation to
-[`coalesceX`](coalesceX.md).
+[`coalesceX()`](coalesceX.md).
 
 ## Usage
 

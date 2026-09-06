@@ -67,10 +67,10 @@ Column names reflect the semantics of the coding: level names for
 
 [`model.frame()`](https://rdrr.io/r/stats/model.frame.html),
 [`contrasts()`](https://rdrr.io/r/stats/contrasts.html),
-[`stats::contr.treatment()`](https://rdrr.io/r/stats/contrast.html),
-[`stats::contr.sum()`](https://rdrr.io/r/stats/contrast.html),
-[`stats::contr.helmert()`](https://rdrr.io/r/stats/contrast.html),
-[`stats::contr.poly()`](https://rdrr.io/r/stats/contrast.html)
+[`contr.treatment()`](https://rdrr.io/r/stats/contrast.html),
+[`contr.sum()`](https://rdrr.io/r/stats/contrast.html),
+[`contr.helmert()`](https://rdrr.io/r/stats/contrast.html),
+[`contr.poly()`](https://rdrr.io/r/stats/contrast.html)
 
 Other data.recode: [`asBinary()`](asBinary.md),
 [`combLevels()`](combLevels.md), [`mReplace()`](mReplace.md),

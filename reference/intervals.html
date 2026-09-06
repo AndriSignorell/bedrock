@@ -19,7 +19,7 @@ sorted; rows are recycled to equal length."><meta property="og:image" content="/
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@ sorted; rows are recycled to equal length."><meta property="og:image" content="/
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Interval Arithmetic</h1>
-      <small class="dont-index">Source: <a href="https://github.com/AndriSignorell/bedrock/blob/main/R/overlap.R" class="external-link"><code>R/overlap.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/AndriSignorell/bedrock/blob/main/R/intervals.R" class="external-link"><code>R/intervals.R</code></a></small>
       <div class="d-none name"><code>intervals.Rd</code></div>
     </div>
 
@@ -110,6 +110,8 @@ intervals (0 if overlapping or touching).</p></dd>
     <p>Intervals are treated as closed, i.e., \([a, b]\). Consequently:</p><ul><li><p>Two intervals sharing only a boundary point have <code>overlap</code> 0
 but <code>overlaps</code> returns <code>TRUE</code>.</p></li>
 <li><p><code>distance</code> returns 0 whenever intervals touch or overlap.</p></li>
+<li><p>The returned vector is always unnamed, whatever dimnames the
+inputs carry.</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

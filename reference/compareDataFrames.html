@@ -15,7 +15,7 @@ present in only one of the two frames and columns that differ in matched rows.">
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,7 +100,7 @@ vectors naming the differing columns for that key).</p></dd>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Only columns present in both data frames are compared. Rows are matched by
-the <code>key</code> column using <code><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></code> for element-wise comparison,
+the <code>key</code> column using <code><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical()</a></code> for element-wise comparison,
 so type differences (e.g., <code>integer</code> vs. <code>double</code>) will be flagged
 as differences.</p>
 <p>The values of the <code>key</code> column must be unique in both data frames.</p>

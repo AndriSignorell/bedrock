@@ -114,8 +114,7 @@ Predicates and checks for data quality and structure.
   [`linScale()`](reference/linScale.md), [`logit()`](reference/logit.md)
 - [`nDec()`](reference/precision.md),
   [`prec()`](reference/precision.md),
-  [`frac()`](reference/precision.md),
-  [`maxDigits()`](reference/precision.md)
+  [`frac()`](reference/precision.md), `maxDigits()`
 - [`rankX()`](reference/rankX.md),
   [`percentRank()`](reference/percentRank.md),
   [`nUnique()`](reference/nunique.md)
@@ -298,8 +297,7 @@ Reshaping, recoding, ordering, and inspecting data structures.
 
 - [`binaryTree()`](binaryTree.md) : Binary Tree
 
-- [`revX()`](revX.md) : Reverse Elements of a Vector, a Matrix, a Table,
-  an Array or a Data.frame
+- [`revX()`](revX.md) : Reverse the Order of Elements
 
 - [`sortX()`](sortX.md) : Sort Vectors, Matrices, Tables, and Data
   Frames
@@ -366,6 +364,10 @@ Reshaping, recoding, ordering, and inspecting data structures.
 
 - [`checkFlag()`](checkFlag.md) : Validate a Logical Flag
 
+- [`checkCount()`](checkCount.md) : Validate a Count
+
+- [`checkString()`](checkString.md) : Validate a Character String
+
 - [`completeColumns()`](completeColumns.md) : Identify Columns Without
   Missing Values
 
@@ -378,8 +380,8 @@ Reshaping, recoding, ordering, and inspecting data structures.
 - [`printCharMatrix()`](printCharMatrix.md) : Pretty-print a character
   matrix with alignment, spacing and column splitting
 
-- [`resolveContingency()`](resolveContingency.md) : Resolve Contingency
-  Table
+- [`resolveContingency()`](resolveContingency.md) : Resolve a
+  Contingency Table
 
 - [`resolveFormula()`](resolveFormula.md) : Parse and Classify a Model
   Formula
@@ -434,12 +436,12 @@ Number theory, base conversion, and numerical utilities.
 - [`crossProdN()`](crossProdN.md) : Generalized Cross Product via
   Determinants
 - [`dotProd()`](dotProd.md) : Dot Product of Vectors or Matrices
-- [`roundTo()`](roundTo.md) : Round to Multiple
+- [`roundTo()`](roundTo.md) : Round to a Multiple
 - [`unirootAll()`](unirootAll.md) : Find multiple roots of a function
   within an interval
-- [`nDec()`](precision.md) [`prec()`](precision.md)
-  [`frac()`](precision.md) [`maxDigits()`](precision.md) : Precision,
-  Decimal Places and Fractional Part of a Numeric Value
+- [`nDec()`](precision.md) [`maxDec()`](precision.md)
+  [`prec()`](precision.md) [`frac()`](precision.md) : Precision, Decimal
+  Places and Fractional Part of a Numeric Value
 - [`linScale()`](linScale.md) : Linearly Rescale Numeric Data
 - [`logit()`](logit.md) [`logitInv()`](logit.md) : Logit Transformation
   and Its Inverse
@@ -532,8 +534,8 @@ Inspecting functions, arguments, and Rd documentation.
 - [`funCalls()`](funCalls.md) : List Calls Used in Function
 - [`funKeywords()`](funKeywords.md) : List Keywords For R Manual Pages
 - [`funList()`](funList.md) : List Functions in a Package
-- [`rdLabels()`](rdLabels.md) : Extract variable labels from Rd
-  documentation
+- [`rdLabels()`](rdLabels.md) : Extract Variable Labels from Rd
+  Documentation
 - [`rdTitle()`](rdTitle.md) : Extract the Title from an Rd Help File
 - [`callIf()`](callIf.md) : Conditionally Call a Function
 - [`extractArgs()`](extractArgs.md) : Extract Named Arguments from Dots
@@ -549,8 +551,8 @@ Inspecting functions, arguments, and Rd documentation.
 Example datasets shipped with bedrock.
 
 - [`Cards`](cards.md) : Playing Cards dataset
-- [`Pizza`](Pizza.md) : Pizza delivery data (extended)
-- [`Roulette`](roulette.md) : Roulette wheel dataset
+- [`Pizza`](Pizza.md) : Pizza Delivery Data (Extended)
+- [`Roulette`](roulette.md) : European Roulette Wheel
 - [`Tarot`](tarot.md) : Tarot Cards dataset
 - [`courseData()`](courseData.md) : Load Course Dataset from Server
 

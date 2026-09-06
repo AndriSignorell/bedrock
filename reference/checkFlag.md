@@ -38,7 +38,8 @@ down rather than here.
 
 ## See also
 
-[checkConfLevel](checkConfLevel.md)
+[`checkConfLevel()`](checkConfLevel.md),
+[`checkCount()`](checkCount.md), [`checkString()`](checkString.md)
 
 ## Examples
 

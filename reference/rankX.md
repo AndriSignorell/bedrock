@@ -76,7 +76,7 @@ an integer or numeric vector of ranks with the same length as the input.
 ## Details
 
 This function is a fast alternative to
-[`rank`](https://rdrr.io/r/base/rank.html), powered by
+[`rank()`](https://rdrr.io/r/base/rank.html), powered by
 [`data.table::frankv`](https://rdrr.io/pkg/data.table/man/frank.html).
 It extends base functionality by:
 
@@ -94,8 +94,8 @@ to:
 
 ## See also
 
-[`rank`](https://rdrr.io/r/base/rank.html),
-[`frankv`](https://rdrr.io/pkg/data.table/man/frank.html)
+[`rank()`](https://rdrr.io/r/base/rank.html),
+[`data.table::frankv()`](https://rdrr.io/pkg/data.table/man/frank.html)
 
 Other math.transform: [`linScale()`](linScale.md),
 [`logit()`](logit.md), [`percentRank()`](percentRank.md),

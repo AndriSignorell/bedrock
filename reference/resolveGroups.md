@@ -1,7 +1,12 @@
 # Resolve Grouped Data
 
-Standardizes grouped data supplied either as a numeric vector with
-grouping variable or as a list of group-specific vectors.
+Brings grouped data into one canonical shape, no matter which of the two
+usual interfaces the caller was given: a response vector together with a
+grouping variable, or a list holding one vector per group. The function
+validates the input, drops missing values, builds the grouping factor
+and returns the commonly needed group information, providing a shared
+entry point for hypothesis tests, summaries, effect-size calculations
+and plotting functions.
 
 ## Usage
 
@@ -13,12 +18,14 @@ resolveGroups(x, groups)
 
 - x:
 
-  a numeric vector of observations, or a list of numeric vectors.
+  a numeric vector of observations, or a list of numeric vectors, one
+  per group. A data frame is a list and is accepted as one, every column
+  being taken as a group.
 
 - groups:
 
-  a grouping variable of the same length as `x`. Ignored when `x` is a
-  list.
+  a grouping variable, a vector of the same length as `x`, coerced to a
+  factor. Ignored with a warning when `x` is a list.
 
 ## Value
 
@@ -26,37 +33,68 @@ a list containing:
 
 - x:
 
-  numeric response vector.
+  numeric vector of the observations, missing values removed. For a list
+  input the groups follow each other in the order of the list.
 
 - groups:
 
-  grouping factor.
+  factor of the same length as `x` holding the group membership.
 
 - n:
 
-  total number of observations.
+  integer, the total number of observations.
 
 - k:
 
-  number of groups.
+  integer, the number of groups.
 
-- group.sizes:
+- groupSizes:
 
-  group sample sizes.
+  named integer vector of the group sample sizes, in the order of the
+  levels.
 
-- group.names:
+- groupNames:
 
-  group labels.
+  character vector of the group labels, the levels of `groups`.
 
-- data.name:
+- dataName:
 
-  character description of the input.
+  character description of the input, for use as the `data.name` of an
+  `htest` object.
 
 ## Details
 
-Missing observations are removed and grouping information is returned in
-a consistent format suitable for hypothesis tests, summaries,
-effect-size calculations and plotting functions.
+The two input forms are treated as equivalent. For a list, every element
+is taken as one group and `groups` is ignored with a warning. For a
+vector, `groups` is coerced to a factor after the incomplete
+observations have been removed, so that empty levels are dropped. The
+levels of an input that already is a factor keep their order, everything
+else is ordered as [`factor()`](https://rdrr.io/r/base/factor.html)
+produces it.
+
+The names of a list become the group labels and their order becomes the
+order of the levels. As these labels end up in printed results, they
+must be complete and unique; a partially or ambiguously named list is an
+error rather than being silently renamed. A list without any names is
+labelled `"1"`, `"2"`, and so on.
+
+A data frame is a list of columns and is resolved as one, which covers
+the common case of one group per column. Its column names are complete
+and unique by construction and are used as the group labels. Note that
+the groups of a data frame all have the same length before the missing
+values are removed, so a ragged design has to be padded with `NA` or
+passed as a plain list.
+
+Missing values are removed in both cases, but along different rules.
+From a list every `NA` and `NaN` in a group is dropped, from a vector
+those observations are dropped where either the response or the grouping
+variable is missing. What remains must leave at least two groups, each
+of them non-empty.
+
+The returned `dataName` is built from the unevaluated arguments and is
+meant to be passed on to the `data.name` element of an `htest` object.
+It reads as `"x and g"` for a vector with a grouping variable and as the
+deparsed expression itself for a list.
 
 ## See also
 
@@ -70,63 +108,34 @@ Other data.resolve: [`resolveContingency()`](resolveContingency.md),
 set.seed(1)
 x <- rnorm(30)
 g <- rep(c("a", "b", "c"), each = 10)
-resolveGroups(x, g)
-#> $x
-#>  [1] -0.62645381  0.18364332 -0.83562861  1.59528080  0.32950777 -0.82046838
-#>  [7]  0.48742905  0.73832471  0.57578135 -0.30538839  1.51178117  0.38984324
-#> [13] -0.62124058 -2.21469989  1.12493092 -0.04493361 -0.01619026  0.94383621
-#> [19]  0.82122120  0.59390132  0.91897737  0.78213630  0.07456498 -1.98935170
-#> [25]  0.61982575 -0.05612874 -0.15579551 -1.47075238 -0.47815006  0.41794156
-#> 
-#> $groups
-#>  [1] a a a a a a a a a a b b b b b b b b b b c c c c c c c c c c
-#> Levels: a b c
-#> 
-#> $n
-#> [1] 30
-#> 
-#> $k
-#> [1] 3
-#> 
-#> $group.sizes
-#> groups
-#>  a  b  c 
-#> 10 10 10 
-#> 
-#> $group.names
-#> [1] "a" "b" "c"
-#> 
-#> $data.name
-#> [1] "x and g"
-#> 
+str(resolveGroups(x, g))
+#> List of 7
+#>  $ x         : num [1:30] -0.626 0.184 -0.836 1.595 0.33 ...
+#>  $ groups    : Factor w/ 3 levels "a","b","c": 1 1 1 1 1 1 1 1 1 1 ...
+#>  $ n         : int 30
+#>  $ k         : int 3
+#>  $ groupSizes: Named int [1:3] 10 10 10
+#>   ..- attr(*, "names")= chr [1:3] "a" "b" "c"
+#>  $ groupNames: chr [1:3] "a" "b" "c"
+#>  $ dataName  : chr "x and g"
 
-# list of group-specific vectors
-resolveGroups(list(a = rnorm(10), b = rnorm(12), c = rnorm(8)))
-#> $x
-#>  [1]  1.35867955 -0.10278773  0.38767161 -0.05380504 -1.37705956 -0.41499456
-#>  [7] -0.39428995 -0.05931340  1.10002537  0.76317575 -0.16452360 -0.25336168
-#> [13]  0.69696338  0.55666320 -0.68875569 -0.70749516  0.36458196  0.76853292
-#> [19] -0.11234621  0.88110773  0.39810588 -0.61202639  0.34111969 -1.12936310
-#> [25]  1.43302370  1.98039990 -0.36722148 -1.04413463  0.56971963 -0.13505460
-#> 
-#> $groups
-#>  [1] a a a a a a a a a a b b b b b b b b b b b b c c c c c c c c
-#> Levels: a b c
-#> 
-#> $n
-#> [1] 30
-#> 
+# list of group-specific vectors, the names become the labels
+resolveGroups(list(a = rnorm(10), b = rnorm(12), c = rnorm(8)))[c("k", "groupSizes")]
 #> $k
 #> [1] 3
 #> 
-#> $group.sizes
+#> $groupSizes
 #>  a  b  c 
 #> 10 12  8 
 #> 
-#> $group.names
-#> [1] "a" "b" "c"
-#> 
-#> $data.name
-#> [1] "list(a = rnorm(10), b = rnorm(12), c = rnorm(8))"
-#> 
+
+# both interfaces lead to the same result
+identical(resolveGroups(x, g)$groupSizes,
+          resolveGroups(split(x, g))$groupSizes)
+#> [1] TRUE
+
+# a data frame is resolved column by column
+resolveGroups(data.frame(ctrl = c(1, 2, 3), treat = c(4, 5, NA)))$groupSizes
+#>  ctrl treat 
+#>     3     2 
 ```

@@ -34,7 +34,7 @@ is linearly rescaled to the interval `[newLow, newHigh]`.
 ## Details
 
 The transformation is defined as: \$\$ x\_{scaled} = \frac{x -
-low}{high - low} \cdot (new\\high - new\\low) + new\\low \$\$
+low}{high - low} \cdot (newHigh - newLow) + newLow \$\$
 
 Constant columns (where `high == low`) are mapped to `newLow`.
 
@@ -43,7 +43,7 @@ are extrapolated linearly and are not clipped to the target range.
 
 ## See also
 
-[`scale`](https://rdrr.io/r/base/scale.html)
+[`scale()`](https://rdrr.io/r/base/scale.html), `DescToolsX::scaleX`
 
 Other math.transform: [`logit()`](logit.md),
 [`percentRank()`](percentRank.md), [`rankX()`](rankX.md),

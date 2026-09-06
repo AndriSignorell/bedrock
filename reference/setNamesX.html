@@ -9,15 +9,13 @@
 it including the new names. It is most useful at the end of a function
 definition where one is creating the object to be returned and would prefer
 not to store it under a name just that the names can be assigned. In
-addition to the function setNames in base R the user can
-decide, whether rownames, colnames or simply the names are to be set. Names
-are recyled."><meta property="og:description" content="This is a convenience function that sets the names of an object and returns
+addition to the function setNames() in base R the user can
+decide, whether rownames, colnames or simply the names are to be set."><meta property="og:description" content="This is a convenience function that sets the names of an object and returns
 it including the new names. It is most useful at the end of a function
 definition where one is creating the object to be returned and would prefer
 not to store it under a name just that the names can be assigned. In
-addition to the function setNames in base R the user can
-decide, whether rownames, colnames or simply the names are to be set. Names
-are recyled."><meta property="og:image" content="/logo.png"></head><body>
+addition to the function setNames() in base R the user can
+decide, whether rownames, colnames or simply the names are to be set."><meta property="og:image" content="/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -25,7 +23,7 @@ are recyled."><meta property="og:image" content="/logo.png"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,9 +62,8 @@ are recyled."><meta property="og:image" content="/logo.png"></head><body>
 it including the new names. It is most useful at the end of a function
 definition where one is creating the object to be returned and would prefer
 not to store it under a name just that the names can be assigned. In
-addition to the function <code><a href="https://rdrr.io/r/stats/setNames.html" class="external-link">setNames</a></code> in base R the user can
-decide, whether rownames, colnames or simply the names are to be set. Names
-are recyled.</p>
+addition to the function <code><a href="https://rdrr.io/r/stats/setNames.html" class="external-link">setNames()</a></code> in base R the user can
+decide, whether rownames, colnames or simply the names are to be set.</p>
     </div>
 
     <div class="section level2">
@@ -95,8 +92,17 @@ Default would be <code>names</code>. Abbreviations are supported.</p></dd>
     <p>an object of the same sort as object with the new names assigned.</p>
     </div>
     <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>A name of length one is recycled to the required extent, which is handy for
+blanking out names with <code>""</code>. Names of any other length must match the
+extent of the object exactly; a deviating length is reported as an error
+rather than being recycled silently, as an unexpected length is almost
+always a miscalculation upstream and duplicated names are hard to debug
+later on.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/stats/setNames.html" class="external-link">setNames</a></code></p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/stats/setNames.html" class="external-link">setNames()</a></code></p>
 <p>Other label.attrs:
 <code><a href="Label.html">label()</a></code>,
 <code><a href="renameX.html">renameX()</a></code>,
@@ -124,7 +130,7 @@ Default would be <code>names</code>. Abbreviations are supported.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M    3   7  11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> N    4   8  12</span>
 <span class="r-in"><span>         </span></span>
-<span class="r-in"><span><span class="co"># can also be used to set the names to an empty string</span></span></span>
+<span class="r-in"><span><span class="co"># a single name is recycled, so this sets all the names to an empty string</span></span></span>
 <span class="r-in"><span><span class="fu">setNamesX</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diag.html" class="external-link">diag</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span>, rownames<span class="op">=</span><span class="st">""</span>, colnames<span class="op">=</span><span class="st">""</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1 0 0 0 0 0</span>
@@ -133,6 +139,10 @@ Default would be <code>names</code>. Abbreviations are supported.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  0 0 0 1 0 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  0 0 0 0 1 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  0 0 0 0 0 1</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># any other length must fit, a mismatch is an error</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">setNamesX</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">4</span><span class="op">)</span>, colnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"perc"</span>, <span class="st">"lci"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error : length of 'colnames' [2] not equal to extent [3]</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># setting dimnames works as well</span></span></span>
 <span class="r-in"><span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu">setNamesX</span><span class="op">(</span></span></span>

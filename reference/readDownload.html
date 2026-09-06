@@ -15,7 +15,7 @@ frame. The file type is automatically detected from the extension."><meta proper
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +76,7 @@ for text files.</p></dd>
 <dt id="arg-output">output<a class="anchor" aria-label="anchor" href="#arg-output"></a></dt>
 <dd><p>character, either <code>"data.frame"</code> (default) or
 <code>"tibble"</code>, determining the class of the returned object.
-Conversion to <code>data.frame</code> is done by <code><a href="toBaseR.html">toBaseR</a></code>.
+Conversion to <code>data.frame</code> is done by <code><a href="toBaseR.html">toBaseR()</a></code>.
 The argument can be abbreviated. Note that it must be given as a
 named argument, as it follows the dots.</p></dd>
 
@@ -87,7 +87,7 @@ named argument, as it follows the dots.</p></dd>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>This is a convenience wrapper combining <code><a href="findDownload.html">findDownload</a></code> with
+    <p>This is a convenience wrapper combining <code><a href="findDownload.html">findDownload()</a></code> with
 common file readers:</p><ul><li><p>Excel files (<code>.xls</code>, <code>.xlsx</code>) via
 <code><a href="https://readxl.tidyverse.org/reference/read_excel.html" class="external-link">readxl::read_excel</a></code></p></li>
 <li><p>CSV files via <code><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">readr::read_csv</a></code></p></li>
@@ -100,9 +100,9 @@ it. By default, the result is converted to a base R <code>data.frame</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="findDownload.html">findDownload</a></code>,
-<code><a href="toBaseR.html">toBaseR</a></code>, <code><a href="https://readxl.tidyverse.org/reference/read_excel.html" class="external-link">read_excel</a></code>,
-<code><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></code></p>
+    <div class="dont-index"><p><code><a href="findDownload.html">findDownload()</a></code>,
+<code><a href="toBaseR.html">toBaseR()</a></code>, <code><a href="https://readxl.tidyverse.org/reference/read_excel.html" class="external-link">readxl::read_excel()</a></code>,
+<code><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">readr::read_csv()</a></code></p>
 <p>Other file.io:
 <code><a href="parseSASDatalines.html">parseSASDatalines()</a></code>,
 <code><a href="pdfManual.html">pdfManual()</a></code>,

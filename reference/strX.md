@@ -1,6 +1,6 @@
 # Extended str() with numbered variables
 
-Wrapper around [`utils::str()`](https://rdrr.io/r/utils/str.html) that
+Wrapper around [`str()`](https://rdrr.io/r/utils/str.html) that
 optionally numbers variables in lists and data frames. Useful for large
 objects where variables should be referenced by position.
 
@@ -19,7 +19,7 @@ strX(object, ..., enumerate = TRUE, recursive = FALSE, strict.width = "cut")
 - ...:
 
   additional arguments passed to
-  [`utils::str()`](https://rdrr.io/r/utils/str.html).
+  [`str()`](https://rdrr.io/r/utils/str.html).
 
 - enumerate:
 
@@ -34,18 +34,21 @@ strX(object, ..., enumerate = TRUE, recursive = FALSE, strict.width = "cut")
 - strict.width:
 
   character string passed to
-  [`utils::str()`](https://rdrr.io/r/utils/str.html). Default is
-  `"cut"`.
+  [`str()`](https://rdrr.io/r/utils/str.html). Default is `"cut"`.
 
 ## Value
 
 invisibly returns the character vector produced by
-[`utils::str()`](https://rdrr.io/r/utils/str.html).
+[`str()`](https://rdrr.io/r/utils/str.html).
 
 ## Details
 
 By default, only top-level elements are numbered. Recursive numbering of
 nested list elements can be enabled with `recursive = TRUE`.
+
+## See also
+
+[`str()`](https://rdrr.io/r/utils/str.html)
 
 ## Examples
 

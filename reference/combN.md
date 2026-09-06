@@ -35,9 +35,9 @@ a numeric value.
 
 ## See also
 
-[`combn`](https://rdrr.io/r/utils/combn.html),
-[`choose`](https://rdrr.io/r/base/Special.html),
-[`factorial`](https://rdrr.io/r/base/Special.html),
+[`combn()`](https://rdrr.io/r/utils/combn.html),
+[`choose()`](https://rdrr.io/r/base/Special.html),
+[`factorial()`](https://rdrr.io/r/base/Special.html),
 `vignette("Combinatorics", package = "bedrock")`
 
 Other combinatorics: [`combPairs()`](combPairs.md),

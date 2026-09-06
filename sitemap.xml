@@ -22,7 +22,9 @@
 <url><loc>/reference/cards.html</loc></url>
 <url><loc>/reference/char-ascii-conversion.html</loc></url>
 <url><loc>/reference/checkConfLevel.html</loc></url>
+<url><loc>/reference/checkCount.html</loc></url>
 <url><loc>/reference/checkFlag.html</loc></url>
+<url><loc>/reference/checkString.html</loc></url>
 <url><loc>/reference/closest.html</loc></url>
 <url><loc>/reference/coalesceX.html</loc></url>
 <url><loc>/reference/collapseTable.html</loc></url>

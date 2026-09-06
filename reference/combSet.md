@@ -59,10 +59,9 @@ independently for each value of `m`.
 
 ## See also
 
-[`combPairs`](combPairs.md),
-[`combn`](https://rdrr.io/r/utils/combn.html),
-[`choose`](https://rdrr.io/r/base/Special.html),
-[`factorial`](https://rdrr.io/r/base/Special.html),
+[`combn()`](https://rdrr.io/r/utils/combn.html),
+[`choose()`](https://rdrr.io/r/base/Special.html),
+[`factorial()`](https://rdrr.io/r/base/Special.html),
 `vignette("Combinatorics")`
 
 Other combinatorics: [`combN()`](combN.md),

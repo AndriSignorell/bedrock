@@ -5,9 +5,19 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Resolve Grouped Data — resolveGroups"><meta name="description" content="Standardizes grouped data supplied either as a numeric vector with
-grouping variable or as a list of group-specific vectors."><meta property="og:description" content="Standardizes grouped data supplied either as a numeric vector with
-grouping variable or as a list of group-specific vectors."><meta property="og:image" content="/logo.png"></head><body>
+</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Resolve Grouped Data — resolveGroups"><meta name="description" content="Brings grouped data into one canonical shape, no matter which of the two
+usual interfaces the caller was given: a response vector together with a
+grouping variable, or a list holding one vector per group. The function
+validates the input, drops missing values, builds the grouping factor and
+returns the commonly needed group information, providing a shared entry
+point for hypothesis tests, summaries, effect-size calculations and plotting
+functions."><meta property="og:description" content="Brings grouped data into one canonical shape, no matter which of the two
+usual interfaces the caller was given: a response vector together with a
+grouping variable, or a list holding one vector per group. The function
+validates the input, drops missing values, builds the grouping factor and
+returns the commonly needed group information, providing a shared entry
+point for hypothesis tests, summaries, effect-size calculations and plotting
+functions."><meta property="og:image" content="/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -15,7 +25,7 @@ grouping variable or as a list of group-specific vectors."><meta property="og:im
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,8 +60,13 @@ grouping variable or as a list of group-specific vectors."><meta property="og:im
     </div>
 
     <div class="ref-description section level2">
-    <p>Standardizes grouped data supplied either as a numeric vector with
-grouping variable or as a list of group-specific vectors.</p>
+    <p>Brings grouped data into one canonical shape, no matter which of the two
+usual interfaces the caller was given: a response vector together with a
+grouping variable, or a list holding one vector per group. The function
+validates the input, drops missing values, builds the grouping factor and
+returns the commonly needed group information, providing a shared entry
+point for hypothesis tests, summaries, effect-size calculations and plotting
+functions.</p>
     </div>
 
     <div class="section level2">
@@ -64,44 +79,74 @@ grouping variable or as a list of group-specific vectors.</p>
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>a numeric vector of observations, or a list of numeric vectors.</p></dd>
+<dd><p>a numeric vector of observations, or a list of numeric vectors,
+one per group. A data frame is a list and is accepted as one, every
+column being taken as a group.</p></dd>
 
 
 <dt id="arg-groups">groups<a class="anchor" aria-label="anchor" href="#arg-groups"></a></dt>
-<dd><p>a grouping variable of the same length as <code>x</code>.
-Ignored when <code>x</code> is a list.</p></dd>
+<dd><p>a grouping variable, a vector of the same length as <code>x</code>,
+coerced to a factor. Ignored with a warning when <code>x</code> is a list.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>a list containing:</p><dl><dt>x</dt>
-<dd><p>numeric response vector.</p></dd>
+<dd><p>numeric vector of the observations, missing values removed. For
+a list input the groups follow each other in the order of the list.</p></dd>
 
 <dt>groups</dt>
-<dd><p>grouping factor.</p></dd>
+<dd><p>factor of the same length as <code>x</code> holding the group
+membership.</p></dd>
 
 <dt>n</dt>
-<dd><p>total number of observations.</p></dd>
+<dd><p>integer, the total number of observations.</p></dd>
 
 <dt>k</dt>
-<dd><p>number of groups.</p></dd>
+<dd><p>integer, the number of groups.</p></dd>
 
-<dt>group.sizes</dt>
-<dd><p>group sample sizes.</p></dd>
+<dt>groupSizes</dt>
+<dd><p>named integer vector of the group sample sizes, in the
+order of the levels.</p></dd>
 
-<dt>group.names</dt>
-<dd><p>group labels.</p></dd>
+<dt>groupNames</dt>
+<dd><p>character vector of the group labels, the levels of
+<code>groups</code>.</p></dd>
 
-<dt>data.name</dt>
-<dd><p>character description of the input.</p></dd>
+<dt>dataName</dt>
+<dd><p>character description of the input, for use as the
+<code>data.name</code> of an <code>htest</code> object.</p></dd>
 
 
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Missing observations are removed and grouping information is returned
-in a consistent format suitable for hypothesis tests, summaries,
-effect-size calculations and plotting functions.</p>
+    <p>The two input forms are treated as equivalent. For a list, every element is
+taken as one group and <code>groups</code> is ignored with a warning. For a vector,
+<code>groups</code> is coerced to a factor after the incomplete observations have been
+removed, so that empty levels are dropped. The levels of an input that
+already is a factor keep their order, everything else is ordered as
+<code><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor()</a></code> produces it.</p>
+<p>The names of a list become the group labels and their order becomes the
+order of the levels. As these labels end up in printed results, they must be
+complete and unique; a partially or ambiguously named list is an error
+rather than being silently renamed. A list without any names is labelled
+<code>"1"</code>, <code>"2"</code>, and so on.</p>
+<p>A data frame is a list of columns and is resolved as one, which covers the
+common case of one group per column. Its column names are complete and
+unique by construction and are used as the group labels. Note that the
+groups of a data frame all have the same length before the missing values
+are removed, so a ragged design has to be padded with <code>NA</code> or passed as a
+plain list.</p>
+<p>Missing values are removed in both cases, but along different rules. From a
+list every <code>NA</code> and <code>NaN</code> in a group is dropped, from a vector those
+observations are dropped where either the response or the grouping variable
+is missing. What remains must leave at least two groups, each of them
+non-empty.</p>
+<p>The returned <code>dataName</code> is built from the unevaluated arguments and is meant
+to be passed on to the <code>data.name</code> element of an <code>htest</code> object. It reads as
+<code>"x and g"</code> for a vector with a grouping variable and as the deparsed
+expression itself for a list.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -116,65 +161,36 @@ effect-size calculations and plotting functions.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">30</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">resolveGroups</span><span class="op">(</span><span class="va">x</span>, <span class="va">g</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] -0.62645381  0.18364332 -0.83562861  1.59528080  0.32950777 -0.82046838</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7]  0.48742905  0.73832471  0.57578135 -0.30538839  1.51178117  0.38984324</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] -0.62124058 -2.21469989  1.12493092 -0.04493361 -0.01619026  0.94383621</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19]  0.82122120  0.59390132  0.91897737  0.78213630  0.07456498 -1.98935170</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25]  0.61982575 -0.05612874 -0.15579551 -1.47075238 -0.47815006  0.41794156</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $groups</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] a a a a a a a a a a b b b b b b b b b b c c c c c c c c c c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Levels: a b c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $k</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $group.sizes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> groups</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  a  b  c </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 10 10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $group.names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "b" "c"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data.name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "x and g"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu">resolveGroups</span><span class="op">(</span><span class="va">x</span>, <span class="va">g</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> List of 7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ x         : num [1:30] -0.626 0.184 -0.836 1.595 0.33 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ groups    : Factor w/ 3 levels "a","b","c": 1 1 1 1 1 1 1 1 1 1 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ n         : int 30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ k         : int 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ groupSizes: Named int [1:3] 10 10 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..- attr(*, "names")= chr [1:3] "a" "b" "c"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ groupNames: chr [1:3] "a" "b" "c"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ dataName  : chr "x and g"</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># list of group-specific vectors</span></span></span>
-<span class="r-in"><span><span class="fu">resolveGroups</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  1.35867955 -0.10278773  0.38767161 -0.05380504 -1.37705956 -0.41499456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] -0.39428995 -0.05931340  1.10002537  0.76317575 -0.16452360 -0.25336168</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13]  0.69696338  0.55666320 -0.68875569 -0.70749516  0.36458196  0.76853292</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] -0.11234621  0.88110773  0.39810588 -0.61202639  0.34111969 -1.12936310</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25]  1.43302370  1.98039990 -0.36722148 -1.04413463  0.56971963 -0.13505460</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $groups</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] a a a a a a a a a a b b b b b b b b b b b b c c c c c c c c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Levels: a b c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="co"># list of group-specific vectors, the names become the labels</span></span></span>
+<span class="r-in"><span><span class="fu">resolveGroups</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"k"</span>, <span class="st">"groupSizes"</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $k</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $group.sizes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $groupSizes</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  a  b  c </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 12  8 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $group.names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a" "b" "c"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data.name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "list(a = rnorm(10), b = rnorm(12), c = rnorm(8))"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># both interfaces lead to the same result</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="fu">resolveGroups</span><span class="op">(</span><span class="va">x</span>, <span class="va">g</span><span class="op">)</span><span class="op">$</span><span class="va">groupSizes</span>,</span></span>
+<span class="r-in"><span>          <span class="fu">resolveGroups</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/split.html" class="external-link">split</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">g</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">groupSizes</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># a data frame is resolved column by column</span></span></span>
+<span class="r-in"><span><span class="fu">resolveGroups</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ctrl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, treat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">groupSizes</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ctrl treat </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3     2 </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
