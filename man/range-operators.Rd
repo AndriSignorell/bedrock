@@ -50,4 +50,3 @@ Other data.interval:
 }
 \concept{data.interval}
 \concept{range}
-\concept{range-selection}

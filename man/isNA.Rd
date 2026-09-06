@@ -19,10 +19,10 @@ Check whether an object is a single missing value (\code{NA}).
 \details{
 This is a strict helper that returns \code{TRUE} only if \code{x} is an
 atomic vector of length one and equal to \code{NA}. In contrast to
-\code{\link{is.na}}, which is vectorized, \code{isNA} is intended for
+\code{\link[=is.na]{is.na()}}, which is vectorized, \code{isNA} is intended for
 scalar checks, e.g. in conditional statements.
 
-This function differs from \code{\link{is.na}} in that it:
+This function differs from \code{\link[=is.na]{is.na()}} in that it:
 \itemize{
 \item Only returns \code{TRUE} for length-one inputs
 \item Returns a single logical value (not vectorized)
@@ -30,9 +30,9 @@ This function differs from \code{\link{is.na}} in that it:
 }
 }
 \examples{
-isNA(NA)
-isNA(NA_real_)
-isNA(NA_integer_)
+isNA(NA)             # TRUE
+isNA(NA_real_)       # TRUE
+isNA(NA_integer_)    # TRUE
 
 isNA(c(NA, NA))      # FALSE (length > 1)
 isNA(NULL)           # FALSE

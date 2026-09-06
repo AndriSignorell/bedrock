@@ -75,4 +75,4 @@ Other data.recode:
 }
 \concept{binary}
 \concept{data.recode}
-\concept{type-coercion}
+\concept{encoding}

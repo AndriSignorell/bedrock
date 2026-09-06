@@ -36,7 +36,7 @@ matrix.
 
 ## See also
 
-[`append`](https://rdrr.io/r/base/append.html)
+[`append()`](https://rdrr.io/r/base/append.html)
 
 Other data.append: [`appendEnum()`](appendEnum.md),
 [`appendX()`](appendX.md), [`multMerge()`](multMerge.md)

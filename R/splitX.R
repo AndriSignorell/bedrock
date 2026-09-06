@@ -1,37 +1,38 @@
+
 #' Split Data into Groups (Extended Interface)
 #'
 #' Splits a vector or object into groups defined by a factor or grouping variables.
-#' This is a wrapper around \code{\link[base]{split}} with an additional
+#' This is a wrapper around [split()] with an additional
 #' formula interface.
 #'
 #' @param x object to be split (typically a vector).
 #' @param f a factor or list of factors defining the groups (default method).
-#' @param formula a formula of the form \code{y ~ group} or \code{y ~ g1 + g2}
-#' specifying the variable to split (\code{y}) and the grouping variables.
+#' @param formula a formula of the form `y ~ group` or `y ~ g1 + g2`
+#' specifying the variable to split (`y`) and the grouping variables.
 #' @param data a data frame containing the variables in the formula.
 #' @param subset optional logical expression indicating rows to include.
 #' @param na.action a function specifying how missing values are handled,
-#' passed to \code{\link[stats]{model.frame}}
-#' (e.g., \code{\link[stats]{na.omit}}).
-#' @param drop logical; if \code{TRUE}, unused factor levels are dropped.
-#' @param ... further arguments passed to \code{\link[base]{split}}.
+#' passed to [model.frame()]
+#' (e.g., [na.omit()]).
+#' @param drop logical; if `TRUE`, unused factor levels are dropped.
+#' @param ... further arguments passed to [split()].
 #'
 #' @details
-#' \code{splitX} extends \code{\link[base]{split}} by providing:
+#' `splitX` extends [split()] by providing:
 #' \itemize{
 #'   \item an S3 interface
 #'   \item a formula method for convenient specification of variables
 #'   \item support for multiple grouping variables via formula
 #' }
 #'
-#' The formula interface evaluates a \code{\link[stats]{model.frame}} and splits
+#' The formula interface evaluates a [model.frame()] and splits
 #' the response variable by one or more grouping variables.
 #'
 #' If multiple grouping variables are provided, the data are split by their
-#' interaction (similar to \code{split(..., interaction(...))}).
+#' interaction (similar to `split(..., interaction(...))`).
 #'
 #' @return
-#' a list of subsets of \code{x}, grouped according to \code{f} or the
+#' a list of subsets of `x`, grouped according to `f` or the
 #' grouping variables in the formula.
 #'
 #' @examples

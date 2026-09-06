@@ -19,7 +19,7 @@ path separator.}
 a list with the following components (each a vector of the same
 length as \code{path}):
 \describe{
-\item{normpath}{normalized path as returned by \code{\link{normalizePath}}.}
+\item{normpath}{normalized path as returned by \code{\link[=normalizePath]{normalizePath()}}.}
 \item{drive}{drive letter on Windows systems (e.g., \code{"C:"}),
 otherwise \code{NA}.}
 \item{dirname}{directory path without drive letter, including trailing
@@ -37,9 +37,9 @@ and extension. The function is OS-aware and works on both Windows
 and Unix-like systems.
 }
 \details{
-The function uses \code{\link{basename}} and \code{\link{dirname}} for
+The function uses \code{\link[=basename]{basename()}} and \code{\link[=dirname]{dirname()}} for
 platform-independent path handling. File name and extension are extracted
-using \code{\link[tools]{file_path_sans_ext}} and \code{\link[tools]{file_ext}}.
+using \code{\link[tools:file_path_sans_ext]{tools::file_path_sans_ext()}} and \code{\link[tools:file_ext]{tools::file_ext()}}.
 
 If \code{lastIsFile = FALSE}, the path is treated as a directory and
 file-related components (\code{fullfilename}, \code{filename},
@@ -55,8 +55,8 @@ splitPath("/home/user/folder/", lastIsFile = FALSE)
 
 }
 \seealso{
-\code{\link{basename}}, \code{\link{dirname}},
-\code{\link[tools]{file_ext}}, \code{\link[tools]{file_path_sans_ext}}
+\code{\link[=basename]{basename()}}, \code{\link[=dirname]{dirname()}},
+\code{\link[tools:file_ext]{tools::file_ext()}}, \code{\link[tools:file_path_sans_ext]{tools::file_path_sans_ext()}}
 
 Other file.path:
 \code{\link[=buildPath]{buildPath()}},

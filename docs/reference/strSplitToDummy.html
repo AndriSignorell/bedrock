@@ -15,7 +15,7 @@ data.frame where each unique token becomes a column."><meta property="og:image" 
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,8 +78,8 @@ each token after splitting.</p></dd>
 
 <dt id="arg-na-action">na.action<a class="anchor" aria-label="anchor" href="#arg-na-action"></a></dt>
 <dd><p>a function to handle <code>NA</code> values. Accepted values are
-<code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.pass</a></code> (default), <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit</a></code>,
-<code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.exclude</a></code>, and <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.fail</a></code>.</p><dl><dt><code>na.pass</code></dt>
+<code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.pass()</a></code> (default), <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit()</a></code>,
+<code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.exclude()</a></code>, and <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.fail()</a></code>.</p><dl><dt><code>na.pass</code></dt>
 <dd><p>NAs are kept as all-zero rows (default).</p></dd>
 
 <dt><code>na.omit</code></dt>
@@ -97,7 +97,7 @@ rows are stored in a <code>"na.action"</code> attribute.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>additional arguments passed to <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></code>.</p></dd>
+<dd><p>additional arguments passed to <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit()</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -110,8 +110,9 @@ unique tokens.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></code>, <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit</a></code></p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit()</a></code>, <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit()</a></code></p>
 <p>Other string.transform:
+<code><a href="char-ascii-conversion.html">char-ascii-conversion</a></code>,
 <code><a href="mGsub.html">mGsub()</a></code>,
 <code><a href="strSplitToCol.html">strSplitToCol()</a></code></p></div>
     </div>

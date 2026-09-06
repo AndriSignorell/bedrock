@@ -2,8 +2,8 @@
 
 Splits a vector or object into groups defined by a factor or grouping
 variables. This is a wrapper around
-[`split`](https://rdrr.io/r/base/split.html) with an additional formula
-interface.
+[`split()`](https://rdrr.io/r/base/split.html) with an additional
+formula interface.
 
 ## Usage
 
@@ -26,7 +26,7 @@ splitX(formula, data, subset, na.action, drop = FALSE, ...)
 - ...:
 
   further arguments passed to
-  [`split`](https://rdrr.io/r/base/split.html).
+  [`split()`](https://rdrr.io/r/base/split.html).
 
 - f:
 
@@ -52,8 +52,8 @@ splitX(formula, data, subset, na.action, drop = FALSE, ...)
 - na.action:
 
   a function specifying how missing values are handled, passed to
-  [`model.frame`](https://rdrr.io/r/stats/model.frame.html) (e.g.,
-  [`na.omit`](https://rdrr.io/r/stats/na.fail.html)).
+  [`model.frame()`](https://rdrr.io/r/stats/model.frame.html) (e.g.,
+  [`na.omit()`](https://rdrr.io/r/stats/na.fail.html)).
 
 ## Value
 
@@ -62,7 +62,7 @@ variables in the formula.
 
 ## Details
 
-`splitX` extends [`split`](https://rdrr.io/r/base/split.html) by
+`splitX` extends [`split()`](https://rdrr.io/r/base/split.html) by
 providing:
 
 - an S3 interface
@@ -72,8 +72,8 @@ providing:
 - support for multiple grouping variables via formula
 
 The formula interface evaluates a
-[`model.frame`](https://rdrr.io/r/stats/model.frame.html) and splits the
-response variable by one or more grouping variables.
+[`model.frame()`](https://rdrr.io/r/stats/model.frame.html) and splits
+the response variable by one or more grouping variables.
 
 If multiple grouping variables are provided, the data are split by their
 interaction (similar to `split(..., interaction(...))`).

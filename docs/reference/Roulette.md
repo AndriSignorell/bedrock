@@ -1,8 +1,8 @@
-# Roulette wheel dataset
+# European Roulette Wheel
 
-A dataset representing the numbers on a European Roulette wheel and
-their associated properties such as color, parity and positional
-groupings.
+The numbers on a single-zero (European) Roulette wheel and their
+associated properties: colour, betting categories and the traditional
+sectors of the wheel. Each row represents one of the 37 numbers (0–36).
 
 ## Usage
 
@@ -12,55 +12,62 @@ Roulette
 
 ## Format
 
-A data frame with 37 observations and 8 variables:
+A data frame with 37 rows and 7 variables:
 
 - num:
 
-  Roulette number (0–36).
+  integer, the number in the pocket (0–36).
 
 - col:
 
-  Color of the number (red, black, green).
+  factor, colour of the pocket: `red`, `black` or `green`.
 
 - parity:
 
-  Parity of the number (even or odd, NA for zero).
+  factor, `even` or `odd`.
 
 - highlow:
 
-  Indicator for low (1–18) or high (19–36), NA for zero.
+  factor, `low` (1–18) or `high` (19–36).
 
 - dozens:
 
-  Dozen grouping (1 = 1–12, 2 = 13–24, 3 = 25–36, NA for zero).
+  factor, dozen on the table: `1` (1–12), `2` (13–24), `3` (25–36).
 
 - column:
 
-  Column grouping on the Roulette table (1, 2, 3, NA for zero).
+  factor, column on the table: `1`, `2` or `3`, counted from the one
+  containing 1.
 
 - pocketrange:
 
-  Wheel sector grouping (e.g. jeu zero, voisins du zero, orphelins,
-  tiers du cylindre).
+  factor, sector of the wheel: `jeu zero`, `voisins du zero`,
+  `tiers du cylindre` or `orphelins`.
 
 ## Source
 
-Simulated data based on a European Roulette wheel.
+The standard layout of a single-zero Roulette wheel.
 
 ## Details
 
-Each row corresponds to a single number on the wheel (0–36), including
-commonly used betting categories.
+The dataset can be used for teaching probability and categorical data
+analysis, as well as for simulating Roulette betting strategies.
 
-The dataset is suitable for teaching probability, categorical data
-analysis and simulating betting strategies.
+The rows are ordered as the pockets follow each other on the wheel,
+starting at zero, and not by `num`. The sectors in `pocketrange` are
+therefore contiguous blocks of rows.
 
-The dataset represents a European Roulette wheel (single zero). The
-number zero is treated as a special case and has missing values for
-several derived variables such as parity, high/low, dozens and column.
+Zero takes part in none of the even/odd, high/low, dozen and column
+bets, so these variables are `NA` for zero. Note that this follows the
+rules of the game and not arithmetic, where zero would count as even.
 
-The variable `pocketrange` reflects traditional French wheel sectors
-used in Roulette betting systems.
+The seven numbers of the *jeu zero* are part of the *voisins du zero* in
+the usual reading of the terms. As every number appears exactly once
+here, they are reported as a separate level and `voisins du zero` covers
+the remaining ten numbers of that sector.
+
+Accents are dropped in the factor levels (`voisins du zero` for *voisins
+du zéro*).
 
 ## See also
 
@@ -78,12 +85,21 @@ head(Roulette)
 #> 4  35 black    odd    high      3     35        jeu zero
 #> 5  12   red   even     low      1     36        jeu zero
 #> 6  28 black   even    high      3     34 voisins du zero
+
 table(Roulette$col)
 #> 
 #> black green   red 
 #>    18     1    18 
-table(Roulette$parity, useNA = "ifany")
+table(Roulette$parity, Roulette$highlow, useNA = "ifany")
+#>       
+#>        high low <NA>
+#>   even    9   9    0
+#>   odd     9   9    0
+#>   <NA>    0   0    1
+
+# the sectors of the wheel are blocks of neighbouring pockets
+table(Roulette$pocketrange)
 #> 
-#> even  odd <NA> 
-#>   18   18    1 
+#>          jeu zero         orphelins tiers du cylindre   voisins du zero 
+#>                 7                 8                12                10 
 ```

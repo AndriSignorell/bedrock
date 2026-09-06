@@ -5,9 +5,9 @@ returns it including the new names. It is most useful at the end of a
 function definition where one is creating the object to be returned and
 would prefer not to store it under a name just that the names can be
 assigned. In addition to the function
-[`setNames`](https://rdrr.io/r/stats/setNames.html) in base R the user
+[`setNames()`](https://rdrr.io/r/stats/setNames.html) in base R the user
 can decide, whether rownames, colnames or simply the names are to be
-set. Names are recyled.
+set.
 
 ## Usage
 
@@ -33,9 +33,18 @@ setNamesX(x, ...)
 
 an object of the same sort as object with the new names assigned.
 
+## Details
+
+A name of length one is recycled to the required extent, which is handy
+for blanking out names with `""`. Names of any other length must match
+the extent of the object exactly; a deviating length is reported as an
+error rather than being recycled silently, as an unexpected length is
+almost always a miscalculation upstream and duplicated names are hard to
+debug later on.
+
 ## See also
 
-[`setNames`](https://rdrr.io/r/stats/setNames.html)
+[`setNames()`](https://rdrr.io/r/stats/setNames.html)
 
 Other label.attrs: [`label()`](label.md), [`renameX()`](renameX.md),
 [`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md)
@@ -62,7 +71,7 @@ setNamesX(matrix(c(1:12), nrow=4),
 #> M    3   7  11
 #> N    4   8  12
          
-# can also be used to set the names to an empty string
+# a single name is recycled, so this sets all the names to an empty string
 setNamesX(diag(6), rownames="", colnames="")
 #>             
 #>  1 0 0 0 0 0
@@ -71,6 +80,14 @@ setNamesX(diag(6), rownames="", colnames="")
 #>  0 0 0 1 0 0
 #>  0 0 0 0 1 0
 #>  0 0 0 0 0 1
+
+# any other length must fit, a mismatch is an error
+try(setNamesX(matrix(c(1:12), nrow=4), colnames=c("perc", "lci")))
+#>      perc lci perc
+#> [1,]    1   5    9
+#> [2,]    2   6   10
+#> [3,]    3   7   11
+#> [4,]    4   8   12
 
 # setting dimnames works as well
 tab <- setNamesX(

@@ -2,59 +2,59 @@
 #' Rename Elements of a Named Object
 #'
 #' Renames selected elements of a named object by specifying old-to-new name
-#' mappings.  Works on any R object that supports \code{\link{names}()},
+#' mappings.  Works on any R object that supports [names()],
 #' including vectors, lists, data frames, and matrices.  For matrix-like
-#' objects, \code{rownames} and \code{colnames} can be targeted via the
-#' \code{which} argument.
+#' objects, `rownames` and `colnames` can be targeted via the
+#' `which` argument.
 #'
 #' @details
 #' The function supports three modes:
 #'
 #' \describe{
-#'   \item{Exact mode (\code{useGsub = FALSE}, default)}{
-#'     Names are matched exactly via \code{\link{match}()}.  Each element of
-#'     \code{...} must be a named scalar character string of the form
-#'     \code{old = "new"}.  Unmatched old names trigger a warning when
-#'     \code{warn = TRUE}.}
-#'   \item{Pattern mode (\code{useGsub = TRUE})}{
-#'     Each mapping is treated as a \code{\link{gsub}()} substitution applied
-#'     in sequence to \emph{all} current names.  The left-hand side is the
-#'     pattern, the right-hand side is the replacement.  The \code{fixed}
-#'     argument is forwarded to \code{gsub()}.}
+#'   \item{Exact mode (`useGsub = FALSE`, default)}{
+#'     Names are matched exactly via [match()].  Each element of
+#'     `...` must be a named scalar character string of the form
+#'     `old = "new"`.  Unmatched old names trigger a warning when
+#'     `warn = TRUE`.}
+#'   \item{Pattern mode (`useGsub = TRUE`)}{
+#'     Each mapping is treated as a [gsub()] substitution applied
+#'     in sequence to *all* current names.  The left-hand side is the
+#'     pattern, the right-hand side is the replacement.  The `fixed`
+#'     argument is forwarded to `gsub()`.}
 #'   \item{Function mode}{
-#'     If a single function is passed in \code{...}, it is applied to all
+#'     If a single function is passed in `...`, it is applied to all
 #'     current names.  Useful for bulk transformations such as
-#'     \code{toupper}, \code{tolower}, or \code{make.names}.}
+#'     `toupper`, `tolower`, or `make.names`.}
 #' }
 #'
-#' When \code{...} contains unnamed character elements, the names are assigned
-#' positionally: the first element replaces \code{names(x)[1]}, the second
-#' \code{names(x)[2]}, and so on.
+#' When `...` contains unnamed character elements, the names are assigned
+#' positionally: the first element replaces `names(x)[1]`, the second
+#' `names(x)[2]`, and so on.
 #'
-#' @param x     a named object.  Any type that supports \code{names()},
-#'   \code{rownames()}, or \code{colnames()}, e.g. a vector, list, data frame,
+#' @param x     a named object.  Any type that supports `names()`,
+#'   `rownames()`, or `colnames()`, e.g. a vector, list, data frame,
 #'   or matrix.
-#' @param ...   name mappings of the form \code{old = "new"}, a single
-#'   function to apply to all names (e.g. \code{toupper}), or unnamed
+#' @param ...   name mappings of the form `old = "new"`, a single
+#'   function to apply to all names (e.g. `toupper`), or unnamed
 #'   character strings applied positionally (see Details).
 #' @param on character scalar specifying which names to operate on.
-#'   One of \code{"names"} (default), \code{"rownames"}, or \code{"colnames"}.
+#'   One of `"names"` (default), `"rownames"`, or `"colnames"`.
 #'   Partial matching is supported.
-#' @param useGsub logical scalar.  If \code{TRUE}, each mapping is applied as
-#'   a \code{gsub()} pattern substitution across all current names rather than
-#'   an exact replacement.  Default is \code{FALSE}.
-#' @param fixed  logical scalar.  Passed to \code{\link{gsub}()} when
-#'   \code{useGsub = TRUE}.  If \code{TRUE} (default), patterns are treated as
+#' @param useGsub logical scalar.  If `TRUE`, each mapping is applied as
+#'   a `gsub()` pattern substitution across all current names rather than
+#'   an exact replacement.  Default is `FALSE`.
+#' @param fixed  logical scalar.  Passed to [gsub()] when
+#'   `useGsub = TRUE`.  If `TRUE` (default), patterns are treated as
 #'   fixed strings rather than regular expressions.
-#' @param warn   logical scalar.  If \code{TRUE} (default), a warning is
-#'   issued when one or more old names supplied in \code{...} are not found in
-#'   the targeted names of \code{x}.  Only relevant in exact mode
-#'   (\code{useGsub = FALSE}).
+#' @param warn   logical scalar.  If `TRUE` (default), a warning is
+#'   issued when one or more old names supplied in `...` are not found in
+#'   the targeted names of `x`.  Only relevant in exact mode
+#'   (`useGsub = FALSE`).
 #'
-#' @return the object \code{x} with updated names; all other attributes are
+#' @return the object `x` with updated names; all other attributes are
 #'   preserved.
 #'
-#' @seealso \code{\link{names}}, \code{\link[stats]{setNames}}
+#' @seealso [names()], [setNames()]
 #'
 #' @examples
 #' x <- c(a = 1, b = 2, c = 3)

@@ -21,7 +21,7 @@
 #' numeric input, the sign is chosen to reproduce the orientation of the
 #' determinant formula (and hence
 #' anticommutativity: swapping two rows of \eqn{A} flips the sign of the
-#' result). For complex input, where \code{det()} is not available, the sign
+#' result). For complex input, where `det()` is not available, the sign
 #' is fixed by the convention that the first component with non-zero modulus
 #' has a positive real part.
 #'

@@ -32,7 +32,7 @@ combN(n, m, replace=FALSE, ordered=FALSE)
 
 }
 \seealso{
-\code{\link{combn}}, \code{\link{choose}}, \code{\link{factorial}},
+\code{\link[=combn]{combn()}}, \code{\link[=choose]{choose()}}, \code{\link[=factorial]{factorial()}},
 \code{vignette("Combinatorics", package = "bedrock")}
 
 Other combinatorics:

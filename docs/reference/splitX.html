@@ -6,9 +6,9 @@
     }
   };
 </script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Split Data into Groups (Extended Interface) — splitX"><meta name="description" content="Splits a vector or object into groups defined by a factor or grouping variables.
-This is a wrapper around split with an additional
+This is a wrapper around split() with an additional
 formula interface."><meta property="og:description" content="Splits a vector or object into groups defined by a factor or grouping variables.
-This is a wrapper around split with an additional
+This is a wrapper around split() with an additional
 formula interface."><meta property="og:image" content="/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
@@ -17,7 +17,7 @@ formula interface."><meta property="og:image" content="/logo.png"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@ formula interface."><meta property="og:image" content="/logo.png"></head><body>
 
     <div class="ref-description section level2">
     <p>Splits a vector or object into groups defined by a factor or grouping variables.
-This is a wrapper around <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split</a></code> with an additional
+This is a wrapper around <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split()</a></code> with an additional
 formula interface.</p>
     </div>
 
@@ -77,7 +77,7 @@ formula interface.</p>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>further arguments passed to <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split</a></code>.</p></dd>
+<dd><p>further arguments passed to <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split()</a></code>.</p></dd>
 
 
 <dt id="arg-f">f<a class="anchor" aria-label="anchor" href="#arg-f"></a></dt>
@@ -103,8 +103,8 @@ specifying the variable to split (<code>y</code>) and the grouping variables.</p
 
 <dt id="arg-na-action">na.action<a class="anchor" aria-label="anchor" href="#arg-na-action"></a></dt>
 <dd><p>a function specifying how missing values are handled,
-passed to <code><a href="https://rdrr.io/r/stats/model.frame.html" class="external-link">model.frame</a></code>
-(e.g., <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit</a></code>).</p></dd>
+passed to <code><a href="https://rdrr.io/r/stats/model.frame.html" class="external-link">model.frame()</a></code>
+(e.g., <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit()</a></code>).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -114,10 +114,10 @@ grouping variables in the formula.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p><code>splitX</code> extends <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split</a></code> by providing:</p><ul><li><p>an S3 interface</p></li>
+    <p><code>splitX</code> extends <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split()</a></code> by providing:</p><ul><li><p>an S3 interface</p></li>
 <li><p>a formula method for convenient specification of variables</p></li>
 <li><p>support for multiple grouping variables via formula</p></li>
-</ul><p>The formula interface evaluates a <code><a href="https://rdrr.io/r/stats/model.frame.html" class="external-link">model.frame</a></code> and splits
+</ul><p>The formula interface evaluates a <code><a href="https://rdrr.io/r/stats/model.frame.html" class="external-link">model.frame()</a></code> and splits
 the response variable by one or more grouping variables.</p>
 <p>If multiple grouping variables are provided, the data are split by their
 interaction (similar to <code>split(..., interaction(...))</code>).</p>

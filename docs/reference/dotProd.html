@@ -15,7 +15,7 @@ column-wise dot products of two matrices with identical dimensions."><meta prope
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,13 +89,13 @@ where \(\overline{x_i}\) denotes the complex conjugate of \(x_i\)
 (for real input this is simply \(\sum_i x_i y_i\)).</p>
 <p>For matrices, the dot product of each column of <code>x</code> with the
 corresponding column of <code>y</code> is returned.</p>
-<p>Note that <code><a href="https://rdrr.io/r/base/crossprod.html" class="external-link">crossprod</a></code> does <em>not</em> conjugate its
+<p>Note that <code><a href="https://rdrr.io/r/base/crossprod.html" class="external-link">crossprod()</a></code> does <em>not</em> conjugate its
 first argument for complex input, so it computes \(t(X) Y\) rather
 than the Hermitian inner product; this function does conjugate.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/crossprod.html" class="external-link">crossprod</a></code></p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/crossprod.html" class="external-link">crossprod()</a></code></p>
 <p>Other math.basic:
 <code><a href="closest.html">closest()</a></code>,
 <code><a href="crossProd.html">crossProd()</a></code>,

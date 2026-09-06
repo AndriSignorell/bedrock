@@ -2,30 +2,30 @@
 #' Identify Columns Without Missing Values
 #'
 #' This function checks each element of a data frame or list-like object
-#' for missing values (\code{NA}) and identifies those that are completely
+#' for missing values (`NA`) and identifies those that are completely
 #' observed, i.e., contain no missing entries.
 #'
-#' An element is considered \emph{complete} if it contains zero missing
-#' values. Internally, the function uses \code{\link{anyNA}} to detect
+#' An element is considered *complete* if it contains zero missing
+#' values. Internally, the function uses [anyNA()] to detect
 #' missing values.
 #'
 #' @param x a data.frame or list-like object whose elements are checked
 #'   for missing values.
 #' @param output character string specifying the output representation.
-#'   One of \code{"names"} (return the names of the complete elements,
-#'   the default) or \code{"logical"} (return a logical vector indicating
+#'   One of `"names"` (return the names of the complete elements,
+#'   the default) or `"logical"` (return a logical vector indicating
 #'   completeness for each element).
 #'
 #' @return
-#' if \code{output = "names"}, a character vector with the names of all
+#' if `output = "names"`, a character vector with the names of all
 #' complete elements.
 #'
-#' If \code{output = "logical"}, a logical vector of length
-#' \code{length(x)}, where \code{TRUE} indicates that the corresponding
+#' If `output = "logical"`, a logical vector of length
+#' `length(x)`, where `TRUE` indicates that the corresponding
 #' element contains no missing values.
 #'
-#' @seealso \code{\link{anyNA}}, \code{\link{is.na}},
-#'   \code{\link{na.omit}}, \code{\link{complete.cases}}
+#' @seealso [anyNA()], [is.na()],
+#'   [na.omit()], [complete.cases()]
 #'
 #' @examples
 #' # Names of columns without missing values

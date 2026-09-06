@@ -8,16 +8,16 @@
 #' are extracted. The union of all levels is returned. Unused levels of
 #' factor inputs are preserved.
 #'
-#' By default, missing values (\code{NA}) are not included as a level.
-#' Set \code{na = TRUE} to include them; \code{NA} is then placed last
+#' By default, missing values (`NA`) are not included as a level.
+#' Set `na = TRUE` to include them; `NA` is then placed last
 #' when sorting.
 #'
 #' The order of levels follows their first occurrence unless
-#' \code{sorted = TRUE}.
+#' `sorted = TRUE`.
 #'
 #' @param ... one or more vectors or factors.
-#' @param sorted logical; if \code{TRUE}, the resulting levels are sorted.
-#' @param na logical; if \code{TRUE}, \code{NA} is treated as a valid level
+#' @param sorted logical; if `TRUE`, the resulting levels are sorted.
+#' @param na logical; if `TRUE`, `NA` is treated as a valid level
 #'   (i.e., included in the result).
 #'
 #' @return

@@ -1,9 +1,12 @@
 # Parse and Classify a Model Formula
 
-Parses a model formula, constructs a model frame, and classifies the
-resulting design into one of five dependency structures. The function
-serves as a unified entry point for functions that accept a formula
-interface.
+Parses a model formula, builds the model frame and classifies the
+resulting design into one of six dependency structures. The pieces of
+the design are returned under a fixed set of names, so that every
+function offering a formula interface can share one entry point instead
+of re-implementing the parsing, the `subset` handling and the
+distinction between a grouping factor, a numeric predictor and a
+blocking variable.
 
 ## Usage
 
@@ -22,16 +25,16 @@ resolveFormula(
 
 - formula:
 
-  a model formula. Supported forms are:
+  a two-sided model formula. Supported forms are:
 
-  `y ~ 1` or `y`
+  `y ~ 1`
 
   :   one-sample design.
 
   `Pair(x, y) ~ 1`
 
   :   two-sample dependent (paired).
-      [`Pair`](https://rdrr.io/r/stats/Pair.html) constructs a
+      [`Pair()`](https://rdrr.io/r/stats/Pair.html) constructs a
       two-column matrix of paired observations.
 
   `y ~ g`
@@ -56,108 +59,168 @@ resolveFormula(
   an optional expression indicating which observations to use. Must be
   captured via [`substitute()`](https://rdrr.io/r/base/substitute.html)
   in the calling function to avoid collision with
-  [`base::subset()`](https://rdrr.io/r/base/subset.html). See Details.
+  [`subset()`](https://rdrr.io/r/base/subset.html). See Details.
 
 - na.action:
 
-  a function specifying how missing values are handled. Defaults to
-  [`na.pass`](https://rdrr.io/r/stats/na.fail.html).
+  a function specifying how missing values are handled, defaults to
+  [`na.pass()`](https://rdrr.io/r/stats/na.fail.html).
 
 - allowed:
 
-  a character vector restricting which design types are accepted. Any
-  combination of: `"one-sample"`, `"two-sample-independent"`,
+  a character vector restricting which design types are accepted, any
+  combination of `"one-sample"`, `"two-sample-independent"`,
   `"two-sample-dependent"`, `"n-sample-independent"`,
-  `"n-sample-dependent"`, `"numeric-numeric"`. An error is raised if the
-  detected type is not in `allowed`. Default allows all types.
+  `"n-sample-dependent"` and `"numeric-numeric"`. The values are matched
+  exactly, an unknown one is an error rather than being ignored. A
+  further error is raised if the detected type is not among the allowed
+  ones. Defaults to all types.
 
 ## Value
 
-a named list with at minimum:
+a named list containing at least:
 
-- `type`:
+- type:
 
   character, one of the design types listed above.
 
-- `mf`:
+- mf:
 
-  the [`model.frame`](https://rdrr.io/r/stats/model.frame.html).
+  the [`model.frame()`](https://rdrr.io/r/stats/model.frame.html) the
+  design was read from.
 
-- `data.name`:
+- dataName:
 
-  the deparsed formula string.
+  character, the deparsed formula, for use as the `data.name` of an
+  `htest` object.
 
-Plus design-specific components as described in Details.
+plus the design-specific components described under Details.
 
 ## Details
 
-**Design types:**
+**Design types**
 
-|  |  |  |
-|----|----|----|
-| **type** | **Formula** | **Examples** |
-| `one-sample` | `y ~ 1` | t-test, Wilcoxon one-sample |
-| `two-sample-independent` | `y ~ g` (k=2) | t-test, Wilcoxon rank-sum |
-| `two-sample-dependent` | `Pair(x,y) ~ 1` | paired t-test, Wilcoxon signed-rank |
-| `n-sample-independent` | `y ~ g` (k\>2) | ANOVA, Kruskal-Wallis |
-| `n-sample-dependent` | `y ~ trt | block` | repeated measures ANOVA, Friedman |
-| `numeric-numeric` | `y ~ x` (x numeric) | correlation, regression |
+- `one-sample`:
 
-**Field naming contract (binding across all types):**
+  `y ~ 1`, as in the one-sample t-test or the one-sample Wilcoxon test.
 
-- `group` is reserved exclusively for a categorical, factor-coercible
-  variable of length `n` (the full sample) that splits the response into
-  groups. It is never pre-split and never used for a continuous
-  variable. `x` + `group` have an *identical shape* for both
-  `two-sample-independent` and `n-sample-independent` - callers can use
-  `split(r$x, r$group)` uniformly, without branching on `k`.
+- `two-sample-independent`:
+
+  `y ~ g` with two groups, as in the two-sample t-test or the Wilcoxon
+  rank-sum test.
+
+- `two-sample-dependent`:
+
+  `Pair(x, y) ~ 1`, as in the paired t-test or the Wilcoxon signed-rank
+  test.
+
+- `n-sample-independent`:
+
+  `y ~ g` with more than two groups, as in the analysis of variance or
+  the Kruskal-Wallis test.
+
+- `n-sample-dependent`:
+
+  `y ~ trt | block`, as in a repeated-measures analysis of variance or
+  the Friedman test.
+
+- `numeric-numeric`:
+
+  `y ~ x` with a numeric right-hand side, as in correlation or
+  regression.
+
+**Type detection**
+
+The type follows from the shape of the formula and from the class of the
+right-hand side variable, not from `allowed`. `allowed` only decides
+whether the detected type is accepted, with two exceptions worth
+knowing. A grouping factor carrying a single level is reported as
+`one-sample` if that type is allowed, and a two-group design is reported
+as `n-sample-independent` if `"two-sample-independent"` is not among the
+allowed types. Both are deliberate: a caller that treats every group
+count alike needs to allow one type only.
+
+**Field naming contract (binding across all types)**
+
+- `group` is reserved for a categorical, factor-coercible variable of
+  length `n` (the full sample) that splits the response into groups. It
+  is never pre-split and never used for a continuous variable. `x` and
+  `group` have an identical shape for `two-sample-independent` and for
+  `n-sample-independent`, so that a caller can use `split(r$x, r$group)`
+  uniformly, without branching on the number of groups.
 
 - `predictor` is used for a continuous, numeric right-hand side variable
-  (`numeric-numeric`). Never called `group`.
+  (`numeric-numeric`), never `group`.
 
-- `treatment` is used for the treated/explanatory variable in a blocked
-  design (`n-sample-dependent`), distinct from `block`, the
-  stratification factor. Never called `group`.
+- `treatment` is used for the explanatory variable of a blocked design
+  (`n-sample-dependent`), as distinct from `block`, the stratification
+  factor. Neither is ever called `group`.
 
-- `y`, where present, is always a *convenience* field (e.g. group 2 of a
-  two-sample design, or the second paired vector). It is never required
-  for correct use - `x` + `group` (or `x` + `predictor` / `treatment` +
-  `block`) is always sufficient and is the canonical access path.
+- `y`, where present, is a convenience field only, holding the second
+  group of a two-sample design or the second paired vector. It is never
+  needed for correct use: `x` and `group` (or `x` and `predictor`, or
+  `treatment` and `block`) are always sufficient and are the canonical
+  access path.
 
-**subset handling:**
+**Missing values**
+
+Missing values are left to `na.action` and are not touched otherwise, so
+with the default [`na.pass()`](https://rdrr.io/r/stats/na.fail.html)
+they reach the caller untouched. The one exception is the grouping
+factor of an independent design, where empty and missing levels are
+dropped before the groups are counted. A grouping variable that is
+missing throughout leaves no level at all and is an error.
+
+**subset handling**
 
 Because `subset` is both an argument name and a base R function, name
 collisions can occur when forwarding to
-[`stats::model.frame`](https://rdrr.io/r/stats/model.frame.html). The
-calling function must capture `subset` as an unevaluated expression:
+[`model.frame()`](https://rdrr.io/r/stats/model.frame.html). The calling
+function must therefore capture `subset` as an unevaluated expression
+and pass the resulting object on directly:
 
 
     myFun <- function(formula, data, subset, na.action = na.pass, ...) {
-      subset_expr <- if (!missing(subset)) substitute(subset) else NULL
+      subsetExpr <- if (!missing(subset)) substitute(subset) else NULL
       resolveFormula(formula, data,
-                     subset    = subset_expr,
+                     subset    = subsetExpr,
                      na.action = na.action)
     }
 
-**Return value components by type:**
+**Return components by type**
 
-All return values contain `type`, `mf` and `data.name`. Additional
+Every return value contains `type`, `mf` and `dataName`. The remaining
 components depend on the design:
 
-|                          |                                          |
-|--------------------------|------------------------------------------|
-| **type**                 | **Additional components**                |
-| `one-sample`             | `x`                                      |
-| `two-sample-independent` | `x`, `group`, `y` (convenience: group 2) |
-| `two-sample-dependent`   | `x`, `y`                                 |
-| `n-sample-independent`   | `x`, `group`                             |
-| `n-sample-dependent`     | `response`, `treatment`, `block`         |
-| `numeric-numeric`        | `x`, `predictor`                         |
+- `one-sample`:
+
+  `x`
+
+- `two-sample-independent`:
+
+  `x`, `group`, `y` (convenience: the second group)
+
+- `two-sample-dependent`:
+
+  `x`, `y`
+
+- `n-sample-independent`:
+
+  `x`, `group`
+
+- `n-sample-dependent`:
+
+  `response`, `treatment`, `block`
+
+- `numeric-numeric`:
+
+  `x`, `predictor`
 
 ## See also
 
-[`model.frame`](https://rdrr.io/r/stats/model.frame.html),
-[`Pair`](https://rdrr.io/r/stats/Pair.html), `DescToolsX:desc`
+[`model.frame()`](https://rdrr.io/r/stats/model.frame.html),
+[`Pair()`](https://rdrr.io/r/stats/Pair.html),
+[`resolveGroups()`](resolveGroups.md)
 
 Other data.resolve: [`resolveContingency()`](resolveContingency.md),
 [`resolveGroups()`](resolveGroups.md)
@@ -177,24 +240,25 @@ df <- data.frame(
 # one-sample
 resolveFormula(y ~ 1, data = df)$type
 #> [1] "one-sample"
-#> [1] "one-sample"
+## [1] "one-sample"
 
-# two-sample independent: x + group have full length, same shape as k>2
+# two-sample independent: x and group have full length, the same shape
+# as for more than two groups
 r2 <- resolveFormula(y ~ g2, data = df,
                      allowed = c("two-sample-independent",
                                  "n-sample-independent"))
 r2$type
 #> [1] "two-sample-independent"
-#> [1] "two-sample-independent"
+## [1] "two-sample-independent"
 length(r2$x) == length(r2$group)
 #> [1] TRUE
-#> [1] TRUE
+## [1] TRUE
 
 # n-sample independent
 resolveFormula(y ~ g3, data = df,
                allowed = "n-sample-independent")$type
 #> [1] "n-sample-independent"
-#> [1] "n-sample-independent"
+## [1] "n-sample-independent"
 
 # two-sample dependent (paired)
 df2 <- data.frame(pre = rnorm(15, 50, 10), post = rnorm(15, 55, 10))
@@ -202,24 +266,19 @@ resolveFormula(Pair(pre, post) ~ 1, data = df2,
                allowed = c("one-sample",
                            "two-sample-dependent"))$type
 #> [1] "two-sample-dependent"
-#> [1] "two-sample-dependent"
+## [1] "two-sample-dependent"
 
 # n-sample dependent (blocked): treatment, not group
 r4 <- resolveFormula(y ~ trt | blk, data = df,
                      allowed = "n-sample-dependent")
-r4$type
-#> [1] "n-sample-dependent"
-#> [1] "n-sample-dependent"
 names(r4)
 #> [1] "type"      "mf"        "response"  "treatment" "block"     "data.name"
+## [1] "type" "mf" "response" "treatment" "block" "dataName"
 
 # numeric-numeric: predictor, not group
 df3 <- data.frame(y = rnorm(20), x = rnorm(20))
 r5 <- resolveFormula(y ~ x, data = df3, allowed = "numeric-numeric")
-r5$type
-#> [1] "numeric-numeric"
-#> [1] "numeric-numeric"
 is.numeric(r5$predictor)
 #> [1] TRUE
-#> [1] TRUE
+## [1] TRUE
 ```

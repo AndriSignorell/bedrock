@@ -1,29 +1,29 @@
 
 #' Test for a Scalar Missing Value
 #'
-#' Check whether an object is a single missing value (\code{NA}).
+#' Check whether an object is a single missing value (`NA`).
 #'
-#' This is a strict helper that returns \code{TRUE} only if \code{x} is an
-#' atomic vector of length one and equal to \code{NA}. In contrast to
-#' \code{\link{is.na}}, which is vectorized, \code{isNA} is intended for
+#' This is a strict helper that returns `TRUE` only if `x` is an
+#' atomic vector of length one and equal to `NA`. In contrast to
+#' [is.na()], which is vectorized, `isNA` is intended for
 #' scalar checks, e.g. in conditional statements.
 #'
-#' This function differs from \code{\link{is.na}} in that it:
+#' This function differs from [is.na()] in that it:
 #' \itemize{
-#'   \item Only returns \code{TRUE} for length-one inputs
+#'   \item Only returns `TRUE` for length-one inputs
 #'   \item Returns a single logical value (not vectorized)
 #'   \item Works consistently across all NA types
 #' }
 #'
 #' @param x an object to be tested.
 #'
-#' @return logical scalar. Returns \code{TRUE} if \code{x} is a single
-#'   missing value (\code{NA}), and \code{FALSE} otherwise.
+#' @return logical scalar. Returns `TRUE` if `x` is a single
+#'   missing value (`NA`), and `FALSE` otherwise.
 #'
 #' @examples
-#' isNA(NA)
-#' isNA(NA_real_)
-#' isNA(NA_integer_)
+#' isNA(NA)             # TRUE
+#' isNA(NA_real_)       # TRUE
+#' isNA(NA_integer_)    # TRUE
 #'
 #' isNA(c(NA, NA))      # FALSE (length > 1)
 #' isNA(NULL)           # FALSE

@@ -32,7 +32,7 @@ column separately.
 Returns suitably lagged and iterated quotients.
 }
 \details{
-\code{\link{NA}}'s propagate.
+\code{\link[=NA]{NA()}}'s propagate.
 }
 \examples{
 
@@ -48,7 +48,7 @@ Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The
 New S Language}.  Wadsworth & Brooks/Cole.
 }
 \seealso{
-\code{\link{diff}}
+\code{\link[=diff]{diff()}}
 
 Other vector.window:
 \code{\link[=midx]{midx()}},
@@ -57,4 +57,3 @@ Other vector.window:
 \concept{moving-window}
 \concept{numerical-methods}
 \concept{vector.window}
-\keyword{arith}

@@ -30,3 +30,41 @@ test_that("isFilePath returns FALSE for URLs", {
 })
 
 
+
+test_that("isURL recognises all documented schemes case-insensitively", {
+  urls <- c(
+    "HTTPS://example.com/data.csv",
+    "ftps://files.example.org/data.csv",
+    "file:///tmp/data.csv",
+    "gs://bucket/data.csv",
+    "az://container/data.csv"
+  )
+  
+  expect_true(all(vapply(urls, isURL, logical(1L))))
+  expect_false(any(vapply(urls, isFilePath, logical(1L))))
+})
+
+test_that("isFilePath recognises ambiguous and backslash paths", {
+  paths <- c(
+    "folder/data.csv",
+    "folder\\data.csv",
+    "\\\\server\\share\\data.csv"
+  )
+  
+  expect_true(all(vapply(paths, isFilePath, logical(1L))))
+  expect_false(any(vapply(paths, isURL, logical(1L))))
+})
+
+test_that("URL detection distinguishes unknown strings", {
+  expect_identical(.detectInputType("report.csv"), "unknown")
+  expect_identical(.detectInputType(""), "unknown")
+  expect_false(isURL("mailto:user@example.com"))
+  expect_false(isFilePath("mailto:user@example.com"))
+})
+
+test_that("URL and path detection validate scalar character input", {
+  expect_error(isURL(1), "single character string")
+  expect_error(isURL(character()), "single character string")
+  expect_error(isFilePath(c("a", "b")), "single character string")
+})
+

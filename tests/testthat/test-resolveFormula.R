@@ -118,6 +118,55 @@ test_that("missing formula raises error", {
   expect_error(resolveFormula(), "missing")
 })
 
+test_that("a one-sided formula raises error", {
+  expect_error(resolveFormula(~ y, data = df), "two-sided")
+})
+
+test_that("an unknown design type in 'allowed' raises error", {
+  expect_error(
+    resolveFormula(y ~ g2, data = df,
+                   allowed = c("two-sample-independent", "banane")),
+    "banane"
+  )
+  # no partial matching: an ambiguous prefix is not silently dropped
+  expect_error(
+    resolveFormula(y ~ g2, data = df, allowed = "two-sample"),
+    "invalid design type"
+  )
+})
+
+test_that("'allowed' must be a non-empty character vector", {
+  expect_error(resolveFormula(y ~ g2, data = df, allowed = character(0)),
+               "character vector")
+  expect_error(resolveFormula(y ~ g2, data = df, allowed = NA_character_),
+               "character vector")
+  expect_error(resolveFormula(y ~ g2, data = df, allowed = 1:2),
+               "character vector")
+})
+
+test_that("a grouping factor without any level raises error", {
+  # all group labels missing, kept by the default na.pass
+  dfNa <- df
+  dfNa$gna <- NA_character_
+  expect_error(resolveFormula(y ~ gna, data = dfNa), "no non-missing levels")
+
+  # the same when na.omit empties the model frame
+  expect_error(resolveFormula(y ~ gna, data = dfNa, na.action = na.omit),
+               "no non-missing levels")
+
+  # and when subset filters out every observation
+  subsetExpr <- substitute(g3 == "Z")
+  expect_error(resolveFormula(y ~ g2, data = df, subset = subsetExpr),
+               "no non-missing levels")
+})
+
+test_that("duplicates in 'allowed' are accepted", {
+  res <- resolveFormula(y ~ g2, data = df,
+                        allowed = c("two-sample-independent",
+                                    "two-sample-independent"))
+  expect_equal(res$type, "two-sample-independent")
+})
+
 test_that("grouping factor with 1 level falls back to one-sample", {
   df$g1 <- "A"
   res <- resolveFormula(y ~ g1, data = df,
@@ -173,9 +222,9 @@ test_that("matrix data is coerced to data.frame", {
 
 # ── 7. subset ─────────────────────────────────────────────────────────────────
 test_that("subset filters observations correctly", {
-  subset_expr <- substitute(g3 != "C")
+  subsetExpr <- substitute(g3 != "C")
   res <- resolveFormula(y ~ g2, data = df,
-                        subset  = subset_expr,
+                        subset  = subsetExpr,
                         allowed = c("two-sample-independent",
                                     "n-sample-independent"))
   expect_equal(length(res$x), sum(df$g3 != "C"))
@@ -202,18 +251,32 @@ test_that("na.action = na.pass keeps NAs (default)", {
   expect_true(anyNA(res$x))
 })
 
-# ── 9. data.name ──────────────────────────────────────────────────────────────
-test_that("data.name for grouped design", {
+# ── 9. dataName ───────────────────────────────────────────────────────────────
+test_that("dataName for grouped design", {
   res <- resolveFormula(y ~ g2, data = df,
                         allowed = c("two-sample-independent",
                                     "n-sample-independent"))
-  expect_equal(res$data.name, "y ~ g2")
+  expect_equal(res$dataName, "y ~ g2")
 })
 
-test_that("data.name for blocked design contains 'and'", {
+test_that("dataName for blocked design contains 'and'", {
   res <- resolveFormula(y ~ trt | blk, data = df,
                         allowed = "n-sample-dependent")
-  expect_match(res$data.name, "|", fixed = TRUE)
+  expect_match(res$dataName, "|", fixed = TRUE)
+})
+
+test_that("no returned component carries a dot in its name", {
+  results <- list(
+    resolveFormula(y ~ 1, data = df),
+    resolveFormula(y ~ g2, data = df,
+                   allowed = c("two-sample-independent",
+                               "n-sample-independent")),
+    resolveFormula(y ~ g3, data = df, allowed = "n-sample-independent"),
+    resolveFormula(y ~ trt | blk, data = df, allowed = "n-sample-dependent"),
+    resolveFormula(y ~ blk, data = df, allowed = "numeric-numeric")
+  )
+  for (res in results)
+    expect_false(any(grepl(".", names(res), fixed = TRUE)))
 })
 
 # ── 11. shape-consistency contract (k=2 vs k>2) ──────────────────────────────
@@ -244,5 +307,3 @@ test_that("split(x, group) works for k=2 without a length-mismatch warning", {
   expect_equal(length(s), 2L)
   expect_equal(sum(lengths(s)), nrow(df))
 })
-
-cat("\nAll resolveFormula tests passed.\n")

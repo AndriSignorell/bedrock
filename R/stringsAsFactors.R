@@ -2,7 +2,7 @@
 #' Convert Character Columns to Factors
 #'
 #' Strings as factors have recently been downgraded in base R's
-#' \code{\link{data.frame}()} function. However,
+#' [data.frame()] function. However,
 #' it is still usually a good idea to encode string variables
 #' as factors. This function helps to convert some or
 #' all columns of a data.frame to factors.

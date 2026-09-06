@@ -10,7 +10,7 @@ openDataObject(name, url = NULL, doc = NULL, ...)
 \item{name}{character string. File name including extension (e.g. \code{"data.xlsx"}).}
 
 \item{url}{character string. Base URL where the file is located.
-Defaults to \code{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}.
+Defaults to \verb{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}.
 (see \url{https://github.com/AndriSignorell/Teaching/})}
 
 \item{doc}{list or \code{NA}. Defines the structure of the documentation sheet.
@@ -40,7 +40,7 @@ If a documentation sheet is available, it is expected to contain columns such as
 \itemize{
 \item Variable name
 \item Description (label)
-\item Codes (e.g. "1=Male\\r\\n2=Female")
+\item Codes (e.g. "1=Male | 2=Female")
 \item Scale ("nominal", "ordinal", etc.)
 }
 
@@ -51,10 +51,10 @@ factors. Data values without a matching entry in the codes column become
 \examples{
 \dontrun{
 # Load dataset with automatic metadata detection
-openDataObject("example.xlsx")
+openDataObject("beauty.xlsx")
 
 # Load dataset without metadata processing
-openDataObject("example.xlsx", doc = NA)
+openDataObject("beauty.xlsx", doc = NA)
 }
 
 
@@ -63,6 +63,6 @@ openDataObject("example.xlsx", doc = NA)
 Other label.import:
 \code{\link[=dataDescription]{dataDescription()}}
 }
-\concept{file-io}
+\concept{file.io}
 \concept{label}
 \concept{label.import}

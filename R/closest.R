@@ -6,16 +6,16 @@
 #' share the same minimum distance.
 #'
 #' Distance is computed as \eqn{|x_i - a|}. Ties are detected via
-#' \code{isZero()} rather than exact equality, which avoids spurious
+#' `isZero()` rather than exact equality, which avoids spurious
 #' misses due to floating-point representation (e.g.
-#' \code{0.3 - 0.2 != 0.1}).
+#' `0.3 - 0.2 != 0.1`).
 #'
-#' When \code{na.rm = TRUE}, \code{NA} elements are excluded from the
+#' When `na.rm = TRUE`, `NA` elements are excluded from the
 #' search but the original index positions of the remaining elements are
-#' preserved, so \code{output = "index"} always refers to positions in
-#' the original \code{x}.
+#' preserved, so `output = "index"` always refers to positions in
+#' the original `x`.
 #'
-#' When \code{a} or \code{output} are vectors, each element is
+#' When `a` or `output` are vectors, each element is
 #' processed independently and a list is returned.
 #'
 #' Recycling follows standard R rules.
@@ -23,27 +23,25 @@
 #' @param x a numeric vector to search in.
 #' @param a the reference value. May be a vector; see Details.
 #' @param output character string specifying the output representation.
-#'   One of \code{"value"} (return the closest value(s), the default) or
-#'   \code{"index"} (return the index position(s) in \code{x}).
-#'   May be a vector; recycled to the length of \code{a}.
-#' @param na.rm logical. If \code{TRUE}, \code{NA} values in \code{x}
-#'   are ignored before searching. Default is \code{FALSE}.
+#'   One of `"value"` (return the closest value(s), the default) or
+#'   `"index"` (return the index position(s) in `x`).
+#'   May be a vector; recycled to the length of `a`.
+#' @param na.rm logical. If `TRUE`, `NA` values in `x`
+#'   are ignored before searching. Default is `FALSE`.
 #'
 #' @return
-#' if \code{a} and \code{output} are scalar:
+#' if `a` and `output` are scalar:
 #'
 #' \itemize{
-#'   \item numeric vector if \code{output = "value"}.
-#'   \item integer vector if \code{output = "index"}.
+#'   \item numeric vector if `output = "value"`.
+#'   \item integer vector if `output = "index"`.
 #' }
 #'
-#' If \code{a} or \code{output} are vectors:
-#' a list with one element per value of \code{a}.
+#' If `a` or `output` are vectors:
+#' a list with one element per value of `a`.
 #'
-#' Returns \code{NA} if \code{x} is empty or all-\code{NA}
-#' (with \code{na.rm = TRUE}).
-#'
-#' @seealso \code{\link{which}}
+#' Returns `NA` if `x` is empty or all-`NA`
+#' (with `na.rm = TRUE`).
 #'
 #' @examples
 #' # basic
@@ -89,8 +87,9 @@
 #'   output = c("value", "index")
 #' )
 #'
+#' @seealso [which()]
+#'
 #' @family math.basic
-#' @concept nearest-value
 #' @concept numerical-methods
 #' @export
 closest <- function(x, a, output = "value", na.rm = FALSE) {

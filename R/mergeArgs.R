@@ -6,12 +6,12 @@
 #' were supplied.
 #'
 #' User values override defaults of the same name. Unlike
-#' \code{\link{modifyList}}, elements with the value \code{NULL} are
-#' preserved (so that an explicit \code{NULL} can be passed on as an
+#' [modifyList()], elements with the value `NULL` are
+#' preserved (so that an explicit `NULL` can be passed on as an
 #' argument value instead of silently deleting the entry).
 #'
 #' @param defaults named list of default arguments.
-#' @param user named list of user-supplied arguments, or \code{NULL}.
+#' @param user named list of user-supplied arguments, or `NULL`.
 #' @param forbidden character vector of argument names that are not allowed.
 #' @param warn logical; whether to issue a warning if forbidden arguments are removed.
 #'
@@ -23,7 +23,7 @@
 #' # explicit NULL survives the merge
 #' mergeArgs(list(col = "black"), list(col = NULL))
 #'
-#' @seealso [utils::modifyList()]
+#' @seealso [modifyList()]
 #' 
 #' @family pkg.args
 #' @concept programming

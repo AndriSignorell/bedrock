@@ -1,23 +1,23 @@
 
 #' Test Whether Multiple Objects Are Identical
 #'
-#' Extends \code{\link{identical}} to more than two objects. Returns
-#' \code{TRUE} if all supplied objects are exactly identical, and
-#' \code{FALSE} otherwise.
+#' Extends [identical()] to more than two objects. Returns
+#' `TRUE` if all supplied objects are exactly identical, and
+#' `FALSE` otherwise.
 #'
-#' If zero or one object is supplied, the function returns \code{TRUE}.
+#' If zero or one object is supplied, the function returns `TRUE`.
 #'
 #' Note that the objects themselves are compared, not their elements.
-#' So \code{allIdentical(list(A, B, C))} is \code{TRUE}, as a single
+#' So `allIdentical(list(A, B, C))` is `TRUE`, as a single
 #' object is trivially identical to itself. Use
-#' \code{do.call(allIdentical, myList)} to compare the elements of
+#' `do.call(allIdentical, myList)` to compare the elements of
 #' a list.
 #' 
 #' @param ... objects to compare.
 #'
 #' @return logical scalar.
 #'
-#' @seealso \code{\link{identical}}
+#' @seealso [identical()]
 #'
 #' @examples
 #' A <- LETTERS[1:5]

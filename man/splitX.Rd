@@ -15,7 +15,7 @@ splitX(x, ...)
 \arguments{
 \item{x}{object to be split (typically a vector).}
 
-\item{...}{further arguments passed to \code{\link[base]{split}}.}
+\item{...}{further arguments passed to \code{\link[=split]{split()}}.}
 
 \item{f}{a factor or list of factors defining the groups (default method).}
 
@@ -29,8 +29,8 @@ specifying the variable to split (\code{y}) and the grouping variables.}
 \item{subset}{optional logical expression indicating rows to include.}
 
 \item{na.action}{a function specifying how missing values are handled,
-passed to \code{\link[stats]{model.frame}}
-(e.g., \code{\link[stats]{na.omit}}).}
+passed to \code{\link[=model.frame]{model.frame()}}
+(e.g., \code{\link[=na.omit]{na.omit()}}).}
 }
 \value{
 a list of subsets of \code{x}, grouped according to \code{f} or the
@@ -38,18 +38,18 @@ grouping variables in the formula.
 }
 \description{
 Splits a vector or object into groups defined by a factor or grouping variables.
-This is a wrapper around \code{\link[base]{split}} with an additional
+This is a wrapper around \code{\link[=split]{split()}} with an additional
 formula interface.
 }
 \details{
-\code{splitX} extends \code{\link[base]{split}} by providing:
+\code{splitX} extends \code{\link[=split]{split()}} by providing:
 \itemize{
 \item an S3 interface
 \item a formula method for convenient specification of variables
 \item support for multiple grouping variables via formula
 }
 
-The formula interface evaluates a \code{\link[stats]{model.frame}} and splits
+The formula interface evaluates a \code{\link[=model.frame]{model.frame()}} and splits
 the response variable by one or more grouping variables.
 
 If multiple grouping variables are provided, the data are split by their

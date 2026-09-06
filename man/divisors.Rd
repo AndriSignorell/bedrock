@@ -28,7 +28,7 @@ positive divisors excluding \code{x} itself. The number 11 is prime and has
 only the proper divisor 1, whereas the number 12 has the proper divisors
 1, 2, 3, 4 and 6. In elementary number theory, the concept of divisibility
 is limited to natural numbers. The number of proper divisors can be
-determined with the function \code{\link{length}()}.
+determined with the function \code{\link[=length]{length()}}.
 }
 \examples{
 

@@ -39,7 +39,7 @@ sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]),
 
 }
 \seealso{
-\code{\link{rep}}, \code{\link{replicate}}
+\code{\link[=rep]{rep()}}, \code{\link[=replicate]{replicate()}}
 
 Other pkg.args:
 \code{\link[=callIf]{callIf()}},
@@ -50,4 +50,3 @@ Other pkg.args:
 \concept{introspection}
 \concept{pkg.args}
 \concept{programming}
-\keyword{utilities}

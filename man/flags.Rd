@@ -73,8 +73,6 @@ flags(dat, output = "index")
 
 }
 \seealso{
-\code{\link{isDichotomous}}
-
 Other data.predicate:
 \code{\link[=isDichotomous]{isDichotomous()}},
 \code{\link[=isEuclid]{isEuclid()}},

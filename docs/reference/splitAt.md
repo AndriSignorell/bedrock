@@ -35,7 +35,7 @@ Each element of the returned list corresponds to a contiguous subset of
 
 ## See also
 
-[`split`](https://rdrr.io/r/base/split.html)
+[`split()`](https://rdrr.io/r/base/split.html)
 
 Other data.reshape: [`collapseTable()`](collapseTable.md),
 [`long-wide-reshape`](long-wide-reshape.md), [`splitX()`](splitX.md),

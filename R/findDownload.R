@@ -4,7 +4,7 @@
 #' Returns the full path to a file located in the user's Downloads directory.
 #'
 #' The function resolves the path to the user's Downloads directory using
-#' an internal helper and appends \code{file}. It does not perform any
+#' an internal helper and appends `file`. It does not perform any
 #' downloading; it only locates files that already exist locally.
 #'
 #' If the file does not exist, an error is thrown.
@@ -22,7 +22,7 @@
 #'
 #' @family file.path
 #' @concept path-handling
-#' @concept file-io
+#' @concept file.io
 #' @export
 findDownload <- function(file) {
 

@@ -7,18 +7,18 @@
 #' and Unix-like systems.
 #'
 #' @param path a character vector of file paths.
-#' @param lastIsFile logical; if \code{TRUE}, the last component of
-#'   \code{path} is treated as a file name. If \code{FALSE}, it is treated
-#'   as part of the directory path. If \code{NULL} (default), the function
+#' @param lastIsFile logical; if `TRUE`, the last component of
+#'   `path` is treated as a file name. If `FALSE`, it is treated
+#'   as part of the directory path. If `NULL` (default), the function
 #'   determines this automatically based on whether the path ends with a
 #'   path separator.
 #'
 #' @return a list with the following components (each a vector of the same
-#' length as \code{path}):
+#' length as `path`):
 #' \describe{
-#'   \item{normpath}{normalized path as returned by \code{\link{normalizePath}}.}
-#'   \item{drive}{drive letter on Windows systems (e.g., \code{"C:"}),
-#'     otherwise \code{NA}.}
+#'   \item{normpath}{normalized path as returned by [normalizePath()].}
+#'   \item{drive}{drive letter on Windows systems (e.g., `"C:"`),
+#'     otherwise `NA`.}
 #'   \item{dirname}{directory path without drive letter, including trailing
 #'     separator.}
 #'   \item{fullfilename}{full file name including extension (if applicable).}
@@ -29,16 +29,16 @@
 #' }
 #'
 #' @details
-#' The function uses \code{\link{basename}} and \code{\link{dirname}} for
+#' The function uses [basename()] and [dirname()] for
 #' platform-independent path handling. File name and extension are extracted
-#' using \code{\link[tools]{file_path_sans_ext}} and \code{\link[tools]{file_ext}}.
+#' using [tools::file_path_sans_ext()] and [tools::file_ext()].
 #'
-#' If \code{lastIsFile = FALSE}, the path is treated as a directory and
-#' file-related components (\code{fullfilename}, \code{filename},
-#' \code{extension}) are returned as \code{NA}.
+#' If `lastIsFile = FALSE`, the path is treated as a directory and
+#' file-related components (`fullfilename`, `filename`,
+#' `extension`) are returned as `NA`.
 #'
-#' @seealso \code{\link{basename}}, \code{\link{dirname}},
-#' \code{\link[tools]{file_ext}}, \code{\link[tools]{file_path_sans_ext}}
+#' @seealso [basename()], [dirname()],
+#' [tools::file_ext()], [tools::file_path_sans_ext()]
 #'
 #' @examples
 #' splitPath("C:/temp/file.txt")

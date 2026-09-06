@@ -35,10 +35,10 @@ If y is defined then all combinations of x and y are calculated.
 
 ## See also
 
-[`combn`](https://rdrr.io/r/utils/combn.html),
-[`expand.grid`](https://rdrr.io/r/base/expand.grid.html),
-[`outer`](https://rdrr.io/r/base/outer.html),
-[`lower.tri`](https://rdrr.io/r/base/lower.tri.html)
+[`combn()`](https://rdrr.io/r/utils/combn.html),
+[`expand.grid()`](https://rdrr.io/r/base/expand.grid.html),
+[`outer()`](https://rdrr.io/r/base/outer.html),
+[`lower.tri()`](https://rdrr.io/r/base/lower.tri.html)
 
 Other combinatorics: [`combN()`](combN.md), [`combSet()`](combSet.md),
 [`pairApply()`](pairApply.md), [`permn()`](permn.md),

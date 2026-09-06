@@ -23,7 +23,7 @@ nf(x, ...)
 - ...:
 
   additional arguments passed to
-  [`factor`](https://rdrr.io/r/base/factor.html).
+  [`factor()`](https://rdrr.io/r/base/factor.html).
 
 ## Value
 
@@ -42,8 +42,8 @@ the values themselves.
 
 ## See also
 
-[`factor`](https://rdrr.io/r/base/factor.html),
-[`as.numeric`](https://rdrr.io/r/base/numeric.html)
+[`factor()`](https://rdrr.io/r/base/factor.html),
+[`as.numeric()`](https://rdrr.io/r/base/numeric.html)
 
 Other data.recode: [`asBinary()`](asBinary.md),
 [`combLevels()`](combLevels.md), [`dummy()`](dummy.md),

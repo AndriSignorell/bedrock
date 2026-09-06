@@ -9,7 +9,7 @@ strX(object, ..., enumerate = TRUE, recursive = FALSE, strict.width = "cut")
 \arguments{
 \item{object}{any R object.}
 
-\item{...}{additional arguments passed to \code{\link[utils:str]{utils::str()}}.}
+\item{...}{additional arguments passed to \code{\link[=str]{str()}}.}
 
 \item{enumerate}{logical; whether variables or elements are numbered.
 Default is \code{TRUE}.}
@@ -17,14 +17,14 @@ Default is \code{TRUE}.}
 \item{recursive}{logical; whether nested list elements are also numbered.
 Default is \code{FALSE}.}
 
-\item{strict.width}{character string passed to \code{\link[utils:str]{utils::str()}}.
+\item{strict.width}{character string passed to \code{\link[=str]{str()}}.
 Default is \code{"cut"}.}
 }
 \value{
-invisibly returns the character vector produced by \code{\link[utils:str]{utils::str()}}.
+invisibly returns the character vector produced by \code{\link[=str]{str()}}.
 }
 \description{
-Wrapper around \code{\link[utils:str]{utils::str()}} that optionally numbers variables in
+Wrapper around \code{\link[=str]{str()}} that optionally numbers variables in
 lists and data frames. Useful for large objects where variables should
 be referenced by position.
 }
@@ -49,8 +49,9 @@ strX(x)
 
 # Recursive numbering
 strX(x, recursive = TRUE)
-
+}
+\seealso{
+\code{\link[=str]{str()}}
 }
 \concept{data-inspection}
-\concept{data.inspect}
 \concept{introspection}

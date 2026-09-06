@@ -11,7 +11,7 @@ funKeywords(topic)
 }
 \value{
 if \code{topic} is missing, the R keywords documentation file is
-opened for display via \code{\link[base]{file.show}}, invisibly
+opened for display via \code{\link[=file.show]{file.show()}}, invisibly
 returning \code{NULL}. Otherwise, a character vector of topic names
 whose keywords match \code{topic}.
 }
@@ -41,7 +41,7 @@ funKeywords("merge")
 
 }
 \seealso{
-\code{\link[utils]{help}}
+\code{\link[=help]{help()}}
 
 Other pkg.funinfo:
 \code{\link[=funArgs]{funArgs()}},
@@ -53,4 +53,3 @@ Other pkg.funinfo:
 \concept{introspection}
 \concept{pkg.funinfo}
 \concept{programming}
-\keyword{documentation}

@@ -87,3 +87,32 @@ test_that("the C++ backend carries the same bound", {
   expect_false(is_prime_cpp(Inf))
   expect_false(is_prime_cpp(2.5))
 })
+
+
+test_that("isPrime identifies known primes and composites", {
+  x <- c(-3, 0, 1, 2, 3, 4, 17, 18, 19)
+  expected <- c(FALSE, FALSE, FALSE, TRUE, TRUE, FALSE,
+                TRUE, FALSE, TRUE)
+  
+  expect_identical(isPrime(x), expected)
+})
+
+test_that("isPrime returns FALSE for irregular numeric values", {
+  x <- c(NA_real_, NaN, Inf, -Inf, 2.5)
+  
+  expect_identical(isPrime(x), rep(FALSE, length(x)))
+  expect_error(isPrime("7"), "numeric vector")
+})
+
+test_that("isPrime agrees with primes over a reference range", {
+  x <- 1:1000
+  expected <- x %in% primes(max(x))
+  
+  expect_identical(isPrime(x), expected)
+})
+
+test_that("isPrime preserves length including empty input", {
+  expect_identical(isPrime(numeric()), logical())
+  expect_length(isPrime(c(2, 3, 5)), 3L)
+})
+

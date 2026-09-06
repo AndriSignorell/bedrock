@@ -32,15 +32,15 @@ Supported tokens:
 
 Mapping:
 \itemize{
-\item \code{yyyy} -> \code{\%Y}
-\item \code{yy}, \code{y} -> \code{\%y}
-\item \code{mm}, \code{m} -> \code{\%m}
-\item \code{mmm} -> \code{\%b}
-\item \code{mmmm} -> \code{\%B}
-\item \code{dd} -> \code{\%d}
-\item \code{d} -> \code{\%e}
-\item \code{ddd} -> \code{\%a}
-\item \code{dddd} -> \code{\%A}
+\item \code{yyyy} -> \verb{\\\%Y}
+\item \code{yy}, \code{y} -> \verb{\\\%y}
+\item \code{mm}, \code{m} -> \verb{\\\%m}
+\item \code{mmm} -> \verb{\\\%b}
+\item \code{mmmm} -> \verb{\\\%B}
+\item \code{dd} -> \verb{\\\%d}
+\item \code{d} -> \verb{\\\%e}
+\item \code{ddd} -> \verb{\\\%a}
+\item \code{dddd} -> \verb{\\\%A}
 }
 }
 \examples{
@@ -50,6 +50,5 @@ asCDateFmt("yyyymmdd")
 asCDateFmt("mmm d, yyyy")
 
 }
-\concept{date-time}
 \concept{date.format}
 \concept{formatting}

@@ -34,7 +34,7 @@ a logical vector of length \code{n}.
 }
 \description{
 Reconstructs the \code{TRUE} positions from the index vector returned
-by \code{\link{which}}, producing a logical vector of length \code{n}.
+by \code{\link[=which]{which()}}, producing a logical vector of length \code{n}.
 Note that this is not a perfect inverse: \code{which()} discards
 \code{NA} and \code{FALSE} positions, so the original vector cannot be
 fully recovered.
@@ -72,7 +72,7 @@ Sabbe, N. (2012). Inverse of \code{which}.
 \url{https://stackoverflow.com/questions/7659833/inverse-of-which}
 }
 \seealso{
-\code{\link{which}}
+\code{\link[=which]{which()}}
 
 Other vector.utils:
 \code{\link[=nz]{nz()}}

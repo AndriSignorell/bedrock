@@ -4,19 +4,19 @@
 #' Splits a vector into consecutive segments at specified positions.
 #'
 #' @param x a vector to be split.
-#' @param pos an integer vector of positions at which to split \code{x}.
-#'   Positions refer to indices in \code{x} where a new segment should start.
+#' @param pos an integer vector of positions at which to split `x`.
+#'   Positions refer to indices in `x` where a new segment should start.
 #'
-#' @return a list of vectors, each representing a segment of \code{x}.
+#' @return a list of vectors, each representing a segment of `x`.
 #'
 #' @details
-#' The function splits \code{x} into consecutive chunks defined by \code{pos}.
+#' The function splits `x` into consecutive chunks defined by `pos`.
 #' Internally, positions are sorted, duplicates are removed, and values that
-#' would not produce a non-empty segment (\code{pos < 2} or
-#' \code{pos > length(x)}) are ignored. Empty segments are never returned.
+#' would not produce a non-empty segment (`pos < 2` or
+#' `pos > length(x)`) are ignored. Empty segments are never returned.
 #'
 #' Each element of the returned list corresponds to a contiguous subset of
-#' \code{x}. The first segment always starts at position 1.
+#' `x`. The first segment always starts at position 1.
 #'
 #' @examples
 #' x <- 1:10
@@ -27,7 +27,7 @@
 #' # unsorted and duplicate positions are handled
 #' splitAt(x, c(7, 4, 4, 20))
 #'
-#' @seealso \code{\link{split}}
+#' @seealso [split()]
 #'
 
 

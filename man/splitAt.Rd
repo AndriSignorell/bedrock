@@ -38,7 +38,7 @@ splitAt(x, c(7, 4, 4, 20))
 
 }
 \seealso{
-\code{\link{split}}
+\code{\link[=split]{split()}}
 
 Other data.reshape:
 \code{\link[=collapseTable]{collapseTable()}},

@@ -28,8 +28,8 @@ per row.
 
 ## See also
 
-[`utils::combn()`](https://rdrr.io/r/utils/combn.html),
-[`base::factorial()`](https://rdrr.io/r/base/Special.html)
+[`combn()`](https://rdrr.io/r/utils/combn.html),
+[`factorial()`](https://rdrr.io/r/base/Special.html)
 
 Other combinatorics: [`combN()`](combN.md),
 [`combPairs()`](combPairs.md), [`combSet()`](combSet.md),

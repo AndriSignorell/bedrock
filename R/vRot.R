@@ -1,12 +1,12 @@
 #' Rotate a vector
 #'
-#' Rotates a vector cyclically to the right by \code{k} positions.
-#' Negative values of \code{k} rotate to the left.
+#' Rotates a vector cyclically to the right by `k` positions.
+#' Negative values of `k` rotate to the left.
 #'
 #' @param x a vector.
 #' @param k integer. Number of positions to rotate (default = 1).
 #'
-#' @return a vector of the same length as \code{x}, rotated cyclically.
+#' @return a vector of the same length as `x`, rotated cyclically.
 #'
 #' @details
 #' The rotation is cyclic, meaning elements shifted off one end reappear on the other.

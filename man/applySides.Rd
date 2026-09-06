@@ -16,7 +16,7 @@ interval which could not be computed is usually written.}
 \code{"left"} or \code{"right"}. It names the side carrying the
 \emph{finite} bound, so \code{"left"} corresponds to
 \code{alternative = "greater"} in a test. Callers are expected to have
-resolved the value with \code{\link{match.arg}} already; an unmatched
+resolved the value with \code{\link[=match.arg]{match.arg()}} already; an unmatched
 value is an error rather than a partial match.}
 
 \item{lo, hi}{the range of the parameter, not infinities by default in
@@ -84,5 +84,5 @@ applySides(c(NA, NA), "left", lo = -1, hi = 1)
 
 }
 \seealso{
-\link{checkConfLevel}, \link{checkFlag}
+\code{\link[=checkConfLevel]{checkConfLevel()}}, \code{\link[=checkFlag]{checkFlag()}}
 }

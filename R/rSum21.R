@@ -4,17 +4,17 @@
 #' Generates a vector of random proportions that sum exactly to 1.
 #'
 #' The values are drawn from a uniform distribution and normalized by their
-#' sum. If \code{digits} is given, the values are rounded and the rounding
+#' sum. If `digits` is given, the values are rounded and the rounding
 #' error is assigned to the largest element, which is then rounded again to
 #' the requested precision. Note that for very coarse rounding the exact-sum
 #' guarantee may not be attainable at the given precision.
 #'
 #' @name rSum21
 #' @param size integer. The number of values to generate.
-#' @param digits integer. If not \code{NULL} (default), the values are
+#' @param digits integer. If not `NULL` (default), the values are
 #'   rounded to this number of decimal places while preserving the sum of 1.
 #'
-#' @return a numeric vector of length \code{size} summing to 1.
+#' @return a numeric vector of length `size` summing to 1.
 #'
 #' @examples
 #' x <- rSum21(5)

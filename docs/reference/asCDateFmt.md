@@ -36,23 +36,23 @@ Supported tokens:
 
 Mapping:
 
-- `yyyy` -\> `%Y`
+- `yyyy` -\> `\%Y`
 
-- `yy`, `y` -\> `%y`
+- `yy`, `y` -\> `\%y`
 
-- `mm`, `m` -\> `%m`
+- `mm`, `m` -\> `\%m`
 
-- `mmm` -\> `%b`
+- `mmm` -\> `\%b`
 
-- `mmmm` -\> `%B`
+- `mmmm` -\> `\%B`
 
-- `dd` -\> `%d`
+- `dd` -\> `\%d`
 
-- `d` -\> `%e`
+- `d` -\> `\%e`
 
-- `ddd` -\> `%a`
+- `ddd` -\> `\%a`
 
-- `dddd` -\> `%A`
+- `dddd` -\> `\%A`
 
 ## Examples
 

@@ -9,20 +9,20 @@
 #' lines within the columns.
 #'
 #' @param x a character vector, typically one row of a matrix
-#'   (e.g. via \code{apply(m, 1, columnWrap)}).
+#'   (e.g. via `apply(m, 1, columnWrap)`).
 #' @param width integer, the width of the columns in characters, recycled to
-#'   the length of \code{x}. Defaults to an equal share of
-#'   \code{getOption("width")} per column.
+#'   the length of `x`. Defaults to an equal share of
+#'   `getOption("width")` per column.
 #'
-#' @return a character matrix with one column per element of \code{x} and
+#' @return a character matrix with one column per element of `x` and
 #'   one row per wrapped line.
 #'
-#' @seealso [strwrap()]
-#' @keywords print
 #' @examples
 #'
 #' print(columnWrap("This is a very long text for a table", 12))
 #'
+#' @seealso [strwrap()]
+#' 
 #' @family data.print
 #' @concept formatting
 #' @concept string-manipulation

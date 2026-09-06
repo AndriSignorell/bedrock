@@ -33,8 +33,8 @@ A symmetrically trimmed vector \code{x} with a fraction of trim observations
 }
 \note{
 This function is basically an excerpt from the base function
-\code{\link{mean}}, which allows the vector \code{x} to be trimmed before
-calculating the mean. But what if a trimmed standard deviation is needed?
+\code{\link[=mean]{mean()}}, which allows the vector \code{x} to be trimmed before
+calculating the mean.
 }
 \examples{
 

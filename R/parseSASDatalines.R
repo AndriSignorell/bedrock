@@ -1,13 +1,13 @@
 
 #' Parse SAS DATALINES/CARDS blocks into a data.frame
 #'
-#' A parser for simple SAS dataline command texts. A \code{data.frame} is being
+#' A parser for simple SAS dataline command texts. A `data.frame` is being
 #' built with the columnnames listed in the input section. 
 #' 
-#' The SAS function \code{DATA} is designed for quickly creating a dataset from
-#' scratch. The whole step normally consists out of the \code{DATA} part
-#' defining the name of the dataset, an \code{INPUT} line declaring the
-#' variables and a \code{DATALINES} command followed by the values.\cr The
+#' The SAS function `DATA` is designed for quickly creating a dataset from
+#' scratch. The whole step normally consists out of the `DATA` part
+#' defining the name of the dataset, an `INPUT` line declaring the
+#' variables and a `DATALINES` command followed by the values.\cr The
 #' default delimiter used to separate the different variables is a space (thus
 #' each variable should be one word). The $ after the variable name indicates
 #' that the variable preceding contain character values and not numeric values.
@@ -18,26 +18,26 @@
 #' rather it is included at the end of the entire data step.
 #' 
 #' More complex command structures, i.e. other delimiters (dlm), in the
-#' \code{INPUT}-section are not (yet) supported. 
+#' `INPUT`-section are not (yet) supported. 
 #' 
 #' @param x a single character string containing a SAS DATA step with
 #'   a DATALINES, CARDS, or CARDS4 block.
-#' @param validateNames logical. If \code{TRUE} (default \code{FALSE}), emits
+#' @param validateNames logical. If `TRUE` (default `FALSE`), emits
 #'   a warning when the dataset name violates SAS naming rules.
 #'
 #' @return a data.frame with column names taken from the INPUT statement.
-#'   The attribute \code{sas_dataset_name} carries the DATA step name.
-#'   For \code{DATA _NULL_} the data is still parsed and returned; the caller
+#'   The attribute `sas_dataset_name` carries the DATA step name.
+#'   For `DATA _NULL_` the data is still parsed and returned; the caller
 #'   decides what to do with it (matching SAS semantics).
-#'   SAS missing-value markers (\code{.}) are converted to \code{NA}.
+#'   SAS missing-value markers (`.`) are converted to `NA`.
 #'
 #' @details
 #' Only free-format (list) input is supported. The following SAS features
 #' are intentionally rejected with an informative error:
 #' \itemize{
-#'   \item Column pointers (\code{@}, \code{@@})
-#'   \item Column input (e.g. \code{var 1-10})
-#'   \item Formatted input (\code{:})
+#'   \item Column pointers (`@`, `@@`)
+#'   \item Column input (e.g. `var 1-10`)
+#'   \item Formatted input (`:`)
 #' }
 #' Character values must not contain spaces or quotes; scan-based parsing
 #' splits on whitespace and does not handle quoted strings.
@@ -54,7 +54,6 @@
 #' df <- parseSASDatalines(sas_code)
 #'
 #' @family file.io
-#' @concept file-io
 #' @concept string-manipulation
 #' @export
 parseSASDatalines <- function(x, validateNames = FALSE) {

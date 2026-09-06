@@ -5,28 +5,26 @@
 #' data.frame where each unique token becomes a column.
 #'
 #' @param x a character vector with delimited tokens.
-#' @param split a character string to use as delimiter. Default is \code{","}.
-#' @param trim logical. If \code{TRUE} (default), whitespace is trimmed from
+#' @param split a character string to use as delimiter. Default is `","`.
+#' @param trim logical. If `TRUE` (default), whitespace is trimmed from
 #'   each token after splitting.
-#' @param na.action a function to handle \code{NA} values. Accepted values are
-#'   \code{\link[stats]{na.pass}} (default), \code{\link[stats]{na.omit}},
-#'   \code{\link[stats]{na.exclude}}, and \code{\link[stats]{na.fail}}.
+#' @param na.action a function to handle `NA` values. Accepted values are
+#'   [na.pass()] (default), [na.omit()],
+#'   [na.exclude()], and [na.fail()].
 #'   \describe{
-#'     \item{\code{na.pass}}{NAs are kept as all-zero rows (default).}
-#'     \item{\code{na.omit}}{rows with NAs are silently removed.}
-#'     \item{\code{na.exclude}}{like \code{na.omit} but the indices of removed
-#'       rows are stored in a \code{"na.action"} attribute.}
-#'     \item{\code{na.fail}}{an error is raised if any \code{NA} is present.}
+#'     \item{`na.pass`}{NAs are kept as all-zero rows (default).}
+#'     \item{`na.omit`}{rows with NAs are silently removed.}
+#'     \item{`na.exclude`}{like `na.omit` but the indices of removed
+#'       rows are stored in a `"na.action"` attribute.}
+#'     \item{`na.fail`}{an error is raised if any `NA` is present.}
 #'   }
-#' @param \dots additional arguments passed to \code{\link[base]{strsplit}}.
+#' @param \dots additional arguments passed to [strsplit()].
 #'
-#' @return a \code{data.frame} with one row per element of \code{x} and one
-#'   column per unique token. Values are \code{0L} or \code{1L}. Column names
+#' @return a `data.frame` with one row per element of `x` and one
+#'   column per unique token. Values are `0L` or `1L`. Column names
 #'   are the token values as-is and may not be syntactically valid R
-#'   identifiers. The attribute \code{"tokens"} contains the sorted vector of
+#'   identifiers. The attribute `"tokens"` contains the sorted vector of
 #'   unique tokens.
-#'
-#' @seealso \code{\link[base]{strsplit}}, \code{\link[stats]{na.omit}}
 #'
 #' @examples
 #' dat <- data.frame(id = 1:5,
@@ -54,8 +52,8 @@
 #'   error = function(e) conditionMessage(e)
 #' )
 #'
-
-
+#' @seealso [strsplit()], [na.omit()]
+#'
 #' @family string.transform
 #' @concept string-manipulation
 #' @concept dummy-coding

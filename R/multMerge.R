@@ -6,12 +6,12 @@
 #' 
 #' 
 #' @param \dots data frames to be coerced to one. 
-#' @param all.x logical; if \code{TRUE}, then extra rows will be added to the
+#' @param all.x logical; if `TRUE`, then extra rows will be added to the
 #' output, one for each row in x that has no matching row in y. These rows will
-#' have \code{NA}s in those columns that are usually filled with values from y.
-#' The default is \code{TRUE}, so that non-matching rows are kept and
-#' padded with \code{NA}s (full outer join). 
-#' @param all.y logical; analogous to \code{all.x}. 
+#' have `NA`s in those columns that are usually filled with values from y.
+#' The default is `TRUE`, so that non-matching rows are kept and
+#' padded with `NA`s (full outer join). 
+#' @param all.y logical; analogous to `all.x`. 
 #' @param by column used for merging, if this is not defined rownames will be
 #' used by default. The column must be included in all the provided data
 #' frames and its values must be unique within each data frame. Note that
@@ -23,26 +23,27 @@
 #' remaining columns in x1 and then those in x2 and then those in x3. The
 #' result has the row names resulting from the merge. 
 #' 
-#' @seealso \code{\link{merge}} 
+#' @seealso [merge()] 
 #' 
 #' @examples
-#' 
-#' x1 <- setNamesX(data.frame(v=letters[1:6], w=1:6), 
-#'                 rownames=c("A", "B", "C", "D", "E", "F"))
-#' x2 <- setNamesX(data.frame(v=letters[1:3], ww=11:13), 
-#'                 rownames=c("B", "C", "D"))
-#' x3 <- setNamesX(data.frame(v=letters[12:16], wwww=22:26), 
-#'                 rownames=c("A", "C", "E", "G", "J"))
-#' 
-#' # default is "merge by rownames" 
-#' multMerge(x1, x2, x3)
-#' # ... which does not really make sense here
-#' 
-#' # merge by column v
-#' multMerge(x1, x2, x3, by="v")
+#' x1 <- setNamesX(data.frame(v = letters[1:6], w = 1:6),
+#'                 rownames = LETTERS[1:6])
+#' x2 <- setNamesX(data.frame(v = letters[2:4], ww = 11:13),
+#'                 rownames = LETTERS[2:4])
+#' x3 <- setNamesX(data.frame(v = letters[c(1, 3, 5, 7, 10)], wwww = 22:26),
+#'                 rownames = LETTERS[c(1, 3, 5, 7, 10)])
 #'
+#' # the default merges on the row names and returns their union,
+#' # with NA wherever a frame has no such row
+#' multMerge(x1, x2, x3)
+#'
+#' # v is not a key in the call above and is simply carried along from
+#' # each frame; here it becomes the key instead
+#' multMerge(x1, x2, x3, by = "v")
+#' 
+#' 
 #' @family data.append
-#' @concept merge
+#' @concept append
 #' @concept table
 #' @export
 multMerge <- function(..., all.x = TRUE, all.y = TRUE, by = NULL) {

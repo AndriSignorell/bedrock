@@ -14,119 +14,140 @@ resolveFormula(
 )
 }
 \arguments{
-\item{formula}{a model formula. Supported forms are:
+\item{formula}{a two-sided model formula. Supported forms are:
 \describe{
-\item{\code{y ~ 1} or \code{y}}{one-sample design.}
-\item{\code{Pair(x, y) ~ 1}}{two-sample dependent (paired).
-\code{\link[stats]{Pair}} constructs a two-column matrix of
-paired observations.}
-\item{\code{y ~ g}}{two-sample or n-sample independent group
-comparison.}
-\item{\code{y ~ x}, \code{x} numeric}{numeric-numeric (correlation,
-regression).}
+\item{\code{y ~ 1}}{one-sample design.}
+\item{\code{Pair(x, y) ~ 1}}{two-sample dependent (paired). \code{\link[=Pair]{Pair()}}
+constructs a two-column matrix of paired observations.}
+\item{\code{y ~ g}}{two-sample or n-sample independent group comparison.}
+\item{\code{y ~ x}, \code{x} numeric}{numeric-numeric (correlation, regression).}
 \item{\code{y ~ trt | block}}{n-sample dependent (blocked design).}
 }}
 
-\item{data}{an optional data frame containing the variables in
-\code{formula}. A matrix is coerced to a data frame.}
+\item{data}{an optional data frame containing the variables in \code{formula}.
+A matrix is coerced to a data frame.}
 
-\item{subset}{an optional expression indicating which observations to
-use. Must be captured via \code{substitute()} in the calling function
-to avoid collision with \code{base::subset()}. See Details.}
+\item{subset}{an optional expression indicating which observations to use.
+Must be captured via \code{\link[=substitute]{substitute()}} in the calling function to avoid
+collision with \code{\link[=subset]{subset()}}. See Details.}
 
-\item{na.action}{a function specifying how missing values are handled.
-Defaults to \code{\link[stats]{na.pass}}.}
+\item{na.action}{a function specifying how missing values are handled,
+defaults to \code{\link[=na.pass]{na.pass()}}.}
 
 \item{allowed}{a character vector restricting which design types are
-accepted. Any combination of:
-\code{"one-sample"},
-\code{"two-sample-independent"},
-\code{"two-sample-dependent"},
-\code{"n-sample-independent"},
-\code{"n-sample-dependent"},
-\code{"numeric-numeric"}.
-An error is raised if the detected type is not in \code{allowed}.
-Default allows all types.}
+accepted, any combination of \code{"one-sample"},
+\code{"two-sample-independent"}, \code{"two-sample-dependent"},
+\code{"n-sample-independent"}, \code{"n-sample-dependent"} and
+\code{"numeric-numeric"}. The values are matched exactly, an unknown one is an
+error rather than being ignored. A further error is raised if the detected
+type is not among the allowed ones. Defaults to all types.}
 }
 \value{
-a named list with at minimum:
+a named list containing at least:
 \describe{
-\item{\code{type}}{character, one of the design types listed above.}
-\item{\code{mf}}{the \code{\link[stats]{model.frame}}.}
-\item{\code{data.name}}{the deparsed formula string.}
+\item{type}{character, one of the design types listed above.}
+\item{mf}{the \code{\link[=model.frame]{model.frame()}} the design was read from.}
+\item{dataName}{character, the deparsed formula, for use as the
+\code{data.name} of an \code{htest} object.}
 }
-Plus design-specific components as described in Details.
+plus the design-specific components described under Details.
 }
 \description{
-Parses a model formula, constructs a model frame, and classifies
-the resulting design into one of five dependency structures.
-The function serves as a unified entry point for functions that accept
-a formula interface.
+Parses a model formula, builds the model frame and classifies the resulting
+design into one of six dependency structures. The pieces of the design are
+returned under a fixed set of names, so that every function offering a
+formula interface can share one entry point instead of re-implementing the
+parsing, the \code{subset} handling and the distinction between a grouping
+factor, a numeric predictor and a blocking variable.
 }
 \details{
-\strong{Design types:}
+\strong{Design types}
 
-\tabular{lll}{
-\strong{type}                  \tab \strong{Formula}        \tab \strong{Examples} \cr
-\code{one-sample}              \tab \code{y ~ 1}            \tab t-test, Wilcoxon one-sample \cr
-\code{two-sample-independent}  \tab \code{y ~ g} (k=2)     \tab t-test, Wilcoxon rank-sum \cr
-\code{two-sample-dependent}    \tab \code{Pair(x,y) ~ 1}   \tab paired t-test, Wilcoxon signed-rank \cr
-\code{n-sample-independent}    \tab \code{y ~ g} (k>2)     \tab ANOVA, Kruskal-Wallis \cr
-\code{n-sample-dependent}      \tab \code{y ~ trt | block} \tab repeated measures ANOVA, Friedman \cr
-\code{numeric-numeric}         \tab \code{y ~ x} (x numeric) \tab correlation, regression \cr
+\describe{
+\item{\code{one-sample}}{\code{y ~ 1}, as in the one-sample t-test or the
+one-sample Wilcoxon test.}
+\item{\code{two-sample-independent}}{\code{y ~ g} with two groups, as in the
+two-sample t-test or the Wilcoxon rank-sum test.}
+\item{\code{two-sample-dependent}}{\code{Pair(x, y) ~ 1}, as in the paired t-test
+or the Wilcoxon signed-rank test.}
+\item{\code{n-sample-independent}}{\code{y ~ g} with more than two groups, as in
+the analysis of variance or the Kruskal-Wallis test.}
+\item{\code{n-sample-dependent}}{\code{y ~ trt | block}, as in a repeated-measures
+analysis of variance or the Friedman test.}
+\item{\code{numeric-numeric}}{\code{y ~ x} with a numeric right-hand side, as in
+correlation or regression.}
 }
 
-\strong{Field naming contract (binding across all types):}
+\strong{Type detection}
+
+The type follows from the shape of the formula and from the class of the
+right-hand side variable, not from \code{allowed}. \code{allowed} only decides
+whether the detected type is accepted, with two exceptions worth knowing.
+A grouping factor carrying a single level is reported as \code{one-sample} if
+that type is allowed, and a two-group design is reported as
+\code{n-sample-independent} if \code{"two-sample-independent"} is not among the
+allowed types. Both are deliberate: a caller that treats every group count
+alike needs to allow one type only.
+
+\strong{Field naming contract (binding across all types)}
 
 \itemize{
-\item \code{group} is reserved exclusively for a categorical,
-factor-coercible variable of length \code{n} (the full sample) that
-splits the response into groups. It is never pre-split and never
-used for a continuous variable. \code{x} + \code{group} have an
-\emph{identical shape} for both \code{two-sample-independent} and
-\code{n-sample-independent} - callers can use
-\code{split(r$x, r$group)} uniformly, without branching on \code{k}.
-\item \code{predictor} is used for a continuous, numeric right-hand
-side variable (\code{numeric-numeric}). Never called \code{group}.
-\item \code{treatment} is used for the treated/explanatory variable in
-a blocked design (\code{n-sample-dependent}), distinct from
-\code{block}, the stratification factor. Never called \code{group}.
-\item \code{y}, where present, is always a \emph{convenience} field
-(e.g. group 2 of a two-sample design, or the second paired vector).
-It is never required for correct use - \code{x} + \code{group} (or
-\code{x} + \code{predictor} / \code{treatment} + \code{block}) is
-always sufficient and is the canonical access path.
+\item \code{group} is reserved for a categorical, factor-coercible variable of
+length \code{n} (the full sample) that splits the response into groups. It
+is never pre-split and never used for a continuous variable. \code{x} and
+\code{group} have an identical shape for \code{two-sample-independent} and for
+\code{n-sample-independent}, so that a caller can use
+\code{split(r$x, r$group)} uniformly, without branching on the number of
+groups.
+\item \code{predictor} is used for a continuous, numeric right-hand side
+variable (\code{numeric-numeric}), never \code{group}.
+\item \code{treatment} is used for the explanatory variable of a blocked
+design (\code{n-sample-dependent}), as distinct from \code{block}, the
+stratification factor. Neither is ever called \code{group}.
+\item \code{y}, where present, is a convenience field only, holding the second
+group of a two-sample design or the second paired vector. It is never
+needed for correct use: \code{x} and \code{group} (or \code{x} and \code{predictor}, or
+\code{treatment} and \code{block}) are always sufficient and are the canonical
+access path.
 }
 
-\strong{subset handling:}
+\strong{Missing values}
 
-Because \code{subset} is both an argument name and a base R function,
-name collisions can occur when forwarding to \code{stats::model.frame}.
-The calling function must capture \code{subset} as an unevaluated
-expression:
+Missing values are left to \code{na.action} and are not touched otherwise, so
+with the default \code{\link[=na.pass]{na.pass()}} they reach the caller untouched. The one
+exception is the grouping factor of an independent design, where empty and
+missing levels are dropped before the groups are counted. A grouping
+variable that is missing throughout leaves no level at all and is an error.
+
+\strong{subset handling}
+
+Because \code{subset} is both an argument name and a base R function, name
+collisions can occur when forwarding to \code{\link[=model.frame]{model.frame()}}. The calling
+function must therefore capture \code{subset} as an unevaluated expression and
+pass the resulting object on directly:
 
 \preformatted{
 myFun <- function(formula, data, subset, na.action = na.pass, ...) {
-  subset_expr <- if (!missing(subset)) substitute(subset) else NULL
+  subsetExpr <- if (!missing(subset)) substitute(subset) else NULL
   resolveFormula(formula, data,
-                 subset    = subset_expr,
+                 subset    = subsetExpr,
                  na.action = na.action)
 }
 }
 
-\strong{Return value components by type:}
+\strong{Return components by type}
 
-All return values contain \code{type}, \code{mf} and \code{data.name}.
-Additional components depend on the design:
+Every return value contains \code{type}, \code{mf} and \code{dataName}. The remaining
+components depend on the design:
 
-\tabular{ll}{
-\strong{type}                  \tab \strong{Additional components} \cr
-\code{one-sample}              \tab \code{x} \cr
-\code{two-sample-independent}  \tab \code{x}, \code{group}, \code{y} (convenience: group 2) \cr
-\code{two-sample-dependent}    \tab \code{x}, \code{y} \cr
-\code{n-sample-independent}    \tab \code{x}, \code{group} \cr
-\code{n-sample-dependent}      \tab \code{response}, \code{treatment}, \code{block} \cr
-\code{numeric-numeric}         \tab \code{x}, \code{predictor} \cr
+\describe{
+\item{\code{one-sample}}{\code{x}}
+\item{\code{two-sample-independent}}{\code{x}, \code{group}, \code{y} (convenience: the
+second group)}
+\item{\code{two-sample-dependent}}{\code{x}, \code{y}}
+\item{\code{n-sample-independent}}{\code{x}, \code{group}}
+\item{\code{n-sample-dependent}}{\code{response}, \code{treatment}, \code{block}}
+\item{\code{numeric-numeric}}{\code{x}, \code{predictor}}
 }
 }
 \examples{
@@ -141,49 +162,45 @@ df <- data.frame(
 
 # one-sample
 resolveFormula(y ~ 1, data = df)$type
-#> [1] "one-sample"
+## [1] "one-sample"
 
-# two-sample independent: x + group have full length, same shape as k>2
+# two-sample independent: x and group have full length, the same shape
+# as for more than two groups
 r2 <- resolveFormula(y ~ g2, data = df,
                      allowed = c("two-sample-independent",
                                  "n-sample-independent"))
 r2$type
-#> [1] "two-sample-independent"
+## [1] "two-sample-independent"
 length(r2$x) == length(r2$group)
-#> [1] TRUE
+## [1] TRUE
 
 # n-sample independent
 resolveFormula(y ~ g3, data = df,
                allowed = "n-sample-independent")$type
-#> [1] "n-sample-independent"
+## [1] "n-sample-independent"
 
 # two-sample dependent (paired)
 df2 <- data.frame(pre = rnorm(15, 50, 10), post = rnorm(15, 55, 10))
 resolveFormula(Pair(pre, post) ~ 1, data = df2,
                allowed = c("one-sample",
                            "two-sample-dependent"))$type
-#> [1] "two-sample-dependent"
+## [1] "two-sample-dependent"
 
 # n-sample dependent (blocked): treatment, not group
 r4 <- resolveFormula(y ~ trt | blk, data = df,
                      allowed = "n-sample-dependent")
-r4$type
-#> [1] "n-sample-dependent"
 names(r4)
+## [1] "type" "mf" "response" "treatment" "block" "dataName"
 
 # numeric-numeric: predictor, not group
 df3 <- data.frame(y = rnorm(20), x = rnorm(20))
 r5 <- resolveFormula(y ~ x, data = df3, allowed = "numeric-numeric")
-r5$type
-#> [1] "numeric-numeric"
 is.numeric(r5$predictor)
-#> [1] TRUE
+## [1] TRUE
 
 }
 \seealso{
-\code{\link[stats]{model.frame}},
-\code{\link[stats]{Pair}},
-\code{DescToolsX:desc}
+\code{\link[=model.frame]{model.frame()}}, \code{\link[=Pair]{Pair()}}, \code{\link[=resolveGroups]{resolveGroups()}}
 
 Other data.resolve:
 \code{\link[=resolveContingency]{resolveContingency()}},
@@ -191,4 +208,4 @@ Other data.resolve:
 }
 \concept{data-resolution}
 \concept{data.resolve}
-\concept{formula}
+\concept{programming}

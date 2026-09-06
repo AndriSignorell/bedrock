@@ -7,10 +7,10 @@
 #' @param x a data.frame containing the data.
 #' @return a list with three elements. The first gives the number of rows, the
 #' second the number of complete cases for the whole data frame. The third
-#' element \code{tab} contains the data for the single variables.
+#' element `tab` contains the data for the single variables.
 #'
-#' @seealso \code{pharos::plotMiss},
-#' \code{\link{complete.cases}}, \code{\link{is.na}}, \code{\link{na.omit}}
+#' @seealso `pharos::plotMiss`,
+#' [complete.cases()], [is.na()], [na.omit()]
 #'
 #' @examples
 #' countCompCases(airquality)

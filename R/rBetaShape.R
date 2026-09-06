@@ -6,7 +6,7 @@
 #'
 #' @param n non-negative integer giving the number of values to generate.
 #' @param shape distributional shape: either one of the predefined names
-#'   listed under \strong{Details}, or a numeric vector of length 2 giving
+#'   listed under **Details**, or a numeric vector of length 2 giving
 #'   `shape1` and `shape2` directly.
 #' @param bounds numeric vector containing the lower and upper bound.
 #'
@@ -16,7 +16,7 @@
 #' The following predefined shapes and beta parameters are available:
 #'
 #' \tabular{lrrl}{
-#' \strong{Shape} \tab \strong{shape1} \tab \strong{shape2} \tab \strong{Description} \cr
+#' **Shape** \tab **shape1** \tab **shape2** \tab **Description** \cr
 #' `"norm"`  \tab 5.0 \tab 5.0 \tab symmetric and bell-shaped \cr
 #' `"left"`  \tab 5.0 \tab 2.0 \tab left-skewed with values concentrated near the upper bound \cr
 #' `"right"` \tab 2.0 \tab 5.0 \tab right-skewed with values concentrated near the lower bound \cr
@@ -45,12 +45,12 @@
 #' where \eqn{a} and \eqn{b} are the lower and upper bounds, respectively.
 #'
 #' @section Random number generation:
-#' The values are drawn with [stats::rbeta()] and therefore depend on the
+#' The values are drawn with [rbeta()] and therefore depend on the
 #' state of R's global random number generator. No seed is set internally;
-#' call [base::set.seed()] beforehand, or wrap the call in
-#' [bedrock::withSeed()], for reproducible results.
+#' call [set.seed()] beforehand, or wrap the call in
+#' [withSeed()], for reproducible results.
 #'
-#' @seealso [stats::rbeta()], [stats::runif()]
+#' @seealso [rbeta()], [runif()]
 #'
 #' @family random.numbers
 #' @concept sampling

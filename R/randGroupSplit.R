@@ -1,22 +1,22 @@
 
 #' Randomly Split a Vector into Groups of Given Sizes
 #'
-#' Randomly assigns the elements of a vector \code{x} into groups with
-#' predefined sizes given by \code{groupSizes}. The grouping is performed
+#' Randomly assigns the elements of a vector `x` into groups with
+#' predefined sizes given by `groupSizes`. The grouping is performed
 #' without replacement and each element is assigned to exactly one group.
 #'
 #' This function is useful for random group assignments, for example in
 #' teaching settings, simulations, or experimental designs where groups
-#' of unequal sizes are required. It uses \code{\link{sample}}, so results
-#' can be made reproducible with \code{\link{set.seed}}.
+#' of unequal sizes are required. It uses [sample()], so results
+#' can be made reproducible with [set.seed()].
 #'
 #' @param x a vector containing the elements to be split into groups.
 #' @param groupSizes an integer vector specifying the sizes of the groups.
-#'   The sum of \code{groupSizes} must equal \code{length(x)}. If the vector
+#'   The sum of `groupSizes` must equal `length(x)`. If the vector
 #'   is named, the names are used as group names in the result.
 #'
 #' @return a list of vectors, where each element corresponds to one group.
-#'   The length of the list equals \code{length(groupSizes)}.
+#'   The length of the list equals `length(groupSizes)`.
 #'
 #' @examples
 #' # Split letters into 3 groups of sizes 4, 3, and 5

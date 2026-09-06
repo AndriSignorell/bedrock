@@ -2,7 +2,7 @@
 
 Splits character vectors into multiple columns based on a delimiter.
 Each element of `x` is split using
-[`strsplit`](https://rdrr.io/r/base/strsplit.html), and the resulting
+[`strsplit()`](https://rdrr.io/r/base/strsplit.html), and the resulting
 parts are expanded into separate columns.
 
 ## Usage
@@ -21,7 +21,7 @@ strSplitToCol(x, split = " ", fixed = TRUE, naForm = "", colNames = NULL)
 - split:
 
   character string specifying the delimiter for splitting. Passed to
-  [`strsplit`](https://rdrr.io/r/base/strsplit.html).
+  [`strsplit()`](https://rdrr.io/r/base/strsplit.html).
 
 - fixed:
 
@@ -53,14 +53,14 @@ Missing values are filled with `naForm`.
 For each element (or column) in `x`, the function:
 
 1.  Splits each entry using
-    [`strsplit`](https://rdrr.io/r/base/strsplit.html)
+    [`strsplit()`](https://rdrr.io/r/base/strsplit.html)
 
 2.  Determines the maximum number of split parts
 
 3.  Pads shorter splits with `naForm`
 
 4.  Combines results into a matrix via
-    [`rbind`](https://rdrr.io/r/base/cbind.html)
+    [`rbind()`](https://rdrr.io/r/base/cbind.html)
 
 The final result is a data frame where each original element or column
 contributes one or more columns depending on the number of splits.
@@ -70,8 +70,9 @@ generated for each element of `x`.
 
 ## See also
 
-Other string.transform: [`mGsub()`](mGsub.md),
-[`strSplitToDummy()`](strSplitToDummy.md)
+Other string.transform:
+[`char-ascii-conversion`](char-ascii-conversion.md),
+[`mGsub()`](mGsub.md), [`strSplitToDummy()`](strSplitToDummy.md)
 
 ## Examples
 

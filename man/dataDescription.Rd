@@ -53,6 +53,6 @@ desc$codes[["gender"]]
 Other label.import:
 \code{\link[=openDataObject]{openDataObject()}}
 }
-\concept{file-io}
+\concept{datasets}
 \concept{label}
 \concept{label.import}

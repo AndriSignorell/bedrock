@@ -72,7 +72,7 @@ Other datasets: [`Cards`](Cards.md), [`Pizza`](Pizza.md),
 ``` r
 if (FALSE) { # \dontrun{
 # Load from default repositories
-courseData("mydata.csv")
+courseData("fullmoon.xlsx")
 
 # Load from custom URL
 courseData("mydata.csv", url = "https://example.com/data/")

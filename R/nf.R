@@ -7,22 +7,22 @@
 #' that require numeric data (distance calculations, correlation matrices,
 #' some modelling routines), or to obtain a compact, deterministic
 #' small-integer code for an ordinal variable by passing an explicit
-#' \code{levels} order.
+#' `levels` order.
 #'
-#' This function is a shorthand for \code{as.numeric(factor(x, ...))}.
+#' This function is a shorthand for `as.numeric(factor(x, ...))`.
 #'
 #' Note that the resulting numeric values correspond to the internal
 #' factor levels, not the original numeric values. In particular, for
 #' character vectors holding numbers the codes follow the alphabetical
 #' level order (see the last example) -- use
-#' \code{as.numeric(as.character(x))} to recover the values themselves.
+#' `as.numeric(as.character(x))` to recover the values themselves.
 #'
 #' @param x a vector to be converted.
-#' @param ... additional arguments passed to \code{\link{factor}}.
+#' @param ... additional arguments passed to [factor()].
 #'
 #' @return a numeric vector corresponding to the integer codes of the factor levels.
 #'
-#' @seealso \code{\link{factor}}, \code{\link{as.numeric}}
+#' @seealso [factor()], [as.numeric()]
 #'
 #' @examples
 #' nf(c("a", "b", "a"))

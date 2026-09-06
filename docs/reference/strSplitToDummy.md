@@ -27,10 +27,10 @@ strSplitToDummy(x, split = ",", trim = TRUE, na.action = na.pass, ...)
 - na.action:
 
   a function to handle `NA` values. Accepted values are
-  [`na.pass`](https://rdrr.io/r/stats/na.fail.html) (default),
-  [`na.omit`](https://rdrr.io/r/stats/na.fail.html),
-  [`na.exclude`](https://rdrr.io/r/stats/na.fail.html), and
-  [`na.fail`](https://rdrr.io/r/stats/na.fail.html).
+  [`na.pass()`](https://rdrr.io/r/stats/na.fail.html) (default),
+  [`na.omit()`](https://rdrr.io/r/stats/na.fail.html),
+  [`na.exclude()`](https://rdrr.io/r/stats/na.fail.html), and
+  [`na.fail()`](https://rdrr.io/r/stats/na.fail.html).
 
   `na.pass`
 
@@ -52,7 +52,7 @@ strSplitToDummy(x, split = ",", trim = TRUE, na.action = na.pass, ...)
 - ...:
 
   additional arguments passed to
-  [`strsplit`](https://rdrr.io/r/base/strsplit.html).
+  [`strsplit()`](https://rdrr.io/r/base/strsplit.html).
 
 ## Value
 
@@ -63,11 +63,12 @@ and may not be syntactically valid R identifiers. The attribute
 
 ## See also
 
-[`strsplit`](https://rdrr.io/r/base/strsplit.html),
-[`na.omit`](https://rdrr.io/r/stats/na.fail.html)
+[`strsplit()`](https://rdrr.io/r/base/strsplit.html),
+[`na.omit()`](https://rdrr.io/r/stats/na.fail.html)
 
-Other string.transform: [`mGsub()`](mGsub.md),
-[`strSplitToCol()`](strSplitToCol.md)
+Other string.transform:
+[`char-ascii-conversion`](char-ascii-conversion.md),
+[`mGsub()`](mGsub.md), [`strSplitToCol()`](strSplitToCol.md)
 
 ## Examples
 

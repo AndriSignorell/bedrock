@@ -25,14 +25,14 @@ components are joined, so \code{buildPath("data", "file.csv")} and
 \code{buildPath("data/", "file.csv")} yield the same result.
 
 The path is then passed through
-\code{\link[base:normalizePath]{normalizePath}} with
+\code{\link[=normalizePath]{normalizePath()}}with
 \code{mustWork = FALSE}, so paths that do not (yet) exist are allowed.
 Note that \code{normalizePath} resolves existing paths to absolute form,
 while non-existing paths are returned as constructed (i.e. possibly
 relative).
 
 Both arguments are vectorized in the usual
-\code{\link[base:file.path]{file.path}} manner.
+\code{\link[=file.path]{file.path()}} manner.
 }
 \note{
 Converting between forward slashes and backslashes is a frequent

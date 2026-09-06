@@ -1,52 +1,52 @@
 
 #' Find multiple roots of a function within an interval
 #'
-#' Searches a numeric interval for all roots (zeros) of a function \code{f}
-#' by subdividing it into \code{n} sub-intervals, detecting sign changes, and
-#' refining each candidate with \code{\link[stats]{uniroot}}.
+#' Searches a numeric interval for all roots (zeros) of a function `f`
+#' by subdividing it into `n` sub-intervals, detecting sign changes, and
+#' refining each candidate with [uniroot()].
 #'
-#' The function \code{f} is called as \code{f(x, ...)} where \code{x} is a
-#' numeric vector. If \code{f} does not accept vector input, it is called
-#' element-wise via \code{sapply}.
+#' The function `f` is called as `f(x, ...)` where `x` is a
+#' numeric vector. If `f` does not accept vector input, it is called
+#' element-wise via `sapply`.
 #'
-#' Grid points at which \code{|f(x)| < tol} are returned directly as roots.
-#' Sign changes are detected using \code{sign()}, which avoids numerical
+#' Grid points at which `|f(x)| < tol` are returned directly as roots.
+#' Sign changes are detected using `sign()`, which avoids numerical
 #' overflow that can occur with product-based approaches. Non-finite function
-#' values are silently ignored when detecting sign changes. If \code{uniroot}
+#' values are silently ignored when detecting sign changes. If `uniroot`
 #' fails on a sub-interval, that interval is skipped with a warning rather
 #' than aborting the entire search.
 #'
 #' @param f       a function for which roots are sought. Must accept a numeric
-#'   first argument; additional arguments are passed via \code{...}.
+#'   first argument; additional arguments are passed via `...`.
 #' @param interval a numeric vector of length 2 specifying the search interval.
-#'   Either \code{interval} or both \code{lower} and \code{upper} must be
+#'   Either `interval` or both `lower` and `upper` must be
 #'   supplied.
 #' @param lower  lower bound of the search interval.
-#'   Default: \code{min(interval)}.
+#'   Default: `min(interval)`.
 #' @param upper  upper bound of the search interval.
-#'   Default: \code{max(interval)}.
-#' @param tol    convergence tolerance passed to \code{\link[stats]{uniroot}},
+#'   Default: `max(interval)`.
+#' @param tol    convergence tolerance passed to [uniroot()],
 #'   and also used as the threshold for (i) treating grid-point values as
 #'   exact zeros and (ii) collapsing near-duplicate roots.
-#'   Default: \code{.Machine$double.eps^0.5}.
-#' @param maxiter maximum number of iterations for \code{\link[stats]{uniroot}}.
-#'   Default: \code{1000}.
+#'   Default: `.Machine$double.eps^0.5`.
+#' @param maxiter maximum number of iterations for [uniroot()].
+#'   Default: `1000`.
 #' @param n      number of sub-intervals used for the initial grid search.
-#'   Increase \code{n} if roots may be close together or the function
-#'   oscillates rapidly. Default: \code{100}.
-#' @param ...    additional arguments passed to \code{f}.
+#'   Increase `n` if roots may be close together or the function
+#'   oscillates rapidly. Default: `100`.
+#' @param ...    additional arguments passed to `f`.
 #'
-#' @return a numeric vector of roots found in \code{[lower, upper]}, sorted in
-#'   ascending order. Returns \code{numeric(0)} if no roots are found.
+#' @return a numeric vector of roots found in `[lower, upper]`, sorted in
+#'   ascending order. Returns `numeric(0)` if no roots are found.
 #'
 #' @details
 #' **Limitations:** Roots within the same sub-interval of width
-#' \code{(upper - lower) / n} may be missed. Roots of even multiplicity
+#' `(upper - lower) / n` may be missed. Roots of even multiplicity
 #' that do not produce a sign change will not be found unless they happen
 #' to fall on a grid point. A warning is issued if no roots are found at
 #' all despite finite function values being present.
 #'
-#' @seealso \code{\link[stats]{uniroot}} for the underlying single-root solver.
+#' @seealso [stats::uniroot()] for the underlying single-root solver.
 #'
 #' @examples
 #' f <- function(x) cos(2 * x)^3

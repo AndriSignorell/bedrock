@@ -44,8 +44,8 @@ which is prime, as `9007199254740996`. Every representable double above
 caller to notice. For larger numbers, use `gmp::isprime()` with a
 `gmp::as.bigz()` or character input.
 
-[`factorize`](factorize.md) carries the same bound but rejects the input
-with an error instead. The difference is deliberate:
+[`factorize()`](factorize.md) carries the same bound but rejects the
+input with an error instead. The difference is deliberate:
 [`factorize()`](factorize.md) answers one number per call element and
 can refuse the call, whereas a vectorized predicate should not let a
 single unrepresentable element discard the result for all the others.

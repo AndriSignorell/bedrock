@@ -35,8 +35,8 @@
 #' The returned matrix has an attribute `"base"` containing the baseline level
 #' for treatment coding, and `NA` otherwise.
 #'
-#' @seealso [model.frame()], [contrasts()], [stats::contr.treatment()],
-#'   [stats::contr.sum()], [stats::contr.helmert()], [stats::contr.poly()]
+#' @seealso [model.frame()], [contrasts()], [contr.treatment()],
+#'   [contr.sum()], [contr.helmert()], [contr.poly()]
 #'
 #' @examples
 #' x <- c("red", "blue", "green", "blue", "green", "red", "red", "blue")

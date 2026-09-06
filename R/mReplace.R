@@ -8,12 +8,12 @@
 #' @param x a character vector whose elements are to be replaced.
 #' @param patterns a character vector of values to search for.
 #' @param replacements a character vector of replacement values,
-#'   in the same order as \code{patterns}.
+#'   in the same order as `patterns`.
 #'
-#' @return a character vector of the same length as \code{x}, with matching
+#' @return a character vector of the same length as `x`, with matching
 #'   elements replaced. Non-matching elements are returned unchanged.
 #'
-#' @seealso \code{\link{mGsub}} for substring replacement.
+#' @seealso [mGsub()] for substring replacement.
 #'
 #' @examples
 #' mReplace(c("a", "b", "c", "d"), c("a", "c"), c("A", "C"))

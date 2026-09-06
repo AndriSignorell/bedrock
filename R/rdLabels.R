@@ -1,32 +1,42 @@
 
-#' Extract variable labels from Rd documentation
+#' Extract Variable Labels from Rd Documentation
 #'
-#' Extracts variable descriptions from the \code{\\describe} section of a dataset's
-#' Rd documentation and returns them as a named character vector. The names
-#' correspond to variable names and the values to their descriptions.
+#' Reads the variable descriptions out of the `\describe` section of a
+#' documented dataset and returns them as a named character vector, the names
+#' being the variable names. This turns documentation that already exists into
+#' labels usable in tables, plots and codebooks, instead of maintaining the
+#' same descriptions a second time in the code.
 #'
-#' This function is useful for automatically generating variable labels from
-#' documented datasets in R packages.
+#' @param dataName character string, the name of the dataset.
+#' @param package character string, the name of the package holding the
+#'   dataset.
 #'
-#' @param dataName character string. Name of the dataset.
-#' @param package character string. Name of the package containing the dataset.
-#'
-#' @return a named character vector where names are variable names and values
-#'   are their corresponding descriptions extracted from the Rd file.
+#' @return a named character vector of variable descriptions, the names being
+#'   the variable names.
 #'
 #' @details
-#' The function parses the Rd database via \code{\link[tools:Rd_db]{tools::Rd_db}}
-#' and recursively searches for the \code{\\describe} section. It then extracts
-#' all \code{\\item\{var\}\{description\}} entries.
+#' The Rd database is read with [tools::Rd_db()] and searched recursively for
+#' the first `\describe` section, from which all
+#' \code{\\item\{var\}\{description\}} entries are taken. Only that first
+#' section is read: on a page documenting more than one dataset, the labels of
+#' the first one are returned.
 #'
-#' The function is fully CRAN-compliant and does not rely on internal (non-exported)
-#' functions.
+#' Descriptions are returned as written in the Rd file, with whitespace and
+#' line breaks collapsed to single spaces. Rd markup inside a description, such
+#' as `\code{}` or `\eqn{}`, contributes its content without the surrounding
+#' command.
+#'
+#' The package must be installed, as the documentation is read from the
+#' installed Rd database rather than from the sources.
 #'
 #' @examples
-#' # Extract labels from a package dataset
 #' \dontrun{
 #' rdLabels("Pizza", "bedrock")
+#' ## price               temperature         delivery_min
+#' ## "Price of the ..."  "Temperature ..."   "Delivery ..."
 #' }
+#'
+#' @seealso [tools::Rd_db()]
 #'
 #' @family pkg.funinfo
 #' @concept introspection
@@ -34,69 +44,75 @@
 #' @importFrom tools Rd_db
 #' @export
 rdLabels <- function(dataName, package) {
-  
-  if (missing(package)) {
-    stop("Please provide a package name.")
-  }
-  
-  # --- 1. Rd database laden ---
-  rd_db <- Rd_db(package)
-  
-  # Namen sehen typischerweise so aus: "Pizza.Rd"
-  rd_name <- paste0(dataName, ".Rd")
-  
-  if (!rd_name %in% names(rd_db)) {
-    stop("No Rd entry found for ", dataName)
-  }
-  
-  rd <- rd_db[[rd_name]]
-  
-  # --- 2. \describe finden ---
-  desc_node <- .findRdTag(rd, "\\describe")
-  
-  
-  if (is.null(desc_node)) {
-    stop("No \\describe section found.")
-  }
-  
-  # --- 3. Items extrahieren ---
-  labels <- list()
-  
-  for (item in desc_node) {
-    if (attr(item, "Rd_tag") == "\\item") {
-      
-      # remove white space and line breaks
-      var <- gsub("\\s+", "", paste(unlist(item[[1]]), collapse = ""))
-      desc <- trimws(paste(unlist(item[[2]]), collapse = " "))
-      
-      labels[[var]] <- desc
-    }
-  }
-  
-  return( unlist(labels) )
-  
+
+  if (missing(dataName))
+    stop("'dataName' is missing")
+
+  if (missing(package))
+    stop("'package' is missing")
+
+  checkString(dataName)
+  checkString(package)
+
+  # --- 1. load the Rd database ---
+  rdDb <- Rd_db(package)
+
+  # entries are named after their file, e.g. "Pizza.Rd"
+  rdName <- paste0(dataName, ".Rd")
+
+  if (!rdName %in% names(rdDb))
+    stop("no Rd entry found for ", dataName, " in package ", package)
+
+  rd <- rdDb[[rdName]]
+
+  # --- 2. find the \describe section ---
+  descNode <- .findRdTag(rd, "\\describe")
+
+  if (is.null(descNode))
+    stop("no \\describe section found in ", rdName)
+
+  # --- 3. extract the items ---
+  items <- Filter(function(el) identical(attr(el, "Rd_tag"), "\\item"),
+                  descNode)
+
+  if (length(items) == 0L)
+    stop("no \\item entries found in the \\describe section of ", rdName)
+
+  # parse_Rd() keeps the line breaks of the source inside a text fragment, so
+  # runs of whitespace are collapsed rather than only trimmed at the ends
+  labels <- vapply(items, function(el)
+                     trimws(gsub("\\s+", " ",
+                                 paste(unlist(el[[2L]]), collapse = " "))),
+                   character(1L), USE.NAMES = FALSE)
+
+  names(labels) <- vapply(items, function(el)
+                            gsub("\\s+", "", paste(unlist(el[[1L]]),
+                                                   collapse = "")),
+                          character(1L), USE.NAMES = FALSE)
+
+  labels
+
 }
 
 
 
 # == internal helper functions =====================================
 
+# depth-first search for the first node carrying the given Rd tag,
+# returning NULL when the tree holds none
 .findRdTag <- function(x, tag) {
-  
-  # --- only check whether Rd_tag exists ---
-  if (!is.null(attr(x, "Rd_tag"))) {
-    if (attr(x, "Rd_tag") == tag) return(x)
-  }
-  
-  # --- recursively through lists ---
+
+  if (identical(attr(x, "Rd_tag"), tag))
+    return(x)
+
   if (is.list(x)) {
     for (el in x) {
       res <- .findRdTag(el, tag)
-      if (!is.null(res)) return(res)
+      if (!is.null(res))
+        return(res)
     }
   }
-  
-  NULL
-  
-}
 
+  NULL
+
+}

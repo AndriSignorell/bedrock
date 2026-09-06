@@ -42,9 +42,10 @@ mGsub(x, patterns = c("A", "B"), replacements = c("BX", "CY"))
 
 }
 \seealso{
-\code{\link{mReplace}} for exact whole-element replacement.
+\code{\link[=mReplace]{mReplace()}} for exact whole-element replacement.
 
 Other string.transform:
+\code{\link{char-ascii-conversion}},
 \code{\link[=strSplitToCol]{strSplitToCol()}},
 \code{\link[=strSplitToDummy]{strSplitToDummy()}}
 }

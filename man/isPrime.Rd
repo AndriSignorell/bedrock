@@ -43,7 +43,7 @@ bound -- silently, and with no way for the caller to notice. For larger
 numbers, use \code{gmp::isprime()} with a \code{gmp::as.bigz()} or
 character input.
 
-\code{\link{factorize}} carries the same bound but rejects the input
+\code{\link[=factorize]{factorize()}} carries the same bound but rejects the input
 with an error instead. The difference is deliberate: \code{factorize()}
 answers one number per call element and can refuse the call, whereas a
 vectorized predicate should not let a single unrepresentable element

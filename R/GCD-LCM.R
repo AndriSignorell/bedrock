@@ -6,7 +6,7 @@
 #'
 #' The computation is based on the Euclidean algorithm without using the
 #' extended version. The greatest common divisor for all numbers in the integer
-#' vector \code{x} will be computed (the multiple GCD). Negative values are
+#' vector `x` will be computed (the multiple GCD). Negative values are
 #' allowed and enter via their absolute value; logical vectors are coerced
 #' to integer.
 #'
@@ -17,18 +17,18 @@
 #' @section Zero:
 #' Zero behaves differently in the two functions, which is why they do not
 #' treat it the same way. For the greatest common divisor it is
-#' \emph{neutral} - every number divides 0, so \code{GCD(0, a)} is
-#' \code{abs(a)} and zeros can simply be dropped. For the least common
-#' multiple it is \emph{absorbing} - 0 is a multiple of every number and the
-#' smallest non-negative one, so \code{LCM(0, a)} is 0. \code{GCD(0, 0)} and
-#' \code{LCM(0, 0)} are both 0.
+#' *neutral* - every number divides 0, so `GCD(0, a)` is
+#' `abs(a)` and zeros can simply be dropped. For the least common
+#' multiple it is *absorbing* - 0 is a multiple of every number and the
+#' smallest non-negative one, so `LCM(0, a)` is 0. `GCD(0, 0)` and
+#' `LCM(0, 0)` are both 0.
 #'
 #' @note The following relation is always true:
 #'
-#' \code{n * m = GCD(n, m) * LCM(n, m)}
+#' `n * m = GCD(n, m) * LCM(n, m)`
 #'
 #' It also holds when one of the values is zero, and that is the shortest way
-#' to see why \code{LCM(0, 6)} has to be 0 rather than 6.
+#' to see why `LCM(0, 6)` has to be 0 rather than 6.
 #'
 #' @examples
 #' GCD(12, 10)

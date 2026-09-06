@@ -77,7 +77,7 @@ coalesceX(as.list(d.frm))
 
 }
 \seealso{
-\code{\link{is.na}}, \code{\link{is.finite}}
+\code{\link[=is.na]{is.na()}}, \code{\link[=is.finite]{is.finite()}}
 
 Other vector.na:
 \code{\link[=isNA]{isNA()}},
@@ -88,4 +88,3 @@ Other vector.na:
 \concept{imputation}
 \concept{missing-value}
 \concept{vector.na}
-\keyword{manip}

@@ -36,8 +36,8 @@ modified object.
 
 ## See also
 
-[stats::setNames](https://rdrr.io/r/stats/setNames.html),
-[base::unname](https://rdrr.io/r/base/unname.html)
+[`setNames()`](https://rdrr.io/r/stats/setNames.html),
+[`unname()`](https://rdrr.io/r/base/unname.html)
 
 Other label.attrs: [`label()`](label.md), [`renameX()`](renameX.md),
 [`setNamesX()`](setNamesX.md)

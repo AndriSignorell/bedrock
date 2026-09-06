@@ -3,38 +3,38 @@
 #'
 #' Retrieve or assign a label to an object, or to variables (columns) of a data frame.
 #'
-#' For atomic objects, a single label can be stored as an attribute \code{"label"}.
+#' For atomic objects, a single label can be stored as an attribute `"label"`.
 #' For data frames, a label can be assigned either to the whole dataset or to
 #' individual columns.
 #'
 #' The function provides a unified interface for working with labels:
 #'
 #' \itemize{
-#'   \item \code{label(x)} returns the label of an object
-#'   \item \code{label(x) <- "text"} sets the label of an object
-#'   \item \code{label(x, vars = ...)} returns labels of selected variables
-#'   \item \code{label(x, vars = ...) <- value} sets variable labels
+#'   \item `label(x)` returns the label of an object
+#'   \item `label(x) <- "text"` sets the label of an object
+#'   \item `label(x, vars = ...)` returns labels of selected variables
+#'   \item `label(x, vars = ...) <- value` sets variable labels
 #' }
 #'
-#' Variable labels are stored as attribute \code{"label"} on each column.
-#' Assigning \code{NULL} removes the label(s).
+#' Variable labels are stored as attribute `"label"` on each column.
+#' Assigning `NULL` removes the label(s).
 #'
 #' @param x an object. Typically an atomic vector or a data.frame.
 #' @param vars optional specification of variables (columns) in a data.frame.
 #'   Can be:
 #'   \itemize{
-#'     \item \code{NULL}: operate on the object label (default).
-#'     \item \code{TRUE}: all columns.
+#'     \item `NULL`: operate on the object label (default).
+#'     \item `TRUE`: all columns.
 #'     \item numeric indices or character names of columns.
 #'   }
-#' @param value a character vector of labels, or \code{NULL} to remove them.
+#' @param value a character vector of labels, or `NULL` to remove them.
 #'   For object labels, must be of length 1. For variable labels, must have
-#'   length 1 or the same length as \code{vars}.
+#'   length 1 or the same length as `vars`.
 #'
 #' @return
 #' \itemize{
 #'   \item getter: a character scalar (object label) or a named character vector (variable labels).
-#'   \item setter: the modified object \code{x}.
+#'   \item setter: the modified object `x`.
 #' }
 #'
 #' @examples

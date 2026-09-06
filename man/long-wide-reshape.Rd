@@ -56,7 +56,7 @@ toWide(PlantGrowth$weight, PlantGrowth$group, by = PlantGrowth$nr)
 
 }
 \seealso{
-\code{reshape}, \code{stack}, \code{unstack}
+\code{\link[=reshape]{reshape()}}, \code{\link[=stack]{stack()}}, \code{\link[=unstack]{unstack()}}
 
 Other data.reshape:
 \code{\link[=collapseTable]{collapseTable()}},

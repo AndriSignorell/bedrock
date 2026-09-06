@@ -3,8 +3,8 @@
 #' 
 #' Recreates the data.frame out of a contingency table x.
 #' 
-#' For x being a vector this reduces to \code{rep(..., n)} with n as vector
-#' (which is not supported by \code{rep()}). \code{NA}s in the table will be
+#' For x being a vector this reduces to `rep(..., n)` with n as vector
+#' (which is not supported by `rep()`). `NA`s in the table will be
 #' treated as 0 without raising an error.
 #' 
 #' @name untable
@@ -15,15 +15,15 @@
 #' a table in frequency form (containing one or more factors and a frequency
 #' variable). 
 #' @param dimnames the dimension names of x to be used for expanding. Can be
-#' used to expand a weight vector to its original values. If set to \code{NULL}
+#' used to expand a weight vector to its original values. If set to `NULL`
 #' (default) the dimnames of x will be used.
 #' @param type defines the data type generated. This allows to directly define
 #' factors or ordered factors, but also numeric values. See examples.
 #' @param rownames a names vector for the rownames of the resulting data.frame
-#' If set to \code{NULL} (default) the names will be defined according to the
+#' If set to `NULL` (default) the names will be defined according to the
 #' table's dimnames.
 #' @param colnames a names vector for the colnames of the resulting data.frame
-#' If set to \code{NULL} (default) the names will be defined according to the
+#' If set to `NULL` (default) the names will be defined according to the
 #' table's dimnames.
 #' @param freq character, the name of the frequency variable in case x is a
 #' data.frame.
@@ -32,10 +32,6 @@
 #' @return a data.frame with the detailed data (even if x was a 1-dimensional
 #' table).
 #' 
-
-#' @seealso \code{\link{expand.grid}}, \code{\link{rep}}, \code{\link{gl}},
-#' \code{\link{xtabs}}
-#' @keywords manip
 #' @examples
 #' 
 #' d.titanic <- untable(Titanic)
@@ -74,12 +70,13 @@
 #' d.freq <- data.frame(f1=c("A","A","B","B"), f2=c("C","D","C","D"), Freq=c(1,2,3,4))
 #' untable(d.freq)
 #' 
-
 #' @rdname untable
-
+#' 
+#' @seealso [expand.grid()], [rep()], [gl()],
+#' [xtabs()]
+#' 
 #' @family data.reshape
 #' @concept reshape
-#' @concept frequency-table
 #' @export
 untable <- function(x, ...){
   UseMethod("untable")

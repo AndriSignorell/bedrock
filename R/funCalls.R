@@ -2,31 +2,31 @@
 #' List Calls Used in Function
 #'
 #' For screening purposes it can be useful to get a list of all function calls
-#' our function may depend on. \code{funCalls()} parses the function
+#' our function may depend on. `funCalls()` parses the function
 #' source and returns all found function calls grouped by their package.
 #'
-#' The source packages are resolved via \code{\link[utils]{find}}, which only
+#' The source packages are resolved via [find()], which only
 #' sees attached packages. Calls to functions from packages that are not on
-#' the search path are reported under \code{"<not found>"}.
+#' the search path are reported under `"<not found>"`.
 #'
 #' @param name the name of the function.
 #' @param package optional name of a package; if given, the result is
-#'   filtered to source environments matching \code{package}.
+#'   filtered to source environments matching `package`.
 #' @param sorted logical; whether calls are sorted alphabetically. Defaults to
-#'   \code{FALSE}.
+#'   `FALSE`.
 #'
 #' @return a list of character vectors with the function calls, grouped by
 #'   the environment the called functions were found in.
 #'
 #' @note
-#' Based on code by Nicholas Cooper.
-#'
-#' @seealso \code{\link{funList}}, \code{\link{funArgs}},
-#' \code{\link[utils]{getParseData}}
+#' Based on code by Nicholas Cooper, adapted to conform to package
+#' standards.
 #'
 #' @examples
 #'
 #' funCalls("combN", package="bedrock")
+#'
+#' @seealso [getParseData()]
 #'
 #' @family pkg.funinfo
 #' @concept introspection

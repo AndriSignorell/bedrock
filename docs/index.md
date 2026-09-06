@@ -115,7 +115,7 @@ Predicates and checks for data quality and structure.
 - [`nDec()`](reference/precision.md),
   [`prec()`](reference/precision.md),
   [`frac()`](reference/precision.md),
-  [`maxDigits()`](reference/precision.md)
+  [`maxDigits()`](https://andrisignorell.github.io/bedrock/reference/precision.html)
 - [`rankX()`](reference/rankX.md),
   [`percentRank()`](reference/percentRank.md),
   [`nUnique()`](reference/nUnique.md)

@@ -4,36 +4,36 @@
 #' Reads a file from the Downloads directory and returns it as a data
 #' frame. The file type is automatically detected from the extension.
 #'
-#' This is a convenience wrapper combining \code{\link{findDownload}} with
+#' This is a convenience wrapper combining [findDownload()] with
 #' common file readers:
 #' \itemize{
-#'   \item Excel files (\code{.xls}, \code{.xlsx}) via
-#'         \code{readxl::read_excel}
-#'   \item CSV files via \code{readr::read_csv}
-#'   \item TSV files via \code{readr::read_tsv}
-#'   \item Text files (\code{.txt}) via \code{readr::read_delim},
+#'   \item Excel files (`.xls`, `.xlsx`) via
+#'         `readxl::read_excel`
+#'   \item CSV files via `readr::read_csv`
+#'   \item TSV files via `readr::read_tsv`
+#'   \item Text files (`.txt`) via `readr::read_delim`,
 #'         which guesses the delimiter from the file content
 #' }
 #'
 #' For the readr-based formats the column specification message is
-#' suppressed by default; supply \code{show_col_types = TRUE} to restore
-#' it. By default, the result is converted to a base R \code{data.frame}.
+#' suppressed by default; supply `show_col_types = TRUE` to restore
+#' it. By default, the result is converted to a base R `data.frame`.
 #'
 #' @param file character string specifying the name of the file.
 #' @param \dots additional arguments passed to the underlying read
-#'   function, e.g. \code{sheet} for Excel files or \code{delim}
+#'   function, e.g. `sheet` for Excel files or `delim`
 #'   for text files.
-#' @param output character, either \code{"data.frame"} (default) or
-#'   \code{"tibble"}, determining the class of the returned object.
-#'   Conversion to \code{data.frame} is done by \code{\link{toBaseR}}.
+#' @param output character, either `"data.frame"` (default) or
+#'   `"tibble"`, determining the class of the returned object.
+#'   Conversion to `data.frame` is done by [toBaseR()].
 #'   The argument can be abbreviated. Note that it must be given as a
 #'   named argument, as it follows the dots.
 #'
-#' @return a \code{data.frame} or a tibble, according to \code{output}.
+#' @return a `data.frame` or a tibble, according to `output`.
 #'
-#' @seealso \code{\link{findDownload}},
-#'   \code{\link{toBaseR}}, \code{\link[readxl]{read_excel}},
-#'   \code{\link[readr]{read_csv}}
+#' @seealso [findDownload()],
+#'   [toBaseR()], [readxl::read_excel()],
+#'   [readr::read_csv()]
 #'
 #' @examples
 #' \dontrun{
@@ -48,7 +48,6 @@
 #' }
 #'
 #' @family file.io
-#' @concept file-io
 #' @concept table
 #' @export
 readDownload <- function(file, ..., output = c("data.frame", "tibble")) {

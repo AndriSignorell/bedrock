@@ -1,8 +1,8 @@
 # Get a Single Argument from Dots with Default
 
-Lightweight helper to extract a named argument from a list (typically
-`list(...)`). If the argument is not present, a default value is
-returned.
+Lightweight helper to extract a single named argument from a list
+(typically `list(...)`). If the argument is not present, a default value
+is returned.
 
 ## Usage
 
@@ -30,8 +30,8 @@ the value of the argument or `default`.
 
 ## See also
 
-[`extractArgs`](extractArgs.md) for extracting several arguments at
-once.
+For extracting several arguments at once use
+[`extractArgs()`](extractArgs.md).
 
 Other pkg.args: [`callIf()`](callIf.md),
 [`extractArgs()`](extractArgs.md), [`mergeArgs()`](mergeArgs.md),

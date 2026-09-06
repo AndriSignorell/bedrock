@@ -1,18 +1,18 @@
 
 #' Get a Single Argument from Dots with Default
 #'
-#' Lightweight helper to extract a named argument from a list (typically
-#' \code{list(...)}). If the argument is not present, a default value is
+#' Lightweight helper to extract a single named argument from a list (typically
+#' `list(...)`). If the argument is not present, a default value is
 #' returned.
 #'
-#' @param dots named list (usually \code{list(...)}).
+#' @param dots named list (usually `list(...)`).
 #' @param name character string, argument name.
 #' @param default default value if argument not present.
 #'
-#' @return the value of the argument or \code{default}.
+#' @return the value of the argument or `default`.
 #'
-#' @seealso \code{\link{extractArgs}} for extracting several arguments
-#' at once.
+#' @seealso For extracting several arguments
+#' at once use [extractArgs()]. 
 #'
 #' @examples
 #' f <- function(...) {

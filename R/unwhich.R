@@ -2,44 +2,44 @@
 
 #' Inverse Which
 #'
-#' Reconstructs the \code{TRUE} positions from the index vector returned
-#' by \code{\link{which}}, producing a logical vector of length \code{n}.
-#' Note that this is not a perfect inverse: \code{which()} discards
-#' \code{NA} and \code{FALSE} positions, so the original vector cannot be
+#' Reconstructs the `TRUE` positions from the index vector returned
+#' by [which()], producing a logical vector of length `n`.
+#' Note that this is not a perfect inverse: `which()` discards
+#' `NA` and `FALSE` positions, so the original vector cannot be
 #' fully recovered.
 #'
-#' Negative indices follow standard R semantics: \code{unwhich(-2, 5)}
-#' returns a vector with \code{TRUE} everywhere \emph{except} position 2.
+#' Negative indices follow standard R semantics: `unwhich(-2, 5)`
+#' returns a vector with `TRUE` everywhere *except* position 2.
 #' Positive and negative indices must not be mixed.
 #'
 #' @param idx     a vector of non-zero whole-number indices.  Positive
-#'   values mark \code{TRUE} positions; negative values mark
-#'   \code{FALSE} positions (all others become \code{TRUE}).  As in base
+#'   values mark `TRUE` positions; negative values mark
+#'   `FALSE` positions (all others become `TRUE`).  As in base
 #'   R, positive and negative indices must not be mixed.  Duplicate
-#'   indices are allowed and result in a single \code{TRUE} (or
-#'   \code{FALSE}) at that position.
+#'   indices are allowed and result in a single `TRUE` (or
+#'   `FALSE`) at that position.
 #' @param n       a single non-negative whole number giving the length of
-#'   the result.  For positive \code{idx}, defaults to \code{max(idx)};
-#'   for negative or empty \code{idx}, defaults to \code{0L}.  Must not
-#'   be less than \code{max(abs(idx))}.
-#' @param useNames logical.  If \code{TRUE} (default) \emph{and}
-#'   \code{idx} has names, those names are attached to the corresponding
-#'   \code{TRUE} positions of the result; all other positions receive an
-#'   empty string.  If \code{FALSE} or \code{idx} is unnamed, the result
+#'   the result.  For positive `idx`, defaults to `max(idx)`;
+#'   for negative or empty `idx`, defaults to `0L`.  Must not
+#'   be less than `max(abs(idx))`.
+#' @param useNames logical.  If `TRUE` (default) *and*
+#'   `idx` has names, those names are attached to the corresponding
+#'   `TRUE` positions of the result; all other positions receive an
+#'   empty string.  If `FALSE` or `idx` is unnamed, the result
 #'   has no names.  Ignored for negative indices.
 #'
-#' @return a logical vector of length \code{n}.
+#' @return a logical vector of length `n`.
 #'
 #' @note
-#' The positive-index construction (\code{rv[indices] <- TRUE} with name
+#' The positive-index construction (`rv[indices] <- TRUE` with name
 #' propagation) is based on code by Nick Sabbe; negative-index handling
 #' and input validation are original additions.
 #'
 #' @references
-#' Sabbe, N. (2012). Inverse of \code{which}.
-#'   \url{https://stackoverflow.com/questions/7659833/inverse-of-which}
+#' Sabbe, N. (2012). Inverse of `which`.
+#'   <https://stackoverflow.com/questions/7659833/inverse-of-which>
 #'
-#' @seealso \code{\link{which}}
+#' @seealso [which()]
 #'
 #' @examples
 #' ll <- c(TRUE, FALSE, TRUE, NA, FALSE, FALSE, TRUE)

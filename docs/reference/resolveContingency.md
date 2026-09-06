@@ -1,7 +1,12 @@
-# Resolve Contingency Table
+# Resolve a Contingency Table
 
-Converts either a contingency table or two classification variables into
-a standardized contingency-table representation.
+Brings a two-way classification into one canonical shape, no matter
+whether it arrives as a ready-made contingency table or as two
+classification variables. The function validates the counts, drops the
+incomplete observations and reports the table together with its
+dimensions, so that association measures, tests of independence and
+agreement statistics can share one entry point instead of each repeating
+the same preparation.
 
 ## Usage
 
@@ -11,7 +16,7 @@ resolveContingency(
   y = NULL,
   square = FALSE,
   integerCounts = TRUE,
-  data.name = NULL
+  dataName = NULL
 )
 ```
 
@@ -19,32 +24,34 @@ resolveContingency(
 
 - x:
 
-  a contingency table, factor or vector.
+  a contingency table or matrix of counts, or a factor or vector of
+  classifications.
 
 - y:
 
-  an optional factor or vector Ignored when `x` is a matrix.
+  an optional factor or vector of classifications, of the same length as
+  `x`. Required unless `x` is a table, ignored when it is.
 
 - square:
 
-  logical indicating whether a square contingency table is required.
+  logical, whether a square contingency table is required, defaults to
+  `FALSE`.
 
 - integerCounts:
 
-  logical; if `TRUE` (default) a warning is issued when the table
-  contains non-integer counts.
+  logical, whether non-integer counts should be reported with a warning,
+  defaults to `TRUE`.
 
-- data.name:
+- dataName:
 
-  optional character string used as the `data.name` entry of the result.
-  If `NULL` (default), it is derived from `deparse(substitute(x))` (and
-  `y`). This only reflects the variable names as seen by
-  `resolveContingency()` itself: functions that call
-  `resolveContingency()` internally should build their own `data.name`
-  via `deparse(substitute())` at their own call site and pass it through
-  here, otherwise the reported name will be the formal argument names of
-  the calling function (e.g. `"x and y"`) rather than the names the end
-  user actually typed.
+  optional character string used as the `dataName` entry of the result.
+  If `NULL` (default), it is derived from the unevaluated arguments.
+  That name only reflects what `resolveContingency()` itself sees: a
+  function calling it internally should build its own name from
+  [`substitute()`](https://rdrr.io/r/base/substitute.html) at its own
+  call site and pass it through here, as it would otherwise report its
+  own formal argument names, typically `"x and y"`, instead of the names
+  the end user typed.
 
 ## Value
 
@@ -52,35 +59,60 @@ a list containing:
 
 - table:
 
-  contingency table.
+  the contingency table.
 
 - n:
 
-  total sample size.
+  the total sample size, the sum of all counts.
 
 - r:
 
-  number of rows.
+  integer, the number of rows.
 
 - c:
 
-  number of columns.
+  integer, the number of columns.
 
-- k:
+- dataName:
 
-  number of rows (alias; convenient for square tables).
-
-- data.name:
-
-  name of the data.
+  character description of the input, for use as the `data.name` of an
+  `htest` object.
 
 ## Details
 
-If `x` is a matrix, it is interpreted as a contingency table. Otherwise
-`x` and `y` are converted to factors and a table is constructed after
-removing incomplete observations.
+Any two-dimensional object is taken as a contingency table and used as
+it is, which covers a matrix as well as a
+[`table()`](https://rdrr.io/r/base/table.html) or
+[`xtabs()`](https://rdrr.io/r/stats/xtabs.html) object; a data frame of
+counts is coerced with
+[`as.matrix()`](https://rdrr.io/r/base/matrix.html). Its entries must be
+numeric, non-negative and finite; non-integer counts are reported with a
+warning unless `integerCounts` is set to `FALSE`, as they occur
+legitimately in weighted or expected tables. An array of any other
+number of dimensions is an error, rather than being flattened into a
+classification variable.
+
+Two classification variables are cross-tabulated instead. Observations
+missing in either variable are dropped, both variables are then coerced
+to factors, which drops the levels that no longer occur, and at least
+two levels must remain on each side.
+
+Whichever way the table arrives, it must have at least two rows and two
+columns: a one-way table carries no association to measure and is
+rejected rather than passed on to a caller that cannot use it.
+
+`square` is meant for the statistics that compare two ratings of the
+same items, such as the tests of marginal homogeneity or the agreement
+measures. It guarantees that the table has as many columns as rows, and
+nothing beyond that: whether the two axes really carry the same
+categories cannot be checked on a table that may have no `dimnames` at
+all, and remains the responsibility of the caller.
 
 ## See also
+
+[`table()`](https://rdrr.io/r/base/table.html),
+[`resolveGroups()`](resolveGroups.md),
+[`resolveFormula()`](resolveFormula.md)
 
 Other data.resolve: [`resolveFormula()`](resolveFormula.md),
 [`resolveGroups()`](resolveGroups.md)
@@ -91,52 +123,36 @@ Other data.resolve: [`resolveFormula()`](resolveFormula.md),
 # from an existing contingency table
 tab <- matrix(c(10, 5, 3, 12), nrow = 2,
               dimnames = list(c("A", "B"), c("yes", "no")))
-resolveContingency(tab)
-#> $table
-#>   yes no
-#> A  10  3
-#> B   5 12
-#> 
-#> $n
-#> [1] 30
-#> 
-#> $r
-#> [1] 2
-#> 
-#> $c
-#> [1] 2
-#> 
-#> $k
-#> [1] 2
-#> 
-#> $data.name
-#> [1] "tab"
-#> 
+str(resolveContingency(tab))
+#> List of 6
+#>  $ table    : num [1:2, 1:2] 10 5 3 12
+#>   ..- attr(*, "dimnames")=List of 2
+#>   .. ..$ : chr [1:2] "A" "B"
+#>   .. ..$ : chr [1:2] "yes" "no"
+#>  $ n        : num 30
+#>  $ r        : int 2
+#>  $ c        : int 2
+#>  $ k        : int 2
+#>  $ data.name: chr "tab"
 
 # from two classification variables
 set.seed(1)
 x <- sample(c("low", "high"), 100, replace = TRUE)
 y <- sample(c("yes", "no"), 100, replace = TRUE)
-resolveContingency(x, y)
-#> $table
+resolveContingency(x, y)$table
 #>       y
 #> x      no yes
 #>   high 23  28
 #>   low  24  25
-#> 
-#> $n
-#> [1] 100
-#> 
-#> $r
-#> [1] 2
-#> 
-#> $c
-#> [1] 2
-#> 
-#> $k
-#> [1] 2
-#> 
-#> $data.name
-#> [1] "x and y"
-#> 
+
+# a caller passes the name it sees at its own call site
+myTest <- function(x, y) {
+  r <- resolveContingency(x, y,
+                          dataName = paste(deparse1(substitute(x)), "and",
+                                           deparse1(substitute(y))))
+  r$dataName
+}
+myTest(x, y)
+#> Error in resolveContingency(x, y, dataName = paste(deparse1(substitute(x)),     "and", deparse1(substitute(y)))): unused argument (dataName = paste(deparse1(substitute(x)), "and", deparse1(substitute(y))))
+## [1] "x and y"
 ```

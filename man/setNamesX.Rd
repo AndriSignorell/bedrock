@@ -23,9 +23,16 @@ This is a convenience function that sets the names of an object and returns
 it including the new names. It is most useful at the end of a function
 definition where one is creating the object to be returned and would prefer
 not to store it under a name just that the names can be assigned. In
-addition to the function \code{\link{setNames}} in base R the user can
-decide, whether rownames, colnames or simply the names are to be set. Names
-are recyled.
+addition to the function \code{\link[=setNames]{setNames()}} in base R the user can
+decide, whether rownames, colnames or simply the names are to be set.
+}
+\details{
+A name of length one is recycled to the required extent, which is handy for
+blanking out names with \code{""}. Names of any other length must match the
+extent of the object exactly; a deviating length is reported as an error
+rather than being recycled silently, as an unexpected length is almost
+always a miscalculation upstream and duplicated names are hard to debug
+later on.
 }
 \examples{
 
@@ -38,8 +45,11 @@ setNamesX(1:5, letters[1:5])
 setNamesX(matrix(c(1:12), nrow=4), 
          rownames=LETTERS[11:14], colnames=c("perc", "lci", "uci"))
          
-# can also be used to set the names to an empty string
+# a single name is recycled, so this sets all the names to an empty string
 setNamesX(diag(6), rownames="", colnames="")
+
+# any other length must fit, a mismatch is an error
+try(setNamesX(matrix(c(1:12), nrow=4), colnames=c("perc", "lci")))
 
 # setting dimnames works as well
 tab <- setNamesX(
@@ -51,7 +61,7 @@ tab <- setNamesX(
 
 }
 \seealso{
-\code{\link{setNames}}
+\code{\link[=setNames]{setNames()}}
 
 Other label.attrs:
 \code{\link[=label]{label()}},
@@ -61,4 +71,3 @@ Other label.attrs:
 \concept{attribute}
 \concept{label}
 \concept{label.attrs}
-\keyword{list}

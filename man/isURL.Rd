@@ -26,7 +26,7 @@ isURL("./script.R")                     # FALSE
 
 }
 \seealso{
-\code{\link[=isFilePath]{isFilePath()}} for the complementary file-path check.
+For the complementary check on an existing path, see \code{\link[=isFilePath]{isFilePath()}}.
 
 Other file.path:
 \code{\link[=buildPath]{buildPath()}},

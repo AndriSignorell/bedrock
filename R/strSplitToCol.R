@@ -2,17 +2,17 @@
 #' Split Strings into Multiple Columns
 #'
 #' Splits character vectors into multiple columns based on a delimiter.
-#' Each element of \code{x} is split using \code{\link[base]{strsplit}},
+#' Each element of `x` is split using [strsplit()],
 #' and the resulting parts are expanded into separate columns.
 #'
 #' All rows are padded to the same number of columns per input element.
-#' Missing values are filled with \code{naForm}.
+#' Missing values are filled with `naForm`.
 #'
 #' @param x a character vector or a data frame of character columns to be split.
 #'   Each element (or column) is processed separately.
 #' @param split character string specifying the delimiter for splitting.
-#'   Passed to \code{\link[base]{strsplit}}.
-#' @param fixed logical; if \code{TRUE}, \code{split} is used as a fixed string.
+#'   Passed to [strsplit()].
+#' @param fixed logical; if `TRUE`, `split` is used as a fixed string.
 #'   Otherwise, it is treated as a regular expression.
 #' @param naForm character value used to replace missing elements created
 #'   by unequal split lengths.
@@ -20,25 +20,25 @@
 #'   resulting data frame. Recycled if necessary.
 #'
 #' @details
-#' For each element (or column) in \code{x}, the function:
+#' For each element (or column) in `x`, the function:
 #' \enumerate{
-#'   \item Splits each entry using \code{\link[base]{strsplit}}
+#'   \item Splits each entry using [strsplit()]
 #'   \item Determines the maximum number of split parts
-#'   \item Pads shorter splits with \code{naForm}
-#'   \item Combines results into a matrix via \code{\link[base]{rbind}}
+#'   \item Pads shorter splits with `naForm`
+#'   \item Combines results into a matrix via [rbind()]
 #' }
 #'
 #' The final result is a data frame where each original element or column
 #' contributes one or more columns depending on the number of splits.
 #'
-#' An attribute \code{"cols"} is attached, indicating the number of columns
-#' generated for each element of \code{x}.
+#' An attribute `"cols"` is attached, indicating the number of columns
+#' generated for each element of `x`.
 #'
 #' @return
-#' a data frame containing the split components of \code{x}.
+#' a data frame containing the split components of `x`.
 #' Additional attribute:
 #' \itemize{
-#'   \item \code{cols}: integer vector with number of columns per input element.
+#'   \item `cols`: integer vector with number of columns per input element.
 #' }
 #'
 #' @examples

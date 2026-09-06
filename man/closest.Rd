@@ -100,7 +100,7 @@ closest(
 
 }
 \seealso{
-\code{\link{which}}
+\code{\link[=which]{which()}}
 
 Other math.basic:
 \code{\link[=crossProd]{crossProd()}},
@@ -110,5 +110,4 @@ Other math.basic:
 \code{\link[=unirootAll]{unirootAll()}}
 }
 \concept{math.basic}
-\concept{nearest-value}
 \concept{numerical-methods}

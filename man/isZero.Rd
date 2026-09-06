@@ -31,8 +31,12 @@ below the machine tolerance.
 isZero(.1 - .3 / 3)
 
 }
+\references{
+Burns, P. (2011). \emph{The R Inferno}.
+\url{https://www.burns-stat.com/documents/books/the-r-inferno/}
+}
 \seealso{
-\code{\link{all.equal}}, \code{\link{isWholeLike}}
+\code{\link[=all.equal]{all.equal()}}
 
 Other data.predicate:
 \code{\link[=flags]{flags()}},

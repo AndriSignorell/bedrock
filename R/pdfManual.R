@@ -14,7 +14,7 @@
 #' @return the URL of the PDF manual, invisibly. Called for its side effect
 #'   of opening the browser.
 #'
-#' @seealso \code{\link{browseURL}}
+#' @seealso [browseURL()]
 #'
 #' @examples
 #' \dontrun{
@@ -23,7 +23,6 @@
 #' }
 #'
 #' @family file.io
-#' @concept file-io
 #' @concept introspection
 #' @export
 pdfManual <- function(package) {

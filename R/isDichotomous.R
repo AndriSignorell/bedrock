@@ -5,15 +5,15 @@
 #'
 #' @param x a vector.
 #'
-#' @param strict logical. If \code{TRUE}, exactly two distinct values must
-#'   be present. If \code{FALSE} (default), at most two distinct values are allowed.
+#' @param strict logical. If `TRUE`, exactly two distinct values must
+#'   be present. If `FALSE` (default), at most two distinct values are allowed.
 #'
-#' @param na.rm logical. If \code{TRUE}, missing values are removed before
-#'   evaluation. If \code{FALSE} (default), the presence of \code{NA} results
-#'   in \code{NA} (indeterminate status).
+#' @param na.rm logical. If `TRUE`, missing values are removed before
+#'   evaluation. If `FALSE` (default), the presence of `NA` results
+#'   in `NA` (indeterminate status).
 #'
-#' @return \code{TRUE}, \code{FALSE}, or \code{NA} if the status cannot be
-#'   determined because of missing values (see \code{na.rm}).
+#' @return `TRUE`, `FALSE`, or `NA` if the status cannot be
+#'   determined because of missing values (see `na.rm`).
 #'
 #' @examples
 #' isDichotomous(c(0, 1, 1))

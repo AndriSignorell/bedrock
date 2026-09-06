@@ -5,22 +5,22 @@
 #' Optionally processes a documentation sheet to assign variable labels and
 #' convert variables into factors with labeled levels.
 #'
-#' @param name character string. File name including extension (e.g. \code{"data.xlsx"}).
+#' @param name character string. File name including extension (e.g. `"data.xlsx"`).
 #' @param url character string. Base URL where the file is located.
-#'   Defaults to \code{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}.
-#'   (see \url{https://github.com/AndriSignorell/Teaching/})
+#'   Defaults to `https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/`.
+#'   (see <https://github.com/AndriSignorell/Teaching/>)
 #'   
-#' @param doc list or \code{NA}. Defines the structure of the documentation sheet.
-#'   If \code{NULL}, the function tries to detect a sheet named \code{"Description"}.
-#'   If \code{NA}, no metadata processing is performed.
-#' @param ... additional arguments passed to \code{readxl::read_excel()}.
+#' @param doc list or `NA`. Defines the structure of the documentation sheet.
+#'   If `NULL`, the function tries to detect a sheet named `"Description"`.
+#'   If `NA`, no metadata processing is performed.
+#' @param ... additional arguments passed to `readxl::read_excel()`.
 #'
 #' @return
-#' a \code{data.frame} containing the imported data. If metadata is available:
+#' a `data.frame` containing the imported data. If metadata is available:
 #' \itemize{
 #'   \item variables may be converted to factors (nominal/ordinal).
 #'   \item factor levels are labeled using provided codes.
-#'   \item variable labels are assigned using \code{label()}.
+#'   \item variable labels are assigned using `label()`.
 #' }
 #'
 #' @details
@@ -31,27 +31,27 @@
 #' \itemize{
 #'   \item Variable name
 #'   \item Description (label)
-#'   \item Codes (e.g. "1=Male\\r\\n2=Female")
+#'   \item Codes (e.g. "1=Male | 2=Female")
 #'   \item Scale ("nominal", "ordinal", etc.)
 #' }
 #'
-#' Variables with scale \code{"nominal"} or \code{"ordinal"} are converted to
+#' Variables with scale `"nominal"` or `"ordinal"` are converted to
 #' factors. Data values without a matching entry in the codes column become
-#' \code{NA}.
+#' `NA`.
 #'
 #' @examples
 #' \dontrun{
 #' # Load dataset with automatic metadata detection
-#' openDataObject("example.xlsx")
+#' openDataObject("beauty.xlsx")
 #'
 #' # Load dataset without metadata processing
-#' openDataObject("example.xlsx", doc = NA)
+#' openDataObject("beauty.xlsx", doc = NA)
 #' }
 #'
 #'
 #' @family label.import
 #' @concept label
-#' @concept file-io
+#' @concept file.io
 #' @export
 openDataObject <- function(name, url = NULL, doc = NULL, ...) {
 

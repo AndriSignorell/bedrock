@@ -85,3 +85,42 @@ test_that("length is preserved", {
   expect_equal(length(revCode(x)), length(x))
 })
 
+
+
+
+test_that("numeric min and max must be supplied together", {
+  expect_error(revCode(1:3, min = 1), "both `min` and `max`")
+  expect_error(revCode(1:3, max = 5), "both `min` and `max`")
+  expect_error(revCode(1:3, min = 5, max = 1), "must be <=")
+})
+
+test_that("explicit ranges warn about values outside the scale", {
+  expect_warning(
+    out <- revCode(c(0, 1, 5, 6), min = 1, max = 5),
+    "outside \\[min, max\\]"
+  )
+  expect_equal(out, c(6, 5, 1, 0))
+})
+
+test_that("implicit ranges warn when NA is not removed", {
+  expect_warning(
+    out <- revCode(c(1, NA, 3)),
+    "na.rm = FALSE"
+  )
+  expect_true(all(is.na(out)))
+})
+
+test_that("factor reverse coding preserves missing values and ordering class", {
+  x <- factor(
+    c("low", NA, "high"),
+    levels = c("low", "medium", "high"),
+    ordered = FALSE
+  )
+  
+  out <- revCode(x)
+  
+  expect_false(is.ordered(out))
+  expect_identical(levels(out), c("high", "medium", "low"))
+  expect_identical(as.character(out), c("high", NA, "low"))
+})
+

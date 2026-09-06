@@ -94,6 +94,15 @@ test_that("permn rejects NA values", {
 
 
 
+test_that("permn validates sortResults", {
+  # the message wording belongs to checkFlag(), so assert on the
+  # argument name rather than on the sentence
+  expect_error(permn(1:3, sortResults = NA), "sortResults")
+  expect_error(permn(1:3, sortResults = "yes"), "sortResults")
+  expect_error(permn(1:3, sortResults = c(TRUE, FALSE)), "sortResults")
+})
+
+
 test_that("permn sortResults applies sortX", {
   x <- c(2, 1, 1)
   

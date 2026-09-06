@@ -36,13 +36,13 @@ a named list of merged arguments.
 ## Details
 
 User values override defaults of the same name. Unlike
-[`modifyList`](https://rdrr.io/r/utils/modifyList.html), elements with
+[`modifyList()`](https://rdrr.io/r/utils/modifyList.html), elements with
 the value `NULL` are preserved (so that an explicit `NULL` can be passed
 on as an argument value instead of silently deleting the entry).
 
 ## See also
 
-[`utils::modifyList()`](https://rdrr.io/r/utils/modifyList.html)
+[`modifyList()`](https://rdrr.io/r/utils/modifyList.html)
 
 Other pkg.args: [`callIf()`](callIf.md),
 [`extractArgs()`](extractArgs.md), [`getDotsArg()`](getDotsArg.md),

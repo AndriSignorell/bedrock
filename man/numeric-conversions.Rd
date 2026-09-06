@@ -48,7 +48,7 @@ a vector of the same length as \code{x}:
 \itemize{
 \item \code{binToDec()}, \code{octToDec()}, \code{hexToDec()},
 \code{romanToInt()} - integer or numeric vector.
-\item \code{decToHex()} - object of class \code{\link{hexmode}}.
+\item \code{decToHex()} - object of class \code{\link[=hexmode]{hexmode()}}.
 \item \code{decToOct()} - numeric vector (octal digit string coerced to
 numeric).
 \item \code{decToBin()}, \code{baseToBase()} - character vector
@@ -73,7 +73,7 @@ All specialist functions are thin wrappers around \code{baseToBase()}:
 \code{hexToDec(x)} \tab \code{baseToBase(x, 16, 10)}       \tab integer                \cr
 \code{decToHex(x)} \tab \code{baseToBase(x, 10, 16)}       \tab \code{hexmode}         \cr
 }
-\code{hexToDec()} additionally strips a leading \code{#} from CSS-style
+\code{hexToDec()} additionally strips a leading \verb{#} from CSS-style
 colour strings.
 }
 
@@ -81,14 +81,14 @@ colour strings.
 
 \code{romanToInt()} converts Roman numeral strings (e.g. \code{"XIV"}) to
 integers.  Input is trimmed and upper-cased before parsing; invalid strings
-return \code{NA}.  See also base R's \code{\link{as.roman}()} for the
+return \code{NA}.  See also base R's \code{\link[=as.roman]{as.roman()}} for the
 reverse direction.
 }
 
 \section{Platform limits}{
 
-\code{baseToBase()} uses \code{\link{strtoi}()} internally, which operates
-on \code{long int}.  On 32-bit platforms values
+\code{baseToBase()} uses \code{\link[=strtoi]{strtoi()}} internally, which operates
+on \verb{long int}.  On 32-bit platforms values
 above \eqn{2^{31} - 1}{2^31 - 1} may silently return \code{NA}.
 \code{decToBin()} applies the same cap
 explicitly (values > \code{536870911} become \code{NA}).
@@ -126,9 +126,8 @@ baseToBase(c("A", "B", "FF"), from = 16, to = 10)
 
 }
 \seealso{
-\code{\link{strtoi}}, \code{\link{as.hexmode}},
-\code{\link{as.octmode}}, \code{\link{as.roman}}
+\code{\link[=strtoi]{strtoi()}}, \code{\link[=as.hexmode]{as.hexmode()}},
+\code{\link[=as.octmode]{as.octmode()}}, \code{\link[=as.roman]{as.roman()}}
 }
-\concept{number-formatting}
+\concept{encoding}
 \concept{number.baseconv}
-\concept{numeric-conversion}

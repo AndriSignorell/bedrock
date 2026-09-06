@@ -3,27 +3,27 @@
 #'
 #' Reverses the coding of a vector. Supports numeric, logical, and factor inputs:
 #' \itemize{
-#'   \item \strong{Numeric}: Transforms values using \code{min + max - x}
-#'   \item \strong{Logical}: Flips TRUE/FALSE
-#'   \item \strong{Factor}: Reverses the order of levels
+#'   \item **Numeric**: Transforms values using `min + max - x`
+#'   \item **Logical**: Flips TRUE/FALSE
+#'   \item **Factor**: Reverses the order of levels
 #' }
 #'
 #' @param x a vector (numeric, logical, or factor).
-#' @param min optional numeric minimum. Must be provided together with \code{max}.
-#'   If \code{NULL} (default), the observed minimum of \code{x} is used.
-#' @param max optional numeric maximum. Must be provided together with \code{min}.
-#'   If \code{NULL} (default), the observed maximum of \code{x} is used.
-#' @param na.rm logical; whether to ignore \code{NA}s when computing the range
-#'   (numeric only). If \code{FALSE} and \code{NA}s are present, a warning is
-#'   issued and \code{NA} is returned for all values. Default is \code{FALSE}.
+#' @param min optional numeric minimum. Must be provided together with `max`.
+#'   If `NULL` (default), the observed minimum of `x` is used.
+#' @param max optional numeric maximum. Must be provided together with `min`.
+#'   If `NULL` (default), the observed maximum of `x` is used.
+#' @param na.rm logical; whether to ignore `NA`s when computing the range
+#'   (numeric only). If `FALSE` and `NA`s are present, a warning is
+#'   issued and `NA` is returned for all values. Default is `FALSE`.
 #'
-#' @return a vector of the same type and length as \code{x}, with reversed coding.
+#' @return a vector of the same type and length as `x`, with reversed coding.
 #'
 #' @section Errors:
-#' Throws an error if all values are \code{NA}, if only one of \code{min}/\code{max}
-#' is provided, if \code{min > max}, or if \code{x} is not numeric, logical, or factor.
-#' A warning is issued if values of \code{x} lie outside an explicitly
-#' provided \code{[min, max]} range.
+#' Throws an error if all values are `NA`, if only one of `min`/`max`
+#' is provided, if `min > max`, or if `x` is not numeric, logical, or factor.
+#' A warning is issued if values of `x` lie outside an explicitly
+#' provided `[min, max]` range.
 #'
 #' @examples
 #' # Numeric

@@ -2,33 +2,33 @@
 #' Type Coercion Shortcuts
 #'
 #' Concise aliases for common base R coercion functions.
-#' \code{num()}, \code{int()}, \code{chr()} are direct wrappers around
-#' \code{as.numeric()}, \code{as.integer()}, and \code{as.character()}.
-#' \code{nchr()} handles the common pitfall of coercing factors to numeric.
-#' \code{bin()} converts any two-valued vector to logical.
+#' `num()`, `int()`, `chr()` are direct wrappers around
+#' `as.numeric()`, `as.integer()`, and `as.character()`.
+#' `nchr()` handles the common pitfall of coercing factors to numeric.
+#' `bin()` converts any two-valued vector to logical.
 #'
 #' @details
 #' \describe{
-#'   \item{\code{num(x, ...)}}{equivalent to \code{as.numeric(x)}.}
-#'   \item{\code{int(x, ...)}}{equivalent to \code{as.integer(x)}.}
-#'   \item{\code{chr(x, ...)}}{equivalent to \code{as.character(x)}.}
-#'   \item{\code{nchr(x)}}{shortcut for \code{as.numeric(as.character(x))}.
-#'     Avoids the trap of \code{as.numeric(factor)} returning internal
+#'   \item{`num(x, ...)`}{equivalent to `as.numeric(x)`.}
+#'   \item{`int(x, ...)`}{equivalent to `as.integer(x)`.}
+#'   \item{`chr(x, ...)`}{equivalent to `as.character(x)`.}
+#'   \item{`nchr(x)`}{shortcut for `as.numeric(as.character(x))`.
+#'     Avoids the trap of `as.numeric(factor)` returning internal
 #'     integer codes instead of the label values.}
-#'   \item{\code{bin(x, ...)}}{converts a two-valued vector (character,
+#'   \item{`bin(x, ...)`}{converts a two-valued vector (character,
 #'     factor, integer, or numeric) to logical. Mapping follows
-#'     \code{\link{factor}()} level order: the \emph{first} level becomes
-#'     \code{FALSE}, the \emph{second} \code{TRUE}. To reverse, use
-#'     \code{!bin(x)}.}
+#'     [factor()] level order: the *first* level becomes
+#'     `FALSE`, the *second* `TRUE`. To reverse, use
+#'     `!bin(x)`.}
 #' }
 #'
-#' @param x a vector. For \code{bin()}, exactly two unique non-\code{NA}
+#' @param x a vector. For `bin()`, exactly two unique non-`NA`
 #'   values are required.
 #' @param ... further arguments passed to the underlying base function
-#'   (\code{as.numeric}, \code{as.integer}, \code{as.character}, or
-#'   \code{\link{asBinary}}).
+#'   (`as.numeric`, `as.integer`, `as.character`, or
+#'   [asBinary()]).
 #'
-#' @return a vector of the target type and the same length as \code{x}.
+#' @return a vector of the target type and the same length as `x`.
 #'
 #' @examples
 #' num("3.14")
@@ -44,42 +44,29 @@
 #'
 #' @seealso [nf()], [asBinary()] 
 #' @name type-aliases
+#' @family data.coerce
+#' @concept type-coercion
 #' @aliases num int chr nchr bin
 NULL
 
 
 #' @rdname type-aliases
-#' @family data.coerce
-#' @concept type-coercion
-#' @concept programming
 #' @export
 num <- function(x, ...) as.numeric(x, ...)
 
 #' @rdname type-aliases
-#' @family data.coerce
-#' @concept type-coercion
-#' @concept programming
 #' @export
 int <- function(x, ...) as.integer(x, ...)
 
 #' @rdname type-aliases
-#' @family data.coerce
-#' @concept type-coercion
-#' @concept programming
 #' @export
 chr <- function(x, ...) as.character(x, ...)
 
 #' @rdname type-aliases
-#' @family data.coerce
-#' @concept type-coercion
-#' @concept programming
 #' @export
 nchr <- function(x) as.numeric(as.character(x))
 
 #' @rdname type-aliases
-#' @family data.coerce
-#' @concept type-coercion
-#' @concept programming
 #' @export
 bin <- function(x, ...) {
   b <- asBinary(x, warn = FALSE, ...)
@@ -87,3 +74,4 @@ bin <- function(x, ...) {
   attr(result, "coding") <- attr(b, "coding")
   result
 }
+

@@ -29,7 +29,7 @@ data.frame or a matrix.
 }
 \details{
 This code is based on the logic of \code{cor()} and extended for asymmetric
-functions. Cell \code{[i, j]} of the result contains
+functions. Cell \verb{[i, j]} of the result contains
 \code{FUN(x[[i]], x[[j]], ...)}, so the first argument of \code{FUN}
 corresponds to the row variable and the second to the column variable.
 }
@@ -54,7 +54,7 @@ pairApply(d.sub,
 
 }
 \seealso{
-\code{\link[base:outer]{base::outer()}}, \link[stats:pairwise.table]{stats::pairwise.table}
+\code{\link[=outer]{outer()}}, \code{\link[=pairwise.table]{pairwise.table()}}
 
 Other combinatorics:
 \code{\link[=combN]{combN()}},
@@ -66,4 +66,3 @@ Other combinatorics:
 }
 \concept{combinatorics}
 \concept{programming}
-\keyword{manip}

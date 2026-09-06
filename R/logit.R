@@ -4,8 +4,8 @@
 #' Computes the logit transformation and its inverse for values defined on a
 #' finite interval \eqn{[min, max]}.
 #'
-#' The \code{logit()} function maps values from \eqn{[min, max]} to the real
-#' line \eqn{(-\infty, \infty)}. The inverse transformation \code{logitInv()}
+#' The `logit()` function maps values from \eqn{[min, max]} to the real
+#' line \eqn{(-\infty, \infty)}. The inverse transformation `logitInv()`
 #' maps real-valued inputs back to \eqn{[min, max]}.
 #'
 #' The logit transformation is defined as:
@@ -21,11 +21,11 @@
 #' }
 #'
 #' For numerical stability, \eqn{p} is clamped to \eqn{[eps, 1 - eps]} before
-#' applying the transformation. This prevents returning \code{-Inf} or
-#' \code{Inf} for values exactly equal to \code{min} or \code{max}, or slightly
+#' applying the transformation. This prevents returning `-Inf` or
+#' `Inf` for values exactly equal to `min` or `max`, or slightly
 #' outside the interval due to floating point error.
 #'
-#' If \code{warn = TRUE}, a warning is issued when such clamping occurs.
+#' If `warn = TRUE`, a warning is issued when such clamping occurs.
 #'
 #' The inverse transformation is given by:
 #'
@@ -33,27 +33,27 @@
 #' x = min + (max - min) \cdot \frac{1}{1 + e^{-z}}
 #' }
 #'
-#' where \eqn{z} is the input to \code{logitInv()}.
+#' where \eqn{z} is the input to `logitInv()`.
 #'
-#' Note that \code{logitInv()} does not perform clamping. This asymmetry is
-#' intentional: \code{\link[stats]{plogis}} is well-defined for all real inputs,
+#' Note that `logitInv()` does not perform clamping. This asymmetry is
+#' intentional: [plogis()] is well-defined for all real inputs,
 #' so no stabilization is required.
 #'
-#' @param x numeric vector. For \code{logit()}, values are interpreted relative
-#'   to the interval \eqn{[min, max]}. For \code{logitInv()}, \code{x} can be any
+#' @param x numeric vector. For `logit()`, values are interpreted relative
+#'   to the interval \eqn{[min, max]}. For `logitInv()`, `x` can be any
 #'   real number.
 #' @param min lower bound of the interval. Must be finite.
-#' @param max upper bound of the interval. Must be finite and greater than \code{min}.
+#' @param max upper bound of the interval. Must be finite and greater than `min`.
 #' @param eps small positive value used to clamp probabilities away from
-#'   \eqn{0} and \eqn{1} for numerical stability in \code{logit()}.
-#'   Default: \code{.Machine$double.eps}.
-#' @param warn logical; if \code{TRUE}, a warning is issued when values are
+#'   \eqn{0} and \eqn{1} for numerical stability in `logit()`.
+#'   Default: `.Machine$double.eps`.
+#' @param warn logical; if `TRUE`, a warning is issued when values are
 #'   effectively clamped because they fall outside \eqn{(eps, 1 - eps)} after
-#'   rescaling. Default: \code{FALSE}.
+#'   rescaling. Default: `FALSE`.
 #'
-#' @return a numeric vector of the same length as \code{x}.
+#' @return a numeric vector of the same length as `x`.
 #'
-#' @seealso \code{\link[stats]{qlogis}}, \code{\link[stats]{plogis}}
+#' @seealso [qlogis()], [plogis()]
 #'
 #' @examples
 #' x <- seq(0, 1, length.out = 5)

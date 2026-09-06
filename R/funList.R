@@ -5,20 +5,20 @@
 #'
 #' This is just a wrapper for the namespace inspection functions (as I always
 #' forgot how to do the trick). By default only the exported functions are
-#' returned; with \code{exported = FALSE} all functions defined in the
+#' returned; with `exported = FALSE` all functions defined in the
 #' package namespace are listed, including internal ones.
 #'
 #' @param package the name of the package.
 #' @param exported logical; whether only exported functions are listed.
-#'   Defaults to \code{TRUE}.
+#'   Defaults to `TRUE`.
 #'
 #' @return a sorted character vector with the function names.
 #'
-#' @seealso \code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}},
-#' \code{\link{getNamespaceExports}}
+#' @seealso [ls()], [ls.str()], [lsf.str()],
+#' [getNamespaceExports()]
 #'
-#' @references Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The
-#' New S Language}. Wadsworth & Brooks/Cole.
+#' @references Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) *The
+#' New S Language*. Wadsworth & Brooks/Cole.
 #'
 #' @examples
 #'

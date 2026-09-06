@@ -9,58 +9,58 @@
 #' \deqn{
 #'   \bar x_i = \frac{1}{k}\sum_{j} x_{i+j}
 #' }
-#' where the summation range depends on \code{align}.
+#' where the summation range depends on `align`.
 #'
-#' \strong{Even-order windows and center alignment}
+#' **Even-order windows and center alignment**
 #'
-#' For even \code{order}, centering is ambiguous.  This implementation
-#' averages the two adjacent right-aligned windows of width \code{order},
-#' which is the convention used by \code{forecast::ma()}.
+#' For even `order`, centering is ambiguous.  This implementation
+#' averages the two adjacent right-aligned windows of width `order`,
+#' which is the convention used by `forecast::ma()`.
 #'
-#' \strong{Boundary handling (\code{endrule = "trim"})}
+#' **Boundary handling (`endrule = "trim"`)**
 #'
 #' At the boundaries the window is contracted to include only the
-#' available observations.  For center alignment with even \code{order},
+#' available observations.  For center alignment with even `order`,
 #' the boundary window width at position \eqn{i} is
 #' \eqn{i + \lfloor order/2 \rfloor}.
 #'
-#' \strong{Missing values}
+#' **Missing values**
 #'
-#' \code{NA} in \code{x} propagates through \code{cumsum()} and will
-#' produce \code{NA} in all moving-average values whose window contains
-#' that observation.  There is no \code{na.rm} option; pre-filter with
-#' \code{x[!is.na(x)]} if needed (note this changes index positions).
+#' `NA` in `x` propagates through `cumsum()` and will
+#' produce `NA` in all moving-average values whose window contains
+#' that observation.  There is no `na.rm` option; pre-filter with
+#' `x[!is.na(x)]` if needed (note this changes index positions).
 #'
-#' @param x       a univariate numeric vector or \code{ts} object.
+#' @param x       a univariate numeric vector or `ts` object.
 #'   Matrices and multi-column objects are not supported.
 #' @param order   a single positive integer giving the window width.
-#'   Must satisfy \code{1 <= order <= length(x)}.
+#'   Must satisfy `1 <= order <= length(x)`.
 #' @param align   a character string controlling how the window is
 #'   positioned relative to each output value:
 #'   \describe{
-#'     \item{\code{"center"}}{default.  The window is centred on the
-#'       current observation.  For odd \code{order} the window is
-#'       symmetric; for even \code{order} see Details.}
-#'     \item{\code{"left"}}{the window starts at the current observation
+#'     \item{`"center"`}{default.  The window is centred on the
+#'       current observation.  For odd `order` the window is
+#'       symmetric; for even `order` see Details.}
+#'     \item{`"left"`}{the window starts at the current observation
 #'       and extends to the right.}
-#'     \item{\code{"right"}}{the window ends at the current observation
+#'     \item{`"right"`}{the window ends at the current observation
 #'       and extends to the left.}
 #'   }
 #' @param endrule a character string indicating how boundary values
 #'   (where a full window is unavailable) are handled:
 #'   \describe{
-#'     \item{\code{"NA"}}{default.  Boundary values are left as
-#'       \code{NA}.}
-#'     \item{\code{"keep"}}{boundary values are taken from the original
-#'       \code{x}.}
-#'     \item{\code{"constant"}}{boundary values are filled with the
+#'     \item{`"NA"`}{default.  Boundary values are left as
+#'       `NA`.}
+#'     \item{`"keep"`}{boundary values are taken from the original
+#'       `x`.}
+#'     \item{`"constant"`}{boundary values are filled with the
 #'       nearest computed moving-average value.}
-#'     \item{\code{"trim"}}{boundary values are computed from all
+#'     \item{`"trim"`}{boundary values are computed from all
 #'       available observations in a progressively smaller window.}
 #'   }
 #'
-#' @return a vector of the same length and class as \code{x}, with
-#'   \code{NA} at boundary positions unless \code{endrule} specifies
+#' @return a vector of the same length and class as `x`, with
+#'   `NA` at boundary positions unless `endrule` specifies
 #'   otherwise.
 #'
 #' @examples
@@ -68,11 +68,10 @@
 #' moveAvg(AirPassengers, order = 5, endrule = "trim")
 #' moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 #'
-#' @seealso \code{zoo::rollmean()}, \code{forecast::ma()}, [stats::runmed()]
+#' @seealso `zoo::rollmean()`, `forecast::ma()`, [runmed()]
 #'
 #' @family vector.window
 #' @concept moving-window
-#' @concept smoother
 #' @export
 moveAvg <- function(x,
                     order,

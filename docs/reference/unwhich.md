@@ -1,8 +1,8 @@
 # Inverse Which
 
 Reconstructs the `TRUE` positions from the index vector returned by
-[`which`](https://rdrr.io/r/base/which.html), producing a logical vector
-of length `n`. Note that this is not a perfect inverse:
+[`which()`](https://rdrr.io/r/base/which.html), producing a logical
+vector of length `n`. Note that this is not a perfect inverse:
 [`which()`](https://rdrr.io/r/base/which.html) discards `NA` and `FALSE`
 positions, so the original vector cannot be fully recovered.
 
@@ -62,7 +62,7 @@ Sabbe, N. (2012). Inverse of `which`.
 
 ## See also
 
-[`which`](https://rdrr.io/r/base/which.html)
+[`which()`](https://rdrr.io/r/base/which.html)
 
 Other vector.utils: [`nz()`](nz.md)
 

@@ -7,39 +7,39 @@
 #' way.
 #'
 #' @param ci numeric vector of length two, the lower and upper bound in that
-#'   order. \code{NA} bounds are passed through, and \code{c(NA, NA)} is
+#'   order. `NA` bounds are passed through, and `c(NA, NA)` is
 #'   accepted although it is logical rather than numeric - that is how an
 #'   interval which could not be computed is usually written.
-#' @param sides character string, one of \code{"two.sided"} (default),
-#'   \code{"left"} or \code{"right"}. It names the side carrying the
-#'   \emph{finite} bound, so \code{"left"} corresponds to
-#'   \code{alternative = "greater"} in a test. Callers are expected to have
-#'   resolved the value with \code{\link{match.arg}} already; an unmatched
+#' @param sides character string, one of `"two.sided"` (default),
+#'   `"left"` or `"right"`. It names the side carrying the
+#'   *finite* bound, so `"left"` corresponds to
+#'   `alternative = "greater"` in a test. Callers are expected to have
+#'   resolved the value with [match.arg()] already; an unmatched
 #'   value is an error rather than a partial match.
 #' @param lo,hi the range of the parameter, not infinities by default in
 #'   spirit but in signature. See Details.
 #'
-#' @return a named numeric vector with the elements \code{lci} and
-#'   \code{uci}.
+#' @return a named numeric vector with the elements `lci` and
+#'   `uci`.
 #'
 #' @details
-#' \code{sides} names the side carrying the finite bound:
+#' `sides` names the side carrying the finite bound:
 #'
 #' \describe{
-#'   \item{\code{"left"}}{the informative bound is the lower one; the upper
-#'     one is opened to \code{hi}.}
-#'   \item{\code{"right"}}{the informative bound is the upper one; the lower
-#'     one is opened to \code{lo}.}
+#'   \item{`"left"`}{the informative bound is the lower one; the upper
+#'     one is opened to `hi`.}
+#'   \item{`"right"`}{the informative bound is the upper one; the lower
+#'     one is opened to `lo`.}
 #' }
 #'
-#' \code{lo} and \code{hi} are the parameter's range, not infinities. Most
+#' `lo` and `hi` are the parameter's range, not infinities. Most
 #' statistics are bounded, so reporting the open side at the boundary is the
 #' ordinary case rather than an exception: a correlation opens to
 #' \eqn{\pm 1}, an association measure in \eqn{[0, 1]} to 0 or 1, Pearson's
 #' \eqn{C} to \eqn{\sqrt{(m-1)/m}}. Where the parameter really is unbounded,
-#' \eqn{\pm}\code{Inf} is passed and the usual half-line comes back. Some
-#' statistics need one of each: Cronbach's alpha takes \code{lo = -Inf} and
-#' \code{hi = 1}, a relative risk \code{lo = 0} and \code{hi = Inf}.
+#' \eqn{\pm}`Inf` is passed and the usual half-line comes back. Some
+#' statistics need one of each: Cronbach's alpha takes `lo = -Inf` and
+#' `hi = 1`, a relative risk `lo = 0` and `hi = Inf`.
 #'
 #' The two-sided interval is clamped to \eqn{[lo, hi]} as well, so an
 #' interval can never claim a value the statistic cannot take.
@@ -47,7 +47,7 @@
 #' @section Why this is not written out per function:
 #' Five hand-written copies of the same three lines produced four different
 #' defects across one review: two functions had the sides inverted, one
-#' ignored them after adjusting the level, and one returned \code{NA} where
+#' ignored them after adjusting the level, and one returned `NA` where
 #' a boundary belonged. The operation is short enough to retype and just
 #' subtle enough to retype wrongly.
 #'
@@ -70,7 +70,7 @@
 #' # NA bounds survive
 #' applySides(c(NA, NA), "left", lo = -1, hi = 1)
 #'
-#' @seealso [checkConfLevel], [checkFlag]
+#' @seealso [checkConfLevel()], [checkFlag()]
 #' @export
 applySides <- function(ci, sides = "two.sided",
                        lo = -Inf, hi = Inf) {

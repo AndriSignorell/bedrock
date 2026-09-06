@@ -23,7 +23,7 @@ Partial matching is supported.}
 a \code{gsub()} pattern substitution across all current names rather than
 an exact replacement.  Default is \code{FALSE}.}
 
-\item{fixed}{logical scalar.  Passed to \code{\link{gsub}()} when
+\item{fixed}{logical scalar.  Passed to \code{\link[=gsub]{gsub()}} when
 \code{useGsub = TRUE}.  If \code{TRUE} (default), patterns are treated as
 fixed strings rather than regular expressions.}
 
@@ -38,7 +38,7 @@ preserved.
 }
 \description{
 Renames selected elements of a named object by specifying old-to-new name
-mappings.  Works on any R object that supports \code{\link{names}()},
+mappings.  Works on any R object that supports \code{\link[=names]{names()}},
 including vectors, lists, data frames, and matrices.  For matrix-like
 objects, \code{rownames} and \code{colnames} can be targeted via the
 \code{which} argument.
@@ -48,12 +48,12 @@ The function supports three modes:
 
 \describe{
 \item{Exact mode (\code{useGsub = FALSE}, default)}{
-Names are matched exactly via \code{\link{match}()}.  Each element of
+Names are matched exactly via \code{\link[=match]{match()}}.  Each element of
 \code{...} must be a named scalar character string of the form
 \code{old = "new"}.  Unmatched old names trigger a warning when
 \code{warn = TRUE}.}
 \item{Pattern mode (\code{useGsub = TRUE})}{
-Each mapping is treated as a \code{\link{gsub}()} substitution applied
+Each mapping is treated as a \code{\link[=gsub]{gsub()}} substitution applied
 in sequence to \emph{all} current names.  The left-hand side is the
 pattern, the right-hand side is the replacement.  The \code{fixed}
 argument is forwarded to \code{gsub()}.}
@@ -104,7 +104,7 @@ renameX(m, `row_` = "", useGsub = TRUE, fixed = FALSE, on = "rownames")
 
 }
 \seealso{
-\code{\link{names}}, \code{\link[stats]{setNames}}
+\code{\link[=names]{names()}}, \code{\link[=setNames]{setNames()}}
 
 Other label.attrs:
 \code{\link[=label]{label()}},

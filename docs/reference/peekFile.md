@@ -32,8 +32,8 @@ peekFile(file, n = 10, ..., output = c("data.frame", "tibble"))
 
   character, either `"data.frame"` (default) or `"tibble"`, determining
   the class of the returned object. Conversion to `data.frame` is done
-  by [`toBaseR`](toBaseR.md). The argument can be abbreviated. Note that
-  it must be given as a named argument, as it follows the dots.
+  by [`toBaseR()`](toBaseR.md). The argument can be abbreviated. Note
+  that it must be given as a named argument, as it follows the dots.
 
 ## Value
 

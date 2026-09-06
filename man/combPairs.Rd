@@ -37,8 +37,7 @@ combPairs(which(sapply(CO2, is.numeric)), which(sapply(CO2, is.factor)))
 
 }
 \seealso{
-\code{\link{combn}}, \code{\link{expand.grid}},
-\code{\link{outer}}, \code{\link{lower.tri}}
+\code{\link[=combn]{combn()}}, \code{\link[=expand.grid]{expand.grid()}}, \code{\link[=outer]{outer()}}, \code{\link[=lower.tri]{lower.tri()}}
 
 Other combinatorics:
 \code{\link[=combN]{combN()}},

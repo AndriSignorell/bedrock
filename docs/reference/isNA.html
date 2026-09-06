@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,9 +73,9 @@ missing value (<code>NA</code>), and <code>FALSE</code> otherwise.</p>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>This is a strict helper that returns <code>TRUE</code> only if <code>x</code> is an
 atomic vector of length one and equal to <code>NA</code>. In contrast to
-<code><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></code>, which is vectorized, <code>isNA</code> is intended for
+<code><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na()</a></code>, which is vectorized, <code>isNA</code> is intended for
 scalar checks, e.g. in conditional statements.</p>
-<p>This function differs from <code><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></code> in that it:</p><ul><li><p>Only returns <code>TRUE</code> for length-one inputs</p></li>
+<p>This function differs from <code><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na()</a></code> in that it:</p><ul><li><p>Only returns <code>TRUE</code> for length-one inputs</p></li>
 <li><p>Returns a single logical value (not vectorized)</p></li>
 <li><p>Works consistently across all NA types</p></li>
 </ul></div>
@@ -90,11 +90,11 @@ scalar checks, e.g. in conditional statements.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">isNA</span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">isNA</span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span>             <span class="co"># TRUE</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span><span class="fu">isNA</span><span class="op">(</span><span class="cn">NA_real_</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">isNA</span><span class="op">(</span><span class="cn">NA_real_</span><span class="op">)</span>       <span class="co"># TRUE</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span><span class="fu">isNA</span><span class="op">(</span><span class="cn">NA_integer_</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">isNA</span><span class="op">(</span><span class="cn">NA_integer_</span><span class="op">)</span>    <span class="co"># TRUE</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">isNA</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span>      <span class="co"># FALSE (length &gt; 1)</span></span></span>

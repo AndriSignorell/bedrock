@@ -1,27 +1,28 @@
 
 #' Append Elements to Objects
 #'
-#' Generic function to append elements to vectors, matrices, and data frames.
+#' Generic function to append or insert elements to vectors, 
+#' matrices, and data frames.
 #'
 #' @name appendX
 #'
 #' @param x object to which values are appended.
-#' @param values values to insert into \code{x}. For matrices with
-#'   \code{rows = TRUE}, values are read row by row.
-#' @param after position after which to insert. If \code{NULL}, values are appended
-#'   at the end. Use \code{0} to prepend.
+#' @param values values to insert into `x`. For matrices with
+#'   `rows = TRUE`, values are read row by row.
+#' @param after position after which to insert. If `NULL`, values are appended
+#'   at the end. Use `0` to prepend.
 #' @param rows logical; if TRUE, insert rows instead of columns. Ignored for
-#'   vectors. Note that the method for \code{TOne} objects defaults to
-#'   \code{rows = TRUE}, as appending rows is the typical use case there.
+#'   vectors. Note that the method for `TOne` objects defaults to
+#'   `rows = TRUE`, as appending rows is the typical use case there.
 #' @param newNames optional names for the inserted elements: column names when
 #'   inserting columns, row names when inserting rows. When inserting a column
-#'   into a data.frame without giving \code{newNames}, default names
-#'   (\code{"V1"}, \code{"V2"}, ...) are used.
+#'   into a data.frame without giving `newNames`, default names
+#'   (`"V1"`, `"V2"`, ...) are used.
 #' @param ... additional arguments.
 #'
-#' @return object of the same class as \code{x}.
+#' @return object of the same class as `x`.
 #'
-#' @seealso \code{\link{append}}
+#' @seealso [append()]
 #'
 #' @examples
 #' # vectors

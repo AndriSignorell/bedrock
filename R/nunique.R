@@ -1,7 +1,7 @@
 
 #' Count Unique Values
 #'
-#' Returns the number of unique elements in a vector.
+#' Returns the number of unique vector elements. 
 #'
 #' @param x a vector.
 #' @param na.rm logical. Should missing values (`NA`) be removed before
@@ -9,15 +9,16 @@
 #'
 #' @return an integer of length one.
 #'
-#' @seealso [base::nlevels()], [isLowCardinality()] to check whether `x` has at most a given
-#'   number of unique values, without counting all of them first.
-#'
 #' @examples
 #' nUnique(c(1, 1, 2, 3))
 #'
 #' nUnique(c(1, 1, 2, NA))
 #'
 #' nUnique(c(1, 1, 2, NA), na.rm = TRUE)
+#'
+#' @seealso [nlevels()], [isLowCardinality()] to check whether `x` 
+#'   has at most a given number of unique values, without counting 
+#'   all of them first.
 #'
 #' @family data.predicate
 #' @concept cardinality

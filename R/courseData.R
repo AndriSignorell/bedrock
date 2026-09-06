@@ -3,48 +3,47 @@
 #'
 #' Downloads and loads a dataset from predefined course servers or a user-defined URL.
 #'
-#' If no \code{url} is provided, the function searches for the file in 
-#' the following locations (see \url{https://github.com/AndriSignorell/Teaching}):
+#' If no `url` is provided, the function searches for the file in 
+#' the following locations (see <https://github.com/AndriSignorell/Teaching>):
 #' \itemize{
-#'   \item \code{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/}
-#'   \item \code{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}
+#'   \item `https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/`
+#'   \item `https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/`
 #' }
 #'
 #' The first location where the file exists is used.
 #'
 #' File type handling:
 #' \itemize{
-#'   \item \code{.xls}, \code{.xlsx}: loaded via \code{openDataObject()}
-#'   \item other files: loaded via \code{read.table()}
+#'   \item `.xls`, `.xlsx`: loaded via `openDataObject()`
+#'   \item other files: loaded via `read.table()`
 #' }
 #'
-#' @param name character string. File name including extension (e.g. \code{"data.csv"}).
+#' @param name character string. File name including extension (e.g. `"data.csv"`).
 #' @param url optional character string. Base URL where the file is located.
-#'   If \code{NULL}, default course repositories are searched.
-#' @param header logical. Whether the file contains a header row. Passed to \code{read.table()}.
-#' @param sep character. Field separator used in the file. Default is \code{";"}.
+#'   If `NULL`, default course repositories are searched.
+#' @param header logical. Whether the file contains a header row. Passed to `read.table()`.
+#' @param sep character. Field separator used in the file. Default is `";"`.
 #' @param ... additional arguments passed to the underlying import functions
-#'   such as \code{read.table()} or \code{openDataObject()}.
+#'   such as `read.table()` or `openDataObject()`.
 #'
 #' @return
 #' a data frame or object returned by the respective import function:
 #' \itemize{
-#'   \item for text files: a \code{data.frame}.
-#'   \item for Excel files: an object returned by \code{openDataObject()}.
+#'   \item for text files: a `data.frame`.
+#'   \item for Excel files: an object returned by `openDataObject()`.
 #' }
 #'
 #' @examples
 #' \dontrun{
 #' # Load from default repositories
-#' courseData("mydata.csv")
+#' courseData("fullmoon.xlsx")
 #'
 #' # Load from custom URL
 #' courseData("mydata.csv", url = "https://example.com/data/")
 #' }
 #'
 #' @family datasets
-#' @concept dataset
-#' @concept file-io
+#' @concept file.io
 #' @export
 courseData <- function(name,
                        url    = NULL,

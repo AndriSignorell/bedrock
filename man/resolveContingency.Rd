@@ -2,72 +2,107 @@
 % Please edit documentation in R/resolveContingency.R
 \name{resolveContingency}
 \alias{resolveContingency}
-\title{Resolve Contingency Table}
+\title{Resolve a Contingency Table}
 \usage{
 resolveContingency(
   x,
   y = NULL,
   square = FALSE,
   integerCounts = TRUE,
-  data.name = NULL
+  dataName = NULL
 )
 }
 \arguments{
-\item{x}{a contingency table, factor or vector.}
+\item{x}{a contingency table or matrix of counts, or a factor or vector of
+classifications.}
 
-\item{y}{an optional factor or vector
-Ignored when \code{x} is a matrix.}
+\item{y}{an optional factor or vector of classifications, of the same length
+as \code{x}. Required unless \code{x} is a table, ignored when it is.}
 
-\item{square}{logical indicating whether a square contingency table
-is required.}
+\item{square}{logical, whether a square contingency table is required,
+defaults to \code{FALSE}.}
 
-\item{integerCounts}{logical; if \code{TRUE} (default) a warning is
-issued when the table contains non-integer counts.}
+\item{integerCounts}{logical, whether non-integer counts should be reported
+with a warning, defaults to \code{TRUE}.}
 
-\item{data.name}{optional character string used as the \code{data.name}
-entry of the result. If \code{NULL} (default), it is derived from
-\code{deparse(substitute(x))} (and \code{y}). This only reflects the
-variable names as seen by \code{resolveContingency()} itself: functions
-that call \code{resolveContingency()} internally should build their own
-\code{data.name} via \code{deparse(substitute())} at their own call site
-and pass it through here, otherwise the reported name will be the formal
-argument names of the calling function (e.g. \code{"x and y"}) rather
-than the names the end user actually typed.}
+\item{dataName}{optional character string used as the \code{dataName} entry of
+the result. If \code{NULL} (default), it is derived from the unevaluated
+arguments. That name only reflects what \code{resolveContingency()} itself
+sees: a function calling it internally should build its own name from
+\code{\link[=substitute]{substitute()}} at its own call site and pass it through here, as it would
+otherwise report its own formal argument names, typically \code{"x and y"},
+instead of the names the end user typed.}
 }
 \value{
 a list containing:
 \describe{
-\item{table}{contingency table.}
-\item{n}{total sample size.}
-\item{r}{number of rows.}
-\item{c}{number of columns.}
-\item{k}{number of rows (alias; convenient for square tables).}
-\item{data.name}{name of the data.}
+\item{table}{the contingency table.}
+\item{n}{the total sample size, the sum of all counts.}
+\item{r}{integer, the number of rows.}
+\item{c}{integer, the number of columns.}
+\item{dataName}{character description of the input, for use as the
+\code{data.name} of an \code{htest} object.}
 }
 }
 \description{
-Converts either a contingency table or two classification variables
-into a standardized contingency-table representation.
+Brings a two-way classification into one canonical shape, no matter whether
+it arrives as a ready-made contingency table or as two classification
+variables. The function validates the counts, drops the incomplete
+observations and reports the table together with its dimensions, so that
+association measures, tests of independence and agreement statistics can
+share one entry point instead of each repeating the same preparation.
 }
 \details{
-If \code{x} is a matrix, it is interpreted as a contingency table.
-Otherwise \code{x} and \code{y} are converted to factors and a table
-is constructed after removing incomplete observations.
+Any two-dimensional object is taken as a contingency table and used as it
+is, which covers a matrix as well as a \code{\link[=table]{table()}} or \code{\link[=xtabs]{xtabs()}} object; a data
+frame of counts is coerced with \code{\link[=as.matrix]{as.matrix()}}. Its entries must be numeric,
+non-negative and finite; non-integer counts are reported with a warning
+unless \code{integerCounts} is set to \code{FALSE}, as they occur legitimately in
+weighted or expected tables. An array of any other number of dimensions is
+an error, rather than being flattened into a classification variable.
+
+Two classification variables are cross-tabulated instead. Observations
+missing in either variable are dropped, both variables are then coerced to
+factors, which drops the levels that no longer occur, and at least two
+levels must remain on each side.
+
+Whichever way the table arrives, it must have at least two rows and two
+columns: a one-way table carries no association to measure and is rejected
+rather than passed on to a caller that cannot use it.
+
+\code{square} is meant for the statistics that compare two ratings of the same
+items, such as the tests of marginal homogeneity or the agreement measures.
+It guarantees that the table has as many columns as rows, and nothing
+beyond that: whether the two axes really carry the same categories cannot be
+checked on a table that may have no \code{dimnames} at all, and remains the
+responsibility of the caller.
 }
 \examples{
 # from an existing contingency table
 tab <- matrix(c(10, 5, 3, 12), nrow = 2,
               dimnames = list(c("A", "B"), c("yes", "no")))
-resolveContingency(tab)
+str(resolveContingency(tab))
 
 # from two classification variables
 set.seed(1)
 x <- sample(c("low", "high"), 100, replace = TRUE)
 y <- sample(c("yes", "no"), 100, replace = TRUE)
-resolveContingency(x, y)
+resolveContingency(x, y)$table
+
+# a caller passes the name it sees at its own call site
+myTest <- function(x, y) {
+  r <- resolveContingency(x, y,
+                          dataName = paste(deparse1(substitute(x)), "and",
+                                           deparse1(substitute(y))))
+  r$dataName
+}
+myTest(x, y)
+## [1] "x and y"
 
 }
 \seealso{
+\code{\link[=table]{table()}}, \code{\link[=resolveGroups]{resolveGroups()}}, \code{\link[=resolveFormula]{resolveFormula()}}
+
 Other data.resolve:
 \code{\link[=resolveFormula]{resolveFormula()}},
 \code{\link[=resolveGroups]{resolveGroups()}}

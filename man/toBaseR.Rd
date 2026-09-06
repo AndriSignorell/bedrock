@@ -46,5 +46,4 @@ Other data.coerce:
 \code{\link{type-aliases}}
 }
 \concept{data.coerce}
-\concept{tibble}
 \concept{type-coercion}

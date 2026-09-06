@@ -27,7 +27,7 @@ The smallest value in \code{x} receives a percent rank of 0, and the
 largest value receives a percent rank of 1 (if there are at least two
 non-missing values).
 
-Ties are handled using \code{ties.method = "min"} via \code{\link{rankX}},
+Ties are handled using \code{ties.method = "min"} via \code{\link[=rankX]{rankX()}},
 meaning tied values receive the same minimal rank.
 
 Missing values (\code{NA}) are preserved in the output.
@@ -52,7 +52,7 @@ percentRank(c(5, NA, NA))
 
 }
 \seealso{
-\code{\link[base:rank]{base::rank()}}
+\code{\link[=rank]{rank()}}, \code{\link[=rankX]{rankX()}}
 
 Other math.transform:
 \code{\link[=linScale]{linScale()}},
@@ -61,5 +61,4 @@ Other math.transform:
 \code{\link[=winsorize]{winsorize()}}
 }
 \concept{math.transform}
-\concept{order-statistic}
 \concept{transformation}

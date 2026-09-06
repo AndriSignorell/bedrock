@@ -31,7 +31,7 @@ as `path`):
 - normpath:
 
   normalized path as returned by
-  [`normalizePath`](https://rdrr.io/r/base/normalizePath.html).
+  [`normalizePath()`](https://rdrr.io/r/base/normalizePath.html).
 
 - drive:
 
@@ -59,12 +59,12 @@ as `path`):
 
 ## Details
 
-The function uses [`basename`](https://rdrr.io/r/base/basename.html) and
-[`dirname`](https://rdrr.io/r/base/basename.html) for
+The function uses [`basename()`](https://rdrr.io/r/base/basename.html)
+and [`dirname()`](https://rdrr.io/r/base/basename.html) for
 platform-independent path handling. File name and extension are
 extracted using
-[`file_path_sans_ext`](https://rdrr.io/r/tools/fileutils.html) and
-[`file_ext`](https://rdrr.io/r/tools/fileutils.html).
+[`tools::file_path_sans_ext()`](https://rdrr.io/r/tools/fileutils.html)
+and [`tools::file_ext()`](https://rdrr.io/r/tools/fileutils.html).
 
 If `lastIsFile = FALSE`, the path is treated as a directory and
 file-related components (`fullfilename`, `filename`, `extension`) are
@@ -72,10 +72,10 @@ returned as `NA`.
 
 ## See also
 
-[`basename`](https://rdrr.io/r/base/basename.html),
-[`dirname`](https://rdrr.io/r/base/basename.html),
-[`file_ext`](https://rdrr.io/r/tools/fileutils.html),
-[`file_path_sans_ext`](https://rdrr.io/r/tools/fileutils.html)
+[`basename()`](https://rdrr.io/r/base/basename.html),
+[`dirname()`](https://rdrr.io/r/base/basename.html),
+[`tools::file_ext()`](https://rdrr.io/r/tools/fileutils.html),
+[`tools::file_path_sans_ext()`](https://rdrr.io/r/tools/fileutils.html)
 
 Other file.path: [`buildPath()`](buildPath.md),
 [`fileExistURL()`](fileExistURL.md),

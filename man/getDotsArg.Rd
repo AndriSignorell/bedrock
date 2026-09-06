@@ -17,7 +17,7 @@ getDotsArg(dots, name, default = NULL)
 the value of the argument or \code{default}.
 }
 \description{
-Lightweight helper to extract a named argument from a list (typically
+Lightweight helper to extract a single named argument from a list (typically
 \code{list(...)}). If the argument is not present, a default value is
 returned.
 }
@@ -32,8 +32,8 @@ f(lwd = 2)
 
 }
 \seealso{
-\code{\link{extractArgs}} for extracting several arguments
-at once.
+For extracting several arguments
+at once use \code{\link[=extractArgs]{extractArgs()}}.
 
 Other pkg.args:
 \code{\link[=callIf]{callIf()}},

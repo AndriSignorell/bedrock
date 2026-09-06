@@ -17,7 +17,7 @@ source and returns all found function calls grouped by their package."><meta pro
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,18 +87,18 @@ the environment the called functions were found in.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The source packages are resolved via <code><a href="https://rdrr.io/r/utils/apropos.html" class="external-link">find</a></code>, which only
+    <p>The source packages are resolved via <code><a href="https://rdrr.io/r/utils/apropos.html" class="external-link">find()</a></code>, which only
 sees attached packages. Calls to functions from packages that are not on
 the search path are reported under <code>"&lt;not found&gt;"</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
-    <p>Based on code by Nicholas Cooper.</p>
+    <p>Based on code by Nicholas Cooper, adapted to conform to package
+standards.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="funList.html">funList</a></code>, <code><a href="funArgs.html">funArgs</a></code>,
-<code><a href="https://rdrr.io/r/utils/getParseData.html" class="external-link">getParseData</a></code></p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/utils/getParseData.html" class="external-link">getParseData()</a></code></p>
 <p>Other pkg.funinfo:
 <code><a href="funArgs.html">funArgs()</a></code>,
 <code><a href="funKeywords.html">funKeywords()</a></code>,

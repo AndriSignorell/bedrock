@@ -3,63 +3,60 @@
 #'
 #' Vectorized conversion between positional numeral systems (bases 2-36),
 #' plus Roman-numeral parsing.  The convenience wrappers cover the most
-#' common cases; \code{baseToBase()} handles any combination of bases.
+#' common cases; `baseToBase()` handles any combination of bases.
 #'
 #' @section Convenience wrappers:
-#' All specialist functions are thin wrappers around \code{baseToBase()}:
+#' All specialist functions are thin wrappers around `baseToBase()`:
 #' \tabular{lll}{
-#'   \strong{Function}    \tab \strong{Equivalent call}              \tab \strong{Returns}         \cr
-#'   \code{binToDec(x)} \tab \code{baseToBase(x,  2, 10)}       \tab integer                \cr
-#'   \code{decToBin(x)} \tab \code{baseToBase(x, 10,  2)}       \tab character              \cr
-#'   \code{octToDec(x)} \tab \code{baseToBase(x,  8, 10)}       \tab integer                \cr
-#'   \code{decToOct(x)} \tab \code{baseToBase(x, 10,  8)}       \tab numeric (octal digits) \cr
-#'   \code{hexToDec(x)} \tab \code{baseToBase(x, 16, 10)}       \tab integer                \cr
-#'   \code{decToHex(x)} \tab \code{baseToBase(x, 10, 16)}       \tab \code{hexmode}         \cr
+#'   **Function**    \tab **Equivalent call**              \tab **Returns**         \cr
+#'   `binToDec(x)` \tab `baseToBase(x,  2, 10)`       \tab integer                \cr
+#'   `decToBin(x)` \tab `baseToBase(x, 10,  2)`       \tab character              \cr
+#'   `octToDec(x)` \tab `baseToBase(x,  8, 10)`       \tab integer                \cr
+#'   `decToOct(x)` \tab `baseToBase(x, 10,  8)`       \tab numeric (octal digits) \cr
+#'   `hexToDec(x)` \tab `baseToBase(x, 16, 10)`       \tab integer                \cr
+#'   `decToHex(x)` \tab `baseToBase(x, 10, 16)`       \tab `hexmode`         \cr
 #' }
-#' \code{hexToDec()} additionally strips a leading \code{#} from CSS-style
+#' `hexToDec()` additionally strips a leading `#` from CSS-style
 #' colour strings.
 #'
 #' @section Roman numerals:
-#' \code{romanToInt()} converts Roman numeral strings (e.g. \code{"XIV"}) to
+#' `romanToInt()` converts Roman numeral strings (e.g. `"XIV"`) to
 #' integers.  Input is trimmed and upper-cased before parsing; invalid strings
-#' return \code{NA}.  See also base R's \code{\link{as.roman}()} for the
+#' return `NA`.  See also base R's [as.roman()] for the
 #' reverse direction.
 #'
 #' @section Platform limits:
-#' \code{baseToBase()} uses \code{\link{strtoi}()} internally, which operates
-#' on \code{long int}.  On 32-bit platforms values 
-#' above \eqn{2^{31} - 1}{2^31 - 1} may silently return \code{NA}.  
-#' \code{decToBin()} applies the same cap
-#' explicitly (values > \code{536870911} become \code{NA}).
+#' `baseToBase()` uses [strtoi()] internally, which operates
+#' on `long int`.  On 32-bit platforms values 
+#' above \eqn{2^{31} - 1}{2^31 - 1} may silently return `NA`.  
+#' `decToBin()` applies the same cap
+#' explicitly (values > `536870911` become `NA`).
 #'
 #' @name numeric-conversions
 #'
 #' @param x a vector of numbers or character strings representing values in
-#'   the input base.  For \code{baseToBase()} a numeric \code{x} is accepted
-#'   only when \code{from = 10}.  \code{NA} propagates to the output.
+#'   the input base.  For `baseToBase()` a numeric `x` is accepted
+#'   only when `from = 10`.  `NA` propagates to the output.
 #' @param from a single integer in \[2, 36\] specifying the input base
-#'   (\code{baseToBase()} only).
+#'   (`baseToBase()` only).
 #' @param to a single integer in \[2, 36\] specifying the output base
-#'   (\code{baseToBase()} only).
-#' @param width a single non-negative integer or \code{NULL} (default).
+#'   (`baseToBase()` only).
+#' @param width a single non-negative integer or `NULL` (default).
 #'   When given, output strings are left-padded with zeros to at least
-#'   \code{width} characters (\code{baseToBase()} only).
+#'   `width` characters (`baseToBase()` only).
 #'
 #' @return
-#' a vector of the same length as \code{x}:
+#' a vector of the same length as `x`:
 #' \itemize{
-#'   \item \code{binToDec()}, \code{octToDec()}, \code{hexToDec()},
-#'         \code{romanToInt()} - integer or numeric vector.
-#'   \item \code{decToHex()} - object of class \code{\link{hexmode}}.
-#'   \item \code{decToOct()} - numeric vector (octal digit string coerced to
+#'   \item `binToDec()`, `octToDec()`, `hexToDec()`,
+#'         `romanToInt()` - integer or numeric vector.
+#'   \item `decToHex()` - object of class [hexmode()].
+#'   \item `decToOct()` - numeric vector (octal digit string coerced to
 #'         numeric).
-#'   \item \code{decToBin()}, \code{baseToBase()} - character vector
+#'   \item `decToBin()`, `baseToBase()` - character vector
 #'         (uppercase digits).
 #' }
-#' \code{NA} input always produces \code{NA} output.
-#'
-#' @seealso \code{\link{strtoi}}, \code{\link{as.hexmode}},
-#'   \code{\link{as.octmode}}, \code{\link{as.roman}}
+#' `NA` input always produces `NA` output.
 #'
 #' @examples
 #' # binary
@@ -91,46 +88,33 @@
 #' # vectorized over x
 #' baseToBase(c("A", "B", "FF"), from = 16, to = 10)
 #'
+#' @seealso [strtoi()], [as.hexmode()],
+#'   [as.octmode()], [as.roman()]
+#'
 #' @rdname numeric-conversions
 #' @family number.baseconv
-#' @concept numeric-conversion
-#' @concept number-formatting
+#' @concept encoding
 #' @export
 hexToDec <- function(x)
   strtoi(gsub("^#", "", x), 16L)
 
 #' @rdname numeric-conversions
-#' @family number.baseconv
-#' @concept numeric-conversion
-#' @concept number-formatting
 #' @export
 decToHex <- function(x) as.hexmode(as.numeric(x))
 
 #' @rdname numeric-conversions
-#' @family number.baseconv
-#' @concept numeric-conversion
-#' @concept number-formatting
 #' @export
 octToDec <- function(x) strtoi(x, 8L)
 
 #' @rdname numeric-conversions
-#' @family number.baseconv
-#' @concept numeric-conversion
-#' @concept number-formatting
 #' @export
 decToOct <- function(x) as.numeric(as.character(as.octmode(as.numeric(x))))
 
 #' @rdname numeric-conversions
-#' @family number.baseconv
-#' @concept numeric-conversion
-#' @concept number-formatting
 #' @export
 binToDec <- function(x) strtoi(x, 2L)
 
 #' @rdname numeric-conversions
-#' @family number.baseconv
-#' @concept numeric-conversion
-#' @concept number-formatting
 #' @export
 decToBin <- function(x) {
   x <- as.numeric(x)
@@ -142,9 +126,6 @@ decToBin <- function(x) {
 }
 
 #' @rdname numeric-conversions
-#' @family number.baseconv
-#' @concept numeric-conversion
-#' @concept number-formatting
 #' @export
 romanToInt <- function(x) {
   roman <- trimws(toupper(as.character(x)))
@@ -157,9 +138,6 @@ romanToInt <- function(x) {
 
 
 #' @rdname numeric-conversions
-#' @family number.baseconv
-#' @concept numeric-conversion
-#' @concept number-formatting
 #' @export
 baseToBase <- function(x, from, to, width = NULL) {
   

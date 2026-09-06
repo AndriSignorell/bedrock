@@ -7,30 +7,30 @@
 #'
 #' The "BETWEEN" operators basically combine two conditional statements into
 #' one and simplify the query process.\cr They are merely a wrapper for:
-#' \verb{\code{x >= rng[1] & x <= rng[2]}}, where the round bracket \code{(} means
-#' \emph{strictly greater (>)} and the square bracket \verb{\code{[}} means
-#' \emph{greater or equal (>=)}.  Numerical values of x will be handled by
+#' `x >= rng[1] & x <= rng[2]`, where the round bracket `(` means
+#' *strictly greater (>)* and the square bracket `[` means
+#' *greater or equal (>=)*.  Numerical values of x will be handled by
 #' C-code, which is significantly faster than two comparisons in R (especially
 #' when x is huge).\cr
 #'
 #' For the matching outside-operator, boundary elements of the corresponding 
-#' between-range return \code{FALSE}; that is, they are not considered outside 
+#' between-range return `FALSE`; that is, they are not considered outside 
 #' whenever the negated between-operator includes that boundary.
 #'
-#' Both arguments, \code{x} and \code{rng}, will be recycled to the highest
-#' dimension, which is either the length of the vector (\code{x}) or the number
-#' of rows of the matrix (\code{rng}).\cr See also the routines used to check,
-#' whether two ranges overlap (\code{\link{overlap}},
-#' \code{\link{distance}}).
+#' Both arguments, `x` and `rng`, will be recycled to the highest
+#' dimension, which is either the length of the vector (`x`) or the number
+#' of rows of the matrix (`rng`).\cr See also the routines used to check,
+#' whether two ranges overlap ([overlap()],
+#' [distance()]).
 #'
 #' The "OUTSIDE" operators are the negations of the corresponding "BETWEEN"
-#' operators, matched by \emph{meaning} rather than by mirrored bracket
+#' operators, matched by *meaning* rather than by mirrored bracket
 #' symbols:
 #' \itemize{
-#'   \item \code{\%][\%} negates \code{\%()\%} (strictly outside both bounds)
-#'   \item \code{\%](\%} negates \code{\%(]\%}
-#'   \item \code{\%)[\%} negates \code{\%[)\%}
-#'   \item \code{\%)(\%} negates \code{\%[]\%} (strictly outside, both bounds
+#'   \item `\%][\%` negates `\%()\%` (strictly outside both bounds)
+#'   \item `\%](\%` negates `\%(]\%`
+#'   \item `\%)[\%` negates `\%[)\%`
+#'   \item `\%)(\%` negates `\%[]\%` (strictly outside, both bounds
 #'     of the between-operator were closed)
 #' }
 #'
@@ -41,12 +41,13 @@
 #' @param rng a vector of two values or a matrix with 2 columns, defining the
 #' minimum and maximum of the range for x. \cr If rng is a matrix, x or rng
 #' will be recycled. Matrix ranges are supported for numeric (and date)
-#' \code{x} only.
+#' `x` only.
 #' @return a logical vector of the same length as x.
 #'
-#' @seealso \code{\link{if}}, \code{\link{ifelse}}
+#' @seealso [if()], [ifelse()]
 #' 
-#' @family data.interval @concept range
+#' @family data.interval 
+#' @concept range
 #'
 #' @examples
 #'

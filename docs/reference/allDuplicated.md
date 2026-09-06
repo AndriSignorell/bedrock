@@ -1,6 +1,6 @@
 # Logical Indicator for All Values Involved in Ties
 
-The function [`duplicated`](https://rdrr.io/r/base/duplicated.html)
+The function [`duplicated()`](https://rdrr.io/r/base/duplicated.html)
 returns a logical vector indicating which elements of `x` are
 duplicates, but it does not flag the first occurrence of subsequently
 duplicated elements.
@@ -34,17 +34,18 @@ Consequently, `!allDuplicated(x)` can be used to identify elements of
 
 Missing values are considered equal to each other, so multiple `NA`s are
 flagged as ties. As the function builds on
-[`duplicated`](https://rdrr.io/r/base/duplicated.html), it also works
+[`duplicated()`](https://rdrr.io/r/base/duplicated.html), it also works
 for data frames (row-wise) and matrices.
 
 ## See also
 
-[`duplicated`](https://rdrr.io/r/base/duplicated.html) for identifying
+[`duplicated()`](https://rdrr.io/r/base/duplicated.html) for identifying
 duplicate elements (excluding first occurrences).  
-[`unique`](https://rdrr.io/r/base/unique.html) for extracting unique
+[`unique()`](https://rdrr.io/r/base/unique.html) for extracting unique
 values.  
-[`split`](https://rdrr.io/r/base/split.html) for grouping tied values.  
-[`table`](https://rdrr.io/r/base/table.html) for counting frequencies.
+[`split()`](https://rdrr.io/r/base/split.html) for grouping tied
+values.  
+[`table()`](https://rdrr.io/r/base/table.html) for counting frequencies.
 
 Other data.equal: [`allIdentical()`](allIdentical.md),
 [`compareDataFrames()`](compareDataFrames.md)

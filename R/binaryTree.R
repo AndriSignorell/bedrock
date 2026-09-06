@@ -1,7 +1,7 @@
 
 #' Binary Tree
 #'
-#' Create a binary tree of a given number of nodes \code{n}. Can be used to
+#' Create a binary tree of a given number of nodes `n`. Can be used to
 #' organize a sorted numeric vector as a binary tree.
 #'
 #' If we index the nodes of the tree as 1 for the top, 2--3 for the next
@@ -9,8 +9,8 @@
 #' becomes particularly easy. The basic idea is that the rows of the tree start
 #' at indices 1, 2, 4, \ldots.
 #'
-#' \code{binaryTree(13)} yields the vector \code{c(8, 4, 9, 2, 10, 5, 11, 1,
-#' 12, 6, 13, 3, 7)} meaning that the smallest element will be in position 8
+#' `binaryTree(13)` yields the vector `c(8, 4, 9, 2, 10, 5, 11, 1,
+#' 12, 6, 13, 3, 7)` meaning that the smallest element will be in position 8
 #' of the tree, the next smallest in position 4, etc.
 #'
 #' @param n integer, size of the tree.
@@ -21,14 +21,13 @@
 #' Substantially based on code by Terry Therneau, with major extensions
 #' and improvements by the package author.
 #'
-#' @seealso \code{pharos::plotBinaryTree}
+#' @seealso `pharos::plotBinaryTree`
 #' @examples
 #'
 #' binaryTree(12)
 #'
 #' @family data.order
 #' @concept ordering
-#' @concept tree
 #' @export
 binaryTree <- function(n) {
 

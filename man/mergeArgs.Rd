@@ -25,7 +25,7 @@ were supplied.
 }
 \details{
 User values override defaults of the same name. Unlike
-\code{\link{modifyList}}, elements with the value \code{NULL} are
+\code{\link[=modifyList]{modifyList()}}, elements with the value \code{NULL} are
 preserved (so that an explicit \code{NULL} can be passed on as an
 argument value instead of silently deleting the entry).
 }
@@ -37,7 +37,7 @@ mergeArgs(list(col = "black"), list(col = NULL))
 
 }
 \seealso{
-\code{\link[utils:modifyList]{utils::modifyList()}}
+\code{\link[=modifyList]{modifyList()}}
 
 Other pkg.args:
 \code{\link[=callIf]{callIf()}},

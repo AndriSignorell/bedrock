@@ -66,7 +66,7 @@ x = min + (max - min) \cdot \frac{1}{1 + e^{-z}}
 where \eqn{z} is the input to \code{logitInv()}.
 
 Note that \code{logitInv()} does not perform clamping. This asymmetry is
-intentional: \code{\link[stats]{plogis}} is well-defined for all real inputs,
+intentional: \code{\link[=plogis]{plogis()}} is well-defined for all real inputs,
 so no stabilization is required.
 }
 \examples{
@@ -91,7 +91,7 @@ logitInv(z, min = 10, max = 20)
 
 }
 \seealso{
-\code{\link[stats]{qlogis}}, \code{\link[stats]{plogis}}
+\code{\link[=qlogis]{qlogis()}}, \code{\link[=plogis]{plogis()}}
 
 Other math.transform:
 \code{\link[=linScale]{linScale()}},

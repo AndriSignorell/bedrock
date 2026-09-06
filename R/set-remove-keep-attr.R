@@ -9,13 +9,13 @@
 #' @param x object to modify.
 #' @param attrNames character vector of attribute names.
 #' @param attrValues values for the attributes (only for setting). For a
-#'   single attribute name, \code{attrValues} is taken as the value itself
+#'   single attribute name, `attrValues` is taken as the value itself
 #'   (which may be a vector). For several names, supply one value per name;
 #'   use a list for non-scalar or mixed-type values.
 #'
 #' @return modified object.
 #'
-#' @seealso [stats::setNames], [base::unname]
+#' @seealso [setNames()], [unname()]
 #'
 #' @examples
 #' x <- runif(10)

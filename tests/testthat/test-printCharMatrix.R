@@ -120,17 +120,22 @@ test_that("empty matrix is handled silently", {
 })
 
 test_that("invalid sep errors", {
-  expect_error(printCharMatrix(matrix("x"), sep = -1))
-  expect_error(printCharMatrix(matrix("x"), sep = 1.5))
-  expect_error(printCharMatrix(matrix("x"), sep = "x"))
-  expect_error(printCharMatrix(matrix("x"), sep = Inf))
+  # the message wording belongs to checkCount(), so assert on the
+  # argument name rather than on the sentence
+  expect_error(printCharMatrix(matrix("x"), sep = -1), "sep")
+  expect_error(printCharMatrix(matrix("x"), sep = 1.5), "sep")
+  expect_error(printCharMatrix(matrix("x"), sep = "x"), "sep")
+  expect_error(printCharMatrix(matrix("x"), sep = Inf), "sep")
+  expect_error(printCharMatrix(matrix("x"), sep = c(1, 2)), "sep")
 })
 
 test_that("invalid width errors", {
-  expect_error(printCharMatrix(matrix("x"), width = NA))
-  expect_error(printCharMatrix(matrix("x"), width = "80"))
-  expect_error(printCharMatrix(matrix("x"), width = TRUE))
-  expect_error(printCharMatrix(matrix("x"), width = Inf))
+  expect_error(printCharMatrix(matrix("x"), width = NA), "width")
+  expect_error(printCharMatrix(matrix("x"), width = "80"), "width")
+  expect_error(printCharMatrix(matrix("x"), width = TRUE), "width")
+  expect_error(printCharMatrix(matrix("x"), width = Inf), "width")
+  # width is the one count here that must be positive
+  expect_error(printCharMatrix(matrix("x"), width = 0), "width")
 })
 
 test_that("NA in dimnames is shown as 'NA'", {
@@ -141,7 +146,12 @@ test_that("NA in dimnames is shown as 'NA'", {
 })
 
 test_that("invalid logical flags error", {
-  expect_error(printCharMatrix(matrix("x"), showRownames = NA))
+  expect_error(printCharMatrix(matrix("x"), showRownames = NA),
+               "showRownames")
+  expect_error(printCharMatrix(matrix("x"), showColnames = "yes"),
+               "showColnames")
+  expect_error(printCharMatrix(matrix("x"), useCliStyle = c(TRUE, TRUE)),
+               "useCliStyle")
 })
 
 test_that("mismatched align length still errors on a 1-col matrix", {

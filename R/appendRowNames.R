@@ -9,12 +9,12 @@
 #'   Default is 0 (first column).
 #' @param removeRowNames logical; if TRUE, existing row names are removed.
 #'
-#' @return an object of the same class as \code{x} with the row names added
+#' @return an object of the same class as `x` with the row names added
 #'   as a column. Note that for matrices the result is coerced to the common
 #'   mode, so appending (character) row names to a numeric matrix yields a
 #'   character matrix.
 #'
-#' @seealso \code{\link{append}}
+#' @seealso [append()]
 #'
 #' @examples
 #' dd <- data.frame(x = 1:5, y = 6:10, z = LETTERS[1:5],

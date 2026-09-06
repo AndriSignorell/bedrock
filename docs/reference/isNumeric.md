@@ -24,7 +24,7 @@ isNumeric(
 - isIntegerValued:
 
   logical. If `TRUE`, values must be whole-like (within tolerance). Uses
-  [`isWholeLike`](isWholeLike.md) internally.
+  [`isWholeLike()`](isWholeLike.md) internally.
 
 - isPositive:
 
@@ -63,8 +63,6 @@ should be performed separately with an explicit
 [`length()`](https://rdrr.io/r/base/length.html) check.
 
 ## See also
-
-[`isWholeLike`](isWholeLike.md)
 
 Other data.predicate: [`flags()`](flags.md),
 [`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),

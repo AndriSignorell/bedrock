@@ -4,13 +4,13 @@
 #' Checks whether elements of a numeric vector are odd integers.
 #'
 #' The function first checks whether values are finite integers. Non-integer
-#' values (e.g. 3.5), \code{NA}, \code{NaN}, or \code{Inf} return \code{NA}.
-#' A bare logical \code{NA} is accepted and treated as a missing numeric value.
+#' values (e.g. 3.5), `NA`, `NaN`, or `Inf` return `NA`.
+#' A bare logical `NA` is accepted and treated as a missing numeric value.
 #'
 #' @param x a numeric vector.
 #'
-#' @return a logical vector of the same length as \code{x}. Returns \code{TRUE}
-#'   for odd integers, \code{FALSE} for even integers, and \code{NA} for
+#' @return a logical vector of the same length as `x`. Returns `TRUE`
+#'   for odd integers, `FALSE` for even integers, and `NA` for
 #'   non-integer or non-finite values.
 #'
 #' @examples

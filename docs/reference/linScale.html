@@ -15,7 +15,7 @@ Each column of x is rescaled independently."><meta property="og:image" content="
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,7 +89,7 @@ where each column is linearly rescaled to the interval
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The transformation is defined as:
 $$
-x_{scaled} = \frac{x - low}{high - low} \cdot (new\_high - new\_low) + new\_low
+x_{scaled} = \frac{x - low}{high - low} \cdot (newHigh - newLow) + newLow
 $$</p>
 <p>Constant columns (where <code>high == low</code>) are mapped to <code>newLow</code>.</p>
 <p>If <code>low</code> and <code>high</code> are supplied, values of <code>x</code> outside
@@ -98,7 +98,7 @@ target range.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale</a></code></p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale()</a></code>, <code><a href="https://andrisignorell.github.io/DescToolsX/reference/scaleX.html" class="external-link">DescToolsX::scaleX</a></code></p>
 <p>Other math.transform:
 <code><a href="logit.html">logit()</a></code>,
 <code><a href="percentRank.html">percentRank()</a></code>,

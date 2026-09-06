@@ -20,8 +20,7 @@ recodeX(
 returned as \code{character} again.}
 
 \item{\dots}{the old levels (combined by \code{c}() if there are several)
-named with the new level:\cr \code{newlevel_a = c("old_a", "old_b"),
-}\cr\code{newlevel_b = c("old_c", "old_d")}\cr See examples.}
+named with the new level:\cr \verb{newlevel_a = c("old_a", "old_b"), }\cr\code{newlevel_b = c("old_c", "old_d")}\cr See examples.}
 
 \item{keep}{vector of levels that should be left untouched.}
 
@@ -115,9 +114,9 @@ recodeX(likert, "1"=1:6, "2"=7:8, "5"=9:10, num=TRUE)
 
 }
 \seealso{
-\code{\link{factor}}, \code{\link{levels}}, \code{\link{relevel}},
-\code{\link{reorder}}\cr There's another solution for this problem in the
-package \bold{car}.
+\code{\link[=factor]{factor()}}, \code{\link[=levels]{levels()}}, \code{\link[=relevel]{relevel()}},
+\code{\link[=reorder]{reorder()}}\cr There's another solution for this problem in the
+package \strong{car}.
 
 Other data.recode:
 \code{\link[=asBinary]{asBinary()}},
@@ -131,4 +130,3 @@ Other data.recode:
 \concept{categorization}
 \concept{data.recode}
 \concept{recoding}
-\keyword{manip}

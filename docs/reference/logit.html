@@ -15,7 +15,7 @@ finite interval \([min, max]\)."><meta property="og:image" content="/logo.png"><
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,12 +119,12 @@ x = min + (max - min) \cdot \frac{1}{1 + e^{-z}}
 $$</p>
 <p>where \(z\) is the input to <code>logitInv()</code>.</p>
 <p>Note that <code>logitInv()</code> does not perform clamping. This asymmetry is
-intentional: <code><a href="https://rdrr.io/r/stats/Logistic.html" class="external-link">plogis</a></code> is well-defined for all real inputs,
+intentional: <code><a href="https://rdrr.io/r/stats/Logistic.html" class="external-link">plogis()</a></code> is well-defined for all real inputs,
 so no stabilization is required.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/stats/Logistic.html" class="external-link">qlogis</a></code>, <code><a href="https://rdrr.io/r/stats/Logistic.html" class="external-link">plogis</a></code></p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/stats/Logistic.html" class="external-link">qlogis()</a></code>, <code><a href="https://rdrr.io/r/stats/Logistic.html" class="external-link">plogis()</a></code></p>
 <p>Other math.transform:
 <code><a href="linScale.html">linScale()</a></code>,
 <code><a href="percentRank.html">percentRank()</a></code>,

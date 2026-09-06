@@ -11,7 +11,7 @@ strSplitToCol(x, split = " ", fixed = TRUE, naForm = "", colNames = NULL)
 Each element (or column) is processed separately.}
 
 \item{split}{character string specifying the delimiter for splitting.
-Passed to \code{\link[base]{strsplit}}.}
+Passed to \code{\link[=strsplit]{strsplit()}}.}
 
 \item{fixed}{logical; if \code{TRUE}, \code{split} is used as a fixed string.
 Otherwise, it is treated as a regular expression.}
@@ -31,7 +31,7 @@ Additional attribute:
 }
 \description{
 Splits character vectors into multiple columns based on a delimiter.
-Each element of \code{x} is split using \code{\link[base]{strsplit}},
+Each element of \code{x} is split using \code{\link[=strsplit]{strsplit()}},
 and the resulting parts are expanded into separate columns.
 }
 \details{
@@ -40,10 +40,10 @@ Missing values are filled with \code{naForm}.
 
 For each element (or column) in \code{x}, the function:
 \enumerate{
-\item Splits each entry using \code{\link[base]{strsplit}}
+\item Splits each entry using \code{\link[=strsplit]{strsplit()}}
 \item Determines the maximum number of split parts
 \item Pads shorter splits with \code{naForm}
-\item Combines results into a matrix via \code{\link[base]{rbind}}
+\item Combines results into a matrix via \code{\link[=rbind]{rbind()}}
 }
 
 The final result is a data frame where each original element or column
@@ -71,6 +71,7 @@ strSplitToCol(df)
 }
 \seealso{
 Other string.transform:
+\code{\link{char-ascii-conversion}},
 \code{\link[=mGsub]{mGsub()}},
 \code{\link[=strSplitToDummy]{strSplitToDummy()}}
 }

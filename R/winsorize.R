@@ -22,18 +22,18 @@
 #' }
 #' where \eqn{l} and \eqn{u} denote the lower and upper bounds.
 #'
-#' The argument \code{val} allows full control over the limits. It can be:
+#' The argument `val` allows full control over the limits. It can be:
 #' \itemize{
 #'   \item A numeric vector of length two specifying fixed bounds
-#'   \item The result of a call to \code{\link{quantile}} (e.g. with custom \code{type})
+#'   \item The result of a call to [quantile()] (e.g. with custom `type`)
 #' }
 #'
 #' @param x a numeric vector to be winsorized.
 #' @param val a numeric vector of length two specifying the lower and upper
-#'   winsorization limits. Defaults to the 5% and 95% quantiles of \code{x}
-#'   with \code{na.rm = TRUE}.
+#'   winsorization limits. Defaults to the 5% and 95% quantiles of `x`
+#'   with `na.rm = TRUE`.
 #'
-#' @return a numeric vector of the same length as \code{x}, where:
+#' @return a numeric vector of the same length as `x`, where:
 #' \itemize{
 #'   \item values below the lower limit are replaced by the lower limit.
 #'   \item values above the upper limit are replaced by the upper limit.
@@ -43,9 +43,7 @@
 #' @details
 #' Winsorization is commonly used in robust statistics to reduce the influence
 #' of outliers. In some cases, it can be beneficial to standardize the data
-#' (e.g., using \code{\link{scale}}) before applying winsorization.
-#'
-#' @seealso \code{scaleX()}, \code{winsorize()} in package \pkg{robustHD}
+#' (e.g., using [scale()]) before applying winsorization.
 #'
 #' @examples
 #' set.seed(9128)
@@ -64,9 +62,8 @@
 #' winsorize(x, val = c(-Inf, 2))  # upper bound only
 #' winsorize(x, val = c(-2, Inf)) # lower bound only
 #'
-
-
-
+#' @seealso `DescToolsX::scaleX()`, `robustHD::winsorize()`
+#'
 #' @family math.transform
 #' @concept transformation
 #' @concept outlier-detection

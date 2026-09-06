@@ -31,13 +31,13 @@ components are joined, so `buildPath("data", "file.csv")` and
 `buildPath("data/", "file.csv")` yield the same result.
 
 The path is then passed through
-[`normalizePath`](https://rdrr.io/r/base/normalizePath.html) with
+[`normalizePath()`](https://rdrr.io/r/base/normalizePath.html)with
 `mustWork = FALSE`, so paths that do not (yet) exist are allowed. Note
 that `normalizePath` resolves existing paths to absolute form, while
 non-existing paths are returned as constructed (i.e. possibly relative).
 
 Both arguments are vectorized in the usual
-[`file.path`](https://rdrr.io/r/base/file.path.html) manner.
+[`file.path()`](https://rdrr.io/r/base/file.path.html) manner.
 
 ## Note
 
@@ -55,7 +55,7 @@ Other file.path: [`fileExistURL()`](fileExistURL.md),
 
 ``` r
 buildPath("data", "file.csv")
-#> [1] "C:/temp/bedrock/docs/reference/data/file.csv"
+#> [1] "C:/Users/andri/OneDrive/Dokumente/R-Dev/bedrock/docs/reference/data/file.csv"
 buildPath("data/", "file.csv")
-#> [1] "C:/temp/bedrock/docs/reference/data/file.csv"
+#> [1] "C:/Users/andri/OneDrive/Dokumente/R-Dev/bedrock/docs/reference/data/file.csv"
 ```

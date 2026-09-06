@@ -82,12 +82,16 @@ strsplit(asciiToChar(x), split = NULL)
 
 # comparison with raw representation
 charToRaw("Silvia")
+
 }
 \seealso{
-\code{\link{charToRaw}},
-\code{\link{rawToChar}}
+\code{\link[=charToRaw]{charToRaw()}},
+\code{\link[=rawToChar]{rawToChar()}}
+
+Other string.transform:
+\code{\link[=mGsub]{mGsub()}},
+\code{\link[=strSplitToCol]{strSplitToCol()}},
+\code{\link[=strSplitToDummy]{strSplitToDummy()}}
 }
-\concept{character-conversion}
-\concept{string-manipulation}
-\concept{string.code}
-\concept{string.encoding}
+\concept{encoding}
+\concept{string.transform}

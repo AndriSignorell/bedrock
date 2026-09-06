@@ -6,13 +6,15 @@
 #'
 #' @param x a (non-empty) numeric or complex vector of data values.
 #' @param tol tolerance to be used.
-#' @param na.rm logical, indicating whether \code{NA} values should be stripped
-#' before the computation proceeds. Defaults to \code{FALSE}.
+#' @param na.rm logical, indicating whether `NA` values should be stripped
+#' before the computation proceeds. Defaults to `FALSE`.
 #'
 #' @return logical vector of the same length as x (after optional
-#' \code{NA} removal). Non-numeric input yields all-\code{FALSE}.
-#'
-#' @seealso \code{\link{all.equal}}, \code{\link{isWholeLike}}
+#' `NA` removal). Non-numeric input yields all-`FALSE`.
+#' 
+#' @references
+#' Burns, P. (2011). _The R Inferno_.
+#' <https://www.burns-stat.com/documents/books/the-r-inferno/>
 #'
 #' @examples
 #' # "... These are people who live in ignorance of the Floating Point Gods.
@@ -21,6 +23,8 @@
 #'
 #' # they might be helped by
 #' isZero(.1 - .3 / 3)
+#'
+#' @seealso [all.equal()]
 #'
 #' @family data.predicate
 #' @concept type-test

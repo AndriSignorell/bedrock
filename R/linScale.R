@@ -2,30 +2,30 @@
 #' Linearly Rescale Numeric Data
 #'
 #' Performs a linear transformation of numeric data to a specified range.
-#' Each column of \code{x} is rescaled independently.
+#' Each column of `x` is rescaled independently.
 #'
 #' The transformation is defined as:
 #' \deqn{
-#' x_{scaled} = \frac{x - low}{high - low} \cdot (new\_high - new\_low) + new\_low
+#' x_{scaled} = \frac{x - low}{high - low} \cdot (newHigh - newLow) + newLow
 #' }
 #'
-#' Constant columns (where \code{high == low}) are mapped to \code{newLow}.
+#' Constant columns (where `high == low`) are mapped to `newLow`.
 #'
-#' If \code{low} and \code{high} are supplied, values of \code{x} outside
-#' \code{[low, high]} are extrapolated linearly and are not clipped to the
+#' If `low` and `high` are supplied, values of `x` outside
+#' `[low, high]` are extrapolated linearly and are not clipped to the
 #' target range.
 #'
 #' @param x a numeric vector, matrix or data frame.
 #' @param low,high optional numeric vectors specifying the lower and upper
-#'   bounds of the original scale. If \code{NULL}, the column-wise minima
-#'   and maxima of \code{x} are used.
+#'   bounds of the original scale. If `NULL`, the column-wise minima
+#'   and maxima of `x` are used.
 #' @param newLow,newHigh numeric vectors specifying the target range.
-#'   Defaults to \code{0} and \code{1}.
+#'   Defaults to `0` and `1`.
 #'
-#' @return an object of the same shape as \code{x}: a numeric vector for
+#' @return an object of the same shape as `x`: a numeric vector for
 #'   vector input, otherwise a numeric matrix with the same dimensions,
 #'   where each column is linearly rescaled to the interval
-#'   \code{[newLow, newHigh]}.
+#'   `[newLow, newHigh]`.
 #'
 #' @examples
 #' x <- matrix(1:10, ncol = 2)
@@ -39,7 +39,7 @@
 #' # using predefined bounds
 #' linScale(x, low = 1, high = 10)
 #'
-#' @seealso \code{\link{scale}}
+#' @seealso [scale()], `DescToolsX::scaleX`
 #'
 #' @family math.transform
 #' @concept transformation

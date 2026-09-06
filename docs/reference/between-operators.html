@@ -17,7 +17,7 @@ values can be numbers, text or dates. Ordered factors are supported."><meta prop
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,8 +101,8 @@ will be recycled. Matrix ranges are supported for numeric (and date)
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The "BETWEEN" operators basically combine two conditional statements into
 one and simplify the query process.<br> They are merely a wrapper for:
-<code>\code{x &gt;= rng[1] &amp; x &lt;= rng[2]}</code>, where the round bracket <code>(</code> means
-<em>strictly greater (&gt;)</em> and the square bracket <code>\code{[}</code> means
+<code>x &gt;= rng[1] &amp; x &lt;= rng[2]</code>, where the round bracket <code>(</code> means
+<em>strictly greater (&gt;)</em> and the square bracket <code>[</code> means
 <em>greater or equal (&gt;=)</em>.  Numerical values of x will be handled by
 C-code, which is significantly faster than two comparisons in R (especially
 when x is huge).<br></p>
@@ -112,19 +112,19 @@ whenever the negated between-operator includes that boundary.</p>
 <p>Both arguments, <code>x</code> and <code>rng</code>, will be recycled to the highest
 dimension, which is either the length of the vector (<code>x</code>) or the number
 of rows of the matrix (<code>rng</code>).<br> See also the routines used to check,
-whether two ranges overlap (<code><a href="intervals.html">overlap</a></code>,
-<code><a href="intervals.html">distance</a></code>).</p>
+whether two ranges overlap (<code><a href="intervals.html">overlap()</a></code>,
+<code><a href="intervals.html">distance()</a></code>).</p>
 <p>The "OUTSIDE" operators are the negations of the corresponding "BETWEEN"
 operators, matched by <em>meaning</em> rather than by mirrored bracket
-symbols:</p><ul><li><p><code>%][%</code> negates <code>%()%</code> (strictly outside both bounds)</p></li>
-<li><p><code>%](%</code> negates <code>%(]%</code></p></li>
-<li><p><code>%)[%</code> negates <code>%[)%</code></p></li>
-<li><p><code>%)(%</code> negates <code>%[]%</code> (strictly outside, both bounds
+symbols:</p><ul><li><p><code>\%][\%</code> negates <code>\%()\%</code> (strictly outside both bounds)</p></li>
+<li><p><code>\%](\%</code> negates <code>\%(]\%</code></p></li>
+<li><p><code>\%)[\%</code> negates <code>\%[)\%</code></p></li>
+<li><p><code>\%)(\%</code> negates <code>\%[]\%</code> (strictly outside, both bounds
 of the between-operator were closed)</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/Control.html" class="external-link">if</a></code>, <code><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></code></p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/Control.html" class="external-link">if()</a></code>, <code><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse()</a></code></p>
 <p>Other data.interval:
 <code><a href="intervals.html">intervals</a></code>,
 <code><a href="range-operators.html">range-operators</a></code></p></div>

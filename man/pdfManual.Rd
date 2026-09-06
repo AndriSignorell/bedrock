@@ -31,13 +31,12 @@ pdfManual("bedrock")
 
 }
 \seealso{
-\code{\link{browseURL}}
+\code{\link[=browseURL]{browseURL()}}
 
 Other file.io:
 \code{\link[=parseSASDatalines]{parseSASDatalines()}},
 \code{\link[=peekFile]{peekFile()}},
 \code{\link[=readDownload]{readDownload()}}
 }
-\concept{file-io}
 \concept{file.io}
 \concept{introspection}

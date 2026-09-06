@@ -48,18 +48,19 @@ The argument `val` allows full control over the limits. It can be:
 - A numeric vector of length two specifying fixed bounds
 
 - The result of a call to
-  [`quantile`](https://rdrr.io/r/stats/quantile.html) (e.g. with custom
-  `type`)
+  [`quantile()`](https://rdrr.io/r/stats/quantile.html) (e.g. with
+  custom `type`)
 
 Winsorization is commonly used in robust statistics to reduce the
 influence of outliers. In some cases, it can be beneficial to
 standardize the data (e.g., using
-[`scale`](https://rdrr.io/r/base/scale.html)) before applying
+[`scale()`](https://rdrr.io/r/base/scale.html)) before applying
 winsorization.
 
 ## See also
 
-`scaleX()`, `winsorize()` in package robustHD
+[`DescToolsX::scaleX()`](https://andrisignorell.github.io/DescToolsX/reference/scaleX.html),
+`robustHD::winsorize()`
 
 Other math.transform: [`linScale()`](linScale.md),
 [`logit()`](logit.md), [`percentRank()`](percentRank.md),

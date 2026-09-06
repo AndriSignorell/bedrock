@@ -53,7 +53,7 @@ sortX(x, ...)
 \item{x}{a numeric, complex, character or logical vector, factor,
 matrix, table, or data frame to be sorted.}
 
-\item{\dots}{further arguments passed to \code{\link{sort}} in
+\item{\dots}{further arguments passed to \code{\link[=sort]{sort()}} in
 \code{sortX.default}.}
 
 \item{decreasing}{logical scalar or vector. Should the sort be in
@@ -63,7 +63,7 @@ a scalar is recycled.}
 
 \item{na.last}{logical or \code{NA}. Should missing values be placed last
 (\code{TRUE}), first (\code{FALSE}), or removed (\code{NA})?
-See \code{\link{order}}.}
+See \code{\link[=order]{order()}}.}
 
 \item{method}{sorting method. Either \code{"default"} (base R behavior)
 or \code{"mixed"} for natural sorting of character data
@@ -86,7 +86,7 @@ sorts by row marginal sums. This argument is not available for
 the sorted object, of the same class as \code{x}.
 }
 \description{
-\code{sortX} extends the base \code{\link{sort}} function by providing
+\code{sortX} extends the base \code{\link[=sort]{sort()}} function by providing
 a consistent interface for sorting not only vectors, but also matrices,
 tables, and data frames. For 2-dimensional objects, rows are sorted based
 on one or more columns.
@@ -146,7 +146,7 @@ sortX(tab, ord = 0L)
 
 }
 \seealso{
-\code{\link{sort}}, \code{\link{order}}
+\code{\link[=sort]{sort()}}, \code{\link[=order]{order()}}
 
 Other data.order:
 \code{\link[=binaryTree]{binaryTree()}},

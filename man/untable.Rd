@@ -91,8 +91,8 @@ untable(d.freq)
 
 }
 \seealso{
-\code{\link{expand.grid}}, \code{\link{rep}}, \code{\link{gl}},
-\code{\link{xtabs}}
+\code{\link[=expand.grid]{expand.grid()}}, \code{\link[=rep]{rep()}}, \code{\link[=gl]{gl()}},
+\code{\link[=xtabs]{xtabs()}}
 
 Other data.reshape:
 \code{\link[=collapseTable]{collapseTable()}},
@@ -101,6 +101,4 @@ Other data.reshape:
 \code{\link[=splitX]{splitX()}}
 }
 \concept{data.reshape}
-\concept{frequency-table}
 \concept{reshape}
-\keyword{manip}

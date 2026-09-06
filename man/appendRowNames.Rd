@@ -32,7 +32,7 @@ appendRowNames(dd)
 
 }
 \seealso{
-\code{\link{append}}
+\code{\link[=append]{append()}}
 
 Other data.append:
 \code{\link[=appendEnum]{appendEnum()}},

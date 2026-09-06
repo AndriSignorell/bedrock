@@ -46,8 +46,8 @@ data structure.
 
 ## See also
 
-[`is.na`](https://rdrr.io/r/base/NA.html),
-[`is.finite`](https://rdrr.io/r/base/is.finite.html)
+[`is.na()`](https://rdrr.io/r/base/NA.html),
+[`is.finite()`](https://rdrr.io/r/base/is.finite.html)
 
 Other vector.na: [`isNA()`](isNA.md), [`locf()`](locf.md),
 [`naIf()`](naIf.md), [`naReplace()`](naReplace.md)

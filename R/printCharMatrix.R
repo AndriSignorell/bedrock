@@ -9,36 +9,36 @@
 #' @param m a matrix (or object coercible to a matrix) containing values that
 #'   will be converted to character for display.
 #' @param align character vector specifying alignment of cell contents,
-#'   either \code{"right"} (default) or \code{"left"}. A single value is
+#'   either `"right"` (default) or `"left"`. A single value is
 #'   recycled across all columns; alternatively a vector of length
-#'   \code{ncol(m)} sets the alignment per column.
-#' @param sep integer. Number of spaces between columns. Default is \code{2}.
-#' @param showRownames logical. Should row names be printed? Default is \code{TRUE}.
-#' @param showColnames logical. Should column names be printed? Default is \code{TRUE}.
-#' @param useCliStyle logical. If \code{TRUE}, column names and row names are styled
-#'   using \code{cli::style_bold()}. Default is \code{FALSE}.
+#'   `ncol(m)` sets the alignment per column.
+#' @param sep integer. Number of spaces between columns. Default is `2`.
+#' @param showRownames logical. Should row names be printed? Default is `TRUE`.
+#' @param showColnames logical. Should column names be printed? Default is `TRUE`.
+#' @param useCliStyle logical. If `TRUE`, column names and row names are styled
+#'   using `cli::style_bold()`. Default is `FALSE`.
 #' @param width integer. Maximum output width (in characters). Defaults to
-#'   \code{getOption("width")}. If the table exceeds this width, it is split into
+#'   `getOption("width")`. If the table exceeds this width, it is split into
 #'   column blocks that are printed one after another.
 #'
 #' @details
 #' The function formats all entries as character strings and computes column widths
-#' dynamically. \code{NA} entries are shown as \code{"NA"}. If the full table does
-#' not fit into the specified \code{width}, it is split column-wise into multiple
+#' dynamically. `NA` entries are shown as `"NA"`. If the full table does
+#' not fit into the specified `width`, it is split column-wise into multiple
 #' blocks (cell contents themselves are never wrapped). In this case, row names and
 #' column headers are repeated for each block.
 #'
-#' If a single column is wider than \code{width}, that column is printed on its own
-#' and the requested \code{width} is deliberately exceeded, since a column cannot be
+#' If a single column is wider than `width`, that column is printed on its own
+#' and the requested `width` is deliberately exceeded, since a column cannot be
 #' split further.
 #'
 #' Alignment is applied per column, and spacing between columns is controlled via
-#' \code{sep}. The function is designed as a lightweight alternative to
-#' \code{print.data.frame()} with more control over formatting, making it suitable
+#' `sep`. The function is designed as a lightweight alternative to
+#' `print.data.frame()` with more control over formatting, making it suitable
 #' for reporting outputs in packages.
 #'
 #' @return
-#' invisibly returns \code{NULL}. The formatted table is printed to the console.
+#' invisibly returns `NULL`. The formatted table is printed to the console.
 #'
 #' @examples
 #' m <- matrix(c(
@@ -78,20 +78,11 @@ printCharMatrix <- function(
     width = getOption("width")
 ) {
   # --- argument validation ---
-  if (!is.numeric(sep) || length(sep) != 1L || !is.finite(sep) ||
-      sep < 0 || sep != floor(sep)) {
-    stop("'sep' must be a single non-negative integer.", call. = FALSE)
-  }
-  if (!is.numeric(width) || length(width) != 1L || !is.finite(width) ||
-      width < 1 || width != floor(width)) {
-    stop("'width' must be a single positive integer.", call. = FALSE)
-  }
-  for (arg in c("showRownames", "showColnames", "useCliStyle")) {
-    value <- get(arg)
-    if (!is.logical(value) || length(value) != 1L || is.na(value)) {
-      stop(sprintf("'%s' must be TRUE or FALSE.", arg), call. = FALSE)
-    }
-  }
+  checkCount(sep)
+  checkCount(width, min = 1L)
+  checkFlag(showRownames)
+  checkFlag(showColnames)
+  checkFlag(useCliStyle)
 
   # align may be a single value (recycled over all columns) or a per-column
   # vector of length ncol(m); defaults to "right". Validated element-wise

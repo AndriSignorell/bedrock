@@ -22,8 +22,8 @@
 #' @details
 #' The Tarot deck consists of 56 Minor Arcana Cards and 22 Major Arcana Cards.
 #' Since both groups follow different ranking systems, two separate variables are
-#' provided: \code{rank_minor} for the ordered structure within the minor arcana
-#' and \code{rank_major} for the numeric ordering of the major arcana.
+#' provided: `rank_minor` for the ordered structure within the minor arcana
+#' and `rank_major` for the numeric ordering of the major arcana.
 #'
 #' This separation avoids mixing incompatible ordinal scales and makes the dataset
 #' suitable for statistical modelling and machine learning applications.
@@ -35,7 +35,6 @@
 #'
 #' @family datasets
 #' @concept simulation
-#' @concept categorical-data
 #'
 #' @source Simulated data.
 "Tarot"

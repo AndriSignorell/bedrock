@@ -35,30 +35,31 @@ Merge multiple data frames by row names, or do other versions of database
 join operations.
 }
 \examples{
+x1 <- setNamesX(data.frame(v = letters[1:6], w = 1:6),
+                rownames = LETTERS[1:6])
+x2 <- setNamesX(data.frame(v = letters[2:4], ww = 11:13),
+                rownames = LETTERS[2:4])
+x3 <- setNamesX(data.frame(v = letters[c(1, 3, 5, 7, 10)], wwww = 22:26),
+                rownames = LETTERS[c(1, 3, 5, 7, 10)])
 
-x1 <- setNamesX(data.frame(v=letters[1:6], w=1:6), 
-                rownames=c("A", "B", "C", "D", "E", "F"))
-x2 <- setNamesX(data.frame(v=letters[1:3], ww=11:13), 
-                rownames=c("B", "C", "D"))
-x3 <- setNamesX(data.frame(v=letters[12:16], wwww=22:26), 
-                rownames=c("A", "C", "E", "G", "J"))
-
-# default is "merge by rownames" 
+# the default merges on the row names and returns their union,
+# with NA wherever a frame has no such row
 multMerge(x1, x2, x3)
-# ... which does not really make sense here
 
-# merge by column v
-multMerge(x1, x2, x3, by="v")
+# v is not a key in the call above and is simply carried along from
+# each frame; here it becomes the key instead
+multMerge(x1, x2, x3, by = "v")
+
 
 }
 \seealso{
-\code{\link{merge}}
+\code{\link[=merge]{merge()}}
 
 Other data.append:
 \code{\link[=appendEnum]{appendEnum()}},
 \code{\link[=appendRowNames]{appendRowNames()}},
 \code{\link[=appendX]{appendX()}}
 }
+\concept{append}
 \concept{data.append}
-\concept{merge}
 \concept{table}

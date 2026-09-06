@@ -42,7 +42,8 @@ into a data.frame without giving \code{newNames}, default names
 object of the same class as \code{x}.
 }
 \description{
-Generic function to append elements to vectors, matrices, and data frames.
+Generic function to append or insert elements to vectors,
+matrices, and data frames.
 }
 \examples{
 # vectors
@@ -61,7 +62,7 @@ appendX(d, list(a = 99, b = 88), after = 0, rows = TRUE)
 
 }
 \seealso{
-\code{\link{append}}
+\code{\link[=append]{append()}}
 
 Other data.append:
 \code{\link[=appendEnum]{appendEnum()}},

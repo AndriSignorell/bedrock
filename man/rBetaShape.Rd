@@ -60,9 +60,9 @@ where \eqn{a} and \eqn{b} are the lower and upper bounds, respectively.
 }
 \section{Random number generation}{
 
-The values are drawn with \code{\link[stats:rbeta]{stats::rbeta()}} and therefore depend on the
+The values are drawn with \code{\link[=rbeta]{rbeta()}} and therefore depend on the
 state of R's global random number generator. No seed is set internally;
-call \code{\link[base:set.seed]{base::set.seed()}} beforehand, or wrap the call in
+call \code{\link[=set.seed]{set.seed()}} beforehand, or wrap the call in
 \code{\link[=withSeed]{withSeed()}}, for reproducible results.
 }
 
@@ -83,7 +83,7 @@ rBetaShape(5, shape = c(3, 1.5), bounds = c(0, 100))
 
 }
 \seealso{
-\code{\link[stats:rbeta]{stats::rbeta()}}, \code{\link[stats:runif]{stats::runif()}}
+\code{\link[=rbeta]{rbeta()}}, \code{\link[=runif]{runif()}}
 
 Other random.numbers:
 \code{\link[=rSum21]{rSum21()}}

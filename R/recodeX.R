@@ -2,37 +2,32 @@
 #' Recode a Variable
 #' 
 #' Combining or rearranging a factor can be tedious if it has many levels.
-#' \code{recodeX()} supports this step by accepting a direct definition of new
+#' `recodeX()` supports this step by accepting a direct definition of new
 #' levels by enumerating old levelnames as argument and adding an
-#' \code{"elseLevel"} option. If new levels are given as integer values they
+#' `"elseLevel"` option. If new levels are given as integer values they
 #' will be translated in the according levels.
 #' 
 #' 
 #' @param x the factor whose levels are to be altered.  If x is
-#' \code{character} it will be factorized (using \code{factor} defaults) but
-#' returned as \code{character} again.
-#' @param \dots the old levels (combined by \code{c}() if there are several)
-#' named with the new level:\cr \code{newlevel_a = c("old_a", "old_b"),
-#' }\cr\code{newlevel_b = c("old_c", "old_d")}\cr See examples.
+#' `character` it will be factorized (using `factor` defaults) but
+#' returned as `character` again.
+#' @param \dots the old levels (combined by `c`() if there are several)
+#' named with the new level:\cr `newlevel_a = c("old_a", "old_b"),
+#' `\cr`newlevel_b = c("old_c", "old_d")`\cr See examples.
 #' @param keep vector of levels that should be left untouched.
 #' @param elseLevel the value for levels, which are not matched by newlevel
-#' list.  If this is set to \code{NULL}, the elseLevels will be left unchanged.
-#' If set to \code{NA} (default) non matched levels will be set to \code{NA}.
+#' list.  If this is set to `NULL`, the elseLevels will be left unchanged.
+#' If set to `NA` (default) non matched levels will be set to `NA`.
 #' @param ref the reference level, typically a string.
 #' @param useEmpty logical. Defines how a new level, which can't be found in
 #' x, should be handled.  Should it be left in the level's list or be dropped?
-#' The default is \code{FALSE}, which drops empty levels.
-#' @param num logical. If set to \code{TRUE} the result will be numeric. This
+#' The default is `FALSE`, which drops empty levels.
+#' @param num logical. If set to `TRUE` the result will be numeric. This
 #' is useful if you want to recode strings to specific numeric values.
 #' 
-#' @return the factor having the new levels applied.\cr if \code{x} was a
-#' \code{character} vector, the result will also be \code{character}.
+#' @return the factor having the new levels applied.\cr if `x` was a
+#' `character` vector, the result will also be `character`.
 #' 
-
-#' @seealso \code{\link{factor}}, \code{\link{levels}}, \code{\link{relevel}},
-#' \code{\link{reorder}}\cr There's another solution for this problem in the
-#' package \bold{car}.
-#' @keywords manip
 #' @examples
 #' 
 #' set.seed(1984)
@@ -97,8 +92,10 @@
 #' # or directly turned to numeric
 #' recodeX(likert, "1"=1:6, "2"=7:8, "5"=9:10, num=TRUE)
 #' 
-
-
+#' @seealso [factor()], [levels()], [relevel()],
+#' [reorder()]\cr There's another solution for this problem in the
+#' package **car**.
+#' 
 #' @family data.recode
 #' @concept recoding
 #' @concept categorization

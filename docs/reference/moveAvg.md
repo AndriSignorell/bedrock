@@ -105,7 +105,7 @@ There is no `na.rm` option; pre-filter with `x[!is.na(x)]` if needed
 
 [`zoo::rollmean()`](https://rdrr.io/pkg/zoo/man/rollmean.html),
 [`forecast::ma()`](https://pkg.robjhyndman.com/forecast/reference/ma.html),
-[`stats::runmed()`](https://rdrr.io/r/stats/runmed.html)
+[`runmed()`](https://rdrr.io/r/stats/runmed.html)
 
 Other vector.window: [`midx()`](midx.md), [`quot()`](quot.md)
 

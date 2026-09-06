@@ -1,24 +1,24 @@
 
 #' Sort Vectors, Matrices, Tables, and Data Frames
 #'
-#' \code{sortX} extends the base \code{\link{sort}} function by providing
+#' `sortX` extends the base [sort()] function by providing
 #' a consistent interface for sorting not only vectors, but also matrices,
 #' tables, and data frames. For 2-dimensional objects, rows are sorted based
 #' on one or more columns.
 #'
 #' By default, sorting follows the behavior of base R. In addition,
-#' \code{method = "mixed"} enables natural ("human-friendly") sorting of
-#' character data, e.g. \code{"A2"} < \code{"A10"}.
+#' `method = "mixed"` enables natural ("human-friendly") sorting of
+#' character data, e.g. `"A2"` < `"A10"`.
 #'
-#' For \code{method = "mixed"}, sorting is applied column-wise using
-#' \code{.orderMixed()}. Each column's tokens are ordered independently
+#' For `method = "mixed"`, sorting is applied column-wise using
+#' `.orderMixed()`. Each column's tokens are ordered independently
 #' (numeric runs numerically, text runs lexicographically) before the
 #' results are combined via stable right-to-left ordering.
 #'
-#' The sort order for factors depends on \code{factorsAsCharacter}:
-#' if \code{TRUE} (default), factors are sorted by their labels
-#' (alphabetically or by natural order when \code{method = "mixed"});
-#' if \code{FALSE}, they are sorted by their level order, which is
+#' The sort order for factors depends on `factorsAsCharacter`:
+#' if `TRUE` (default), factors are sorted by their labels
+#' (alphabetically or by natural order when `method = "mixed"`);
+#' if `FALSE`, they are sorted by their level order, which is
 #' appropriate for ordered factors but may be unintuitive for unordered ones.
 #'
 #' @name sortX
@@ -28,31 +28,31 @@
 #'   matrix, table, or data frame to be sorted.
 #' @param decreasing logical scalar or vector. Should the sort be in
 #'   decreasing order? For 2-dimensional objects a vector of the same length
-#'   as \code{ord} may be supplied to control the direction per column;
+#'   as `ord` may be supplied to control the direction per column;
 #'   a scalar is recycled.
-#' @param na.last logical or \code{NA}. Should missing values be placed last
-#'   (\code{TRUE}), first (\code{FALSE}), or removed (\code{NA})?
-#'   See \code{\link{order}}.
-#' @param method sorting method. Either \code{"default"} (base R behavior)
-#'   or \code{"mixed"} for natural sorting of character data
-#'   (e.g. \code{"A2"} < \code{"A10"}).
-#' @param factorsAsCharacter logical. If \code{TRUE} (default), factors are
+#' @param na.last logical or `NA`. Should missing values be placed last
+#'   (`TRUE`), first (`FALSE`), or removed (`NA`)?
+#'   See [order()].
+#' @param method sorting method. Either `"default"` (base R behavior)
+#'   or `"mixed"` for natural sorting of character data
+#'   (e.g. `"A2"` < `"A10"`).
+#' @param factorsAsCharacter logical. If `TRUE` (default), factors are
 #'   converted to character before sorting so that labels are used instead of
-#'   level codes. Set to \code{FALSE} to sort by level order (useful for
+#'   level codes. Set to `FALSE` to sort by level order (useful for
 #'   ordered factors).
 #' @param ord integer or character vector specifying the columns to sort by,
 #'   and their priority (first element = primary key). Column names and
-#'   positive integer indices (\code{1:ncol(x)}) refer to columns.
-#'   The special value \code{0L} (integer zero, always numeric) sorts by row
-#'   names. For \code{table} and \code{matrix} objects, \code{ncol(x) + 1L}
+#'   positive integer indices (`1:ncol(x)`) refer to columns.
+#'   The special value `0L` (integer zero, always numeric) sorts by row
+#'   names. For `table` and `matrix` objects, `ncol(x) + 1L`
 #'   sorts by row marginal sums. This argument is not available for
-#'   \code{sortX.default}. Default: \code{NULL} (all columns, left to right).
-#' @param \dots further arguments passed to \code{\link{sort}} in
-#'   \code{sortX.default}.
+#'   `sortX.default`. Default: `NULL` (all columns, left to right).
+#' @param \dots further arguments passed to [sort()] in
+#'   `sortX.default`.
 #'
-#' @return the sorted object, of the same class as \code{x}.
+#' @return the sorted object, of the same class as `x`.
 #'
-#' @seealso \code{\link{sort}}, \code{\link{order}}
+#' @seealso [sort()], [order()]
 #'
 #' @examples
 #' set.seed(3)

@@ -5,27 +5,27 @@
 #' values.
 #'
 #' @param fun function object or function name.
-#' @param package optional package name used to resolve \code{fun}.
+#' @param package optional package name used to resolve `fun`.
 #' @param sorted logical; should arguments be sorted alphabetically?
-#'   \code{...} is always kept last. Ignored when \code{output = "list"}.
+#'   `...` is always kept last. Ignored when `output = "list"`.
 #' @param output character string specifying the output format:
 #'   \itemize{
-#'     \item \code{"data.frame"} (default): return a data frame.
-#'     \item \code{"list"}: return a named list of formal arguments.
-#'     \item \code{"string"}: return a comma-separated character string of
+#'     \item `"data.frame"` (default): return a data frame.
+#'     \item `"list"`: return a named list of formal arguments.
+#'     \item `"string"`: return a comma-separated character string of
 #'       argument assignments.
 #'   }
 #'
 #' @return
-#' depending on \code{output}:
+#' depending on `output`:
 #' \itemize{
-#'   \item \code{"data.frame"}: a data frame with columns
-#'     \code{name} and \code{value}.
-#'   \item \code{"list"}: a named list of formal arguments.
-#'   \item \code{"string"}: a character vector of length one.
+#'   \item `"data.frame"`: a data frame with columns
+#'     `name` and `value`.
+#'   \item `"list"`: a named list of formal arguments.
+#'   \item `"string"`: a character vector of length one.
 #' }
 #'
-#' @seealso \code{\link{formals}}, \code{\link{args}}
+#' @seealso [formals()], [args()]
 #'
 #' @examples
 #' funArgs("combN")

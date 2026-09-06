@@ -49,8 +49,8 @@ values can be numbers, text or dates. Ordered factors are supported.
 \details{
 The "BETWEEN" operators basically combine two conditional statements into
 one and simplify the query process.\cr They are merely a wrapper for:
-\verb{\code{x >= rng[1] & x <= rng[2]}}, where the round bracket \code{(} means
-\emph{strictly greater (>)} and the square bracket \verb{\code{[}} means
+\code{x >= rng[1] & x <= rng[2]}, where the round bracket \code{(} means
+\emph{strictly greater (>)} and the square bracket \code{[} means
 \emph{greater or equal (>=)}.  Numerical values of x will be handled by
 C-code, which is significantly faster than two comparisons in R (especially
 when x is huge).\cr
@@ -62,17 +62,17 @@ whenever the negated between-operator includes that boundary.
 Both arguments, \code{x} and \code{rng}, will be recycled to the highest
 dimension, which is either the length of the vector (\code{x}) or the number
 of rows of the matrix (\code{rng}).\cr See also the routines used to check,
-whether two ranges overlap (\code{\link{overlap}},
-\code{\link{distance}}).
+whether two ranges overlap (\code{\link[=overlap]{overlap()}},
+\code{\link[=distance]{distance()}}).
 
 The "OUTSIDE" operators are the negations of the corresponding "BETWEEN"
 operators, matched by \emph{meaning} rather than by mirrored bracket
 symbols:
 \itemize{
-\item \code{\%][\%} negates \code{\%()\%} (strictly outside both bounds)
-\item \code{\%](\%} negates \code{\%(]\%}
-\item \code{\%)[\%} negates \code{\%[)\%}
-\item \code{\%)(\%} negates \code{\%[]\%} (strictly outside, both bounds
+\item \verb{\\\%][\\\%} negates \verb{\\\%()\\\%} (strictly outside both bounds)
+\item \verb{\\\%](\\\%} negates \verb{\\\%(]\\\%}
+\item \verb{\\\%)[\\\%} negates \verb{\\\%[)\\\%}
+\item \verb{\\\%)(\\\%} negates \verb{\\\%[]\\\%} (strictly outside, both bounds
 of the between-operator were closed)
 }
 }
@@ -119,12 +119,11 @@ c(2,3) \%[]\% cbind(1:4,2:5)
 
 }
 \seealso{
-\code{\link{if}}, \code{\link{ifelse}}
+\code{\link[=if]{if()}}, \code{\link[=ifelse]{ifelse()}}
 
 Other data.interval:
 \code{\link{intervals}},
 \code{\link{range-operators}}
 }
 \concept{data.interval}
-\concept{data.interval @concept range}
 \concept{range}

@@ -29,12 +29,12 @@ Default: \code{min(interval)}.}
 \item{upper}{upper bound of the search interval.
 Default: \code{max(interval)}.}
 
-\item{tol}{convergence tolerance passed to \code{\link[stats]{uniroot}},
+\item{tol}{convergence tolerance passed to \code{\link[=uniroot]{uniroot()}},
 and also used as the threshold for (i) treating grid-point values as
 exact zeros and (ii) collapsing near-duplicate roots.
 Default: \code{.Machine$double.eps^0.5}.}
 
-\item{maxiter}{maximum number of iterations for \code{\link[stats]{uniroot}}.
+\item{maxiter}{maximum number of iterations for \code{\link[=uniroot]{uniroot()}}.
 Default: \code{1000}.}
 
 \item{n}{number of sub-intervals used for the initial grid search.
@@ -44,20 +44,20 @@ oscillates rapidly. Default: \code{100}.}
 \item{...}{additional arguments passed to \code{f}.}
 }
 \value{
-a numeric vector of roots found in \code{[lower, upper]}, sorted in
+a numeric vector of roots found in \verb{[lower, upper]}, sorted in
 ascending order. Returns \code{numeric(0)} if no roots are found.
 }
 \description{
 Searches a numeric interval for all roots (zeros) of a function \code{f}
 by subdividing it into \code{n} sub-intervals, detecting sign changes, and
-refining each candidate with \code{\link[stats]{uniroot}}.
+refining each candidate with \code{\link[=uniroot]{uniroot()}}.
 }
 \details{
 The function \code{f} is called as \code{f(x, ...)} where \code{x} is a
 numeric vector. If \code{f} does not accept vector input, it is called
 element-wise via \code{sapply}.
 
-Grid points at which \code{|f(x)| < tol} are returned directly as roots.
+Grid points at which \verb{|f(x)| < tol} are returned directly as roots.
 Sign changes are detected using \code{sign()}, which avoids numerical
 overflow that can occur with product-based approaches. Non-finite function
 values are silently ignored when detecting sign changes. If \code{uniroot}
@@ -81,7 +81,7 @@ unirootAll(g, c(0.1, 5))
 
 }
 \seealso{
-\code{\link[stats]{uniroot}} for the underlying single-root solver.
+\code{\link[stats:uniroot]{stats::uniroot()}} for the underlying single-root solver.
 
 Other math.basic:
 \code{\link[=closest]{closest()}},

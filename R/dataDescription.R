@@ -6,9 +6,9 @@
 #'
 #' The function reads the specified sheet and trims trailing empty rows.
 #'
-#' If a column named \code{"Codes"} is present, its contents are split by
+#' If a column named `"Codes"` is present, its contents are split by
 #' line breaks and returned as a list of codes per variable, keyed by the
-#' \code{"Variable"} column.
+#' `"Variable"` column.
 #'
 #' The Excel sheet is expected to contain at least:
 #' \itemize{
@@ -18,17 +18,17 @@
 #' }
 #'
 #' If the sheet does not exist or no additional sheets are present,
-#' the function returns \code{NULL}.
+#' the function returns `NULL`.
 #'
 #' @param fn character string. Path to the Excel file.
 #' @param sheet character string. Name of the documentation sheet.
-#'   Default is \code{"Description"}.
+#'   Default is `"Description"`.
 #'
 #' @return
 #' a list with the following components:
 #' \itemize{
-#'   \item \code{desctable}: A data frame containing the description table.
-#'   \item \code{codes}: A named list of code definitions per variable.
+#'   \item `desctable`: A data frame containing the description table.
+#'   \item `codes`: A named list of code definitions per variable.
 #' }
 #'
 #' @examples
@@ -41,7 +41,7 @@
 #'
 #' @family label.import
 #' @concept label
-#' @concept file-io
+#' @concept datasets
 #' @export
 dataDescription <- function(fn, sheet = "Description") {
 

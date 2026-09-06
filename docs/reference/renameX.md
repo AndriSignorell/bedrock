@@ -88,8 +88,8 @@ positionally: the first element replaces `names(x)[1]`, the second
 
 ## See also
 
-[`names`](https://rdrr.io/r/base/names.html),
-[`setNames`](https://rdrr.io/r/stats/setNames.html)
+[`names()`](https://rdrr.io/r/base/names.html),
+[`setNames()`](https://rdrr.io/r/stats/setNames.html)
 
 Other label.attrs: [`label()`](label.md),
 [`setAttr-removeAttr-keepAttr`](setAttr-removeAttr-keepAttr.md),

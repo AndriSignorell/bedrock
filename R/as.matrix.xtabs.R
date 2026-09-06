@@ -1,12 +1,12 @@
 
-#' Coerce \code{xtabs} Object to Array or Matrix
+#' Coerce `xtabs` Object to Array or Matrix
 #'
-#' Converts an object of class \code{"xtabs"} to a plain array or matrix by
-#' dropping all additional classes such as \code{"xtabs"} and \code{"table"},
-#' along with the \code{call} attribute.
+#' Converts an object of class `"xtabs"` to a plain array or matrix by
+#' dropping all additional classes such as `"xtabs"` and `"table"`,
+#' along with the `call` attribute.
 #' 
 #' @name as.array.xtabs
-#' @param x an object of class \code{"xtabs"}.
+#' @param x an object of class `"xtabs"`.
 #' @param ... ignored.
 #'
 #' @return an array (or matrix in the two-dimensional case) with no

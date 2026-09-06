@@ -52,7 +52,7 @@ This function implements a flexible pattern for optional function calls:
 }
 
 When merging \code{defaults} and \code{arg}, user-supplied arguments take
-precedence. Unlike \code{\link{modifyList}}, elements with the value
+precedence. Unlike \code{\link[=modifyList]{modifyList()}}, elements with the value
 \code{NULL} are preserved and passed on to \code{fun} (so that an explicit
 \code{NULL} can be used to reset an argument).
 }
@@ -88,6 +88,5 @@ Other pkg.args:
 \code{\link[=mergeArgs]{mergeArgs()}},
 \code{\link[=recycle]{recycle()}}
 }
-\concept{conditional-execution}
 \concept{pkg.args}
 \concept{programming}

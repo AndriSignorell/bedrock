@@ -5,8 +5,8 @@
 #' handled by taking the absolute value.
 #'
 #' The function accepts integer vectors as well as doubles holding whole
-#' numbers (e.g. \code{124} and \code{124L} are both valid). Fractional
-#' values raise an error. Missing values (\code{NA}) are propagated.
+#' numbers (e.g. `124` and `124L` are both valid). Fractional
+#' values raise an error. Missing values (`NA`) are propagated.
 #'
 #' @param x an integer vector, or a numeric vector of whole numbers.
 #'

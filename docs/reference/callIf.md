@@ -64,7 +64,7 @@ This function implements a flexible pattern for optional function calls:
 
 When merging `defaults` and `arg`, user-supplied arguments take
 precedence. Unlike
-[`modifyList`](https://rdrr.io/r/utils/modifyList.html), elements with
+[`modifyList()`](https://rdrr.io/r/utils/modifyList.html), elements with
 the value `NULL` are preserved and passed on to `fun` (so that an
 explicit `NULL` can be used to reset an argument).
 

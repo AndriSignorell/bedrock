@@ -9,7 +9,7 @@
 #' approach the missing values are replaced by the last observed value of that
 #' variable for each individual regardless of when it occurred.
 #'
-#' \code{locf()} replaces \code{NA}s with the most recent non-NA prior to it.
+#' `locf()` replaces `NA`s with the most recent non-NA prior to it.
 #'
 #' The function will replace all NAs found in a vector with the last earlier
 #' value not being NA. In data frames and matrices each column is treated
@@ -21,7 +21,7 @@
 #'
 #' @param x a vector, a data.frame or a matrix containing NAs.
 #'
-#' @return an object of the same type and dimension as \code{x}.
+#' @return an object of the same type and dimension as `x`.
 #'
 #' @note
 #' Based on code by Daniel Wollschlaeger, adapted to conform to package

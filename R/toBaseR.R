@@ -2,8 +2,8 @@
 #' Back to Basics with Tibbles
 #' 
 #' Sometimes we might wish for the old days be back and want to work with
-#' familiar objects. This function helps to convert \code{tibbles} to
-#' \code{data.frames} as smoothly as possible.
+#' familiar objects. This function helps to convert `tibbles` to
+#' `data.frames` as smoothly as possible.
 #' 
 #' 
 #' @param x the object to be converted.
@@ -26,7 +26,6 @@
 
 #' @family data.coerce
 #' @concept type-coercion
-#' @concept tibble
 #' @export
 toBaseR <- function(x, ...){
   UseMethod("toBaseR")

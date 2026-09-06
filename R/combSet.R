@@ -4,48 +4,45 @@
 #' Return the value sets of combinations.
 #'
 #' @details
-#' Depending on \code{output}, the result is returned either as:
+#' Depending on `output`, the result is returned either as:
 #'
 #' \itemize{
 #'   \item a matrix with one combination per row
 #'   \item a flat list where each element represents one combination
 #' }
 #'
-#' If \code{m} contains more than one value, combinations are generated
-#' independently for each value of \code{m}.
+#' If `m` contains more than one value, combinations are generated
+#' independently for each value of `m`.
 #'
 #' @param x a vector of numeric values or characters.
 #'   Character values need not be unique.
 #' @param m number of elements to choose.
 #'   May be a vector.
 #' @param replace logical. Should repetition of the same element
-#'   be allowed? Default is \code{FALSE}.
+#'   be allowed? Default is `FALSE`.
 #' @param ordered logical; whether order matters.
-#'   Default is \code{FALSE}.
+#'   Default is `FALSE`.
 #' @param output character string specifying the output representation.
-#'   One of \code{"matrix"} (return combinations as a matrix, the default)
-#'   or \code{"list"} (return combinations as a flat list).
+#'   One of `"matrix"` (return combinations as a matrix, the default)
+#'   or `"list"` (return combinations as a flat list).
 #'
 #' @return
-#' if \code{output = "matrix"}:
+#' if `output = "matrix"`:
 #'
 #' \itemize{
 #'   \item a matrix with one combination per row.
-#'   \item if \code{length(m) > 1}, a list of matrices.
+#'   \item if `length(m) > 1`, a list of matrices.
 #' }
 #'
-#' If \code{output = "list"}:
+#' If `output = "list"`:
 #'
 #' \itemize{
 #'   \item a flat list with one element per combination.
 #' }
 #'
 #' @seealso
-#' \code{\link{combPairs}},
-#' \code{\link{combn}},
-#' \code{\link{choose}},
-#' \code{\link{factorial}},
-#' \code{vignette("Combinatorics")}
+#' [combn()], [choose()], [factorial()],
+#' `vignette("Combinatorics")`
 #'
 #' @examples
 #' x <- letters[1:4]

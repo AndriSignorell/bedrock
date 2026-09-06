@@ -99,6 +99,8 @@ reference:
   - applySides
   - checkConfLevel 
   - checkFlag
+  - checkCount
+  - checkString
   # data.missing -- Missing-value inspection
   - completeColumns
   - countCompCases
@@ -168,7 +170,7 @@ reference:
   - unirootAll
   # math.precision -- Digit precision and numeric representation
   - frac
-  - maxDigits
+  - maxDec
   - nDec
   - prec
   - precision

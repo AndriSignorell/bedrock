@@ -9,7 +9,7 @@ nf(x, ...)
 \arguments{
 \item{x}{a vector to be converted.}
 
-\item{...}{additional arguments passed to \code{\link{factor}}.}
+\item{...}{additional arguments passed to \code{\link[=factor]{factor()}}.}
 }
 \value{
 a numeric vector corresponding to the integer codes of the factor levels.
@@ -41,7 +41,7 @@ nf(c("10", "2"))    # 1 2, not 10 2
 
 }
 \seealso{
-\code{\link{factor}}, \code{\link{as.numeric}}
+\code{\link[=factor]{factor()}}, \code{\link[=as.numeric]{as.numeric()}}
 
 Other data.recode:
 \code{\link[=asBinary]{asBinary()}},

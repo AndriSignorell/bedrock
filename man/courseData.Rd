@@ -33,8 +33,8 @@ Downloads and loads a dataset from predefined course servers or a user-defined U
 If no \code{url} is provided, the function searches for the file in
 the following locations (see \url{https://github.com/AndriSignorell/Teaching}):
 \itemize{
-\item \code{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/}
-\item \code{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}
+\item \verb{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/book/}
+\item \verb{https://raw.githubusercontent.com/AndriSignorell/Teaching/main/data/}
 }
 
 The first location where the file exists is used.
@@ -48,7 +48,7 @@ File type handling:
 \examples{
 \dontrun{
 # Load from default repositories
-courseData("mydata.csv")
+courseData("fullmoon.xlsx")
 
 # Load from custom URL
 courseData("mydata.csv", url = "https://example.com/data/")
@@ -62,6 +62,5 @@ Other datasets:
 \code{\link{Roulette}},
 \code{\link{Tarot}}
 }
-\concept{dataset}
 \concept{datasets}
-\concept{file-io}
+\concept{file.io}

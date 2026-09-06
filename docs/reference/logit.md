@@ -71,13 +71,13 @@ The inverse transformation is given by:
 where \\z\\ is the input to `logitInv()`.
 
 Note that `logitInv()` does not perform clamping. This asymmetry is
-intentional: [`plogis`](https://rdrr.io/r/stats/Logistic.html) is
+intentional: [`plogis()`](https://rdrr.io/r/stats/Logistic.html) is
 well-defined for all real inputs, so no stabilization is required.
 
 ## See also
 
-[`qlogis`](https://rdrr.io/r/stats/Logistic.html),
-[`plogis`](https://rdrr.io/r/stats/Logistic.html)
+[`qlogis()`](https://rdrr.io/r/stats/Logistic.html),
+[`plogis()`](https://rdrr.io/r/stats/Logistic.html)
 
 Other math.transform: [`linScale()`](linScale.md),
 [`percentRank()`](percentRank.md), [`rankX()`](rankX.md),

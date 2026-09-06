@@ -2,41 +2,39 @@
 #' Extract Dichotomous (Binary) Variables
 #'
 #' Identify and extract dichotomous (binary) variables from a data frame
-#' or matrix using \code{isDichotomous()}.
+#' or matrix using `isDichotomous()`.
 #'
 #' Variables with only missing values are not considered dichotomous
-#' when \code{na.rm = FALSE}.
+#' when `na.rm = FALSE`.
 #'
-#' When \code{na.rm = TRUE}, such variables are treated as empty vectors
-#' and are considered dichotomous only if \code{strict = FALSE}.
+#' When `na.rm = TRUE`, such variables are treated as empty vectors
+#' and are considered dichotomous only if `strict = FALSE`.
 #'
 #' Internally, variables with indeterminate dichotomous status
-#' (i.e. \code{NA} returned by \code{isDichotomous()})
+#' (i.e. `NA` returned by `isDichotomous()`)
 #' are treated as non-dichotomous for filtering purposes.
 #'
 #' @param x a data frame or matrix.
-#' @param strict logical. If \code{TRUE}, only variables with exactly two
-#'   distinct values are considered dichotomous. If \code{FALSE} (default),
+#' @param strict logical. If `TRUE`, only variables with exactly two
+#'   distinct values are considered dichotomous. If `FALSE` (default),
 #'   variables with one or two distinct values are allowed.
 #' @param na.rm logical. Should missing values be ignored when checking
-#'   for dichotomous variables? Default is \code{FALSE}.
+#'   for dichotomous variables? Default is `FALSE`.
 #' @param output character string specifying the output representation.
-#'   One of \code{"data"} (subset of \code{x} containing only dichotomous
-#'   variables, the default), \code{"names"} (names of dichotomous
-#'   variables), \code{"index"} (column indices) or \code{"logical"}
+#'   One of `"data"` (subset of `x` containing only dichotomous
+#'   variables, the default), `"names"` (names of dichotomous
+#'   variables), `"index"` (column indices) or `"logical"`
 #'   (logical vector indicating dichotomous variables).
 #'
 #' @return
-#' depending on \code{output}:
+#' depending on `output`:
 #'
 #' \itemize{
-#'   \item \code{"data"}: data frame or matrix.
-#'   \item \code{"names"}: character vector.
-#'   \item \code{"index"}: integer vector.
-#'   \item \code{"logical"}: logical vector.
+#'   \item `"data"`: data frame or matrix.
+#'   \item `"names"`: character vector.
+#'   \item `"index"`: integer vector.
+#'   \item `"logical"`: logical vector.
 #' }
-#'
-#' @seealso \code{\link{isDichotomous}}
 #'
 #' @examples
 #' dat <- data.frame(

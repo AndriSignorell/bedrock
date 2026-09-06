@@ -24,7 +24,7 @@ or \code{"arabic"}.}
 \item{startWith}{first enumeration index.}
 
 \item{after}{position after which the column is inserted (see
-\code{\link{appendX}}); default \code{0L} prepends it.}
+\code{\link[=appendX]{appendX()}}); default \code{0L} prepends it.}
 
 \item{colName}{optional name for the new column; \code{NULL} (default)
 leaves it unnamed for matrices, while for data frames a default name
@@ -48,7 +48,7 @@ appendEnum(d, after = 1L, colName = "no")
 
 }
 \seealso{
-\code{\link{append}}
+\code{\link[=append]{append()}}
 
 Other data.append:
 \code{\link[=appendRowNames]{appendRowNames()}},

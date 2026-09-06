@@ -38,9 +38,11 @@ shorter one consumes its characters before the longer one is considered.
 
 ## See also
 
-[`mReplace`](mReplace.md) for exact whole-element replacement.
+[`mReplace()`](mReplace.md) for exact whole-element replacement.
 
-Other string.transform: [`strSplitToCol()`](strSplitToCol.md),
+Other string.transform:
+[`char-ascii-conversion`](char-ascii-conversion.md),
+[`strSplitToCol()`](strSplitToCol.md),
 [`strSplitToDummy()`](strSplitToDummy.md)
 
 ## Examples

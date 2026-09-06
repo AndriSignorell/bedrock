@@ -3,26 +3,26 @@
 #'
 #' Convert characters to their numeric character codes and vice versa.
 #'
-#' \code{charToAscii()} converts each character in a string to its
+#' `charToAscii()` converts each character in a string to its
 #' corresponding numeric code.
 #'
-#' \code{asciiToChar()} converts numeric codes back to characters.
+#' `asciiToChar()` converts numeric codes back to characters.
 #'
-#' Only values in the range \code{1:127} belong to the ASCII standard and
+#' Only values in the range `1:127` belong to the ASCII standard and
 #' therefore have the same meaning across all systems. Values
-#' \code{128:255} depend on the current character encoding (for example
+#' `128:255` depend on the current character encoding (for example
 #' ISO-8859-1 or Windows-1252) and may produce different characters on
 #' different platforms.
 #'
-#' Note that \code{0} (NUL) cannot be represented in R character strings
+#' Note that `0` (NUL) cannot be represented in R character strings
 #' and is therefore not supported.
 #'
 #' @details
-#' The \code{output} argument controls the representation returned by
-#' \code{charToAscii()}:
+#' The `output` argument controls the representation returned by
+#' `charToAscii()`:
 #'
 #'\describe{
-#' \item{\code{"vector"}}{
+#' \item{`"vector"`}{
 #' Simplifies the result whenever possible.
 #' 
 #' Returns an integer vector if:
@@ -35,7 +35,7 @@
 #' Otherwise, a list of integer vectors is returned.
 #' }
 #'
-#' \item{\code{"list"}}{
+#' \item{`"list"`}{
 #'     Always returns a list of integer vectors.
 #'   }
 #' }
@@ -45,24 +45,16 @@
 #' @param x a character vector.
 #' @param i an integer vector of character codes (1--255).
 #' @param output character string specifying the output representation.
-#'   One of \code{"vector"} (simplify the result whenever possible, the
-#'   default) or \code{"list"} (always return a list). See Details.
+#'   One of `"vector"` (simplify the result whenever possible, the
+#'   default) or `"list"` (always return a list). See Details.
 #'
 #' @return
 #' \itemize{
-#'   \item \code{charToAscii()} returns either an integer vector or a
-#'     list of integer vectors, depending on \code{output}.
+#'   \item `charToAscii()` returns either an integer vector or a
+#'     list of integer vectors, depending on `output`.
 #'
-#'   \item \code{asciiToChar()} returns a character vector.
+#'   \item `asciiToChar()` returns a character vector.
 #' }
-#'
-#' @family string.encoding
-#' @concept character-conversion
-#' @concept string-manipulation
-#' 
-#' @seealso
-#' \code{\link{charToRaw}},
-#' \code{\link{rawToChar}}
 #'
 #' @examples
 #' # basic usage
@@ -79,13 +71,17 @@
 #'
 #' # comparison with raw representation
 #' charToRaw("Silvia")
+#' 
+#' @seealso
+#' [charToRaw()],
+#' [rawToChar()]
+
+#' @family string.transform
+#' @concept encoding
 NULL
 
 
 #' @rdname char-ascii-conversion
-#' @family string.code
-#' @concept character-conversion
-#' @concept string-manipulation
 #' @export
 charToAscii <- function(x,
                         output = c("vector", "list")) {
@@ -111,9 +107,6 @@ charToAscii <- function(x,
 
 
 #' @rdname char-ascii-conversion
-#' @family string.code
-#' @concept character-conversion
-#' @concept string-manipulation
 #' @export
 asciiToChar <- function(i) {
 

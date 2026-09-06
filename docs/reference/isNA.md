@@ -23,11 +23,11 @@ and `FALSE` otherwise.
 
 This is a strict helper that returns `TRUE` only if `x` is an atomic
 vector of length one and equal to `NA`. In contrast to
-[`is.na`](https://rdrr.io/r/base/NA.html), which is vectorized, `isNA`
+[`is.na()`](https://rdrr.io/r/base/NA.html), which is vectorized, `isNA`
 is intended for scalar checks, e.g. in conditional statements.
 
-This function differs from [`is.na`](https://rdrr.io/r/base/NA.html) in
-that it:
+This function differs from [`is.na()`](https://rdrr.io/r/base/NA.html)
+in that it:
 
 - Only returns `TRUE` for length-one inputs
 
@@ -43,11 +43,11 @@ Other vector.na: [`coalesceX()`](coalesceX.md), [`locf()`](locf.md),
 ## Examples
 
 ``` r
-isNA(NA)
+isNA(NA)             # TRUE
 #> [1] TRUE
-isNA(NA_real_)
+isNA(NA_real_)       # TRUE
 #> [1] TRUE
-isNA(NA_integer_)
+isNA(NA_integer_)    # TRUE
 #> [1] TRUE
 
 isNA(c(NA, NA))      # FALSE (length > 1)

@@ -30,7 +30,7 @@ observed, i.e., contain no missing entries.
 }
 \details{
 An element is considered \emph{complete} if it contains zero missing
-values. Internally, the function uses \code{\link{anyNA}} to detect
+values. Internally, the function uses \code{\link[=anyNA]{anyNA()}} to detect
 missing values.
 }
 \examples{
@@ -42,8 +42,8 @@ completeColumns(airquality, output = "logical")
 
 }
 \seealso{
-\code{\link{anyNA}}, \code{\link{is.na}},
-\code{\link{na.omit}}, \code{\link{complete.cases}}
+\code{\link[=anyNA]{anyNA()}}, \code{\link[=is.na]{is.na()}},
+\code{\link[=na.omit]{na.omit()}}, \code{\link[=complete.cases]{complete.cases()}}
 
 Other data.missing:
 \code{\link[=countCompCases]{countCompCases()}}

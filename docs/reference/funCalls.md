@@ -33,18 +33,18 @@ environment the called functions were found in.
 ## Details
 
 The source packages are resolved via
-[`find`](https://rdrr.io/r/utils/apropos.html), which only sees attached
-packages. Calls to functions from packages that are not on the search
-path are reported under `"<not found>"`.
+[`find()`](https://rdrr.io/r/utils/apropos.html), which only sees
+attached packages. Calls to functions from packages that are not on the
+search path are reported under `"<not found>"`.
 
 ## Note
 
-Based on code by Nicholas Cooper.
+Based on code by Nicholas Cooper, adapted to conform to package
+standards.
 
 ## See also
 
-[`funList`](funList.md), [`funArgs`](funArgs.md),
-[`getParseData`](https://rdrr.io/r/utils/getParseData.html)
+[`getParseData()`](https://rdrr.io/r/utils/getParseData.html)
 
 Other pkg.funinfo: [`funArgs()`](funArgs.md),
 [`funKeywords()`](funKeywords.md), [`funList()`](funList.md),

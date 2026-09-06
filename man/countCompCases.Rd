@@ -24,7 +24,7 @@ countCompCases(airquality)
 }
 \seealso{
 \code{pharos::plotMiss},
-\code{\link{complete.cases}}, \code{\link{is.na}}, \code{\link{na.omit}}
+\code{\link[=complete.cases]{complete.cases()}}, \code{\link[=is.na]{is.na()}}, \code{\link[=na.omit]{na.omit()}}
 
 Other data.missing:
 \code{\link[=completeColumns]{completeColumns()}}

@@ -7,28 +7,30 @@
 #' with 2 columns (one interval per row). Unordered bounds are silently
 #' sorted; rows are recycled to equal length.
 #'
-#' @param x a numeric vector of length 2 \code{c(lower, upper)}, or a
+#' @param x a numeric vector of length 2 `c(lower, upper)`, or a
 #'   numeric matrix with 2 columns where each row defines one interval.
-#' @param y a numeric vector of length 2 \code{c(lower, upper)}, or a
+#' @param y a numeric vector of length 2 `c(lower, upper)`, or a
 #'   numeric matrix with 2 columns where each row defines one interval.
 #'
 #' @return
 #' \describe{
-#'   \item{\code{overlap}}{numeric vector of overlap lengths (0 if no overlap).}
-#'   \item{\code{overlaps}}{logical vector; \code{TRUE} if intervals share at
+#'   \item{`overlap`}{numeric vector of overlap lengths (0 if no overlap).}
+#'   \item{`overlaps`}{logical vector; `TRUE` if intervals share at
 #'     least one point.}
-#'   \item{\code{distance}}{numeric vector of gap lengths between non-overlapping
+#'   \item{`distance`}{numeric vector of gap lengths between non-overlapping
 #'     intervals (0 if overlapping or touching).}
-#'   \item{\code{\%overlaps\%}}{logical vector; operator wrapper for
-#'     \code{overlaps()}.}
+#'   \item{`%overlaps%`}{logical vector; operator wrapper for
+#'     `overlaps()`.}
 #' }
 #'
 #' @details
 #' Intervals are treated as closed, i.e., \eqn{[a, b]}. Consequently:
 #' \itemize{
-#'   \item Two intervals sharing only a boundary point have \code{overlap} 0
-#'     but \code{overlaps} returns \code{TRUE}.
-#'   \item \code{distance} returns 0 whenever intervals touch or overlap.
+#'   \item Two intervals sharing only a boundary point have `overlap` 0
+#'     but `overlaps` returns `TRUE`.
+#'   \item `distance` returns 0 whenever intervals touch or overlap.
+#'   \item The returned vector is always unnamed, whatever dimnames the
+#'     inputs carry.
 #' }
 #'
 #' @examples
@@ -59,24 +61,18 @@
 NULL
 
 #' @rdname intervals
-#' @family data.interval
-#' @concept range
-#' @concept overlap
 #' @export
 overlap <- function(x, y) {
   dat <- .intervalEngine(x, y)
   x <- dat$x; y <- dat$y
   
-  overlap <- pmin(x[,2], y[,2]) - pmax(x[,1], y[,1])
-  overlap[overlap < 0] <- 0
+  ov <- pmin(x[,2], y[,2]) - pmax(x[,1], y[,1])
+  ov[ov < 0] <- 0
   
-  unname(overlap)
+  ov
 }
 
 #' @rdname intervals
-#' @family data.interval
-#' @concept range
-#' @concept overlap
 #' @export
 overlaps <- function(x, y) {
   dat <- .intervalEngine(x, y)
@@ -86,9 +82,6 @@ overlaps <- function(x, y) {
 }
 
 #' @rdname intervals
-#' @family data.interval
-#' @concept range
-#' @concept overlap
 #' @export
 distance <- function(x, y) {
   dat <- .intervalEngine(x, y)
@@ -100,7 +93,7 @@ distance <- function(x, y) {
     0
   )
   
-  unname(d)
+  d
 }
 
 
@@ -123,8 +116,7 @@ distance <- function(x, y) {
 #' @param x numeric vector or matrix with 2 columns.
 #' @param y numeric vector or matrix with 2 columns.
 #'
-#' @return a list with normalized and recycled matrices `x` and `y`.
-#' @keywords internal
+#' @return a list with normalized, unnamed and recycled matrices `x` and `y`.
 #' @noRd
 .intervalEngine <- function(x, y) {
 
@@ -145,9 +137,11 @@ distance <- function(x, y) {
     stop("x and y must have exactly 2 columns (interval bounds).")
   }
   
-  # ensure ordering
-  x <- cbind(pmin(x[,1], x[,2]), pmax(x[,1], x[,2]))
-  y <- cbind(pmin(y[,1], y[,2]), pmax(y[,1], y[,2]))
+  # ensure ordering, and drop dimnames here rather than in each exported
+  # function: which operand's names would survive pmin()/cbind() depends
+  # on the argument order, so they are not a contract worth keeping
+  x <- unname(cbind(pmin(x[,1], x[,2]), pmax(x[,1], x[,2])))
+  y <- unname(cbind(pmin(y[,1], y[,2]), pmax(y[,1], y[,2])))
   
   # recycle rows
   n <- max(nrow(x), nrow(y))
@@ -156,5 +150,3 @@ distance <- function(x, y) {
   
   list(x = x, y = y)
 }
-
-

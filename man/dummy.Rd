@@ -76,8 +76,8 @@ apply(
 
 }
 \seealso{
-\code{\link[=model.frame]{model.frame()}}, \code{\link[=contrasts]{contrasts()}}, \code{\link[stats:contr.treatment]{stats::contr.treatment()}},
-\code{\link[stats:contr.sum]{stats::contr.sum()}}, \code{\link[stats:contr.helmert]{stats::contr.helmert()}}, \code{\link[stats:contr.poly]{stats::contr.poly()}}
+\code{\link[=model.frame]{model.frame()}}, \code{\link[=contrasts]{contrasts()}}, \code{\link[=contr.treatment]{contr.treatment()}},
+\code{\link[=contr.sum]{contr.sum()}}, \code{\link[=contr.helmert]{contr.helmert()}}, \code{\link[=contr.poly]{contr.poly()}}
 
 Other data.recode:
 \code{\link[=asBinary]{asBinary()}},

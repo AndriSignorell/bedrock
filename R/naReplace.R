@@ -1,19 +1,19 @@
 
 #' Replace NA Values
 #'
-#' Replaces \code{NA} values in a vector or factor with a specified value.
+#' Replaces `NA` values in a vector or factor with a specified value.
 #'
-#' For factors (including ordered factors), \code{value} is appended as a
+#' For factors (including ordered factors), `value` is appended as a
 #' new level at the last position if it is not already present. If
-#' \code{value} is an existing level, the missing values are simply filled
+#' `value` is an existing level, the missing values are simply filled
 #' with it.
 #'
 #' @param x a vector or factor.
 #' @param value the replacement value. For factors, a single character
 #'   string.
 #'
-#' @return an object of the same class as \code{x} with \code{NA} values
-#'   replaced by \code{value}.
+#' @return an object of the same class as `x` with `NA` values
+#'   replaced by `value`.
 #'
 #' @examples
 #' # default: numeric vector

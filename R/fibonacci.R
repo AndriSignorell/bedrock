@@ -2,19 +2,19 @@
 #' Fibonacci Numbers
 #'
 #' Generate Fibonacci numbers. The Fibonacci numbers can also be calculated
-#' using the golden ratio \code{phi}, as demonstrated in the examples.
+#' using the golden ratio `phi`, as demonstrated in the examples.
 #'
-#' Generates the \code{n}-th Fibonacci number, whereas \code{fibonacci(0) = 0}.
-#' \cr The golden ratio is defined as \code{phi = 0.5*(1+sqrt(5))}.
+#' Generates the `n`-th Fibonacci number, whereas `fibonacci(0) = 0`.
+#' \cr The golden ratio is defined as `phi = 0.5*(1+sqrt(5))`.
 #'
-#' Values of \code{n} are limited to 78, as larger Fibonacci numbers exceed
-#' the range in which doubles represent integers exactly (\code{2^53}).
+#' Values of `n` are limited to 78, as larger Fibonacci numbers exceed
+#' the range in which doubles represent integers exactly (`2^53`).
 #'
 #' @param n nonnegative integer (<= 78) or vector of such integers.
 #' @return an integer-valued numeric vector.
 #'
-#' @references \url{https://en.wikipedia.org/wiki/Fibonacci_number}\cr
-#' \url{https://mathworld.wolfram.com/GoldenRatio.html}
+#' @references <https://en.wikipedia.org/wiki/Fibonacci_number>\cr
+#' <https://mathworld.wolfram.com/GoldenRatio.html>
 #'
 #' @examples
 #'

@@ -15,8 +15,8 @@ strSplitToDummy(x, split = ",", trim = TRUE, na.action = na.pass, ...)
 each token after splitting.}
 
 \item{na.action}{a function to handle \code{NA} values. Accepted values are
-\code{\link[stats]{na.pass}} (default), \code{\link[stats]{na.omit}},
-\code{\link[stats]{na.exclude}}, and \code{\link[stats]{na.fail}}.
+\code{\link[=na.pass]{na.pass()}} (default), \code{\link[=na.omit]{na.omit()}},
+\code{\link[=na.exclude]{na.exclude()}}, and \code{\link[=na.fail]{na.fail()}}.
 \describe{
 \item{\code{na.pass}}{NAs are kept as all-zero rows (default).}
 \item{\code{na.omit}}{rows with NAs are silently removed.}
@@ -25,7 +25,7 @@ rows are stored in a \code{"na.action"} attribute.}
 \item{\code{na.fail}}{an error is raised if any \code{NA} is present.}
 }}
 
-\item{\dots}{additional arguments passed to \code{\link[base]{strsplit}}.}
+\item{\dots}{additional arguments passed to \code{\link[=strsplit]{strsplit()}}.}
 }
 \value{
 a \code{data.frame} with one row per element of \code{x} and one
@@ -66,9 +66,10 @@ tryCatch(
 
 }
 \seealso{
-\code{\link[base]{strsplit}}, \code{\link[stats]{na.omit}}
+\code{\link[=strsplit]{strsplit()}}, \code{\link[=na.omit]{na.omit()}}
 
 Other string.transform:
+\code{\link{char-ascii-conversion}},
 \code{\link[=mGsub]{mGsub()}},
 \code{\link[=strSplitToCol]{strSplitToCol()}}
 }

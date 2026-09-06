@@ -45,5 +45,5 @@ checkConfLevel(0)              # range is open
 
 }
 \seealso{
-\link{checkFlag}
+\code{\link[=checkFlag]{checkFlag()}}, \code{\link[=checkCount]{checkCount()}}, \code{\link[=checkString]{checkString()}}
 }

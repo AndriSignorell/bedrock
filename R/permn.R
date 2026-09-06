@@ -18,7 +18,7 @@
 #' # repeated elements are handled as indistinguishable
 #' permn(c("a", "b", "c", "a"))
 #'
-#' @seealso [utils::combn()], [base::factorial()]
+#' @seealso [combn()], [factorial()]
 #'
 #' @family combinatorics
 #' @concept combinatorics
@@ -32,8 +32,7 @@ permn <- function(x, sortResults = FALSE) {
   if (is.factor(x))
     stop("factors are not supported; use as.character(x) or as.numeric(x)")
   
-  if (!is.logical(sortResults) || length(sortResults) != 1L || is.na(sortResults))
-    stop("'sortResults' must be TRUE or FALSE")
+  checkFlag(sortResults)
   
   if (length(x) == 0L)
     return(matrix(x, nrow = 1L, ncol = 0L))

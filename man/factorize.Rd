@@ -11,7 +11,7 @@ factorize(n)
 \code{2^53}.}
 }
 \value{
-a named \code{\link{list}} of the same length as \code{n}, each
+a named \code{\link[=list]{list()}} of the same length as \code{n}, each
 element a 2-column matrix with column \code{"p"} the prime factors in
 increasing order and column \code{"m"} their respective exponents (or
 multiplicities), i.e., for a prime number \code{n}, the resulting matrix

@@ -8,27 +8,27 @@
 #' Euclidean if and only if \eqn{B} is positive semi-definite, i.e., all
 #' eigenvalues are non-negative (within numerical tolerance).
 #'
-#' The tolerance is applied \emph{relative} to the largest absolute
+#' The tolerance is applied *relative* to the largest absolute
 #' eigenvalue, so that the test is invariant to rescaling of the
 #' distances. Note that this holds in both directions: the comparison
-#' below uses \code{max(abs(lambda))} without an absolute floor, so
+#' below uses `max(abs(lambda))` without an absolute floor, so
 #' shrinking all distances by a constant factor cannot turn a
 #' non-Euclidean matrix into a Euclidean one.
 #'
 #' The returned logical value carries additional diagnostic information
 #' as attributes:
 #' \itemize{
-#'   \item \code{eigenvalues}: Eigenvalues of the centered matrix
-#'   \item \code{minEigenvalue}: Smallest eigenvalue
-#'   \item \code{tol}: Tolerance used for the test
+#'   \item `eigenvalues`: Eigenvalues of the centered matrix
+#'   \item `minEigenvalue`: Smallest eigenvalue
+#'   \item `tol`: Tolerance used for the test
 #' }
 #'
-#' @param distmat an object of class \code{dist}.
+#' @param distmat an object of class `dist`.
 #' @param tol numeric tolerance for detecting negative eigenvalues,
 #'   relative to the largest absolute eigenvalue.
 #'
-#' @return a logical scalar. Returns \code{TRUE} if the distance matrix is
-#'   (approximately) Euclidean, otherwise \code{FALSE}.
+#' @return a logical scalar. Returns `TRUE` if the distance matrix is
+#'   (approximately) Euclidean, otherwise `FALSE`.
 #'
 #' @examples
 #' d <- dist(matrix(rnorm(20), ncol = 2))

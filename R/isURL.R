@@ -3,13 +3,11 @@
 #'
 #' Returns `TRUE` if the given string starts with a recognised URL scheme,
 #' `FALSE` otherwise. Convenience wrapper around the internal
-#' \code{.detectInputType()} helper.
+#' `.detectInputType()` helper.
 #'
 #' @param x `character(1)` - the string to test.
 #'
 #' @return `logical(1)` - `TRUE` if `x` is a URL, `FALSE` otherwise.
-#'
-#' @seealso [isFilePath()] for the complementary file-path check.
 #'
 #' @examples
 #' isURL("https://example.com/data.csv")   # TRUE
@@ -17,6 +15,8 @@
 #' isURL("s3://my-bucket/file.parquet")    # TRUE
 #' isURL("/home/user/file.csv")            # FALSE
 #' isURL("./script.R")                     # FALSE
+#'
+#' @seealso For the complementary check on an existing path, see [isFilePath()].
 #'
 #' @family file.path
 #' @concept path-handling
@@ -31,7 +31,7 @@ isURL <- function(x) {
 #'
 #' Returns `TRUE` if the given string looks like a local file path (absolute
 #' or relative, Unix/Windows style), `FALSE` otherwise. Convenience wrapper
-#' around the internal \code{.detectInputType()} helper.
+#' around the internal `.detectInputType()` helper.
 #'
 #' @param x `character(1)` - the string to test.
 #'

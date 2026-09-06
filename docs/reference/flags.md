@@ -64,8 +64,6 @@ non-dichotomous for filtering purposes.
 
 ## See also
 
-[`isDichotomous`](isDichotomous.md)
-
 Other data.predicate: [`isDichotomous()`](isDichotomous.md),
 [`isEuclid()`](isEuclid.md),
 [`isLowCardinality()`](isLowCardinality.md),

@@ -37,10 +37,10 @@ Language*. Wadsworth & Brooks/Cole.
 
 ## See also
 
-[`ls`](https://rdrr.io/r/base/ls.html),
-[`ls.str`](https://rdrr.io/r/utils/ls_str.html),
-[`lsf.str`](https://rdrr.io/r/utils/ls_str.html),
-[`getNamespaceExports`](https://rdrr.io/r/base/ns-reflect.html)
+[`ls()`](https://rdrr.io/r/base/ls.html),
+[`ls.str()`](https://rdrr.io/r/utils/ls_str.html),
+[`lsf.str()`](https://rdrr.io/r/utils/ls_str.html),
+[`getNamespaceExports()`](https://rdrr.io/r/base/ns-reflect.html)
 
 Other pkg.funinfo: [`funArgs()`](funArgs.md),
 [`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),

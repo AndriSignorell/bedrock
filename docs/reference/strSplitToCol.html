@@ -6,9 +6,9 @@
     }
   };
 </script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Split Strings into Multiple Columns — strSplitToCol"><meta name="description" content="Splits character vectors into multiple columns based on a delimiter.
-Each element of x is split using strsplit,
+Each element of x is split using strsplit(),
 and the resulting parts are expanded into separate columns."><meta property="og:description" content="Splits character vectors into multiple columns based on a delimiter.
-Each element of x is split using strsplit,
+Each element of x is split using strsplit(),
 and the resulting parts are expanded into separate columns."><meta property="og:image" content="/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
@@ -17,7 +17,7 @@ and the resulting parts are expanded into separate columns."><meta property="og:
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@ and the resulting parts are expanded into separate columns."><meta property="og:
 
     <div class="ref-description section level2">
     <p>Splits character vectors into multiple columns based on a delimiter.
-Each element of <code>x</code> is split using <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></code>,
+Each element of <code>x</code> is split using <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit()</a></code>,
 and the resulting parts are expanded into separate columns.</p>
     </div>
 
@@ -73,7 +73,7 @@ Each element (or column) is processed separately.</p></dd>
 
 <dt id="arg-split">split<a class="anchor" aria-label="anchor" href="#arg-split"></a></dt>
 <dd><p>character string specifying the delimiter for splitting.
-Passed to <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></code>.</p></dd>
+Passed to <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit()</a></code>.</p></dd>
 
 
 <dt id="arg-fixed">fixed<a class="anchor" aria-label="anchor" href="#arg-fixed"></a></dt>
@@ -100,10 +100,10 @@ Additional attribute:</p><ul><li><p><code>cols</code>: integer vector with numbe
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>All rows are padded to the same number of columns per input element.
 Missing values are filled with <code>naForm</code>.</p>
-<p>For each element (or column) in <code>x</code>, the function:</p><ol><li><p>Splits each entry using <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></code></p></li>
+<p>For each element (or column) in <code>x</code>, the function:</p><ol><li><p>Splits each entry using <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit()</a></code></p></li>
 <li><p>Determines the maximum number of split parts</p></li>
 <li><p>Pads shorter splits with <code>naForm</code></p></li>
-<li><p>Combines results into a matrix via <code><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></code></p></li>
+<li><p>Combines results into a matrix via <code><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind()</a></code></p></li>
 </ol><p>The final result is a data frame where each original element or column
 contributes one or more columns depending on the number of splits.</p>
 <p>An attribute <code>"cols"</code> is attached, indicating the number of columns
@@ -112,6 +112,7 @@ generated for each element of <code>x</code>.</p>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other string.transform:
+<code><a href="char-ascii-conversion.html">char-ascii-conversion</a></code>,
 <code><a href="mGsub.html">mGsub()</a></code>,
 <code><a href="strSplitToDummy.html">strSplitToDummy()</a></code></p></div>
     </div>

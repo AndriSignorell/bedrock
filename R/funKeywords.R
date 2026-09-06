@@ -4,24 +4,22 @@
 #' List the keywords for specific R man pages or return a list of valid R
 #' keywords.
 #'
-#' If \code{topic} is provided, return a list of the Keywords associated with
-#' \code{topic}.  Otherwise, display the list of valid R Keywords from the R
+#' If `topic` is provided, return a list of the Keywords associated with
+#' `topic`.  Otherwise, display the list of valid R Keywords from the R
 #' doc/Keywords file.
 #'
 #' @param topic optional, object or man page topic.
 #'
-#' @return if \code{topic} is missing, the R keywords documentation file is
-#'   opened for display via \code{\link[base]{file.show}}, invisibly
-#'   returning \code{NULL}. Otherwise, a character vector of topic names
-#'   whose keywords match \code{topic}.
+#' @return if `topic` is missing, the R keywords documentation file is
+#'   opened for display via [file.show()], invisibly
+#'   returning `NULL`. Otherwise, a character vector of topic names
+#'   whose keywords match `topic`.
 #'
 #' @note
-#' Substantially based on the \code{keywords()} function from the
+#' Substantially based on the `keywords()` function from the
 #' \pkg{gtools} package by Gregory R. Warnes, with minor adaptations by the
 #' package author.
 #'
-#' @seealso \code{\link[utils]{help}}
-#' @keywords documentation
 #' @examples
 #' \donttest{
 #' ## Show all valid R Keywords
@@ -31,6 +29,8 @@
 #' funKeywords(merge)
 #' funKeywords("merge")
 #' }
+#' 
+#' @seealso [help()]
 #'
 #' @family pkg.funinfo
 #' @concept introspection

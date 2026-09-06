@@ -1,14 +1,14 @@
 
 #' Replace Values with NA
 #'
-#' Replaces specified values in a vector with \code{NA}, in the manner of
-#' SQL's \code{NULLIF}. This is the complementary operation to
-#' \code{\link{coalesceX}}.
+#' Replaces specified values in a vector with `NA`, in the manner of
+#' SQL's `NULLIF`. This is the complementary operation to
+#' [coalesceX()].
 #'
 #' @param x a vector.
-#' @param values values to be replaced by \code{NA}.
+#' @param values values to be replaced by `NA`.
 #'
-#' @return a vector of the same type as \code{x}.
+#' @return a vector of the same type as `x`.
 #'
 #' @examples
 #' naIf(c(1, 2, 99, 3, 99), 99)

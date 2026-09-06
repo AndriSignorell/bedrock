@@ -9,39 +9,39 @@
 #' This function implements a flexible pattern for optional function calls:
 #'
 #' \itemize{
-#'   \item Enable/disable behavior with \code{TRUE}/\code{FALSE}
+#'   \item Enable/disable behavior with `TRUE`/`FALSE`
 #'   \item Customize behavior with a list of arguments
 #'   \item Provide safe defaults and restrict certain arguments
 #' }
 #'
-#' When merging \code{defaults} and \code{arg}, user-supplied arguments take
-#' precedence. Unlike \code{\link{modifyList}}, elements with the value
-#' \code{NULL} are preserved and passed on to \code{fun} (so that an explicit
-#' \code{NULL} can be used to reset an argument).
+#' When merging `defaults` and `arg`, user-supplied arguments take
+#' precedence. Unlike [modifyList()], elements with the value
+#' `NULL` are preserved and passed on to `fun` (so that an explicit
+#' `NULL` can be used to reset an argument).
 #'
 #' @param fun a function to be called.
-#' @param arg controls whether and how \code{fun} is called:
+#' @param arg controls whether and how `fun` is called:
 #'   \itemize{
-#'     \item \code{FALSE}, \code{NULL}, or \code{NA}: \code{fun} is not called
-#'       and \code{NULL} is returned invisibly.
-#'     \item \code{TRUE}: \code{fun} is called with \code{defaults} (if provided),
+#'     \item `FALSE`, `NULL`, or `NA`: `fun` is not called
+#'       and `NULL` is returned invisibly.
+#'     \item `TRUE`: `fun` is called with `defaults` (if provided),
 #'       or with no arguments.
-#'     \item a fully named list: \code{fun} is called with the list elements as
-#'       arguments. If \code{defaults} is provided, it is merged with
-#'       \code{arg}, where elements of \code{arg} override those in
-#'       \code{defaults}.
+#'     \item a fully named list: `fun` is called with the list elements as
+#'       arguments. If `defaults` is provided, it is merged with
+#'       `arg`, where elements of `arg` override those in
+#'       `defaults`.
 #'   }
-#' @param defaults a named list of default arguments passed to \code{fun} when
-#'   \code{arg = TRUE}, or used as a base when \code{arg} is a list.
-#'   Default is \code{NULL}.
+#' @param defaults a named list of default arguments passed to `fun` when
+#'   `arg = TRUE`, or used as a base when `arg` is a list.
+#'   Default is `NULL`.
 #' @param forbidden optional character vector of argument names that are not
-#'   allowed. If any of these appear in \code{arg}, they are removed before
-#'   calling \code{fun}. A warning is issued unless \code{warn = FALSE}.
-#' @param warn logical. If \code{TRUE} (default), a warning is issued when
+#'   allowed. If any of these appear in `arg`, they are removed before
+#'   calling `fun`. A warning is issued unless `warn = FALSE`.
+#' @param warn logical. If `TRUE` (default), a warning is issued when
 #'   forbidden arguments are removed.
 #'
-#' @return returns the result of \code{fun(...)} if called. If \code{arg} is
-#'   \code{FALSE}, \code{NULL}, or \code{NA}, returns \code{NULL} invisibly.
+#' @return returns the result of `fun(...)` if called. If `arg` is
+#'   `FALSE`, `NULL`, or `NA`, returns `NULL` invisibly.
 #'
 #' @examples
 #' # Simple usage: skip
@@ -69,7 +69,6 @@
 #'
 #' @family pkg.args
 #' @concept programming
-#' @concept conditional-execution
 #' @export
 callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
 

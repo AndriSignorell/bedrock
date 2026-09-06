@@ -25,7 +25,7 @@ values are required.}
 
 \item{...}{further arguments passed to the underlying base function
 (\code{as.numeric}, \code{as.integer}, \code{as.character}, or
-\code{\link{asBinary}}).}
+\code{\link[=asBinary]{asBinary()}}).}
 }
 \value{
 a vector of the target type and the same length as \code{x}.
@@ -47,7 +47,7 @@ Avoids the trap of \code{as.numeric(factor)} returning internal
 integer codes instead of the label values.}
 \item{\code{bin(x, ...)}}{converts a two-valued vector (character,
 factor, integer, or numeric) to logical. Mapping follows
-\code{\link{factor}()} level order: the \emph{first} level becomes
+\code{\link[=factor]{factor()}} level order: the \emph{first} level becomes
 \code{FALSE}, the \emph{second} \code{TRUE}. To reverse, use
 \code{!bin(x)}.}
 }
@@ -73,5 +73,4 @@ Other data.coerce:
 \code{\link[=toBaseR]{toBaseR()}}
 }
 \concept{data.coerce}
-\concept{programming}
 \concept{type-coercion}

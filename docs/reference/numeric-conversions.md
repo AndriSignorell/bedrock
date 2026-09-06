@@ -56,7 +56,7 @@ a vector of the same length as `x`:
   numeric vector.
 
 - `decToHex()` - object of class
-  [`hexmode`](https://rdrr.io/r/base/hexmode.html).
+  [`hexmode()`](https://rdrr.io/r/base/hexmode.html).
 
 - `decToOct()` - numeric vector (octal digit string coerced to numeric).
 
@@ -98,10 +98,10 @@ same cap explicitly (values \> `536870911` become `NA`).
 
 ## See also
 
-[`strtoi`](https://rdrr.io/r/base/strtoi.html),
-[`as.hexmode`](https://rdrr.io/r/base/hexmode.html),
-[`as.octmode`](https://rdrr.io/r/base/octmode.html),
-[`as.roman`](https://rdrr.io/r/utils/roman.html)
+[`strtoi()`](https://rdrr.io/r/base/strtoi.html),
+[`as.hexmode()`](https://rdrr.io/r/base/hexmode.html),
+[`as.octmode()`](https://rdrr.io/r/base/octmode.html),
+[`as.roman()`](https://rdrr.io/r/utils/roman.html)
 
 ## Examples
 

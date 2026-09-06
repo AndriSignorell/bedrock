@@ -16,7 +16,7 @@ isNumeric(
 \item{x}{an object to be tested.}
 
 \item{isIntegerValued}{logical. If \code{TRUE}, values must be whole-like
-(within tolerance). Uses \code{\link{isWholeLike}} internally.}
+(within tolerance). Uses \code{\link[=isWholeLike]{isWholeLike()}} internally.}
 
 \item{isPositive}{logical. If \code{TRUE}, all values must be strictly
 greater than zero.}
@@ -56,8 +56,6 @@ isNumeric(c(1, NA), na.rm = TRUE)
 
 }
 \seealso{
-\code{\link{isWholeLike}}
-
 Other data.predicate:
 \code{\link[=flags]{flags()}},
 \code{\link[=isDichotomous]{isDichotomous()}},

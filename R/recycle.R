@@ -3,24 +3,21 @@
 #'
 #' This function recycles all supplied elements to the maximal dimension.
 #'
-#' If \code{maxdim} is smaller than the length of an element, that element
-#' is truncated to the first \code{maxdim} values. Zero-length elements are
-#' recycled to \code{NA} vectors of length \code{maxdim}. Both situations
-#' are rejected when \code{strict = TRUE}.
+#' If `maxdim` is smaller than the length of an element, that element
+#' is truncated to the first `maxdim` values. Zero-length elements are
+#' recycled to `NA` vectors of length `maxdim`. Both situations
+#' are rejected when `strict = TRUE`.
 #'
-#' @param maxdim defines the maximal dimension, if set to \code{NULL} (default)
+#' @param maxdim defines the maximal dimension, if set to `NULL` (default)
 #' the maximal dimension of the list.
-#' @param strict logical, if \code{TRUE} each element must have length 1 or
-#' \code{maxdim}, so that no partial recycling (or truncation) can occur.
-#' Default is \code{FALSE}.
+#' @param strict logical, if `TRUE` each element must have length 1 or
+#' `maxdim`, so that no partial recycling (or truncation) can occur.
+#' Default is `FALSE`.
 #' @param \dots a number of vectors of elements.
 #'
-#' @return a list of the supplied elements\cr \code{attr(,"maxdim")} contains
+#' @return a list of the supplied elements\cr `attr(,"maxdim")` contains
 #' the maximal dimension of the recycled list.
 #'
-#' @seealso \code{\link{rep}}, \code{\link{replicate}}
-#'
-#' @keywords utilities
 #' @examples
 #'
 #' recycle(x=1:5, y=1, s=letters[1:2])
@@ -28,6 +25,8 @@
 #' z <- recycle(x=letters[1:5], n=2:3, sep=c("-"," "))
 #' sapply(1:attr(z, "maxdim"), function(i) paste(rep(z$x[i], times=z$n[i]),
 #'                                         collapse=z$sep[i]))
+#'
+#' @seealso [rep()], [replicate()]
 #'
 #' @family pkg.args
 #' @concept programming

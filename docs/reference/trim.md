@@ -43,9 +43,8 @@ then the result will be `NA`. The same applies if `x` contains `NA`s and
 ## Note
 
 This function is basically an excerpt from the base function
-[`mean`](https://rdrr.io/r/base/mean.html), which allows the vector `x`
-to be trimmed before calculating the mean. But what if a trimmed
-standard deviation is needed?
+[`mean()`](https://rdrr.io/r/base/mean.html), which allows the vector
+`x` to be trimmed before calculating the mean.
 
 ## See also
 

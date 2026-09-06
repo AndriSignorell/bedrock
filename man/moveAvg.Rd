@@ -16,7 +16,7 @@ moveAvg(
 Matrices and multi-column objects are not supported.}
 
 \item{order}{a single positive integer giving the window width.
-Must satisfy \code{1 <= order <= length(x)}.}
+Must satisfy \verb{1 <= order <= length(x)}.}
 
 \item{align}{a character string controlling how the window is
 positioned relative to each output value:
@@ -86,12 +86,11 @@ moveAvg(AirPassengers, order = 4, align = "right", endrule = "constant")
 
 }
 \seealso{
-\code{zoo::rollmean()}, \code{forecast::ma()}, \code{\link[stats:runmed]{stats::runmed()}}
+\code{zoo::rollmean()}, \code{forecast::ma()}, \code{\link[=runmed]{runmed()}}
 
 Other vector.window:
 \code{\link[=midx]{midx()}},
 \code{\link[=quot]{quot()}}
 }
 \concept{moving-window}
-\concept{smoother}
 \concept{vector.window}

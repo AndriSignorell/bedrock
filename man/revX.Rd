@@ -3,15 +3,15 @@
 \name{revX}
 \alias{revX}
 \alias{revX.default}
+\alias{revX.array}
 \alias{revX.matrix}
 \alias{revX.table}
-\alias{revX.array}
 \alias{revX.data.frame}
-\title{Reverse Elements of a Vector, a Matrix, a Table, an Array or a Data.frame}
+\title{Reverse the Order of Elements}
 \usage{
 revX(x, ...)
 
-\method{revX}{default}(x, ...)
+\method{revX}{default}(x, margin = 1L, ...)
 
 \method{revX}{array}(x, margin = seq_along(dim(x)), ...)
 
@@ -22,28 +22,50 @@ revX(x, ...)
 \method{revX}{data.frame}(x, margin = 1:2, ...)
 }
 \arguments{
-\item{x}{a vector, a matrix or a higher dimensional table to be reversed.}
+\item{x}{a vector, matrix, table, array or data frame to be reversed.}
 
-\item{\dots}{the dots are passed to the array interface.}
+\item{\dots}{further arguments, passed on to the method dispatched on. This
+is how \code{margin} is handed over; arguments beyond it are ignored with a
+warning.}
 
-\item{margin}{vector of dimensions which to be reversed (1 for rows, 2 for
-columns, etc.). If not defined, all dimensions will be reverted.}
+\item{margin}{the dimensions to reverse, \code{1} for the rows, \code{2} for the
+columns, and so on, each at most once. Defaults to all dimensions of \code{x},
+which for a vector means \code{1}.}
 }
 \value{
-an object of the same class and dimensions as \code{x}, with the
-order of elements along \code{margin} reversed.
+an object of the same class and dimensions as \code{x}, with the order of
+the elements along \code{margin} reversed.
 }
 \description{
-\code{revX} provides a reversed version of its argument. Unlike the basic
-function, it does in higher-dimensional structures such as matrices not
-reverse the elements, but the order of the rows and/or columns. It further
-offers additional interfaces for higher dimensional arrays or tables.
+Returns a reversed version of its argument. Where \code{\link[=rev]{rev()}} treats every
+object as one long vector, \code{revX()}
+reverses the order along the dimensions of a multidimensional object,
+so that a matrix, table, array or data frame comes
+back with its rows, its columns, or both, in the opposite order and its
+\code{dimnames} moved along with the data. Which dimensions are turned around is
+chosen with \code{margin}.
+}
+\details{
+A vector has one dimension and is simply reversed, as by \code{\link[=rev]{rev()}}, with
+\code{margin = 1} accepted so that calling code need not know whether its
+argument has dimensions. For everything else, \code{margin} names the dimensions to be reversed, \code{1} for the
+rows, \code{2} for the columns, and so on for the higher dimensions of an array;
+the default reverses all of them. The values in the object are not
+rearranged relative to their labels: reversing an object twice along the
+same margin returns the original.
+
+\code{margin} names each dimension at most once; repeating one says nothing and
+is refused, as is any value outside the dimensions of \code{x}.
+
+The additional arguments of the generic are the way \code{margin} reaches the
+methods. Anything else is ignored with a warning, rather than being dropped
+silently although it was meant to change the result.
 }
 \examples{
 
 tab <- matrix(c(1, 11, 111,
                 2, 22, 222,
-                3, 33, 333), 
+                3, 33, 333),
               byrow=TRUE, nrow=3,
               dimnames=list(mar1=1:3, mar2=c("a","b","c")))
 
@@ -53,9 +75,11 @@ revX(tab, margin=2)
 # reverse both dimensions
 revX(tab, margin=c(1, 2))
 
-t(tab)
+# the dimnames travel with the data, so this is not a transposition
+revX(tab, margin=c(1, 2))["3", "a"] == tab["3", "a"]
+## [1] TRUE
 
-# reverse 3dimensional array
+# reverse a 3-dimensional array
 aa <- array(c(tab, 2 * tab), dim = c(3, 3, 2),
             dimnames = c(dimnames(tab), list(mar3 = c("A", "Z"))))
 
@@ -63,18 +87,22 @@ aa <- array(c(tab, 2 * tab), dim = c(3, 3, 2),
 revX(aa, 1)
 # reverse columns
 revX(aa, 2)
-# reverse 3th dimension
+# reverse the third dimension
 revX(aa, 3)
 
 # reverse all dimensions
 revX(aa)
 # same as
-revX(aa, margin=(1:3))
+revX(aa, margin = 1:3)
+
+# data frames are reversed by rows, by columns or both
+d <- data.frame(a = 1:3, b = 4:6)
+revX(d, 1)
+revX(d, 2)
 
 }
 \seealso{
-\code{\link{rev}}, \code{\link{order}}, \code{\link{sort}},
-\code{\link{seq}}
+\code{\link[=rev]{rev()}}, \code{\link[=order]{order()}}, \code{\link[=sort]{sort()}}, \code{\link[=seq]{seq()}}
 
 Other data.order:
 \code{\link[=binaryTree]{binaryTree()}},
@@ -83,4 +111,3 @@ Other data.order:
 \concept{data.order}
 \concept{ordering}
 \concept{reshape}
-\keyword{manip}

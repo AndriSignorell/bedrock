@@ -41,4 +41,3 @@ Other data.print:
 \concept{data.print}
 \concept{formatting}
 \concept{string-manipulation}
-\keyword{print}

@@ -3,27 +3,26 @@
 #'
 #' Returns suitably lagged and iterated quotients.
 #'
-#' \code{\link{NA}}'s propagate.
+#' [NA()]'s propagate.
 #'
 #' @param x a numeric vector or matrix containing the values to be used for
 #' calculating the quotients.
 #' @param lag an integer indicating which lag to use.
 #' @param quotients an integer indicating the order of the quotient.
 #' @param \dots further arguments to be passed to or from methods.
-#' @return if \code{x} is a vector of length \code{n} and \code{quotients = 1},
+#' @return if `x` is a vector of length `n` and `quotients = 1`,
 #' then the computed result is equal to the successive quotients
-#' \code{x[(1+lag):n] / x[1:(n-lag)]}.
+#' `x[(1+lag):n] / x[1:(n-lag)]`.
 #'
-#' If \code{quotients} is larger than one this algorithm is applied recursively
-#' to \code{x}.  Note that the returned value is a vector which is shorter than
-#' \code{x}.
+#' If `quotients` is larger than one this algorithm is applied recursively
+#' to `x`.  Note that the returned value is a vector which is shorter than
+#' `x`.
 #'
-#' If \code{x} is a matrix then the division operations are carried out on each
+#' If `x` is a matrix then the division operations are carried out on each
 #' column separately.
-#' @seealso \code{\link{diff}}
-#' @references Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The
-#' New S Language}.  Wadsworth & Brooks/Cole.
-#' @keywords arith
+#' @references Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) *The
+#' New S Language*.  Wadsworth & Brooks/Cole.
+#' 
 #' @examples
 #'
 #' quot(1:10, 2)
@@ -32,6 +31,8 @@
 #' quot(x, lag = 2)
 #' quot(x, quotients = 2)
 #'
+#' @seealso [diff()]
+#' 
 #' @family vector.window
 #' @concept moving-window
 #' @concept numerical-methods

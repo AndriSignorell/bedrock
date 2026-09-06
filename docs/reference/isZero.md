@@ -29,10 +29,14 @@ isZero(x, tol = sqrt(.Machine$double.eps), na.rm = FALSE)
 logical vector of the same length as x (after optional `NA` removal).
 Non-numeric input yields all-`FALSE`.
 
+## References
+
+Burns, P. (2011). *The R Inferno*.
+<https://www.burns-stat.com/documents/books/the-r-inferno/>
+
 ## See also
 
-[`all.equal`](https://rdrr.io/r/base/all.equal.html),
-[`isWholeLike`](isWholeLike.md)
+[`all.equal()`](https://rdrr.io/r/base/all.equal.html)
 
 Other data.predicate: [`flags()`](flags.md),
 [`isDichotomous()`](isDichotomous.md), [`isEuclid()`](isEuclid.md),

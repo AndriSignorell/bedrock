@@ -20,7 +20,7 @@ Defaults to \code{0} and \code{1}.}
 an object of the same shape as \code{x}: a numeric vector for
 vector input, otherwise a numeric matrix with the same dimensions,
 where each column is linearly rescaled to the interval
-\code{[newLow, newHigh]}.
+\verb{[newLow, newHigh]}.
 }
 \description{
 Performs a linear transformation of numeric data to a specified range.
@@ -29,13 +29,13 @@ Each column of \code{x} is rescaled independently.
 \details{
 The transformation is defined as:
 \deqn{
-x_{scaled} = \frac{x - low}{high - low} \cdot (new\_high - new\_low) + new\_low
+x_{scaled} = \frac{x - low}{high - low} \cdot (newHigh - newLow) + newLow
 }
 
 Constant columns (where \code{high == low}) are mapped to \code{newLow}.
 
 If \code{low} and \code{high} are supplied, values of \code{x} outside
-\code{[low, high]} are extrapolated linearly and are not clipped to the
+\verb{[low, high]} are extrapolated linearly and are not clipped to the
 target range.
 }
 \examples{
@@ -52,7 +52,7 @@ linScale(x, low = 1, high = 10)
 
 }
 \seealso{
-\code{\link{scale}}
+\code{\link[=scale]{scale()}}, \code{DescToolsX::scaleX}
 
 Other math.transform:
 \code{\link[=logit]{logit()}},

@@ -18,11 +18,11 @@ factorize(n)
 
 ## Value
 
-a named [`list`](https://rdrr.io/r/base/list.html) of the same length as
-`n`, each element a 2-column matrix with column `"p"` the prime factors
-in increasing order and column `"m"` their respective exponents (or
-multiplicities), i.e., for a prime number `n`, the resulting matrix is
-`cbind(p = n, m = 1)`.
+a named [`list()`](https://rdrr.io/r/base/list.html) of the same length
+as `n`, each element a 2-column matrix with column `"p"` the prime
+factors in increasing order and column `"m"` their respective exponents
+(or multiplicities), i.e., for a prime number `n`, the resulting matrix
+is `cbind(p = n, m = 1)`.
 
 Each prime appears in exactly one row, so `prod(p^m)` returns `n` and
 `p` is strictly increasing. `n = 1` yields a matrix with zero rows: 1 is

@@ -3,44 +3,77 @@
 \name{precision}
 \alias{precision}
 \alias{nDec}
+\alias{maxDec}
 \alias{prec}
 \alias{frac}
-\alias{maxDigits}
 \title{Precision, Decimal Places and Fractional Part of a Numeric Value}
 \usage{
 nDec(x)
 
+maxDec(x)
+
 prec(x)
 
-frac(x, dpwr = NA)
-
-maxDigits(x)
+frac(x)
 }
 \arguments{
-\item{x}{the numeric value (or a vector of numerics), whose fractional part
-is to be calculated.}
-
-\item{dpwr}{power of 10 for a factor z, the fractional part will be
-multiplied with. The result will be returned rounded to integer. Defaults to
-\code{NA} and will then be ignored.}
+\item{x}{a numeric vector, or a character vector of numbers as written.}
 }
 \value{
 \itemize{
 \item \code{nDec()}: an integer vector of the same length as \code{x};
 \code{NA} elements yield \code{NA}.
+\item \code{maxDec()}: a single integer value, \code{0} if \code{x} has no
+non-missing element with decimals.
 \item \code{prec()}: a single numeric value, the finest precision found
 across all (non-missing) elements of \code{x}. Returns 1 if all values
 are zero and \code{NA} if no non-missing values are left.
 \item \code{frac()}: a numeric vector of the same length as \code{x}.
-\item \code{maxDigits()}: a single integer value.
 }
 }
 \description{
-\code{nDec()} returns the number of decimals.\cr
-\code{prec()} returns the precision of a number x, i.e. the smallest positional
-value of its last significant digit (e.g. 0.001 for 3.142).\cr
-\code{frac()} returns the fractional part of a numeric value.\cr
-\code{maxDigits()} returns the maximal number of decimal digits in \code{x}.
+Four small utilities for the written form of a number, as opposed to its
+value.
+}
+\details{
+\code{nDec()} returns the number of decimal places of every element.\cr
+\code{maxDec()} returns the largest of those numbers.\cr
+\code{prec()} returns the precision, the smallest positional value of the last
+significant digit found in \code{x} (e.g. 0.001 for 3.142).\cr
+\code{frac()} returns the fractional part.
+
+\code{nDec()} and \code{maxDec()} count what is printed: the input is converted
+with \code{\link[=as.character]{as.character()}}, an exponent is discarded, and the digits behind the
+last decimal separator are counted. A number that R chooses to print in
+scientific notation therefore has no decimal places, \code{nDec(1e-300)} is \code{0},
+and trailing zeros of a numeric are gone before counting, as \code{1.50} and
+\code{1.5} are the same number. Pass the values as character strings to count
+them as written.
+
+Where R switches to scientific notation is R's decision, not this
+function's, and it has moved between versions: up to R 4.2 \code{\link[=as.character]{as.character()}}
+followed \code{options(scipen=)}, since R 4.3 it writes the shortest
+representation that reads back as the same number. A value near that switch,
+such as \code{0.00001}, may therefore count five decimals or none, depending on
+the R version. Pass it as a character string to fix the count.
+
+Both a period and a comma are accepted as the decimal separator of a
+character input, the last one in the string deciding, so that a thousands
+separator does not distort the count. Numeric input always arrives with a
+period, whatever \code{getOption("OutDec")} says.
+
+\code{maxDec(x)} is the maximum of \code{nDec(x)}, missing values removed, and \code{0}
+when nothing is left to count.
+
+\code{prec()} works on the value rather than on its written form and reports the
+position of the last significant digit across the whole vector, not one
+value per element. For input that is exact in decimal it is
+\code{10^-maxDec(x)}.
+
+\code{frac()} discards the sign, the fractional part of \code{-1.25} being \code{0.25}, as
+the sign belongs to the integer part of the number. To read the decimals as
+an integer, scale and round the result, \code{round(1e4 * frac(x))} for the first
+four of them.
 }
 \examples{
 
@@ -48,21 +81,34 @@ x <- rnorm(5)*100
 x
 frac(x)
 
-# multiply by 10^4
-frac(x, dpwr=4)
+# the first four decimal digits, as an integer
+round(1e4 * frac(x))
 
-maxDigits(c(1.25, 1.8, 12.0, 1.00000))
+# the sign belongs to the integer part
+frac(c(-1.25, 1.25))
+## [1] 0.25 0.25
+
+nDec(c(1.25, 1.8, 12.0, 1.00000))
+## [1] 2 1 0 0
+
+# the same numbers, summarised
+maxDec(c(1.25, 1.8, 12.0, 1.00000))
+## [1] 2
 
 x <- c("0.0000", "0", "159.283", "1.45e+10", "1.4599E+10" )
 nDec(x)
 prec(as.numeric(x))
 
+# trailing zeros survive in a character input, but not in a numeric one
+nDec("1.500")
+## [1] 3
+nDec(1.500)
+## [1] 1
+
 }
 \seealso{
-\code{\link{format.info}}, \code{\link{as.integer}},
-\code{\link{trunc}}
+\code{\link[=format.info]{format.info()}}, \code{\link[=as.integer]{as.integer()}}, \code{\link[=trunc]{trunc()}}
 }
 \concept{math.precision}
 \concept{numerical-methods}
 \concept{precision}
-\keyword{arith}

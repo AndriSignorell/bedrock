@@ -2,7 +2,7 @@
 
 #' Extended str() with numbered variables
 #'
-#' Wrapper around [utils::str()] that optionally numbers variables in
+#' Wrapper around [str()] that optionally numbers variables in
 #' lists and data frames. Useful for large objects where variables should
 #' be referenced by position.
 #'
@@ -10,16 +10,16 @@
 #' of nested list elements can be enabled with `recursive = TRUE`.
 #'
 #' @param object any R object.
-#' @param ... additional arguments passed to [utils::str()].
+#' @param ... additional arguments passed to [str()].
 #' @param enumerate logical; whether variables or elements are numbered.
 #'   Default is `TRUE`.
 #' @param recursive logical; whether nested list elements are also numbered.
 #'   Default is `FALSE`.
-#' @param strict.width character string passed to [utils::str()].
+#' @param strict.width character string passed to [str()].
 #'   Default is `"cut"`.
 #'
 #' @return
-#' invisibly returns the character vector produced by [utils::str()].
+#' invisibly returns the character vector produced by [str()].
 #'
 #' @examples
 #' # Data frame
@@ -38,8 +38,7 @@
 #'
 #' # Recursive numbering
 #' strX(x, recursive = TRUE)
-#'
-#' @family data.inspect
+#' @seealso [str()]
 #' @concept data-inspection
 #' @concept introspection
 #' @export

@@ -20,7 +20,7 @@ defaults to \code{n} but may be overridden.}
 
 \item{output}{character, either \code{"data.frame"} (default) or
 \code{"tibble"}, determining the class of the returned object.
-Conversion to \code{data.frame} is done by \code{\link{toBaseR}}.
+Conversion to \code{data.frame} is done by \code{\link[=toBaseR]{toBaseR()}}.
 The argument can be abbreviated. Note that it must be given as a
 named argument, as it follows the dots.}
 }
@@ -59,5 +59,4 @@ Other file.io:
 \code{\link[=readDownload]{readDownload()}}
 }
 \concept{data-inspection}
-\concept{file-io}
 \concept{file.io}

@@ -3,22 +3,21 @@
 #'
 #' Returns all combinations of 2 out of the elements in x or x and y (if
 #' defined). Combinations of the same elements will be dropped (no replacing).
-#' The vector \code{x} need not contain unique values. Duplicate elements
-#' in \code{x} will result in duplicate pairs.
+#' The vector `x` need not contain unique values. Duplicate elements
+#' in `x` will result in duplicate pairs.
 #'
-#' If y = \code{NULL} then all combination of 2 out of x are returned. \cr If y
+#' If y = `NULL` then all combination of 2 out of x are returned. \cr If y
 #' is defined then all combinations of x and y are calculated.
 #'
 #' @param x a vector of elements, must contain at least 2 elements if
-#' \code{y} is \code{NULL}.
+#' `y` is `NULL`.
 #' @param y a vector of elements, need not be same dimension as x.  If y is not
-#' \code{NULL} then all combination x and y are returned.
+#' `NULL` then all combination x and y are returned.
 #'
-#' @return a data.frame with two columns \code{X1} and \code{X2}
+#' @return a data.frame with two columns `X1` and `X2`
 #' containing the pairwise combinations.
 #'
-#' @seealso \code{\link{combn}}, \code{\link{expand.grid}},
-#' \code{\link{outer}}, \code{\link{lower.tri}}
+#' @seealso [combn()], [expand.grid()], [outer()], [lower.tri()]
 #'
 #' @examples
 #'

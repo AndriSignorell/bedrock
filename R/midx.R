@@ -7,18 +7,18 @@
 #' The midpoints are defined as:
 #' \deqn{m_i = \frac{x_i + x_{i+1}}{2}}
 #'
-#' When \code{inclZero = TRUE}, the computation is performed on
-#' \code{c(0, x)}.
+#' When `inclZero = TRUE`, the computation is performed on
+#' `c(0, x)`.
 #'
 #' @param x a numeric vector.
-#' @param inclZero logical. If \code{TRUE}, a zero is prepended to \code{x}
+#' @param inclZero logical. If `TRUE`, a zero is prepended to `x`
 #'   before computing midpoints. In this case, the first midpoint equals
-#'   \code{x[1] / 2}. Default is \code{FALSE}.
-#' @param cumulate logical. If \code{TRUE}, returns the cumulative sum of the
-#'   midpoints. Default is \code{FALSE}.
+#'   `x[1] / 2`. Default is `FALSE`.
+#' @param cumulate logical. If `TRUE`, returns the cumulative sum of the
+#'   midpoints. Default is `FALSE`.
 #'
-#' @return a numeric vector of length \code{length(x) - 1} (or \code{length(x)}
-#'   if \code{inclZero = TRUE}) containing the midpoints. Returns an empty
+#' @return a numeric vector of length `length(x) - 1` (or `length(x)`
+#'   if `inclZero = TRUE`) containing the midpoints. Returns an empty
 #'   numeric vector if fewer than two values are available.
 #'
 #' @examples

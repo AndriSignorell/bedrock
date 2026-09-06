@@ -25,12 +25,13 @@ our function may depend on. \code{funCalls()} parses the function
 source and returns all found function calls grouped by their package.
 }
 \details{
-The source packages are resolved via \code{\link[utils]{find}}, which only
+The source packages are resolved via \code{\link[=find]{find()}}, which only
 sees attached packages. Calls to functions from packages that are not on
 the search path are reported under \code{"<not found>"}.
 }
 \note{
-Based on code by Nicholas Cooper.
+Based on code by Nicholas Cooper, adapted to conform to package
+standards.
 }
 \examples{
 
@@ -38,8 +39,7 @@ funCalls("combN", package="bedrock")
 
 }
 \seealso{
-\code{\link{funList}}, \code{\link{funArgs}},
-\code{\link[utils]{getParseData}}
+\code{\link[=getParseData]{getParseData()}}
 
 Other pkg.funinfo:
 \code{\link[=funArgs]{funArgs()}},

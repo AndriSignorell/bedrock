@@ -45,3 +45,35 @@ test_that("coalesceX method is.finite skips NaN", {
   )
 })
 
+
+test_that("coalesceX method is.null operates on whole objects", {
+  obj <- data.frame(x = 1:2)
+  
+  expect_identical(
+    coalesceX(NULL, NULL, obj, method = "is.null"),
+    obj
+  )
+  expect_identical(
+    coalesceX(list(NULL, 7), method = "is.null"),
+    7
+  )
+  expect_null(coalesceX(NULL, NULL, method = "is.null"))
+})
+
+test_that("coalesceX supports flatten = FALSE", {
+  expect_identical(
+    coalesceX(c(NA, 2), 1, flatten = FALSE),
+    c(1, 2)
+  )
+})
+
+test_that("coalesceX does not recycle non-scalar inputs", {
+  expect_error(
+    coalesceX(c(NA, 2), c(1, NA, 3, 4))
+  )
+})
+
+test_that("coalesceX validates method", {
+  expect_error(coalesceX(1, method = "unknown"), "arg")
+})
+

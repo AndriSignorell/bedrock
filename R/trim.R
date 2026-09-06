@@ -3,25 +3,25 @@
 #' 
 #' Clean data by means of trimming, i.e., by omitting outlying observations. 
 #' 
-#' A symmetrically trimmed vector \code{x} with a fraction of trim observations
+#' A symmetrically trimmed vector `x` with a fraction of trim observations
 #' (resp. the given number) deleted from each end will be returned. If
-#' \code{trim} is set to a value \eqn{\ge 0.5} or to an integer value
-#' \eqn{\ge n/2} then the result will be \code{NA}. The same applies if
-#' \code{x} contains \code{NA}s and \code{na.rm} is \code{FALSE}.
+#' `trim` is set to a value \eqn{\ge 0.5} or to an integer value
+#' \eqn{\ge n/2} then the result will be `NA`. The same applies if
+#' `x` contains `NA`s and `na.rm` is `FALSE`.
 #' 
 #' @param x a numeric vector to be trimmed. 
 #' @param trim the fraction (0 to 0.5) of observations to be trimmed from each
 #' end of x. Values of trim outside that range (and < 1) are taken as the
-#' nearest endpoint.  If \code{trim} is set to a value >1 it's interpreted as
-#' the number of elements to be cut off at each tail of \code{x}. 
-#' @param na.rm a logical value indicating whether \code{NA} values should be
+#' nearest endpoint.  If `trim` is set to a value >1 it's interpreted as
+#' the number of elements to be cut off at each tail of `x`. 
+#' @param na.rm a logical value indicating whether `NA` values should be
 #' stripped before the computation proceeds. 
-#' @return the trimmed vector \code{x}. The indices of the trimmed values will
-#' be attached as attribute named \code{"trim"}. 
+#' @return the trimmed vector `x`. The indices of the trimmed values will
+#' be attached as attribute named `"trim"`. 
 #' 
 #' @note This function is basically an excerpt from the base function
-#' \code{\link{mean}}, which allows the vector \code{x} to be trimmed before
-#' calculating the mean. But what if a trimmed standard deviation is needed?
+#' [mean()], which allows the vector `x` to be trimmed before
+#' calculating the mean. 
 #' 
 #' @examples
 #' 

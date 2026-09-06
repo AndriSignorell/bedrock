@@ -34,8 +34,8 @@ Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The
 New S Language}. Wadsworth & Brooks/Cole.
 }
 \seealso{
-\code{\link{ls}}, \code{\link{ls.str}}, \code{\link{lsf.str}},
-\code{\link{getNamespaceExports}}
+\code{\link[=ls]{ls()}}, \code{\link[=ls.str]{ls.str()}}, \code{\link[=lsf.str]{lsf.str()}},
+\code{\link[=getNamespaceExports]{getNamespaceExports()}}
 
 Other pkg.funinfo:
 \code{\link[=funArgs]{funArgs()}},

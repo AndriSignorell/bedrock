@@ -18,7 +18,7 @@ funKeywords(topic)
 ## Value
 
 if `topic` is missing, the R keywords documentation file is opened for
-display via [`file.show`](https://rdrr.io/r/base/file.show.html),
+display via [`file.show()`](https://rdrr.io/r/base/file.show.html),
 invisibly returning `NULL`. Otherwise, a character vector of topic names
 whose keywords match `topic`.
 
@@ -35,7 +35,7 @@ by Gregory R. Warnes, with minor adaptations by the package author.
 
 ## See also
 
-[`help`](https://rdrr.io/r/utils/help.html)
+[`help()`](https://rdrr.io/r/utils/help.html)
 
 Other pkg.funinfo: [`funArgs()`](funArgs.md),
 [`funCalls()`](funCalls.md), [`funList()`](funList.md),

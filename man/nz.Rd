@@ -9,14 +9,14 @@ nz(x, tol = sqrt(.Machine$double.eps))
 \arguments{
 \item{x}{a numeric vector.}
 
-\item{tol}{tolerance passed to \code{\link{isZero}}.}
+\item{tol}{tolerance passed to \code{\link[=isZero]{isZero()}}.}
 }
 \value{
 a vector containing only the non-zero elements of \code{x}.
 }
 \description{
 Returns all non-zero elements of a vector. Zeroness is determined by
-\code{\link{isZero}}, i.e. within a numerical tolerance.
+\code{\link[=isZero]{isZero()}}, i.e. within a numerical tolerance.
 }
 \details{
 \code{NA} elements are not considered zero and are retained in the
@@ -28,11 +28,10 @@ nz(c(1e-20, 1, NA))
 
 }
 \seealso{
-\code{\link{isZero}}
+\code{\link[=isZero]{isZero()}}
 
 Other vector.utils:
 \code{\link[=unwhich]{unwhich()}}
 }
 \concept{data-inspection}
-\concept{filtering}
 \concept{vector.utils}

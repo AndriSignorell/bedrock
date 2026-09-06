@@ -5,27 +5,27 @@
 #' present in only one of the two frames and columns that differ in matched rows.
 #'
 #' Only columns present in both data frames are compared. Rows are matched by
-#' the \code{key} column using \code{\link{identical}} for element-wise comparison,
-#' so type differences (e.g., \code{integer} vs. \code{double}) will be flagged
+#' the `key` column using [identical()] for element-wise comparison,
+#' so type differences (e.g., `integer` vs. `double`) will be flagged
 #' as differences.
 #'
-#' The values of the \code{key} column must be unique in both data frames.
+#' The values of the `key` column must be unique in both data frames.
 #'
 #' @param x a data frame.
-#' @param y a data frame to compare against \code{x}.
+#' @param y a data frame to compare against `x`.
 #' @param key character string. Name of the column used as row identifier.
-#'   Must be present in both \code{x} and \code{y}, with unique values.
+#'   Must be present in both `x` and `y`, with unique values.
 #'
 #' @return a named list with four elements:
 #' \describe{
-#'   \item{\code{identical}}{logical. \code{TRUE} if the two data frames are
+#'   \item{`identical`}{logical. `TRUE` if the two data frames are
 #'     identical with respect to the common columns and key.}
-#'   \item{\code{onlyInX}}{data frame of rows whose key value appears in
-#'     \code{x} but not in \code{y}.}
-#'   \item{\code{onlyInY}}{data frame of rows whose key value appears in
-#'     \code{y} but not in \code{x}.}
-#'   \item{\code{diffs}}{data frame with columns named after the \code{key}
-#'     argument (the key value) and \code{diffCols} (a list column of character
+#'   \item{`onlyInX`}{data frame of rows whose key value appears in
+#'     `x` but not in `y`.}
+#'   \item{`onlyInY`}{data frame of rows whose key value appears in
+#'     `y` but not in `x`.}
+#'   \item{`diffs`}{data frame with columns named after the `key`
+#'     argument (the key value) and `diffCols` (a list column of character
 #'     vectors naming the differing columns for that key).}
 #' }
 #'

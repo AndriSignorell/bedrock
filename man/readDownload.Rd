@@ -15,7 +15,7 @@ for text files.}
 
 \item{output}{character, either \code{"data.frame"} (default) or
 \code{"tibble"}, determining the class of the returned object.
-Conversion to \code{data.frame} is done by \code{\link{toBaseR}}.
+Conversion to \code{data.frame} is done by \code{\link[=toBaseR]{toBaseR()}}.
 The argument can be abbreviated. Note that it must be given as a
 named argument, as it follows the dots.}
 }
@@ -27,7 +27,7 @@ Reads a file from the Downloads directory and returns it as a data
 frame. The file type is automatically detected from the extension.
 }
 \details{
-This is a convenience wrapper combining \code{\link{findDownload}} with
+This is a convenience wrapper combining \code{\link[=findDownload]{findDownload()}} with
 common file readers:
 \itemize{
 \item Excel files (\code{.xls}, \code{.xlsx}) via
@@ -56,15 +56,14 @@ readDownload("data.csv", output = "tibble")
 
 }
 \seealso{
-\code{\link{findDownload}},
-\code{\link{toBaseR}}, \code{\link[readxl]{read_excel}},
-\code{\link[readr]{read_csv}}
+\code{\link[=findDownload]{findDownload()}},
+\code{\link[=toBaseR]{toBaseR()}}, \code{\link[readxl:read_excel]{readxl::read_excel()}},
+\code{\link[readr:read_csv]{readr::read_csv()}}
 
 Other file.io:
 \code{\link[=parseSASDatalines]{parseSASDatalines()}},
 \code{\link[=pdfManual]{pdfManual()}},
 \code{\link[=peekFile]{peekFile()}}
 }
-\concept{file-io}
 \concept{file.io}
 \concept{table}

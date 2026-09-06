@@ -1,55 +1,90 @@
 
-#' Resolve Contingency Table
+#' Resolve a Contingency Table
 #'
-#' Converts either a contingency table or two classification variables
-#' into a standardized contingency-table representation.
+#' Brings a two-way classification into one canonical shape, no matter whether
+#' it arrives as a ready-made contingency table or as two classification
+#' variables. The function validates the counts, drops the incomplete
+#' observations and reports the table together with its dimensions, so that
+#' association measures, tests of independence and agreement statistics can
+#' share one entry point instead of each repeating the same preparation.
 #'
-#' If \code{x} is a matrix, it is interpreted as a contingency table.
-#' Otherwise \code{x} and \code{y} are converted to factors and a table
-#' is constructed after removing incomplete observations.
+#' Any two-dimensional object is taken as a contingency table and used as it
+#' is, which covers a matrix as well as a [table()] or [xtabs()] object; a data
+#' frame of counts is coerced with [as.matrix()]. Its entries must be numeric,
+#' non-negative and finite; non-integer counts are reported with a warning
+#' unless `integerCounts` is set to `FALSE`, as they occur legitimately in
+#' weighted or expected tables. An array of any other number of dimensions is
+#' an error, rather than being flattened into a classification variable.
 #'
-#' @param x a contingency table, factor or vector.
-#' @param y an optional factor or vector
-#' Ignored when \code{x} is a matrix.
-#' @param square logical indicating whether a square contingency table
-#' is required.
-#' @param integerCounts logical; if \code{TRUE} (default) a warning is
-#' issued when the table contains non-integer counts.
-#' @param data.name optional character string used as the \code{data.name}
-#' entry of the result. If \code{NULL} (default), it is derived from
-#' \code{deparse(substitute(x))} (and \code{y}). This only reflects the
-#' variable names as seen by \code{resolveContingency()} itself: functions
-#' that call \code{resolveContingency()} internally should build their own
-#' \code{data.name} via \code{deparse(substitute())} at their own call site
-#' and pass it through here, otherwise the reported name will be the formal
-#' argument names of the calling function (e.g. \code{"x and y"}) rather
-#' than the names the end user actually typed.
+#' Two classification variables are cross-tabulated instead. Observations
+#' missing in either variable are dropped, both variables are then coerced to
+#' factors, which drops the levels that no longer occur, and at least two
+#' levels must remain on each side.
+#'
+#' Whichever way the table arrives, it must have at least two rows and two
+#' columns: a one-way table carries no association to measure and is rejected
+#' rather than passed on to a caller that cannot use it.
+#'
+#' `square` is meant for the statistics that compare two ratings of the same
+#' items, such as the tests of marginal homogeneity or the agreement measures.
+#' It guarantees that the table has as many columns as rows, and nothing
+#' beyond that: whether the two axes really carry the same categories cannot be
+#' checked on a table that may have no `dimnames` at all, and remains the
+#' responsibility of the caller.
+#'
+#' @param x a contingency table or matrix of counts, or a factor or vector of
+#'   classifications.
+#' @param y an optional factor or vector of classifications, of the same length
+#'   as `x`. Required unless `x` is a table, ignored when it is.
+#' @param square logical, whether a square contingency table is required,
+#'   defaults to `FALSE`.
+#' @param integerCounts logical, whether non-integer counts should be reported
+#'   with a warning, defaults to `TRUE`.
+#' @param dataName optional character string used as the `dataName` entry of
+#'   the result. If `NULL` (default), it is derived from the unevaluated
+#'   arguments. That name only reflects what `resolveContingency()` itself
+#'   sees: a function calling it internally should build its own name from
+#'   [substitute()] at its own call site and pass it through here, as it would
+#'   otherwise report its own formal argument names, typically `"x and y"`,
+#'   instead of the names the end user typed.
 #'
 #' @return a list containing:
 #' \describe{
-#'   \item{table}{contingency table.}
-#'   \item{n}{total sample size.}
-#'   \item{r}{number of rows.}
-#'   \item{c}{number of columns.}
-#'   \item{k}{number of rows (alias; convenient for square tables).}
-#'   \item{data.name}{name of the data.}
+#'   \item{table}{the contingency table.}
+#'   \item{n}{the total sample size, the sum of all counts.}
+#'   \item{r}{integer, the number of rows.}
+#'   \item{c}{integer, the number of columns.}
+#'   \item{dataName}{character description of the input, for use as the
+#'     `data.name` of an `htest` object.}
 #' }
-#'
-#' @family data.resolve
-#' @concept data-resolution
-#' @concept table
 #'
 #' @examples
 #' # from an existing contingency table
 #' tab <- matrix(c(10, 5, 3, 12), nrow = 2,
 #'               dimnames = list(c("A", "B"), c("yes", "no")))
-#' resolveContingency(tab)
+#' str(resolveContingency(tab))
 #'
 #' # from two classification variables
 #' set.seed(1)
 #' x <- sample(c("low", "high"), 100, replace = TRUE)
 #' y <- sample(c("yes", "no"), 100, replace = TRUE)
-#' resolveContingency(x, y)
+#' resolveContingency(x, y)$table
+#'
+#' # a caller passes the name it sees at its own call site
+#' myTest <- function(x, y) {
+#'   r <- resolveContingency(x, y,
+#'                           dataName = paste(deparse1(substitute(x)), "and",
+#'                                            deparse1(substitute(y))))
+#'   r$dataName
+#' }
+#' myTest(x, y)
+#' ## [1] "x and y"
+#'
+#' @seealso [table()], [resolveGroups()], [resolveFormula()]
+#'
+#' @family data.resolve
+#' @concept data-resolution
+#' @concept table
 #'
 #' @export
 resolveContingency <- function(
@@ -57,9 +92,27 @@ resolveContingency <- function(
     y = NULL,
     square = FALSE,
     integerCounts = TRUE,
-    data.name = NULL
+    dataName = NULL
 ) {
-  if (is.matrix(x)) {
+  
+  checkFlag(square)
+  checkFlag(integerCounts)
+  
+  if (!is.null(dataName))
+    checkString(dataName)
+  
+  # a two-dimensional object is a table, everything else a classification
+  if (!is.null(dim(x))) {
+    
+    # --- the name must be taken before x is reassigned, as substitute()
+    # --- returns the value once x is no longer a promise ------------------
+    dname <- if (is.null(dataName)) deparse1(substitute(x)) else dataName
+    
+    if (length(dim(x)) != 2L)
+      stop("'x' must be a two-dimensional table")
+    
+    if (is.data.frame(x))
+      x <- as.matrix(x)
     
     # --- numeric check must come before any arithmetic on x ---------------
     if (!is.numeric(x))
@@ -71,25 +124,24 @@ resolveContingency <- function(
     if (integerCounts && any(x != round(x)))
       warning("'x' contains non-integer counts", call. = FALSE)
     
-    DNAME <- if (is.null(data.name)) deparse1(substitute(x)) else data.name
     tab <- x
     
   } else {
     
     # --- NULL check must come before length comparison --------------------
     if (is.null(y))
-      stop("if 'x' is not a matrix, 'y' must be given")
+      stop("if 'x' is not a table, 'y' must be given")
     
     if (length(x) != length(y))
       stop("'x' and 'y' must have the same length")
     
-    DNAME <- if (is.null(data.name)) {
+    dname <- if (is.null(dataName)) {
       paste(
         deparse1(substitute(x)),
         "and",
         deparse1(substitute(y))
       )
-    } else data.name
+    } else dataName
     
     ok <- complete.cases(x, y)
     x <- factor(x[ok])
@@ -101,21 +153,17 @@ resolveContingency <- function(
     tab <- table(x, y)
   }
   
-  if (square) {
-    if (nrow(tab) != ncol(tab))
-      stop("'x' must be a square contingency table")
-    if (nrow(tab) < 2L)
-      stop("'x' must be square with at least two rows and columns")
-  }
+  if (nrow(tab) < 2L || ncol(tab) < 2L)
+    stop("contingency table must have at least two rows and columns")
+  
+  if (square && nrow(tab) != ncol(tab))
+    stop("'x' must be a square contingency table")
   
   list(
-    table     = tab,
-    n         = sum(tab),
-    r         = nrow(tab),
-    c         = ncol(tab),
-    k         = nrow(tab),   # alias; convenient for square tables
-    data.name = DNAME
+    table    = tab,
+    n        = sum(tab),
+    r        = nrow(tab),
+    c        = ncol(tab),
+    dataName = dname
   )
 }
-
-

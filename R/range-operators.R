@@ -31,7 +31,6 @@
 #'
 #' @family data.interval
 #' @concept range
-#' @concept range-selection
 NULL
 
 

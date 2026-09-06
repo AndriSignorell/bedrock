@@ -35,7 +35,7 @@ Reverses the coding of a vector. Supports numeric, logical, and factor inputs:
 Throws an error if all values are \code{NA}, if only one of \code{min}/\code{max}
 is provided, if \code{min > max}, or if \code{x} is not numeric, logical, or factor.
 A warning is issued if values of \code{x} lie outside an explicitly
-provided \code{[min, max]} range.
+provided \verb{[min, max]} range.
 }
 
 \examples{

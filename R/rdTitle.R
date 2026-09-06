@@ -1,19 +1,20 @@
+
 #' Extract the Title from an Rd Help File
 #'
 #' Searches all \file{.Rd} files in a package's \file{man/} directory for a
-#' given topic (matched against \code{\\alias} entries) and returns its
-#' \code{\\title} string.
+#' given topic (matched against `\\alias` entries) and returns its
+#' `\\title` string.
 #'
 #' @param topic a single character string giving the topic (function name or
 #'   alias) to look up.
 #' @param man a single character string giving the path to the directory
-#'   containing \file{.Rd} files.  Defaults to \code{"man"}, i.e. the
+#'   containing \file{.Rd} files.  Defaults to `"man"`, i.e. the
 #'   \file{man/} subdirectory of the current working directory.
 #'
 #' @return a single character string with the title, trimmed of leading and
-#'   trailing whitespace.  Stops with an error if \code{topic} is not found.
+#'   trailing whitespace.  Stops with an error if `topic` is not found.
 #'
-#' @seealso \code{\link[tools]{parse_Rd}}
+#' @seealso [tools::parse_Rd()]
 #'
 #' @examples
 #' \dontrun{
@@ -21,7 +22,6 @@
 #' rdTitle("lm", man = "path/to/pkg/man")
 #' }
 #'
-
 #' @family pkg.funinfo
 #' @concept introspection
 #' @concept programming

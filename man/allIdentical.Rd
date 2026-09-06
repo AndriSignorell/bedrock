@@ -13,7 +13,7 @@ allIdentical(...)
 logical scalar.
 }
 \description{
-Extends \code{\link{identical}} to more than two objects. Returns
+Extends \code{\link[=identical]{identical()}} to more than two objects. Returns
 \code{TRUE} if all supplied objects are exactly identical, and
 \code{FALSE} otherwise.
 }
@@ -40,7 +40,7 @@ allIdentical(1, 1L)          # FALSE (type matters)
 
 }
 \seealso{
-\code{\link{identical}}
+\code{\link[=identical]{identical()}}
 
 Other data.equal:
 \code{\link[=allDuplicated]{allDuplicated()}},

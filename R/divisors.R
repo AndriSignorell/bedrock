@@ -5,20 +5,20 @@
 #'
 #' Divisibility is a mathematical relationship between two integers. An integer
 #' is divisible by another integer if there is no remainder in the division.
-#' This function returns the \emph{proper} divisors of \code{x}, i.e. all
-#' positive divisors excluding \code{x} itself. The number 11 is prime and has
+#' This function returns the *proper* divisors of `x`, i.e. all
+#' positive divisors excluding `x` itself. The number 11 is prime and has
 #' only the proper divisor 1, whereas the number 12 has the proper divisors
 #' 1, 2, 3, 4 and 6. In elementary number theory, the concept of divisibility
 #' is limited to natural numbers. The number of proper divisors can be
-#' determined with the function \code{\link{length}()}.
+#' determined with the function [length()].
 #'
 #' @param x vector of positive whole numbers for which the divisors are to
 #'   be returned.
 #'
 #' @return an integer vector containing the proper divisors in ascending
-#'   order if \code{x} is a single number, otherwise a named list of such
-#'   vectors. A prime number yields \code{1}, and 1 itself yields
-#'   \code{integer(0)} - its only divisor is 1, which is \code{x} itself and
+#'   order if `x` is a single number, otherwise a named list of such
+#'   vectors. A prime number yields `1`, and 1 itself yields
+#'   `integer(0)` - its only divisor is 1, which is `x` itself and
 #'   therefore not a proper one.
 #'
 #' @examples

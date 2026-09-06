@@ -95,3 +95,88 @@ test_that("checkFlag() names the argument it was given", {
   err <- tryCatch(checkFlag(NA), error = function(e) e)
   expect_null(conditionCall(err))
 })
+
+
+test_that("checkCount() accepts whole numbers, however stored", {
+
+  expect_silent(checkCount(0))
+  expect_silent(checkCount(2L))
+  expect_silent(checkCount(2))
+  expect_silent(checkCount(1e6))
+
+  # the result of arithmetic on integers is a double, and it is still a count
+  expect_silent(checkCount(4 / 2))
+
+  expect_invisible(checkCount(2))
+  expect_identical(checkCount(2L), 2L)
+})
+
+
+test_that("checkCount() refuses the rest, naming the argument", {
+
+  expect_error(checkCount(c(1, 2)), "must be a single integer")
+  expect_error(checkCount(numeric(0)), "must be a single integer")
+  expect_error(checkCount(NULL), "must be a single integer")
+
+  expect_error(checkCount(1.5), "must be a single integer")
+  expect_error(checkCount(NA), "must be a single integer")
+  expect_error(checkCount(NA_integer_), "must be a single integer")
+  expect_error(checkCount(NaN), "must be a single integer")
+  expect_error(checkCount(Inf), "must be a single integer")
+  expect_error(checkCount("2"), "must be a single integer")
+
+  # a flag survives as.integer(), but reaching a count argument it is a
+  # mistake rather than a shorthand
+  expect_error(checkCount(TRUE), "must be a single integer")
+
+  sep <- -1
+  expect_error(checkCount(sep), "'sep'")
+
+  err <- tryCatch(checkCount(-1), error = function(e) e)
+  expect_null(conditionCall(err))
+})
+
+
+test_that("checkCount() honours the lower bound", {
+
+  expect_silent(checkCount(0, min = 0L))
+  expect_error(checkCount(0, min = 1L), "not smaller than 1")
+
+  width <- 0
+  expect_error(checkCount(width, min = 1L), "'width'")
+
+  expect_silent(checkCount(1, min = 1L))
+  expect_silent(checkCount(-1, min = -5L))
+})
+
+
+test_that("checkString() accepts a single string", {
+
+  expect_silent(checkString("a label"))
+  expect_silent(checkString(""))     # empty is a label too
+
+  expect_invisible(checkString("x"))
+  expect_identical(checkString("x"), "x")
+})
+
+
+test_that("checkString() refuses the rest, naming the argument", {
+
+  expect_error(checkString(c("a", "b")), "character string")
+  expect_error(checkString(character(0)), "character string")
+  expect_error(checkString(NULL), "character string")
+  expect_error(checkString(NA), "character string")
+  expect_error(checkString(NA_character_), "character string")
+  expect_error(checkString(42), "character string")
+  expect_error(checkString(factor("a")), "character string")
+
+  dataName <- 42
+  expect_error(checkString(dataName), "'dataName'")
+
+  # an explicit name wins, for callers that pass something else
+  args <- list(caption = NA)
+  expect_error(checkString(args$caption, "caption"), "'caption'")
+
+  err <- tryCatch(checkString(NA), error = function(e) e)
+  expect_null(conditionCall(err))
+})

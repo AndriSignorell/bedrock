@@ -16,7 +16,7 @@ a warning when the dataset name violates SAS naming rules.}
 \value{
 a data.frame with column names taken from the INPUT statement.
 The attribute \code{sas_dataset_name} carries the DATA step name.
-For \code{DATA _NULL_} the data is still parsed and returned; the caller
+For \verb{DATA _NULL_} the data is still parsed and returned; the caller
 decides what to do with it (matching SAS semantics).
 SAS missing-value markers (\code{.}) are converted to \code{NA}.
 }
@@ -45,7 +45,7 @@ Only free-format (list) input is supported. The following SAS features
 are intentionally rejected with an informative error:
 \itemize{
 \item Column pointers (\code{@}, \code{@})
-\item Column input (e.g. \code{var 1-10})
+\item Column input (e.g. \verb{var 1-10})
 \item Formatted input (\code{:})
 }
 Character values must not contain spaces or quotes; scan-based parsing
@@ -69,6 +69,5 @@ Other file.io:
 \code{\link[=peekFile]{peekFile()}},
 \code{\link[=readDownload]{readDownload()}}
 }
-\concept{file-io}
 \concept{file.io}
 \concept{string-manipulation}

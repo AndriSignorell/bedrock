@@ -46,7 +46,7 @@ based on \code{data.table::frankv}. Supports additional tie-handling
 methods such as \code{"dense"} and multi-column ranking via \code{...}.
 }
 \details{
-This function is a fast alternative to \code{\link[base]{rank}}, powered by
+This function is a fast alternative to \code{\link[=rank]{rank()}}, powered by
 \code{data.table::frankv}. It extends base functionality by:
 \itemize{
 \item Supporting dense ranking (\code{ties.method = "dense"})
@@ -82,7 +82,7 @@ rankX(a, b)
 
 }
 \seealso{
-\code{\link[base]{rank}}, \code{\link[data.table]{frankv}}
+\code{\link[=rank]{rank()}}, \code{\link[data.table:frankv]{data.table::frankv()}}
 
 Other math.transform:
 \code{\link[=linScale]{linScale()}},

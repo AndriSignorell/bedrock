@@ -1,17 +1,17 @@
 
 #' Set the length of a vector, padding or truncating as needed
 #'
-#' Extends \code{x} to length \code{n} by appending \code{fill}, or
-#' truncates it to length \code{n} if it is already longer -- like
-#' \code{length(x) <- n}, but with a configurable fill value instead
-#' of \code{NA}.
+#' Extends `x` to length `n` by appending `fill`, or
+#' truncates it to length `n` if it is already longer -- like
+#' `length(x) <- n`, but with a configurable fill value instead
+#' of `NA`.
 #'
 #' @param x a vector.
 #' @param n target length, a single non-negative whole number.
-#' @param fill value used for newly added elements when \code{x} is
-#'   extended (default \code{NA}).
+#' @param fill value used for newly added elements when `x` is
+#'   extended (default `NA`).
 #'
-#' @return \code{x}, of length \code{n}.
+#' @return `x`, of length `n`.
 #'
 #' @examples
 #' setLength(LETTERS[1:3], 5)

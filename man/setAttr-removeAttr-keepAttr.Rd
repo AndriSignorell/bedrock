@@ -56,7 +56,7 @@ r.lm <- lm(Fertility ~ ., swiss)
 keepAttr(r.lm$terms, "class")
 }
 \seealso{
-\link[stats:setNames]{stats::setNames}, \link[base:unname]{base::unname}
+\code{\link[=setNames]{setNames()}}, \code{\link[=unname]{unname()}}
 
 Other label.attrs:
 \code{\link[=label]{label()}},

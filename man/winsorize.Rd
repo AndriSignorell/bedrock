@@ -47,12 +47,12 @@ where \eqn{l} and \eqn{u} denote the lower and upper bounds.
 The argument \code{val} allows full control over the limits. It can be:
 \itemize{
 \item A numeric vector of length two specifying fixed bounds
-\item The result of a call to \code{\link{quantile}} (e.g. with custom \code{type})
+\item The result of a call to \code{\link[=quantile]{quantile()}} (e.g. with custom \code{type})
 }
 
 Winsorization is commonly used in robust statistics to reduce the influence
 of outliers. In some cases, it can be beneficial to standardize the data
-(e.g., using \code{\link{scale}}) before applying winsorization.
+(e.g., using \code{\link[=scale]{scale()}}) before applying winsorization.
 }
 \examples{
 set.seed(9128)
@@ -73,7 +73,7 @@ winsorize(x, val = c(-2, Inf)) # lower bound only
 
 }
 \seealso{
-\code{scaleX()}, \code{winsorize()} in package \pkg{robustHD}
+\code{DescToolsX::scaleX()}, \code{robustHD::winsorize()}
 
 Other math.transform:
 \code{\link[=linScale]{linScale()}},

@@ -25,8 +25,8 @@ without replacement and each element is assigned to exactly one group.
 \details{
 This function is useful for random group assignments, for example in
 teaching settings, simulations, or experimental designs where groups
-of unequal sizes are required. It uses \code{\link{sample}}, so results
-can be made reproducible with \code{\link{set.seed}}.
+of unequal sizes are required. It uses \code{\link[=sample]{sample()}}, so results
+can be made reproducible with \code{\link[=set.seed]{set.seed()}}.
 }
 \examples{
 # Split letters into 3 groups of sizes 4, 3, and 5

@@ -2,43 +2,53 @@
 % Please edit documentation in R/rdLabels.R
 \name{rdLabels}
 \alias{rdLabels}
-\title{Extract variable labels from Rd documentation}
+\title{Extract Variable Labels from Rd Documentation}
 \usage{
 rdLabels(dataName, package)
 }
 \arguments{
-\item{dataName}{character string. Name of the dataset.}
+\item{dataName}{character string, the name of the dataset.}
 
-\item{package}{character string. Name of the package containing the dataset.}
+\item{package}{character string, the name of the package holding the
+dataset.}
 }
 \value{
-a named character vector where names are variable names and values
-are their corresponding descriptions extracted from the Rd file.
+a named character vector of variable descriptions, the names being
+the variable names.
 }
 \description{
-Extracts variable descriptions from the \code{\\describe} section of a dataset's
-Rd documentation and returns them as a named character vector. The names
-correspond to variable names and the values to their descriptions.
+Reads the variable descriptions out of the \verb{\\describe} section of a
+documented dataset and returns them as a named character vector, the names
+being the variable names. This turns documentation that already exists into
+labels usable in tables, plots and codebooks, instead of maintaining the
+same descriptions a second time in the code.
 }
 \details{
-This function is useful for automatically generating variable labels from
-documented datasets in R packages.
+The Rd database is read with \code{\link[tools:Rd_db]{tools::Rd_db()}} and searched recursively for
+the first \verb{\\describe} section, from which all
+\code{\\item\{var\}\{description\}} entries are taken. Only that first
+section is read: on a page documenting more than one dataset, the labels of
+the first one are returned.
 
-The function parses the Rd database via \code{\link[tools:Rd_db]{tools::Rd_db}}
-and recursively searches for the \code{\\describe} section. It then extracts
-all \code{\\item\{var\}\{description\}} entries.
+Descriptions are returned as written in the Rd file, with whitespace and
+line breaks collapsed to single spaces. Rd markup inside a description, such
+as \verb{\code{}} or \verb{\eqn{}}, contributes its content without the surrounding
+command.
 
-The function is fully CRAN-compliant and does not rely on internal (non-exported)
-functions.
+The package must be installed, as the documentation is read from the
+installed Rd database rather than from the sources.
 }
 \examples{
-# Extract labels from a package dataset
 \dontrun{
 rdLabels("Pizza", "bedrock")
+## price               temperature         delivery_min
+## "Price of the ..."  "Temperature ..."   "Delivery ..."
 }
 
 }
 \seealso{
+\code{\link[tools:Rd_db]{tools::Rd_db()}}
+
 Other pkg.funinfo:
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funCalls]{funCalls()}},

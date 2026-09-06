@@ -12,8 +12,7 @@ checkFlag(x, name = deparse(substitute(x)))
 \item{name}{the argument name to use in the message. Defaults to the
 expression that was passed, which is right in the ordinary case
 \code{checkFlag(correct)}; supply it explicitly when the caller
-passes something else, e.g. \code{checkFlag(args$correct,
-"correct")}.}
+passes something else, e.g. \code{checkFlag(args$correct, "correct")}.}
 }
 \value{
 \code{x}, invisibly.
@@ -29,7 +28,7 @@ different ways.
 \code{NA} is rejected on purpose. It is a logical of length one and
 therefore passes \code{is.logical()}, but a flag that is neither on nor
 off has no meaning for a switch - and it propagates silently, because
-\code{if (NA)} is an error somewhere further down rather than here.
+\verb{if (NA)} is an error somewhere further down rather than here.
 }
 \examples{
 correct <- TRUE
@@ -42,5 +41,5 @@ checkFlag(correct)             # "'correct' must be a single ..."
 
 }
 \seealso{
-\link{checkConfLevel}
+\code{\link[=checkConfLevel]{checkConfLevel()}}, \code{\link[=checkCount]{checkCount()}}, \code{\link[=checkString]{checkString()}}
 }

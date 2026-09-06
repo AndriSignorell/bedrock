@@ -22,7 +22,7 @@
 #' @return
 #' a reshaped object of class `data.frame`.
 #'
-#' @seealso `reshape`, `stack`, `unstack`
+#' @seealso [reshape()], [stack()], [unstack()]
 #'
 #' @examples
 #' d.x <- read.table(header = TRUE, text = "

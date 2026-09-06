@@ -5,27 +5,27 @@
 #' Works for numeric, integer, and complex vectors.
 #'
 #' A value is considered whole-like if the absolute difference between
-#' the value and its nearest integer is smaller than \code{tol}.
+#' the value and its nearest integer is smaller than `tol`.
 #'
 #' For complex numbers, both real and imaginary parts must be whole-like;
-#' with \code{isNonNegative = TRUE}, both parts must additionally be
+#' with `isNonNegative = TRUE`, both parts must additionally be
 #' non-negative.
 #'
 #' @param x a numeric, integer, or complex vector.
-#' @param all logical. If \code{TRUE} (default), returns a single logical
-#'   indicating whether all elements are whole-like. If \code{FALSE},
-#'   returns a logical vector of the same length as \code{x}.
-#' @param isNonNegative logical. If \code{TRUE}, additionally requires values
+#' @param all logical. If `TRUE` (default), returns a single logical
+#'   indicating whether all elements are whole-like. If `FALSE`,
+#'   returns a logical vector of the same length as `x`.
+#' @param isNonNegative logical. If `TRUE`, additionally requires values
 #'   to be non-negative.
 #' @param tol numerical tolerance for comparing to the nearest integer.
-#'   Default is \code{sqrt(.Machine$double.eps)}.
-#' @param na.rm logical. If \code{TRUE}, missing values are removed before
-#'   testing. If \code{FALSE} (default) and \code{x} contains \code{NA},
-#'   the result is \code{FALSE}.
+#'   Default is `sqrt(.Machine$double.eps)`.
+#' @param na.rm logical. If `TRUE`, missing values are removed before
+#'   testing. If `FALSE` (default) and `x` contains `NA`,
+#'   the result is `FALSE`.
 #'
 #' @return
-#' if \code{all = TRUE}, a single logical value.
-#' If \code{all = FALSE}, a logical vector.
+#' if `all = TRUE`, a single logical value.
+#' If `all = FALSE`, a logical vector.
 #'
 #' @examples
 #' isWholeLike(c(1, 2, 3))

@@ -34,7 +34,7 @@ where \eqn{\overline{x_i}} denotes the complex conjugate of \eqn{x_i}
 For matrices, the dot product of each column of \code{x} with the
 corresponding column of \code{y} is returned.
 
-Note that \code{\link[base]{crossprod}} does \emph{not} conjugate its
+Note that \code{\link[=crossprod]{crossprod()}} does \emph{not} conjugate its
 first argument for complex input, so it computes \eqn{t(X) Y} rather
 than the Hermitian inner product; this function does conjugate.
 }
@@ -52,7 +52,7 @@ dotProd(x, y)
 
 }
 \seealso{
-\code{\link[base]{crossprod}}
+\code{\link[=crossprod]{crossprod()}}
 
 Other math.basic:
 \code{\link[=closest]{closest()}},

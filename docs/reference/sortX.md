@@ -1,6 +1,6 @@
 # Sort Vectors, Matrices, Tables, and Data Frames
 
-`sortX` extends the base [`sort`](https://rdrr.io/r/base/sort.html)
+`sortX` extends the base [`sort()`](https://rdrr.io/r/base/sort.html)
 function by providing a consistent interface for sorting not only
 vectors, but also matrices, tables, and data frames. For 2-dimensional
 objects, rows are sorted based on one or more columns.
@@ -63,8 +63,8 @@ sortX(
 
 - ...:
 
-  further arguments passed to [`sort`](https://rdrr.io/r/base/sort.html)
-  in `sortX.default`.
+  further arguments passed to
+  [`sort()`](https://rdrr.io/r/base/sort.html) in `sortX.default`.
 
 - decreasing:
 
@@ -76,7 +76,7 @@ sortX(
 
   logical or `NA`. Should missing values be placed last (`TRUE`), first
   (`FALSE`), or removed (`NA`)? See
-  [`order`](https://rdrr.io/r/base/order.html).
+  [`order()`](https://rdrr.io/r/base/order.html).
 
 - method:
 
@@ -122,8 +122,8 @@ unintuitive for unordered ones.
 
 ## See also
 
-[`sort`](https://rdrr.io/r/base/sort.html),
-[`order`](https://rdrr.io/r/base/order.html)
+[`sort()`](https://rdrr.io/r/base/sort.html),
+[`order()`](https://rdrr.io/r/base/order.html)
 
 Other data.order: [`binaryTree()`](binaryTree.md), [`revX()`](revX.md)
 

@@ -13,7 +13,7 @@ allDuplicated(x)
 a logical vector of the same length as \code{x}.
 }
 \description{
-The function \code{\link{duplicated}} returns a logical vector indicating
+The function \code{\link[=duplicated]{duplicated()}} returns a logical vector indicating
 which elements of \code{x} are duplicates, but it does not flag the first
 occurrence of subsequently duplicated elements.
 }
@@ -28,7 +28,7 @@ Consequently, \code{!allDuplicated(x)} can be used to identify elements of
 \code{x} that appear exactly once.
 
 Missing values are considered equal to each other, so multiple \code{NA}s
-are flagged as ties. As the function builds on \code{\link{duplicated}},
+are flagged as ties. As the function builds on \code{\link[=duplicated]{duplicated()}},
 it also works for data frames (row-wise) and matrices.
 }
 \examples{
@@ -60,11 +60,11 @@ tab[tab > 1]
 
 }
 \seealso{
-\code{\link{duplicated}} for identifying duplicate elements (excluding first
+\code{\link[=duplicated]{duplicated()}} for identifying duplicate elements (excluding first
 occurrences). \cr
-\code{\link{unique}} for extracting unique values. \cr
-\code{\link{split}} for grouping tied values. \cr
-\code{\link{table}} for counting frequencies.
+\code{\link[=unique]{unique()}} for extracting unique values. \cr
+\code{\link[=split]{split()}} for grouping tied values. \cr
+\code{\link[=table]{table()}} for counting frequencies.
 
 Other data.equal:
 \code{\link[=allIdentical]{allIdentical()}},

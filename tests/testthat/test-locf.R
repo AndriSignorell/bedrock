@@ -37,3 +37,59 @@ test_that("locf result has same length as input", {
   x <- c(1, NA, 3, NA, NA)
   expect_length(locf(x), length(x))
 })
+
+
+test_that("locf handles data frames column by column", {
+  x <- data.frame(
+    a = c(NA, 1, NA, 3),
+    b = c(10, NA, 20, NA)
+  )
+  expected <- data.frame(
+    a = c(NA, 1, 1, 3),
+    b = c(10, 10, 20, 20)
+  )
+  
+  out <- locf(x)
+  
+  expect_s3_class(out, "data.frame")
+  expect_identical(out, expected)
+})
+
+test_that("locf handles matrix columns independently", {
+  x <- cbind(
+    a = c(NA, 1, NA, 3),
+    b = c(10, NA, 20, NA)
+  )
+  expected <- cbind(
+    a = c(NA, 1, 1, 3),
+    b = c(10, 10, 20, 20)
+  )
+  
+  out <- locf(x)
+  
+  expect_true(is.matrix(out))
+  expect_identical(out, expected)
+})
+
+test_that("locf preserves factor levels and ordering", {
+  x <- ordered(
+    c(NA, "low", NA, "high", NA),
+    levels = c("low", "medium", "high")
+  )
+  
+  out <- locf(x)
+  
+  expect_true(is.ordered(out))
+  expect_identical(levels(out), levels(x))
+  expect_identical(
+    as.character(out),
+    c(NA, "low", "low", "high", "high")
+  )
+})
+
+test_that("locf preserves empty vector types", {
+  expect_identical(locf(numeric()), numeric())
+  expect_identical(locf(character()), character())
+  expect_identical(locf(as.Date(character())), as.Date(character()))
+})
+

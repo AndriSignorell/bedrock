@@ -29,7 +29,7 @@ mReplace(c("a", "b", "c", "d"), c("a", "c"), c("A", "C"))
 
 }
 \seealso{
-\code{\link{mGsub}} for substring replacement.
+\code{\link[=mGsub]{mGsub()}} for substring replacement.
 
 Other data.recode:
 \code{\link[=asBinary]{asBinary()}},

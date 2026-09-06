@@ -34,7 +34,7 @@ present in only one of the two frames and columns that differ in matched rows.
 }
 \details{
 Only columns present in both data frames are compared. Rows are matched by
-the \code{key} column using \code{\link{identical}} for element-wise comparison,
+the \code{key} column using \code{\link[=identical]{identical()}} for element-wise comparison,
 so type differences (e.g., \code{integer} vs. \code{double}) will be flagged
 as differences.
 

@@ -51,7 +51,7 @@ cat(funArgs("combN", output = "string"))
 
 }
 \seealso{
-\code{\link{formals}}, \code{\link{args}}
+\code{\link[=formals]{formals()}}, \code{\link[=args]{args()}}
 
 Other pkg.funinfo:
 \code{\link[=funCalls]{funCalls()}},

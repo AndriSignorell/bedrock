@@ -1,51 +1,51 @@
 
 #' Collapse Table Dimensions by Remapping Factor Levels
 #'
-#' Aggregates a \code{table} or \code{ftable} object by reassigning the levels
+#' Aggregates a `table` or `ftable` object by reassigning the levels
 #' of one or more dimensions according to user-supplied mappings, and summing
 #' the frequencies within each resulting level combination.
 #'
-#' @param x a \code{table} or \code{ftable} object with named dimensions.
+#' @param x a `table` or `ftable` object with named dimensions.
 #' @param ... named or unnamed mapping vectors specifying how levels of each
 #'   dimension should be collapsed. Each mapping vector must have length equal
 #'   to the number of levels in the corresponding dimension.
-#' @param strict logical (default \code{TRUE}). Controls error handling.
+#' @param strict logical (default `TRUE`). Controls error handling.
 #'
 #' @details
-#' Mapping vectors define how factor levels are reassigned. Element \code{i}
-#' specifies the new label for the \code{i}-th original level. Repeated values
+#' Mapping vectors define how factor levels are reassigned. Element `i`
+#' specifies the new label for the `i`-th original level. Repeated values
 #' in a mapping vector cause the corresponding levels to be merged.
 #'
-#' \strong{Argument matching}
+#' **Argument matching**
 #' \itemize{
 #'   \item Named arguments are matched to dimensions by name
-#'   (e.g., \code{age = c("young", "adult")}).
+#'   (e.g., `age = c("young", "adult")`).
 #'   \item Unnamed arguments are assigned to dimensions in order.
 #'   \item Mixed usage assigns named arguments first, then remaining unnamed
 #'   arguments in order.
 #' }
 #'
-#' \strong{Constraints}
+#' **Constraints**
 #' \itemize{
 #'   \item Each dimension may be specified at most once.
 #'   \item Mapping vectors must have the same length as the number of levels
 #'   of the corresponding dimension.
-#'   \item \code{NA} values in mapping vectors are not allowed.
+#'   \item `NA` values in mapping vectors are not allowed.
 #' }
 #'
-#' \strong{Level ordering}
+#' **Level ordering**
 #' The order of the resulting levels follows the first occurrence of each value
 #' in the mapping vector.
 #'
-#' \strong{Error handling}
+#' **Error handling**
 #' \itemize{
-#'   \item If \code{strict = TRUE}, unknown dimension names result in an error,
+#'   \item If `strict = TRUE`, unknown dimension names result in an error,
 #'   and positional assignment of unnamed arguments produces a warning.
-#'   \item If \code{strict = FALSE}, unknown dimensions produce a warning
+#'   \item If `strict = FALSE`, unknown dimensions produce a warning
 #'   (and are ignored), and positional assignment is silent.
 #' }
 #'
-#' @return a collapsed \code{table} object with updated dimensions and
+#' @return a collapsed `table` object with updated dimensions and
 #'   aggregated frequencies.
 #'
 #' @examples

@@ -24,7 +24,7 @@ script: two calls with the same seed give the same result, and whatever
 is drawn after them is unaffected by either.
 }
 \details{
-The plain idiom \code{set.seed(s); expr} lacks the second half. In a
+The plain idiom \verb{set.seed(s); expr} lacks the second half. In a
 script that generates a series of random objects, seeding one of them
 shifts every draw that follows, so results that were correct before the
 seed was added silently change.

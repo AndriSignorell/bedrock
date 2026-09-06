@@ -32,7 +32,7 @@ frames, a data frame containing the sampled rows.
 \description{
 \code{sampleX} takes a sample of the specified size from the elements
 of \code{x}, with or without replacement. It does the same as
-\code{base::sample()} and additionally offers an interface for data
+\code{\link[=sample]{sample()}} and additionally offers an interface for data
 frames, where rows are sampled.
 }
 \examples{
@@ -47,7 +47,7 @@ sampleX(mtcars, size = 5)
 
 }
 \seealso{
-\code{\link{sample}}
+\code{\link[=sample]{sample()}}
 
 Other combinatorics:
 \code{\link[=combN]{combN()}},
@@ -59,4 +59,3 @@ Other combinatorics:
 }
 \concept{combinatorics}
 \concept{sampling}
-\keyword{distribution}

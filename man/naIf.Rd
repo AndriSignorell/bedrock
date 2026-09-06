@@ -17,7 +17,7 @@ a vector of the same type as \code{x}.
 \description{
 Replaces specified values in a vector with \code{NA}, in the manner of
 SQL's \code{NULLIF}. This is the complementary operation to
-\code{\link{coalesceX}}.
+\code{\link[=coalesceX]{coalesceX()}}.
 }
 \examples{
 naIf(c(1, 2, 99, 3, 99), 99)

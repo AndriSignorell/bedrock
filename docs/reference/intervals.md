@@ -57,6 +57,9 @@ Intervals are treated as closed, i.e., \\\[a, b\]\\. Consequently:
 
 - `distance` returns 0 whenever intervals touch or overlap.
 
+- The returned vector is always unnamed, whatever dimnames the inputs
+  carry.
+
 ## See also
 
 Other data.interval: [`between-operators`](between-operators.md),

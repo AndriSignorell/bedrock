@@ -63,7 +63,7 @@ Recycling follows standard R rules.
 
 ## See also
 
-[`which`](https://rdrr.io/r/base/which.html)
+[`which()`](https://rdrr.io/r/base/which.html)
 
 Other math.basic: [`crossProd()`](crossProd.md),
 [`crossProdN()`](crossProdN.md), [`dotProd()`](dotProd.md),

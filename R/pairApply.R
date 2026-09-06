@@ -4,9 +4,9 @@
 #' Implements a logic to run pairwise calculations on the columns of a
 #' data.frame or a matrix.
 #'
-#' This code is based on the logic of \code{cor()} and extended for asymmetric
-#' functions. Cell \code{[i, j]} of the result contains
-#' \code{FUN(x[[i]], x[[j]], ...)}, so the first argument of \code{FUN}
+#' This code is based on the logic of `cor()` and extended for asymmetric
+#' functions. Cell `[i, j]` of the result contains
+#' `FUN(x[[i]], x[[j]], ...)`, so the first argument of `FUN`
 #' corresponds to the row variable and the second to the column variable.
 #'
 #' @param x a list, a data.frame or a matrix with columns to be processed
@@ -16,13 +16,11 @@
 #' returns a single numeric value.
 #' @param \dots the dots are passed to FUN.
 #' @param symmetric logical. Does the function yield the same result for FUN(x,
-#' y) and FUN(y, x)? \cr If \code{TRUE} just the lower triangular matrix is
+#' y) and FUN(y, x)? \cr If `TRUE` just the lower triangular matrix is
 #' calculated and mirrored. Default is FALSE.
 #'
 #' @return a matrix with the results of FUN.
 #'
-#' @seealso [base::outer()], [stats::pairwise.table]
-#' @keywords manip
 #' @examples
 #'
 #' # build a dataset
@@ -42,6 +40,8 @@
 #'   FUN = function(x,y)
 #'     wilcox.test(as.numeric(x), as.numeric(y))$p.value, symmetric=TRUE)
 #'
+#' @seealso [outer()], [pairwise.table()]
+#' 
 #' @family combinatorics
 #' @concept combinatorics
 #' @concept programming

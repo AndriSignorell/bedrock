@@ -18,10 +18,13 @@ devtools::clean_dll()
 devtools::check()
 devtools::install()
 
+setwd("C:/Users/andri/OneDrive/Dokumente/R-Dev/bedrock")
+getwd()
+
 devtools::build_manual(pkg = "C:/temp/DescToolsX")
 devtools::build_manual(pkg = "C:/temp/lumen")
 devtools::build_manual(pkg = "C:/temp/pharos")
-devtools::build_manual(pkg = "C:/temp/bedrock")
+devtools::build_manual(pkg = "C:/Users/andri/OneDrive/Dokumente/R-Dev/bedrock")
 devtools::build_manual(pkg = "C:/temp/alloy")
 devtools::build_manual(pkg = "C:/temp/hermes")
 devtools::build_manual(pkg = "C:/temp/pons")
@@ -32,6 +35,8 @@ devtools::load_all()
 
 devtools::test()
 devtools::run_examples()
+
+devtools::test(filter = "precision")
 
 devtools::check(args = "--as-cran")
 devtools::check_mac_release()
@@ -245,9 +250,70 @@ update_roxy_safe <- function(file, tax) {
 # ==========================================================================
 # handling helpfiles
 
-tools::Rd2pdf(
-  "C:/temp/lumen",
-  output = "C:/temp/lumen-manual.pdf"
-)
+rd2pdf("between-operators.Rd")
+
+
+rd2pdf <- function(file,
+                   output = file.path(
+                     "C:/temp",
+                     sub("\\.[Rr]d$", ".pdf", basename(file))
+                   )) {
+  
+  project <- paste0(rstudioapi::getActiveProject(), "/man")
+  
+  if (is.null(project))
+    stop("No active RStudio project.")
+  
+  file <- file.path(project, file)
+  
+  system2(
+    file.path(R.home("bin"), "R"),
+    c(
+      "CMD", "Rd2pdf", "--force",
+      paste0("--output=", shQuote(output)),
+      shQuote(file)
+    )
+  )
+}
+
+
+
+## Link-Ziele aus R/ oder man/ einsammeln --------------------------------
+linkTargets <- function(path) {
+  files <- list.files(path, pattern = "[.]([Rr]|Rd)$", full.names = TRUE)
+  txt   <- unlist(lapply(files, readLines, warn = FALSE))
+  hits  <- unlist(regmatches(txt, gregexpr("\\\\link(\\[[^]]*\\])?\\{[^}]*\\}", txt)))
+  
+  opt  <- sub("^\\\\link(\\[([^]]*)\\])?\\{.*$", "\\2", hits)         # in [ ]
+  body <- sub("^\\\\link(\\[[^]]*\\])?\\{([^}]*)\\}$", "\\2", hits)   # in { }
+  
+  ifelse(opt == "",            body,                        # \link{ziel}
+         ifelse(startsWith(opt, "="), sub("^=", "", opt),          # \link[=ziel]{text}
+                ifelse(grepl(":", opt),      opt,                         # \link[pkg:ziel]{text}
+                       paste0(opt, ":", body))))    # \link[pkg]{ziel}
+}
+
+
+sort(table(linkTargets("R")))
+
+
+alt <- linkTargets("man_backup")
+
+roxygen2md::roxygen2md("full")
+
+neu <- linkTargets("man")
+setdiff(alt, neu)   # verlorene Ziele
+setdiff(neu, alt)   # neue Ziele
+
+r <- list.files("R", pattern = "[.][Rr]$", full.names = TRUE)
+txt <- lapply(r, readLines, warn = FALSE)
+bad <- c("Pizza", "Cards", "Roulette", "Tarot", "courseData",
+         "type-aliases", "long-wide-reshape", "between-operators",
+         "range-operators", "setAttr-removeAttr-keepAttr", "GCD-LCM",
+         "char-ascii-conversion", "numeric-conversions")
+pat <- paste0("\\[(", paste(bad, collapse = "|"), ")\\(\\)\\]")
+hits <- lapply(txt, grep, pattern = pat, value = TRUE)
+data.frame(file = basename(r)[lengths(hits) > 0],
+           line = unlist(hits[lengths(hits) > 0]))
 
 

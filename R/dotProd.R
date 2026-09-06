@@ -11,20 +11,20 @@
 #' where \eqn{\overline{x_i}} denotes the complex conjugate of \eqn{x_i}
 #' (for real input this is simply \eqn{\sum_i x_i y_i}).
 #'
-#' For matrices, the dot product of each column of \code{x} with the
-#' corresponding column of \code{y} is returned.
+#' For matrices, the dot product of each column of `x` with the
+#' corresponding column of `y` is returned.
 #'
-#' Note that \code{\link[base]{crossprod}} does \emph{not} conjugate its
+#' Note that [crossprod()] does *not* conjugate its
 #' first argument for complex input, so it computes \eqn{t(X) Y} rather
 #' than the Hermitian inner product; this function does conjugate.
 #'
 #' @param x a numeric or complex vector, or a numeric/complex matrix.
 #' @param y a numeric or complex vector, or a numeric/complex matrix with the
-#'   same dimensions as \code{x}.
+#'   same dimensions as `x`.
 #'
 #' @return
 #' \itemize{
-#'   \item a scalar if \code{x} and \code{y} are vectors.
+#'   \item a scalar if `x` and `y` are vectors.
 #'   \item a numeric or complex vector containing the column-wise dot
 #'   products if matrices are supplied.
 #' }
@@ -41,7 +41,7 @@
 #' y <- matrix(6:1, ncol = 2)
 #' dotProd(x, y)
 #'
-#' @seealso \code{\link[base]{crossprod}}
+#' @seealso [crossprod()]
 #'
 #' @family math.basic
 #' @concept linear-algebra

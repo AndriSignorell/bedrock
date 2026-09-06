@@ -20,8 +20,8 @@ trailing whitespace.  Stops with an error if \code{topic} is not found.
 }
 \description{
 Searches all \file{.Rd} files in a package's \file{man/} directory for a
-given topic (matched against \code{\\alias} entries) and returns its
-\code{\\title} string.
+given topic (matched against \verb{\\\\alias} entries) and returns its
+\verb{\\\\title} string.
 }
 \examples{
 \dontrun{
@@ -31,7 +31,7 @@ rdTitle("lm", man = "path/to/pkg/man")
 
 }
 \seealso{
-\code{\link[tools]{parse_Rd}}
+\code{\link[tools:parse_Rd]{tools::parse_Rd()}}
 
 Other pkg.funinfo:
 \code{\link[=funArgs]{funArgs()}},

@@ -37,6 +37,6 @@ Other file.path:
 \code{\link[=isURL]{isURL()}},
 \code{\link[=splitPath]{splitPath()}}
 }
-\concept{file-io}
+\concept{file.io}
 \concept{file.path}
 \concept{path-handling}

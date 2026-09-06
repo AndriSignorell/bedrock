@@ -7,17 +7,17 @@
 #' an intermediate step.
 #'
 #' Patterns are processed in the given order. For overlapping patterns
-#' (e.g. \code{"AB"} and \code{"A"}), list the longer pattern first,
+#' (e.g. `"AB"` and `"A"`), list the longer pattern first,
 #' otherwise the shorter one consumes its characters before the longer
 #' one is considered.
 #'
 #' @param x a character vector in which substitutions are performed.
 #' @param patterns a character vector of substrings to search for
-#'   (\code{fixed = TRUE}).
+#'   (`fixed = TRUE`).
 #' @param replacements a character vector of replacement strings,
-#'   in the same order as \code{patterns}.
+#'   in the same order as `patterns`.
 #'
-#' @return a character vector of the same length as \code{x}.
+#' @return a character vector of the same length as `x`.
 #'
 #' @examples
 #' mGsub(c("foo bar", "bar foo"), c("foo", "bar"), c("bar", "foo"))
@@ -29,7 +29,7 @@
 #' x <- c("A", "B", "AB", "BA")
 #' mGsub(x, patterns = c("A", "B"), replacements = c("BX", "CY"))
 #'
-#' @seealso \code{\link{mReplace}} for exact whole-element replacement.
+#' @seealso [mReplace()] for exact whole-element replacement.
 #'
 #' @family string.transform
 #' @concept string-manipulation

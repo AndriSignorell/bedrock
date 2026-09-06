@@ -5,9 +5,9 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Logical Indicator for All Values Involved in Ties — allDuplicated"><meta name="description" content="The function duplicated returns a logical vector indicating
+</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Logical Indicator for All Values Involved in Ties — allDuplicated"><meta name="description" content="The function duplicated() returns a logical vector indicating
 which elements of x are duplicates, but it does not flag the first
-occurrence of subsequently duplicated elements."><meta property="og:description" content="The function duplicated returns a logical vector indicating
+occurrence of subsequently duplicated elements."><meta property="og:description" content="The function duplicated() returns a logical vector indicating
 which elements of x are duplicates, but it does not flag the first
 occurrence of subsequently duplicated elements."><meta property="og:image" content="/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -17,7 +17,7 @@ occurrence of subsequently duplicated elements."><meta property="og:image" conte
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,7 @@ occurrence of subsequently duplicated elements."><meta property="og:image" conte
     </div>
 
     <div class="ref-description section level2">
-    <p>The function <code><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></code> returns a logical vector indicating
+    <p>The function <code><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated()</a></code> returns a logical vector indicating
 which elements of <code>x</code> are duplicates, but it does not flag the first
 occurrence of subsequently duplicated elements.</p>
     </div>
@@ -83,13 +83,13 @@ the duplicates beyond the first occurrence.</p>
 <p>Consequently, <code>!allDuplicated(x)</code> can be used to identify elements of
 <code>x</code> that appear exactly once.</p>
 <p>Missing values are considered equal to each other, so multiple <code>NA</code>s
-are flagged as ties. As the function builds on <code><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></code>,
+are flagged as ties. As the function builds on <code><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated()</a></code>,
 it also works for data frames (row-wise) and matrices.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></code> for identifying duplicate elements (excluding first
-occurrences). <br><code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></code> for extracting unique values. <br><code><a href="https://rdrr.io/r/base/split.html" class="external-link">split</a></code> for grouping tied values. <br><code><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></code> for counting frequencies.</p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated()</a></code> for identifying duplicate elements (excluding first
+occurrences). <br><code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code> for extracting unique values. <br><code><a href="https://rdrr.io/r/base/split.html" class="external-link">split()</a></code> for grouping tied values. <br><code><a href="https://rdrr.io/r/base/table.html" class="external-link">table()</a></code> for counting frequencies.</p>
 <p>Other data.equal:
 <code><a href="allIdentical.html">allIdentical()</a></code>,
 <code><a href="compareDataFrames.html">compareDataFrames()</a></code></p></div>

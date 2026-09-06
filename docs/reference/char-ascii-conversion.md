@@ -70,8 +70,12 @@ The `output` argument controls the representation returned by
 
 ## See also
 
-[`charToRaw`](https://rdrr.io/r/base/rawConversion.html),
-[`rawToChar`](https://rdrr.io/r/base/rawConversion.html)
+[`charToRaw()`](https://rdrr.io/r/base/rawConversion.html),
+[`rawToChar()`](https://rdrr.io/r/base/rawConversion.html)
+
+Other string.transform: [`mGsub()`](mGsub.md),
+[`strSplitToCol()`](strSplitToCol.md),
+[`strSplitToDummy()`](strSplitToDummy.md)
 
 ## Examples
 

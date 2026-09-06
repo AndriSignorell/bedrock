@@ -2,37 +2,37 @@
 #' Convert Custom Date Format to strftime Format
 #'
 #' Translates a custom date format string using tokens like
-#' \code{yyyy}, \code{mm}, \code{dd}, \code{mmm}, etc. into a valid
-#' \code{strftime}-compatible format string (C-style).
+#' `yyyy`, `mm`, `dd`, `mmm`, etc. into a valid
+#' `strftime`-compatible format string (C-style).
 #'
 #' The function parses the input string sequentially and replaces
 #' recognized tokens while leaving all other characters unchanged.
-#' This makes it robust to compact formats (e.g. \code{yyyymmdd})
+#' This makes it robust to compact formats (e.g. `yyyymmdd`)
 #' and mixed text.
 #'
 #' Supported tokens:
 #' \itemize{
-#'   \item \code{d}, \code{dd}, \code{ddd}, \code{dddd}
-#'   \item \code{m}, \code{mm}, \code{mmm}, \code{mmmm}
-#'   \item \code{y}, \code{yy}, \code{yyyy}
+#'   \item `d`, `dd`, `ddd`, `dddd`
+#'   \item `m`, `mm`, `mmm`, `mmmm`
+#'   \item `y`, `yy`, `yyyy`
 #' }
 #'
 #' Mapping:
 #' \itemize{
-#'   \item \code{yyyy} -> \code{\%Y}
-#'   \item \code{yy}, \code{y} -> \code{\%y}
-#'   \item \code{mm}, \code{m} -> \code{\%m}
-#'   \item \code{mmm} -> \code{\%b}
-#'   \item \code{mmmm} -> \code{\%B}
-#'   \item \code{dd} -> \code{\%d}
-#'   \item \code{d} -> \code{\%e}
-#'   \item \code{ddd} -> \code{\%a}
-#'   \item \code{dddd} -> \code{\%A}
+#'   \item `yyyy` -> `\%Y`
+#'   \item `yy`, `y` -> `\%y`
+#'   \item `mm`, `m` -> `\%m`
+#'   \item `mmm` -> `\%b`
+#'   \item `mmmm` -> `\%B`
+#'   \item `dd` -> `\%d`
+#'   \item `d` -> `\%e`
+#'   \item `ddd` -> `\%a`
+#'   \item `dddd` -> `\%A`
 #' }
 #'
 #' @param fmt character string. Custom date format.
 #'
-#' @return character string. A valid \code{strftime} format.
+#' @return character string. A valid `strftime` format.
 #'
 #' @examples
 #' asCDateFmt("yyyy-mm-dd")
@@ -41,7 +41,6 @@
 #' asCDateFmt("mmm d, yyyy")
 #'
 #' @family date.format
-#' @concept date-time
 #' @concept formatting
 #' @export
 asCDateFmt <- function(fmt) {
