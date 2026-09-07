@@ -6,12 +6,12 @@
     }
   };
 </script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Parse and Classify a Model Formula — resolveFormula"><meta name="description" content="Parses a model formula, builds the model frame and classifies the resulting
-design into one of six dependency structures. The pieces of the design are
+design into one of seven dependency structures. The pieces of the design are
 returned under a fixed set of names, so that every function offering a
 formula interface can share one entry point instead of re-implementing the
 parsing, the subset handling and the distinction between a grouping
 factor, a numeric predictor and a blocking variable."><meta property="og:description" content="Parses a model formula, builds the model frame and classifies the resulting
-design into one of six dependency structures. The pieces of the design are
+design into one of seven dependency structures. The pieces of the design are
 returned under a fixed set of names, so that every function offering a
 formula interface can share one entry point instead of re-implementing the
 parsing, the subset handling and the distinction between a grouping
@@ -23,7 +23,7 @@ factor, a numeric predictor and a blocking variable."><meta property="og:image" 
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@ factor, a numeric predictor and a blocking variable."><meta property="og:image" 
 
     <div class="ref-description section level2">
     <p>Parses a model formula, builds the model frame and classifies the resulting
-design into one of six dependency structures. The pieces of the design are
+design into one of seven dependency structures. The pieces of the design are
 returned under a fixed set of names, so that every function offering a
 formula interface can share one entry point instead of re-implementing the
 parsing, the <code>subset</code> handling and the distinction between a grouping
@@ -71,10 +71,10 @@ factor, a numeric predictor and a blocking variable.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">resolveFormula</span><span class="op">(</span></span>
 <span>  <span class="va">formula</span>,</span>
 <span>  <span class="va">data</span>,</span>
-<span>  <span class="va">subset</span>,</span>
+<span>  subset <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  na.action <span class="op">=</span> <span class="va">na.pass</span>,</span>
 <span>  allowed <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"one-sample"</span>, <span class="st">"two-sample-independent"</span>, <span class="st">"two-sample-dependent"</span>,</span>
-<span>    <span class="st">"n-sample-independent"</span>, <span class="st">"n-sample-dependent"</span>, <span class="st">"numeric-numeric"</span><span class="op">)</span></span>
+<span>    <span class="st">"n-sample-independent"</span>, <span class="st">"n-sample-dependent"</span>, <span class="st">"numeric-numeric"</span>, <span class="st">"regression"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -94,7 +94,10 @@ constructs a two-column matrix of paired observations.</p></dd>
 <dd><p>two-sample or n-sample independent group comparison.</p></dd>
 
 <dt><code>y ~ x</code>, <code>x</code> numeric</dt>
-<dd><p>numeric-numeric (correlation, regression).</p></dd>
+<dd><p>numeric-numeric (correlation, simple regression).</p></dd>
+
+<dt><code>y ~ x1 + x2 + ...</code></dt>
+<dd><p>general regression.</p></dd>
 
 <dt><code>y ~ trt | block</code></dt>
 <dd><p>n-sample dependent (blocked design).</p></dd>
@@ -109,9 +112,9 @@ A matrix is coerced to a data frame.</p></dd>
 
 
 <dt id="arg-subset">subset<a class="anchor" aria-label="anchor" href="#arg-subset"></a></dt>
-<dd><p>an optional expression indicating which observations to use.
-Must be captured via <code><a href="https://rdrr.io/r/base/substitute.html" class="external-link">substitute()</a></code> in the calling function to avoid
-collision with <code><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset()</a></code>. See Details.</p></dd>
+<dd><p>an <em>already captured</em> subset expression, an index vector, or
+<code>NULL</code> (the default). The argument is taken by value, never by
+<code><a href="https://rdrr.io/r/base/substitute.html" class="external-link">substitute()</a></code>. See Details.</p></dd>
 
 
 <dt id="arg-na-action">na.action<a class="anchor" aria-label="anchor" href="#arg-na-action"></a></dt>
@@ -123,8 +126,9 @@ defaults to <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external
 <dd><p>a character vector restricting which design types are
 accepted, any combination of <code>"one-sample"</code>,
 <code>"two-sample-independent"</code>, <code>"two-sample-dependent"</code>,
-<code>"n-sample-independent"</code>, <code>"n-sample-dependent"</code> and
-<code>"numeric-numeric"</code>. The values are matched exactly, an unknown one is an
+<code>"n-sample-independent"</code>, <code>"n-sample-dependent"</code>,
+<code>"numeric-numeric"</code> and <code>"regression"</code>. The values are matched exactly,
+an unknown one is an
 error rather than being ignored. A further error is raised if the detected
 type is not among the allowed ones. Defaults to all types.</p></dd>
 
@@ -136,6 +140,13 @@ type is not among the allowed ones. Defaults to all types.</p></dd>
 
 <dt>mf</dt>
 <dd><p>the <code><a href="https://rdrr.io/r/stats/model.frame.html" class="external-link">model.frame()</a></code> the design was read from.</p></dd>
+
+<dt>rows</dt>
+<dd><p>integer, the positions of the retained observations in the
+original data, or <code>NULL</code> if they cannot be determined.</p></dd>
+
+<dt>response</dt>
+<dd><p>the left-hand side of the formula.</p></dd>
 
 <dt>dataName</dt>
 <dd><p>character, the deparsed formula, for use as the
@@ -169,20 +180,38 @@ analysis of variance or the Friedman test.</p></dd>
 
 <dt><code>numeric-numeric</code></dt>
 <dd><p><code>y ~ x</code> with a numeric right-hand side, as in
-correlation or regression.</p></dd>
+correlation or simple regression.</p></dd>
+
+<dt><code>regression</code></dt>
+<dd><p>a general regression formula with one or more
+predictors.</p></dd>
 
 
 </dl><p><strong>Type detection</strong></p>
 <p>The type follows from the shape of the formula and from the class of the
 right-hand side variable, not from <code>allowed</code>. <code>allowed</code> only decides
-whether the detected type is accepted, with two exceptions worth knowing.
-A grouping factor carrying a single level is reported as <code>one-sample</code> if
-that type is allowed, and a two-group design is reported as
-<code>n-sample-independent</code> if <code>"two-sample-independent"</code> is not among the
-allowed types. Both are deliberate: a caller that treats every group count
-alike needs to allow one type only.</p>
-<p><strong>Field naming contract (binding across all types)</strong></p>
-<ul><li><p><code>group</code> is reserved for a categorical, factor-coercible variable of
+whether the detected type is accepted, with four exceptions worth knowing.</p><ol><li><p>A grouping factor carrying a single level is reported as
+<code>one-sample</code> if that type is allowed.</p></li>
+<li><p>A two-group design is reported as <code>n-sample-independent</code> if
+<code>"two-sample-independent"</code> is not among the allowed types. Together
+with the previous rule this lets a caller that treats every group count
+alike allow one type only.</p></li>
+<li><p><code>allowed = "regression"</code> on its own forces the <code>regression</code> type
+for every formula, including <code>y ~ 1</code> and <code>y ~ g</code>. This is the entry
+point for model-fitting callers, which interpret the right-hand side
+themselves.</p></li>
+<li><p>Otherwise <code>regression</code> is reported only for more than one
+right-hand side variable. With <code>allowed</code> containing both <code>"regression"</code>
+and <code>"numeric-numeric"</code>, <code>y ~ x</code> is therefore <code>numeric-numeric</code> while
+<code>y ~ x1 + x2</code> is <code>regression</code>.</p></li>
+</ol><p><strong>Field naming contract (binding across all types)</strong></p>
+<ul><li><p><code>response</code> is present for every type and always holds the
+left-hand side of the formula. It is the one field a caller can rely on
+without branching on <code>type</code>.</p></li>
+<li><p><code>x</code> is an alias of <code>response</code> for the types that are conventionally
+described in terms of a sample rather than a model (<code>one-sample</code>,
+<code>two-sample-*</code>, <code>n-sample-independent</code>, <code>numeric-numeric</code>).</p></li>
+<li><p><code>group</code> is reserved for a categorical, factor-coercible variable of
 length <code>n</code> (the full sample) that splits the response into groups. It
 is never pre-split and never used for a continuous variable. <code>x</code> and
 <code>group</code> have an identical shape for <code>two-sample-independent</code> and for
@@ -199,28 +228,54 @@ group of a two-sample design or the second paired vector. It is never
 needed for correct use: <code>x</code> and <code>group</code> (or <code>x</code> and <code>predictor</code>, or
 <code>treatment</code> and <code>block</code>) are always sufficient and are the canonical
 access path.</p></li>
+<li><p><code>rows</code> is present for every type and holds the positions of the
+retained observations in the original data, after <code>subset</code> and after
+<code>na.action</code>. It is the handle for synchronising an external vector
+(an ordering variable, weights) with the model frame:
+<code>z &lt;- z[r$rows]</code>. It is <code>NULL</code> in the rare case where the row names of
+the model frame cannot be matched back, e.g. when a numeric <code>subset</code>
+selects a row twice.</p></li>
+<li><p><code>terms</code> is returned for the <code>regression</code> type. Build the design
+matrix from it, <code>model.matrix(r$terms, r$mf)</code>, never from the original
+formula: the columns of a model frame are named after the deparsed
+expressions (<code>"log(x)"</code>), so re-evaluating the formula against the
+model frame fails for every transformed term.</p></li>
 </ul><p><strong>Missing values</strong></p>
 <p>Missing values are left to <code>na.action</code> and are not touched otherwise, so
 with the default <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.pass()</a></code> they reach the caller untouched. The one
 exception is the grouping factor of an independent design, where empty and
 missing levels are dropped before the groups are counted. A grouping
 variable that is missing throughout leaves no level at all and is an error.</p>
+<p>Rows removed by <code>na.action</code> are recorded in <code>attr(r$mf, "na.action")</code>, but
+those indices are relative to the already subsetted frame. To align an
+external vector with the model frame use <code>rows</code>, which accounts for
+<code>subset</code> and <code>na.action</code> at once.</p>
 <p><strong>subset handling</strong></p>
-<p>Because <code>subset</code> is both an argument name and a base R function, name
-collisions can occur when forwarding to <code><a href="https://rdrr.io/r/stats/model.frame.html" class="external-link">model.frame()</a></code>. The calling
-function must therefore capture <code>subset</code> as an unevaluated expression and
-pass the resulting object on directly:</p>
+<p><code>subset</code> is taken by value. <code>resolveFormula()</code> does not call
+<code><a href="https://rdrr.io/r/base/substitute.html" class="external-link">substitute()</a></code> on it, so the calling function must capture the expression
+and hand the resulting language object on:</p>
 <div class="sourceCode"><pre><code><span></span>
 <span><span class="va">myFun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">formula</span>, <span class="va">data</span>, <span class="va">subset</span>, <span class="va">na.action</span> <span class="op">=</span> <span class="va">na.pass</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">subsetExpr</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">subset</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/substitute.html" class="external-link">substitute</a></span><span class="op">(</span><span class="va">subset</span><span class="op">)</span> <span class="kw">else</span> <span class="cn">NULL</span></span>
+<span>  <span class="va">subsetExpr</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">subset</span><span class="op">)</span><span class="op">)</span> <span class="cn">NULL</span> <span class="kw">else</span> <span class="fu"><a href="https://rdrr.io/r/base/substitute.html" class="external-link">substitute</a></span><span class="op">(</span><span class="va">subset</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="../reference/resolveFormula.html">resolveFormula</a></span><span class="op">(</span><span class="va">formula</span>, <span class="va">data</span>,</span>
 <span>                 subset    <span class="op">=</span> <span class="va">subsetExpr</span>,</span>
 <span>                 na.action <span class="op">=</span> <span class="va">na.action</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 
+<p>A language object is evaluated in <code>data</code>, with <code>environment(formula)</code> as
+the enclosure; anything else is passed on to <code><a href="https://rdrr.io/r/stats/model.frame.html" class="external-link">model.frame()</a></code> as an index
+vector. A bare expression written directly in the call
+(<code>resolveFormula(y ~ g, df, subset = g == "A")</code>) is evaluated as an ordinary
+argument and therefore only works if the variables live in the caller's
+frame; use <code>subset = quote(g == "A")</code> for a column of <code>data</code>.</p>
+<p>The model frame is built by constructing the <code><a href="https://rdrr.io/r/stats/model.frame.html" class="external-link">model.frame()</a></code> call with the
+resolved values inlined. Never route this through <code><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call()</a></code> with the
+default <code>quote = FALSE</code>: <code><a href="https://rdrr.io/r/stats/model.frame.html" class="external-link">model.frame()</a></code> applies <code><a href="https://rdrr.io/r/base/substitute.html" class="external-link">substitute()</a></code> to its own
+<code>subset</code> argument, so an argument that is still a symbol or an unevaluated
+call is re-evaluated in the wrong frame.</p>
 <p><strong>Return components by type</strong></p>
-<p>Every return value contains <code>type</code>, <code>mf</code> and <code>dataName</code>. The remaining
-components depend on the design:</p>
+<p>Every return value contains <code>type</code>, <code>mf</code>, <code>rows</code>, <code>response</code> and
+<code>dataName</code>, in that order. The remaining components depend on the design:</p>
 <dl><dt><code>one-sample</code></dt>
 <dd><p><code>x</code></p></dd>
 
@@ -235,10 +290,13 @@ second group)</p></dd>
 <dd><p><code>x</code>, <code>group</code></p></dd>
 
 <dt><code>n-sample-dependent</code></dt>
-<dd><p><code>response</code>, <code>treatment</code>, <code>block</code></p></dd>
+<dd><p><code>treatment</code>, <code>block</code></p></dd>
 
 <dt><code>numeric-numeric</code></dt>
 <dd><p><code>x</code>, <code>predictor</code></p></dd>
+
+<dt><code>regression</code></dt>
+<dd><p><code>terms</code></p></dd>
 
 
 </dl></div>
@@ -296,8 +354,9 @@ second group)</p></dd>
 <span class="r-in"><span><span class="va">r4</span> <span class="op">&lt;-</span> <span class="fu">resolveFormula</span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">trt</span> <span class="op">|</span> <span class="va">blk</span>, data <span class="op">=</span> <span class="va">df</span>,</span></span>
 <span class="r-in"><span>                     allowed <span class="op">=</span> <span class="st">"n-sample-dependent"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">r4</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "type"      "mf"        "response"  "treatment" "block"     "dataName" </span>
-<span class="r-in"><span><span class="co">## [1] "type" "mf" "response" "treatment" "block" "dataName"</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "type"      "mf"        "rows"      "response"  "treatment" "block"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [7] "dataName" </span>
+<span class="r-in"><span><span class="co">## [1] "type" "mf" "rows" "response" "treatment" "block" "dataName"</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># numeric-numeric: predictor, not group</span></span></span>
 <span class="r-in"><span><span class="va">df3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -305,6 +364,18 @@ second group)</p></dd>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">is.numeric</a></span><span class="op">(</span><span class="va">r5</span><span class="op">$</span><span class="va">predictor</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span><span class="co">## [1] TRUE</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># regression: build the design matrix from 'terms', not from the formula</span></span></span>
+<span class="r-in"><span><span class="va">r6</span> <span class="op">&lt;-</span> <span class="fu">resolveFormula</span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html" class="external-link">I</a></span><span class="op">(</span><span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">df3</span>,</span></span>
+<span class="r-in"><span>                     allowed <span class="op">=</span> <span class="st">"regression"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/model.matrix.html" class="external-link">model.matrix</a></span><span class="op">(</span><span class="va">r6</span><span class="op">$</span><span class="va">terms</span>, <span class="va">r6</span><span class="op">$</span><span class="va">mf</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "(Intercept)" "log(abs(x))" "I(x^2)"     </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># subset, captured by the caller</span></span></span>
+<span class="r-in"><span><span class="fu">resolveFormula</span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">g3</span>, data <span class="op">=</span> <span class="va">df</span>, subset <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substitute.html" class="external-link">quote</a></span><span class="op">(</span><span class="va">g3</span> <span class="op">!=</span> <span class="st">"C"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>               allowed <span class="op">=</span> <span class="st">"two-sample-independent"</span><span class="op">)</span><span class="op">$</span><span class="va">type</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "two-sample-independent"</span>
+<span class="r-in"><span><span class="co">## [1] "two-sample-independent"</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

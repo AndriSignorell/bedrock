@@ -1,7 +1,7 @@
 # Parse and Classify a Model Formula
 
 Parses a model formula, builds the model frame and classifies the
-resulting design into one of six dependency structures. The pieces of
+resulting design into one of seven dependency structures. The pieces of
 the design are returned under a fixed set of names, so that every
 function offering a formula interface can share one entry point instead
 of re-implementing the parsing, the `subset` handling and the
@@ -14,10 +14,10 @@ blocking variable.
 resolveFormula(
   formula,
   data,
-  subset,
+  subset = NULL,
   na.action = na.pass,
   allowed = c("one-sample", "two-sample-independent", "two-sample-dependent",
-    "n-sample-independent", "n-sample-dependent", "numeric-numeric")
+    "n-sample-independent", "n-sample-dependent", "numeric-numeric", "regression")
 )
 ```
 
@@ -43,7 +43,11 @@ resolveFormula(
 
   `y ~ x`, `x` numeric
 
-  :   numeric-numeric (correlation, regression).
+  :   numeric-numeric (correlation, simple regression).
+
+  `y ~ x1 + x2 + ...`
+
+  :   general regression.
 
   `y ~ trt | block`
 
@@ -56,10 +60,9 @@ resolveFormula(
 
 - subset:
 
-  an optional expression indicating which observations to use. Must be
-  captured via [`substitute()`](https://rdrr.io/r/base/substitute.html)
-  in the calling function to avoid collision with
-  [`subset()`](https://rdrr.io/r/base/subset.html). See Details.
+  an *already captured* subset expression, an index vector, or `NULL`
+  (the default). The argument is taken by value, never by
+  [`substitute()`](https://rdrr.io/r/base/substitute.html). See Details.
 
 - na.action:
 
@@ -71,10 +74,10 @@ resolveFormula(
   a character vector restricting which design types are accepted, any
   combination of `"one-sample"`, `"two-sample-independent"`,
   `"two-sample-dependent"`, `"n-sample-independent"`,
-  `"n-sample-dependent"` and `"numeric-numeric"`. The values are matched
-  exactly, an unknown one is an error rather than being ignored. A
-  further error is raised if the detected type is not among the allowed
-  ones. Defaults to all types.
+  `"n-sample-dependent"`, `"numeric-numeric"` and `"regression"`. The
+  values are matched exactly, an unknown one is an error rather than
+  being ignored. A further error is raised if the detected type is not
+  among the allowed ones. Defaults to all types.
 
 ## Value
 
@@ -88,6 +91,15 @@ a named list containing at least:
 
   the [`model.frame()`](https://rdrr.io/r/stats/model.frame.html) the
   design was read from.
+
+- rows:
+
+  integer, the positions of the retained observations in the original
+  data, or `NULL` if they cannot be determined.
+
+- response:
+
+  the left-hand side of the formula.
 
 - dataName:
 
@@ -126,21 +138,47 @@ plus the design-specific components described under Details.
 
 - `numeric-numeric`:
 
-  `y ~ x` with a numeric right-hand side, as in correlation or
+  `y ~ x` with a numeric right-hand side, as in correlation or simple
   regression.
+
+- `regression`:
+
+  a general regression formula with one or more predictors.
 
 **Type detection**
 
 The type follows from the shape of the formula and from the class of the
 right-hand side variable, not from `allowed`. `allowed` only decides
-whether the detected type is accepted, with two exceptions worth
-knowing. A grouping factor carrying a single level is reported as
-`one-sample` if that type is allowed, and a two-group design is reported
-as `n-sample-independent` if `"two-sample-independent"` is not among the
-allowed types. Both are deliberate: a caller that treats every group
-count alike needs to allow one type only.
+whether the detected type is accepted, with four exceptions worth
+knowing.
+
+1.  A grouping factor carrying a single level is reported as
+    `one-sample` if that type is allowed.
+
+2.  A two-group design is reported as `n-sample-independent` if
+    `"two-sample-independent"` is not among the allowed types. Together
+    with the previous rule this lets a caller that treats every group
+    count alike allow one type only.
+
+3.  `allowed = "regression"` on its own forces the `regression` type for
+    every formula, including `y ~ 1` and `y ~ g`. This is the entry
+    point for model-fitting callers, which interpret the right-hand side
+    themselves.
+
+4.  Otherwise `regression` is reported only for more than one right-hand
+    side variable. With `allowed` containing both `"regression"` and
+    `"numeric-numeric"`, `y ~ x` is therefore `numeric-numeric` while
+    `y ~ x1 + x2` is `regression`.
 
 **Field naming contract (binding across all types)**
+
+- `response` is present for every type and always holds the left-hand
+  side of the formula. It is the one field a caller can rely on without
+  branching on `type`.
+
+- `x` is an alias of `response` for the types that are conventionally
+  described in terms of a sample rather than a model (`one-sample`,
+  `two-sample-*`, `n-sample-independent`, `numeric-numeric`).
 
 - `group` is reserved for a categorical, factor-coercible variable of
   length `n` (the full sample) that splits the response into groups. It
@@ -162,6 +200,20 @@ count alike needs to allow one type only.
   `treatment` and `block`) are always sufficient and are the canonical
   access path.
 
+- `rows` is present for every type and holds the positions of the
+  retained observations in the original data, after `subset` and after
+  `na.action`. It is the handle for synchronising an external vector (an
+  ordering variable, weights) with the model frame: `z <- z[r$rows]`. It
+  is `NULL` in the rare case where the row names of the model frame
+  cannot be matched back, e.g. when a numeric `subset` selects a row
+  twice.
+
+- `terms` is returned for the `regression` type. Build the design matrix
+  from it, `model.matrix(r$terms, r$mf)`, never from the original
+  formula: the columns of a model frame are named after the deparsed
+  expressions (`"log(x)"`), so re-evaluating the formula against the
+  model frame fails for every transformed term.
+
 **Missing values**
 
 Missing values are left to `na.action` and are not touched otherwise, so
@@ -171,26 +223,49 @@ factor of an independent design, where empty and missing levels are
 dropped before the groups are counted. A grouping variable that is
 missing throughout leaves no level at all and is an error.
 
+Rows removed by `na.action` are recorded in `attr(r$mf, "na.action")`,
+but those indices are relative to the already subsetted frame. To align
+an external vector with the model frame use `rows`, which accounts for
+`subset` and `na.action` at once.
+
 **subset handling**
 
-Because `subset` is both an argument name and a base R function, name
-collisions can occur when forwarding to
-[`model.frame()`](https://rdrr.io/r/stats/model.frame.html). The calling
-function must therefore capture `subset` as an unevaluated expression
-and pass the resulting object on directly:
+`subset` is taken by value. `resolveFormula()` does not call
+[`substitute()`](https://rdrr.io/r/base/substitute.html) on it, so the
+calling function must capture the expression and hand the resulting
+language object on:
 
 
     myFun <- function(formula, data, subset, na.action = na.pass, ...) {
-      subsetExpr <- if (!missing(subset)) substitute(subset) else NULL
+      subsetExpr <- if (missing(subset)) NULL else substitute(subset)
       resolveFormula(formula, data,
                      subset    = subsetExpr,
                      na.action = na.action)
     }
 
+A language object is evaluated in `data`, with `environment(formula)` as
+the enclosure; anything else is passed on to
+[`model.frame()`](https://rdrr.io/r/stats/model.frame.html) as an index
+vector. A bare expression written directly in the call
+(`resolveFormula(y ~ g, df, subset = g == "A")`) is evaluated as an
+ordinary argument and therefore only works if the variables live in the
+caller's frame; use `subset = quote(g == "A")` for a column of `data`.
+
+The model frame is built by constructing the
+[`model.frame()`](https://rdrr.io/r/stats/model.frame.html) call with
+the resolved values inlined. Never route this through
+[`do.call()`](https://rdrr.io/r/base/do.call.html) with the default
+`quote = FALSE`:
+[`model.frame()`](https://rdrr.io/r/stats/model.frame.html) applies
+[`substitute()`](https://rdrr.io/r/base/substitute.html) to its own
+`subset` argument, so an argument that is still a symbol or an
+unevaluated call is re-evaluated in the wrong frame.
+
 **Return components by type**
 
-Every return value contains `type`, `mf` and `dataName`. The remaining
-components depend on the design:
+Every return value contains `type`, `mf`, `rows`, `response` and
+`dataName`, in that order. The remaining components depend on the
+design:
 
 - `one-sample`:
 
@@ -210,11 +285,15 @@ components depend on the design:
 
 - `n-sample-dependent`:
 
-  `response`, `treatment`, `block`
+  `treatment`, `block`
 
 - `numeric-numeric`:
 
   `x`, `predictor`
+
+- `regression`:
+
+  `terms`
 
 ## See also
 
@@ -272,8 +351,9 @@ resolveFormula(Pair(pre, post) ~ 1, data = df2,
 r4 <- resolveFormula(y ~ trt | blk, data = df,
                      allowed = "n-sample-dependent")
 names(r4)
-#> [1] "type"      "mf"        "response"  "treatment" "block"     "dataName" 
-## [1] "type" "mf" "response" "treatment" "block" "dataName"
+#> [1] "type"      "mf"        "rows"      "response"  "treatment" "block"    
+#> [7] "dataName" 
+## [1] "type" "mf" "rows" "response" "treatment" "block" "dataName"
 
 # numeric-numeric: predictor, not group
 df3 <- data.frame(y = rnorm(20), x = rnorm(20))
@@ -281,4 +361,16 @@ r5 <- resolveFormula(y ~ x, data = df3, allowed = "numeric-numeric")
 is.numeric(r5$predictor)
 #> [1] TRUE
 ## [1] TRUE
+
+# regression: build the design matrix from 'terms', not from the formula
+r6 <- resolveFormula(y ~ log(abs(x)) + I(x^2), data = df3,
+                     allowed = "regression")
+colnames(model.matrix(r6$terms, r6$mf))
+#> [1] "(Intercept)" "log(abs(x))" "I(x^2)"     
+
+# subset, captured by the caller
+resolveFormula(y ~ g3, data = df, subset = quote(g3 != "C"),
+               allowed = "two-sample-independent")$type
+#> [1] "two-sample-independent"
+## [1] "two-sample-independent"
 ```
