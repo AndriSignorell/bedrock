@@ -297,7 +297,7 @@ linkTargets <- function(path) {
 sort(table(linkTargets("R")))
 
 
-alt <- linkTargets("man_backup")
+alt <- linkTargets("man")
 
 roxygen2md::roxygen2md("full")
 

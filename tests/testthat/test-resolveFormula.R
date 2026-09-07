@@ -204,12 +204,16 @@ test_that("numeric-numeric is reachable via the default 'allowed'", {
   expect_equal(res$type, "numeric-numeric")
 })
 
-test_that("formula with > 2 terms raises error", {
-  expect_error(
-    resolveFormula(y ~ g2 + g3, data = df),
-    "response ~ group"
-  )
+
+test_that("formula with multiple predictors resolves as regression", {
+  
+  r <- resolveFormula(y ~ g2 + g3, data = df)
+  
+  expect_identical(r$type, "regression")
+  expect_identical(r$response, df$y)
+  expect_equal(r$mf, model.frame(y ~ g2 + g3, data = df))
 })
+
 
 test_that("matrix data is coerced to data.frame", {
   m <- as.matrix(df[, c("y", "g2")])
