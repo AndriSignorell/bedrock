@@ -1,6 +1,6 @@
 Package: bedrock
 Title: Base Functions for the 'DescToolsX' Ecosystem
-Version: 0.1.7
+Version: 0.1.8
 Authors@R: c(
   person(given="Andri", family="Signorell",  
          email = "andri@signorell.net", 

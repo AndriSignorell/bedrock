@@ -289,7 +289,9 @@ resolveFormula <- function(
 
 
   # ── Coerce matrix data ────────────────────────────────────────────────────
-  if (!missing(data) && is.matrix(data))
+  hasData <- !missing(data) && !is.null(data)
+  
+  if (hasData && is.matrix(data))
     data <- as.data.frame(data)
 
   # ── Environment, subset, name ─────────────────────────────────────────────
@@ -300,7 +302,6 @@ resolveFormula <- function(
   if (is.null(env))
     env <- parent.frame()
 
-  hasData <- !missing(data)
   dname   <- deparse1(formula)
 
   # 'subset' arrives as a value: a language object captured by the caller, an
