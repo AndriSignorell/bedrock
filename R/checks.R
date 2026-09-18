@@ -43,12 +43,11 @@
 #' checkConfLevel(0.95)
 #' checkConfLevel(NA)
 #'
-#' \dontrun{
-#' checkConfLevel(c(0.9, 0.95))   # length
-#' checkConfLevel(NULL)           # length
-#' checkConfLevel(NaN)            # not a level, and not NA either
-#' checkConfLevel(0)              # range is open
-#' }
+#' # all of these are rejected:
+#' try(checkConfLevel(c(0.9, 0.95)))   # length
+#' try(checkConfLevel(NULL))           # length
+#' try(checkConfLevel(NaN))            # not a level, and not NA either
+#' try(checkConfLevel(0))              # range is open
 #'
 #' @seealso [checkFlag()], [checkCount()], [checkString()]
 #' @export
@@ -92,10 +91,8 @@ checkConfLevel <- function(conf.level) {
 #' correct <- TRUE
 #' checkFlag(correct)
 #'
-#' \dontrun{
 #' correct <- NA
-#' checkFlag(correct)             # "'correct' must be a single ..."
-#' }
+#' try(checkFlag(correct))        # "'correct' must be a single ..."
 #'
 #' @seealso [checkConfLevel()], [checkCount()], [checkString()]
 #' @export
@@ -143,11 +140,10 @@ checkFlag <- function(x, name = deparse(substitute(x))) {
 #' width <- 80
 #' checkCount(width, min = 1)
 #'
-#' \dontrun{
-#' checkCount(1.5)                # not a whole number
-#' checkCount(-1)                 # below the default minimum
-#' checkCount(TRUE)               # a flag is not a count
-#' }
+#' # all of these are rejected:
+#' try(checkCount(1.5))           # not a whole number
+#' try(checkCount(-1))            # below the default minimum
+#' try(checkCount(TRUE))          # a flag is not a count
 #'
 #' @seealso [checkConfLevel()], [checkFlag()], [checkString()]
 #' @export
@@ -189,11 +185,10 @@ checkCount <- function(x, min = 0L, name = deparse(substitute(x))) {
 #' dataName <- "smoking by sex"
 #' checkString(dataName)
 #'
-#' \dontrun{
-#' checkString(NA_character_)     # a missing label is not a label
-#' checkString(c("a", "b"))       # length
-#' checkString(42)                # type
-#' }
+#' # all of these are rejected:
+#' try(checkString(NA_character_))  # a missing label is not a label
+#' try(checkString(c("a", "b")))    # length
+#' try(checkString(42))             # type
 #'
 #' @seealso [checkConfLevel()], [checkFlag()], [checkCount()]
 #' @export

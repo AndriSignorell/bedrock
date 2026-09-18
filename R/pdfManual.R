@@ -17,9 +17,10 @@
 #' @seealso [browseURL()]
 #'
 #' @examples
-#' \dontrun{
-#' pdfManual(DescToolsX)
-#' pdfManual("bedrock")
+#' # opens a browser window, hence only run in an interactive session
+#' if (interactive()) {
+#'   pdfManual(DescToolsX)
+#'   pdfManual("bedrock")
 #' }
 #'
 #' @family file.io

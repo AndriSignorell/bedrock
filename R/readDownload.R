@@ -37,13 +37,16 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Read Excel file
+#' # cannot be run automatically: reads the personal Downloads
+#' # directory of the user, where no such files exist
+#'
+#' # read an Excel file
 #' readDownload("data.xlsx")
 #'
-#' # Read CSV file
+#' # read a CSV file
 #' readDownload("data.csv")
 #'
-#' # Keep tibble output
+#' # keep the tibble output
 #' readDownload("data.csv", output = "tibble")
 #' }
 #'

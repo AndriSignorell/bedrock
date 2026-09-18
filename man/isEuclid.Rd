@@ -4,7 +4,7 @@
 \alias{isEuclid}
 \title{Test if a Distance Matrix Is Euclidean}
 \usage{
-isEuclid(distmat, tol = 0.0000001)
+isEuclid(distmat, tol = 1e-07)
 }
 \arguments{
 \item{distmat}{an object of class \code{dist}.}

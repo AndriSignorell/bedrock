@@ -32,12 +32,11 @@
 #' }
 #'
 #' @examples
-#' \dontrun{
-#' desc <- dataDescription("example.xlsx")
+#' fn <- system.file("extdata", "example.xlsx", package = "bedrock")
 #'
+#' desc <- dataDescription(fn)
 #' desc$desctable
 #' desc$codes[["gender"]]
-#' }
 #'
 #' @family label.import
 #' @concept label
@@ -65,8 +64,9 @@ dataDescription <- function(fn, sheet = "Description") {
     tab <- d.desc[!is.na(d.desc$Codes), , drop = FALSE]
 
     for (i in seq_len(nrow(tab))) {
-      codelist[[tab$Variable[i]]] <- strsplit(tab$Codes[i], "\r\n",
-                                              fixed = TRUE)[[1]]
+      # XML normalises CRLF to LF when the sheet is read, so both line
+      # endings must be accepted here
+      codelist[[tab$Variable[i]]] <- strsplit(tab$Codes[i], "\r?\n")[[1]]
     }
   }
 

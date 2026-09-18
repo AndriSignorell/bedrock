@@ -30,11 +30,9 @@
 #' installed Rd database rather than from the sources.
 #'
 #' @examples
-#' \dontrun{
+#' # the labels of a documented dataset, taken from the \describe
+#' # section of its help page
 #' rdLabels("Pizza", "bedrock")
-#' ## price               temperature         delivery_min
-#' ## "Price of the ..."  "Temperature ..."   "Delivery ..."
-#' }
 #'
 #' @seealso [tools::Rd_db()]
 #'

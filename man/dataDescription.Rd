@@ -41,12 +41,11 @@ If the sheet does not exist or no additional sheets are present,
 the function returns \code{NULL}.
 }
 \examples{
-\dontrun{
-desc <- dataDescription("example.xlsx")
+fn <- system.file("extdata", "example.xlsx", package = "bedrock")
 
+desc <- dataDescription(fn)
 desc$desctable
 desc$codes[["gender"]]
-}
 
 }
 \seealso{

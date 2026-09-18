@@ -9,21 +9,27 @@
 #' @param x the object to be converted.
 #' @param \dots arguments passed on.
 #' @return converted object.
-
+#'
 #' @examples
-#' 
-#' \dontrun{
-#' # read a Stata file
-#' url <- "http://www.stata.com/videos13/data/webclass.dta"
-#' d.webclass <- toBaseR(haven::read_dta(url))
-#' 
-#' # read a SPSS file
-#' url <- "https://stats.idre.ucla.edu/wp-content/uploads/2020/10/missing.sav"
-#' d.miss <- toBaseR(haven::read_sav(url))
+#' # a tibble is rolled back to a plain data.frame
+#' if (requireNamespace("tibble", quietly = TRUE)) {
+#'   tbl <- tibble::as_tibble(head(iris))
+#'   class(toBaseR(tbl))
 #' }
-
-
-
+#'
+#' # an object without a method is returned unchanged, with a warning
+#' x <- suppressWarnings(toBaseR(1:3))
+#' identical(x, 1:3)
+#'
+#' \donttest{
+#' # labelled data from other statistical packages: needs 'haven' and
+#' # an internet connection, hence the try()
+#' if (requireNamespace("haven", quietly = TRUE)) {
+#'   url <- "http://www.stata.com/videos13/data/webclass.dta"
+#'   d.webclass <- try(toBaseR(haven::read_dta(url)))
+#' }
+#' }
+#'
 #' @family data.coerce
 #' @concept type-coercion
 #' @export

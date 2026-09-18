@@ -34,10 +34,8 @@ off has no meaning for a switch - and it propagates silently, because
 correct <- TRUE
 checkFlag(correct)
 
-\dontrun{
 correct <- NA
-checkFlag(correct)             # "'correct' must be a single ..."
-}
+try(checkFlag(correct))        # "'correct' must be a single ..."
 
 }
 \seealso{

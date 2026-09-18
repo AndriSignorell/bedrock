@@ -24,7 +24,8 @@ If the file does not exist, an error is thrown.
 }
 \examples{
 \dontrun{
-# Locate a file in Downloads
+# cannot be run automatically: reads the personal Downloads
+# directory of the user, where no such file exists
 findDownload("data.csv")
 }
 

@@ -40,12 +40,15 @@
 #' `NA`.
 #'
 #' @examples
-#' \dontrun{
-#' # Load dataset with automatic metadata detection
-#' openDataObject("beauty.xlsx")
+#' \donttest{
+#' # the file is downloaded from a remote repository, so the examples
+#' # need an internet connection and fail gracefully without one
 #'
-#' # Load dataset without metadata processing
-#' openDataObject("beauty.xlsx", doc = NA)
+#' # load the dataset with automatic metadata detection
+#' try(openDataObject("beauty.xlsx"))
+#'
+#' # load it without metadata processing
+#' try(openDataObject("beauty.xlsx", doc = NA))
 #' }
 #'
 #'

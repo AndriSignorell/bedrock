@@ -34,12 +34,15 @@
 #' }
 #'
 #' @examples
-#' \dontrun{
-#' # Load from default repositories
-#' courseData("fullmoon.xlsx")
+#' \donttest{
+#' # the files are fetched from a remote repository, so the examples
+#' # need an internet connection and fail gracefully without one
 #'
-#' # Load from custom URL
-#' courseData("mydata.csv", url = "https://example.com/data/")
+#' # load from the default repositories
+#' try(courseData("fullmoon.xlsx"))
+#'
+#' # load from a custom URL
+#' try(courseData("mydata.csv", url = "https://example.com/data/"))
 #' }
 #'
 #' @family datasets

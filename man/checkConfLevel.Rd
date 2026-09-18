@@ -36,12 +36,11 @@ interval wanted".
 checkConfLevel(0.95)
 checkConfLevel(NA)
 
-\dontrun{
-checkConfLevel(c(0.9, 0.95))   # length
-checkConfLevel(NULL)           # length
-checkConfLevel(NaN)            # not a level, and not NA either
-checkConfLevel(0)              # range is open
-}
+# all of these are rejected:
+try(checkConfLevel(c(0.9, 0.95)))   # length
+try(checkConfLevel(NULL))           # length
+try(checkConfLevel(NaN))            # not a level, and not NA either
+try(checkConfLevel(0))              # range is open
 
 }
 \seealso{

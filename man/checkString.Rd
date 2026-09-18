@@ -34,11 +34,10 @@ that needs a non-empty one says so itself.
 dataName <- "smoking by sex"
 checkString(dataName)
 
-\dontrun{
-checkString(NA_character_)     # a missing label is not a label
-checkString(c("a", "b"))       # length
-checkString(42)                # type
-}
+# all of these are rejected:
+try(checkString(NA_character_))  # a missing label is not a label
+try(checkString(c("a", "b")))    # length
+try(checkString(42))             # type
 
 }
 \seealso{

@@ -41,13 +41,19 @@ Column types are guessed from the previewed rows only (the default
 supply a larger \code{guess_max} via the dots.
 }
 \examples{
-\dontrun{
-peekFile("data.csv")
-peekFile("data.csv.gz", delim = "|", n = 20)
+# a small file to look into
+fn <- tempfile(fileext = ".csv")
+write.csv(iris, fn, row.names = FALSE)
 
-# unrepresentative early rows: guess types over more lines
-peekFile("data.csv", n = 10, guess_max = 1000)
+if (requireNamespace("readr", quietly = TRUE)) {
+
+  peekFile(fn, delim = ",")
+
+  # unrepresentative early rows: guess types over more lines
+  peekFile(fn, n = 5, delim = ",", guess_max = 150)
 }
+
+unlink(fn)
 
 }
 \seealso{

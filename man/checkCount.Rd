@@ -43,11 +43,10 @@ checkCount(sep)
 width <- 80
 checkCount(width, min = 1)
 
-\dontrun{
-checkCount(1.5)                # not a whole number
-checkCount(-1)                 # below the default minimum
-checkCount(TRUE)               # a flag is not a count
-}
+# all of these are rejected:
+try(checkCount(1.5))           # not a whole number
+try(checkCount(-1))            # below the default minimum
+try(checkCount(TRUE))          # a flag is not a count
 
 }
 \seealso{

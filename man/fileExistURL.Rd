@@ -35,7 +35,9 @@ If the request fails (e.g., due to network issues or invalid URLs), the function
 returns \code{FALSE} and stores the error message as an attribute.
 }
 \examples{
-\dontrun{
+\donttest{
+# needs an internet connection; an unreachable host is reported
+# through the attributes rather than by an error
 fileExistURL("https://www.example.com/data.csv")
 
 res <- fileExistURL("https://invalid-url.test/file.csv")

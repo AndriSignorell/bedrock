@@ -41,6 +41,9 @@ devtools::test(filter = "precision")
 devtools::check(args = "--as-cran")
 devtools::check_mac_release()
 
+devtools::check(run_dont_test = TRUE)
+
+
 tools::compactPDF("vignettes/Combinatorics.pdf", gs_quality = "ebook")
 
 covr::package_coverage()
