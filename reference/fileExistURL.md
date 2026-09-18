@@ -51,11 +51,18 @@ Other file.path: [`buildPath()`](buildPath.md),
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+# \donttest{
+# needs an internet connection; an unreachable host is reported
+# through the attributes rather than by an error
 fileExistURL("https://www.example.com/data.csv")
+#> [1] FALSE
+#> attr(,"status")
+#> [1] 404
 
 res <- fileExistURL("https://invalid-url.test/file.csv")
 attr(res, "status")
+#> [1] NA
 attr(res, "error")
-} # }
+#> [1] "Couldn't resolve host name [invalid-url.test]:\nCould not resolve host: invalid-url.test"
+# }
 ```

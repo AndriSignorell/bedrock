@@ -39,8 +39,24 @@ Other pkg.funinfo: [`funArgs()`](funArgs.md),
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-rdTitle("mean")
-rdTitle("lm", man = "path/to/pkg/man")
-} # }
+# a minimal man/ directory to search in
+man <- file.path(tempdir(), "man")
+dir.create(man, showWarnings = FALSE)
+
+writeLines(c("\\\\name{foo}", "\\\\alias{foo}", "\\\\alias{bar}",
+             "\\\\title{A Minimal Help Page}",
+             "\\\\description{Nothing to see here.}"),
+           file.path(man, "foo.Rd"))
+
+rdTitle("foo", man = man)
+#> Warning: /tmp/RtmpcZVjWW/man/foo.Rd:1: unexpected '{'
+#> [1] NA
+rdTitle("bar", man = man)          # aliases are matched as well
+#> Warning: /tmp/RtmpcZVjWW/man/foo.Rd:1: unexpected '{'
+#> [1] NA
+rdTitle("nothing", man = man)      # NA
+#> Warning: /tmp/RtmpcZVjWW/man/foo.Rd:1: unexpected '{'
+#> [1] NA
+
+unlink(man, recursive = TRUE)
 ```

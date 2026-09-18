@@ -47,10 +47,13 @@ test a `NaN` would be silently accepted as "no interval wanted".
 checkConfLevel(0.95)
 checkConfLevel(NA)
 
-if (FALSE) { # \dontrun{
-checkConfLevel(c(0.9, 0.95))   # length
-checkConfLevel(NULL)           # length
-checkConfLevel(NaN)            # not a level, and not NA either
-checkConfLevel(0)              # range is open
-} # }
+# all of these are rejected:
+try(checkConfLevel(c(0.9, 0.95)))   # length
+#> Error : 'conf.level' must be a single number in (0, 1), or NA
+try(checkConfLevel(NULL))           # length
+#> Error : 'conf.level' must be a single number in (0, 1), or NA
+try(checkConfLevel(NaN))            # not a level, and not NA either
+#> Error : 'conf.level' must be a single number in (0, 1), or NA
+try(checkConfLevel(0))              # range is open
+#> Error : 'conf.level' must be a single number in (0, 1), or NA
 ```

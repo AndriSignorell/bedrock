@@ -47,8 +47,7 @@ down rather than here.
 correct <- TRUE
 checkFlag(correct)
 
-if (FALSE) { # \dontrun{
 correct <- NA
-checkFlag(correct)             # "'correct' must be a single ..."
-} # }
+try(checkFlag(correct))        # "'correct' must be a single ..."
+#> Error : 'correct' must be a single non-missing logical value
 ```

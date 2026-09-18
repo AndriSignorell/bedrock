@@ -38,8 +38,9 @@ Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-pdfManual(DescToolsX)
-pdfManual("bedrock")
-} # }
+# opens a browser window, hence only run in an interactive session
+if (interactive()) {
+  pdfManual(DescToolsX)
+  pdfManual("bedrock")
+}
 ```

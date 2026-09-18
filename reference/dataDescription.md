@@ -54,10 +54,15 @@ Other label.import: [`openDataObject()`](openDataObject.md)
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-desc <- dataDescription("example.xlsx")
+fn <- system.file("extdata", "example.xlsx", package = "bedrock")
 
+desc <- dataDescription(fn)
 desc$desctable
+#>       Variable                 Beschreibung                   Codes   Skala
+#> 1           id Identifier of the respondent                    <NA>  metric
+#> 2       gender        Sex of the respondent        1=female\n2=male nominal
+#> 3          age                 Age in years                    <NA>  metric
+#> 4 satisfaction         Overall satisfaction 1=low\n2=medium\n3=high ordinal
 desc$codes[["gender"]]
-} # }
+#> [1] "1=female" "2=male"  
 ```

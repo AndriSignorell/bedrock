@@ -55,9 +55,51 @@ Other pkg.funinfo: [`funArgs()`](funArgs.md),
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+# the labels of a documented dataset, taken from the \describe
+# section of its help page
 rdLabels("Pizza", "bedrock")
-## price               temperature         delivery_min
-## "Price of the ..."  "Temperature ..."   "Delivery ..."
-} # }
+#>                                                                                        index 
+#>                                    "integer, index of the record, complete by construction." 
+#>                                                                                         date 
+#>                                                                      "date of the delivery." 
+#>                                                                                         week 
+#>                                                             "numeric, the week of the year." 
+#>                                                                                      weekday 
+#>                                                              "numeric, the day of the week." 
+#>                                                                                         area 
+#>                                    "factor with the levels Brent , Camden and Westminster ." 
+#>                                                                                        count 
+#>                                                   "integer, the number of pizzas delivered." 
+#>                                                                                       rebate 
+#>                                                       "logical, TRUE if a rebate was given." 
+#>                                                                                        price 
+#>                                          "numeric, the total price of the pizzas delivered." 
+#>                                                                                     operator 
+#>                                   "factor with three levels, the operator taking the order." 
+#>                                                                                       driver 
+#>                                 "factor with seven levels, the driver delivering the order." 
+#>                                                                                 delivery_min 
+#>                                                     "numeric, the delivery time in minutes." 
+#>                                                                                  temperature 
+#>                                   "numeric, the temperature in degrees Celsius on delivery." 
+#>                                                                                 wine_ordered 
+#>                                                  "integer, 1 if wine was ordered, 0 if not." 
+#>                                                                               wine_delivered 
+#>                                                "integer, 1 if wine was delivered, 0 if not." 
+#>                                                                                   wrongpizza 
+#>                                              "logical, TRUE if a wrong pizza was delivered." 
+#>                                                                                      quality 
+#> "ordered factor with the levels low < medium < high , the quality of the pizza on delivery." 
+#>                                                                                   vegetarian 
+#>                                          "integer, 1 if the order was vegetarian, 0 if not." 
+#>                                                                                          nps 
+#>                  "numeric, the Net Promoter Score from 1 to 10, an ordinal customer rating." 
+#>                                                                                    complaint 
+#>                                             "integer, 1 if a complaint was filed, 0 if not." 
+#>                                                                                        style 
+#>                 "character, the type of pizza, e.g. italian , american , gourmet or vegan ." 
+#>                                                                                      channel 
+#>                                         "character, the order channel, app , web or phone ." 
+#>                                                                                          tip 
+#>                                                        "numeric, the tip in monetary units." 
 ```

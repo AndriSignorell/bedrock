@@ -60,9 +60,11 @@ checkCount(sep)
 width <- 80
 checkCount(width, min = 1)
 
-if (FALSE) { # \dontrun{
-checkCount(1.5)                # not a whole number
-checkCount(-1)                 # below the default minimum
-checkCount(TRUE)               # a flag is not a count
-} # }
+# all of these are rejected:
+try(checkCount(1.5))           # not a whole number
+#> Error : '1.5' must be a single integer not smaller than 0
+try(checkCount(-1))            # below the default minimum
+#> Error : '-1' must be a single integer not smaller than 0
+try(checkCount(TRUE))          # a flag is not a count
+#> Error : 'TRUE' must be a single integer not smaller than 0
 ```

@@ -47,9 +47,11 @@ that needs a non-empty one says so itself.
 dataName <- "smoking by sex"
 checkString(dataName)
 
-if (FALSE) { # \dontrun{
-checkString(NA_character_)     # a missing label is not a label
-checkString(c("a", "b"))       # length
-checkString(42)                # type
-} # }
+# all of these are rejected:
+try(checkString(NA_character_))  # a missing label is not a label
+#> Error : 'NA_character_' must be a single non-missing character string
+try(checkString(c("a", "b")))    # length
+#> Error : 'c("a", "b")' must be a single non-missing character string
+try(checkString(42))             # type
+#> Error : '42' must be a single non-missing character string
 ```

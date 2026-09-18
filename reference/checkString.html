@@ -19,7 +19,7 @@ travel unnoticed into printed output."><meta property="og:image" content="/logo.
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.9</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,11 +101,13 @@ that needs a non-empty one says so itself.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">dataName</span> <span class="op">&lt;-</span> <span class="st">"smoking by sex"</span></span></span>
 <span class="r-in"><span><span class="fu">checkString</span><span class="op">(</span><span class="va">dataName</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="fu">checkString</span><span class="op">(</span><span class="cn">NA_character_</span><span class="op">)</span>     <span class="co"># a missing label is not a label</span></span></span>
-<span class="r-in"><span><span class="fu">checkString</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span><span class="op">)</span>       <span class="co"># length</span></span></span>
-<span class="r-in"><span><span class="fu">checkString</span><span class="op">(</span><span class="fl">42</span><span class="op">)</span>                <span class="co"># type</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="co"># all of these are rejected:</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">checkString</span><span class="op">(</span><span class="cn">NA_character_</span><span class="op">)</span><span class="op">)</span>  <span class="co"># a missing label is not a label</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error : 'NA_character_' must be a single non-missing character string</span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">checkString</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>    <span class="co"># length</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error : 'c("a", "b")' must be a single non-missing character string</span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">checkString</span><span class="op">(</span><span class="fl">42</span><span class="op">)</span><span class="op">)</span>             <span class="co"># type</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error : '42' must be a single non-missing character string</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
