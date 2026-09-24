@@ -29,7 +29,7 @@ pairApply(x, FUN = NULL, ..., symmetric = FALSE)
 - symmetric:
 
   logical. Does the function yield the same result for FUN(x, y) and
-  FUN(y, x)?  
+  FUN(y, x)?\
   If `TRUE` just the lower triangular matrix is calculated and mirrored.
   Default is FALSE.
 

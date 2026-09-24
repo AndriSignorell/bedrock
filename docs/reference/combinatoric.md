@@ -34,11 +34,11 @@ combSet(x, m, replace = FALSE, ordered = FALSE, output = c("matrix", "list"))
 
   `\"matrix\"`
 
-  :   Return combinations as a matrix.
+  : Return combinations as a matrix.
 
   `\"list\"`
 
-  :   Return combinations as a flat list.
+  : Return combinations as a flat list.
 
   Default is `\"matrix\"`.
 

@@ -21,7 +21,7 @@ an integer-valued numeric vector.
 
 ## Details
 
-Generates the `n`-th Fibonacci number, whereas `fibonacci(0) = 0`.  
+Generates the `n`-th Fibonacci number, whereas `fibonacci(0) = 0`.\
 The golden ratio is defined as `phi = 0.5*(1+sqrt(5))`.
 
 Values of `n` are limited to 78, as larger Fibonacci numbers exceed the
@@ -29,7 +29,7 @@ range in which doubles represent integers exactly (`2^53`).
 
 ## References
 
-<https://en.wikipedia.org/wiki/Fibonacci_number>  
+<https://en.wikipedia.org/wiki/Fibonacci_number>\
 <https://mathworld.wolfram.com/GoldenRatio.html>
 
 ## See also

@@ -4,12 +4,12 @@ If several vectors are supplied, the evaluation will be elementwise,
 resp. rowwise if x is a data.frame or a matrix. The first element of the
 result is the first non `NA` element of the first elements of all the
 arguments, the second element of the result is the one of the second
-elements of all the arguments and so on.  
+elements of all the arguments and so on.\
 Shorter inputs (of non-zero length) are NOT recycled: if all inputs have
 length greater than 1, they must have the same length (the function will
 bark otherwise). If any input has length 1 or 0, all inputs are
 flattened into a single vector (dropping `NULL`s) and the first valid
-element is returned, in the manner of a scalar SQL `COALESCE`.  
+element is returned, in the manner of a scalar SQL `COALESCE`.\
 The idea is borrowed from SQL. Might sometimes be useful when preparing
 data in R instead of in SQL.
 

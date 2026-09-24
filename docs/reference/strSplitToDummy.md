@@ -34,20 +34,20 @@ strSplitToDummy(x, split = ",", trim = TRUE, na.action = na.pass, ...)
 
   `na.pass`
 
-  :   NAs are kept as all-zero rows (default).
+  : NAs are kept as all-zero rows (default).
 
   `na.omit`
 
-  :   rows with NAs are silently removed.
+  : rows with NAs are silently removed.
 
   `na.exclude`
 
-  :   like `na.omit` but the indices of removed rows are stored in a
-      `"na.action"` attribute.
+  : like `na.omit` but the indices of removed rows are stored in a
+    `"na.action"` attribute.
 
   `na.fail`
 
-  :   an error is raised if any `NA` is present.
+  : an error is raised if any `NA` is present.
 
 - ...:
 

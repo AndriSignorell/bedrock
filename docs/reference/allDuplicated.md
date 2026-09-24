@@ -40,11 +40,11 @@ for data frames (row-wise) and matrices.
 ## See also
 
 [`duplicated()`](https://rdrr.io/r/base/duplicated.html) for identifying
-duplicate elements (excluding first occurrences).  
+duplicate elements (excluding first occurrences).\
 [`unique()`](https://rdrr.io/r/base/unique.html) for extracting unique
-values.  
+values.\
 [`split()`](https://rdrr.io/r/base/split.html) for grouping tied
-values.  
+values.\
 [`table()`](https://rdrr.io/r/base/table.html) for counting frequencies.
 
 Other data.equal: [`allIdentical()`](allIdentical.md),

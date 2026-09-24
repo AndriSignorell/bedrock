@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.12</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,13 +107,248 @@ the following locations (see <a href="https://github.com/AndriSignorell/Teaching
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="co"># Load from default repositories</span></span></span>
-<span class="r-in"><span><span class="fu">courseData</span><span class="op">(</span><span class="st">"fullmoon.xlsx"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># the files are fetched from a remote repository, so the examples</span></span></span>
+<span class="r-in"><span><span class="co"># need an internet connection and fail gracefully without one</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Load from custom URL</span></span></span>
-<span class="r-in"><span><span class="fu">courseData</span><span class="op">(</span><span class="st">"mydata.csv"</span>, url <span class="op">=</span> <span class="st">"https://example.com/data/"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="co"># load from the default repositories</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">courseData</span><span class="op">(</span><span class="st">"fullmoon.xlsx"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     t_id calls hol fri sat full new</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      1   125   1   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      2   105   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      3    92   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      4   111   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      5   127   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6      6    89   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      7   104   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8      8   100   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9      9   102   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10    10   131   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11    11    99   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12    12   113   0   0   0    1   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13    13    97   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14    14   114   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15    15    91   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16    16   111   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17    17    98   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18    18   104   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19    19    89   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20    20    96   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21    21   109   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22    22   103   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23    23   120   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24    24    99   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25    25    93   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26    26    85   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27    27    82   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28    28    95   0   0   0    0   1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29    29    92   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30    30   101   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31    31   117   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32    32    87   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33    33    69   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34    34    88   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35    35    94   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36    36    85   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37    37    86   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38    38    95   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39    39    88   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40    40    88   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41    41    81   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42    42    91   0   0   0    1   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43    43    95   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44    44    85   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45    45   103   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46    46   100   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47    47   101   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48    48   103   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49    49   103   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50    50    81   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51    51   110   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52    52   124   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53    53    86   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54    54    77   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55    55    88   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56    56    86   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57    57   107   0   0   0    0   1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58    58    98   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59    59   105   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60    60    91   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61    61    99   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62    62    75   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63    63   106   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64    64    95   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65    65    96   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66    66   106   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67    67   107   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68    68   101   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69    69    82   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70    70    82   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71    71    94   0   0   0    1   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72    72   113   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73    73   123   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74    74    95   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75    75    92   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76    76    99   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77    77    84   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78    78   101   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79    79    85   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80    80   108   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81    81    88   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82    82    82   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83    83    89   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84    84    97   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85    85    96   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86    86    85   0   1   0    0   1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87    87   109   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88    88    86   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89    89    82   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90    90    87   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91    91    96   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92    92    98   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93    93    91   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94    94   109   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95    95    90   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96    96   109   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97    97   100   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98    98    91   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99    99   113   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100  100    94   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101  101   107   0   0   1    1   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102  102    99   1   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103  103    98   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104  104    93   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105  105   105   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106  106   106   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107  107    94   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108  108   104   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109  109    86   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110  110   104   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111  111    97   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112  112   117   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113  113   109   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114  114   110   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115  115    96   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116  116    94   0   0   0    0   1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 117  117    91   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118  118    96   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 119  119    93   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 120  120   100   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 121  121   104   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 122  122   116   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 123  123    86   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 124  124   129   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 125  125   106   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 126  126    95   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 127  127    79   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 128  128   119   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 129  129   141   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 130  130   100   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 131  131    88   0   0   0    1   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132  132   101   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133  133   109   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134  134   101   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135  135    99   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136  136   101   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 137  137    82   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 138  138    99   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 139  139   109   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 140  140    87   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 141  141   109   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142  142    99   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 143  143    83   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144  144    96   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145  145   120   0   0   0    0   1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146  146   117   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147  147   100   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148  148   103   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 149  149   117   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150  150   127   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151  151   100   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152  152    86   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153  153   110   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154  154    96   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 155  155   108   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 156  156   119   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 157  157   114   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 158  158   102   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 159  159   100   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 160  160    95   0   0   0    1   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 161  161    99   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 162  162    87   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 163  163   120   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 164  164   100   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 165  165   111   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 166  166   101   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 167  167   105   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 168  168   108   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 169  169    98   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 170  170   111   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 171  171   131   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 172  172   112   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 173  173    97   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 174  174   122   0   0   0    0   1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 175  175   104   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 176  176   105   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 177  177    99   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 178  178   112   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 179  179   102   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 180  180   115   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 181  181    95   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 182  182    89   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 183  183   105   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 184  184   118   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 185  185   119   1   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 186  186    79   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 187  187   107   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 188  188   102   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 189  189   119   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 190  190   110   0   0   0    1   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 191  191   107   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 192  192    90   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 193  193   111   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 194  194    87   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 195  195    95   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 196  196   116   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 197  197    95   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 198  198    98   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 199  199   113   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 200  200    88   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 201  201   101   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 202  202    88   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 203  203    95   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 204  204   112   0   0   0    0   1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 205  205   109   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 206  206   109   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 207  207   103   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208  208   115   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209  209    96   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210  210    86   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211  211   100   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212  212   113   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 213  213   114   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 214  214   102   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 215  215    94   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 216  216    91   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 217  217    99   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 218  218    87   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 219  219   120   0   1   0    1   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 220  220   105   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 221  221    93   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 222  222   122   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 223  223   106   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 224  224   110   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 225  225   107   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 226  226   118   0   1   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 227  227    85   0   0   1    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 228  228    95   0   0   0    0   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 229  229    98   0   0   0    0   0</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># load from a custom URL</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">courseData</span><span class="op">(</span><span class="st">"mydata.csv"</span>, url <span class="op">=</span> <span class="st">"https://example.com/data/"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in courseData("mydata.csv", url = "https://example.com/data/") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   File 'https://example.com/data/mydata.csv' does not exist.</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

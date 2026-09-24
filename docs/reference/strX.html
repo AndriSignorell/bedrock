@@ -17,7 +17,7 @@ be referenced by position."><meta property="og:image" content="/logo.png"></head
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.12</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +96,10 @@ Default is <code>"cut"</code>.</p></dd>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>By default, only top-level elements are numbered. Recursive numbering
-of nested list elements can be enabled with <code>recursive = TRUE</code>.</p>
+of nested list elements can be enabled with <code>recursive = TRUE</code>; nested
+elements then get hierarchical labels such as <code>2.1</code>, which give their
+position (<code>x[[2]][[1]]</code>), and the top-level numbers stay the same in both
+views.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -141,8 +144,8 @@ of nested list elements can be enabled with <code>recursive = TRUE</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1 $ a: num 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  2 $ b:List of 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..3 $ c: num 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..4 $ d: num 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..2.1 $ c: num 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..2.2 $ d: num 3</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

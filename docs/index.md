@@ -1,6 +1,6 @@
 # 📦 bedrock
 
-**Title:** Base Functions for the DescToolsX Ecosystem  
+**Title:** Base Functions for the DescToolsX Ecosystem\
 **License:** GPL (≥ 2)
 
 ## 🧩 Overview
@@ -114,8 +114,7 @@ Predicates and checks for data quality and structure.
   [`linScale()`](reference/linScale.md), [`logit()`](reference/logit.md)
 - [`nDec()`](reference/precision.md),
   [`prec()`](reference/precision.md),
-  [`frac()`](reference/precision.md),
-  [`maxDigits()`](https://andrisignorell.github.io/bedrock/reference/precision.html)
+  [`frac()`](reference/precision.md), `maxDigits()`
 - [`rankX()`](reference/rankX.md),
   [`percentRank()`](reference/percentRank.md),
   [`nUnique()`](reference/nUnique.md)

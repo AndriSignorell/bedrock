@@ -35,7 +35,7 @@ x %)(% rng
 - rng:
 
   a vector of two values or a matrix with 2 columns, defining the
-  minimum and maximum of the range for x.  
+  minimum and maximum of the range for x.\
   If rng is a matrix, x or rng will be recycled. Matrix ranges are
   supported for numeric (and date) `x` only.
 
@@ -46,12 +46,12 @@ A logical vector of the same length as x.
 ## Details
 
 The "BETWEEN" operators basically combine two conditional statements
-into one and simplify the query process.  
+into one and simplify the query process.\
 They are merely a wrapper for: `\code{x >= rng[1] & x <= rng[2]}`, where
 the round bracket `(` means *strictly greater (\>)* and the square
 bracket `\code{[}` means *greater or equal (\>=)*. Numerical values of x
 will be handled by C-code, which is significantly faster than two
-comparisons in R (especially when x is huge).  
+comparisons in R (especially when x is huge).\
 
 For the matching outside-operator, boundary elements of the
 corresponding between-range return `FALSE`; that is, they are not
@@ -60,7 +60,7 @@ boundary.
 
 Both arguments, `x` and `rng`, will be recycled to the highest
 dimension, which is either the length of the vector (`x`) or the number
-of rows of the matrix (`rng`).  
+of rows of the matrix (`rng`).\
 See also the routines used to check, whether two ranges overlap
 ([`overlap`](intervals.md), [`distance`](intervals.md)).
 

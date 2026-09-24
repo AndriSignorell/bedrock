@@ -1,6 +1,6 @@
 # 📦 bedrock
 
-**Title:** Base Functions for the DescToolsX Ecosystem  
+**Title:** Base Functions for the DescToolsX Ecosystem\
 **License:** GPL (≥ 2)
 
 ## 🧩 Overview
@@ -114,8 +114,7 @@ Predicates and checks for data quality and structure.
   [`linScale()`](reference/linScale.md), [`logit()`](reference/logit.md)
 - [`nDec()`](reference/precision.md),
   [`prec()`](reference/precision.md),
-  [`frac()`](reference/precision.md),
-  [`maxDigits()`](https://andrisignorell.github.io/bedrock/reference/precision.html)
+  [`frac()`](reference/precision.md), `maxDigits()`
 - [`rankX()`](reference/rankX.md),
   [`percentRank()`](reference/percentRank.md),
   [`nUnique()`](reference/nUnique.md)
@@ -543,6 +542,9 @@ Inspecting functions, arguments, and Rd documentation.
   with Defaults
 - [`getDotsArg()`](getDotsArg.md) : Get a Single Argument from Dots with
   Default
+- [`getConcepts()`](concepts.md) [`conceptMap()`](concepts.md)
+  [`conceptAudit()`](concepts.md) : Concept Utilities for Package
+  Documentation
 - [`mergeArgs()`](mergeArgs.md) : Merge Default Arguments with User
   Overrides
 - [`recycle()`](recycle.md) : Recycle a List of Elements

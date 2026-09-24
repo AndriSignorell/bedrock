@@ -31,9 +31,9 @@ recodeX(
 - ...:
 
   the old levels (combined by `c`() if there are several) named with the
-  new level:  
-  `newlevel_a = c("old_a", "old_b"), `  
-  `newlevel_b = c("old_c", "old_d")`  
+  new level:\
+  `newlevel_a = c("old_a", "old_b"), `\
+  `newlevel_b = c("old_c", "old_d")`\
   See examples.
 
 - keep:
@@ -63,7 +63,7 @@ recodeX(
 
 ## Value
 
-the factor having the new levels applied.  
+the factor having the new levels applied.\
 if `x` was a `character` vector, the result will also be `character`.
 
 ## See also
@@ -71,7 +71,7 @@ if `x` was a `character` vector, the result will also be `character`.
 [`factor()`](https://rdrr.io/r/base/factor.html),
 [`levels()`](https://rdrr.io/r/base/levels.html),
 [`relevel()`](https://rdrr.io/r/stats/relevel.html),
-[`reorder()`](https://rdrr.io/r/stats/reorder.factor.html)  
+[`reorder()`](https://rdrr.io/r/stats/reorder.factor.html)\
 There's another solution for this problem in the package **car**.
 
 Other data.recode: [`asBinary()`](asBinary.md),

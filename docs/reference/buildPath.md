@@ -55,7 +55,7 @@ Other file.path: [`fileExistURL()`](fileExistURL.md),
 
 ``` r
 buildPath("data", "file.csv")
-#> [1] "C:/Users/andri/OneDrive/Dokumente/R-Dev/bedrock/docs/reference/data/file.csv"
+#> [1] "C:/temp/bedrock/docs/reference/data/file.csv"
 buildPath("data/", "file.csv")
-#> [1] "C:/Users/andri/OneDrive/Dokumente/R-Dev/bedrock/docs/reference/data/file.csv"
+#> [1] "C:/temp/bedrock/docs/reference/data/file.csv"
 ```

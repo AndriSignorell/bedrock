@@ -15,7 +15,7 @@ frame. The file type is automatically detected from the extension."><meta proper
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.12</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,13 +112,16 @@ it. By default, the result is converted to a base R <code>data.frame</code>.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="co"># Read Excel file</span></span></span>
+<span class="r-in"><span><span class="co"># cannot be run automatically: reads the personal Downloads</span></span></span>
+<span class="r-in"><span><span class="co"># directory of the user, where no such files exist</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># read an Excel file</span></span></span>
 <span class="r-in"><span><span class="fu">readDownload</span><span class="op">(</span><span class="st">"data.xlsx"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Read CSV file</span></span></span>
+<span class="r-in"><span><span class="co"># read a CSV file</span></span></span>
 <span class="r-in"><span><span class="fu">readDownload</span><span class="op">(</span><span class="st">"data.csv"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Keep tibble output</span></span></span>
+<span class="r-in"><span><span class="co"># keep the tibble output</span></span></span>
 <span class="r-in"><span><span class="fu">readDownload</span><span class="op">(</span><span class="st">"data.csv"</span>, output <span class="op">=</span> <span class="st">"tibble"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>

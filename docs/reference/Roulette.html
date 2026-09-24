@@ -17,7 +17,7 @@ sectors of the wheel. Each row represents one of the 37 numbers (0–36)."><meta
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.12</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@ sectors of the wheel. Each row represents one of the 37 numbers (0–36)."><meta
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>European Roulette Wheel</h1>
-      <small class="dont-index">Source: <a href="https://github.com/AndriSignorell/bedrock/blob/HEAD/R/data-Roulette.R" class="external-link"><code>R/data-Roulette.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/AndriSignorell/bedrock/blob/HEAD/R/data-roulette.R" class="external-link"><code>R/data-roulette.R</code></a></small>
       <div class="d-none name"><code>Roulette.Rd</code></div>
     </div>
 
@@ -124,29 +124,29 @@ covers the remaining ten numbers of that sector.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">Roulette</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   num   col parity highlow dozens column     pocketrange</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   0 green   &lt;NA&gt;    &lt;NA&gt;     NA     NA        jeu zero</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  26 black   even    high      3     35        jeu zero</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   3   red    odd     low      1     36        jeu zero</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  35 black    odd    high      3     35        jeu zero</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  12   red   even     low      1     36        jeu zero</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  28 black   even    high      3     34 voisins du zero</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   0 green   &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;        jeu zero</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  26 black   even    high      3      2        jeu zero</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   3   red    odd     low      1      3        jeu zero</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  35 black    odd    high      3      2        jeu zero</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  12   red   even     low      1      3        jeu zero</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  28 black   even    high      3      1 voisins du zero</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">Roulette</span><span class="op">$</span><span class="va">col</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> black green   red </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    18     1    18 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   red black green </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    18    18     1 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">Roulette</span><span class="op">$</span><span class="va">parity</span>, <span class="va">Roulette</span><span class="op">$</span><span class="va">highlow</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        high low &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   even    9   9    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   odd     9   9    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;NA&gt;    0   0    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        low high &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   even   9    9    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   odd    9    9    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;NA&gt;   0    0    1</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># the sectors of the wheel are blocks of neighbouring pockets</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">Roulette</span><span class="op">$</span><span class="va">pocketrange</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          jeu zero         orphelins tiers du cylindre   voisins du zero </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 7                 8                12                10 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          jeu zero   voisins du zero tiers du cylindre         orphelins </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 7                10                12                 8 </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

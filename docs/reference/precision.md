@@ -37,10 +37,10 @@ frac(x)
 
 ## Details
 
-`nDec()` returns the number of decimal places of every element.  
-`maxDec()` returns the largest of those numbers.  
+`nDec()` returns the number of decimal places of every element.\
+`maxDec()` returns the largest of those numbers.\
 `prec()` returns the precision, the smallest positional value of the
-last significant digit found in `x` (e.g. 0.001 for 3.142).  
+last significant digit found in `x` (e.g. 0.001 for 3.142).\
 `frac()` returns the fractional part.
 
 `nDec()` and `maxDec()` count what is printed: the input is converted
@@ -109,7 +109,7 @@ nDec(c(1.25, 1.8, 12.0, 1.00000))
 
 # the same numbers, summarised
 maxDec(c(1.25, 1.8, 12.0, 1.00000))
-#> Error in maxDec(c(1.25, 1.8, 12, 1)): could not find function "maxDec"
+#> [1] 2
 ## [1] 2
 
 x <- c("0.0000", "0", "159.283", "1.45e+10", "1.4599E+10" )

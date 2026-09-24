@@ -20,7 +20,7 @@ untable(x, dimnames = NULL, type = NULL, rownames = NULL, colnames = NULL, ...)
 
   a numeric vector, a matrix, a table or a data.frame. If x is a vector,
   a matrix or a table it is interpreted as frequencies which are to be
-  inflated to the original list.  
+  inflated to the original list.\
   If x is a data.frame it is interpreted as a table in frequency form
   (containing one or more factors and a frequency variable).
 

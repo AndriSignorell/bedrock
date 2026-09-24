@@ -110,23 +110,23 @@ x <- rnorm(30)
 g <- rep(c("a", "b", "c"), each = 10)
 str(resolveGroups(x, g))
 #> List of 7
-#>  $ x          : num [1:30] -0.626 0.184 -0.836 1.595 0.33 ...
-#>  $ groups     : Factor w/ 3 levels "a","b","c": 1 1 1 1 1 1 1 1 1 1 ...
-#>  $ n          : int 30
-#>  $ k          : int 3
-#>  $ group.sizes: 'table' int [1:3(1d)] 10 10 10
-#>   ..- attr(*, "dimnames")=List of 1
-#>   .. ..$ groups: chr [1:3] "a" "b" "c"
-#>  $ group.names: chr [1:3] "a" "b" "c"
-#>  $ data.name  : chr "x and g"
+#>  $ x         : num [1:30] -0.626 0.184 -0.836 1.595 0.33 ...
+#>  $ groups    : Factor w/ 3 levels "a","b","c": 1 1 1 1 1 1 1 1 1 1 ...
+#>  $ n         : int 30
+#>  $ k         : int 3
+#>  $ groupSizes: Named int [1:3] 10 10 10
+#>   ..- attr(*, "names")= chr [1:3] "a" "b" "c"
+#>  $ groupNames: chr [1:3] "a" "b" "c"
+#>  $ dataName  : chr "x and g"
 
 # list of group-specific vectors, the names become the labels
 resolveGroups(list(a = rnorm(10), b = rnorm(12), c = rnorm(8)))[c("k", "groupSizes")]
 #> $k
 #> [1] 3
 #> 
-#> $<NA>
-#> NULL
+#> $groupSizes
+#>  a  b  c 
+#> 10 12  8 
 #> 
 
 # both interfaces lead to the same result
@@ -136,5 +136,6 @@ identical(resolveGroups(x, g)$groupSizes,
 
 # a data frame is resolved column by column
 resolveGroups(data.frame(ctrl = c(1, 2, 3), treat = c(4, 5, NA)))$groupSizes
-#> NULL
+#>  ctrl treat 
+#>     3     2 
 ```

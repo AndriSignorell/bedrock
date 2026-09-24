@@ -83,11 +83,7 @@ setNamesX(diag(6), rownames="", colnames="")
 
 # any other length must fit, a mismatch is an error
 try(setNamesX(matrix(c(1:12), nrow=4), colnames=c("perc", "lci")))
-#>      perc lci perc
-#> [1,]    1   5    9
-#> [2,]    2   6   10
-#> [3,]    3   7   11
-#> [4,]    4   8   12
+#> Error : length of 'colnames' [2] not equal to extent [3]
 
 # setting dimnames works as well
 tab <- setNamesX(

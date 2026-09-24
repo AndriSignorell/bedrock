@@ -109,7 +109,7 @@ roundTo(c(1.23, 123, 1234), c(0.05, 10, 100))
 
 # any other length is an error, the values are not recycled
 try(roundTo(1:6, c(2, 3)))
-#> [1] 0 3 4 3 4 6
+#> Error : length of 'multiple' [2] must be 1 or the length of 'x' [6]
 
 # round down
 roundTo(c(1, -1) * 1.2335, 0.05, floor)

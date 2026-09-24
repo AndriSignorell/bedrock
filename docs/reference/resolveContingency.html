@@ -23,7 +23,7 @@ share one entry point instead of each repeating the same preparation."><meta pro
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.12</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +93,8 @@ as <code>x</code>. Required unless <code>x</code> is a table, ignored when it is
 
 <dt id="arg-square">square<a class="anchor" aria-label="anchor" href="#arg-square"></a></dt>
 <dd><p>logical, whether a square contingency table is required,
-defaults to <code>FALSE</code>.</p></dd>
+defaults to <code>FALSE</code>. For two classification variables, both are
+tabulated over the union of their levels (see Details).</p></dd>
 
 
 <dt id="arg-integercounts">integerCounts<a class="anchor" aria-label="anchor" href="#arg-integercounts"></a></dt>
@@ -149,10 +150,14 @@ columns: a one-way table carries no association to measure and is rejected
 rather than passed on to a caller that cannot use it.</p>
 <p><code>square</code> is meant for the statistics that compare two ratings of the same
 items, such as the tests of marginal homogeneity or the agreement measures.
-It guarantees that the table has as many columns as rows, and nothing
-beyond that: whether the two axes really carry the same categories cannot be
-checked on a table that may have no <code>dimnames</code> at all, and remains the
-responsibility of the caller.</p>
+For two classification variables it tabulates both over the union of their
+observed levels (those of <code>x</code> first), so the axes carry the same categories
+in the same order and a category used by only one rating becomes a row or
+column of zeros: <code>x</code> using A, B and <code>y</code> using B, C give a 3 x 3 table over
+A, B, C instead of rows A, B against columns B, C. For a ready-made table it
+only guarantees as many columns as rows: whether the two axes really carry
+the same categories cannot be checked on a table that may have no
+<code>dimnames</code> at all, and remains the responsibility of the caller.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -168,16 +173,15 @@ responsibility of the caller.</p>
 <span class="r-in"><span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">3</span>, <span class="fl">12</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span>,</span></span>
 <span class="r-in"><span>              dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"yes"</span>, <span class="st">"no"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu">resolveContingency</span><span class="op">(</span><span class="va">tab</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> List of 6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ table    : num [1:2, 1:2] 10 5 3 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> List of 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ table   : num [1:2, 1:2] 10 5 3 12</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ..- attr(*, "dimnames")=List of 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   .. ..$ : chr [1:2] "A" "B"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   .. ..$ : chr [1:2] "yes" "no"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ n        : num 30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ r        : int 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ c        : int 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ k        : int 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ data.name: chr "tab"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ n       : num 30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ r       : int 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ c       : int 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ dataName: chr "tab"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># from two classification variables</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
@@ -197,7 +201,7 @@ responsibility of the caller.</p>
 <span class="r-in"><span>  <span class="va">r</span><span class="op">$</span><span class="va">dataName</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="fu">myTest</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in resolveContingency(x, y, dataName = paste(deparse1(substitute(x)),     "and", deparse1(substitute(y)))):</span> unused argument (dataName = paste(deparse1(substitute(x)), "and", deparse1(substitute(y))))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "x and y"</span>
 <span class="r-in"><span><span class="co">## [1] "x and y"</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

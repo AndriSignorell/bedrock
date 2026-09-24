@@ -25,7 +25,7 @@ functions."><meta property="og:image" content="/logo.png"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.12</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -163,23 +163,23 @@ expression itself for a list.</p>
 <span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu">resolveGroups</span><span class="op">(</span><span class="va">x</span>, <span class="va">g</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ x          : num [1:30] -0.626 0.184 -0.836 1.595 0.33 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ groups     : Factor w/ 3 levels "a","b","c": 1 1 1 1 1 1 1 1 1 1 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ n          : int 30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ k          : int 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ group.sizes: 'table' int [1:3(1d)] 10 10 10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ..- attr(*, "dimnames")=List of 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   .. ..$ groups: chr [1:3] "a" "b" "c"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ group.names: chr [1:3] "a" "b" "c"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ data.name  : chr "x and g"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ x         : num [1:30] -0.626 0.184 -0.836 1.595 0.33 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ groups    : Factor w/ 3 levels "a","b","c": 1 1 1 1 1 1 1 1 1 1 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ n         : int 30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ k         : int 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ groupSizes: Named int [1:3] 10 10 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ..- attr(*, "names")= chr [1:3] "a" "b" "c"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ groupNames: chr [1:3] "a" "b" "c"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ dataName  : chr "x and g"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># list of group-specific vectors, the names become the labels</span></span></span>
 <span class="r-in"><span><span class="fu">resolveGroups</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"k"</span>, <span class="st">"groupSizes"</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $k</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $&lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $groupSizes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  a  b  c </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 12  8 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># both interfaces lead to the same result</span></span></span>
@@ -189,7 +189,8 @@ expression itself for a list.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># a data frame is resolved column by column</span></span></span>
 <span class="r-in"><span><span class="fu">resolveGroups</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ctrl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, treat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">groupSizes</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ctrl treat </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3     2 </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

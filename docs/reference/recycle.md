@@ -27,7 +27,7 @@ recycle(..., maxdim = NULL, strict = FALSE)
 
 ## Value
 
-a list of the supplied elements  
+a list of the supplied elements\
 `attr(,"maxdim")` contains the maximal dimension of the recycled list.
 
 ## Details

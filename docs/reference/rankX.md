@@ -43,31 +43,31 @@ rankX(
 
   `"average"`
 
-  :   average of the ranks for tied values (default).
+  : average of the ranks for tied values (default).
 
   `"first"`
 
-  :   ranks assigned in order of appearance.
+  : ranks assigned in order of appearance.
 
   `"last"`
 
-  :   ranks assigned in reverse order of appearance.
+  : ranks assigned in reverse order of appearance.
 
   `"random"`
 
-  :   ranks assigned at random.
+  : ranks assigned at random.
 
   `"max"`
 
-  :   maximum rank for tied values.
+  : maximum rank for tied values.
 
   `"min"`
 
-  :   minimum rank for tied values.
+  : minimum rank for tied values.
 
   `"dense"`
 
-  :   like `"min"`, but ranks are consecutive integers without gaps.
+  : like `"min"`, but ranks are consecutive integers without gaps.
 
 ## Value
 
@@ -88,7 +88,6 @@ It extends base functionality by:
 
 When multiple inputs are supplied, ranking is performed jointly, similar
 to:
-
 
     order(x1, x2, ...)
 

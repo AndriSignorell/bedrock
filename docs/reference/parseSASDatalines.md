@@ -34,13 +34,13 @@ what to do with it (matching SAS semantics). SAS missing-value markers
 The SAS function `DATA` is designed for quickly creating a dataset from
 scratch. The whole step normally consists out of the `DATA` part
 defining the name of the dataset, an `INPUT` line declaring the
-variables and a `DATALINES` command followed by the values.  
+variables and a `DATALINES` command followed by the values.\
 The default delimiter used to separate the different variables is a
 space (thus each variable should be one word). The \$ after the variable
 name indicates that the variable preceding contain character values and
 not numeric values. Without specific instructions, SAS assumes that
 variables are numeric. The function will fail, if it encounters a
-character in the place of an expected numeric value.  
+character in the place of an expected numeric value.\
 Each new row in datalines will create a corresponding unique row in the
 dataset. Notice that a ; is not needed after every row, rather it is
 included at the end of the entire data step.

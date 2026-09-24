@@ -30,7 +30,7 @@ combinations.
 
 ## Details
 
-If y = `NULL` then all combination of 2 out of x are returned.  
+If y = `NULL` then all combination of 2 out of x are returned.\
 If y is defined then all combinations of x and y are calculated.
 
 ## See also

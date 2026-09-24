@@ -35,7 +35,8 @@ resolveContingency(
 - square:
 
   logical, whether a square contingency table is required, defaults to
-  `FALSE`.
+  `FALSE`. For two classification variables, both are tabulated over the
+  union of their levels (see Details).
 
 - integerCounts:
 
@@ -103,10 +104,15 @@ rejected rather than passed on to a caller that cannot use it.
 
 `square` is meant for the statistics that compare two ratings of the
 same items, such as the tests of marginal homogeneity or the agreement
-measures. It guarantees that the table has as many columns as rows, and
-nothing beyond that: whether the two axes really carry the same
-categories cannot be checked on a table that may have no `dimnames` at
-all, and remains the responsibility of the caller.
+measures. For two classification variables it tabulates both over the
+union of their observed levels (those of `x` first), so the axes carry
+the same categories in the same order and a category used by only one
+rating becomes a row or column of zeros: `x` using A, B and `y` using B,
+C give a 3 x 3 table over A, B, C instead of rows A, B against columns
+B, C. For a ready-made table it only guarantees as many columns as rows:
+whether the two axes really carry the same categories cannot be checked
+on a table that may have no `dimnames` at all, and remains the
+responsibility of the caller.
 
 ## See also
 
@@ -124,16 +130,15 @@ Other data.resolve: [`resolveFormula()`](resolveFormula.md),
 tab <- matrix(c(10, 5, 3, 12), nrow = 2,
               dimnames = list(c("A", "B"), c("yes", "no")))
 str(resolveContingency(tab))
-#> List of 6
-#>  $ table    : num [1:2, 1:2] 10 5 3 12
+#> List of 5
+#>  $ table   : num [1:2, 1:2] 10 5 3 12
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : chr [1:2] "A" "B"
 #>   .. ..$ : chr [1:2] "yes" "no"
-#>  $ n        : num 30
-#>  $ r        : int 2
-#>  $ c        : int 2
-#>  $ k        : int 2
-#>  $ data.name: chr "tab"
+#>  $ n       : num 30
+#>  $ r       : int 2
+#>  $ c       : int 2
+#>  $ dataName: chr "tab"
 
 # from two classification variables
 set.seed(1)
@@ -153,6 +158,6 @@ myTest <- function(x, y) {
   r$dataName
 }
 myTest(x, y)
-#> Error in resolveContingency(x, y, dataName = paste(deparse1(substitute(x)),     "and", deparse1(substitute(y)))): unused argument (dataName = paste(deparse1(substitute(x)), "and", deparse1(substitute(y))))
+#> [1] "x and y"
 ## [1] "x and y"
 ```

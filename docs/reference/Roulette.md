@@ -79,27 +79,27 @@ Other datasets: [`Cards`](Cards.md), [`Pizza`](Pizza.md),
 ``` r
 head(Roulette)
 #>   num   col parity highlow dozens column     pocketrange
-#> 1   0 green   <NA>    <NA>     NA     NA        jeu zero
-#> 2  26 black   even    high      3     35        jeu zero
-#> 3   3   red    odd     low      1     36        jeu zero
-#> 4  35 black    odd    high      3     35        jeu zero
-#> 5  12   red   even     low      1     36        jeu zero
-#> 6  28 black   even    high      3     34 voisins du zero
+#> 1   0 green   <NA>    <NA>   <NA>   <NA>        jeu zero
+#> 2  26 black   even    high      3      2        jeu zero
+#> 3   3   red    odd     low      1      3        jeu zero
+#> 4  35 black    odd    high      3      2        jeu zero
+#> 5  12   red   even     low      1      3        jeu zero
+#> 6  28 black   even    high      3      1 voisins du zero
 
 table(Roulette$col)
 #> 
-#> black green   red 
-#>    18     1    18 
+#>   red black green 
+#>    18    18     1 
 table(Roulette$parity, Roulette$highlow, useNA = "ifany")
 #>       
-#>        high low <NA>
-#>   even    9   9    0
-#>   odd     9   9    0
-#>   <NA>    0   0    1
+#>        low high <NA>
+#>   even   9    9    0
+#>   odd    9    9    0
+#>   <NA>   0    0    1
 
 # the sectors of the wheel are blocks of neighbouring pockets
 table(Roulette$pocketrange)
 #> 
-#>          jeu zero         orphelins tiers du cylindre   voisins du zero 
-#>                 7                 8                12                10 
+#>          jeu zero   voisins du zero tiers du cylindre         orphelins 
+#>                 7                10                12                 8 
 ```

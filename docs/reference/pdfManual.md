@@ -2,7 +2,7 @@
 
 PDF versions of the manual are usually not included as vignettes in R
 packages. Still this format is convenient for reading and doing full
-text search.  
+text search.\
 This function creates the appropriate link to the pdf file on CRAN and
 opens the pdf manual in a browser window.
 
@@ -38,8 +38,9 @@ Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-pdfManual(DescToolsX)
-pdfManual("bedrock")
-} # }
+# opens a browser window, hence only run in an interactive session
+if (interactive()) {
+  pdfManual(DescToolsX)
+  pdfManual("bedrock")
+}
 ```
