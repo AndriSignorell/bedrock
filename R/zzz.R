@@ -9,7 +9,7 @@
 
 #' @importFrom Rcpp sourceCpp
 #' 
-#' @importFrom stats complete.cases na.omit quantile uniroot runif relevel filter is.ts na.exclude na.fail na.pass model.frame plogis qlogis as.formula contr.helmert contr.poly contr.sum contr.treatment xtabs aggregate
+#' @importFrom stats complete.cases na.omit quantile uniroot runif relevel filter is.ts na.exclude na.fail na.pass model.frame plogis qlogis as.formula contr.helmert contr.poly contr.sum contr.treatment xtabs aggregate ave
 #' 
 #' @importFrom utils combn modifyList tail browseURL find getAnywhere head help.search str capture.output as.roman read.table
 #'             
