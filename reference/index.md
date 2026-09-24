@@ -292,6 +292,9 @@ Inspecting functions, arguments, and Rd documentation.
   with Defaults
 - [`getDotsArg()`](getDotsArg.md) : Get a Single Argument from Dots with
   Default
+- [`getConcepts()`](concepts.md) [`conceptMap()`](concepts.md)
+  [`conceptAudit()`](concepts.md) : Concept Utilities for Package
+  Documentation
 - [`mergeArgs()`](mergeArgs.md) : Merge Default Arguments with User
   Overrides
 - [`recycle()`](recycle.md) : Recycle a List of Elements
