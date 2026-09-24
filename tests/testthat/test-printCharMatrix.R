@@ -1,21 +1,21 @@
-library(testthat)
+# printCharMatrix() prints as a side effect; every call that is not asserted
+# on its output runs inside expect_output(), so the matrix does not leak onto
+# the test console. expect_output(expect_invisible(...)) checks both at once:
+# something is printed and the value is returned invisibly. (A helper taking
+# the call as argument would not work: forcing a promise makes it visible.)
 
 test_that("printCharMatrix runs invisibly", {
 
   m <- matrix(c("a","b","c","d"), nrow=2)
 
-  expect_invisible(
-    printCharMatrix(m)
-  )
+  expect_output(expect_invisible(printCharMatrix(m)))
 })
 
 test_that("printCharMatrix supports left alignment", {
 
   m <- matrix(c("a","b"), nrow=1)
 
-  expect_invisible(
-    printCharMatrix(m, align="left")
-  )
+  expect_output(expect_invisible(printCharMatrix(m, align = "left")))
 })
 
 test_that("align accepts a per-column vector", {
@@ -35,16 +35,16 @@ test_that("align of length 1 is recycled across all columns", {
 
   m <- matrix(c("a", "b", "c"), nrow = 1)  # 3 columns
 
-  expect_invisible(printCharMatrix(m, align = "left"))
-  expect_invisible(printCharMatrix(m, align = "right"))
+  expect_output(expect_invisible(printCharMatrix(m, align = "left")))
+  expect_output(expect_invisible(printCharMatrix(m, align = "right")))
 })
 
 test_that("align supports partial matching", {
 
   m <- matrix(c("a", "b"), nrow = 1)
 
-  expect_invisible(printCharMatrix(m, align = "l"))   # -> "left"
-  expect_invisible(printCharMatrix(m, align = "r"))   # -> "right"
+  expect_output(expect_invisible(printCharMatrix(m, align = "l")))  # -> "left"
+  expect_output(expect_invisible(printCharMatrix(m, align = "r")))  # -> "right"
 })
 
 test_that("wrong align length errors", {

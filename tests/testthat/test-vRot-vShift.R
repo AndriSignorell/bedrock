@@ -1,6 +1,11 @@
-library(testthat)
 
-# ── vRot ──────────────────────────────────────────────────────────────────────
+# ===============================================================
+# vRot / vShift TESTS
+# ===============================================================
+# merged from test-vRot.R and test-vShift.R, whose remaining cases
+# (vShift with k = 0, non-integer k in vShift) are included below
+
+# -- vRot -------------------------------------------------------
 
 test_that("vRot rotates right and left", {
   expect_equal(vRot(1:5, 2),  c(4L, 5L, 1L, 2L, 3L))
@@ -27,11 +32,12 @@ test_that("vRot warns on non-integer k and rejects invalid k", {
   expect_error(vRot(1:5, 1:2), "single number")
 })
 
-# ── vShift ────────────────────────────────────────────────────────────────────
+# -- vShift -----------------------------------------------------
 
 test_that("vShift shifts with NA padding", {
   expect_equal(vShift(1:5, 2),  c(NA, NA, 1L, 2L, 3L))
   expect_equal(vShift(1:5, -2), c(3L, 4L, 5L, NA, NA))
+  expect_equal(vShift(1:5, 0),  1:5)
 })
 
 test_that("vShift discards everything when k >= n", {
@@ -55,7 +61,9 @@ test_that("vShift preserves Date class", {
   expect_equal(res, c(d[2:3], as.Date(NA)))
 })
 
-test_that("vShift rejects invalid k", {
+test_that("vShift warns on non-integer k and rejects invalid k", {
+  expect_warning(res <- vShift(1:5, 1.2))
+  expect_equal(res, vShift(1:5, 1))
   expect_error(vShift(1:5, NA), "single number")
   expect_error(vShift(1:5, "a"), "single number")
 })

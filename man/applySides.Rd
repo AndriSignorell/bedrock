@@ -54,15 +54,6 @@ statistics need one of each: Cronbach's alpha takes \code{lo = -Inf} and
 The two-sided interval is clamped to \eqn{[lo, hi]} as well, so an
 interval can never claim a value the statistic cannot take.
 }
-\section{Why this is not written out per function}{
-
-Five hand-written copies of the same three lines produced four different
-defects across one review: two functions had the sides inverted, one
-ignored them after adjusting the level, and one returned \code{NA} where
-a boundary belonged. The operation is short enough to retype and just
-subtle enough to retype wrongly.
-}
-
 \examples{
 ci <- c(0.12, 0.58)
 

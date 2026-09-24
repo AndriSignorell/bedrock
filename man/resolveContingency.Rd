@@ -20,7 +20,8 @@ classifications.}
 as \code{x}. Required unless \code{x} is a table, ignored when it is.}
 
 \item{square}{logical, whether a square contingency table is required,
-defaults to \code{FALSE}.}
+defaults to \code{FALSE}. For two classification variables, both are
+tabulated over the union of their levels (see Details).}
 
 \item{integerCounts}{logical, whether non-integer counts should be reported
 with a warning, defaults to \code{TRUE}.}
@@ -72,10 +73,14 @@ rather than passed on to a caller that cannot use it.
 
 \code{square} is meant for the statistics that compare two ratings of the same
 items, such as the tests of marginal homogeneity or the agreement measures.
-It guarantees that the table has as many columns as rows, and nothing
-beyond that: whether the two axes really carry the same categories cannot be
-checked on a table that may have no \code{dimnames} at all, and remains the
-responsibility of the caller.
+For two classification variables it tabulates both over the union of their
+observed levels (those of \code{x} first), so the axes carry the same categories
+in the same order and a category used by only one rating becomes a row or
+column of zeros: \code{x} using A, B and \code{y} using B, C give a 3 x 3 table over
+A, B, C instead of rows A, B against columns B, C. For a ready-made table it
+only guarantees as many columns as rows: whether the two axes really carry
+the same categories cannot be checked on a table that may have no
+\code{dimnames} at all, and remains the responsibility of the caller.
 }
 \examples{
 # from an existing contingency table

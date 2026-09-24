@@ -30,7 +30,10 @@ be referenced by position.
 }
 \details{
 By default, only top-level elements are numbered. Recursive numbering
-of nested list elements can be enabled with \code{recursive = TRUE}.
+of nested list elements can be enabled with \code{recursive = TRUE}; nested
+elements then get hierarchical labels such as \code{2.1}, which give their
+position (\code{x[[2]][[1]]}), and the top-level numbers stay the same in both
+views.
 }
 \examples{
 # Data frame
