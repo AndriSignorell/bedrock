@@ -44,7 +44,10 @@ invisibly returns the character vector produced by
 ## Details
 
 By default, only top-level elements are numbered. Recursive numbering of
-nested list elements can be enabled with `recursive = TRUE`.
+nested list elements can be enabled with `recursive = TRUE`; nested
+elements then get hierarchical labels such as `2.1`, which give their
+position (`x[[2]][[1]]`), and the top-level numbers stay the same in
+both views.
 
 ## See also
 
@@ -89,6 +92,6 @@ strX(x, recursive = TRUE)
 #> List of 2
 #>  1 $ a: num 1
 #>  2 $ b:List of 2
-#>   ..3 $ c: num 2
-#>   ..4 $ d: num 3
+#>   ..2.1 $ c: num 2
+#>   ..2.2 $ d: num 3
 ```

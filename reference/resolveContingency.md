@@ -35,7 +35,8 @@ resolveContingency(
 - square:
 
   logical, whether a square contingency table is required, defaults to
-  `FALSE`.
+  `FALSE`. For two classification variables, both are tabulated over the
+  union of their levels (see Details).
 
 - integerCounts:
 
@@ -103,10 +104,15 @@ rejected rather than passed on to a caller that cannot use it.
 
 `square` is meant for the statistics that compare two ratings of the
 same items, such as the tests of marginal homogeneity or the agreement
-measures. It guarantees that the table has as many columns as rows, and
-nothing beyond that: whether the two axes really carry the same
-categories cannot be checked on a table that may have no `dimnames` at
-all, and remains the responsibility of the caller.
+measures. For two classification variables it tabulates both over the
+union of their observed levels (those of `x` first), so the axes carry
+the same categories in the same order and a category used by only one
+rating becomes a row or column of zeros: `x` using A, B and `y` using B,
+C give a 3 x 3 table over A, B, C instead of rows A, B against columns
+B, C. For a ready-made table it only guarantees as many columns as rows:
+whether the two axes really carry the same categories cannot be checked
+on a table that may have no `dimnames` at all, and remains the
+responsibility of the caller.
 
 ## See also
 

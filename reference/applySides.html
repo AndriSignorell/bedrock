@@ -19,7 +19,7 @@ way."><meta property="og:image" content="/logo.png"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.9</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.11</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,16 +117,6 @@ statistics need one of each: Cronbach's alpha takes <code>lo = -Inf</code> and
 <code>hi = 1</code>, a relative risk <code>lo = 0</code> and <code>hi = Inf</code>.</p>
 <p>The two-sided interval is clamped to \([lo, hi]\) as well, so an
 interval can never claim a value the statistic cannot take.</p>
-    </div>
-    <div class="section level2">
-    <h2 id="why-this-is-not-written-out-per-function">Why this is not written out per function<a class="anchor" aria-label="anchor" href="#why-this-is-not-written-out-per-function"></a></h2>
-
-
-<p>Five hand-written copies of the same three lines produced four different
-defects across one review: two functions had the sides inverted, one
-ignored them after adjusting the level, and one returned <code>NA</code> where
-a boundary belonged. The operation is short enough to retype and just
-subtle enough to retype wrongly.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
