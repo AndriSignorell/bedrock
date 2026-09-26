@@ -133,8 +133,9 @@ Reshaping, recoding, ordering, and inspecting data structures.
 - [`resolveContingency()`](resolveContingency.md) : Resolve a
   Contingency Table
 
-- [`resolveFormula()`](resolveFormula.md) : Parse and Classify a Model
-  Formula
+- [`resolveFormula()`](resolveFormula.md)
+  [`resolveFormulaFromCall()`](resolveFormula.md) : Parse and Classify a
+  Model Formula
 
 - [`resolveGroups()`](resolveGroups.md) : Resolve Grouped Data
 

@@ -8,17 +8,24 @@ of re-implementing the parsing, the `subset` handling and the
 distinction between a grouping factor, a numeric predictor and a
 blocking variable.
 
+`resolveFormulaFromCall()` is the entry point for a function offering a
+formula interface: called from its body, it forwards the caller's
+`formula`, `data` and `subset` to `resolveFormula()` exactly as they
+were written, so that `subset` keeps its base R semantics (see Details).
+
 ## Usage
 
 ``` r
 resolveFormula(
   formula,
   data,
-  subset = NULL,
+  subset,
   na.action = na.pass,
   allowed = c("one-sample", "two-sample-independent", "two-sample-dependent",
     "n-sample-independent", "n-sample-dependent", "numeric-numeric", "regression")
 )
+
+resolveFormulaFromCall(allowed, na.action = na.pass)
 ```
 
 ## Arguments
@@ -41,6 +48,12 @@ resolveFormula(
 
   :   two-sample or n-sample independent group comparison.
 
+  `y ~ a:b`
+
+  :   independent group comparison of the cells of several grouping
+      variables, combined into one grouping factor. `y ~ a + b` is not a
+      grouped design: it is `regression` if allowed, else an error.
+
   `y ~ x`, `x` numeric
 
   :   numeric-numeric (correlation, simple regression).
@@ -60,9 +73,10 @@ resolveFormula(
 
 - subset:
 
-  an *already captured* subset expression, an index vector, or `NULL`
-  (the default). The argument is taken by value, never by
-  [`substitute()`](https://rdrr.io/r/base/substitute.html). See Details.
+  an optional expression indicating the observations to use, evaluated
+  in `data` as in
+  [`model.frame()`](https://rdrr.io/r/stats/model.frame.html)
+  (`subset = len > 10`), or an index vector. See Details.
 
 - na.action:
 
@@ -161,14 +175,43 @@ knowing.
     count alike allow one type only.
 
 3.  `allowed = "regression"` on its own forces the `regression` type for
-    every formula, including `y ~ 1` and `y ~ g`. This is the entry
+    every formula, including `y ~ 1` and `y ~ g`, with the exception of
+    the blocked syntax `y ~ trt | block`, which is always
+    `n-sample-dependent` and therefore an error then. This is the entry
     point for model-fitting callers, which interpret the right-hand side
-    themselves.
+    themselves. Duplicates in `allowed` are ignored, so
+    `c("regression", "regression")` behaves the same.
 
 4.  Otherwise `regression` is reported only for more than one right-hand
     side variable. With `allowed` containing both `"regression"` and
     `"numeric-numeric"`, `y ~ x` is therefore `numeric-numeric` while
     `y ~ x1 + x2` is `regression`.
+
+**Cells of several grouping variables**
+
+A right-hand side consisting of a single interaction term, `y ~ a:b` (or
+`y ~ a:b:c`), is the explicit request for the cells of these variables.
+They are combined into one grouping factor via
+[`interaction()`](https://rdrr.io/r/base/interaction.html), with levels
+such as `"OJ:0.5"`; numeric components are treated as categorical. The
+design is then classified like `y ~ g`, by the number of non-empty
+cells.
+
+Unlike [`boxplot()`](https://rdrr.io/r/graphics/boxplot.html),
+`y ~ a + b` is *not* read as cells: additive terms are not an
+interaction, as in [`lm()`](https://rdrr.io/r/stats/lm.html). Such a
+formula, like `y ~ a * b`, is `regression` if that type is allowed, and
+an error otherwise. If `"regression"` is allowed, it also takes
+precedence over the cell reading of `y ~ a:b`, which a model-fitting
+caller interprets as an interaction term.
+
+The distinction rests on the terms of the formula: the model frame holds
+the variables `a` and `b` in both cases and cannot tell the two apart.
+
+[`offset()`](https://rdrr.io/r/stats/offset.html) is only accepted for
+the `regression` design and an error otherwise: an offset column is part
+of the model frame without being a term, and would pass for a grouping
+variable or a numeric predictor.
 
 **Field naming contract (binding across all types)**
 
@@ -178,14 +221,18 @@ knowing.
 
 - `x` is an alias of `response` for the types that are conventionally
   described in terms of a sample rather than a model (`one-sample`,
-  `two-sample-*`, `n-sample-independent`, `numeric-numeric`).
+  `two-sample-independent`, `n-sample-independent`, `numeric-numeric`).
+  The exception is `two-sample-dependent`: there `response` is the whole
+  [`Pair()`](https://rdrr.io/r/stats/Pair.html) matrix, while `x` and
+  `y` are its first and second column.
 
 - `group` is reserved for a categorical, factor-coercible variable of
   length `n` (the full sample) that splits the response into groups. It
   is never pre-split and never used for a continuous variable. `x` and
   `group` have an identical shape for `two-sample-independent` and for
   `n-sample-independent`, so that a caller can use `split(r$x, r$group)`
-  uniformly, without branching on the number of groups.
+  uniformly, without branching on the number of groups. For `y ~ a:b`,
+  `group` holds the combined cell factor.
 
 - `predictor` is used for a continuous, numeric right-hand side variable
   (`numeric-numeric`), never `group`.
@@ -221,7 +268,8 @@ with the default [`na.pass()`](https://rdrr.io/r/stats/na.fail.html)
 they reach the caller untouched. The one exception is the grouping
 factor of an independent design, where empty and missing levels are
 dropped before the groups are counted. A grouping variable that is
-missing throughout leaves no level at all and is an error.
+missing throughout leaves no level at all and is an error. A cell of
+`y ~ a:b` is missing as soon as one of its components is.
 
 Rows removed by `na.action` are recorded in `attr(r$mf, "na.action")`,
 but those indices are relative to the already subsetted frame. To align
@@ -230,42 +278,40 @@ an external vector with the model frame use `rows`, which accounts for
 
 **subset handling**
 
-`subset` is taken by value. `resolveFormula()` does not call
-[`substitute()`](https://rdrr.io/r/base/substitute.html) on it, so the
-calling function must capture the expression and hand the resulting
-language object on:
+`subset` is evaluated as in base R: it is taken unevaluated, like
+[`lm()`](https://rdrr.io/r/stats/lm.html) does, by handing this
+function's own call on to
+[`model.frame()`](https://rdrr.io/r/stats/model.frame.html), which
+evaluates the expression in `data`, with `environment(formula)` as the
+enclosure. `resolveFormula(y ~ g, df, subset = g == "A")` therefore
+works exactly like `boxplot(y ~ g, df, subset = g == "A")`, and a quoted
+expression fails in both.
+
+A wrapper function forwards its arguments the same way base R does (see
+[`boxplot.formula()`](https://rdrr.io/r/graphics/boxplot.html)): it
+rebuilds its own call and evaluates it in its caller's frame, so that
+`subset` reaches `resolveFormula()` unevaluated.
+`resolveFormulaFromCall()` does exactly this and is the entry point to
+use in a formula method:
 
 
-    myFun <- function(formula, data, subset, na.action = na.pass, ...) {
-      subsetExpr <- if (missing(subset)) NULL else substitute(subset)
-      resolveFormula(formula, data,
-                     subset    = subsetExpr,
-                     na.action = na.action)
+    myFun <- function(formula, data, subset, na.action = na.omit, ...) {
+      r <- resolveFormulaFromCall(
+             allowed   = c("two-sample-independent", "n-sample-independent"),
+             na.action = na.action)
+      ...
     }
 
-A language object is evaluated in `data`, with `environment(formula)` as
-the enclosure; anything else is passed on to
-[`model.frame()`](https://rdrr.io/r/stats/model.frame.html) as an index
-vector. A bare expression written directly in the call
-(`resolveFormula(y ~ g, df, subset = g == "A")`) is evaluated as an
-ordinary argument and therefore only works if the variables live in the
-caller's frame; use `subset = quote(g == "A")` for a column of `data`.
-
-The model frame is built by constructing the
-[`model.frame()`](https://rdrr.io/r/stats/model.frame.html) call with
-the resolved values inlined. Never route this through
-[`do.call()`](https://rdrr.io/r/base/do.call.html) with the default
-`quote = FALSE`:
-[`model.frame()`](https://rdrr.io/r/stats/model.frame.html) applies
-[`substitute()`](https://rdrr.io/r/base/substitute.html) to its own
-`subset` argument, so an argument that is still a symbol or an
-unevaluated call is re-evaluated in the wrong frame.
+Passing a captured expression on by value
+(`resolveFormula(formula, data, subset = substitute(subset))`) does not
+work, just as it does not for
+[`model.frame()`](https://rdrr.io/r/stats/model.frame.html) itself.
 
 **Return components by type**
 
-Every return value contains `type`, `mf`, `rows`, `response` and
-`dataName`, in that order. The remaining components depend on the
-design:
+Every return value starts with `type`, `mf`, `rows` and `response`, in
+that order, followed by the design-specific components below, and ends
+with `dataName`:
 
 - `one-sample`:
 
@@ -294,6 +340,38 @@ design:
 - `regression`:
 
   `terms`
+
+**resolveFormulaFromCall()**
+
+Rebuilds the call of the function it is called from - via
+[`match.call()`](https://rdrr.io/r/base/match.call.html) against that
+function's definition, which works for an S3 method as well
+
+- keeps its `formula`, `data` and `subset` arguments, and evaluates
+  `resolveFormula()` with them in the frame the calling function was
+  called from. This is the forwarding pattern of
+  [`boxplot.formula()`](https://rdrr.io/r/graphics/boxplot.html) and
+  [`lm()`](https://rdrr.io/r/stats/lm.html), written once:
+
+
+    plotBox.formula <- function(formula, data, subset, na.action = na.omit, ...) {
+      r <- bedrock::resolveFormulaFromCall(
+             allowed   = c("two-sample-independent", "n-sample-independent"),
+             na.action = na.action)
+      ...
+    }
+
+`allowed` is passed on as given (omitted: all types). `na.action` should
+be the calling function's own `na.action` value; it is always passed on,
+so that the caller's default (typically
+[`na.omit()`](https://rdrr.io/r/stats/na.fail.html)) applies rather than
+the [`na.pass()`](https://rdrr.io/r/stats/na.fail.html) default of
+`resolveFormula()`.
+
+Requirements for the calling function: its arguments must be named
+`formula`, `data` and `subset`, and `resolveFormulaFromCall()` must be
+called directly in its body, not from a nested helper function, since
+the call is looked up one frame up.
 
 ## See also
 
@@ -339,6 +417,16 @@ resolveFormula(y ~ g3, data = df,
 #> [1] "n-sample-independent"
 ## [1] "n-sample-independent"
 
+# cells of two grouping variables: a:b, not a + b
+r3 <- resolveFormula(y ~ g2:g3, data = df,
+                     allowed = "n-sample-independent")
+levels(r3$group)
+#> [1] "A:A" "B:A" "A:B" "B:B" "A:C" "B:C"
+## [1] "A:A" "B:A" "A:B" "B:B" "A:C" "B:C"
+try(resolveFormula(y ~ g2 + g3, data = df,
+                   allowed = "n-sample-independent"))
+#> Error : 'formula' should be of the form response ~ group; use response ~ a:b for the cells of several grouping variables
+
 # two-sample dependent (paired)
 df2 <- data.frame(pre = rnorm(15, 50, 10), post = rnorm(15, 55, 10))
 resolveFormula(Pair(pre, post) ~ 1, data = df2,
@@ -368,8 +456,8 @@ r6 <- resolveFormula(y ~ log(abs(x)) + I(x^2), data = df3,
 colnames(model.matrix(r6$terms, r6$mf))
 #> [1] "(Intercept)" "log(abs(x))" "I(x^2)"     
 
-# subset, captured by the caller
-resolveFormula(y ~ g3, data = df, subset = quote(g3 != "C"),
+# subset, as in base R
+resolveFormula(y ~ g3, data = df, subset = g3 != "C",
                allowed = "two-sample-independent")$type
 #> [1] "two-sample-independent"
 ## [1] "two-sample-independent"

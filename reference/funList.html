@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.13</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.14</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,61 +101,62 @@ New S Language</em>. Wadsworth &amp; Brooks/Cole.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">funList</span><span class="op">(</span><span class="st">"bedrock"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "%()%"               "%(]%"               "%)(%"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [4] "%)[%"               "%:%"                "%::%"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] "%[)%"               "%[]%"               "%](%"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "%][%"               "%^%"                "%overlaps%"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] "GCD"                "LCM"                "abind"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] "allDuplicated"      "allIdentical"       "appendEnum"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "appendRowNames"     "appendX"            "applySides"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] "asBinary"           "asCDateFmt"         "asciiToChar"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [25] "baseToBase"         "bin"                "binToDec"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "binaryTree"         "buildPath"          "callIf"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] "charToAscii"        "checkConfLevel"     "checkCount"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [34] "checkFlag"          "checkString"        "chr"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "closest"            "coalesceX"          "collapseTable"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [40] "columnWrap"         "combLevels"         "combN"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] "combPairs"          "combSet"            "compareDataFrames" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "completeColumns"    "conceptAudit"       "conceptMap"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [49] "countCompCases"     "courseData"         "crossProd"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [52] "crossProdN"         "dataDescription"    "decToBin"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "decToHex"           "decToOct"           "digitSum"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [58] "distance"           "divisors"           "dotProd"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] "dummy"              "extractArgs"        "factorize"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "fibonacci"          "fileExistURL"       "findDownload"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] "flags"              "frac"               "funArgs"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [70] "funCalls"           "funKeywords"        "funList"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "getConcepts"        "getDotsArg"         "hexToDec"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] "int"                "isDichotomous"      "isEuclid"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] "isFilePath"         "isLowCardinality"   "isNA"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "isNumeric"          "isOdd"              "isPrime"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] "isURL"              "isWholeLike"        "isZero"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [88] "keepAttr"           "label"              "label&lt;-"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "linScale"           "locf"               "logit"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [94] "logitInv"           "mGsub"              "mReplace"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] "maxDec"             "mergeArgs"          "midx"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "moveAvg"            "multMerge"          "nDec"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [103] "nUnique"            "naIf"               "naReplace"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [106] "nchr"               "nf"                 "num"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "nz"                 "octToDec"           "openDataObject"    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [112] "overlap"            "overlaps"           "pairApply"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [115] "parseSASDatalines"  "pdfManual"          "peekFile"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "percentRank"        "permn"              "prec"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [121] "primes"             "printCharMatrix"    "ptInPoly"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [124] "quot"               "rBetaShape"         "rSum21"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "randGroupSplit"     "rankX"              "rdLabels"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [130] "rdTitle"            "readDownload"       "recodeX"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [133] "recycle"            "removeAttr"         "renameX"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "resolveContingency" "resolveFormula"     "resolveGroups"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [139] "revCode"            "revX"               "romanToInt"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [142] "roundTo"            "sampleX"            "setAttr"           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "setLength"          "setNamesX"          "sortX"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [148] "splitAt"            "splitPath"          "splitX"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [151] "strSplitToCol"      "strSplitToDummy"    "strX"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "stringsAsFactors"   "toBaseR"            "toLong"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [157] "toWide"             "trim"               "unirootAll"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [160] "untable"            "unwhich"            "vRot"              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "vShift"             "winsorize"          "withSeed"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "%()%"                   "%(]%"                   "%)(%"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [4] "%)[%"                   "%:%"                    "%::%"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] "%[)%"                   "%[]%"                   "%](%"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "%][%"                   "%^%"                    "%overlaps%"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] "GCD"                    "LCM"                    "abind"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] "allDuplicated"          "allIdentical"           "appendEnum"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "appendRowNames"         "appendX"                "applySides"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] "asBinary"               "asCDateFmt"             "asciiToChar"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [25] "baseToBase"             "bin"                    "binToDec"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "binaryTree"             "buildPath"              "callIf"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] "charToAscii"            "checkConfLevel"         "checkCount"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [34] "checkFlag"              "checkString"            "chr"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "closest"                "coalesceX"              "collapseTable"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [40] "columnWrap"             "combLevels"             "combN"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] "combPairs"              "combSet"                "compareDataFrames"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "completeColumns"        "conceptAudit"           "conceptMap"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [49] "countCompCases"         "courseData"             "crossProd"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [52] "crossProdN"             "dataDescription"        "decToBin"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "decToHex"               "decToOct"               "digitSum"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [58] "distance"               "divisors"               "dotProd"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] "dummy"                  "extractArgs"            "factorize"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "fibonacci"              "fileExistURL"           "findDownload"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] "flags"                  "frac"                   "funArgs"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [70] "funCalls"               "funKeywords"            "funList"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "getConcepts"            "getDotsArg"             "hexToDec"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] "int"                    "isDichotomous"          "isEuclid"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] "isFilePath"             "isLowCardinality"       "isNA"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "isNumeric"              "isOdd"                  "isPrime"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] "isURL"                  "isWholeLike"            "isZero"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [88] "keepAttr"               "label"                  "label&lt;-"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "linScale"               "locf"                   "logit"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [94] "logitInv"               "mGsub"                  "mReplace"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] "maxDec"                 "mergeArgs"              "midx"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "moveAvg"                "multMerge"              "nDec"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [103] "nUnique"                "naIf"                   "naReplace"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [106] "nchr"                   "nf"                     "num"                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "nz"                     "octToDec"               "openDataObject"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] "overlap"                "overlaps"               "pairApply"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [115] "parseSASDatalines"      "pdfManual"              "peekFile"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "percentRank"            "permn"                  "prec"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [121] "primes"                 "printCharMatrix"        "ptInPoly"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [124] "quot"                   "rBetaShape"             "rSum21"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "randGroupSplit"         "rankX"                  "rdLabels"              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [130] "rdTitle"                "readDownload"           "recodeX"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [133] "recycle"                "removeAttr"             "renameX"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "resolveContingency"     "resolveFormula"         "resolveFormulaFromCall"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [139] "resolveGroups"          "revCode"                "revX"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [142] "romanToInt"             "roundTo"                "sampleX"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "setAttr"                "setLength"              "setNamesX"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [148] "sortX"                  "splitAt"                "splitPath"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [151] "splitX"                 "strSplitToCol"          "strSplitToDummy"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "strX"                   "stringsAsFactors"       "toBaseR"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [157] "toLong"                 "toWide"                 "trim"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [160] "unirootAll"             "untable"                "unwhich"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "vRot"                   "vShift"                 "winsorize"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [166] "withSeed"              </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
