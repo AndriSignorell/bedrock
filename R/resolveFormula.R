@@ -14,15 +14,19 @@
 #'     \item{`Pair(x, y) ~ 1`}{two-sample dependent (paired). [Pair()]
 #'       constructs a two-column matrix of paired observations.}
 #'     \item{`y ~ g`}{two-sample or n-sample independent group comparison.}
+#'     \item{`y ~ a:b`}{independent group comparison of the cells of several
+#'       grouping variables, combined into one grouping factor. `y ~ a + b`
+#'       is not a grouped design: it is `regression` if allowed, else an
+#'       error.}
 #'     \item{`y ~ x`, `x` numeric}{numeric-numeric (correlation, simple regression).}
 #'     \item{`y ~ x1 + x2 + ...`}{general regression.}
 #'     \item{`y ~ trt | block`}{n-sample dependent (blocked design).}
 #'   }
 #' @param data an optional data frame containing the variables in `formula`.
 #'   A matrix is coerced to a data frame.
-#' @param subset an *already captured* subset expression, an index vector, or
-#'   `NULL` (the default). The argument is taken by value, never by
-#'   [substitute()]. See Details.
+#' @param subset an optional expression indicating the observations to use,
+#'   evaluated in `data` as in [model.frame()] (`subset = len > 10`), or an
+#'   index vector. See Details.
 #' @param na.action a function specifying how missing values are handled,
 #'   defaults to [na.pass()].
 #' @param allowed a character vector restricting which design types are
@@ -67,14 +71,41 @@
 #'     with the previous rule this lets a caller that treats every group count
 #'     alike allow one type only.
 #'   \item `allowed = "regression"` on its own forces the `regression` type
-#'     for every formula, including `y ~ 1` and `y ~ g`. This is the entry
+#'     for every formula, including `y ~ 1` and `y ~ g`, with the exception
+#'     of the blocked syntax `y ~ trt | block`, which is always
+#'     `n-sample-dependent` and therefore an error then. This is the entry
 #'     point for model-fitting callers, which interpret the right-hand side
-#'     themselves.
+#'     themselves. Duplicates in `allowed` are ignored, so
+#'     `c("regression", "regression")` behaves the same.
 #'   \item Otherwise `regression` is reported only for more than one
 #'     right-hand side variable. With `allowed` containing both `"regression"`
 #'     and `"numeric-numeric"`, `y ~ x` is therefore `numeric-numeric` while
 #'     `y ~ x1 + x2` is `regression`.
 #' }
+#'
+#' **Cells of several grouping variables**
+#'
+#' A right-hand side consisting of a single interaction term, `y ~ a:b` (or
+#' `y ~ a:b:c`), is the explicit request for the cells of these variables.
+#' They are combined into one grouping factor via [interaction()], with
+#' levels such as `"OJ:0.5"`; numeric components are treated as categorical.
+#' The design is then classified like `y ~ g`, by the number of non-empty
+#' cells.
+#'
+#' Unlike [boxplot()], `y ~ a + b` is *not* read as cells: additive terms are
+#' not an interaction, as in [lm()]. Such a formula, like `y ~ a * b`, is
+#' `regression` if that type is allowed, and an error otherwise. If
+#' `"regression"` is allowed, it also takes precedence over the cell reading
+#' of `y ~ a:b`, which a model-fitting caller interprets as an interaction
+#' term.
+#'
+#' The distinction rests on the terms of the formula: the model frame
+#' holds the variables `a` and `b` in both cases and cannot tell the two
+#' apart.
+#'
+#' [offset()] is only accepted for the `regression` design and an error
+#' otherwise: an offset column is part of the model frame without being a
+#' term, and would pass for a grouping variable or a numeric predictor.
 #'
 #' **Field naming contract (binding across all types)**
 #'
@@ -84,14 +115,16 @@
 #'     without branching on `type`.
 #'   \item `x` is an alias of `response` for the types that are conventionally
 #'     described in terms of a sample rather than a model (`one-sample`,
-#'     `two-sample-*`, `n-sample-independent`, `numeric-numeric`).
+#'     `two-sample-independent`, `n-sample-independent`, `numeric-numeric`).
+#'     The exception is `two-sample-dependent`: there `response` is the whole
+#'     [Pair()] matrix, while `x` and `y` are its first and second column.
 #'   \item `group` is reserved for a categorical, factor-coercible variable of
 #'     length `n` (the full sample) that splits the response into groups. It
 #'     is never pre-split and never used for a continuous variable. `x` and
 #'     `group` have an identical shape for `two-sample-independent` and for
 #'     `n-sample-independent`, so that a caller can use
 #'     `split(r$x, r$group)` uniformly, without branching on the number of
-#'     groups.
+#'     groups. For `y ~ a:b`, `group` holds the combined cell factor.
 #'   \item `predictor` is used for a continuous, numeric right-hand side
 #'     variable (`numeric-numeric`), never `group`.
 #'   \item `treatment` is used for the explanatory variable of a blocked
@@ -123,6 +156,7 @@
 #' exception is the grouping factor of an independent design, where empty and
 #' missing levels are dropped before the groups are counted. A grouping
 #' variable that is missing throughout leaves no level at all and is an error.
+#' A cell of `y ~ a:b` is missing as soon as one of its components is.
 #'
 #' Rows removed by `na.action` are recorded in `attr(r$mf, "na.action")`, but
 #' those indices are relative to the already subsetted frame. To align an
@@ -131,36 +165,37 @@
 #'
 #' **subset handling**
 #'
-#' `subset` is taken by value. `resolveFormula()` does not call
-#' [substitute()] on it, so the calling function must capture the expression
-#' and hand the resulting language object on:
+#' `subset` is evaluated as in base R: it is taken unevaluated, like
+#' [lm()] does, by handing this function's own call on to [model.frame()],
+#' which evaluates the expression in `data`, with `environment(formula)` as
+#' the enclosure. `resolveFormula(y ~ g, df, subset = g == "A")` therefore
+#' works exactly like `boxplot(y ~ g, df, subset = g == "A")`, and a quoted
+#' expression fails in both.
+#'
+#' A wrapper function forwards its arguments the same way base R does (see
+#' [boxplot.formula()]): it rebuilds its own call and evaluates it in its
+#' caller's frame, so that `subset` reaches `resolveFormula()` unevaluated.
+#' `resolveFormulaFromCall()` does exactly this and is the entry point to use
+#' in a formula method:
 #'
 #' \preformatted{
-#' myFun <- function(formula, data, subset, na.action = na.pass, ...) {
-#'   subsetExpr <- if (missing(subset)) NULL else substitute(subset)
-#'   resolveFormula(formula, data,
-#'                  subset    = subsetExpr,
-#'                  na.action = na.action)
+#' myFun <- function(formula, data, subset, na.action = na.omit, ...) {
+#'   r <- resolveFormulaFromCall(
+#'          allowed   = c("two-sample-independent", "n-sample-independent"),
+#'          na.action = na.action)
+#'   ...
 #' }
 #' }
 #'
-#' A language object is evaluated in `data`, with `environment(formula)` as
-#' the enclosure; anything else is passed on to [model.frame()] as an index
-#' vector. A bare expression written directly in the call
-#' (`resolveFormula(y ~ g, df, subset = g == "A")`) is evaluated as an ordinary
-#' argument and therefore only works if the variables live in the caller's
-#' frame; use `subset = quote(g == "A")` for a column of `data`.
-#'
-#' The model frame is built by constructing the [model.frame()] call with the
-#' resolved values inlined. Never route this through `do.call()` with the
-#' default `quote = FALSE`: `model.frame()` applies [substitute()] to its own
-#' `subset` argument, so an argument that is still a symbol or an unevaluated
-#' call is re-evaluated in the wrong frame.
+#' Passing a captured expression on by value
+#' (`resolveFormula(formula, data, subset = substitute(subset))`) does not
+#' work, just as it does not for [model.frame()] itself.
 #'
 #' **Return components by type**
 #'
-#' Every return value contains `type`, `mf`, `rows`, `response` and
-#' `dataName`, in that order. The remaining components depend on the design:
+#' Every return value starts with `type`, `mf`, `rows` and `response`, in that
+#' order, followed by the design-specific components below, and ends with
+#' `dataName`:
 #'
 #' \describe{
 #'   \item{`one-sample`}{`x`}
@@ -214,6 +249,14 @@
 #'                allowed = "n-sample-independent")$type
 #' ## [1] "n-sample-independent"
 #'
+#' # cells of two grouping variables: a:b, not a + b
+#' r3 <- resolveFormula(y ~ g2:g3, data = df,
+#'                      allowed = "n-sample-independent")
+#' levels(r3$group)
+#' ## [1] "A:A" "B:A" "A:B" "B:B" "A:C" "B:C"
+#' try(resolveFormula(y ~ g2 + g3, data = df,
+#'                    allowed = "n-sample-independent"))
+#'
 #' # two-sample dependent (paired)
 #' df2 <- data.frame(pre = rnorm(15, 50, 10), post = rnorm(15, 55, 10))
 #' resolveFormula(Pair(pre, post) ~ 1, data = df2,
@@ -238,8 +281,8 @@
 #'                      allowed = "regression")
 #' colnames(model.matrix(r6$terms, r6$mf))
 #'
-#' # subset, captured by the caller
-#' resolveFormula(y ~ g3, data = df, subset = quote(g3 != "C"),
+#' # subset, as in base R
+#' resolveFormula(y ~ g3, data = df, subset = g3 != "C",
 #'                allowed = "two-sample-independent")$type
 #' ## [1] "two-sample-independent"
 #'
@@ -252,7 +295,7 @@
 resolveFormula <- function(
     formula,
     data,
-    subset    = NULL,
+    subset,
     na.action = na.pass,
     allowed   = c("one-sample",
                   "two-sample-independent",
@@ -287,39 +330,19 @@ resolveFormula <- function(
                   paste(sQuote(setdiff(allowed, designTypes)), collapse = ", ")),
          call. = FALSE)
 
+  # duplicates are accepted, but must not defeat the checks below, which
+  # compare 'allowed' as a whole (identical(allowed, "regression"))
+  allowed <- unique(allowed)
+
 
   # ── Coerce matrix data ────────────────────────────────────────────────────
   hasData <- !missing(data) && !is.null(data)
-  
-  if (hasData && is.matrix(data))
+
+  dataCoerced <- hasData && is.matrix(data)
+  if (dataCoerced)
     data <- as.data.frame(data)
 
-  # ── Environment, subset, name ─────────────────────────────────────────────
-  # The formula's environment is where the variables were written, and is what
-  # model.frame() itself uses. parent.frame() would be the frame of the
-  # wrapping test function, not the user's.
-  env <- environment(formula)
-  if (is.null(env))
-    env <- parent.frame()
-
-  dname   <- deparse1(formula)
-
-  # 'subset' arrives as a value: a language object captured by the caller, an
-  # index vector, or NULL. It is resolved once, here, so that no unevaluated
-  # expression can reach model.frame().
-  subsetIdx <- NULL
-
-  if (!is.null(subset)) {
-    subsetIdx <- if (is.language(subset))
-      eval(subset, envir = if (hasData) data else env, enclos = env)
-    else
-      subset
-
-    if (!(is.logical(subsetIdx) || is.numeric(subsetIdx) ||
-          is.character(subsetIdx)))
-      stop("'subset' must evaluate to a logical, numeric or character index",
-           call. = FALSE)
-  }
+  dname <- deparse1(formula)
 
   # ── Helper: positions of the retained rows in the original data ───────────
   # subset is applied by model.frame() before na.action, and the indices in
@@ -350,20 +373,32 @@ resolveFormula <- function(
       list(dataName = dname))
 
   # ── Helper: build the model frame ─────────────────────────────────────────
-  # The call is assembled with the resolved values inlined. do.call() with the
-  # default quote = FALSE must not be used here: model.frame() applies
-  # substitute() to 'subset', so a symbol or an unevaluated call would be
-  # re-evaluated in the wrong frame.
+  # As in lm(): this function's own call is turned into a model.frame() call
+  # and evaluated in the caller's frame, so that 'subset' is taken
+  # unevaluated and evaluated by model.frame() in 'data' - exactly the base R
+  # semantics. formula and na.action are inlined as values (the formula may
+  # have been rewritten, na.action carries this function's default), data
+  # only if it had to be coerced from a matrix.
+  mfCall <- match.call(expand.dots = FALSE)
+  mfCall <- mfCall[c(1L, match(c("data", "subset"), names(mfCall), 0L))]
+  mfCall[[1L]]     <- quote(stats::model.frame)
+  mfCall$na.action <- na.action
+  if (dataCoerced)
+    mfCall$data <- data
+  callerEnv <- parent.frame()
+
   .mf <- function(f) {
-    args <- list(formula = f, na.action = na.action)
+    mfCall$formula <- f
+    eval(mfCall, callerEnv)
+  }
 
-    if (hasData)
-      args$data <- data
-
-    if (!is.null(subsetIdx))
-      args$subset <- subsetIdx
-
-    eval(as.call(c(list(quote(stats::model.frame)), args)))
+  # ── Helper: reject offsets outside regression ────────────────────────────
+  # An offset() column sits in the model frame without being a term, and
+  # would pass for a grouping variable, a numeric predictor or a block.
+  .noOffset <- function(mf) {
+    if (!is.null(attr(attr(mf, "terms"), "offset")))
+      stop("offset() is only supported for the 'regression' design",
+           call. = FALSE)
   }
 
   # ── 1. n-sample-dependent: y ~ trt | block ───────────────────────────────
@@ -378,6 +413,8 @@ resolveFormula <- function(
     f2             <- formula
     f2[[3L]][[1L]] <- as.name("+")
     mf             <- .mf(f2)
+
+    .noOffset(mf)
 
     if (ncol(mf) != 3L)
       stop("blocked formula must be of the form y ~ trt | block",
@@ -395,15 +432,37 @@ resolveFormula <- function(
   # ── 2a. General regression ────────────────────────────────────────────────
   # A regression caller needs the complete model frame and performs its own
   # interpretation of the right-hand side. 'terms' is handed out with it, since
-  # model.matrix() must be built from the terms, not from the formula.
+  # model.matrix() must be built from the terms, not from the formula. This
+  # takes precedence over the cell reading of y ~ a:b below, which a
+  # model-fitting caller interprets as an interaction term.
   if (identical(allowed, "regression") ||
       (ncol(mf) > 2L && "regression" %in% allowed)) {
     return(.result("regression", mf, response,
                    terms = attr(mf, "terms")))
   }
 
-  if (ncol(mf) > 2L)
-    stop("'formula' should be of the form response ~ group", call. = FALSE)
+  # ── Cells: y ~ a:b ────────────────────────────────────────────────────────
+  # A single interaction term is the user's explicit request for the cells
+  # of several grouping variables; it becomes one grouping factor. y ~ a + b
+  # is not read the same way (unlike boxplot()): additive terms are not
+  # cells, as in lm(). The model frame alone cannot tell the two apart - it
+  # holds the variables a and b in both cases - only the term labels can.
+  #
+  # Offsets are rejected first: otherwise y ~ g + offset(x) is read as the
+  # cells of g and x, and y ~ offset(x) as numeric-numeric.
+  .noOffset(mf)
+  tt <- attr(mf, "terms")
+
+  # a single term of order > 1 is an interaction; its variables are then
+  # exactly the right-hand side columns of the model frame
+  gCells <- if (ncol(mf) > 2L && length(attr(tt, "term.labels")) == 1L &&
+                attr(tt, "order") > 1L)
+    interaction(mf[-1L], drop = TRUE, sep = ":")
+
+  if (ncol(mf) > 2L && is.null(gCells))
+    stop("'formula' should be of the form response ~ group; ",
+         "use response ~ a:b for the cells of several grouping variables",
+         call. = FALSE)
 
   # ── 2b. One-sample or two-sample dependent ────────────────────────────────
   if (ncol(mf) == 1L) {
@@ -431,7 +490,8 @@ resolveFormula <- function(
   }
 
   # ── 2c. numeric ~ numeric ────────────────────────────────────────────────
-  if (is.numeric(mf[[2L]])) {
+  # not for cells: numeric components of y ~ a:b are categorical there
+  if (is.null(gCells) && is.numeric(mf[[2L]])) {
     if (!"numeric-numeric" %in% allowed)
       stop("right-hand side of 'formula' is numeric, but a ",
            "'numeric-numeric' design is not allowed here; ",
@@ -442,7 +502,10 @@ resolveFormula <- function(
   }
 
   # ── 2d. Grouped: two-sample or n-sample independent ──────────────────────
-  g <- droplevels(factor(mf[[2L]], exclude = NA))
+  # interaction() yields NA as soon as one component is missing, so a cell
+  # with a missing component is excluded like a missing group
+  g <- droplevels(factor(if (is.null(gCells)) mf[[2L]] else gCells,
+                         exclude = NA))
   k <- nlevels(g)
 
   # no level survives when the grouping variable is missing throughout, or
@@ -484,4 +547,71 @@ resolveFormula <- function(
   .result(type, mf, response,
           x     = response,
           group = g)
+}
+
+
+
+#' @description
+#' `resolveFormulaFromCall()` is the entry point for a function offering a
+#' formula interface: called from its body, it forwards the caller's
+#' `formula`, `data` and `subset` to `resolveFormula()` exactly as they were
+#' written, so that `subset` keeps its base R semantics (see Details).
+#'
+#' @details
+#' **resolveFormulaFromCall()**
+#'
+#' Rebuilds the call of the function it is called from - via [match.call()]
+#' against that function's definition, which works for an S3 method as well
+#' - keeps its `formula`, `data` and `subset` arguments, and evaluates
+#' `resolveFormula()` with them in the frame the calling function was called
+#' from. This is the forwarding pattern of [boxplot.formula()] and [lm()],
+#' written once:
+#'
+#' \preformatted{
+#' plotBox.formula <- function(formula, data, subset, na.action = na.omit, ...) {
+#'   r <- bedrock::resolveFormulaFromCall(
+#'          allowed   = c("two-sample-independent", "n-sample-independent"),
+#'          na.action = na.action)
+#'   ...
+#' }
+#' }
+#'
+#' `allowed` is passed on as given (omitted: all types). `na.action` should
+#' be the calling function's own `na.action` value; it is always passed on,
+#' so that the caller's default (typically [na.omit()]) applies rather than
+#' the [na.pass()] default of `resolveFormula()`.
+#'
+#' Requirements for the calling function: its arguments must be named
+#' `formula`, `data` and `subset`, and `resolveFormulaFromCall()` must be
+#' called directly in its body, not from a nested helper function, since the
+#' call is looked up one frame up.
+#'
+#' @rdname resolveFormula
+#' @export
+resolveFormulaFromCall <- function(allowed, na.action = na.pass) {
+
+  # the calling function's frame, and its call matched against its own
+  # definition (for an S3 method: the method's formals, not the generic's)
+  caller <- sys.parent()
+
+  if (caller == 0L)
+    stop("resolveFormulaFromCall() must be called from within a function",
+         call. = FALSE)
+
+  m <- match.call(definition  = sys.function(caller),
+                  call        = sys.call(caller),
+                  expand.dots = FALSE)
+  m <- m[c(1L, match(c("formula", "data", "subset"), names(m), 0L))]
+
+  if (is.null(m$formula))
+    stop("the calling function has no 'formula' argument", call. = FALSE)
+
+  m[[1L]]     <- quote(bedrock::resolveFormula)
+  m$na.action <- na.action
+  if (!missing(allowed))
+    m$allowed <- allowed
+
+  # the frame the calling function was called from: there the arguments were
+  # written, and there resolveFormula() takes 'subset' unevaluated
+  eval(m, parent.frame(2L))
 }

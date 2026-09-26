@@ -2,16 +2,19 @@
 % Please edit documentation in R/resolveFormula.R
 \name{resolveFormula}
 \alias{resolveFormula}
+\alias{resolveFormulaFromCall}
 \title{Parse and Classify a Model Formula}
 \usage{
 resolveFormula(
   formula,
   data,
-  subset = NULL,
+  subset,
   na.action = na.pass,
   allowed = c("one-sample", "two-sample-independent", "two-sample-dependent",
     "n-sample-independent", "n-sample-dependent", "numeric-numeric", "regression")
 )
+
+resolveFormulaFromCall(allowed, na.action = na.pass)
 }
 \arguments{
 \item{formula}{a two-sided model formula. Supported forms are:
@@ -20,6 +23,10 @@ resolveFormula(
 \item{\code{Pair(x, y) ~ 1}}{two-sample dependent (paired). \code{\link[=Pair]{Pair()}}
 constructs a two-column matrix of paired observations.}
 \item{\code{y ~ g}}{two-sample or n-sample independent group comparison.}
+\item{\code{y ~ a:b}}{independent group comparison of the cells of several
+grouping variables, combined into one grouping factor. \code{y ~ a + b}
+is not a grouped design: it is \code{regression} if allowed, else an
+error.}
 \item{\code{y ~ x}, \code{x} numeric}{numeric-numeric (correlation, simple regression).}
 \item{\code{y ~ x1 + x2 + ...}}{general regression.}
 \item{\code{y ~ trt | block}}{n-sample dependent (blocked design).}
@@ -28,9 +35,9 @@ constructs a two-column matrix of paired observations.}
 \item{data}{an optional data frame containing the variables in \code{formula}.
 A matrix is coerced to a data frame.}
 
-\item{subset}{an \emph{already captured} subset expression, an index vector, or
-\code{NULL} (the default). The argument is taken by value, never by
-\code{\link[=substitute]{substitute()}}. See Details.}
+\item{subset}{an optional expression indicating the observations to use,
+evaluated in \code{data} as in \code{\link[=model.frame]{model.frame()}} (\code{subset = len > 10}), or an
+index vector. See Details.}
 
 \item{na.action}{a function specifying how missing values are handled,
 defaults to \code{\link[=na.pass]{na.pass()}}.}
@@ -64,6 +71,11 @@ returned under a fixed set of names, so that every function offering a
 formula interface can share one entry point instead of re-implementing the
 parsing, the \code{subset} handling and the distinction between a grouping
 factor, a numeric predictor and a blocking variable.
+
+\code{resolveFormulaFromCall()} is the entry point for a function offering a
+formula interface: called from its body, it forwards the caller's
+\code{formula}, \code{data} and \code{subset} to \code{resolveFormula()} exactly as they were
+written, so that \code{subset} keeps its base R semantics (see Details).
 }
 \details{
 \strong{Design types}
@@ -98,14 +110,41 @@ whether the detected type is accepted, with four exceptions worth knowing.
 with the previous rule this lets a caller that treats every group count
 alike allow one type only.
 \item \code{allowed = "regression"} on its own forces the \code{regression} type
-for every formula, including \code{y ~ 1} and \code{y ~ g}. This is the entry
+for every formula, including \code{y ~ 1} and \code{y ~ g}, with the exception
+of the blocked syntax \code{y ~ trt | block}, which is always
+\code{n-sample-dependent} and therefore an error then. This is the entry
 point for model-fitting callers, which interpret the right-hand side
-themselves.
+themselves. Duplicates in \code{allowed} are ignored, so
+\code{c("regression", "regression")} behaves the same.
 \item Otherwise \code{regression} is reported only for more than one
 right-hand side variable. With \code{allowed} containing both \code{"regression"}
 and \code{"numeric-numeric"}, \code{y ~ x} is therefore \code{numeric-numeric} while
 \code{y ~ x1 + x2} is \code{regression}.
 }
+
+\strong{Cells of several grouping variables}
+
+A right-hand side consisting of a single interaction term, \code{y ~ a:b} (or
+\code{y ~ a:b:c}), is the explicit request for the cells of these variables.
+They are combined into one grouping factor via \code{\link[=interaction]{interaction()}}, with
+levels such as \code{"OJ:0.5"}; numeric components are treated as categorical.
+The design is then classified like \code{y ~ g}, by the number of non-empty
+cells.
+
+Unlike \code{\link[=boxplot]{boxplot()}}, \code{y ~ a + b} is \emph{not} read as cells: additive terms are
+not an interaction, as in \code{\link[=lm]{lm()}}. Such a formula, like \code{y ~ a * b}, is
+\code{regression} if that type is allowed, and an error otherwise. If
+\code{"regression"} is allowed, it also takes precedence over the cell reading
+of \code{y ~ a:b}, which a model-fitting caller interprets as an interaction
+term.
+
+The distinction rests on the terms of the formula: the model frame
+holds the variables \code{a} and \code{b} in both cases and cannot tell the two
+apart.
+
+\code{\link[=offset]{offset()}} is only accepted for the \code{regression} design and an error
+otherwise: an offset column is part of the model frame without being a
+term, and would pass for a grouping variable or a numeric predictor.
 
 \strong{Field naming contract (binding across all types)}
 
@@ -115,14 +154,16 @@ left-hand side of the formula. It is the one field a caller can rely on
 without branching on \code{type}.
 \item \code{x} is an alias of \code{response} for the types that are conventionally
 described in terms of a sample rather than a model (\code{one-sample},
-\verb{two-sample-*}, \code{n-sample-independent}, \code{numeric-numeric}).
+\code{two-sample-independent}, \code{n-sample-independent}, \code{numeric-numeric}).
+The exception is \code{two-sample-dependent}: there \code{response} is the whole
+\code{\link[=Pair]{Pair()}} matrix, while \code{x} and \code{y} are its first and second column.
 \item \code{group} is reserved for a categorical, factor-coercible variable of
 length \code{n} (the full sample) that splits the response into groups. It
 is never pre-split and never used for a continuous variable. \code{x} and
 \code{group} have an identical shape for \code{two-sample-independent} and for
 \code{n-sample-independent}, so that a caller can use
 \code{split(r$x, r$group)} uniformly, without branching on the number of
-groups.
+groups. For \code{y ~ a:b}, \code{group} holds the combined cell factor.
 \item \code{predictor} is used for a continuous, numeric right-hand side
 variable (\code{numeric-numeric}), never \code{group}.
 \item \code{treatment} is used for the explanatory variable of a blocked
@@ -154,6 +195,7 @@ with the default \code{\link[=na.pass]{na.pass()}} they reach the caller untouch
 exception is the grouping factor of an independent design, where empty and
 missing levels are dropped before the groups are counted. A grouping
 variable that is missing throughout leaves no level at all and is an error.
+A cell of \code{y ~ a:b} is missing as soon as one of its components is.
 
 Rows removed by \code{na.action} are recorded in \code{attr(r$mf, "na.action")}, but
 those indices are relative to the already subsetted frame. To align an
@@ -162,36 +204,37 @@ external vector with the model frame use \code{rows}, which accounts for
 
 \strong{subset handling}
 
-\code{subset} is taken by value. \code{resolveFormula()} does not call
-\code{\link[=substitute]{substitute()}} on it, so the calling function must capture the expression
-and hand the resulting language object on:
+\code{subset} is evaluated as in base R: it is taken unevaluated, like
+\code{\link[=lm]{lm()}} does, by handing this function's own call on to \code{\link[=model.frame]{model.frame()}},
+which evaluates the expression in \code{data}, with \code{environment(formula)} as
+the enclosure. \code{resolveFormula(y ~ g, df, subset = g == "A")} therefore
+works exactly like \code{boxplot(y ~ g, df, subset = g == "A")}, and a quoted
+expression fails in both.
+
+A wrapper function forwards its arguments the same way base R does (see
+\code{\link[=boxplot.formula]{boxplot.formula()}}): it rebuilds its own call and evaluates it in its
+caller's frame, so that \code{subset} reaches \code{resolveFormula()} unevaluated.
+\code{resolveFormulaFromCall()} does exactly this and is the entry point to use
+in a formula method:
 
 \preformatted{
-myFun <- function(formula, data, subset, na.action = na.pass, ...) {
-  subsetExpr <- if (missing(subset)) NULL else substitute(subset)
-  resolveFormula(formula, data,
-                 subset    = subsetExpr,
-                 na.action = na.action)
+myFun <- function(formula, data, subset, na.action = na.omit, ...) {
+  r <- resolveFormulaFromCall(
+         allowed   = c("two-sample-independent", "n-sample-independent"),
+         na.action = na.action)
+  ...
 }
 }
 
-A language object is evaluated in \code{data}, with \code{environment(formula)} as
-the enclosure; anything else is passed on to \code{\link[=model.frame]{model.frame()}} as an index
-vector. A bare expression written directly in the call
-(\code{resolveFormula(y ~ g, df, subset = g == "A")}) is evaluated as an ordinary
-argument and therefore only works if the variables live in the caller's
-frame; use \code{subset = quote(g == "A")} for a column of \code{data}.
-
-The model frame is built by constructing the \code{\link[=model.frame]{model.frame()}} call with the
-resolved values inlined. Never route this through \code{do.call()} with the
-default \code{quote = FALSE}: \code{model.frame()} applies \code{\link[=substitute]{substitute()}} to its own
-\code{subset} argument, so an argument that is still a symbol or an unevaluated
-call is re-evaluated in the wrong frame.
+Passing a captured expression on by value
+(\code{resolveFormula(formula, data, subset = substitute(subset))}) does not
+work, just as it does not for \code{\link[=model.frame]{model.frame()}} itself.
 
 \strong{Return components by type}
 
-Every return value contains \code{type}, \code{mf}, \code{rows}, \code{response} and
-\code{dataName}, in that order. The remaining components depend on the design:
+Every return value starts with \code{type}, \code{mf}, \code{rows} and \code{response}, in that
+order, followed by the design-specific components below, and ends with
+\code{dataName}:
 
 \describe{
 \item{\code{one-sample}}{\code{x}}
@@ -203,6 +246,36 @@ second group)}
 \item{\code{numeric-numeric}}{\code{x}, \code{predictor}}
 \item{\code{regression}}{\code{terms}}
 }
+
+\strong{resolveFormulaFromCall()}
+
+Rebuilds the call of the function it is called from - via \code{\link[=match.call]{match.call()}}
+against that function's definition, which works for an S3 method as well
+\itemize{
+\item keeps its \code{formula}, \code{data} and \code{subset} arguments, and evaluates
+\code{resolveFormula()} with them in the frame the calling function was called
+from. This is the forwarding pattern of \code{\link[=boxplot.formula]{boxplot.formula()}} and \code{\link[=lm]{lm()}},
+written once:
+}
+
+\preformatted{
+plotBox.formula <- function(formula, data, subset, na.action = na.omit, ...) {
+  r <- bedrock::resolveFormulaFromCall(
+         allowed   = c("two-sample-independent", "n-sample-independent"),
+         na.action = na.action)
+  ...
+}
+}
+
+\code{allowed} is passed on as given (omitted: all types). \code{na.action} should
+be the calling function's own \code{na.action} value; it is always passed on,
+so that the caller's default (typically \code{\link[=na.omit]{na.omit()}}) applies rather than
+the \code{\link[=na.pass]{na.pass()}} default of \code{resolveFormula()}.
+
+Requirements for the calling function: its arguments must be named
+\code{formula}, \code{data} and \code{subset}, and \code{resolveFormulaFromCall()} must be
+called directly in its body, not from a nested helper function, since the
+call is looked up one frame up.
 }
 \examples{
 set.seed(1)
@@ -233,6 +306,14 @@ resolveFormula(y ~ g3, data = df,
                allowed = "n-sample-independent")$type
 ## [1] "n-sample-independent"
 
+# cells of two grouping variables: a:b, not a + b
+r3 <- resolveFormula(y ~ g2:g3, data = df,
+                     allowed = "n-sample-independent")
+levels(r3$group)
+## [1] "A:A" "B:A" "A:B" "B:B" "A:C" "B:C"
+try(resolveFormula(y ~ g2 + g3, data = df,
+                   allowed = "n-sample-independent"))
+
 # two-sample dependent (paired)
 df2 <- data.frame(pre = rnorm(15, 50, 10), post = rnorm(15, 55, 10))
 resolveFormula(Pair(pre, post) ~ 1, data = df2,
@@ -257,8 +338,8 @@ r6 <- resolveFormula(y ~ log(abs(x)) + I(x^2), data = df3,
                      allowed = "regression")
 colnames(model.matrix(r6$terms, r6$mf))
 
-# subset, captured by the caller
-resolveFormula(y ~ g3, data = df, subset = quote(g3 != "C"),
+# subset, as in base R
+resolveFormula(y ~ g3, data = df, subset = g3 != "C",
                allowed = "two-sample-independent")$type
 ## [1] "two-sample-independent"
 

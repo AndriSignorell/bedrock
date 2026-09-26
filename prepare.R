@@ -36,7 +36,7 @@ devtools::load_all()
 devtools::test()
 devtools::run_examples()
 
-devtools::test(filter = "precision")
+devtools::test(filter = "resolveFormula")
 
 devtools::check(args = "--as-cran")
 devtools::check_mac_release()

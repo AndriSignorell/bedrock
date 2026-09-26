@@ -155,8 +155,7 @@ test_that("a grouping factor without any level raises error", {
                "no non-missing levels")
 
   # and when subset filters out every observation
-  subsetExpr <- substitute(g3 == "Z")
-  expect_error(resolveFormula(y ~ g2, data = df, subset = subsetExpr),
+  expect_error(resolveFormula(y ~ g2, data = df, subset = g3 == "Z"),
                "no non-missing levels")
 })
 
@@ -165,6 +164,22 @@ test_that("duplicates in 'allowed' are accepted", {
                         allowed = c("two-sample-independent",
                                     "two-sample-independent"))
   expect_equal(res$type, "two-sample-independent")
+})
+
+test_that("duplicates in 'allowed' do not defeat the regression-only rule", {
+  # allowed = "regression" alone forces regression; a duplicate must not
+  # change that (identical() compared the vector as a whole)
+  expect_equal(resolveFormula(y ~ g2, data = df,
+                              allowed = c("regression", "regression"))$type,
+               "regression")
+  expect_equal(resolveFormula(y ~ 1, data = df,
+                              allowed = c("regression", "regression"))$type,
+               "regression")
+})
+
+test_that("allowed = 'regression' does not cover the blocked syntax", {
+  expect_error(resolveFormula(y ~ trt | blk, data = df, allowed = "regression"),
+               "not allowed")
 })
 
 test_that("grouping factor with 1 level falls back to one-sample", {
@@ -226,9 +241,8 @@ test_that("matrix data is coerced to data.frame", {
 
 # ── 7. subset ─────────────────────────────────────────────────────────────────
 test_that("subset filters observations correctly", {
-  subsetExpr <- substitute(g3 != "C")
   res <- resolveFormula(y ~ g2, data = df,
-                        subset  = subsetExpr,
+                        subset  = g3 != "C",
                         allowed = c("two-sample-independent",
                                     "n-sample-independent"))
   expect_equal(length(res$x), sum(df$g3 != "C"))
@@ -310,4 +324,329 @@ test_that("split(x, group) works for k=2 without a length-mismatch warning", {
   expect_no_warning(s <- split(res$x, res$group))
   expect_equal(length(s), 2L)
   expect_equal(sum(lengths(s)), nrow(df))
+})
+
+
+# ── 12. subset: base R semantics ─────────────────────────────────────────────
+test_that("subset behaves as in model.frame(): expression evaluated in data", {
+  res <- resolveFormula(y ~ g2, data = df, subset = y > 50)
+  expect_equal(length(res$x), sum(df$y > 50))
+  expect_equal(nrow(res$mf),
+               nrow(model.frame(y ~ g2, data = df, subset = y > 50)))
+})
+
+test_that("subset may refer to a variable outside data", {
+  cutoff <- 50
+  res <- resolveFormula(y ~ g2, data = df, subset = y > cutoff)
+  expect_equal(length(res$x), sum(df$y > cutoff))
+})
+
+test_that("a column of data takes precedence over a variable of the same name", {
+  y <- rep(0, nrow(df))   # would select nothing if used instead of df$y
+  res <- resolveFormula(y ~ g2, data = df, subset = y > 50)
+  expect_equal(length(res$x), sum(df$y > 50))
+})
+
+test_that("subset accepts a logical or numeric index vector", {
+  expect_equal(length(resolveFormula(y ~ g2, data = df, subset = 1:10)$x), 10L)
+  sel <- df$g3 == "A"
+  expect_equal(length(resolveFormula(y ~ g2, data = df, subset = sel)$x),
+               sum(sel))
+})
+
+test_that("a quoted subset fails, as in base R", {
+  expect_error(resolveFormula(y ~ g2, data = df, subset = quote(g3 != "C")))
+  expect_error(model.frame(y ~ g2, data = df, subset = quote(g3 != "C")))
+})
+
+test_that("subset works without data", {
+  yy <- df$y
+  gg <- df$g2
+  res <- resolveFormula(yy ~ gg, subset = yy > 50)
+  expect_equal(length(res$x), sum(df$y > 50))
+})
+
+test_that("subset works for the blocked design", {
+  res <- resolveFormula(y ~ trt | blk, data = df, subset = blk <= 5,
+                        allowed = "n-sample-dependent")
+  expect_equal(length(res$response), sum(df$blk <= 5))
+  expect_true(all(res$block <= 5))
+})
+
+test_that("subset works with matrix data", {
+  m <- cbind(y = df$y, x = df$blk)
+  res <- resolveFormula(y ~ x, data = m, subset = x > 5)
+  expect_equal(res$type, "numeric-numeric")
+  expect_equal(length(res$x), sum(df$blk > 5))
+})
+
+test_that("subset is applied before na.action", {
+  dfNa <- df
+  dfNa$y[1:3] <- NA
+  res <- resolveFormula(y ~ g2, data = dfNa, subset = g3 != "C",
+                        na.action = na.omit)
+  expect_equal(length(res$x), sum(dfNa$g3 != "C" & !is.na(dfNa$y)))
+})
+
+test_that("rows point to the retained observations after subset and na.action", {
+  dfNa <- df
+  dfNa$y[1:3] <- NA
+  res <- resolveFormula(y ~ g2, data = dfNa, subset = g3 != "C",
+                        na.action = na.omit)
+  expect_equal(res$rows, which(dfNa$g3 != "C" & !is.na(dfNa$y)))
+  expect_equal(dfNa$y[res$rows], res$x, ignore_attr = TRUE)
+})
+
+test_that("na.pass is the default, na.omit must be requested", {
+  dfNa <- df
+  dfNa$y[1:3] <- NA
+  expect_equal(length(resolveFormula(y ~ g2, data = dfNa)$x), nrow(df))
+})
+
+
+# ── 13. cells: y ~ a:b ───────────────────────────────────────────────────────
+test_that("y ~ a:b combines the cells into one grouping factor", {
+  res <- resolveFormula(y ~ g2:g3, data = df,
+                        allowed = c("two-sample-independent",
+                                    "n-sample-independent"))
+  expect_equal(res$type, "n-sample-independent")
+  expect_equal(nlevels(res$group), 6L)
+  expect_equal(length(res$group), nrow(df))
+  expect_setequal(levels(res$group),
+                  c("A:A", "A:B", "A:C", "B:A", "B:B", "B:C"))
+  expect_equal(as.character(res$group), paste(df$g2, df$g3, sep = ":"))
+})
+
+test_that("y ~ a:b keeps only non-empty cells", {
+  # only three of the four combinations occur
+  dfc <- data.frame(y = 1:6, a = rep(c("A", "B"), each = 3),
+                    b = c("x", "x", "y", "y", "y", "y"))
+  res <- resolveFormula(y ~ a:b, data = dfc, allowed = "n-sample-independent")
+  expect_setequal(levels(res$group), c("A:x", "A:y", "B:y"))
+})
+
+test_that("y ~ a:b with two cells is two-sample-independent", {
+  dfc <- data.frame(y = 1:4, a = c("A", "A", "B", "B"), b = "x")
+  res <- resolveFormula(y ~ a:b, data = dfc,
+                        allowed = c("two-sample-independent",
+                                    "n-sample-independent"))
+  expect_equal(res$type, "two-sample-independent")
+  expect_equal(nlevels(res$group), 2L)
+})
+
+test_that("y ~ a:b treats a numeric component as categorical", {
+  res <- resolveFormula(len ~ supp:dose, data = ToothGrowth,
+                        allowed = "n-sample-independent")
+  expect_equal(res$type, "n-sample-independent")
+  expect_equal(nlevels(res$group), 6L)
+  expect_true("OJ:0.5" %in% levels(res$group))
+})
+
+test_that("y ~ a:b:c is a single term and gives the cells of three variables", {
+  res <- resolveFormula(y ~ g2:g3:trt, data = df,
+                        allowed = "n-sample-independent")
+  expect_equal(res$type, "n-sample-independent")
+  expect_equal(length(res$group), nrow(df))
+})
+
+test_that("y ~ a:b combined with subset", {
+  res <- resolveFormula(len ~ supp:dose, data = ToothGrowth, subset = len > 10,
+                        allowed = "n-sample-independent")
+  expect_equal(length(res$x), sum(ToothGrowth$len > 10))
+  expect_equal(sum(table(res$group)), sum(ToothGrowth$len > 10))
+})
+
+test_that("a cell is missing as soon as one component is missing", {
+  dfNa <- df
+  dfNa$g2[1:3] <- NA
+  res <- resolveFormula(y ~ g2:g3, data = dfNa,
+                        allowed = "n-sample-independent")
+  expect_equal(sum(is.na(res$group)), 3L)
+  expect_false(any(grepl("NA", levels(res$group))))
+})
+
+test_that("y ~ a + b is not read as cells", {
+  expect_error(resolveFormula(y ~ g2 + g3, data = df,
+                              allowed = "n-sample-independent"),
+               "a:b")
+})
+
+test_that("y ~ a * b is not read as cells", {
+  expect_error(resolveFormula(y ~ g2 * g3, data = df,
+                              allowed = "n-sample-independent"),
+               "a:b")
+})
+
+test_that("with regression allowed, y ~ a:b is regression", {
+  res <- resolveFormula(y ~ g2:g3, data = df)
+  expect_equal(res$type, "regression")
+  expect_true("terms" %in% names(res))
+  res <- resolveFormula(y ~ g2:g3, data = df,
+                        allowed = c("regression", "n-sample-independent"))
+  expect_equal(res$type, "regression")
+})
+
+test_that("cells are not taken for numeric-numeric", {
+  dfn <- data.frame(y = rnorm(20), a = rep(1:2, 10), b = rep(1:4, 5))
+  res <- resolveFormula(y ~ a:b, data = dfn,
+                        allowed = c("numeric-numeric", "n-sample-independent"))
+  expect_equal(res$type, "n-sample-independent")
+})
+
+test_that("a single numeric predictor remains numeric-numeric", {
+  res <- resolveFormula(len ~ dose, data = ToothGrowth,
+                        allowed = c("numeric-numeric", "n-sample-independent"))
+  expect_equal(res$type, "numeric-numeric")
+})
+
+
+# ── 14. resolveFormulaFromCall ───────────────────────────────────────────────
+
+# wrappers as a formula method would look, S3 dispatch included
+.rfWrap <- function(x, ...) UseMethod(".rfWrap")
+.rfWrap.formula <- function(formula, data, subset, na.action = na.omit, ...)
+  resolveFormulaFromCall(
+    allowed   = c("two-sample-independent", "n-sample-independent"),
+    na.action = na.action)
+
+.rfPlain <- function(formula, data, subset, na.action = na.pass)
+  resolveFormulaFromCall(na.action = na.action)
+
+test_that("resolveFormulaFromCall() gives the same result as resolveFormula()", {
+  expect_equal(.rfWrap(y ~ g2, data = df),
+               resolveFormula(y ~ g2, data = df, na.action = na.omit,
+                              allowed = c("two-sample-independent",
+                                          "n-sample-independent")))
+  expect_equal(.rfPlain(y ~ trt | blk, data = df)$type, "n-sample-dependent")
+})
+
+test_that("resolveFormulaFromCall() works through S3 dispatch", {
+  res <- .rfWrap(y ~ g3, df)
+  expect_equal(res$type, "n-sample-independent")
+})
+
+test_that("resolveFormulaFromCall() passes subset on unevaluated", {
+  res <- .rfWrap(y ~ g2, data = df, subset = g3 != "C")
+  expect_equal(length(res$x), sum(df$g3 != "C"))
+})
+
+test_that("resolveFormulaFromCall() matches arguments in any order", {
+  res <- .rfWrap(subset = g3 != "C", data = df, y ~ g2)
+  expect_equal(length(res$x), sum(df$g3 != "C"))
+})
+
+test_that("resolveFormulaFromCall(): subset sees the variables of the wrapper's caller", {
+  f <- function(k) .rfWrap(y ~ g2, data = df, subset = y > k)
+  expect_equal(length(f(50)$x), sum(df$y > 50))
+})
+
+test_that("resolveFormulaFromCall(): data may be local to the wrapper's caller", {
+  f <- function() {
+    d <- df[df$g3 == "A", ]
+    .rfWrap(y ~ g2, d, subset = y > 50)
+  }
+  expect_equal(length(f()$x), sum(df$g3 == "A" & df$y > 50))
+})
+
+test_that("resolveFormulaFromCall() works without data", {
+  f <- function() {
+    yy <- df$y
+    gg <- df$g2
+    .rfWrap(yy ~ gg, subset = yy > 50)
+  }
+  expect_equal(length(f()$x), sum(df$y > 50))
+})
+
+test_that("resolveFormulaFromCall(): a formula passed on as a variable works", {
+  fo  <- y ~ g2
+  res <- .rfWrap(fo, df, subset = g3 != "C")
+  expect_equal(length(res$x), sum(df$g3 != "C"))
+})
+
+test_that("resolveFormulaFromCall() forwards the wrapper's na.action", {
+  dfNa <- df
+  dfNa$y[1:3] <- NA
+  # wrapper default na.omit, not the na.pass default of resolveFormula()
+  expect_equal(length(.rfWrap(y ~ g2, dfNa)$x), nrow(df) - 3L)
+  # an explicit na.action of the user
+  expect_equal(length(.rfWrap(y ~ g2, dfNa, na.action = na.pass)$x), nrow(df))
+})
+
+test_that("resolveFormulaFromCall() forwards 'allowed', all types if omitted", {
+  expect_error(.rfWrap(y ~ blk, df), "numeric")
+  expect_equal(.rfPlain(y ~ blk, df)$type, "numeric-numeric")
+})
+
+test_that("resolveFormulaFromCall() handles a:b and its combination with subset", {
+  res <- .rfWrap(len ~ supp:dose, ToothGrowth, subset = len > 10)
+  expect_equal(nlevels(res$group), 6L)
+  expect_equal(length(res$x), sum(ToothGrowth$len > 10))
+})
+
+test_that("resolveFormulaFromCall() works when the wrapper is called from another wrapper", {
+  # as plot.Desc.nq() calls plotBox(response ~ group): the variables live in
+  # the frame of the outer function
+  outer <- function(obj) {
+    response <- obj$y
+    group    <- obj$g3
+    .rfWrap(response ~ group)
+  }
+  res <- outer(df)
+  expect_equal(nlevels(res$group), 3L)
+  expect_equal(length(res$x), nrow(df))
+})
+
+test_that("resolveFormulaFromCall() at top level raises error", {
+  # the function object itself is inlined, so the test does not depend on
+  # the package being attached to the search path
+  expect_error(eval(as.call(list(resolveFormulaFromCall)), globalenv()),
+               "within a function")
+})
+
+test_that("resolveFormulaFromCall() requires a formula argument in the caller", {
+  f <- function(x, data) resolveFormulaFromCall()
+  expect_error(f(df$y, df), "no 'formula' argument")
+})
+
+
+# ── 15. offsets ───────────────────────────────────────────────────────────────
+test_that("an offset is not taken for a cell component", {
+  # offset(dose) is in the model frame but not a term: y ~ supp + offset(dose)
+  # was read as the cells of supp and dose
+  expect_error(resolveFormula(len ~ supp + offset(dose), data = ToothGrowth,
+                              allowed = "n-sample-independent"),
+               "offset")
+})
+
+test_that("an offset is not taken for a numeric predictor", {
+  expect_error(resolveFormula(len ~ offset(dose), data = ToothGrowth,
+                              allowed = c("numeric-numeric", "one-sample")),
+               "offset")
+})
+
+test_that("an offset next to an interaction is rejected", {
+  expect_error(resolveFormula(len ~ supp:dose + offset(dose), data = ToothGrowth,
+                              allowed = "n-sample-independent"),
+               "offset")
+})
+
+test_that("an offset is kept for regression", {
+  res <- resolveFormula(len ~ supp + offset(dose), data = ToothGrowth,
+                        allowed = "regression")
+  expect_equal(res$type, "regression")
+  expect_false(is.null(attr(res$terms, "offset")))
+})
+
+test_that("offsets are rejected in blocked designs", {
+  # the blocked branch returns before the general offset check
+  expect_error(
+    resolveFormula(y ~ trt | offset(blk), data = df,
+                   allowed = "n-sample-dependent"),
+    "offset"
+  )
+  expect_error(
+    resolveFormula(y ~ offset(trt) | blk, data = df,
+                   allowed = "n-sample-dependent"),
+    "offset"
+  )
 })
