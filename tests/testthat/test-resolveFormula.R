@@ -182,6 +182,28 @@ test_that("allowed = 'regression' does not cover the blocked syntax", {
                "not allowed")
 })
 
+test_that("a categorical right-hand side gets a clear message when groups are not allowed", {
+  # e.g. plotXY(), which only accepts numeric ~ numeric
+  expect_error(resolveFormula(y ~ g2, data = df, allowed = "numeric-numeric"),
+               "categorical.*numeric predictor")
+  expect_error(resolveFormula(y ~ g3, data = df, allowed = "numeric-numeric"),
+               "categorical")
+  expect_error(resolveFormula(y ~ g2:g3, data = df, allowed = "numeric-numeric"),
+               "categorical")
+  # without numeric-numeric in 'allowed' no advice on a numeric predictor
+  msg <- tryCatch(resolveFormula(y ~ g2, data = df, allowed = "one-sample"),
+                  error = conditionMessage)
+  expect_match(msg, "categorical")
+  expect_no_match(msg, "numeric predictor")
+})
+
+test_that("the one-sample fallback survives when grouped designs are not allowed", {
+  df$g1 <- "A"
+  res <- resolveFormula(y ~ g1, data = df,
+                        allowed = c("one-sample", "numeric-numeric"))
+  expect_equal(res$type, "one-sample")
+})
+
 test_that("grouping factor with 1 level falls back to one-sample", {
   df$g1 <- "A"
   res <- resolveFormula(y ~ g1, data = df,

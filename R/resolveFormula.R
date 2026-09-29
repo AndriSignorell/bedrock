@@ -513,16 +513,26 @@ resolveFormula <- function(
   if (k == 0L)
     stop("grouping factor has no non-missing levels", call. = FALSE)
 
+  # a categorical right-hand side where no grouped design is allowed (e.g.
+  # a caller expecting numeric ~ numeric): say what is wrong with the
+  # formula, rather than which design type is missing from 'allowed'. The
+  # one-sample fallback for a single level stays available.
+  groupedAllowed <- any(c("two-sample-independent", "n-sample-independent")
+                        %in% allowed)
+
+  if (!groupedAllowed && !(k == 1L && "one-sample" %in% allowed))
+    stop("right-hand side of 'formula' is categorical, but a grouped ",
+         "design is not allowed here",
+         if ("numeric-numeric" %in% allowed)
+           "; supply a numeric predictor instead",
+         call. = FALSE)
+
   # k == 1: Fallback to one-sample if allowed
   if (k == 1L) {
     if (!"one-sample" %in% allowed)
       stop("grouping factor has only 1 level", call. = FALSE)
     return(.result("one-sample", mf, response, x = response))
   }
-
-  if (k == 2L && !"two-sample-independent" %in% allowed &&
-      !"n-sample-independent" %in% allowed)
-    stop("grouped design not allowed by 'allowed' argument", call. = FALSE)
 
   if (k > 2L && !"n-sample-independent" %in% allowed)
     stop("'n-sample-independent' design not allowed by 'allowed' argument",

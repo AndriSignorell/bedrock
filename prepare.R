@@ -34,12 +34,14 @@ devtools::document()
 devtools::load_all()
 
 devtools::test()
+testthat::test_local(reporter = "progress")
 devtools::run_examples()
 
 devtools::test(filter = "resolveFormula")
 
 devtools::check(args = "--as-cran")
 devtools::check_mac_release()
+devtools::check_win_devel()
 
 devtools::check(run_dont_test = TRUE)
 
