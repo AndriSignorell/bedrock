@@ -19,15 +19,15 @@
 #'
 #' Mapping:
 #' \itemize{
-#'   \item `yyyy` -> `\%Y`
-#'   \item `yy`, `y` -> `\%y`
-#'   \item `mm`, `m` -> `\%m`
-#'   \item `mmm` -> `\%b`
-#'   \item `mmmm` -> `\%B`
-#'   \item `dd` -> `\%d`
-#'   \item `d` -> `\%e`
-#'   \item `ddd` -> `\%a`
-#'   \item `dddd` -> `\%A`
+#'   \item `yyyy` -> `%Y`
+#'   \item `yy`, `y` -> `%y`
+#'   \item `mm`, `m` -> `%m`
+#'   \item `mmm` -> `%b`
+#'   \item `mmmm` -> `%B`
+#'   \item `dd` -> `%d`
+#'   \item `d` -> `%e`
+#'   \item `ddd` -> `%a`
+#'   \item `dddd` -> `%A`
 #' }
 #'
 #' @param fmt character string. Custom date format.

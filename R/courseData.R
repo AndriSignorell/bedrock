@@ -39,16 +39,16 @@
 #' # need an internet connection and fail gracefully without one
 #'
 #' # load from the default repositories
-#' try(courseData("fullmoon.xlsx"))
+#' try(readCourseData("fullmoon.xlsx"))
 #'
 #' # load from a custom URL
-#' try(courseData("mydata.csv", url = "https://example.com/data/"))
+#' try(readCourseData("mydata.csv", url = "https://example.com/data/"))
 #' }
 #'
 #' @family datasets
 #' @concept file.io
 #' @export
-courseData <- function(name,
+readCourseData <- function(name,
                        url    = NULL,
                        header = TRUE,
                        sep    = ";",

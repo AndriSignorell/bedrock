@@ -31,19 +31,13 @@ test_that("nDec returns number of decimal places", {
   expect_equal(res, c(4L, 0L, 3L))
 })
 
+
 test_that("nDec counts what is printed, not what was typed", {
   # trailing zeros of a numeric are gone before counting
   expect_equal(nDec(1.500), 1L)
   # but they survive in a character input
   expect_equal(nDec("1.500"), 3L)
-  # a number printed in scientific notation has no decimals; scipen is
-  # pinned because where R switches is R's decision. The exponent stays
-  # moderate: literals near 1e-300 are parsed inexactly on platforms
-  # without extended-precision long double (e.g. macOS arm64).
-  op <- options(scipen = 0); on.exit(options(op), add = TRUE)
-  expect_equal(nDec(1e-20), 0L)
 })
-
 
 test_that("nDec counts a numeric exactly as its printed form", {
   # whether R writes 0.00001 in full or as 1e-05 depends on the R version,

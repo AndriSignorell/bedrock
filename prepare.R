@@ -312,7 +312,7 @@ setdiff(neu, alt)   # neue Ziele
 
 r <- list.files("R", pattern = "[.][Rr]$", full.names = TRUE)
 txt <- lapply(r, readLines, warn = FALSE)
-bad <- c("Pizza", "Cards", "Roulette", "Tarot", "courseData",
+bad <- c("Pizza", "Cards", "Roulette", "Tarot", "readCourseData",
          "type-aliases", "long-wide-reshape", "between-operators",
          "range-operators", "setAttr-removeAttr-keepAttr", "GCD-LCM",
          "char-ascii-conversion", "numeric-conversions")

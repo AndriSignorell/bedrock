@@ -69,10 +69,10 @@ The "OUTSIDE" operators are the negations of the corresponding "BETWEEN"
 operators, matched by \emph{meaning} rather than by mirrored bracket
 symbols:
 \itemize{
-\item \verb{\\\%][\\\%} negates \verb{\\\%()\\\%} (strictly outside both bounds)
-\item \verb{\\\%](\\\%} negates \verb{\\\%(]\\\%}
-\item \verb{\\\%)[\\\%} negates \verb{\\\%[)\\\%}
-\item \verb{\\\%)(\\\%} negates \verb{\\\%[]\\\%} (strictly outside, both bounds
+\item \verb{\%][\%} negates \verb{\%()\%} (strictly outside both bounds)
+\item \verb{\%](\%} negates \verb{\%(]\%}
+\item \verb{\%)[\%} negates \verb{\%[)\%}
+\item \verb{\%)(\%} negates \verb{\%[]\%} (strictly outside, both bounds
 of the between-operator were closed)
 }
 }

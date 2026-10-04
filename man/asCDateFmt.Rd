@@ -32,15 +32,15 @@ Supported tokens:
 
 Mapping:
 \itemize{
-\item \code{yyyy} -> \verb{\\\%Y}
-\item \code{yy}, \code{y} -> \verb{\\\%y}
-\item \code{mm}, \code{m} -> \verb{\\\%m}
-\item \code{mmm} -> \verb{\\\%b}
-\item \code{mmmm} -> \verb{\\\%B}
-\item \code{dd} -> \verb{\\\%d}
-\item \code{d} -> \verb{\\\%e}
-\item \code{ddd} -> \verb{\\\%a}
-\item \code{dddd} -> \verb{\\\%A}
+\item \code{yyyy} -> \verb{\%Y}
+\item \code{yy}, \code{y} -> \verb{\%y}
+\item \code{mm}, \code{m} -> \verb{\%m}
+\item \code{mmm} -> \verb{\%b}
+\item \code{mmmm} -> \verb{\%B}
+\item \code{dd} -> \verb{\%d}
+\item \code{d} -> \verb{\%e}
+\item \code{ddd} -> \verb{\%a}
+\item \code{dddd} -> \verb{\%A}
 }
 }
 \examples{

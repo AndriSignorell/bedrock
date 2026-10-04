@@ -39,7 +39,7 @@ Other datasets:
 \code{\link{Pizza}},
 \code{\link{Roulette}},
 \code{\link{Tarot}},
-\code{\link[=courseData]{courseData()}}
+\code{\link[=readCourseData]{readCourseData()}}
 }
 \concept{datasets}
 \concept{probability}

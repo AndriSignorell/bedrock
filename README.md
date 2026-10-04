@@ -127,7 +127,7 @@ Predicates and checks for data quality and structure.
 ### 🔹 Datasets
 
 Teaching and example datasets: `Cards`, `Pizza`, `Roulette`, `Tarot`,
-plus `courseData()` for loading course material.
+plus `readCourseData()` for loading course material.
 
 ## 🚀 Design Principles
 

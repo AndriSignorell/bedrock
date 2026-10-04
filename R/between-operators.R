@@ -27,10 +27,10 @@
 #' operators, matched by *meaning* rather than by mirrored bracket
 #' symbols:
 #' \itemize{
-#'   \item `\%][\%` negates `\%()\%` (strictly outside both bounds)
-#'   \item `\%](\%` negates `\%(]\%`
-#'   \item `\%)[\%` negates `\%[)\%`
-#'   \item `\%)(\%` negates `\%[]\%` (strictly outside, both bounds
+#'   \item `%][%` negates `%()%` (strictly outside both bounds)
+#'   \item `%](%` negates `%(]%`
+#'   \item `%)[%` negates `%[)%`
+#'   \item `%)(%` negates `%[]%` (strictly outside, both bounds
 #'     of the between-operator were closed)
 #' }
 #'
