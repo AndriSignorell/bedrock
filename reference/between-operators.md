@@ -67,13 +67,13 @@ See also the routines used to check, whether two ranges overlap
 The "OUTSIDE" operators are the negations of the corresponding "BETWEEN"
 operators, matched by *meaning* rather than by mirrored bracket symbols:
 
-- `\%][\%` negates `\%()\%` (strictly outside both bounds)
+- `%][%` negates `%()%` (strictly outside both bounds)
 
-- `\%](\%` negates `\%(]\%`
+- `%](%` negates `%(]%`
 
-- `\%)[\%` negates `\%[)\%`
+- `%)[%` negates `%[)%`
 
-- `\%)(\%` negates `\%[]\%` (strictly outside, both bounds of the
+- `%)(%` negates `%[]%` (strictly outside, both bounds of the
   between-operator were closed)
 
 ## See also

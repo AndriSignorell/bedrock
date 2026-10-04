@@ -63,7 +63,7 @@ applications.
 ## See also
 
 Other datasets: [`Cards`](cards.md), [`Pizza`](Pizza.md),
-[`Roulette`](roulette.md), [`courseData()`](courseData.md)
+[`Roulette`](roulette.md), [`readCourseData()`](readCourseData.md)
 
 ## Examples
 

@@ -72,7 +72,7 @@ du zéro*).
 ## See also
 
 Other datasets: [`Cards`](cards.md), [`Pizza`](Pizza.md),
-[`Tarot`](tarot.md), [`courseData()`](courseData.md)
+[`Tarot`](tarot.md), [`readCourseData()`](readCourseData.md)
 
 ## Examples
 

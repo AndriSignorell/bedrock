@@ -308,4 +308,5 @@ Example datasets shipped with bedrock.
 - [`Pizza`](Pizza.md) : Pizza Delivery Data (Extended)
 - [`Roulette`](roulette.md) : European Roulette Wheel
 - [`Tarot`](tarot.md) : Tarot Cards dataset
-- [`courseData()`](courseData.md) : Load Course Dataset from Server
+- [`readCourseData()`](readCourseData.md) : Load Course Dataset from
+  Server

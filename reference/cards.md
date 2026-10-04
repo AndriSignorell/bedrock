@@ -42,7 +42,7 @@ categorical data.
 ## See also
 
 Other datasets: [`Pizza`](Pizza.md), [`Roulette`](roulette.md),
-[`Tarot`](tarot.md), [`courseData()`](courseData.md)
+[`Tarot`](tarot.md), [`readCourseData()`](readCourseData.md)
 
 ## Examples
 

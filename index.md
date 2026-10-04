@@ -193,8 +193,8 @@ Predicates and checks for data quality and structure.
 ### 🔹 Datasets
 
 Teaching and example datasets: `Cards`, `Pizza`, `Roulette`, `Tarot`,
-plus [`courseData()`](reference/courseData.md) for loading course
-material.
+plus [`readCourseData()`](reference/readCourseData.md) for loading
+course material.
 
 ## 🚀 Design Principles
 

@@ -193,8 +193,8 @@ Predicates and checks for data quality and structure.
 ### 🔹 Datasets
 
 Teaching and example datasets: `Cards`, `Pizza`, `Roulette`, `Tarot`,
-plus [`courseData()`](reference/courseData.md) for loading course
-material.
+plus [`readCourseData()`](reference/readCourseData.md) for loading
+course material.
 
 ## 🚀 Design Principles
 
@@ -558,5 +558,6 @@ Example datasets shipped with bedrock.
 - [`Pizza`](Pizza.md) : Pizza Delivery Data (Extended)
 - [`Roulette`](roulette.md) : European Roulette Wheel
 - [`Tarot`](tarot.md) : Tarot Cards dataset
-- [`courseData()`](courseData.md) : Load Course Dataset from Server
+- [`readCourseData()`](readCourseData.md) : Load Course Dataset from
+  Server
 
