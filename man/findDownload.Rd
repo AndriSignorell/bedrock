@@ -33,10 +33,10 @@ findDownload("data.csv")
 \seealso{
 Other file.path:
 \code{\link[=buildPath]{buildPath()}},
-\code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=isFilePath]{isFilePath()}},
-\code{\link[=isURL]{isURL()}},
-\code{\link[=splitPath]{splitPath()}}
+\code{\link[=isUrl]{isUrl()}},
+\code{\link[=splitPath]{splitPath()}},
+\code{\link[=urlExists]{urlExists()}}
 }
 \concept{file.io}
 \concept{file.path}

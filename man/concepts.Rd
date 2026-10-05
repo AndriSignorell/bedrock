@@ -7,14 +7,14 @@
 \alias{conceptAudit}
 \title{Concept Utilities for Package Documentation}
 \usage{
-getConcepts(pkg, prefix = NULL)
+getConcepts(package, prefix = NULL)
 
-conceptMap(pkg)
+conceptMap(package)
 
-conceptAudit(pkg)
+conceptAudit(package)
 }
 \arguments{
-\item{pkg}{character string. Name of the installed package.}
+\item{package}{character string. Name of the installed package.}
 
 \item{prefix}{optional character string. If given, \code{getConcepts()}
 returns only the concepts starting with it, with the prefix removed.}

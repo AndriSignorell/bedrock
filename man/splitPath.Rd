@@ -60,10 +60,10 @@ splitPath("/home/user/folder/", lastIsFile = FALSE)
 
 Other file.path:
 \code{\link[=buildPath]{buildPath()}},
-\code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
 \code{\link[=isFilePath]{isFilePath()}},
-\code{\link[=isURL]{isURL()}}
+\code{\link[=isUrl]{isUrl()}},
+\code{\link[=urlExists]{urlExists()}}
 }
 \concept{file.path}
 \concept{path-handling}

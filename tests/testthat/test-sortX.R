@@ -53,31 +53,31 @@ test_that("factorsAsCharacter applies to method = 'default'", {
 
 test_that("data frame sorts by named column", {
   d <- data.frame(g = c("b", "a", "c"), v = c(2, 3, 1))
-  res <- sortX(d, ord = "g")
+  res <- sortX(d, by = "g")
   expect_equal(res$g, c("a", "b", "c"))
 })
 
 test_that("per-column decreasing works", {
   d <- data.frame(g = c("a", "a", "b"), v = c(1, 2, 3))
-  res <- sortX(d, ord = c("g", "v"), decreasing = c(FALSE, TRUE))
+  res <- sortX(d, by = c("g", "v"), decreasing = c(FALSE, TRUE))
   expect_equal(res$v, c(2, 1, 3))
 })
 
 test_that("unknown column name errors", {
   d <- data.frame(a = 1:3)
-  expect_error(sortX(d, ord = "zz"), "Unknown column")
+  expect_error(sortX(d, by = "zz"), "Unknown column")
 })
 
 test_that("marginal sums are rejected for data frames", {
   d <- data.frame(a = 1:3, b = 4:6)
-  expect_error(sortX(d, ord = ncol(d) + 1L), "not supported")
+  expect_error(sortX(d, by = ncol(d) + 1L), "not supported")
 })
 
 # ── sortX.table / matrix ──────────────────────────────────────────────────────
 
 test_that("table sorts by marginal row sums", {
   tab <- as.table(rbind(c(1, 2), c(5, 5), c(0, 1)))
-  res <- sortX(tab, ord = ncol(tab) + 1L, decreasing = TRUE)
+  res <- sortX(tab, by = ncol(tab) + 1L, decreasing = TRUE)
   expect_equal(unname(rowSums(res)), c(10, 3, 1))
 })
 
@@ -85,8 +85,8 @@ test_that("n-dimensional tables are rejected", {
   expect_error(sortX(HairEyeColor), "2-dimensional")
 })
 
-test_that("ord = 0L sorts by rownames", {
+test_that("by = 0L sorts by rownames", {
   m <- matrix(1:4, 2, dimnames = list(c("z", "a"), NULL))
-  res <- sortX(m, ord = 0L)
+  res <- sortX(m, by = 0L)
   expect_equal(rownames(res), c("a", "z"))
 })

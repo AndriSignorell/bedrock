@@ -51,12 +51,12 @@
 #'   Bob   25 88.0
 #'   ;
 #' "
-#' df <- parseSASDatalines(sas_code)
+#' df <- parseSasDatalines(sas_code)
 #'
 #' @family file.io
 #' @concept string-manipulation
 #' @export
-parseSASDatalines <- function(x, validateNames = FALSE) {
+parseSasDatalines <- function(x, validateNames = FALSE) {
   
  # see: http://www.psychstatistics.com/2012/12/07/using-datalines-in-sas/
   # or:  http://www.ats.ucla.edu/stat/sas/library/SASRead_os.htm

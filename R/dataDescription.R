@@ -20,7 +20,7 @@
 #' If the sheet does not exist or no additional sheets are present,
 #' the function returns `NULL`.
 #'
-#' @param fn character string. Path to the Excel file.
+#' @param file character string. Path to the Excel file.
 #' @param sheet character string. Name of the documentation sheet.
 #'   Default is `"Description"`.
 #'
@@ -42,15 +42,15 @@
 #' @concept label
 #' @concept datasets
 #' @export
-dataDescription <- function(fn, sheet = "Description") {
+dataDescription <- function(file, sheet = "Description") {
 
-  sheets <- excel_sheets(fn)
+  sheets <- excel_sheets(file)
 
   if (!(sheet %in% sheets) || length(sheets) <= 1) {
     return(NULL)
   }
 
-  d.desc <- as.data.frame(read_excel(fn, sheet = sheet))
+  d.desc <- as.data.frame(read_excel(file, sheet = sheet))
 
   emptyRows <- which(apply(d.desc, 1, function(x) all(is.na(x))))
   if (length(emptyRows) > 0) {

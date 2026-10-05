@@ -35,8 +35,8 @@
 #'
 #' @examples
 #' # overlap length
-#' overlap(c(1, 5), c(3, 7))   # 2
-#' overlap(c(1, 3), c(3, 5))   # 0 (boundary only)
+#' overlapSize(c(1, 5), c(3, 7))   # 2
+#' overlapSize(c(1, 3), c(3, 5))   # 0 (boundary only)
 #'
 #' # overlap check
 #' overlaps(c(1, 5), c(3, 7))  # TRUE
@@ -52,7 +52,7 @@
 #'
 #' # vectorised (matrix input)
 #' m <- matrix(c(1,3, 2,6, 5,8), ncol = 2, byrow = TRUE)
-#' overlap(m, c(4, 7))
+#' overlapSize(m, c(4, 7))
 #'
 #' @name intervals
 #' @family data.interval
@@ -62,7 +62,7 @@ NULL
 
 #' @rdname intervals
 #' @export
-overlap <- function(x, y) {
+overlapSize <- function(x, y) {
   dat <- .intervalEngine(x, y)
   x <- dat$x; y <- dat$y
   

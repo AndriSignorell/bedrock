@@ -15,30 +15,30 @@
 #' preserved, so `output = "index"` always refers to positions in
 #' the original `x`.
 #'
-#' When `a` or `output` are vectors, each element is
+#' When `val` or `output` are vectors, each element is
 #' processed independently and a list is returned.
 #'
 #' Recycling follows standard R rules.
 #'
 #' @param x a numeric vector to search in.
-#' @param a the reference value. May be a vector; see Details.
+#' @param val the reference value. May be a vector; see Details.
 #' @param output character string specifying the output representation.
 #'   One of `"value"` (return the closest value(s), the default) or
 #'   `"index"` (return the index position(s) in `x`).
-#'   May be a vector; recycled to the length of `a`.
+#'   May be a vector; recycled to the length of `val`.
 #' @param na.rm logical. If `TRUE`, `NA` values in `x`
 #'   are ignored before searching. Default is `FALSE`.
 #'
 #' @return
-#' if `a` and `output` are scalar:
+#' if `val` and `output` are scalar:
 #'
 #' \itemize{
 #'   \item numeric vector if `output = "value"`.
 #'   \item integer vector if `output = "index"`.
 #' }
 #'
-#' If `a` or `output` are vectors:
-#' a list with one element per value of `a`.
+#' If `val` or `output` are vectors:
+#' a list with one element per value of `val`.
 #'
 #' Returns `NA` if `x` is empty or all-`NA`
 #' (with `na.rm = TRUE`).
@@ -55,35 +55,35 @@
 #' y <- sample(10, size = 10, replace = TRUE)
 #'
 #' # multiple observations of the same closest value
-#' closest(y, a = 6)
+#' closest(y, val = 6)
 #'
 #' # get the relevant positions
-#' closest(y, a = 6, output = "index")
+#' closest(y, val = 6, output = "index")
 #'
 #' # two different values having the same distance (tie)
-#' closest(c(2, 3, 4, 5), a = 3.5)
+#' closest(c(2, 3, 4, 5), val = 3.5)
 #'
 #' # na.rm preserves original index positions
 #' closest(
 #'   c(NA, 5, 8),
-#'   a = 6,
+#'   val = 6,
 #'   output = "index",
 #'   na.rm = TRUE
 #' )  # 2, not 1
 #'
 #' # vectorize "a"
-#' closest(c(2, 3, 4, 5), a = c(3.1, 3.9))
+#' closest(c(2, 3, 4, 5), val = c(3.1, 3.9))
 #'
 #' # vectorize "output"
 #' closest(
 #'   c(2, 3, 4, 5),
-#'   a = 3.1,
+#'   val = 3.1,
 #'   output = c("value", "index")
 #' )
 #'
 #' closest(
 #'   c(2, 3, 4, 5),
-#'   a = c(3.1, 3.9),
+#'   val = c(3.1, 3.9),
 #'   output = c("value", "index")
 #' )
 #'
@@ -92,13 +92,13 @@
 #' @family math.basic
 #' @concept numerical-methods
 #' @export
-closest <- function(x, a, output = "value", na.rm = FALSE) {
+closest <- function(x, val, output = "value", na.rm = FALSE) {
 
   if (!is.numeric(x))
     stop("Argument 'x' must be numeric.")
 
-  if (!is.numeric(a))
-    stop("Argument 'a' must be numeric.")
+  if (!is.numeric(val))
+    stop("Argument 'val' must be numeric.")
 
   output <- match.arg(
     output,
@@ -135,12 +135,12 @@ closest <- function(x, a, output = "value", na.rm = FALSE) {
 
   res <- mapply(
     FUN      = FUN,
-    a        = a,
+    a        = val,
     output   = output,
     SIMPLIFY = FALSE
   )
 
-  if (length(a) == 1L && length(output) == 1L)
+  if (length(val) == 1L && length(output) == 1L)
     res[[1L]]
   else
     res

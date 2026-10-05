@@ -42,8 +42,8 @@
 #' 
 #' @name char-ascii-conversion
 #'
-#' @param x a character vector.
-#' @param i an integer vector of character codes (1--255).
+#' @param x for `charToAscii()` a character vector, for `asciiToChar()` an
+#'   integer vector of character codes (1--255).
 #' @param output character string specifying the output representation.
 #'   One of `"vector"` (simplify the result whenever possible, the
 #'   default) or `"list"` (always return a list). See Details.
@@ -108,10 +108,10 @@ charToAscii <- function(x,
 
 #' @rdname char-ascii-conversion
 #' @export
-asciiToChar <- function(i) {
+asciiToChar <- function(x) {
 
   vapply(
-    i,
+    x,
     function(k) rawToChar(as.raw(k)),
     character(1L)
   )

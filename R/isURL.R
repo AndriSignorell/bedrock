@@ -10,11 +10,11 @@
 #' @return `logical(1)` - `TRUE` if `x` is a URL, `FALSE` otherwise.
 #'
 #' @examples
-#' isURL("https://example.com/data.csv")   # TRUE
-#' isURL("ftp://files.example.org/x.zip")  # TRUE
-#' isURL("s3://my-bucket/file.parquet")    # TRUE
-#' isURL("/home/user/file.csv")            # FALSE
-#' isURL("./script.R")                     # FALSE
+#' isUrl("https://example.com/data.csv")   # TRUE
+#' isUrl("ftp://files.example.org/x.zip")  # TRUE
+#' isUrl("s3://my-bucket/file.parquet")    # TRUE
+#' isUrl("/home/user/file.csv")            # FALSE
+#' isUrl("./script.R")                     # FALSE
 #'
 #' @seealso For the complementary check on an existing path, see [isFilePath()].
 #'
@@ -22,7 +22,7 @@
 #' @concept path-handling
 #' @concept type-test
 #' @export
-isURL <- function(x) {
+isUrl <- function(x) {
   .detectInputType(x) == "url"
 }
 
@@ -37,7 +37,7 @@ isURL <- function(x) {
 #'
 #' @return `logical(1)` - `TRUE` if `x` is a file path, `FALSE` otherwise.
 #'
-#' @seealso [isURL()] for the complementary URL check.
+#' @seealso [isUrl()] for the complementary URL check.
 #'
 #' @examples
 #' isFilePath("/home/user/data/file.csv")   # TRUE

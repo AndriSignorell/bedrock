@@ -6,12 +6,12 @@ descriptions and coding information.
 ## Usage
 
 ``` r
-dataDescription(fn, sheet = "Description")
+dataDescription(file, sheet = "Description")
 ```
 
 ## Arguments
 
-- fn:
+- file:
 
   character string. Path to the Excel file.
 

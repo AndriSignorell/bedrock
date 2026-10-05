@@ -4,10 +4,10 @@
 \alias{crossProdN}
 \title{Generalized Cross Product via Determinants}
 \usage{
-crossProdN(A)
+crossProdN(x)
 }
 \arguments{
-\item{A}{a numeric or complex vector of length 2, or a matrix of dimension
+\item{x}{a numeric or complex vector of length 2, or a matrix of dimension
 \eqn{n x (n+1)}.}
 }
 \value{

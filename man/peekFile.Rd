@@ -60,7 +60,7 @@ unlink(fn)
 \code{\link[readr:read_delim]{readr::read_delim()}}, \code{\link[=toBaseR]{toBaseR()}}, \code{\link[=head]{head()}},
 
 Other file.io:
-\code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=parseSasDatalines]{parseSasDatalines()}},
 \code{\link[=pdfManual]{pdfManual()}},
 \code{\link[=readDownload]{readDownload()}}
 }

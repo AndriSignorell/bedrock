@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.15</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.18</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,15 +47,27 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.1.3" id="bedrock-013">bedrock 0.1.3<a class="anchor" aria-label="anchor" href="#bedrock-013"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.1.17" id="bedrock-0117">bedrock 0.1.17<a class="anchor" aria-label="anchor" href="#bedrock-0117"></a></h2>
+<ul><li>
+<code>courseData()</code> has been renamed to <code><a href="../reference/readCourseData.html">readCourseData()</a></code>, which describes the function better.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.15" id="bedrock-0115">bedrock 0.1.15<a class="anchor" aria-label="anchor" href="#bedrock-0115"></a></h2>
+<ul><li>
+<code><a href="../reference/resolveFormula.html">resolveFormula()</a></code>: <code>subset</code> now follows base R semantics (evaluated in <code>data</code>, as in <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code>); new <code><a href="../reference/resolveFormula.html">resolveFormulaFromCall()</a></code> for formula methods. <code>y ~ a:b</code> is accepted as the cells of several grouping variables.</li>
+<li>New <code><a href="../reference/concepts.html">conceptMap()</a></code> and <code><a href="../reference/concepts.html">conceptAudit()</a></code>; <code><a href="../reference/concepts.html">getConcepts()</a></code> is now exported.</li>
+<li>Fixed a test failing on macOS arm64 (CRAN M1mac).</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.9" id="bedrock-019">bedrock 0.1.9<a class="anchor" aria-label="anchor" href="#bedrock-019"></a></h2><p class="text-muted">CRAN release: 2026-09-29</p>
 <div class="section level3">
-<h3 id="initial-cran-release-0-1-3">Initial CRAN release<a class="anchor" aria-label="anchor" href="#initial-cran-release-0-1-3"></a></h3>
+<h3 id="initial-cran-release-0-1-9">Initial CRAN release<a class="anchor" aria-label="anchor" href="#initial-cran-release-0-1-9"></a></h3>
 <ul><li>First public release of bedrock, the base layer of the DescToolsX package suite: data manipulation and reshaping, predicates for data inspection, vector and string operations, labels and metadata, and routines from number theory and combinatorics.</li>
 <li>Performance critical routines are implemented in C++ via Rcpp.</li>
 <li>Documented in the vignette “Combinatorics”.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="acknowledgements-0-1-3">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements-0-1-3"></a></h3>
+<h3 id="acknowledgements-0-1-9">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements-0-1-9"></a></h3>
 <p>Parts of the code and documentation were reviewed with the help of large language models (OpenAI Codex, Anthropic Claude). Every suggestion was assessed, edited and verified by the maintainer, who remains solely responsible for the content of this package.</p>
 </div>
 </div>

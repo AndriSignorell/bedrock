@@ -56,7 +56,7 @@ larger `guess_max` via the dots.
 [`toBaseR()`](toBaseR.md),
 [`head()`](https://rdrr.io/r/utils/head.html),
 
-Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
+Other file.io: [`parseSasDatalines()`](parseSasDatalines.md),
 [`pdfManual()`](pdfManual.md), [`readDownload()`](readDownload.md)
 
 ## Examples

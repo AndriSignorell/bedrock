@@ -4,36 +4,36 @@
 \alias{callIf}
 \title{Conditionally Call a Function}
 \usage{
-callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
+callIf(FUN, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
 }
 \arguments{
-\item{fun}{a function to be called.}
+\item{FUN}{a function to be called.}
 
-\item{arg}{controls whether and how \code{fun} is called:
+\item{arg}{controls whether and how \code{FUN} is called:
 \itemize{
-\item \code{FALSE}, \code{NULL}, or \code{NA}: \code{fun} is not called
+\item \code{FALSE}, \code{NULL}, or \code{NA}: \code{FUN} is not called
 and \code{NULL} is returned invisibly.
-\item \code{TRUE}: \code{fun} is called with \code{defaults} (if provided),
+\item \code{TRUE}: \code{FUN} is called with \code{defaults} (if provided),
 or with no arguments.
-\item a fully named list: \code{fun} is called with the list elements as
+\item a fully named list: \code{FUN} is called with the list elements as
 arguments. If \code{defaults} is provided, it is merged with
 \code{arg}, where elements of \code{arg} override those in
 \code{defaults}.
 }}
 
-\item{defaults}{a named list of default arguments passed to \code{fun} when
+\item{defaults}{a named list of default arguments passed to \code{FUN} when
 \code{arg = TRUE}, or used as a base when \code{arg} is a list.
 Default is \code{NULL}.}
 
 \item{forbidden}{optional character vector of argument names that are not
 allowed. If any of these appear in \code{arg}, they are removed before
-calling \code{fun}. A warning is issued unless \code{warn = FALSE}.}
+calling \code{FUN}. A warning is issued unless \code{warn = FALSE}.}
 
 \item{warn}{logical. If \code{TRUE} (default), a warning is issued when
 forbidden arguments are removed.}
 }
 \value{
-returns the result of \code{fun(...)} if called. If \code{arg} is
+returns the result of \code{FUN(...)} if called. If \code{arg} is
 \code{FALSE}, \code{NULL}, or \code{NA}, returns \code{NULL} invisibly.
 }
 \description{
@@ -53,7 +53,7 @@ This function implements a flexible pattern for optional function calls:
 
 When merging \code{defaults} and \code{arg}, user-supplied arguments take
 precedence. Unlike \code{\link[=modifyList]{modifyList()}}, elements with the value
-\code{NULL} are preserved and passed on to \code{fun} (so that an explicit
+\code{NULL} are preserved and passed on to \code{FUN} (so that an explicit
 \code{NULL} can be used to reset an argument).
 }
 \examples{

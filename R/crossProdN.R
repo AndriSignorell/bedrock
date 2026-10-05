@@ -25,7 +25,7 @@
 #' is fixed by the convention that the first component with non-zero modulus
 #' has a positive real part.
 #'
-#' @param A a numeric or complex vector of length 2, or a matrix of dimension
+#' @param x a numeric or complex vector of length 2, or a matrix of dimension
 #'   \eqn{n x (n+1)}.
 #'
 #' @return a numeric or complex vector of length \eqn{n+1}.
@@ -46,37 +46,37 @@
 #' @concept linear-algebra
 #' @concept numerical-methods
 #' @export
-crossProdN <- function(A) {
-  if (!(is.numeric(A) || is.complex(A))) {
-    stop("Argument 'A' must be numeric or complex.")
+crossProdN <- function(x) {
+  if (!(is.numeric(x) || is.complex(x))) {
+    stop("Argument 'x' must be numeric or complex.")
   }
 
   # reject arrays
-  if (is.array(A) && length(dim(A)) > 2) {
+  if (is.array(x) && length(dim(x)) > 2) {
     stop("Input must be a vector or 2D matrix.")
   }
 
   # vector case: v = (det(a2), -det(a1)) = (a2, -a1)
-  if (is.null(dim(A))) {
-    if (length(A) != 2L) {
+  if (is.null(dim(x))) {
+    if (length(x) != 2L) {
       stop("Vector input must have length 2.")
     }
-    return(c(A[2], -A[1]))
+    return(c(x[2], -x[1]))
   }
 
-  if (!is.matrix(A)) {
+  if (!is.matrix(x)) {
     stop("Input must be a vector or matrix.")
   }
 
-  n <- nrow(A)
-  m <- ncol(A)
+  n <- nrow(x)
+  m <- ncol(x)
 
   if (m != n + 1L) {
     stop("Matrix must be n x (n+1).")
   }
 
   # --- 1. direction via SVD ---
-  sv <- svd(A, nu = 0, nv = m)
+  sv <- svd(x, nu = 0, nv = m)
   v <- sv$v[, m]
 
   # --- 2. scaling ---
@@ -96,7 +96,7 @@ crossProdN <- function(A) {
     # v_i = (-1)^(i+1) det(A_{-i}): cofactor expansion along the last
     # row gives det(rbind(A, v)) = (-1)^n * |v|^2, so the correctly
     # oriented v satisfies (-1)^n * det(rbind(A, v)) > 0
-    d <- det(rbind(A, v)) * (-1)^n
+    d <- det(rbind(x, v)) * (-1)^n
     if (!is.na(d) && d < 0) {
       v <- -v
     }

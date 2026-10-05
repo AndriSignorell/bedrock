@@ -8,8 +8,8 @@ printCharMatrix(
   m,
   align = "right",
   sep = 2,
-  showRownames = TRUE,
-  showColnames = TRUE,
+  showRowNames = TRUE,
+  showColNames = TRUE,
   useCliStyle = FALSE,
   width = getOption("width")
 )
@@ -25,9 +25,9 @@ recycled across all columns; alternatively a vector of length
 
 \item{sep}{integer. Number of spaces between columns. Default is \code{2}.}
 
-\item{showRownames}{logical. Should row names be printed? Default is \code{TRUE}.}
+\item{showRowNames}{logical. Should row names be printed? Default is \code{TRUE}.}
 
-\item{showColnames}{logical. Should column names be printed? Default is \code{TRUE}.}
+\item{showColNames}{logical. Should column names be printed? Default is \code{TRUE}.}
 
 \item{useCliStyle}{logical. If \code{TRUE}, column names and row names are styled
 using \code{cli::style_bold()}. Default is \code{FALSE}.}

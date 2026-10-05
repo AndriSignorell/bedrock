@@ -80,7 +80,7 @@ reference:
   - range-operators
   - distance
   - intervals
-  - overlap
+  - overlapSize
   - overlaps
   # data.equal -- Comparison and identity checks
   - allDuplicated
@@ -218,14 +218,14 @@ reference:
   contents:
   # file.path -- Path and URL construction/validation
   - buildPath
-  - fileExistURL
+  - urlExists
   - findDownload
   - isFilePath
-  - isURL
+  - isUrl
   - readDownload
   - splitPath
   # file.io -- Opening and parsing files
-  - parseSASDatalines
+  - parseSasDatalines
   - pdfManual
   - peekFile
 
@@ -273,6 +273,7 @@ reference:
   - conceptAudit
   - mergeArgs
   - recycle
+  - auditNames
 
 - title: Datasets
   desc: >

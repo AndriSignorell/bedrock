@@ -59,7 +59,7 @@ default, the result is converted to a base R `data.frame`.
 [`readxl::read_excel()`](https://readxl.tidyverse.org/reference/read_excel.html),
 [`readr::read_csv()`](https://readr.tidyverse.org/reference/read_delim.html)
 
-Other file.io: [`parseSASDatalines()`](parseSASDatalines.md),
+Other file.io: [`parseSasDatalines()`](parseSasDatalines.md),
 [`pdfManual()`](pdfManual.md), [`peekFile()`](peekFile.md)
 
 ## Examples

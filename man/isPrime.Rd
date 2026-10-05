@@ -4,15 +4,15 @@
 \alias{isPrime}
 \title{Test Whether Numbers Are Prime}
 \usage{
-isPrime(n)
+isPrime(x)
 }
 \arguments{
-\item{n}{a numeric vector. Values must be finite whole numbers not
+\item{x}{a numeric vector. Values must be finite whole numbers not
 exceeding \code{2^53}.}
 }
 \value{
-a logical vector indicating whether each element of \code{n}
-is a prime number, \code{NA} where \code{n} exceeds \code{2^53}.
+a logical vector indicating whether each element of \code{x}
+is a prime number, \code{NA} where \code{x} exceeds \code{2^53}.
 }
 \description{
 Determines whether integer values are prime numbers.

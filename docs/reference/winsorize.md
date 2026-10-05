@@ -7,7 +7,7 @@ limit, and values above an upper limit are set to that upper limit.
 ## Usage
 
 ``` r
-winsorize(x, val = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE))
+winsorize(x, limits = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE))
 ```
 
 ## Arguments
@@ -16,7 +16,7 @@ winsorize(x, val = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE))
 
   a numeric vector to be winsorized.
 
-- val:
+- limits:
 
   a numeric vector of length two specifying the lower and upper
   winsorization limits. Defaults to the 5% and 95% quantiles of `x` with
@@ -43,7 +43,7 @@ Formally, the winsorized vector \\g(x)\\ is defined as: \$\$ g(x) =
 x \< u \\ u & \text{if } x \ge u \end{array} \right. \$\$ where \\l\\
 and \\u\\ denote the lower and upper bounds.
 
-The argument `val` allows full control over the limits. It can be:
+The argument `limits` allows full control over the limits. It can be:
 
 - A numeric vector of length two specifying fixed bounds
 
@@ -59,8 +59,7 @@ winsorization.
 
 ## See also
 
-[`DescToolsX::scaleX()`](https://andrisignorell.github.io/DescToolsX/reference/scaleX.html),
-`robustHD::winsorize()`
+`DescToolsX::scaleX()`, `robustHD::winsorize()`
 
 Other math.transform: [`linScale()`](linScale.md),
 [`logit()`](logit.md), [`percentRank()`](percentRank.md),
@@ -79,23 +78,23 @@ winsorize(x)
 #> [11]           NA -45.59998625  45.42883034
 
 # Winsorization using fixed bounds
-winsorize(x, val = c(-10, 10))
+winsorize(x, limits = c(-10, 10))
 #>  [1]  -1.09088409  -0.02449403   0.12549029   0.75983517   0.77969152
 #>  [6]   0.04945601   0.74742272  -0.17505077   0.58035461  -0.59841061
 #> [11]           NA -10.00000000  10.00000000
 
 # Custom quantile definition
-winsorize(x, val = quantile(x, c(0.1, 0.9), type = 1, na.rm = TRUE))
+winsorize(x, limits = quantile(x, c(0.1, 0.9), type = 1, na.rm = TRUE))
 #>  [1] -1.09088409 -0.02449403  0.12549029  0.75983517  0.77969152  0.04945601
 #>  [7]  0.74742272 -0.17505077  0.58035461 -0.59841061          NA -1.09088409
 #> [13]  0.77969152
 
 # One-sided winsorization
-winsorize(x, val = c(-Inf, 2))  # upper bound only
+winsorize(x, limits = c(-Inf, 2))  # upper bound only
 #>  [1]   -1.09088409   -0.02449403    0.12549029    0.75983517    0.77969152
 #>  [6]    0.04945601    0.74742272   -0.17505077    0.58035461   -0.59841061
 #> [11]            NA -100.00000000    2.00000000
-winsorize(x, val = c(-2, Inf)) # lower bound only
+winsorize(x, limits = c(-2, Inf)) # lower bound only
 #>  [1]  -1.09088409  -0.02449403   0.12549029   0.75983517   0.77969152
 #>  [6]   0.04945601   0.74742272  -0.17505077   0.58035461  -0.59841061
 #> [11]           NA  -2.00000000 100.00000000

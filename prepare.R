@@ -33,6 +33,7 @@ devtools::build_manual(pkg = "C:/temp/swissValet")
 devtools::document()
 devtools::load_all()
 
+
 devtools::test()
 testthat::test_local(reporter = "progress")
 devtools::run_examples()

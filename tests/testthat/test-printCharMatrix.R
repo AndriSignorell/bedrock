@@ -24,7 +24,7 @@ test_that("align accepts a per-column vector", {
 
   out <- capture.output(
     printCharMatrix(m, align = c("left", "right", "left", "right"),
-                    sep = 1, showRownames = FALSE)
+                    sep = 1, showRowNames = FALSE)
   )
   # left col: value at start of its field; right col: value at the end
   expect_match(out[1], "^x")          # left-aligned first column
@@ -85,7 +85,7 @@ test_that("column names are printed when present", {
   m <- matrix(c("a", "b", "c", "d"), nrow = 2,
               dimnames = list(NULL, c("Foo", "Bar")))
 
-  out <- capture.output(printCharMatrix(m, showRownames = FALSE))
+  out <- capture.output(printCharMatrix(m, showRowNames = FALSE))
   expect_match(out[1], "Foo")
   expect_match(out[1], "Bar")
 })
@@ -146,10 +146,10 @@ test_that("NA in dimnames is shown as 'NA'", {
 })
 
 test_that("invalid logical flags error", {
-  expect_error(printCharMatrix(matrix("x"), showRownames = NA),
-               "showRownames")
-  expect_error(printCharMatrix(matrix("x"), showColnames = "yes"),
-               "showColnames")
+  expect_error(printCharMatrix(matrix("x"), showRowNames = NA),
+               "showRowNames")
+  expect_error(printCharMatrix(matrix("x"), showColNames = "yes"),
+               "showColNames")
   expect_error(printCharMatrix(matrix("x"), useCliStyle = c(TRUE, TRUE)),
                "useCliStyle")
 })

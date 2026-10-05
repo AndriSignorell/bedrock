@@ -23,7 +23,7 @@
 #'   \item `tol`: Tolerance used for the test
 #' }
 #'
-#' @param distmat an object of class `dist`.
+#' @param x an object of class `dist`.
 #' @param tol numeric tolerance for detecting negative eigenvalues,
 #'   relative to the largest absolute eigenvalue.
 #'
@@ -43,21 +43,21 @@
 #' @concept type-test
 #' @concept geometry
 #' @export
-isEuclid <- function(distmat, tol = 1e-07) {
-  if (!inherits(distmat, "dist"))
+isEuclid <- function(x, tol = 1e-07) {
+  if (!inherits(x, "dist"))
     stop("Object of class 'dist' expected")
 
   if (!is.numeric(tol) || length(tol) != 1L || !is.finite(tol) || tol < 0)
     stop("'tol' must be a single non-negative number")
 
-  D <- as.matrix(distmat)
+  D <- as.matrix(x)
   n <- nrow(D)
 
   if (n < 2L)
-    stop("'distmat' must contain at least two objects")
+    stop("'x' must contain at least two objects")
 
   if (anyNA(D))
-    stop("'distmat' must not contain missing values")
+    stop("'x' must not contain missing values")
 
   # double centering
   J <- diag(n) - 1 / n

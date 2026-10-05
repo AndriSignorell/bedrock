@@ -78,9 +78,8 @@ returned as `NA`.
 [`tools::file_path_sans_ext()`](https://rdrr.io/r/tools/fileutils.html)
 
 Other file.path: [`buildPath()`](buildPath.md),
-[`fileExistURL()`](fileExistURL.md),
 [`findDownload()`](findDownload.md), [`isFilePath()`](isFilePath.md),
-[`isURL()`](isURL.md)
+[`isUrl()`](isUrl.md), [`urlExists()`](urlExists.md)
 
 ## Examples
 

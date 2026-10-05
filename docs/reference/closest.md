@@ -7,7 +7,7 @@ minimum distance.
 ## Usage
 
 ``` r
-closest(x, a, output = "value", na.rm = FALSE)
+closest(x, val, output = "value", na.rm = FALSE)
 ```
 
 ## Arguments
@@ -16,7 +16,7 @@ closest(x, a, output = "value", na.rm = FALSE)
 
   a numeric vector to search in.
 
-- a:
+- val:
 
   the reference value. May be a vector; see Details.
 
@@ -25,7 +25,7 @@ closest(x, a, output = "value", na.rm = FALSE)
   character string specifying the output representation. One of
   `"value"` (return the closest value(s), the default) or `"index"`
   (return the index position(s) in `x`). May be a vector; recycled to
-  the length of `a`.
+  the length of `val`.
 
 - na.rm:
 
@@ -34,14 +34,14 @@ closest(x, a, output = "value", na.rm = FALSE)
 
 ## Value
 
-if `a` and `output` are scalar:
+if `val` and `output` are scalar:
 
 - numeric vector if `output = "value"`.
 
 - integer vector if `output = "index"`.
 
-If `a` or `output` are vectors: a list with one element per value of
-`a`.
+If `val` or `output` are vectors: a list with one element per value of
+`val`.
 
 Returns `NA` if `x` is empty or all-`NA` (with `na.rm = TRUE`).
 
@@ -56,7 +56,7 @@ When `na.rm = TRUE`, `NA` elements are excluded from the search but the
 original index positions of the remaining elements are preserved, so
 `output = "index"` always refers to positions in the original `x`.
 
-When `a` or `output` are vectors, each element is processed
+When `val` or `output` are vectors, each element is processed
 independently and a list is returned.
 
 Recycling follows standard R rules.
@@ -86,28 +86,28 @@ sort(x)
 y <- sample(10, size = 10, replace = TRUE)
 
 # multiple observations of the same closest value
-closest(y, a = 6)
+closest(y, val = 6)
 #> [1] 6 6
 
 # get the relevant positions
-closest(y, a = 6, output = "index")
+closest(y, val = 6, output = "index")
 #> [1] 5 6
 
 # two different values having the same distance (tie)
-closest(c(2, 3, 4, 5), a = 3.5)
+closest(c(2, 3, 4, 5), val = 3.5)
 #> [1] 3 4
 
 # na.rm preserves original index positions
 closest(
   c(NA, 5, 8),
-  a = 6,
+  val = 6,
   output = "index",
   na.rm = TRUE
 )  # 2, not 1
 #> [1] 2
 
 # vectorize "a"
-closest(c(2, 3, 4, 5), a = c(3.1, 3.9))
+closest(c(2, 3, 4, 5), val = c(3.1, 3.9))
 #> [[1]]
 #> [1] 3
 #> 
@@ -118,7 +118,7 @@ closest(c(2, 3, 4, 5), a = c(3.1, 3.9))
 # vectorize "output"
 closest(
   c(2, 3, 4, 5),
-  a = 3.1,
+  val = 3.1,
   output = c("value", "index")
 )
 #> [[1]]
@@ -130,7 +130,7 @@ closest(
 
 closest(
   c(2, 3, 4, 5),
-  a = c(3.1, 3.9),
+  val = c(3.1, 3.9),
   output = c("value", "index")
 )
 #> [[1]]

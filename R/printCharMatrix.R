@@ -13,8 +13,8 @@
 #'   recycled across all columns; alternatively a vector of length
 #'   `ncol(m)` sets the alignment per column.
 #' @param sep integer. Number of spaces between columns. Default is `2`.
-#' @param showRownames logical. Should row names be printed? Default is `TRUE`.
-#' @param showColnames logical. Should column names be printed? Default is `TRUE`.
+#' @param showRowNames logical. Should row names be printed? Default is `TRUE`.
+#' @param showColNames logical. Should column names be printed? Default is `TRUE`.
 #' @param useCliStyle logical. If `TRUE`, column names and row names are styled
 #'   using `cli::style_bold()`. Default is `FALSE`.
 #' @param width integer. Maximum output width (in characters). Defaults to
@@ -72,16 +72,16 @@ printCharMatrix <- function(
     m,
     align = "right",
     sep = 2,
-    showRownames = TRUE,
-    showColnames = TRUE,
+    showRowNames = TRUE,
+    showColNames = TRUE,
     useCliStyle = FALSE,
     width = getOption("width")
 ) {
   # --- argument validation ---
   checkCount(sep)
   checkCount(width, min = 1L)
-  checkFlag(showRownames)
-  checkFlag(showColnames)
+  checkFlag(showRowNames)
+  checkFlag(showColNames)
   checkFlag(useCliStyle)
 
   # align may be a single value (recycled over all columns) or a per-column
@@ -115,8 +115,8 @@ printCharMatrix <- function(
   # only print names that actually exist
   hasRownames <- !is.null(rn)
   hasColnames <- !is.null(cn)
-  showRownames <- showRownames && hasRownames
-  showColnames <- showColnames && hasColnames
+  showRowNames <- showRowNames && hasRownames
+  showColNames <- showColNames && hasColnames
   
   # fallback placeholders for absent names
   if (is.null(rn)) rn <- rep("", nrow(m))
@@ -135,11 +135,11 @@ printCharMatrix <- function(
   # guards empty columns / zero-row matrices against max(numeric(0)) = -Inf
   colWidths <- apply(displayMatrix, 2L, function(x)
     max(c(0L, nchar(x, type = "width"))))
-  if (showColnames) {
+  if (showColNames) {
     colWidths <- pmax(colWidths, nchar(cn, type = "width"))
   }
   
-  rownameWidth <- if (showRownames) {
+  rownameWidth <- if (showRowNames) {
     max(c(0L, nchar(rn, type = "width")))
   } else {
     0L
@@ -162,7 +162,7 @@ printCharMatrix <- function(
   sepStr <- strrep(" ", sep)
   
   calcBlock <- function(startCol) {
-    total <- if (showRownames) rownameWidth + sep else 0
+    total <- if (showRowNames) rownameWidth + sep else 0
     cols <- c()
     
     for (j in startCol:ncol(m)) {
@@ -191,10 +191,10 @@ printCharMatrix <- function(
     cols <- calcBlock(colStart)
     
     # Header
-    if (showColnames) {
+    if (showColNames) {
       header <- c()
       
-      if (showRownames) {
+      if (showRowNames) {
         header <- c(header, padFun("", rownameWidth, "left"))
       }
       
@@ -210,7 +210,7 @@ printCharMatrix <- function(
       cells <- mapply(padFun, displayMatrix[i, cols], colWidths[cols], align[cols])
       dataStr <- paste(cells, collapse = sepStr)
       
-      if (showRownames) {
+      if (showRowNames) {
         rnPart <- padFun(rn[i], rownameWidth, "left")
         if (useCliStyle) rnPart <- cli::style_bold(rnPart)
         line <- paste(c(rnPart, dataStr), collapse = sepStr)

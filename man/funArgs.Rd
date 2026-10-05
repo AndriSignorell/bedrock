@@ -54,6 +54,7 @@ cat(funArgs("combN", output = "string"))
 \code{\link[=formals]{formals()}}, \code{\link[=args]{args()}}
 
 Other pkg.funinfo:
+\code{\link[=auditNames]{auditNames()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},

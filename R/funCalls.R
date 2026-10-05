@@ -9,7 +9,7 @@
 #' sees attached packages. Calls to functions from packages that are not on
 #' the search path are reported under `"<not found>"`.
 #'
-#' @param name the name of the function.
+#' @param fun the name of the function.
 #' @param package optional name of a package; if given, the result is
 #'   filtered to source environments matching `package`.
 #' @param sorted logical; whether calls are sorted alphabetically. Defaults to
@@ -32,9 +32,9 @@
 #' @concept introspection
 #' @concept programming
 #' @export
-funCalls <- function(name, package = NULL, sorted = FALSE) {
+funCalls <- function(fun, package = NULL, sorted = FALSE) {
 
-  fn <- get(name, mode = "function", envir = parent.frame())
+  fn <- get(fun, mode = "function", envir = parent.frame())
 
   # parse the deparsed source: parsing the getAnywhere() object itself
   # would inject a phantom 'list' call into the results

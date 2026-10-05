@@ -19,10 +19,10 @@
 #' (default) the dimnames of x will be used.
 #' @param type defines the data type generated. This allows to directly define
 #' factors or ordered factors, but also numeric values. See examples.
-#' @param rownames a names vector for the rownames of the resulting data.frame
+#' @param rowNames a names vector for the rownames of the resulting data.frame
 #' If set to `NULL` (default) the names will be defined according to the
 #' table's dimnames.
-#' @param colnames a names vector for the colnames of the resulting data.frame
+#' @param colNames a names vector for the colnames of the resulting data.frame
 #' If set to `NULL` (default) the names will be defined according to the
 #' table's dimnames.
 #' @param freq character, the name of the frequency variable in case x is a
@@ -85,13 +85,13 @@ untable <- function(x, ...){
 
 #' @rdname untable
 #' @export
-untable.data.frame <- function(x, freq = "Freq", rownames = NULL, ...){
+untable.data.frame <- function(x, freq = "Freq", rowNames = NULL, ...){
   
   if(all(is.na(match(freq, names(x)))))
     stop(gettextf("Frequency column %s does not exist!", freq))
   
   res <- x[untable(x[,freq], type="as.numeric")[,], -match(freq, names(x)), drop=FALSE]
-  rownames(res) <- rownames
+  rownames(res) <- rowNames
   
   return(res)
 }
@@ -100,7 +100,7 @@ untable.data.frame <- function(x, freq = "Freq", rownames = NULL, ...){
 
 #' @rdname untable
 #' @export
-untable.default <- function(x, dimnames=NULL, type = NULL, rownames = NULL, colnames = NULL, ...) {
+untable.default <- function(x, dimnames=NULL, type = NULL, rowNames = NULL, colNames = NULL, ...) {
   
   # recreates the data.frame out of a contingency table
   # check fo NAs
@@ -140,8 +140,8 @@ untable.default <- function(x, dimnames=NULL, type = NULL, rownames = NULL, coln
   }
   
   # overwrite the dimnames, if requested
-  if(!is.null(rownames)) rownames(res) <- rownames
-  if(!is.null(colnames)) colnames(res) <- colnames
+  if(!is.null(rowNames)) rownames(res) <- rowNames
+  if(!is.null(colNames)) colnames(res) <- colNames
   
   return(res)
   

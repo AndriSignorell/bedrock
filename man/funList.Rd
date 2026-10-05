@@ -38,6 +38,7 @@ New S Language}. Wadsworth & Brooks/Cole.
 \code{\link[=getNamespaceExports]{getNamespaceExports()}}
 
 Other pkg.funinfo:
+\code{\link[=auditNames]{auditNames()}},
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},

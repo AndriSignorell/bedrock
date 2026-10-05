@@ -4,12 +4,12 @@
 \alias{winsorize}
 \title{Winsorize a Numeric Vector}
 \usage{
-winsorize(x, val = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE))
+winsorize(x, limits = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE))
 }
 \arguments{
 \item{x}{a numeric vector to be winsorized.}
 
-\item{val}{a numeric vector of length two specifying the lower and upper
+\item{limits}{a numeric vector of length two specifying the lower and upper
 winsorization limits. Defaults to the 5\% and 95\% quantiles of \code{x}
 with \code{na.rm = TRUE}.}
 }
@@ -44,7 +44,7 @@ u & \text{if } x \ge u
 }
 where \eqn{l} and \eqn{u} denote the lower and upper bounds.
 
-The argument \code{val} allows full control over the limits. It can be:
+The argument \code{limits} allows full control over the limits. It can be:
 \itemize{
 \item A numeric vector of length two specifying fixed bounds
 \item The result of a call to \code{\link[=quantile]{quantile()}} (e.g. with custom \code{type})
@@ -62,14 +62,14 @@ x <- c(rnorm(10), NA, -100, 100)
 winsorize(x)
 
 # Winsorization using fixed bounds
-winsorize(x, val = c(-10, 10))
+winsorize(x, limits = c(-10, 10))
 
 # Custom quantile definition
-winsorize(x, val = quantile(x, c(0.1, 0.9), type = 1, na.rm = TRUE))
+winsorize(x, limits = quantile(x, c(0.1, 0.9), type = 1, na.rm = TRUE))
 
 # One-sided winsorization
-winsorize(x, val = c(-Inf, 2))  # upper bound only
-winsorize(x, val = c(-2, Inf)) # lower bound only
+winsorize(x, limits = c(-Inf, 2))  # upper bound only
+winsorize(x, limits = c(-2, Inf)) # lower bound only
 
 }
 \seealso{

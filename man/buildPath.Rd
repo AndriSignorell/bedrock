@@ -47,11 +47,11 @@ buildPath("data/", "file.csv")
 }
 \seealso{
 Other file.path:
-\code{\link[=fileExistURL]{fileExistURL()}},
 \code{\link[=findDownload]{findDownload()}},
 \code{\link[=isFilePath]{isFilePath()}},
-\code{\link[=isURL]{isURL()}},
-\code{\link[=splitPath]{splitPath()}}
+\code{\link[=isUrl]{isUrl()}},
+\code{\link[=splitPath]{splitPath()}},
+\code{\link[=urlExists]{urlExists()}}
 }
 \concept{file.path}
 \concept{path-handling}

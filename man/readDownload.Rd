@@ -64,7 +64,7 @@ readDownload("data.csv", output = "tibble")
 \code{\link[readr:read_csv]{readr::read_csv()}}
 
 Other file.io:
-\code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=parseSasDatalines]{parseSasDatalines()}},
 \code{\link[=pdfManual]{pdfManual()}},
 \code{\link[=peekFile]{peekFile()}}
 }

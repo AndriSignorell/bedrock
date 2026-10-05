@@ -28,7 +28,7 @@
 #'   matrix, table, or data frame to be sorted.
 #' @param decreasing logical scalar or vector. Should the sort be in
 #'   decreasing order? For 2-dimensional objects a vector of the same length
-#'   as `ord` may be supplied to control the direction per column;
+#'   as `by` may be supplied to control the direction per column;
 #'   a scalar is recycled.
 #' @param na.last logical or `NA`. Should missing values be placed last
 #'   (`TRUE`), first (`FALSE`), or removed (`NA`)?
@@ -40,7 +40,7 @@
 #'   converted to character before sorting so that labels are used instead of
 #'   level codes. Set to `FALSE` to sort by level order (useful for
 #'   ordered factors).
-#' @param ord integer or character vector specifying the columns to sort by,
+#' @param by integer or character vector specifying the columns to sort by,
 #'   and their priority (first element = primary key). Column names and
 #'   positive integer indices (`1:ncol(x)`) refer to columns.
 #'   The special value `0L` (integer zero, always numeric) sorts by row
@@ -63,14 +63,14 @@
 #' sortX(d.frm[, 1])
 #'
 #' # Data frame: sort by column name
-#' sortX(d.frm, ord = "Species")
-#' sortX(d.frm, ord = c("Species", "Sepal.Length"))
+#' sortX(d.frm, by = "Species")
+#' sortX(d.frm, by = c("Species", "Sepal.Length"))
 #'
 #' # Data frame: sort by column index
-#' sortX(d.frm, ord = c(1L, 2L))
+#' sortX(d.frm, by = c(1L, 2L))
 #'
 #' # Decreasing order (per-column control)
-#' sortX(d.frm, ord = c("Species", "Sepal.Length"),
+#' sortX(d.frm, by = c("Species", "Sepal.Length"),
 #'       decreasing = c(FALSE, TRUE))
 #'
 #' # Natural sorting of character vectors
@@ -78,18 +78,18 @@
 #' sortX(x, method = "mixed")
 #'
 #' # Factor: sort by label (default) vs. level order
-#' sortX(d.frm, ord = "Species")                          # by label
-#' sortX(d.frm, ord = "Species", factorsAsCharacter = FALSE)  # by level
+#' sortX(d.frm, by = "Species")                          # by label
+#' sortX(d.frm, by = "Species", factorsAsCharacter = FALSE)  # by level
 #'
 #' # Tables: sort by column 2 descending
 #' tab <- HairEyeColor[, , 1]
-#' sortX(tab, ord = 2L, decreasing = TRUE)
+#' sortX(tab, by = 2L, decreasing = TRUE)
 #'
 #' # Tables: sort by marginal row sums
-#' sortX(tab, ord = ncol(tab) + 1L, decreasing = TRUE)
+#' sortX(tab, by = ncol(tab) + 1L, decreasing = TRUE)
 #'
 #' # Sort by row names (always pass 0 as integer)
-#' sortX(tab, ord = 0L)
+#' sortX(tab, by = 0L)
 #'
 
 
@@ -142,7 +142,7 @@ sortX.default <- function(x,
 #' @rdname sortX
 #' @export
 sortX.table <- function(x,
-                        ord                = NULL,
+                        by                = NULL,
                         decreasing         = FALSE,
                         na.last            = TRUE,
                         method             = c("default", "mixed"),
@@ -153,7 +153,7 @@ sortX.table <- function(x,
   if (length(dim(x)) != 2L)
     stop("'x' must be a 2-dimensional table.")
 
-  row_order <- .sortXEngine(x, ord, decreasing, na.last, method,
+  row_order <- .sortXEngine(x, by, decreasing, na.last, method,
                            factorsAsCharacter = factorsAsCharacter,
                            allow_marginal     = TRUE)
   x[row_order, , drop = FALSE]
@@ -167,14 +167,14 @@ sortX.table <- function(x,
 #' @rdname sortX
 #' @export
 sortX.matrix <- function(x,
-                         ord                = NULL,
+                         by                = NULL,
                          decreasing         = FALSE,
                          na.last            = TRUE,
                          method             = c("default", "mixed"),
                          factorsAsCharacter = TRUE,
                          ...) {
   method    <- match.arg(method)
-  row_order <- .sortXEngine(x, ord, decreasing, na.last, method,
+  row_order <- .sortXEngine(x, by, decreasing, na.last, method,
                            factorsAsCharacter = factorsAsCharacter,
                            allow_marginal     = TRUE)
   x[row_order, , drop = FALSE]
@@ -188,14 +188,14 @@ sortX.matrix <- function(x,
 #' @rdname sortX
 #' @export
 sortX.data.frame <- function(x,
-                             ord                = NULL,
+                             by                = NULL,
                              decreasing         = FALSE,
                              na.last            = TRUE,
                              method             = c("default", "mixed"),
                              factorsAsCharacter = TRUE,
                              ...) {
   method    <- match.arg(method)
-  row_order <- .sortXEngine(x, ord, decreasing, na.last, method,
+  row_order <- .sortXEngine(x, by, decreasing, na.last, method,
                            factorsAsCharacter = factorsAsCharacter,
                            allow_marginal     = FALSE)  # row sums not supported
   x[row_order, , drop = FALSE]
@@ -297,15 +297,15 @@ sortX.data.frame <- function(x,
 #
 #  Parameters
 #    x                 matrix, table, or data.frame
-#    ord               column selector (NULL, integer, or character)
-#    decreasing        logical scalar or vector (recycled to length(ord))
+#    by                column selector (NULL, integer, or character)
+#    decreasing        logical scalar or vector (recycled to length(by))
 #    na.last           passed to order() / .orderMixed()
 #    method            "default" or "mixed"
 #    factorsAsCharacter convert factor columns to character before sorting
-#    allow_marginal    if FALSE, ord = ncol(x)+1 raises an error
+#    allow_marginal    if FALSE, by = ncol(x)+1 raises an error
 # ----------------------------------------------------------------------
 .sortXEngine <- function(x,
-                        ord,
+                        by,
                         decreasing,
                         na.last,
                         method,
@@ -316,50 +316,50 @@ sortX.data.frame <- function(x,
   nr <- nrow(x)
   
   # --- resolve column names to integer indices --------------------------
-  # ord = 0L (row names) must always be passed as integer and is never
+  # by = 0L (row names) must always be passed as integer and is never
   # a column name, so name resolution only touches non-zero values.
-  if (is.character(ord)) {
-    idx <- match(ord, colnames(x))
-    unknown <- ord[is.na(idx)]
+  if (is.character(by)) {
+    idx <- match(by, colnames(x))
+    unknown <- by[is.na(idx)]
     if (length(unknown) > 0L)
-      stop("Unknown column name(s) in 'ord': ",
+      stop("Unknown column name(s) in 'by': ",
            paste(unknown, collapse = ", "))
-    ord <- idx
+    by <- idx
   }
   
-  # --- default ord: all columns left to right ---------------------------
-  if (is.null(ord)) ord <- seq_len(nc)
+  # --- default by: all columns left to right ---------------------------
+  if (is.null(by)) by <- seq_len(nc)
   
   # --- recycle decreasing -----------------------------------------------
   if (length(decreasing) == 1L) {
-    decreasing <- rep(decreasing, length(ord))
+    decreasing <- rep(decreasing, length(by))
   }
-  if (length(decreasing) != length(ord))
-    stop("'decreasing' must have length 1 or length(ord).")
+  if (length(decreasing) != length(by))
+    stop("'decreasing' must have length 1 or length(by).")
   
-  # --- validate ord values ----------------------------------------------
-  valid <- (ord >= 0L) & (ord <= nc + 1L)
+  # --- validate by values ----------------------------------------------
+  valid <- (by >= 0L) & (by <= nc + 1L)
   if (!all(valid))
-    stop(sprintf("Invalid value(s) in 'ord': %s. Allowed: 0L..%dL.",
-                 paste(ord[!valid], collapse = ", "), nc + 1L))
+    stop(sprintf("Invalid value(s) in 'by': %s. Allowed: 0L..%dL.",
+                 paste(by[!valid], collapse = ", "), nc + 1L))
   
   # --- guard marginal sums for data.frame --------------------------------
-  if (!allow_marginal && any(ord == nc + 1L))
-    stop("ord = ncol(x)+1L (marginal row sums) is not supported for ",
+  if (!allow_marginal && any(by == nc + 1L))
+    stop("by = ncol(x)+1L (marginal row sums) is not supported for ",
          "data.frame because not all columns need to be numeric.")
   
   # --- build sort keys --------------------------------------------------
-  keys <- vector("list", length(ord))
+  keys <- vector("list", length(by))
   
-  for (i in seq_along(ord)) {
-    col_i <- ord[i]
+  for (i in seq_along(by)) {
+    col_i <- by[i]
     dec_i <- decreasing[i]
     
     if (col_i == 0L) {
       # Sort by row names
       rn <- rownames(x)
       if (is.null(rn)) {
-        warning("x has no rownames; ord = 0L falls back to natural row order.")
+        warning("x has no rownames; by = 0L falls back to natural row order.")
         rn <- as.character(seq_len(nr))
       }
       keys[[i]] <- rn

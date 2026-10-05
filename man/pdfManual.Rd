@@ -35,7 +35,7 @@ if (interactive()) {
 \code{\link[=browseURL]{browseURL()}}
 
 Other file.io:
-\code{\link[=parseSASDatalines]{parseSASDatalines()}},
+\code{\link[=parseSasDatalines]{parseSasDatalines()}},
 \code{\link[=peekFile]{peekFile()}},
 \code{\link[=readDownload]{readDownload()}}
 }

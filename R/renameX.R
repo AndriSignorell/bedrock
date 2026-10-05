@@ -95,10 +95,10 @@
 #' @concept attribute
 #' @concept label
 #' @export
-renameX <- function(x, ..., on = "names",
+renameX <- function(x, ..., on = c("names", "rownames", "colnames"),
                     useGsub = FALSE, fixed = TRUE, warn = TRUE) {
   
-  on <- match.arg(on, c("names", "rownames", "colnames"))
+  on <- match.arg(on)
   
   # --- extract the targeted names -------------------------------------------
   nms <- switch(on,

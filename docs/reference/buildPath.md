@@ -47,9 +47,9 @@ function in the `swissValet` package is useful for this purpose.
 
 ## See also
 
-Other file.path: [`fileExistURL()`](fileExistURL.md),
-[`findDownload()`](findDownload.md), [`isFilePath()`](isFilePath.md),
-[`isURL()`](isURL.md), [`splitPath()`](splitPath.md)
+Other file.path: [`findDownload()`](findDownload.md),
+[`isFilePath()`](isFilePath.md), [`isUrl()`](isUrl.md),
+[`splitPath()`](splitPath.md), [`urlExists()`](urlExists.md)
 
 ## Examples
 

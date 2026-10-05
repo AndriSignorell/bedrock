@@ -16,31 +16,31 @@
 #'
 #' When merging `defaults` and `arg`, user-supplied arguments take
 #' precedence. Unlike [modifyList()], elements with the value
-#' `NULL` are preserved and passed on to `fun` (so that an explicit
+#' `NULL` are preserved and passed on to `FUN` (so that an explicit
 #' `NULL` can be used to reset an argument).
 #'
-#' @param fun a function to be called.
-#' @param arg controls whether and how `fun` is called:
+#' @param FUN a function to be called.
+#' @param arg controls whether and how `FUN` is called:
 #'   \itemize{
-#'     \item `FALSE`, `NULL`, or `NA`: `fun` is not called
+#'     \item `FALSE`, `NULL`, or `NA`: `FUN` is not called
 #'       and `NULL` is returned invisibly.
-#'     \item `TRUE`: `fun` is called with `defaults` (if provided),
+#'     \item `TRUE`: `FUN` is called with `defaults` (if provided),
 #'       or with no arguments.
-#'     \item a fully named list: `fun` is called with the list elements as
+#'     \item a fully named list: `FUN` is called with the list elements as
 #'       arguments. If `defaults` is provided, it is merged with
 #'       `arg`, where elements of `arg` override those in
 #'       `defaults`.
 #'   }
-#' @param defaults a named list of default arguments passed to `fun` when
+#' @param defaults a named list of default arguments passed to `FUN` when
 #'   `arg = TRUE`, or used as a base when `arg` is a list.
 #'   Default is `NULL`.
 #' @param forbidden optional character vector of argument names that are not
 #'   allowed. If any of these appear in `arg`, they are removed before
-#'   calling `fun`. A warning is issued unless `warn = FALSE`.
+#'   calling `FUN`. A warning is issued unless `warn = FALSE`.
 #' @param warn logical. If `TRUE` (default), a warning is issued when
 #'   forbidden arguments are removed.
 #'
-#' @return returns the result of `fun(...)` if called. If `arg` is
+#' @return returns the result of `FUN(...)` if called. If `arg` is
 #'   `FALSE`, `NULL`, or `NA`, returns `NULL` invisibly.
 #'
 #' @examples
@@ -70,7 +70,7 @@
 #' @family pkg.args
 #' @concept programming
 #' @export
-callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
+callIf <- function(FUN, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
 
   if (isFALSE(arg) || is.null(arg) || isNA(arg))
     return(invisible(NULL))
@@ -89,7 +89,7 @@ callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
         if (warn)
           warning(
             gettextf("Ignoring forbidden argument(s) for '%s': %s",
-                     deparse(substitute(fun)),
+                     deparse(substitute(FUN)),
                      paste(bad, collapse = ", ")),
             call. = FALSE
           )
@@ -105,5 +105,5 @@ callIf <- function(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE) {
     stop("Argument 'arg' must be TRUE, FALSE, NA/NULL or a named list.")
   }
 
-  return(do.call(fun, args))
+  return(do.call(FUN, args))
 }

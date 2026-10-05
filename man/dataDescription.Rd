@@ -4,10 +4,10 @@
 \alias{dataDescription}
 \title{Extract Data Description from Excel File}
 \usage{
-dataDescription(fn, sheet = "Description")
+dataDescription(file, sheet = "Description")
 }
 \arguments{
-\item{fn}{character string. Path to the Excel file.}
+\item{file}{character string. Path to the Excel file.}
 
 \item{sheet}{character string. Name of the documentation sheet.
 Default is \code{"Description"}.}

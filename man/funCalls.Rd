@@ -4,10 +4,10 @@
 \alias{funCalls}
 \title{List Calls Used in Function}
 \usage{
-funCalls(name, package = NULL, sorted = FALSE)
+funCalls(fun, package = NULL, sorted = FALSE)
 }
 \arguments{
-\item{name}{the name of the function.}
+\item{fun}{the name of the function.}
 
 \item{package}{optional name of a package; if given, the result is
 filtered to source environments matching \code{package}.}
@@ -42,6 +42,7 @@ funCalls("combN", package="bedrock")
 \code{\link[=getParseData]{getParseData()}}
 
 Other pkg.funinfo:
+\code{\link[=auditNames]{auditNames()}},
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funKeywords]{funKeywords()}},
 \code{\link[=funList]{funList()}},

@@ -4,12 +4,12 @@
 \alias{permn}
 \title{Set of Permutations}
 \usage{
-permn(x, sortResults = FALSE)
+permn(x, sorted = FALSE)
 }
 \arguments{
 \item{x}{atomic vector. Missing values are not supported.}
 
-\item{sortResults}{logical scalar. If \code{TRUE}, the result matrix is sorted
+\item{sorted}{logical scalar. If \code{TRUE}, the result matrix is sorted
 using \code{\link[=sortX]{sortX()}}. Default is \code{FALSE}.}
 }
 \value{

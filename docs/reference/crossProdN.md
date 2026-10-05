@@ -7,12 +7,12 @@ higher dimensions.
 ## Usage
 
 ``` r
-crossProdN(A)
+crossProdN(x)
 ```
 
 ## Arguments
 
-- A:
+- x:
 
   a numeric or complex vector of length 2, or a matrix of dimension \\n
   x (n+1)\\.

@@ -74,7 +74,7 @@ Reshaping, recoding, ordering, and inspecting data structures.
 - [`` `%:%` ``](range-operators.md) [`` `%::%` ``](range-operators.md) :
   Select a Range Between Two Elements
 
-- [`overlap()`](intervals.md) [`overlaps()`](intervals.md)
+- [`overlapSize()`](intervals.md) [`overlaps()`](intervals.md)
   [`distance()`](intervals.md) [`` `%overlaps%` ``](intervals.md) :
   Interval Arithmetic
 
@@ -239,16 +239,16 @@ Combinations, permutations, and sampling.
 File I/O and path/URL handling.
 
 - [`buildPath()`](buildPath.md) : Construct a Normalized File Path
-- [`fileExistURL()`](fileExistURL.md) : Check if a File Exists at a URL
+- [`urlExists()`](urlExists.md) : Check if a File Exists at a URL
 - [`findDownload()`](findDownload.md) : Locate a File in the Downloads
   Directory
 - [`isFilePath()`](isFilePath.md) : Check Whether a String Is a File
   Path
-- [`isURL()`](isURL.md) : Check Whether a String Is a URL
+- [`isUrl()`](isUrl.md) : Check Whether a String Is a URL
 - [`readDownload()`](readDownload.md) : Read a File from the Downloads
   Directory
 - [`splitPath()`](splitPath.md) : Split a File Path into Its Components
-- [`parseSASDatalines()`](parseSASDatalines.md) : Parse SAS
+- [`parseSasDatalines()`](parseSasDatalines.md) : Parse SAS
   DATALINES/CARDS blocks into a data.frame
 - [`pdfManual()`](pdfManual.md) : Open CRAN PDF Manual of a Package
 - [`peekFile()`](peekFile.md) : Preview a Delimited Text File
@@ -299,6 +299,8 @@ Inspecting functions, arguments, and Rd documentation.
 - [`mergeArgs()`](mergeArgs.md) : Merge Default Arguments with User
   Overrides
 - [`recycle()`](recycle.md) : Recycle a List of Elements
+- [`auditNames()`](auditNames.md) : Audit the Names of a Package Against
+  the Design Rules
 
 ## Datasets
 
@@ -308,4 +310,5 @@ Example datasets shipped with bedrock.
 - [`Pizza`](Pizza.md) : Pizza Delivery Data (Extended)
 - [`Roulette`](Roulette.md) : European Roulette Wheel
 - [`Tarot`](Tarot.md) : Tarot Cards dataset
-- [`courseData()`](courseData.md) : Load Course Dataset from Server
+- [`readCourseData()`](readCourseData.md) : Load Course Dataset from
+  Server

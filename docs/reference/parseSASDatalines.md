@@ -6,7 +6,7 @@ built with the columnnames listed in the input section.
 ## Usage
 
 ``` r
-parseSASDatalines(x, validateNames = FALSE)
+parseSasDatalines(x, validateNames = FALSE)
 ```
 
 ## Arguments
@@ -76,5 +76,5 @@ sas_code <- "
   Bob   25 88.0
   ;
 "
-df <- parseSASDatalines(sas_code)
+df <- parseSasDatalines(sas_code)
 ```

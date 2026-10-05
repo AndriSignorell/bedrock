@@ -1,6 +1,27 @@
 # Changelog
 
-## bedrock 0.1.3
+## bedrock 0.1.17
+
+- `courseData()` has been renamed to
+  [`readCourseData()`](../reference/readCourseData.md), which describes
+  the function better.
+
+## bedrock 0.1.15
+
+- [`resolveFormula()`](../reference/resolveFormula.md): `subset` now
+  follows base R semantics (evaluated in `data`, as in
+  [`lm()`](https://rdrr.io/r/stats/lm.html)); new
+  [`resolveFormulaFromCall()`](../reference/resolveFormula.md) for
+  formula methods. `y ~ a:b` is accepted as the cells of several
+  grouping variables.
+- New [`conceptMap()`](../reference/concepts.md) and
+  [`conceptAudit()`](../reference/concepts.md);
+  [`getConcepts()`](../reference/concepts.md) is now exported.
+- Fixed a test failing on macOS arm64 (CRAN M1mac).
+
+## bedrock 0.1.9
+
+CRAN release: 2026-09-29
 
 ### Initial CRAN release
 

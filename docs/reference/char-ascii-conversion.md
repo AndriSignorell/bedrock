@@ -7,24 +7,21 @@ Convert characters to their numeric character codes and vice versa.
 ``` r
 charToAscii(x, output = c("vector", "list"))
 
-asciiToChar(i)
+asciiToChar(x)
 ```
 
 ## Arguments
 
 - x:
 
-  a character vector.
+  for `charToAscii()` a character vector, for `asciiToChar()` an integer
+  vector of character codes (1–255).
 
 - output:
 
   character string specifying the output representation. One of
   `"vector"` (simplify the result whenever possible, the default) or
   `"list"` (always return a list). See Details.
-
-- i:
-
-  an integer vector of character codes (1–255).
 
 ## Value
 

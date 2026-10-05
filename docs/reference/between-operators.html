@@ -17,7 +17,7 @@ values can be numbers, text or dates. Ordered factors are supported."><meta prop
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.15</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.18</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,14 +112,14 @@ whenever the negated between-operator includes that boundary.</p>
 <p>Both arguments, <code>x</code> and <code>rng</code>, will be recycled to the highest
 dimension, which is either the length of the vector (<code>x</code>) or the number
 of rows of the matrix (<code>rng</code>).<br> See also the routines used to check,
-whether two ranges overlap (<code><a href="intervals.html">overlap()</a></code>,
+whether two ranges overlap (<code><a href="intervals.html">overlapSize()</a></code>,
 <code><a href="intervals.html">distance()</a></code>).</p>
 <p>The "OUTSIDE" operators are the negations of the corresponding "BETWEEN"
 operators, matched by <em>meaning</em> rather than by mirrored bracket
-symbols:</p><ul><li><p><code>\%][\%</code> negates <code>\%()\%</code> (strictly outside both bounds)</p></li>
-<li><p><code>\%](\%</code> negates <code>\%(]\%</code></p></li>
-<li><p><code>\%)[\%</code> negates <code>\%[)\%</code></p></li>
-<li><p><code>\%)(\%</code> negates <code>\%[]\%</code> (strictly outside, both bounds
+symbols:</p><ul><li><p><code>%][%</code> negates <code>%()%</code> (strictly outside both bounds)</p></li>
+<li><p><code>%](%</code> negates <code>%(]%</code></p></li>
+<li><p><code>%)[%</code> negates <code>%[)%</code></p></li>
+<li><p><code>%)(%</code> negates <code>%[]%</code> (strictly outside, both bounds
 of the between-operator were closed)</p></li>
 </ul></div>
     <div class="section level2">

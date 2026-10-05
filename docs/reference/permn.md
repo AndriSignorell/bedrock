@@ -7,7 +7,7 @@ returned.
 ## Usage
 
 ``` r
-permn(x, sortResults = FALSE)
+permn(x, sorted = FALSE)
 ```
 
 ## Arguments
@@ -16,7 +16,7 @@ permn(x, sortResults = FALSE)
 
   atomic vector. Missing values are not supported.
 
-- sortResults:
+- sorted:
 
   logical scalar. If `TRUE`, the result matrix is sorted using
   [`sortX()`](sortX.md). Default is `FALSE`.

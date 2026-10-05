@@ -29,9 +29,9 @@
 #' \donttest{
 #' # needs an internet connection; an unreachable host is reported
 #' # through the attributes rather than by an error
-#' fileExistURL("https://www.example.com/data.csv")
+#' urlExists("https://www.example.com/data.csv")
 #'
-#' res <- fileExistURL("https://invalid-url.test/file.csv")
+#' res <- urlExists("https://invalid-url.test/file.csv")
 #' attr(res, "status")
 #' attr(res, "error")
 #' }
@@ -40,7 +40,7 @@
 #' @concept path-handling
 #' @concept type-test
 #' @export
-fileExistURL <- function(url, timeout = 5) {
+urlExists <- function(url, timeout = 5) {
 
   HTTP_STATUS_OK <- 200
 

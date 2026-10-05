@@ -22,12 +22,11 @@ isFilePath(x)
 
 ## See also
 
-[`isURL()`](isURL.md) for the complementary URL check.
+[`isUrl()`](isUrl.md) for the complementary URL check.
 
 Other file.path: [`buildPath()`](buildPath.md),
-[`fileExistURL()`](fileExistURL.md),
-[`findDownload()`](findDownload.md), [`isURL()`](isURL.md),
-[`splitPath()`](splitPath.md)
+[`findDownload()`](findDownload.md), [`isUrl()`](isUrl.md),
+[`splitPath()`](splitPath.md), [`urlExists()`](urlExists.md)
 
 ## Examples
 

@@ -19,14 +19,14 @@ test_that("maxdim is inferred from the longest input", {
 })
 
 test_that("explicit maxdim works", {
-  res <- recycle(a = 1:2, maxdim = 6)
+  res <- recycle(a = 1:2, maxDim = 6)
 
   expect_equal(length(res$a), 6)
   expect_equal(attr(res, "maxdim"), 6)
 })
 
 test_that("recycling repeats correctly", {
-  expect_equal(recycle(a = 1:2, maxdim = 5)$a, c(1, 2, 1, 2, 1))
+  expect_equal(recycle(a = 1:2, maxDim = 5)$a, c(1, 2, 1, 2, 1))
 })
 
 test_that("all elements share the same length", {
@@ -41,9 +41,9 @@ test_that("strict mode allows length 1 or maxdim only", {
 })
 
 test_that("invalid maxdim throws error", {
-  expect_error(recycle(a = 1:3, maxdim = -1))
-  expect_error(recycle(a = 1:3, maxdim = c(1, 2)))
-  expect_error(recycle(a = 1:3, maxdim = "a"))
+  expect_error(recycle(a = 1:3, maxDim = -1))
+  expect_error(recycle(a = 1:3, maxDim = c(1, 2)))
+  expect_error(recycle(a = 1:3, maxDim = "a"))
 })
 
 test_that("recycle works with Date objects", {

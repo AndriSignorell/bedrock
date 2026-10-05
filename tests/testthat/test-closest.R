@@ -255,7 +255,7 @@ test_that("vectorized output recycled over a", {
   
   res <- closest(
     c(2, 3, 4, 5),
-    a = c(3.1, 3.9),
+    val = c(3.1, 3.9),
     output = c("value", "index")
   )
   
@@ -268,7 +268,7 @@ test_that("output vectorized over scalar a returns list", {
   
   res <- closest(
     c(2, 3, 4, 5),
-    a = 3.1,
+    val = 3.1,
     output = c("value", "index")
   )
   
@@ -296,7 +296,7 @@ test_that("non-numeric a raises error", {
   
   expect_error(
     closest(1:5, "3"),
-    "'a' must be numeric"
+    "'val' must be numeric"
   )
 })
 

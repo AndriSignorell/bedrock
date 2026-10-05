@@ -2,13 +2,13 @@
 % Please edit documentation in R/intervals.R
 \name{intervals}
 \alias{intervals}
-\alias{overlap}
+\alias{overlapSize}
 \alias{overlaps}
 \alias{distance}
 \alias{\%overlaps\%}
 \title{Interval Arithmetic}
 \usage{
-overlap(x, y)
+overlapSize(x, y)
 
 overlaps(x, y)
 
@@ -52,8 +52,8 @@ inputs carry.
 }
 \examples{
 # overlap length
-overlap(c(1, 5), c(3, 7))   # 2
-overlap(c(1, 3), c(3, 5))   # 0 (boundary only)
+overlapSize(c(1, 5), c(3, 7))   # 2
+overlapSize(c(1, 3), c(3, 5))   # 0 (boundary only)
 
 # overlap check
 overlaps(c(1, 5), c(3, 7))  # TRUE
@@ -69,7 +69,7 @@ c(1, 5) \%overlaps\% c(3, 7)  # TRUE
 
 # vectorised (matrix input)
 m <- matrix(c(1,3, 2,6, 5,8), ncol = 2, byrow = TRUE)
-overlap(m, c(4, 7))
+overlapSize(m, c(4, 7))
 
 }
 \seealso{

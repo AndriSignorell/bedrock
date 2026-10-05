@@ -1,39 +1,39 @@
 # Prime Factorization of Integers
 
-Compute the prime factorization(s) of integer(s) `n`, using Pollard's
+Compute the prime factorization(s) of integer(s) `x`, using Pollard's
 rho algorithm with deterministic Miller-Rabin primality testing (64-bit,
 implemented in C++).
 
 ## Usage
 
 ``` r
-factorize(n)
+factorize(x)
 ```
 
 ## Arguments
 
-- n:
+- x:
 
   vector of positive whole numbers to factorize, not exceeding `2^53`.
 
 ## Value
 
 a named [`list()`](https://rdrr.io/r/base/list.html) of the same length
-as `n`, each element a 2-column matrix with column `"p"` the prime
+as `x`, each element a 2-column matrix with column `"p"` the prime
 factors in increasing order and column `"m"` their respective exponents
-(or multiplicities), i.e., for a prime number `n`, the resulting matrix
-is `cbind(p = n, m = 1)`.
+(or multiplicities), i.e., for a prime number `x`, the resulting matrix
+is `cbind(p = x, m = 1)`.
 
-Each prime appears in exactly one row, so `prod(p^m)` returns `n` and
-`p` is strictly increasing. `n = 1` yields a matrix with zero rows: 1 is
+Each prime appears in exactly one row, so `prod(p^m)` returns `x` and
+`p` is strictly increasing. `x = 1` yields a matrix with zero rows: 1 is
 the empty product, and `prod(numeric(0))` is 1 accordingly.
 
 ## Details
 
-`n` must not exceed `2^53` (`9007199254740992`), the largest integer up
+`x` must not exceed `2^53` (`9007199254740992`), the largest integer up
 to which every integer can be represented exactly. Larger integers can
 still be representable – every power of two is – but not all of them
-are, and above this bound `n` may already have been rounded by R before
+are, and above this bound `x` may already have been rounded by R before
 it reaches this function, so a factorization could silently be correct
 for a different number than the one entered – for such inputs, use the
 gmp package's `gmp::factorize()`, which represents arbitrarily large

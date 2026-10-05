@@ -48,6 +48,7 @@ rdLabels("Pizza", "bedrock")
 \code{\link[tools:Rd_db]{tools::Rd_db()}}
 
 Other pkg.funinfo:
+\code{\link[=auditNames]{auditNames()}},
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},

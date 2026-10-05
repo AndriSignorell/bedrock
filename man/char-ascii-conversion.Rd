@@ -8,16 +8,15 @@
 \usage{
 charToAscii(x, output = c("vector", "list"))
 
-asciiToChar(i)
+asciiToChar(x)
 }
 \arguments{
-\item{x}{a character vector.}
+\item{x}{for \code{charToAscii()} a character vector, for \code{asciiToChar()} an
+integer vector of character codes (1--255).}
 
 \item{output}{character string specifying the output representation.
 One of \code{"vector"} (simplify the result whenever possible, the
 default) or \code{"list"} (always return a list). See Details.}
-
-\item{i}{an integer vector of character codes (1--255).}
 }
 \value{
 \itemize{

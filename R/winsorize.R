@@ -22,14 +22,14 @@
 #' }
 #' where \eqn{l} and \eqn{u} denote the lower and upper bounds.
 #'
-#' The argument `val` allows full control over the limits. It can be:
+#' The argument `limits` allows full control over the limits. It can be:
 #' \itemize{
 #'   \item A numeric vector of length two specifying fixed bounds
 #'   \item The result of a call to [quantile()] (e.g. with custom `type`)
 #' }
 #'
 #' @param x a numeric vector to be winsorized.
-#' @param val a numeric vector of length two specifying the lower and upper
+#' @param limits a numeric vector of length two specifying the lower and upper
 #'   winsorization limits. Defaults to the 5% and 95% quantiles of `x`
 #'   with `na.rm = TRUE`.
 #'
@@ -53,14 +53,14 @@
 #' winsorize(x)
 #'
 #' # Winsorization using fixed bounds
-#' winsorize(x, val = c(-10, 10))
+#' winsorize(x, limits = c(-10, 10))
 #'
 #' # Custom quantile definition
-#' winsorize(x, val = quantile(x, c(0.1, 0.9), type = 1, na.rm = TRUE))
+#' winsorize(x, limits = quantile(x, c(0.1, 0.9), type = 1, na.rm = TRUE))
 #'
 #' # One-sided winsorization
-#' winsorize(x, val = c(-Inf, 2))  # upper bound only
-#' winsorize(x, val = c(-2, Inf)) # lower bound only
+#' winsorize(x, limits = c(-Inf, 2))  # upper bound only
+#' winsorize(x, limits = c(-2, Inf)) # lower bound only
 #'
 #' @seealso `DescToolsX::scaleX()`, `robustHD::winsorize()`
 #'
@@ -70,17 +70,17 @@
 #' @export
 winsorize <- function(
     x,
-    val = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE)
+    limits = quantile(x, probs = c(0.05, 0.95), na.rm = TRUE)
 ) {
 
-  if (!is.numeric(val) || length(val) != 2L || anyNA(val))
-    stop("'val' must be a numeric vector of length 2 without NAs.")
+  if (!is.numeric(limits) || length(limits) != 2L || anyNA(limits))
+    stop("'limits' must be a numeric vector of length 2 without NAs.")
 
-  if (val[1L] > val[2L])
-    stop("'val[1]' must not exceed 'val[2]'.")
+  if (limits[1L] > limits[2L])
+    stop("'limits[1]' must not exceed 'limits[2]'.")
 
-  x[x < val[1L]] <- val[1L]
-  x[x > val[2L]] <- val[2L]
+  x[x < limits[1L]] <- limits[1L]
+  x[x > limits[2L]] <- limits[2L]
   x
 }
 

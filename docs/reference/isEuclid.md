@@ -5,12 +5,12 @@ Checks whether a distance matrix corresponds to Euclidean distances.
 ## Usage
 
 ``` r
-isEuclid(distmat, tol = 0.0000001)
+isEuclid(x, tol = 0.0000001)
 ```
 
 ## Arguments
 
-- distmat:
+- x:
 
   an object of class `dist`.
 

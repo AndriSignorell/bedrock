@@ -4,16 +4,16 @@
 \alias{recycle}
 \title{Recycle a List of Elements}
 \usage{
-recycle(..., maxdim = NULL, strict = FALSE)
+recycle(..., maxDim = NULL, strict = FALSE)
 }
 \arguments{
 \item{\dots}{a number of vectors of elements.}
 
-\item{maxdim}{defines the maximal dimension, if set to \code{NULL} (default)
+\item{maxDim}{defines the maximal dimension, if set to \code{NULL} (default)
 the maximal dimension of the list.}
 
 \item{strict}{logical, if \code{TRUE} each element must have length 1 or
-\code{maxdim}, so that no partial recycling (or truncation) can occur.
+\code{maxDim}, so that no partial recycling (or truncation) can occur.
 Default is \code{FALSE}.}
 }
 \value{
@@ -24,9 +24,9 @@ the maximal dimension of the recycled list.
 This function recycles all supplied elements to the maximal dimension.
 }
 \details{
-If \code{maxdim} is smaller than the length of an element, that element
-is truncated to the first \code{maxdim} values. Zero-length elements are
-recycled to \code{NA} vectors of length \code{maxdim}. Both situations
+If \code{maxDim} is smaller than the length of an element, that element
+is truncated to the first \code{maxDim} values. Zero-length elements are
+recycled to \code{NA} vectors of length \code{maxDim}. Both situations
 are rejected when \code{strict = TRUE}.
 }
 \examples{

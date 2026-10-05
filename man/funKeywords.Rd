@@ -44,6 +44,7 @@ funKeywords("merge")
 \code{\link[=help]{help()}}
 
 Other pkg.funinfo:
+\code{\link[=auditNames]{auditNames()}},
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funList]{funList()}},

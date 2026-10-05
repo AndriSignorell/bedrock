@@ -62,18 +62,18 @@ Both arguments, `x` and `rng`, will be recycled to the highest
 dimension, which is either the length of the vector (`x`) or the number
 of rows of the matrix (`rng`).\
 See also the routines used to check, whether two ranges overlap
-([`overlap()`](intervals.md), [`distance()`](intervals.md)).
+([`overlapSize()`](intervals.md), [`distance()`](intervals.md)).
 
 The "OUTSIDE" operators are the negations of the corresponding "BETWEEN"
 operators, matched by *meaning* rather than by mirrored bracket symbols:
 
-- `\%][\%` negates `\%()\%` (strictly outside both bounds)
+- `%][%` negates `%()%` (strictly outside both bounds)
 
-- `\%](\%` negates `\%(]\%`
+- `%](%` negates `%(]%`
 
-- `\%)[\%` negates `\%[)\%`
+- `%)[%` negates `%[)%`
 
-- `\%)(\%` negates `\%[]\%` (strictly outside, both bounds of the
+- `%)(%` negates `%[]%` (strictly outside, both bounds of the
   between-operator were closed)
 
 ## See also

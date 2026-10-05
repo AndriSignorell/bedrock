@@ -4,10 +4,14 @@
 \alias{checkConfLevel}
 \title{Validate a Confidence Level}
 \usage{
-checkConfLevel(conf.level)
+checkConfLevel(conf.level, allowNA = TRUE)
 }
 \arguments{
 \item{conf.level}{the value to check.}
+
+\item{allowNA}{logical. \code{TRUE} (default) accepts \code{NA}, the
+suite's way of saying "no interval wanted". Functions whose result
+always carries an interval - the tests, mostly - pass \code{FALSE}.}
 }
 \value{
 \code{conf.level}, invisibly, \cr
@@ -41,6 +45,9 @@ try(checkConfLevel(c(0.9, 0.95)))   # length
 try(checkConfLevel(NULL))           # length
 try(checkConfLevel(NaN))            # not a level, and not NA either
 try(checkConfLevel(0))              # range is open
+
+# where the interval is part of the result, NA is refused as well
+try(checkConfLevel(NA, allowNA = FALSE))
 
 }
 \seealso{

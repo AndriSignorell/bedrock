@@ -44,6 +44,7 @@ unlink(man, recursive = TRUE)
 \code{\link[tools:parse_Rd]{tools::parse_Rd()}}
 
 Other pkg.funinfo:
+\code{\link[=auditNames]{auditNames()}},
 \code{\link[=funArgs]{funArgs()}},
 \code{\link[=funCalls]{funCalls()}},
 \code{\link[=funKeywords]{funKeywords()}},

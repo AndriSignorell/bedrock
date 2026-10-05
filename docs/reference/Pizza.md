@@ -157,7 +157,7 @@ zur deskriptiven und induktiven Statistik* Springer, Berlin Heidelberg.
 ## See also
 
 Other datasets: [`Cards`](Cards.md), [`Roulette`](Roulette.md),
-[`Tarot`](Tarot.md), [`courseData()`](courseData.md)
+[`Tarot`](Tarot.md), [`readCourseData()`](readCourseData.md)
 
 ## Examples
 

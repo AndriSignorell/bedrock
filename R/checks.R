@@ -22,6 +22,9 @@
 #' with the same message.
 #'
 #' @param conf.level the value to check.
+#' @param allowNA logical. `TRUE` (default) accepts `NA`, the
+#'   suite's way of saying "no interval wanted". Functions whose result
+#'   always carries an interval - the tests, mostly - pass `FALSE`.
 #'
 #' @return `conf.level`, invisibly, \cr
 #' so the check can be used in an
@@ -49,15 +52,20 @@
 #' try(checkConfLevel(NaN))            # not a level, and not NA either
 #' try(checkConfLevel(0))              # range is open
 #'
+#' # where the interval is part of the result, NA is refused as well
+#' try(checkConfLevel(NA, allowNA = FALSE))
+#'
 #' @seealso [checkFlag()], [checkCount()], [checkString()]
 #' @export
-checkConfLevel <- function(conf.level) {
+checkConfLevel <- function(conf.level, allowNA = TRUE) {
 
   if (length(conf.level) != 1L ||
       !(is.numeric(conf.level) || is.logical(conf.level)) ||
       is.nan(conf.level) ||
+      (is.na(conf.level) && !allowNA) ||
       (!is.na(conf.level) && (conf.level <= 0 || conf.level >= 1)))
-    stop("'conf.level' must be a single number in (0, 1), or NA",
+    stop(if (allowNA) "'conf.level' must be a single number in (0, 1), or NA"
+         else         "'conf.level' must be a single number in (0, 1)",
          call. = FALSE)
 
   invisible(conf.level)

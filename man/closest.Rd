@@ -4,31 +4,31 @@
 \alias{closest}
 \title{Find the Closest Value}
 \usage{
-closest(x, a, output = "value", na.rm = FALSE)
+closest(x, val, output = "value", na.rm = FALSE)
 }
 \arguments{
 \item{x}{a numeric vector to search in.}
 
-\item{a}{the reference value. May be a vector; see Details.}
+\item{val}{the reference value. May be a vector; see Details.}
 
 \item{output}{character string specifying the output representation.
 One of \code{"value"} (return the closest value(s), the default) or
 \code{"index"} (return the index position(s) in \code{x}).
-May be a vector; recycled to the length of \code{a}.}
+May be a vector; recycled to the length of \code{val}.}
 
 \item{na.rm}{logical. If \code{TRUE}, \code{NA} values in \code{x}
 are ignored before searching. Default is \code{FALSE}.}
 }
 \value{
-if \code{a} and \code{output} are scalar:
+if \code{val} and \code{output} are scalar:
 
 \itemize{
 \item numeric vector if \code{output = "value"}.
 \item integer vector if \code{output = "index"}.
 }
 
-If \code{a} or \code{output} are vectors:
-a list with one element per value of \code{a}.
+If \code{val} or \code{output} are vectors:
+a list with one element per value of \code{val}.
 
 Returns \code{NA} if \code{x} is empty or all-\code{NA}
 (with \code{na.rm = TRUE}).
@@ -49,7 +49,7 @@ search but the original index positions of the remaining elements are
 preserved, so \code{output = "index"} always refers to positions in
 the original \code{x}.
 
-When \code{a} or \code{output} are vectors, each element is
+When \code{val} or \code{output} are vectors, each element is
 processed independently and a list is returned.
 
 Recycling follows standard R rules.
@@ -66,35 +66,35 @@ sort(x)
 y <- sample(10, size = 10, replace = TRUE)
 
 # multiple observations of the same closest value
-closest(y, a = 6)
+closest(y, val = 6)
 
 # get the relevant positions
-closest(y, a = 6, output = "index")
+closest(y, val = 6, output = "index")
 
 # two different values having the same distance (tie)
-closest(c(2, 3, 4, 5), a = 3.5)
+closest(c(2, 3, 4, 5), val = 3.5)
 
 # na.rm preserves original index positions
 closest(
   c(NA, 5, 8),
-  a = 6,
+  val = 6,
   output = "index",
   na.rm = TRUE
 )  # 2, not 1
 
 # vectorize "a"
-closest(c(2, 3, 4, 5), a = c(3.1, 3.9))
+closest(c(2, 3, 4, 5), val = c(3.1, 3.9))
 
 # vectorize "output"
 closest(
   c(2, 3, 4, 5),
-  a = 3.1,
+  val = 3.1,
   output = c("value", "index")
 )
 
 closest(
   c(2, 3, 4, 5),
-  a = c(3.1, 3.9),
+  val = c(3.1, 3.9),
   output = c("value", "index")
 )
 

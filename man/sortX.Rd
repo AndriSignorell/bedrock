@@ -21,7 +21,7 @@ sortX(x, ...)
 
 \method{sortX}{table}(
   x,
-  ord = NULL,
+  by = NULL,
   decreasing = FALSE,
   na.last = TRUE,
   method = c("default", "mixed"),
@@ -31,7 +31,7 @@ sortX(x, ...)
 
 \method{sortX}{matrix}(
   x,
-  ord = NULL,
+  by = NULL,
   decreasing = FALSE,
   na.last = TRUE,
   method = c("default", "mixed"),
@@ -41,7 +41,7 @@ sortX(x, ...)
 
 \method{sortX}{data.frame}(
   x,
-  ord = NULL,
+  by = NULL,
   decreasing = FALSE,
   na.last = TRUE,
   method = c("default", "mixed"),
@@ -58,7 +58,7 @@ matrix, table, or data frame to be sorted.}
 
 \item{decreasing}{logical scalar or vector. Should the sort be in
 decreasing order? For 2-dimensional objects a vector of the same length
-as \code{ord} may be supplied to control the direction per column;
+as \code{by} may be supplied to control the direction per column;
 a scalar is recycled.}
 
 \item{na.last}{logical or \code{NA}. Should missing values be placed last
@@ -74,7 +74,7 @@ converted to character before sorting so that labels are used instead of
 level codes. Set to \code{FALSE} to sort by level order (useful for
 ordered factors).}
 
-\item{ord}{integer or character vector specifying the columns to sort by,
+\item{by}{integer or character vector specifying the columns to sort by,
 and their priority (first element = primary key). Column names and
 positive integer indices (\code{1:ncol(x)}) refer to columns.
 The special value \code{0L} (integer zero, always numeric) sorts by row
@@ -116,14 +116,14 @@ d.frm <- iris[sample(nrow(iris), 10),
 sortX(d.frm[, 1])
 
 # Data frame: sort by column name
-sortX(d.frm, ord = "Species")
-sortX(d.frm, ord = c("Species", "Sepal.Length"))
+sortX(d.frm, by = "Species")
+sortX(d.frm, by = c("Species", "Sepal.Length"))
 
 # Data frame: sort by column index
-sortX(d.frm, ord = c(1L, 2L))
+sortX(d.frm, by = c(1L, 2L))
 
 # Decreasing order (per-column control)
-sortX(d.frm, ord = c("Species", "Sepal.Length"),
+sortX(d.frm, by = c("Species", "Sepal.Length"),
       decreasing = c(FALSE, TRUE))
 
 # Natural sorting of character vectors
@@ -131,18 +131,18 @@ x <- c("A1", "A10", "A2")
 sortX(x, method = "mixed")
 
 # Factor: sort by label (default) vs. level order
-sortX(d.frm, ord = "Species")                          # by label
-sortX(d.frm, ord = "Species", factorsAsCharacter = FALSE)  # by level
+sortX(d.frm, by = "Species")                          # by label
+sortX(d.frm, by = "Species", factorsAsCharacter = FALSE)  # by level
 
 # Tables: sort by column 2 descending
 tab <- HairEyeColor[, , 1]
-sortX(tab, ord = 2L, decreasing = TRUE)
+sortX(tab, by = 2L, decreasing = TRUE)
 
 # Tables: sort by marginal row sums
-sortX(tab, ord = ncol(tab) + 1L, decreasing = TRUE)
+sortX(tab, by = ncol(tab) + 1L, decreasing = TRUE)
 
 # Sort by row names (always pass 0 as integer)
-sortX(tab, ord = 0L)
+sortX(tab, by = 0L)
 
 }
 \seealso{

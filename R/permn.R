@@ -5,7 +5,7 @@
 #' are treated as indistinguishable, so duplicated permutations are not returned.
 #'
 #' @param x atomic vector. Missing values are not supported.
-#' @param sortResults logical scalar. If `TRUE`, the result matrix is sorted
+#' @param sorted logical scalar. If `TRUE`, the result matrix is sorted
 #'   using [sortX()]. Default is `FALSE`.
 #'
 #' @return a matrix containing all distinct permutations of `x`, one
@@ -24,7 +24,7 @@
 #' @concept combinatorics
 #' @concept number-theory
 #' @export
-permn <- function(x, sortResults = FALSE) {
+permn <- function(x, sorted = FALSE) {
   
   if (!is.atomic(x))
     stop("'x' must be an atomic vector")
@@ -32,7 +32,7 @@ permn <- function(x, sortResults = FALSE) {
   if (is.factor(x))
     stop("factors are not supported; use as.character(x) or as.numeric(x)")
   
-  checkFlag(sortResults)
+  checkFlag(sorted)
   
   if (length(x) == 0L)
     return(matrix(x, nrow = 1L, ncol = 0L))
@@ -57,7 +57,7 @@ permn <- function(x, sortResults = FALSE) {
   lookup <- x[match(vals, as.character(x))]
   res    <- matrix(lookup[match(res, vals)], nrow = nrow(res))
 
-  if (sortResults) res <- sortX(res)
+  if (sorted) res <- sortX(res)
   
   res
 }

@@ -4,7 +4,14 @@
 \alias{renameX}
 \title{Rename Elements of a Named Object}
 \usage{
-renameX(x, ..., on = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
+renameX(
+  x,
+  ...,
+  on = c("names", "rownames", "colnames"),
+  useGsub = FALSE,
+  fixed = TRUE,
+  warn = TRUE
+)
 }
 \arguments{
 \item{x}{a named object.  Any type that supports \code{names()},

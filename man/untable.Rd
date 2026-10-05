@@ -8,9 +8,9 @@
 \usage{
 untable(x, ...)
 
-\method{untable}{data.frame}(x, freq = "Freq", rownames = NULL, ...)
+\method{untable}{data.frame}(x, freq = "Freq", rowNames = NULL, ...)
 
-\method{untable}{default}(x, dimnames = NULL, type = NULL, rownames = NULL, colnames = NULL, ...)
+\method{untable}{default}(x, dimnames = NULL, type = NULL, rowNames = NULL, colNames = NULL, ...)
 }
 \arguments{
 \item{x}{a numeric vector, a matrix, a table or a data.frame. If x is a
@@ -24,7 +24,7 @@ variable).}
 \item{freq}{character, the name of the frequency variable in case x is a
 data.frame.}
 
-\item{rownames}{a names vector for the rownames of the resulting data.frame
+\item{rowNames}{a names vector for the rownames of the resulting data.frame
 If set to \code{NULL} (default) the names will be defined according to the
 table's dimnames.}
 
@@ -35,7 +35,7 @@ used to expand a weight vector to its original values. If set to \code{NULL}
 \item{type}{defines the data type generated. This allows to directly define
 factors or ordered factors, but also numeric values. See examples.}
 
-\item{colnames}{a names vector for the colnames of the resulting data.frame
+\item{colNames}{a names vector for the colnames of the resulting data.frame
 If set to \code{NULL} (default) the names will be defined according to the
 table's dimnames.}
 }

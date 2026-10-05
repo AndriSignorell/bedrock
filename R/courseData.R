@@ -69,7 +69,7 @@ readCourseData <- function(name,
       ))
     }
   } else {
-    if (!fileExistURL(file.path(sub("/+$", "", url), name))) {
+    if (!urlExists(file.path(sub("/+$", "", url), name))) {
       stop(sprintf("File '%s/%s' does not exist.", sub("/+$", "", url), name))
     }
   }
@@ -100,7 +100,7 @@ readCourseData <- function(name,
 
   for (base in candidates) {
     full <- file.path(sub("/+$", "", base), name)
-    if (fileExistURL(full)) return(base)
+    if (urlExists(full)) return(base)
   }
   return(NULL)
 }

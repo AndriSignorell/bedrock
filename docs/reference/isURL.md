@@ -7,7 +7,7 @@ Returns `TRUE` if the given string starts with a recognised URL scheme,
 ## Usage
 
 ``` r
-isURL(x)
+isUrl(x)
 ```
 
 ## Arguments
@@ -26,21 +26,20 @@ For the complementary check on an existing path, see
 [`isFilePath()`](isFilePath.md).
 
 Other file.path: [`buildPath()`](buildPath.md),
-[`fileExistURL()`](fileExistURL.md),
 [`findDownload()`](findDownload.md), [`isFilePath()`](isFilePath.md),
-[`splitPath()`](splitPath.md)
+[`splitPath()`](splitPath.md), [`urlExists()`](urlExists.md)
 
 ## Examples
 
 ``` r
-isURL("https://example.com/data.csv")   # TRUE
+isUrl("https://example.com/data.csv")   # TRUE
 #> [1] TRUE
-isURL("ftp://files.example.org/x.zip")  # TRUE
+isUrl("ftp://files.example.org/x.zip")  # TRUE
 #> [1] TRUE
-isURL("s3://my-bucket/file.parquet")    # TRUE
+isUrl("s3://my-bucket/file.parquet")    # TRUE
 #> [1] TRUE
-isURL("/home/user/file.csv")            # FALSE
+isUrl("/home/user/file.csv")            # FALSE
 #> [1] FALSE
-isURL("./script.R")                     # FALSE
+isUrl("./script.R")                     # FALSE
 #> [1] FALSE
 ```

@@ -8,10 +8,10 @@ Recreates the data.frame out of a contingency table x.
 untable(x, ...)
 
 # S3 method for class 'data.frame'
-untable(x, freq = "Freq", rownames = NULL, ...)
+untable(x, freq = "Freq", rowNames = NULL, ...)
 
 # Default S3 method
-untable(x, dimnames = NULL, type = NULL, rownames = NULL, colnames = NULL, ...)
+untable(x, dimnames = NULL, type = NULL, rowNames = NULL, colNames = NULL, ...)
 ```
 
 ## Arguments
@@ -33,7 +33,7 @@ untable(x, dimnames = NULL, type = NULL, rownames = NULL, colnames = NULL, ...)
   character, the name of the frequency variable in case x is a
   data.frame.
 
-- rownames:
+- rowNames:
 
   a names vector for the rownames of the resulting data.frame If set to
   `NULL` (default) the names will be defined according to the table's
@@ -50,7 +50,7 @@ untable(x, dimnames = NULL, type = NULL, rownames = NULL, colnames = NULL, ...)
   defines the data type generated. This allows to directly define
   factors or ordered factors, but also numeric values. See examples.
 
-- colnames:
+- colNames:
 
   a names vector for the colnames of the resulting data.frame If set to
   `NULL` (default) the names will be defined according to the table's

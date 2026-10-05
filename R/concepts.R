@@ -15,7 +15,7 @@
 #'   \item `conceptAudit()` - Returns a summary table of concept usage.
 #' }
 #'
-#' @param pkg character string. Name of the installed package.
+#' @param package character string. Name of the installed package.
 #' @param prefix optional character string. If given, `getConcepts()`
 #'   returns only the concepts starting with it, with the prefix removed.
 #'
@@ -46,9 +46,9 @@
 #' @family pkg.introspection
 #' @concept introspection
 #' @export
-getConcepts <- function(pkg, prefix = NULL) {
+getConcepts <- function(package, prefix = NULL) {
 
-  res <- sort(unique(unlist(.conceptsByTopic(pkg), use.names = FALSE)))
+  res <- sort(unique(unlist(.conceptsByTopic(package), use.names = FALSE)))
 
   if (!is.null(prefix)) {
     if (!is.character(prefix) || length(prefix) != 1L || is.na(prefix))
@@ -62,9 +62,9 @@ getConcepts <- function(pkg, prefix = NULL) {
 
 #' @rdname concepts
 #' @export
-conceptMap <- function(pkg) {
+conceptMap <- function(package) {
 
-  byTopic <- .conceptsByTopic(pkg)
+  byTopic <- .conceptsByTopic(package)
 
   # one topic entry per concept it carries; split() orders by concept
   split(rep(names(byTopic), lengths(byTopic)),
@@ -74,9 +74,9 @@ conceptMap <- function(pkg) {
 
 #' @rdname concepts
 #' @export
-conceptAudit <- function(pkg) {
+conceptAudit <- function(package) {
 
-  cm <- conceptMap(pkg)
+  cm <- conceptMap(package)
 
   res <- data.frame(
     concept = names(cm),

@@ -17,7 +17,7 @@ values above an upper limit are set to that upper limit."><meta property="og:ima
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.15</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.18</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@ values above an upper limit are set to that upper limit.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">winsorize</span><span class="op">(</span><span class="va">x</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">x</span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">0.95</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">winsorize</span><span class="op">(</span><span class="va">x</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">x</span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">0.95</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -70,7 +70,7 @@ values above an upper limit are set to that upper limit.</p>
 <dd><p>a numeric vector to be winsorized.</p></dd>
 
 
-<dt id="arg-val">val<a class="anchor" aria-label="anchor" href="#arg-val"></a></dt>
+<dt id="arg-limits">limits<a class="anchor" aria-label="anchor" href="#arg-limits"></a></dt>
 <dd><p>a numeric vector of length two specifying the lower and upper
 winsorization limits. Defaults to the 5% and 95% quantiles of <code>x</code>
 with <code>na.rm = TRUE</code>.</p></dd>
@@ -99,7 +99,7 @@ u &amp; \text{if } x \ge u
 \right.
 $$
 where \(l\) and \(u\) denote the lower and upper bounds.</p>
-<p>The argument <code>val</code> allows full control over the limits. It can be:</p><ul><li><p>A numeric vector of length two specifying fixed bounds</p></li>
+<p>The argument <code>limits</code> allows full control over the limits. It can be:</p><ul><li><p>A numeric vector of length two specifying fixed bounds</p></li>
 <li><p>The result of a call to <code><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile()</a></code> (e.g. with custom <code>type</code>)</p></li>
 </ul><p>Winsorization is commonly used in robust statistics to reduce the influence
 of outliers. In some cases, it can be beneficial to standardize the data
@@ -107,7 +107,7 @@ of outliers. In some cases, it can be beneficial to standardize the data
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://andrisignorell.github.io/DescToolsX/reference/scaleX.html" class="external-link">DescToolsX::scaleX()</a></code>, <code>robustHD::winsorize()</code></p>
+    <div class="dont-index"><p><code>DescToolsX::scaleX()</code>, <code>robustHD::winsorize()</code></p>
 <p>Other math.transform:
 <code><a href="linScale.html">linScale()</a></code>,
 <code><a href="logit.html">logit()</a></code>,
@@ -127,23 +127,23 @@ of outliers. In some cases, it can be beneficial to standardize the data
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11]           NA -45.59998625  45.42883034</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Winsorization using fixed bounds</span></span></span>
-<span class="r-in"><span><span class="fu">winsorize</span><span class="op">(</span><span class="va">x</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">10</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">winsorize</span><span class="op">(</span><span class="va">x</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">10</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  -1.09088409  -0.02449403   0.12549029   0.75983517   0.77969152</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [6]   0.04945601   0.74742272  -0.17505077   0.58035461  -0.59841061</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11]           NA -10.00000000  10.00000000</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Custom quantile definition</span></span></span>
-<span class="r-in"><span><span class="fu">winsorize</span><span class="op">(</span><span class="va">x</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.9</span><span class="op">)</span>, type <span class="op">=</span> <span class="fl">1</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">winsorize</span><span class="op">(</span><span class="va">x</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.9</span><span class="op">)</span>, type <span class="op">=</span> <span class="fl">1</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] -1.09088409 -0.02449403  0.12549029  0.75983517  0.77969152  0.04945601</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7]  0.74742272 -0.17505077  0.58035461 -0.59841061          NA -1.09088409</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [13]  0.77969152</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># One-sided winsorization</span></span></span>
-<span class="r-in"><span><span class="fu">winsorize</span><span class="op">(</span><span class="va">x</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="cn">Inf</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>  <span class="co"># upper bound only</span></span></span>
+<span class="r-in"><span><span class="fu">winsorize</span><span class="op">(</span><span class="va">x</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="cn">Inf</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>  <span class="co"># upper bound only</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1]   -1.09088409   -0.02449403    0.12549029    0.75983517    0.77969152</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [6]    0.04945601    0.74742272   -0.17505077    0.58035461   -0.59841061</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11]            NA -100.00000000    2.00000000</span>
-<span class="r-in"><span><span class="fu">winsorize</span><span class="op">(</span><span class="va">x</span>, val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">)</span> <span class="co"># lower bound only</span></span></span>
+<span class="r-in"><span><span class="fu">winsorize</span><span class="op">(</span><span class="va">x</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">)</span> <span class="co"># lower bound only</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  -1.09088409  -0.02449403   0.12549029   0.75983517   0.77969152</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [6]   0.04945601   0.74742272  -0.17505077   0.58035461  -0.59841061</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11]           NA  -2.00000000 100.00000000</span>

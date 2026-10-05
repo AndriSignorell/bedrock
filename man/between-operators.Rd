@@ -62,7 +62,7 @@ whenever the negated between-operator includes that boundary.
 Both arguments, \code{x} and \code{rng}, will be recycled to the highest
 dimension, which is either the length of the vector (\code{x}) or the number
 of rows of the matrix (\code{rng}).\cr See also the routines used to check,
-whether two ranges overlap (\code{\link[=overlap]{overlap()}},
+whether two ranges overlap (\code{\link[=overlapSize]{overlapSize()}},
 \code{\link[=distance]{distance()}}).
 
 The "OUTSIDE" operators are the negations of the corresponding "BETWEEN"

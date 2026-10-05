@@ -33,11 +33,11 @@
 #' vectorized predicate should not let a single unrepresentable element
 #' discard the result for all the others.
 #'
-#' @param n a numeric vector. Values must be finite whole numbers not
+#' @param x a numeric vector. Values must be finite whole numbers not
 #'   exceeding `2^53`.
 #'
-#' @return a logical vector indicating whether each element of `n`
-#'   is a prime number, `NA` where `n` exceeds `2^53`.
+#' @return a logical vector indicating whether each element of `x`
+#'   is a prime number, `NA` where `x` exceeds `2^53`.
 #'
 #' @examples
 #' isPrime(2)
@@ -48,23 +48,23 @@
 #' @concept number-theory
 #' @concept type-test
 #' @export
-isPrime <- function(n) {
+isPrime <- function(x) {
 
-  if (!is.numeric(n))
-    stop("'n' must be a numeric vector.")
+  if (!is.numeric(x))
+    stop("'x' must be a numeric vector.")
 
   # See the "Upper limit" section: above 2^53 the value tested is not
   # necessarily the value entered, and since every representable double up
   # there is even, the answer would be FALSE for every prime. NA is the
   # honest result; FALSE would be a confident wrong one.
-  tooLarge <- is.finite(n) & n > 2^53
+  tooLarge <- is.finite(x) & x > 2^53
 
   # enforce the documented behavior at R level, independent of what
   # the C++ routine does with irregular input
-  ok <- is.finite(n) & n == floor(n) & n >= 0 & !tooLarge
+  ok <- is.finite(x) & x == floor(x) & x >= 0 & !tooLarge
 
-  res <- logical(length(n))
-  res[ok] <- vapply(n[ok], is_prime_cpp, logical(1L))
+  res <- logical(length(x))
+  res[ok] <- vapply(x[ok], is_prime_cpp, logical(1L))
 
   if (any(tooLarge)) {
 

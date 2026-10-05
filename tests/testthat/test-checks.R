@@ -14,6 +14,15 @@ test_that("checkConfLevel() accepts what the suite documents", {
 })
 
 
+test_that("checkConfLevel(allowNA = FALSE) refuses NA and keeps the rest", {
+
+  expect_silent(checkConfLevel(0.95, allowNA = FALSE))
+  expect_error(checkConfLevel(NA, allowNA = FALSE), "conf.level")
+  expect_error(checkConfLevel(NA_real_, allowNA = FALSE), "conf.level")
+  expect_error(checkConfLevel(1, allowNA = FALSE), "conf.level")
+})
+
+
 test_that("checkConfLevel() returns its argument invisibly", {
 
   expect_invisible(checkConfLevel(0.9))
