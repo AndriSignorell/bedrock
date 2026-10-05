@@ -30,8 +30,8 @@ If the file does not exist, an error is thrown.
 ## See also
 
 Other file.path: [`buildPath()`](buildPath.md),
-[`fileExistURL()`](fileExistURL.md), [`isFilePath()`](isFilePath.md),
-[`isURL()`](isURL.md), [`splitPath()`](splitPath.md)
+[`isFilePath()`](isFilePath.md), [`isUrl()`](isURL.md),
+[`splitPath()`](splitPath.md), [`urlExists()`](urlExists.md)
 
 ## Examples
 

@@ -84,7 +84,7 @@ Predicates and checks for data quality and structure.
   [`flags()`](reference/flags.md)
 - Between operators: `%[]%`, `%()%`, `%[)%`, `%(]%`
 - [`isFilePath()`](reference/isFilePath.md),
-  [`isURL()`](reference/isURL.md), [`isEuclid()`](reference/isEuclid.md)
+  [`isUrl()`](reference/isURL.md), [`isEuclid()`](reference/isEuclid.md)
 
 ### 🔹 Vector Operations
 
@@ -168,9 +168,9 @@ Predicates and checks for data quality and structure.
 - [`findDownload()`](reference/findDownload.md),
   [`readDownload()`](reference/readDownload.md),
   [`peekFile()`](reference/peekFile.md)
-- [`fileExistURL()`](reference/fileExistURL.md),
+- [`urlExists()`](reference/urlExists.md),
   [`pdfManual()`](reference/pdfManual.md)
-- [`parseSASDatalines()`](reference/parseSASDatalines.md) — parse SAS
+- [`parseSasDatalines()`](reference/parseSASDatalines.md) — parse SAS
   DATALINES blocks into a data.frame
 
 ### 🔹 Programming & Introspection
@@ -234,7 +234,7 @@ sas <- "
   Bob   25 88.0
   ;
 "
-parseSASDatalines(sas)
+parseSasDatalines(sas)
 ```
 
 ## 🙏 Acknowledgements

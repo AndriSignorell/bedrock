@@ -12,8 +12,8 @@ printCharMatrix(
   m,
   align = "right",
   sep = 2,
-  showRownames = TRUE,
-  showColnames = TRUE,
+  showRowNames = TRUE,
+  showColNames = TRUE,
   useCliStyle = FALSE,
   width = getOption("width")
 )
@@ -37,11 +37,11 @@ printCharMatrix(
 
   integer. Number of spaces between columns. Default is `2`.
 
-- showRownames:
+- showRowNames:
 
   logical. Should row names be printed? Default is `TRUE`.
 
-- showColnames:
+- showColNames:
 
   logical. Should column names be printed? Default is `TRUE`.
 

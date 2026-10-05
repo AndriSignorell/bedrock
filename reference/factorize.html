@@ -5,9 +5,9 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Prime Factorization of Integers — factorize"><meta name="description" content="Compute the prime factorization(s) of integer(s) n, using
+</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Prime Factorization of Integers — factorize"><meta name="description" content="Compute the prime factorization(s) of integer(s) x, using
 Pollard's rho algorithm with deterministic Miller-Rabin primality
-testing (64-bit, implemented in C++)."><meta property="og:description" content="Compute the prime factorization(s) of integer(s) n, using
+testing (64-bit, implemented in C++)."><meta property="og:description" content="Compute the prime factorization(s) of integer(s) x, using
 Pollard's rho algorithm with deterministic Miller-Rabin primality
 testing (64-bit, implemented in C++)."><meta property="og:image" content="/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -17,7 +17,7 @@ testing (64-bit, implemented in C++)."><meta property="og:image" content="/logo.
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.17</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.18</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,43 +52,43 @@ testing (64-bit, implemented in C++)."><meta property="og:image" content="/logo.
     </div>
 
     <div class="ref-description section level2">
-    <p>Compute the prime factorization(s) of integer(s) <code>n</code>, using
+    <p>Compute the prime factorization(s) of integer(s) <code>x</code>, using
 Pollard's rho algorithm with deterministic Miller-Rabin primality
 testing (64-bit, implemented in C++).</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">factorize</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">factorize</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-n">n<a class="anchor" aria-label="anchor" href="#arg-n"></a></dt>
+<dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>vector of positive whole numbers to factorize, not exceeding
 <code>2^53</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>a named <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> of the same length as <code>n</code>, each
+    <p>a named <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> of the same length as <code>x</code>, each
 element a 2-column matrix with column <code>"p"</code> the prime factors in
 increasing order and column <code>"m"</code> their respective exponents (or
-multiplicities), i.e., for a prime number <code>n</code>, the resulting matrix
-is <code>cbind(p = n, m = 1)</code>.</p>
+multiplicities), i.e., for a prime number <code>x</code>, the resulting matrix
+is <code>cbind(p = x, m = 1)</code>.</p>
 <p>Each prime appears in exactly one row, so <code>prod(p^m)</code> returns
-<code>n</code> and <code>p</code> is strictly increasing. <code>n = 1</code> yields a
+<code>x</code> and <code>p</code> is strictly increasing. <code>x = 1</code> yields a
 matrix with zero rows: 1 is the empty product, and
 <code>prod(numeric(0))</code> is 1 accordingly.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p><code>n</code> must not exceed <code>2^53</code> (<code>9007199254740992</code>), the
+    <p><code>x</code> must not exceed <code>2^53</code> (<code>9007199254740992</code>), the
 largest integer up to which every integer can be represented exactly.
 Larger integers can still be representable – every power of two is –
-but not all of them are, and above this bound <code>n</code> may already have
+but not all of them are, and above this bound <code>x</code> may already have
 been rounded by R before it reaches this function, so a factorization
 could silently be correct for a different number than the one entered – for such inputs, use the <span class="pkg">gmp</span> package's
 <code>gmp::factorize()</code>, which represents arbitrarily large integers

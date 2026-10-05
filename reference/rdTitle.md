@@ -32,9 +32,10 @@ trailing whitespace. Stops with an error if `topic` is not found.
 
 [`tools::parse_Rd()`](https://rdrr.io/r/tools/parse_Rd.html)
 
-Other pkg.funinfo: [`funArgs()`](funArgs.md),
-[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
-[`funList()`](funList.md), [`rdLabels()`](rdLabels.md)
+Other pkg.funinfo: [`auditNames()`](auditNames.md),
+[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
+[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
+[`rdLabels()`](rdLabels.md)
 
 ## Examples
 
@@ -49,13 +50,13 @@ writeLines(c("\\\\name{foo}", "\\\\alias{foo}", "\\\\alias{bar}",
            file.path(man, "foo.Rd"))
 
 rdTitle("foo", man = man)
-#> Warning: /tmp/RtmpR25AXN/man/foo.Rd:1: unexpected '{'
+#> Warning: /tmp/RtmpjMuthC/man/foo.Rd:1: unexpected '{'
 #> [1] NA
 rdTitle("bar", man = man)          # aliases are matched as well
-#> Warning: /tmp/RtmpR25AXN/man/foo.Rd:1: unexpected '{'
+#> Warning: /tmp/RtmpjMuthC/man/foo.Rd:1: unexpected '{'
 #> [1] NA
 rdTitle("nothing", man = man)      # NA
-#> Warning: /tmp/RtmpR25AXN/man/foo.Rd:1: unexpected '{'
+#> Warning: /tmp/RtmpjMuthC/man/foo.Rd:1: unexpected '{'
 #> [1] NA
 
 unlink(man, recursive = TRUE)

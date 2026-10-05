@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.17</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.18</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">recycle</span><span class="op">(</span><span class="va">...</span>, maxdim <span class="op">=</span> <span class="cn">NULL</span>, strict <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">recycle</span><span class="op">(</span><span class="va">...</span>, maxDim <span class="op">=</span> <span class="cn">NULL</span>, strict <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -64,14 +64,14 @@
 <dd><p>a number of vectors of elements.</p></dd>
 
 
-<dt id="arg-maxdim">maxdim<a class="anchor" aria-label="anchor" href="#arg-maxdim"></a></dt>
+<dt id="arg-maxdim">maxDim<a class="anchor" aria-label="anchor" href="#arg-maxdim"></a></dt>
 <dd><p>defines the maximal dimension, if set to <code>NULL</code> (default)
 the maximal dimension of the list.</p></dd>
 
 
 <dt id="arg-strict">strict<a class="anchor" aria-label="anchor" href="#arg-strict"></a></dt>
 <dd><p>logical, if <code>TRUE</code> each element must have length 1 or
-<code>maxdim</code>, so that no partial recycling (or truncation) can occur.
+<code>maxDim</code>, so that no partial recycling (or truncation) can occur.
 Default is <code>FALSE</code>.</p></dd>
 
 </dl></div>
@@ -82,9 +82,9 @@ the maximal dimension of the recycled list.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>If <code>maxdim</code> is smaller than the length of an element, that element
-is truncated to the first <code>maxdim</code> values. Zero-length elements are
-recycled to <code>NA</code> vectors of length <code>maxdim</code>. Both situations
+    <p>If <code>maxDim</code> is smaller than the length of an element, that element
+is truncated to the first <code>maxDim</code> values. Zero-length elements are
+recycled to <code>NA</code> vectors of length <code>maxDim</code>. Both situations
 are rejected when <code>strict = TRUE</code>.</p>
     </div>
     <div class="section level2">

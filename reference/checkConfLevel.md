@@ -8,7 +8,7 @@ message.
 ## Usage
 
 ``` r
-checkConfLevel(conf.level)
+checkConfLevel(conf.level, allowNA = TRUE)
 ```
 
 ## Arguments
@@ -16,6 +16,12 @@ checkConfLevel(conf.level)
 - conf.level:
 
   the value to check.
+
+- allowNA:
+
+  logical. `TRUE` (default) accepts `NA`, the suite's way of saying "no
+  interval wanted". Functions whose result always carries an interval -
+  the tests, mostly - pass `FALSE`.
 
 ## Value
 
@@ -56,4 +62,8 @@ try(checkConfLevel(NaN))            # not a level, and not NA either
 #> Error : 'conf.level' must be a single number in (0, 1), or NA
 try(checkConfLevel(0))              # range is open
 #> Error : 'conf.level' must be a single number in (0, 1), or NA
+
+# where the interval is part of the result, NA is refused as well
+try(checkConfLevel(NA, allowNA = FALSE))
+#> Error : 'conf.level' must be a single number in (0, 1)
 ```

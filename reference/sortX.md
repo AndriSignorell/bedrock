@@ -23,7 +23,7 @@ sortX(
 # S3 method for class 'table'
 sortX(
   x,
-  ord = NULL,
+  by = NULL,
   decreasing = FALSE,
   na.last = TRUE,
   method = c("default", "mixed"),
@@ -34,7 +34,7 @@ sortX(
 # S3 method for class 'matrix'
 sortX(
   x,
-  ord = NULL,
+  by = NULL,
   decreasing = FALSE,
   na.last = TRUE,
   method = c("default", "mixed"),
@@ -45,7 +45,7 @@ sortX(
 # S3 method for class 'data.frame'
 sortX(
   x,
-  ord = NULL,
+  by = NULL,
   decreasing = FALSE,
   na.last = TRUE,
   method = c("default", "mixed"),
@@ -69,7 +69,7 @@ sortX(
 - decreasing:
 
   logical scalar or vector. Should the sort be in decreasing order? For
-  2-dimensional objects a vector of the same length as `ord` may be
+  2-dimensional objects a vector of the same length as `by` may be
   supplied to control the direction per column; a scalar is recycled.
 
 - na.last:
@@ -89,7 +89,7 @@ sortX(
   before sorting so that labels are used instead of level codes. Set to
   `FALSE` to sort by level order (useful for ordered factors).
 
-- ord:
+- by:
 
   integer or character vector specifying the columns to sort by, and
   their priority (first element = primary key). Column names and
@@ -141,7 +141,7 @@ sortX(d.frm[, 1])
 #> Levels: setosa versicolor virginica
 
 # Data frame: sort by column name
-sortX(d.frm, ord = "Species")
+sortX(d.frm, by = "Species")
 #>        Species Sepal.Length Sepal.Width
 #> 5       setosa          5.0         3.6
 #> 36      setosa          5.0         3.2
@@ -153,7 +153,7 @@ sortX(d.frm, ord = "Species")
 #> 136  virginica          7.7         3.0
 #> 104  virginica          6.3         2.9
 #> 146  virginica          6.7         3.0
-sortX(d.frm, ord = c("Species", "Sepal.Length"))
+sortX(d.frm, by = c("Species", "Sepal.Length"))
 #>        Species Sepal.Length Sepal.Width
 #> 48      setosa          4.6         3.2
 #> 5       setosa          5.0         3.6
@@ -167,7 +167,7 @@ sortX(d.frm, ord = c("Species", "Sepal.Length"))
 #> 136  virginica          7.7         3.0
 
 # Data frame: sort by column index
-sortX(d.frm, ord = c(1L, 2L))
+sortX(d.frm, by = c(1L, 2L))
 #>        Species Sepal.Length Sepal.Width
 #> 48      setosa          4.6         3.2
 #> 5       setosa          5.0         3.6
@@ -181,7 +181,7 @@ sortX(d.frm, ord = c(1L, 2L))
 #> 136  virginica          7.7         3.0
 
 # Decreasing order (per-column control)
-sortX(d.frm, ord = c("Species", "Sepal.Length"),
+sortX(d.frm, by = c("Species", "Sepal.Length"),
       decreasing = c(FALSE, TRUE))
 #>        Species Sepal.Length Sepal.Width
 #> 20      setosa          5.1         3.8
@@ -201,7 +201,7 @@ sortX(x, method = "mixed")
 #> [1] "A1"  "A2"  "A10"
 
 # Factor: sort by label (default) vs. level order
-sortX(d.frm, ord = "Species")                          # by label
+sortX(d.frm, by = "Species")                          # by label
 #>        Species Sepal.Length Sepal.Width
 #> 5       setosa          5.0         3.6
 #> 36      setosa          5.0         3.2
@@ -213,7 +213,7 @@ sortX(d.frm, ord = "Species")                          # by label
 #> 136  virginica          7.7         3.0
 #> 104  virginica          6.3         2.9
 #> 146  virginica          6.7         3.0
-sortX(d.frm, ord = "Species", factorsAsCharacter = FALSE)  # by level
+sortX(d.frm, by = "Species", factorsAsCharacter = FALSE)  # by level
 #>        Species Sepal.Length Sepal.Width
 #> 5       setosa          5.0         3.6
 #> 36      setosa          5.0         3.2
@@ -228,7 +228,7 @@ sortX(d.frm, ord = "Species", factorsAsCharacter = FALSE)  # by level
 
 # Tables: sort by column 2 descending
 tab <- HairEyeColor[, , 1]
-sortX(tab, ord = 2L, decreasing = TRUE)
+sortX(tab, by = 2L, decreasing = TRUE)
 #>        Eye
 #> Hair    Brown Blue Hazel Green
 #>   Brown    53   50    25    15
@@ -237,7 +237,7 @@ sortX(tab, ord = 2L, decreasing = TRUE)
 #>   Red      10   10     7     7
 
 # Tables: sort by marginal row sums
-sortX(tab, ord = ncol(tab) + 1L, decreasing = TRUE)
+sortX(tab, by = ncol(tab) + 1L, decreasing = TRUE)
 #>        Eye
 #> Hair    Brown Blue Hazel Green
 #>   Brown    53   50    25    15
@@ -246,7 +246,7 @@ sortX(tab, ord = ncol(tab) + 1L, decreasing = TRUE)
 #>   Red      10   10     7     7
 
 # Sort by row names (always pass 0 as integer)
-sortX(tab, ord = 0L)
+sortX(tab, by = 0L)
 #>        Eye
 #> Hair    Brown Blue Hazel Green
 #>   Black    32   11    10     3

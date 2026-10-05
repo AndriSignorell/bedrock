@@ -8,38 +8,38 @@ parameterize a function call via a single argument.
 ## Usage
 
 ``` r
-callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
+callIf(FUN, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
 ```
 
 ## Arguments
 
-- fun:
+- FUN:
 
   a function to be called.
 
 - arg:
 
-  controls whether and how `fun` is called:
+  controls whether and how `FUN` is called:
 
-  - `FALSE`, `NULL`, or `NA`: `fun` is not called and `NULL` is returned
+  - `FALSE`, `NULL`, or `NA`: `FUN` is not called and `NULL` is returned
     invisibly.
 
-  - `TRUE`: `fun` is called with `defaults` (if provided), or with no
+  - `TRUE`: `FUN` is called with `defaults` (if provided), or with no
     arguments.
 
-  - a fully named list: `fun` is called with the list elements as
+  - a fully named list: `FUN` is called with the list elements as
     arguments. If `defaults` is provided, it is merged with `arg`, where
     elements of `arg` override those in `defaults`.
 
 - defaults:
 
-  a named list of default arguments passed to `fun` when `arg = TRUE`,
+  a named list of default arguments passed to `FUN` when `arg = TRUE`,
   or used as a base when `arg` is a list. Default is `NULL`.
 
 - forbidden:
 
   optional character vector of argument names that are not allowed. If
-  any of these appear in `arg`, they are removed before calling `fun`. A
+  any of these appear in `arg`, they are removed before calling `FUN`. A
   warning is issued unless `warn = FALSE`.
 
 - warn:
@@ -49,7 +49,7 @@ callIf(fun, arg, defaults = NULL, forbidden = NULL, warn = TRUE)
 
 ## Value
 
-returns the result of `fun(...)` if called. If `arg` is `FALSE`, `NULL`,
+returns the result of `FUN(...)` if called. If `arg` is `FALSE`, `NULL`,
 or `NA`, returns `NULL` invisibly.
 
 ## Details
@@ -65,7 +65,7 @@ This function implements a flexible pattern for optional function calls:
 When merging `defaults` and `arg`, user-supplied arguments take
 precedence. Unlike
 [`modifyList()`](https://rdrr.io/r/utils/modifyList.html), elements with
-the value `NULL` are preserved and passed on to `fun` (so that an
+the value `NULL` are preserved and passed on to `FUN` (so that an
 explicit `NULL` can be used to reset an argument).
 
 ## See also

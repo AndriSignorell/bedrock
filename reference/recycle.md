@@ -5,7 +5,7 @@ This function recycles all supplied elements to the maximal dimension.
 ## Usage
 
 ``` r
-recycle(..., maxdim = NULL, strict = FALSE)
+recycle(..., maxDim = NULL, strict = FALSE)
 ```
 
 ## Arguments
@@ -14,14 +14,14 @@ recycle(..., maxdim = NULL, strict = FALSE)
 
   a number of vectors of elements.
 
-- maxdim:
+- maxDim:
 
   defines the maximal dimension, if set to `NULL` (default) the maximal
   dimension of the list.
 
 - strict:
 
-  logical, if `TRUE` each element must have length 1 or `maxdim`, so
+  logical, if `TRUE` each element must have length 1 or `maxDim`, so
   that no partial recycling (or truncation) can occur. Default is
   `FALSE`.
 
@@ -32,9 +32,9 @@ a list of the supplied elements
 
 ## Details
 
-If `maxdim` is smaller than the length of an element, that element is
-truncated to the first `maxdim` values. Zero-length elements are
-recycled to `NA` vectors of length `maxdim`. Both situations are
+If `maxDim` is smaller than the length of an element, that element is
+truncated to the first `maxDim` values. Zero-length elements are
+recycled to `NA` vectors of length `maxDim`. Both situations are
 rejected when `strict = TRUE`.
 
 ## See also

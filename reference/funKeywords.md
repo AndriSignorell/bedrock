@@ -37,9 +37,10 @@ by Gregory R. Warnes, with minor adaptations by the package author.
 
 [`help()`](https://rdrr.io/r/utils/help.html)
 
-Other pkg.funinfo: [`funArgs()`](funArgs.md),
-[`funCalls()`](funCalls.md), [`funList()`](funList.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
+Other pkg.funinfo: [`auditNames()`](auditNames.md),
+[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
+[`funList()`](funList.md), [`rdLabels()`](rdLabels.md),
+[`rdTitle()`](rdTitle.md)
 
 ## Examples
 

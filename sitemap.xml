@@ -15,6 +15,7 @@
 <url><loc>/reference/as.array.xtabs.html</loc></url>
 <url><loc>/reference/asBinary.html</loc></url>
 <url><loc>/reference/asCDateFmt.html</loc></url>
+<url><loc>/reference/auditNames.html</loc></url>
 <url><loc>/reference/between-operators.html</loc></url>
 <url><loc>/reference/binaryTree.html</loc></url>
 <url><loc>/reference/buildPath.html</loc></url>
@@ -47,7 +48,6 @@
 <url><loc>/reference/extractArgs.html</loc></url>
 <url><loc>/reference/factorize.html</loc></url>
 <url><loc>/reference/fibonacci.html</loc></url>
-<url><loc>/reference/fileExistURL.html</loc></url>
 <url><loc>/reference/findDownload.html</loc></url>
 <url><loc>/reference/flags.html</loc></url>
 <url><loc>/reference/funArgs.html</loc></url>
@@ -135,6 +135,7 @@
 <url><loc>/reference/unirootAll.html</loc></url>
 <url><loc>/reference/untable.html</loc></url>
 <url><loc>/reference/unwhich.html</loc></url>
+<url><loc>/reference/urlExists.html</loc></url>
 <url><loc>/reference/vRot.html</loc></url>
 <url><loc>/reference/vShift.html</loc></url>
 <url><loc>/reference/winsorize.html</loc></url>

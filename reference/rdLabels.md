@@ -48,9 +48,10 @@ installed Rd database rather than from the sources.
 
 [`tools::Rd_db()`](https://rdrr.io/r/tools/Rdutils.html)
 
-Other pkg.funinfo: [`funArgs()`](funArgs.md),
-[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
-[`funList()`](funList.md), [`rdTitle()`](rdTitle.md)
+Other pkg.funinfo: [`auditNames()`](auditNames.md),
+[`funArgs()`](funArgs.md), [`funCalls()`](funCalls.md),
+[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
+[`rdTitle()`](rdTitle.md)
 
 ## Examples
 

@@ -8,7 +8,7 @@ sorted; rows are recycled to equal length.
 ## Usage
 
 ``` r
-overlap(x, y)
+overlapSize(x, y)
 
 overlaps(x, y)
 
@@ -69,9 +69,9 @@ Other data.interval: [`between-operators`](between-operators.md),
 
 ``` r
 # overlap length
-overlap(c(1, 5), c(3, 7))   # 2
+overlapSize(c(1, 5), c(3, 7))   # 2
 #> [1] 2
-overlap(c(1, 3), c(3, 5))   # 0 (boundary only)
+overlapSize(c(1, 3), c(3, 5))   # 0 (boundary only)
 #> [1] 0
 
 # overlap check
@@ -94,6 +94,6 @@ c(1, 5) %overlaps% c(3, 7)  # TRUE
 
 # vectorised (matrix input)
 m <- matrix(c(1,3, 2,6, 5,8), ncol = 2, byrow = TRUE)
-overlap(m, c(4, 7))
+overlapSize(m, c(4, 7))
 #> [1] 0 2 2
 ```

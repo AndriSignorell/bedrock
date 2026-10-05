@@ -5,20 +5,20 @@ Determines whether integer values are prime numbers.
 ## Usage
 
 ``` r
-isPrime(n)
+isPrime(x)
 ```
 
 ## Arguments
 
-- n:
+- x:
 
   a numeric vector. Values must be finite whole numbers not exceeding
   `2^53`.
 
 ## Value
 
-a logical vector indicating whether each element of `n` is a prime
-number, `NA` where `n` exceeds `2^53`.
+a logical vector indicating whether each element of `x` is a prime
+number, `NA` where `x` exceeds `2^53`.
 
 ## Details
 

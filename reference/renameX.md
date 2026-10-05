@@ -9,7 +9,14 @@ and `colnames` can be targeted via the `which` argument.
 ## Usage
 
 ``` r
-renameX(x, ..., on = "names", useGsub = FALSE, fixed = TRUE, warn = TRUE)
+renameX(
+  x,
+  ...,
+  on = c("names", "rownames", "colnames"),
+  useGsub = FALSE,
+  fixed = TRUE,
+  warn = TRUE
+)
 ```
 
 ## Arguments

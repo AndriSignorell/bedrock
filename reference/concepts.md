@@ -6,16 +6,16 @@ within a package.
 ## Usage
 
 ``` r
-getConcepts(pkg, prefix = NULL)
+getConcepts(package, prefix = NULL)
 
-conceptMap(pkg)
+conceptMap(package)
 
-conceptAudit(pkg)
+conceptAudit(package)
 ```
 
 ## Arguments
 
-- pkg:
+- package:
 
   character string. Name of the installed package.
 

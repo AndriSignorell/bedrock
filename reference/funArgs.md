@@ -55,9 +55,10 @@ depending on `output`:
 [`formals()`](https://rdrr.io/r/base/formals.html),
 [`args()`](https://rdrr.io/r/base/args.html)
 
-Other pkg.funinfo: [`funCalls()`](funCalls.md),
-[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
+Other pkg.funinfo: [`auditNames()`](auditNames.md),
+[`funCalls()`](funCalls.md), [`funKeywords()`](funKeywords.md),
+[`funList()`](funList.md), [`rdLabels()`](rdLabels.md),
+[`rdTitle()`](rdTitle.md)
 
 ## Examples
 

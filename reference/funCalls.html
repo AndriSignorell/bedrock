@@ -17,7 +17,7 @@ source and returns all found function calls grouped by their package."><meta pro
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.17</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.18</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,14 +59,14 @@ source and returns all found function calls grouped by their package.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">funCalls</span><span class="op">(</span><span class="va">name</span>, package <span class="op">=</span> <span class="cn">NULL</span>, sorted <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">funCalls</span><span class="op">(</span><span class="va">fun</span>, package <span class="op">=</span> <span class="cn">NULL</span>, sorted <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-name">name<a class="anchor" aria-label="anchor" href="#arg-name"></a></dt>
+<dl><dt id="arg-fun">fun<a class="anchor" aria-label="anchor" href="#arg-fun"></a></dt>
 <dd><p>the name of the function.</p></dd>
 
 
@@ -100,6 +100,7 @@ standards.</p>
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://rdrr.io/r/utils/getParseData.html" class="external-link">getParseData()</a></code></p>
 <p>Other pkg.funinfo:
+<code><a href="auditNames.html">auditNames()</a></code>,
 <code><a href="funArgs.html">funArgs()</a></code>,
 <code><a href="funKeywords.html">funKeywords()</a></code>,
 <code><a href="funList.html">funList()</a></code>,

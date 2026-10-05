@@ -7,12 +7,12 @@ source and returns all found function calls grouped by their package.
 ## Usage
 
 ``` r
-funCalls(name, package = NULL, sorted = FALSE)
+funCalls(fun, package = NULL, sorted = FALSE)
 ```
 
 ## Arguments
 
-- name:
+- fun:
 
   the name of the function.
 
@@ -46,9 +46,10 @@ standards.
 
 [`getParseData()`](https://rdrr.io/r/utils/getParseData.html)
 
-Other pkg.funinfo: [`funArgs()`](funArgs.md),
-[`funKeywords()`](funKeywords.md), [`funList()`](funList.md),
-[`rdLabels()`](rdLabels.md), [`rdTitle()`](rdTitle.md)
+Other pkg.funinfo: [`auditNames()`](auditNames.md),
+[`funArgs()`](funArgs.md), [`funKeywords()`](funKeywords.md),
+[`funList()`](funList.md), [`rdLabels()`](rdLabels.md),
+[`rdTitle()`](rdTitle.md)
 
 ## Examples
 
