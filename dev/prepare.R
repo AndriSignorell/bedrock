@@ -37,7 +37,7 @@ testthat::test_local(reporter = "progress")
 devtools::run_examples()
 
 rstudioapi::restartSession()                        # Ctrl+Shift+F10; needed before install on Windows
-devtools::install(dependencies = FALSE, upgrade = "never")
+devtools::install(dependencies = FALSE, upgrade = FALSE)
 
 
 # == 2  checks ==============================================================

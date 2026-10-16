@@ -1,10 +1,15 @@
 
-#' Back to Basics with Tibbles
+#' Back to Basics with Tibbles and data.tables
 #' 
 #' Sometimes we might wish for the old days be back and want to work with
-#' familiar objects. This function helps to convert `tibbles` to
-#' `data.frames` as smoothly as possible.
+#' familiar objects. This function helps to convert `tibbles` and
+#' `data.tables` to plain `data.frames` as smoothly as possible.
 #' 
+#' For a `data.table` the key (`"sorted"`), secondary indices (`"index"`)
+#' and the `".internal.selfref"` pointer are dropped, and a deep copy is 
+#' returned, so that later modifications by reference on the original 
+#' cannot leak into the result. Columns of class `haven_labelled` are
+#' converted to factors in both cases.
 #' 
 #' @param x the object to be converted.
 #' @param \dots arguments passed on.
@@ -16,6 +21,13 @@
 #'   tbl <- tibble::as_tibble(head(iris))
 #'   class(toBaseR(tbl))
 #' }
+#'
+#' # same for a keyed data.table
+#' dt <- data.table::as.data.table(head(iris))
+#' data.table::setkey(dt, Species)
+#' df <- toBaseR(dt)
+#' class(df)
+#' attr(df, "sorted")
 #'
 #' # an object without a method is returned unchanged, with a warning
 #' x <- suppressWarnings(toBaseR(1:3))
@@ -42,20 +54,23 @@ toBaseR <- function(x, ...){
 #' @export
 toBaseR.tbl_df <- function(x, ...){
   # rollback a tibble to data.frame, with usual factors etc.
-  res <- as.data.frame(x)
+  .toBaseRCols(as.data.frame(x), x)
+}
+
+
+#' @rdname toBaseR
+#' @export
+toBaseR.data.table <- function(x, ...){
   
-  # get rid of unimportant SPSS specific attributes
-  res <- as.data.frame(
-    lapply(res, 
-           removeAttr, 
-           attrNames = c("format.spss", "display_width", "format.stata")),
-    check.names = FALSE)
+  # deep copy first, so that later modifications by reference on x
+  # cannot leak into the result
+  res <- as.data.frame(data.table::copy(x))
   
-  for(i in which(vapply(x, inherits, logical(1L), what = "haven_labelled"))){
-    res[[i]] <- toBaseR(x[[i]])
-  }
+  # drop key, secondary indices and the selfref pointer
+  for(a in c("sorted", "index", ".internal.selfref"))
+    attr(res, a) <- NULL
   
-  return(res)
+  .toBaseRCols(res, x)
 }
 
 
@@ -91,3 +106,19 @@ toBaseR.default <- function(x, ...){
 }
 
 
+# shared column cleanup for data.frame-like containers:
+# res is the already coerced data.frame, x the original object
+.toBaseRCols <- function(res, x){
+  
+  # get rid of unimportant SPSS/Stata specific attributes;
+  # res[] <- keeps list and matrix columns intact
+  res[] <- lapply(res, 
+                  removeAttr, 
+                  attrNames = c("format.spss", "display_width", "format.stata"))
+  
+  for(i in which(vapply(x, inherits, logical(1L), what = "haven_labelled"))){
+    res[[i]] <- toBaseR(x[[i]])
+  }
+  
+  res
+}

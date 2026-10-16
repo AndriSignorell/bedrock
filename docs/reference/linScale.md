@@ -43,7 +43,8 @@ are extrapolated linearly and are not clipped to the target range.
 
 ## See also
 
-[`scale()`](https://rdrr.io/r/base/scale.html), `DescToolsX::scaleX`
+[`scale()`](https://rdrr.io/r/base/scale.html),
+[`DescToolsX::scaleX`](https://andrisignorell.github.io/DescToolsX/reference/scaleX.html)
 
 Other math.transform: [`logit()`](logit.md),
 [`percentRank()`](percentRank.md), [`rankX()`](rankX.md),

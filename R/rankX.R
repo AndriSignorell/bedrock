@@ -76,10 +76,6 @@ rankX <- function(..., decreasing = FALSE, na.last = TRUE,
                  ties.method = c("average", "first", "last", 
                                  "random", "max", "min", "dense")) {
 
-  if (!requireNamespace("data.table", quietly = TRUE))
-    stop("Package 'data.table' is required for rankX(), please install it",
-         call. = FALSE)
-
   ties.method <- match.arg(ties.method)
 
   if (...length() == 0L)
@@ -108,6 +104,3 @@ rankX <- function(..., decreasing = FALSE, na.last = TRUE,
                      na.last = na.last,
                      ties.method = ties.method)
 }
-
-
-

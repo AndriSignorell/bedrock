@@ -1,4 +1,12 @@
 
+# bedrock 0.1.20
+
+* `toBaseR()` gains a method for `data.table`: key, secondary indices and
+  the internal self-reference are dropped, and a deep copy is returned.
+  `haven_labelled` columns are converted to factors, as for tibbles.
+* `toBaseR()` on tibbles no longer breaks up list and matrix columns.
+
+
 # bedrock 0.1.17
 
 * `courseData()` has been renamed to `readCourseData()`, which describes the
@@ -31,4 +39,3 @@ Parts of the code and documentation were reviewed with the help of large
 language models (OpenAI Codex, Anthropic Claude). Every suggestion was
 assessed, edited and verified by the maintainer, who remains solely
 responsible for the content of this package.
-

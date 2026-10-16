@@ -59,7 +59,8 @@ winsorization.
 
 ## See also
 
-`DescToolsX::scaleX()`, `robustHD::winsorize()`
+[`DescToolsX::scaleX()`](https://andrisignorell.github.io/DescToolsX/reference/scaleX.html),
+`robustHD::winsorize()`
 
 Other math.transform: [`linScale()`](linScale.md),
 [`logit()`](logit.md), [`percentRank()`](percentRank.md),

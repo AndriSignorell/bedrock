@@ -3,13 +3,16 @@
 \name{toBaseR}
 \alias{toBaseR}
 \alias{toBaseR.tbl_df}
+\alias{toBaseR.data.table}
 \alias{toBaseR.haven_labelled}
 \alias{toBaseR.default}
-\title{Back to Basics with Tibbles}
+\title{Back to Basics with Tibbles and data.tables}
 \usage{
 toBaseR(x, ...)
 
 \method{toBaseR}{tbl_df}(x, ...)
+
+\method{toBaseR}{data.table}(x, ...)
 
 \method{toBaseR}{haven_labelled}(x, ...)
 
@@ -25,8 +28,15 @@ converted object.
 }
 \description{
 Sometimes we might wish for the old days be back and want to work with
-familiar objects. This function helps to convert \code{tibbles} to
-\code{data.frames} as smoothly as possible.
+familiar objects. This function helps to convert \code{tibbles} and
+\code{data.tables} to plain \code{data.frames} as smoothly as possible.
+}
+\details{
+For a \code{data.table} the key (\code{"sorted"}), secondary indices (\code{"index"})
+and the \code{".internal.selfref"} pointer are dropped, and a deep copy is
+returned, so that later modifications by reference on the original
+cannot leak into the result. Columns of class \code{haven_labelled} are
+converted to factors in both cases.
 }
 \examples{
 # a tibble is rolled back to a plain data.frame
@@ -34,6 +44,13 @@ if (requireNamespace("tibble", quietly = TRUE)) {
   tbl <- tibble::as_tibble(head(iris))
   class(toBaseR(tbl))
 }
+
+# same for a keyed data.table
+dt <- data.table::as.data.table(head(iris))
+data.table::setkey(dt, Species)
+df <- toBaseR(dt)
+class(df)
+attr(df, "sorted")
 
 # an object without a method is returned unchanged, with a warning
 x <- suppressWarnings(toBaseR(1:3))
