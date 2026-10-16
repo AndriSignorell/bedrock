@@ -1,8 +1,8 @@
-# Back to Basics with Tibbles
+# Back to Basics with Tibbles and data.tables
 
 Sometimes we might wish for the old days be back and want to work with
-familiar objects. This function helps to convert `tibbles` to
-`data.frames` as smoothly as possible.
+familiar objects. This function helps to convert `tibbles` and
+`data.tables` to plain `data.frames` as smoothly as possible.
 
 ## Usage
 
@@ -10,6 +10,9 @@ familiar objects. This function helps to convert `tibbles` to
 toBaseR(x, ...)
 
 # S3 method for class 'tbl_df'
+toBaseR(x, ...)
+
+# S3 method for class 'data.table'
 toBaseR(x, ...)
 
 # S3 method for class 'haven_labelled'
@@ -33,6 +36,14 @@ toBaseR(x, ...)
 
 converted object.
 
+## Details
+
+For a `data.table` the key (`"sorted"`), secondary indices (`"index"`)
+and the `".internal.selfref"` pointer are dropped, and a deep copy is
+returned, so that later modifications by reference on the original
+cannot leak into the result. Columns of class `haven_labelled` are
+converted to factors in both cases.
+
 ## See also
 
 Other data.coerce: [`as.array.xtabs()`](as.array.xtabs.md),
@@ -47,6 +58,15 @@ if (requireNamespace("tibble", quietly = TRUE)) {
   class(toBaseR(tbl))
 }
 #> [1] "data.frame"
+
+# same for a keyed data.table
+dt <- data.table::as.data.table(head(iris))
+data.table::setkey(dt, Species)
+df <- toBaseR(dt)
+class(df)
+#> [1] "data.frame"
+attr(df, "sorted")
+#> NULL
 
 # an object without a method is returned unchanged, with a warning
 x <- suppressWarnings(toBaseR(1:3))

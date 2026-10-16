@@ -1,5 +1,14 @@
 # Changelog
 
+## bedrock 0.1.20
+
+- [`toBaseR()`](../reference/toBaseR.md) gains a method for
+  `data.table`: key, secondary indices and the internal self-reference
+  are dropped, and a deep copy is returned. `haven_labelled` columns are
+  converted to factors, as for tibbles.
+- [`toBaseR()`](../reference/toBaseR.md) on tibbles no longer breaks up
+  list and matrix columns.
+
 ## bedrock 0.1.17
 
 - `courseData()` has been renamed to

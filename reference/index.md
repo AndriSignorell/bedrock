@@ -8,7 +8,8 @@ Reshaping, recoding, ordering, and inspecting data structures.
   [`chr()`](type-aliases.md) [`nchr()`](type-aliases.md)
   [`bin()`](type-aliases.md) : Type Coercion Shortcuts
 
-- [`toBaseR()`](toBaseR.md) : Back to Basics with Tibbles
+- [`toBaseR()`](toBaseR.md) : Back to Basics with Tibbles and
+  data.tables
 
 - [`as.array(`*`<xtabs>`*`)`](as.array.xtabs.md)
   [`as.matrix(`*`<xtabs>`*`)`](as.array.xtabs.md) :
