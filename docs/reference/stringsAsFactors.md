@@ -30,9 +30,9 @@ the given data.frame including the converted factors.
 ## See also
 
 Other data.recode: [`asBinary()`](asBinary.md),
-[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
-[`mReplace()`](mReplace.md), [`nf()`](nf.md), [`recodeX()`](recodeX.md),
-[`revCode()`](revCode.md)
+[`caseWhen()`](caseWhen.md), [`combLevels()`](combLevels.md),
+[`dummy()`](dummy.md), [`mReplace()`](mReplace.md), [`nf()`](nf.md),
+[`recodeX()`](recodeX.md), [`revCode()`](revCode.md)
 
 ## Examples
 

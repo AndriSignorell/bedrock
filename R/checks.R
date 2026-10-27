@@ -26,8 +26,7 @@
 #'   suite's way of saying "no interval wanted". Functions whose result
 #'   always carries an interval - the tests, mostly - pass `FALSE`.
 #'
-#' @return `conf.level`, invisibly, \cr
-#' so the check can be used in an
+#' @return `conf.level`, invisibly, so the check can be used in an
 #'   assignment: `conf.level <- checkConfLevel(conf.level)`.
 #'
 #' @details
@@ -118,7 +117,7 @@ checkFlag <- function(x, name = deparse(substitute(x))) {
 #'
 #' Checks that an argument is a single finite integer, not smaller than
 #' `min`. Meant for the many size arguments in the suite - `digits`,
-#' `sep`, `width`, `nPerm`, `R` and the like - which
+#' `sep`, `width`, `nBins`, `R` and the like - which
 #' are conceptually counts rather than numbers and were previously
 #' spelled out by hand wherever they occur.
 #'

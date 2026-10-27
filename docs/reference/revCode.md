@@ -51,9 +51,9 @@ A warning is issued if values of `x` lie outside an explicitly provided
 ## See also
 
 Other data.recode: [`asBinary()`](asBinary.md),
-[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
-[`mReplace()`](mReplace.md), [`nf()`](nf.md), [`recodeX()`](recodeX.md),
-[`stringsAsFactors()`](stringsAsFactors.md)
+[`caseWhen()`](caseWhen.md), [`combLevels()`](combLevels.md),
+[`dummy()`](dummy.md), [`mReplace()`](mReplace.md), [`nf()`](nf.md),
+[`recodeX()`](recodeX.md), [`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 

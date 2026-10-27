@@ -22,7 +22,7 @@ expression that was passed.}
 \description{
 Checks that an argument is a single finite integer, not smaller than
 \code{min}. Meant for the many size arguments in the suite - \code{digits},
-\code{sep}, \code{width}, \code{nPerm}, \code{R} and the like - which
+\code{sep}, \code{width}, \code{nBins}, \code{R} and the like - which
 are conceptually counts rather than numbers and were previously
 spelled out by hand wherever they occur.
 }

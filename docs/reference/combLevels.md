@@ -42,7 +42,8 @@ The order of levels follows their first occurrence unless
 
 ## See also
 
-Other data.recode: [`asBinary()`](asBinary.md), [`dummy()`](dummy.md),
+Other data.recode: [`asBinary()`](asBinary.md),
+[`caseWhen()`](caseWhen.md), [`dummy()`](dummy.md),
 [`mReplace()`](mReplace.md), [`nf()`](nf.md), [`recodeX()`](recodeX.md),
 [`revCode()`](revCode.md), [`stringsAsFactors()`](stringsAsFactors.md)
 

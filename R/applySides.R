@@ -26,8 +26,9 @@
 #'   `alternative = "greater"` in a test. Callers are expected to have
 #'   resolved the value with [match.arg()] already; an unmatched
 #'   value is an error rather than a partial match.
-#' @param lo,hi the range of the parameter, not infinities by default in
-#'   spirit but in signature. See Details.
+#' @param lo,hi lower and upper limit of the parameter range. The defaults
+#'   `-Inf` and `Inf` fit an unbounded parameter only; a bounded statistic
+#'   passes its own limits. See Details.
 #'
 #' @return a named numeric vector with the elements `lci` and
 #'   `uci`.
@@ -70,8 +71,10 @@
 #' # the two-sided interval is clamped too
 #' applySides(c(-0.2, 1.3), "two.sided", lo = 0, hi = 1)
 #'
-#' # NA bounds survive
+#' # an NA bound stays NA; the open side is still set to its limit
 #' applySides(c(NA, NA), "left", lo = -1, hi = 1)
+#' ## lci uci
+#' ##  NA   1
 #'
 #' @seealso [checkConfLevel()], [checkFlag()]
 #' @export

@@ -65,6 +65,7 @@ asBinary(c("F", "U", "F", "U"), pos = "F")
 }
 \seealso{
 Other data.recode:
+\code{\link[=caseWhen]{caseWhen()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
 \code{\link[=mReplace]{mReplace()}},

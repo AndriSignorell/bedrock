@@ -45,6 +45,7 @@ nf(c("10", "2"))    # 1 2, not 10 2
 
 Other data.recode:
 \code{\link[=asBinary]{asBinary()}},
+\code{\link[=caseWhen]{caseWhen()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
 \code{\link[=mReplace]{mReplace()}},

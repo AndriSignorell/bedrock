@@ -14,8 +14,7 @@ suite's way of saying "no interval wanted". Functions whose result
 always carries an interval - the tests, mostly - pass \code{FALSE}.}
 }
 \value{
-\code{conf.level}, invisibly, \cr
-so the check can be used in an
+\code{conf.level}, invisibly, so the check can be used in an
 assignment: \code{conf.level <- checkConfLevel(conf.level)}.
 }
 \description{

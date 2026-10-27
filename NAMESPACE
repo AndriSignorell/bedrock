@@ -59,6 +59,7 @@ export(binToDec)
 export(binaryTree)
 export(buildPath)
 export(callIf)
+export(caseWhen)
 export(charToAscii)
 export(checkConfLevel)
 export(checkCount)
@@ -201,7 +202,7 @@ importFrom(cli,
   col_cyan,
   style_bold
 )
-importFrom(expm,`%^%`)
+importFrom(expm,"%^%")
 importFrom(httr,
   GET,
   HEAD,

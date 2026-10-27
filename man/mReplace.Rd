@@ -33,6 +33,7 @@ mReplace(c("a", "b", "c", "d"), c("a", "c"), c("A", "C"))
 
 Other data.recode:
 \code{\link[=asBinary]{asBinary()}},
+\code{\link[=caseWhen]{caseWhen()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=dummy]{dummy()}},
 \code{\link[=nf]{nf()}},

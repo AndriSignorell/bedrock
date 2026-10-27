@@ -81,6 +81,7 @@ apply(
 
 Other data.recode:
 \code{\link[=asBinary]{asBinary()}},
+\code{\link[=caseWhen]{caseWhen()}},
 \code{\link[=combLevels]{combLevels()}},
 \code{\link[=mReplace]{mReplace()}},
 \code{\link[=nf]{nf()}},

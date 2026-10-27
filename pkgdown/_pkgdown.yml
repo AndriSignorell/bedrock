@@ -137,6 +137,7 @@ reference:
   - closest
   - nz
   - unwhich
+  - caseWhen
 
 - title: Numbers & Mathematics
   desc: >

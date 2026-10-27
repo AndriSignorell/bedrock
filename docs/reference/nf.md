@@ -46,9 +46,10 @@ the values themselves.
 [`as.numeric()`](https://rdrr.io/r/base/numeric.html)
 
 Other data.recode: [`asBinary()`](asBinary.md),
-[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
-[`mReplace()`](mReplace.md), [`recodeX()`](recodeX.md),
-[`revCode()`](revCode.md), [`stringsAsFactors()`](stringsAsFactors.md)
+[`caseWhen()`](caseWhen.md), [`combLevels()`](combLevels.md),
+[`dummy()`](dummy.md), [`mReplace()`](mReplace.md),
+[`recodeX()`](recodeX.md), [`revCode()`](revCode.md),
+[`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 
