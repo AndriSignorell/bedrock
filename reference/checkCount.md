@@ -2,7 +2,7 @@
 
 Checks that an argument is a single finite integer, not smaller than
 `min`. Meant for the many size arguments in the suite - `digits`, `sep`,
-`width`, `nPerm`, `R` and the like - which are conceptually counts
+`width`, `nBins`, `R` and the like - which are conceptually counts
 rather than numbers and were previously spelled out by hand wherever
 they occur.
 

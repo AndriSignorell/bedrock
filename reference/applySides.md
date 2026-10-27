@@ -31,8 +31,9 @@ applySides(ci, sides = "two.sided", lo = -Inf, hi = Inf)
 
 - lo, hi:
 
-  the range of the parameter, not infinities by default in spirit but in
-  signature. See Details.
+  lower and upper limit of the parameter range. The defaults `-Inf` and
+  `Inf` fit an unbounded parameter only; a bounded statistic passes its
+  own limits. See Details.
 
 ## Value
 
@@ -98,8 +99,10 @@ applySides(c(-0.2, 1.3), "two.sided", lo = 0, hi = 1)
 #> lci uci 
 #>   0   1 
 
-# NA bounds survive
+# an NA bound stays NA; the open side is still set to its limit
 applySides(c(NA, NA), "left", lo = -1, hi = 1)
 #> lci uci 
 #>  NA   1 
+## lci uci
+##  NA   1
 ```

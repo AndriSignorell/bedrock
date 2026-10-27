@@ -19,7 +19,7 @@ way."><meta property="og:image" content="/logo.png"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.20</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.22</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,8 +86,9 @@ value is an error rather than a partial match.</p></dd>
 
 
 <dt id="arg-lo-hi">lo, hi<a class="anchor" aria-label="anchor" href="#arg-lo-hi"></a></dt>
-<dd><p>the range of the parameter, not infinities by default in
-spirit but in signature. See Details.</p></dd>
+<dd><p>lower and upper limit of the parameter range. The defaults
+<code>-Inf</code> and <code>Inf</code> fit an unbounded parameter only; a bounded statistic
+passes its own limits. See Details.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -152,10 +153,12 @@ interval can never claim a value the statistic cannot take.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> lci uci </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   0   1 </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># NA bounds survive</span></span></span>
+<span class="r-in"><span><span class="co"># an NA bound stays NA; the open side is still set to its limit</span></span></span>
 <span class="r-in"><span><span class="fu">applySides</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span>, <span class="st">"left"</span>, lo <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, hi <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> lci uci </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  NA   1 </span>
+<span class="r-in"><span><span class="co">## lci uci</span></span></span>
+<span class="r-in"><span><span class="co">##  NA   1</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

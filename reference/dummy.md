@@ -73,9 +73,9 @@ Column names reflect the semantics of the coding: level names for
 [`contr.poly()`](https://rdrr.io/r/stats/contrast.html)
 
 Other data.recode: [`asBinary()`](asBinary.md),
-[`combLevels()`](combLevels.md), [`mReplace()`](mReplace.md),
-[`nf()`](nf.md), [`recodeX()`](recodeX.md), [`revCode()`](revCode.md),
-[`stringsAsFactors()`](stringsAsFactors.md)
+[`caseWhen()`](caseWhen.md), [`combLevels()`](combLevels.md),
+[`mReplace()`](mReplace.md), [`nf()`](nf.md), [`recodeX()`](recodeX.md),
+[`revCode()`](revCode.md), [`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 

@@ -50,13 +50,13 @@ writeLines(c("\\\\name{foo}", "\\\\alias{foo}", "\\\\alias{bar}",
            file.path(man, "foo.Rd"))
 
 rdTitle("foo", man = man)
-#> Warning: /tmp/RtmpS6iEhQ/man/foo.Rd:1: unexpected '{'
+#> Warning: /tmp/RtmpEzhIwZ/man/foo.Rd:1: unexpected '{'
 #> [1] NA
 rdTitle("bar", man = man)          # aliases are matched as well
-#> Warning: /tmp/RtmpS6iEhQ/man/foo.Rd:1: unexpected '{'
+#> Warning: /tmp/RtmpEzhIwZ/man/foo.Rd:1: unexpected '{'
 #> [1] NA
 rdTitle("nothing", man = man)      # NA
-#> Warning: /tmp/RtmpS6iEhQ/man/foo.Rd:1: unexpected '{'
+#> Warning: /tmp/RtmpEzhIwZ/man/foo.Rd:1: unexpected '{'
 #> [1] NA
 
 unlink(man, recursive = TRUE)

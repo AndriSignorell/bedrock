@@ -25,8 +25,7 @@ checkConfLevel(conf.level, allowNA = TRUE)
 
 ## Value
 
-`conf.level`, invisibly,  
-so the check can be used in an assignment:
+`conf.level`, invisibly, so the check can be used in an assignment:
 `conf.level <- checkConfLevel(conf.level)`.
 
 ## Details

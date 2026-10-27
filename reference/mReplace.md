@@ -35,9 +35,9 @@ replaced. Non-matching elements are returned unchanged.
 [`mGsub()`](mGsub.md) for substring replacement.
 
 Other data.recode: [`asBinary()`](asBinary.md),
-[`combLevels()`](combLevels.md), [`dummy()`](dummy.md), [`nf()`](nf.md),
-[`recodeX()`](recodeX.md), [`revCode()`](revCode.md),
-[`stringsAsFactors()`](stringsAsFactors.md)
+[`caseWhen()`](caseWhen.md), [`combLevels()`](combLevels.md),
+[`dummy()`](dummy.md), [`nf()`](nf.md), [`recodeX()`](recodeX.md),
+[`revCode()`](revCode.md), [`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 

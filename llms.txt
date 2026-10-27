@@ -410,6 +410,7 @@ Vector-level utilities: NA handling, moving windows, resizing.
 - [`closest()`](closest.md) : Find the Closest Value
 - [`nz()`](nz.md) : Extract Non-Zero Values
 - [`unwhich()`](unwhich.md) : Inverse Which
+- [`caseWhen()`](caseWhen.md) : Recode Values by Ordered Conditions
 
 ## Numbers & Mathematics
 

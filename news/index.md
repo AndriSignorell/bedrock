@@ -2,6 +2,8 @@
 
 ## bedrock 0.1.20
 
+CRAN release: 2026-10-16
+
 - [`toBaseR()`](../reference/toBaseR.md) gains a method for
   `data.table`: key, secondary indices and the internal self-reference
   are dropped, and a deep copy is returned. `haven_labelled` columns are

@@ -75,9 +75,9 @@ if `x` was a `character` vector, the result will also be `character`.
 There's another solution for this problem in the package **car**.
 
 Other data.recode: [`asBinary()`](asBinary.md),
-[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
-[`mReplace()`](mReplace.md), [`nf()`](nf.md), [`revCode()`](revCode.md),
-[`stringsAsFactors()`](stringsAsFactors.md)
+[`caseWhen()`](caseWhen.md), [`combLevels()`](combLevels.md),
+[`dummy()`](dummy.md), [`mReplace()`](mReplace.md), [`nf()`](nf.md),
+[`revCode()`](revCode.md), [`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 

@@ -52,10 +52,10 @@ as 1. The same `pos` logic applies.
 
 ## See also
 
-Other data.recode: [`combLevels()`](combLevels.md),
-[`dummy()`](dummy.md), [`mReplace()`](mReplace.md), [`nf()`](nf.md),
-[`recodeX()`](recodeX.md), [`revCode()`](revCode.md),
-[`stringsAsFactors()`](stringsAsFactors.md)
+Other data.recode: [`caseWhen()`](caseWhen.md),
+[`combLevels()`](combLevels.md), [`dummy()`](dummy.md),
+[`mReplace()`](mReplace.md), [`nf()`](nf.md), [`recodeX()`](recodeX.md),
+[`revCode()`](revCode.md), [`stringsAsFactors()`](stringsAsFactors.md)
 
 ## Examples
 
