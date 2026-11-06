@@ -23,7 +23,7 @@ share one entry point instead of each repeating the same preparation."><meta pro
 
     <a class="navbar-brand me-2" href="../index.html">bedrock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.22</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.23</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -144,7 +144,8 @@ an error, rather than being flattened into a classification variable.</p>
 <p>Two classification variables are cross-tabulated instead. Observations
 missing in either variable are dropped, both variables are then coerced to
 factors, which drops the levels that no longer occur, and at least two
-levels must remain on each side.</p>
+levels must remain on each side (with <code>square = TRUE</code>, in the union of
+both).</p>
 <p>Whichever way the table arrives, it must have at least two rows and two
 columns: a one-way table carries no association to measure and is rejected
 rather than passed on to a caller that cannot use it.</p>
