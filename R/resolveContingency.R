@@ -19,7 +19,8 @@
 #' Two classification variables are cross-tabulated instead. Observations
 #' missing in either variable are dropped, both variables are then coerced to
 #' factors, which drops the levels that no longer occur, and at least two
-#' levels must remain on each side.
+#' levels must remain on each side (with `square = TRUE`, in the union of
+#' both).
 #'
 #' Whichever way the table arrives, it must have at least two rows and two
 #' columns: a one-way table carries no association to measure and is rejected
@@ -152,14 +153,17 @@ resolveContingency <- function(
     x <- factor(x[ok])
     y <- factor(y[ok])
     
-    if (nlevels(x) < 2L || nlevels(y) < 2L)
-      stop("'x' and 'y' must each have at least 2 levels")
-    
-    # paired ratings: both axes over the same categories, in the same order
     if (square) {
+      # paired ratings: both axes over the same categories, in the same
+      # order. Only the union needs two categories: a rater who always picks
+      # A against one using A and B is a legitimate 2 x 2 table
       lev <- union(levels(x), levels(y))
+      if (length(lev) < 2L)
+        stop("'x' and 'y' must use at least 2 categories together")
       x <- factor(x, levels = lev)
       y <- factor(y, levels = lev)
+    } else if (nlevels(x) < 2L || nlevels(y) < 2L) {
+      stop("'x' and 'y' must each have at least 2 levels")
     }
     
     tab <- table(x, y)

@@ -65,7 +65,8 @@ an error, rather than being flattened into a classification variable.
 Two classification variables are cross-tabulated instead. Observations
 missing in either variable are dropped, both variables are then coerced to
 factors, which drops the levels that no longer occur, and at least two
-levels must remain on each side.
+levels must remain on each side (with \code{square = TRUE}, in the union of
+both).
 
 Whichever way the table arrives, it must have at least two rows and two
 columns: a one-way table carries no association to measure and is rejected
