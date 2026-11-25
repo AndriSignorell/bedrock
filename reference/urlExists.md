@@ -63,6 +63,6 @@ res <- urlExists("https://invalid-url.test/file.csv")
 attr(res, "status")
 #> [1] NA
 attr(res, "error")
-#> [1] "Couldn't resolve host name [invalid-url.test]:\nCould not resolve host: invalid-url.test"
+#> [1] "Could not resolve hostname [invalid-url.test]:\nCould not resolve host: invalid-url.test"
 # }
 ```
