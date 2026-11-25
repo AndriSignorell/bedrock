@@ -1,5 +1,16 @@
 # Changelog
 
+## bedrock 0.1.24
+
+- New [`caseWhen()`](../reference/caseWhen.md) recodes vectors using
+  ordered `condition ~ value` rules. The first match wins. A missing
+  condition yields `NA` for elements still awaiting a match. Use
+  `na = "skip"` to continue to the next rule.
+- [`resolveContingency()`](../reference/resolveContingency.md) with
+  `square = TRUE` now accepts paired ratings when at least two
+  categories occur across the two raters, even if one rater always
+  assigns the same category.
+
 ## bedrock 0.1.20
 
 CRAN release: 2026-10-16
